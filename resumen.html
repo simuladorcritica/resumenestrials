@@ -18,7 +18,7 @@
     font-family:'Newsreader',Georgia,serif; font-size:19px; line-height:1.7;
     -webkit-font-smoothing:antialiased;
   }
-  .envoltorio { max-width:720px; margin:0 auto; padding:0 32px; }
+  .envoltorio { max-width:1200px; margin:0 auto; padding:0 clamp(24px,5vw,64px); }
 
   .volver {
     display:inline-block; margin:36px 0 0;
@@ -42,17 +42,31 @@
     letter-spacing:-0.02em;
   }
 
-  article { padding:8px 0 20px; }
+  article {
+    padding:16px 0 20px;
+    columns:2; column-gap:clamp(36px,4vw,64px);
+  }
 
   /* Los encabezados ### del resumen se estilizan así */
   article h2 {
     font-family:'IBM Plex Mono',monospace;
     font-size:12px; letter-spacing:0.18em; text-transform:uppercase;
     color:var(--teal-hondo); font-weight:500;
-    margin:36px 0 10px;
+    margin:32px 0 10px;
+    break-inside:avoid; break-after:avoid-column;
   }
-  article p { margin-bottom:18px; }
-  article strong { color:var(--tinta); font-weight:500; }
+  article h2:first-child { margin-top:0; }
+  article p {
+    margin-bottom:16px;
+    text-align:justify;
+    hyphens:auto; -webkit-hyphens:auto;
+  }
+  article strong { color:var(--tinta); font-weight:600; }
+
+  @media (max-width:900px){
+    article { columns:1; }
+    article p { text-align:left; hyphens:manual; }
+  }
 
   .enlace-original {
     margin:8px 0 40px; padding:20px 24px;
