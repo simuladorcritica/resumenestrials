@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agregar resumen · Síntesis</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Newsreader:opsz,wght@6..72,400;6..72,500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --tinta:#12233b; --tinta-2:#38506e; --teal:#1c8a8a; --teal-hondo:#0f5f5f;
+    --papel:#f7f6f2; --papel-2:#efece4; --linea:#ddd8cc; --ambar:#c8892a;
+    --err:#a3311f; --ok:#0f5f5f;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{ background:var(--papel); color:var(--tinta); font-family:'Newsreader',Georgia,serif; font-size:16px; line-height:1.55; -webkit-font-smoothing:antialiased; }
+  .mono{ font-family:'IBM Plex Mono',monospace; }
+  .envoltorio{ max-width:1240px; margin:0 auto; padding:40px clamp(20px,4vw,56px) 80px; }
+
+  header.top{ margin-bottom:8px; }
+  .eyebrow{ font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:var(--teal-hondo); }
+  h1.tit{ font-family:'Fraunces',serif; font-weight:600; font-size:clamp(30px,4.5vw,46px); letter-spacing:-0.02em; line-height:1.05; margin:8px 0 6px; }
+  .sub{ color:var(--tinta-2); max-width:70ch; }
+  a.volver{ font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:var(--teal-hondo); text-decoration:none; }
+
+  .cargado{ margin:22px 0 8px; padding:12px 16px; background:var(--papel-2); border:1px solid var(--linea); border-radius:4px; font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--tinta-2); }
+  .cargar-opts{ display:flex; flex-wrap:wrap; gap:10px 18px; align-items:center; margin-bottom:26px; font-size:13px; color:var(--tinta-2); }
+  .cargar-opts input[type=file]{ font-family:'IBM Plex Mono',monospace; font-size:12px; }
+  details.pegar{ font-size:13px; }
+  details.pegar summary{ cursor:pointer; color:var(--teal-hondo); font-family:'IBM Plex Mono',monospace; font-size:12px; }
+  details.pegar textarea{ width:100%; height:120px; margin-top:8px; }
+
+  .cols{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(24px,4vw,52px); align-items:start; }
+  @media (max-width:900px){ .cols{ grid-template-columns:1fr; } .previo-wrap{ position:static !important; } }
+
+  fieldset{ border:none; margin-bottom:24px; }
+  legend{ font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:var(--teal-hondo); margin-bottom:12px; padding-bottom:8px; border-bottom:1px solid var(--linea); width:100%; }
+  label{ display:block; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--tinta-2); margin:0 0 5px; }
+  .campo{ margin-bottom:14px; }
+  .fila2{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  .fila3{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; }
+  @media (max-width:560px){ .fila2,.fila3{ grid-template-columns:1fr; } }
+  input[type=text], input[type=number], input[type=url], textarea{
+    width:100%; font-family:'Newsreader',Georgia,serif; font-size:15px; color:var(--tinta);
+    background:#fff; border:1px solid var(--linea); border-radius:4px; padding:9px 11px; transition:border-color .15s, box-shadow .15s;
+  }
+  input:focus, textarea:focus{ outline:none; border-color:var(--teal); box-shadow:0 0 0 3px rgba(28,138,138,.12); }
+  textarea{ resize:vertical; line-height:1.5; }
+  .ayuda{ font-size:12px; color:var(--tinta-2); margin-top:4px; }
+  .ayuda code{ font-family:'IBM Plex Mono',monospace; background:var(--papel-2); padding:1px 5px; border-radius:3px; }
+
+  .sec-row{ border:1px solid var(--linea); border-radius:4px; padding:12px; margin-bottom:12px; background:#fff; }
+  .sec-head{ display:flex; gap:10px; align-items:center; margin-bottom:8px; }
+  .sec-head input{ flex:1; }
+  .sec-x{ flex:none; border:1px solid var(--linea); background:var(--papel-2); color:var(--tinta-2); border-radius:4px; width:32px; height:32px; cursor:pointer; font-size:15px; }
+  .sec-x:hover{ color:var(--err); border-color:var(--err); }
+  .sec-txt{ min-height:78px; }
+  .btn-sec{ font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.06em; color:var(--teal-hondo); background:none; border:1px dashed var(--linea); border-radius:4px; padding:9px 14px; cursor:pointer; }
+  .btn-sec:hover{ border-color:var(--teal); }
+
+  .acciones{ display:flex; flex-wrap:wrap; gap:12px; margin:8px 0 14px; }
+  .btn{ font-family:'IBM Plex Mono',monospace; font-size:13px; letter-spacing:0.04em; border-radius:5px; padding:11px 18px; cursor:pointer; border:1px solid var(--teal-hondo); }
+  .btn-primario{ background:var(--teal-hondo); color:#fff; }
+  .btn-primario:hover{ background:var(--teal); border-color:var(--teal); }
+  .btn-sec2{ background:#fff; color:var(--teal-hondo); }
+  .btn-sec2:hover{ border-color:var(--teal); color:var(--teal); }
+
+  .estado{ min-height:20px; font-family:'IBM Plex Mono',monospace; font-size:12.5px; margin:6px 0 14px; }
+  .estado.ok{ color:var(--ok); }
+  .estado.err{ color:var(--err); }
+
+  .previo-wrap{ position:sticky; top:24px; }
+  .previo-tit{ font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:var(--teal-hondo); margin-bottom:12px; }
+  .previo-caja{ border:1px solid var(--linea); border-radius:6px; background:var(--papel); padding:22px; }
+  .pv-label{ font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--tinta-2); margin:18px 0 8px; }
+  .pv-label:first-child{ margin-top:0; }
+
+  /* Vista previa: tarjeta de índice */
+  .pv-tit{ font-family:'Fraunces',serif; font-weight:500; font-size:24px; line-height:1.15; letter-spacing:-0.01em; }
+  .pv-fuente{ font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:0.03em; color:var(--tinta-2); margin-top:8px; }
+  .pv-caja{ margin-top:14px; padding:16px 18px; background:var(--papel-2); border-left:2px solid var(--teal); border-radius:2px; }
+  .pv-obj{ font-size:15px; margin-bottom:12px; }
+  .pv-hall{ font-size:14px; color:var(--tinta-2); padding-top:12px; border-top:1px solid var(--linea); }
+  .pv-hall strong, .pv-obj strong{ color:var(--ambar); font-weight:500; }
+
+  /* Vista previa: artículo completo */
+  .pv-art{ margin-top:6px; }
+  .pv-h1{ font-family:'Fraunces',serif; font-weight:500; font-size:30px; line-height:1.12; letter-spacing:-0.02em; margin:6px 0 4px; }
+  .pv-cuerpo h2{ font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--teal-hondo); font-weight:500; margin:22px 0 8px; }
+  .pv-cuerpo p{ margin-bottom:14px; font-size:16px; line-height:1.6; }
+  .pv-cuerpo strong{ color:var(--tinta); font-weight:500; }
+  .pv-enlace{ margin-top:14px; padding:14px 16px; background:var(--papel-2); border-left:2px solid var(--teal); border-radius:3px; font-size:14px; color:var(--teal-hondo); }
+
+  .salida{ margin-top:20px; }
+  .salida textarea{ width:100%; height:200px; font-family:'IBM Plex Mono',monospace; font-size:12px; line-height:1.5; }
+</style>
+</head>
+<body>
+<div class="envoltorio">
+
+  <header class="top">
+    <a class="volver" href="index.html">← Volver al sitio</a>
+    <div class="eyebrow" style="margin-top:20px;">Panel interno</div>
+    <h1 class="tit">Agregar un resumen</h1>
+    <p class="sub">Llena las casillas en lenguaje normal. Al terminar, descarga el <span class="mono">resumenes.json</span> ya completo y súbelo al repositorio. No hace falta escribir HTML ni tocar comillas.</p>
+  </header>
+
+  <div class="cargado" id="cargado">Cargando resúmenes existentes…</div>
+  <div class="cargar-opts">
+    <span>¿No cargó solo?</span>
+    <label style="display:inline; text-transform:none; letter-spacing:0; color:var(--teal-hondo); cursor:pointer;">
+      Subir resumenes.json actual <input type="file" id="archivo" accept=".json,application/json" style="display:inline-block; margin-left:6px;">
+    </label>
+    <details class="pegar">
+      <summary>o pegar su contenido</summary>
+      <textarea id="pegarTxt" placeholder="Pega aquí el contenido actual de resumenes.json"></textarea>
+      <button class="btn btn-sec2" id="pegarBtn" style="margin-top:8px;">Cargar lo pegado</button>
+    </details>
+  </div>
+
+  <div class="cols">
+    <!-- ============ FORMULARIO ============ -->
+    <form id="form" autocomplete="off">
+      <fieldset>
+        <legend>Identificación</legend>
+        <div class="fila3">
+          <div class="campo"><label>id</label><input type="number" id="id" min="1" step="1"></div>
+          <div class="campo"><label>Año</label><input type="text" id="anio" placeholder="2026" inputmode="numeric"></div>
+          <div class="campo"><label>Registro (NCT)</label><input type="text" id="registro" placeholder="NCT05047263"></div>
+        </div>
+        <div class="campo"><label>Título</label><input type="text" id="titulo" placeholder="Finerenona en enfermedad renal crónica sin diabetes"></div>
+        <div class="fila2">
+          <div class="campo"><label>Autor</label><input type="text" id="autor" placeholder="Heerspink HJL"></div>
+          <div class="campo"><label>Revista</label><input type="text" id="revista" placeholder="NEJM"></div>
+        </div>
+        <div class="fila2">
+          <div class="campo"><label>DOI</label><input type="text" id="doi" placeholder="10.1056/NEJMoa2604625"></div>
+          <div class="campo"><label>Financiación</label><input type="text" id="financiacion" placeholder="Financiado por Bayer"></div>
+        </div>
+        <div class="campo"><label>Enlace al artículo original</label><input type="url" id="original" placeholder="https://www.nejm.org/doi/full/…"></div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Adelanto (lo que se ve en el índice)</legend>
+        <div class="campo">
+          <label>Objetivo (breve)</label>
+          <textarea id="objetivo" style="min-height:70px;" placeholder="Averiguar si…"></textarea>
+        </div>
+        <div class="campo">
+          <label>Hallazgo (con la cifra clave)</label>
+          <textarea id="hallazgo" style="min-height:80px;" placeholder="El filtrado cayó más despacio: **−3.3 frente a −4.0 ml/min/1.73 m²/año**…"></textarea>
+          <div class="ayuda">Rodea con <code>**dobles asteriscos**</code> lo que quieras en <strong>ámbar</strong> (la cifra que más importa).</div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Cuerpo del resumen (página completa)</legend>
+        <div class="ayuda" style="margin-bottom:12px;">Cada bloque se convierte en una sección. Separa párrafos con una línea en blanco. Usa <code>**…**</code> para negritas. Deja vacío el bloque que no uses.</div>
+        <div id="secciones"></div>
+        <button type="button" class="btn-sec" id="addSec">+ Añadir sección</button>
+      </fieldset>
+
+      <div class="acciones">
+        <button type="button" class="btn btn-primario" id="generar">Generar archivo</button>
+        <button type="button" class="btn btn-sec2" id="descargar">Descargar resumenes.json</button>
+        <button type="button" class="btn btn-sec2" id="copiar">Copiar solo este objeto</button>
+      </div>
+      <div class="estado" id="estado"></div>
+
+      <div class="salida">
+        <label>resumenes.json resultante</label>
+        <textarea id="salida" readonly placeholder="Pulsa «Generar archivo» y aquí aparecerá el contenido completo, ya válido."></textarea>
+      </div>
+    </form>
+
+    <!-- ============ VISTA PREVIA ============ -->
+    <div class="previo-wrap">
+      <div class="previo-tit">Vista previa en vivo</div>
+      <div class="previo-caja">
+        <div class="pv-label">Tarjeta en el índice</div>
+        <div id="pvCard"></div>
+        <div class="pv-label">Página completa</div>
+        <div class="pv-art" id="pvArt"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const SECCIONES_ESTANDAR = [
+    "Objetivo","Población e intervención","Diseño",
+    "Resultados","Seguridad","Conclusión","Aplicación clínica"
+  ];
+
+  let existentes = [];
+  let ultimoFull = null;
+
+  const $ = (id) => document.getElementById(id);
+  const cargadoEl = $("cargado");
+  const estadoEl = $("estado");
+  const seccionesEl = $("secciones");
+
+  // ---- utilidades de texto ----
+  const esc = (s) => (s || "").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+  const inline = (s) => esc(s).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+  const parrafos = (t) => (t || "").split(/\n\s*\n/).map(b => b.trim()).filter(Boolean)
+      .map(b => "<p>" + inline(b).replace(/\n/g, " ") + "</p>").join("\n");
+
+  function estado(msg, tipo){ estadoEl.textContent = msg; estadoEl.className = "estado " + (tipo || ""); }
+
+  // ---- secciones del cuerpo ----
+  function nuevaSeccion(titulo, texto){
+    const row = document.createElement("div");
+    row.className = "sec-row";
+    row.innerHTML =
+      '<div class="sec-head">' +
+        '<input type="text" class="sec-tit" placeholder="Título de la sección">' +
+        '<button type="button" class="sec-x" title="Quitar">✕</button>' +
+      '</div>' +
+      '<textarea class="sec-txt" placeholder="Texto de la sección…"></textarea>';
+    row.querySelector(".sec-tit").value = titulo || "";
+    row.querySelector(".sec-txt").value = texto || "";
+    row.querySelector(".sec-x").addEventListener("click", () => { row.remove(); preview(); });
+    seccionesEl.appendChild(row);
+  }
+  SECCIONES_ESTANDAR.forEach(t => nuevaSeccion(t, ""));
+  $("addSec").addEventListener("click", () => { nuevaSeccion("", ""); });
+
+  function leerSecciones(){
+    return [...seccionesEl.querySelectorAll(".sec-row")].map(r => ({
+      titulo: r.querySelector(".sec-tit").value.trim(),
+      texto: r.querySelector(".sec-txt").value
+    }));
+  }
+  function construirCuerpo(){
+    return leerSecciones().filter(s => s.titulo && s.texto.trim())
+      .map(s => "<h2>" + esc(s.titulo) + "</h2>\n" + parrafos(s.texto)).join("\n");
+  }
+
+  // ---- objeto resumen ----
+  const v = (id) => $(id).value.trim();
+  function objeto(){
+    return {
+      id: Number(v("id")) || 0,
+      titulo: v("titulo"),
+      autor: v("autor"),
+      revista: v("revista"),
+      anio: v("anio"),
+      registro: v("registro"),
+      doi: v("doi"),
+      financiacion: v("financiacion"),
+      original: v("original"),
+      objetivo: inline(v("objetivo")),
+      hallazgo: inline(v("hallazgo")),
+      cuerpo: construirCuerpo()
+    };
+  }
+
+  // ---- vista previa ----
+  function preview(){
+    const o = objeto();
+    const lineaIdx = [o.autor, o.revista, o.registro, o.doi].filter(Boolean).join(" · ");
+    $("pvCard").innerHTML =
+      '<div class="pv-tit">' + (o.titulo || "(título)") + '</div>' +
+      '<div class="pv-fuente">' + (lineaIdx || "autor · revista · NCT · DOI") + '</div>' +
+      '<div class="pv-caja">' +
+        '<div class="pv-obj">' + (o.objetivo || "<span style='color:#999'>(objetivo)</span>") + '</div>' +
+        '<div class="pv-hall">' + (o.hallazgo || "(hallazgo)") + '</div>' +
+      '</div>';
+    const fuente = [o.autor, o.anio ? o.revista + " " + o.anio : o.revista, o.registro, o.financiacion].filter(Boolean).join(" · ");
+    $("pvArt").innerHTML =
+      '<div class="pv-fuente">' + (fuente || "—") + '</div>' +
+      '<div class="pv-h1">' + (o.titulo || "(título)") + '</div>' +
+      '<div class="pv-cuerpo">' + (o.cuerpo || "<p style=\'color:#999\'>(sin contenido todavía)</p>") + '</div>' +
+      (o.original ? '<div class="pv-enlace">Artículo original: consultar en la revista →</div>' : "");
+  }
+  document.getElementById("form").addEventListener("input", preview);
+
+  // ---- validación ----
+  function validar(o){
+    const req = { titulo:"Título", autor:"Autor", revista:"Revista", anio:"Año", registro:"Registro (NCT)" };
+    const faltan = Object.entries(req).filter(([k]) => !o[k]).map(([,n]) => n);
+    const msgs = [];
+    if (faltan.length) msgs.push("Faltan: " + faltan.join(", "));
+    if (!o.id || o.id < 1) msgs.push("El id debe ser un número ≥ 1");
+    if (o.anio && !/^\d{4}$/.test(o.anio)) msgs.push("El año debe tener 4 dígitos");
+    if (!o.cuerpo) msgs.push("El cuerpo está vacío");
+    const dup = existentes.some(x => String(x.id) === String(o.id));
+    return { msgs, dup };
+  }
+
+  // ---- generar / descargar / copiar ----
+  function generar(){
+    const o = objeto();
+    const { msgs, dup } = validar(o);
+    if (msgs.length){ estado("⚠ " + msgs.join(" · "), "err"); ultimoFull = null; return null; }
+    const full = existentes.filter(x => String(x.id) !== String(o.id)).concat(o)
+                           .sort((a,b) => (Number(a.id)||0) - (Number(b.id)||0));
+    ultimoFull = full;
+    $("salida").value = JSON.stringify(full, null, 2);
+    estado((dup ? "✓ Actualizado el id " + o.id + " (ya existía). " : "✓ Agregado el id " + o.id + ". ") +
+           "Total: " + full.length + ". Descarga el archivo y súbelo al repositorio.", "ok");
+    return full;
+  }
+  $("generar").addEventListener("click", generar);
+
+  $("descargar").addEventListener("click", () => {
+    const full = ultimoFull || generar();
+    if (!full) return;
+    const blob = new Blob([JSON.stringify(full, null, 2)], { type: "application/json" });
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "resumenes.json";
+    document.body.appendChild(a); a.click(); a.remove();
+    URL.revokeObjectURL(a.href);
+  });
+
+  $("copiar").addEventListener("click", () => {
+    const o = objeto();
+    const txt = JSON.stringify(o, null, 2);
+    navigator.clipboard.writeText(txt)
+      .then(() => estado("Objeto copiado al portapapeles.", "ok"))
+      .catch(() => { $("salida").value = txt; estado("Copia manual desde el cuadro de abajo.", ""); });
+  });
+
+  // ---- cargar existentes ----
+  function setExistentes(arr){
+    existentes = Array.isArray(arr) ? arr : [];
+    const next = existentes.reduce((m,x) => Math.max(m, Number(x.id) || 0), 0) + 1;
+    if (!$("id").value) $("id").value = next;
+    cargadoEl.textContent = existentes.length
+      ? existentes.length + " resúmenes cargados. Próximo id sugerido: " + next + "."
+      : "Aún no hay resúmenes (este será el primero). id sugerido: 1.";
+    preview();
+  }
+
+  fetch("resumenes.json", { cache: "no-store" })
+    .then(r => { if (!r.ok) throw new Error(); return r.json(); })
+    .then(setExistentes)
+    .catch(() => {
+      cargadoEl.textContent = "No pude leer resumenes.json automáticamente (normal si abriste el archivo desde tu disco). Súbelo o pégalo aquí abajo para poder descargar el archivo completo.";
+      $("id").value = 1;
+      preview();
+    });
+
+  $("archivo").addEventListener("change", (e) => {
+    const f = e.target.files[0]; if (!f) return;
+    const rd = new FileReader();
+    rd.onload = () => { try { setExistentes(JSON.parse(rd.result)); estado("Archivo cargado.", "ok"); }
+                        catch { estado("Ese archivo no es JSON válido.", "err"); } };
+    rd.readAsText(f);
+  });
+  $("pegarBtn").addEventListener("click", () => {
+    try { setExistentes(JSON.parse($("pegarTxt").value)); estado("Contenido cargado.", "ok"); }
+    catch { estado("El texto pegado no es JSON válido.", "err"); }
+  });
+
+  preview();
+</script>
+</body>
+</html>

@@ -29,22 +29,19 @@
     -webkit-font-smoothing: antialiased;
   }
   .envoltorio { max-width: 1500px; margin: 0 auto; padding: 0 clamp(32px, 6vw, 96px); }
-  header.sitio { padding: 64px 0 44px; border-bottom: 1px solid var(--linea); }
-  .marca {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase;
-    color: var(--teal-hondo); margin-bottom: 30px;
-  }
+  header.sitio { padding: 92px 0 56px; border-bottom: 1px solid var(--linea); }
   h1.titulo {
-    font-family: 'Fraunces', serif; font-weight: 500;
-    font-size: clamp(44px, 7.5vw, 88px); line-height: 1.02;
-    letter-spacing: -0.02em; max-width: 16ch; margin-bottom: 30px;
+    font-family: 'Fraunces', serif; font-weight: 600;
+    font-size: clamp(52px, 9vw, 104px); line-height: 0.98;
+    letter-spacing: -0.03em; max-width: 14ch; margin-bottom: 28px;
   }
-  h1.titulo em { font-style: italic; color: var(--teal-hondo); }
-  .bajada { font-size: 21px; color: var(--tinta-2); max-width: 68ch; }
+  .bajada { font-size: 20px; color: var(--tinta-2); max-width: 64ch; }
   .bajada p { margin-bottom: 16px; }
   .bajada p:last-child { margin-bottom: 0; }
-  .bajada strong { color: var(--tinta); font-weight: 500; }
+  .bajada .lead {
+    font-size: clamp(22px, 2.4vw, 27px); line-height: 1.42;
+    color: var(--tinta); max-width: 30ch; margin-bottom: 22px;
+  }
   .barra-meta {
     display: flex; gap: 56px; flex-wrap: wrap;
     margin-top: 48px; padding-top: 30px; border-top: 1px solid var(--linea);
@@ -59,18 +56,71 @@
     letter-spacing: 0.14em; text-transform: uppercase;
     color: var(--tinta-2); margin-top: 8px;
   }
+
+  /* ---- Cabecera del índice + buscador ---- */
+  .indice-cabecera {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 24px; flex-wrap: wrap;
+    margin: 64px 0 6px; padding-bottom: 20px;
+  }
   .seccion-eti {
     font-family: 'IBM Plex Mono', monospace; font-size: 12px;
     letter-spacing: 0.2em; text-transform: uppercase;
-    color: var(--tinta-2); margin: 60px 0 4px;
+    color: var(--tinta-2);
   }
-  ol.indice { list-style: none; }
+  .buscador {
+    display: flex; align-items: center; gap: 10px;
+    background: var(--papel-2);
+    border: 1px solid var(--linea);
+    border-radius: 3px;
+    padding: 11px 15px;
+    min-width: min(360px, 100%);
+    transition: border-color .2s ease, box-shadow .2s ease;
+  }
+  .buscador:focus-within {
+    border-color: var(--teal);
+    box-shadow: 0 0 0 3px rgba(28,138,138,.12);
+  }
+  .buscador-lupa { width: 16px; height: 16px; color: var(--teal-hondo); flex: none; }
+  .buscador-input {
+    border: none; background: transparent; outline: none;
+    font-family: 'IBM Plex Mono', monospace; font-size: 13px;
+    letter-spacing: 0.02em; color: var(--tinta); width: 100%;
+  }
+  .buscador-input::placeholder { color: var(--tinta-2); opacity: .85; }
+  .conteo-busqueda {
+    font-family: 'IBM Plex Mono', monospace; font-size: 11px;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--tinta-2); min-height: 14px; margin-bottom: 8px;
+  }
+
+  /* ---- Índice editorial agrupado por año ---- */
+  .indice { }
+  .grupo-anio {
+    display: grid;
+    grid-template-columns: clamp(74px, 10vw, 132px) 1fr;
+    gap: clamp(22px, 4vw, 60px);
+    align-items: start;
+    padding: 46px 0;
+    border-top: 1px solid var(--linea);
+  }
+  .grupo-anio:first-child { border-top: none; padding-top: 20px; }
+  .anio-margen { position: sticky; top: 28px; }
+  .anio-num {
+    font-family: 'Fraunces', serif; font-weight: 400; font-style: italic;
+    font-size: clamp(27px, 3.4vw, 38px); line-height: 1;
+    letter-spacing: -0.01em; color: var(--tinta-2);
+  }
+  ol.lista-anio { list-style: none; }
+
   .fila { border-bottom: 1px solid var(--linea); }
+  ol.lista-anio .fila:last-child { border-bottom: none; }
   .fila a.cabeza {
     display: grid; grid-template-columns: 1fr auto; gap: 24px;
     align-items: center; padding: 30px 0;
     text-decoration: none; color: inherit; cursor: pointer;
   }
+  ol.lista-anio .fila:first-child a.cabeza { padding-top: 4px; }
   .fila-cuerpo h3 {
     font-family: 'Fraunces', serif; font-weight: 500; font-size: 30px;
     line-height: 1.16; letter-spacing: -0.01em;
@@ -110,8 +160,15 @@
     font-family: 'IBM Plex Mono', monospace; font-size: 12px;
     letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal-hondo);
   }
+  .sin-resultados {
+    padding: 52px 0; font-size: 20px; color: var(--tinta-2);
+    border-top: 1px solid var(--linea);
+  }
+  .sin-resultados strong { color: var(--tinta); font-weight: 500; }
+  .marca-busqueda { color: var(--ambar); font-weight: 500; font-style: normal; }
+
   footer.sitio { margin-top: 80px; padding: 48px 0 64px; border-top: 1px solid var(--linea); }
-  .pie-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+  .pie-cols { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 48px; }
   .pie-bloque h4 {
     font-family: 'IBM Plex Mono', monospace; font-size: 11px;
     letter-spacing: 0.16em; text-transform: uppercase;
@@ -121,15 +178,35 @@
     font-size: 14px; line-height: 1.65; color: var(--tinta-2);
     margin-bottom: 10px; max-width: 62ch;
   }
-  .pie-firma {
-    margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--linea);
-    font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--tinta-2);
-    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+  .contacto-lista { list-style: none; margin-top: 14px; }
+  .contacto-lista li {
+    display: flex; align-items: baseline; gap: 12px;
+    font-size: 14px; color: var(--tinta-2); margin-bottom: 11px;
+  }
+  .contacto-eti {
+    flex: none; min-width: 74px;
+    font-family: 'IBM Plex Mono', monospace; font-size: 11px;
+    letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal-hondo);
+  }
+  .contacto-lista a {
+    color: var(--tinta); text-decoration: none;
+    border-bottom: 1px solid var(--linea); transition: color .2s, border-color .2s;
+  }
+  .contacto-lista a:hover { color: var(--teal-hondo); border-color: var(--teal); }
+  .contacto-proximo { color: var(--tinta-2); font-style: italic; }
+  @media (max-width: 980px) {
+    .pie-cols { grid-template-columns: 1fr 1fr; }
   }
   @media (max-width: 760px) {
     .pie-cols { grid-template-columns: 1fr; gap: 32px; }
     .fila-cuerpo h3 { font-size: 23px; }
     h1.titulo { font-size: 42px; }
+    .grupo-anio { grid-template-columns: 1fr; gap: 6px; padding: 32px 0; }
+    .grupo-anio:first-child { padding-top: 14px; }
+    .anio-margen { position: static; margin-bottom: 6px; }
+    .anio-num { font-size: 23px; }
+    .indice-cabecera { align-items: stretch; gap: 16px; }
+    .buscador { min-width: 100%; }
   }
   @media (hover: none) { .adelanto { grid-template-rows: 1fr; } }
   @media (prefers-reduced-motion: reduce) { * { transition: none !important; scroll-behavior: auto; } }
@@ -140,32 +217,34 @@
 
 <header class="sitio">
   <div class="envoltorio">
-    <div class="marca">Síntesis · Medicina basada en evidencia</div>
-    <h1 class="titulo">Ensayos clínicos, <em>leídos con rigor</em> y contados en claro.</h1>
+    <h1 class="titulo">Evidencia sin ruido.</h1>
     <div class="bajada">
-      <p>Cada semana se publican decenas de ensayos clínicos, y ningún médico tiene tiempo de leerlos todos con la atención que merecen. Aquí hacemos ese trabajo por ti: tomamos los ensayos aleatorizados que de verdad importan, los leemos completos, con su letra pequeña y sus materiales suplementarios, y te devolvemos lo esencial en español claro.</p>
-      <p>No resumimos para simplificar, sino para <strong>ayudarte a decidir</strong>. Cada síntesis va directa al dato que cambia la conducta clínica, señala los conflictos de interés, y distingue con honestidad lo que el estudio demuestra de lo que solo insinúa. Pensado para leerse en minutos, sin perder el rigor.</p>
+      <p class="lead">La medicina publica más de lo que nadie puede leer.</p>
+      <p>Cada semana llegan decenas de ensayos nuevos, y ponerse al día con todos, sin robarle horas a la consulta, se ha vuelto una batalla perdida. Ese trabajo lo hacemos aquí: escogemos los ensayos aleatorizados que de verdad importan y los leemos enteros, sin saltarnos la letra menuda ni los anexos que casi nadie abre. Lo que encontramos te lo contamos en español, con calma y sin adornos.</p>
+      <p>No recortamos para que la ciencia parezca sencilla, sino para dejar a la vista lo que de verdad pesa. Cada síntesis va al dato que mueve la práctica, nombra sin rodeos los conflictos de interés y distingue con honestidad lo que un ensayo demuestra de lo que apenas insinúa. Se lee en minutos y no te cobra el rigor a cambio.</p>
     </div>
     <div class="barra-meta">
       <div class="meta-dato">
         <span class="meta-num" id="conteo">1</span>
         <span class="meta-eti">Resúmenes publicados</span>
       </div>
-      <div class="meta-dato">
-        <span class="meta-num">ECA</span>
-        <span class="meta-eti">Solo evidencia aleatorizada</span>
-      </div>
-      <div class="meta-dato">
-        <span class="meta-num">2026</span>
-        <span class="meta-eti">Actualizado al día</span>
-      </div>
     </div>
   </div>
 </header>
 
 <main class="envoltorio">
-  <div class="seccion-eti">Índice · pasa el cursor para ver el adelanto</div>
-  <ol class="indice" id="indice"></ol>
+  <div class="indice-cabecera">
+    <div class="seccion-eti">Índice</div>
+    <div class="buscador">
+      <svg class="buscador-lupa" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="11" cy="11" r="7"></circle>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </svg>
+      <input type="search" id="q" class="buscador-input" placeholder="Buscar" autocomplete="off" aria-label="Buscar resúmenes">
+    </div>
+  </div>
+  <div class="conteo-busqueda" id="estado" role="status" aria-live="polite"></div>
+  <div class="indice" id="indice"></div>
 </main>
 
 <footer class="sitio">
@@ -181,53 +260,134 @@
         <p>Este sitio no recopila datos personales de sus visitantes ni utiliza cookies de seguimiento con fines publicitarios. Si en el futuro se incorporan formularios o registro, se informará de forma expresa sobre el tratamiento de los datos.</p>
         <p>Los resúmenes son elaboraciones propias a partir de ensayos publicados; los derechos de los artículos originales pertenecen a sus autores y editoriales. Se enlaza siempre a la fuente para su consulta. Ante cualquier discrepancia, prevalece el artículo original.</p>
       </div>
-    </div>
-    <div class="pie-firma">
-      <span>Síntesis · Evidencia clínica en español</span>
-      <span>Contenido de uso profesional · Actualizado con cada nuevo ensayo</span>
+      <div class="pie-bloque">
+        <h4>Contacto</h4>
+        <p>Estamos preparando nuestros canales. Muy pronto podrás escribirnos, seguirnos y unirte a nuestro canal.</p>
+        <ul class="contacto-lista">
+          <!-- Cuando tengas cada dato, reemplaza el <span "Próximamente"> por el <a> que está comentado justo debajo y completa la dirección real. -->
+          <li>
+            <span class="contacto-eti">Correo</span>
+            <span class="contacto-proximo">Próximamente</span>
+            <!-- <a href="mailto:hola@tudominio.com">hola@tudominio.com</a> -->
+          </li>
+          <li>
+            <span class="contacto-eti">Telegram</span>
+            <span class="contacto-proximo">Próximamente</span>
+            <!-- <a href="https://t.me/tucanal" target="_blank" rel="noopener">@tucanal</a> -->
+          </li>
+          <li>
+            <span class="contacto-eti">Redes</span>
+            <span class="contacto-proximo">Próximamente</span>
+            <!-- <a href="https://x.com/tucuenta" target="_blank" rel="noopener">@tucuenta</a> -->
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </footer>
 
 <script>
-  const resumenes = [
-    {
-      id: 1,
-      titulo: "Finerenona en enfermedad renal crónica sin diabetes",
-      autor: "Heerspink HJL",
-      revista: "NEJM",
-      anio: "2026",
-      registro: "NCT05047263",
-      objetivo: "Averiguar si la finerenona, sumada al bloqueo del sistema renina-angiotensina, frena el deterioro renal en adultos con enfermedad renal crónica pero sin diabetes.",
-      hallazgo: "El filtrado cayó más despacio con finerenona: <strong>−3.3 frente a −4.0 ml/min/1.73 m²/año</strong>. Redujo el compuesto renal-cardiovascular, pero no demostró alargar la vida.",
-    },
-  ];
+  // ====== DATOS ======
+  // Los resúmenes viven en un único archivo: resumenes.json
+  // Para publicar uno nuevo NO se toca este archivo: se edita resumenes.json
+  // (lo más cómodo es usar la página agregar.html, que lo arma sin errores).
+  let resumenes = [];
 
-  const cont = document.getElementById("indice");
-  resumenes.forEach((r) => {
-    const li = document.createElement("li");
-    li.className = "fila";
-    li.innerHTML = `
-      <a class="cabeza" href="resumen.html?id=${r.id}">
-        <span class="fila-cuerpo">
-          <h3>${r.titulo}</h3>
-          <span class="fuente">${r.autor} · ${r.revista} ${r.anio} · ${r.registro}</span>
-        </span>
-        <span class="fila-flecha">→</span>
-      </a>
-      <div class="adelanto">
-        <div class="adelanto-interior">
-          <div class="adelanto-caja">
-            <div class="obj">${r.objetivo}</div>
-            <div class="hallazgo">${r.hallazgo}</div>
-            <span class="abrir">Leer el resumen completo →</span>
+  const cont   = document.getElementById("indice");
+  const input  = document.getElementById("q");
+  const estado = document.getElementById("estado");
+
+  // Normaliza: minúsculas y sin acentos, para que "cronica" encuentre "crónica"
+  const norm = (s) => (s || "").toString().toLowerCase()
+    .normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+
+  function filaHTML(r) {
+    return `
+      <li class="fila">
+        <a class="cabeza" href="resumen.html?id=${r.id}">
+          <span class="fila-cuerpo">
+            <h3>${r.titulo}</h3>
+            <span class="fuente">${r.autor} · ${r.revista} · ${r.registro} · ${r.doi}</span>
+          </span>
+          <span class="fila-flecha">→</span>
+        </a>
+        <div class="adelanto">
+          <div class="adelanto-interior">
+            <div class="adelanto-caja">
+              <div class="obj">${r.objetivo}</div>
+              <div class="hallazgo">${r.hallazgo}</div>
+              <span class="abrir">Leer el resumen completo →</span>
+            </div>
           </div>
         </div>
-      </div>
-    `;
-    cont.appendChild(li);
-  });
-  document.getElementById("conteo").textContent = resumenes.length;
+      </li>`;
+  }
+
+  function render(lista, consulta) {
+    cont.innerHTML = "";
+
+    if (lista.length === 0) {
+      cont.innerHTML = `<div class="sin-resultados">No hay resúmenes que coincidan con <span class="marca-busqueda">“${consulta}”</span>. Prueba con otro término: el nombre del fármaco, la enfermedad, el autor, la revista o el registro.</div>`;
+      return;
+    }
+
+    // Agrupar por año, del más reciente al más antiguo
+    const grupos = {};
+    lista.forEach((r) => { (grupos[r.anio] = grupos[r.anio] || []).push(r); });
+    const anios = Object.keys(grupos).sort((a, b) => Number(b) - Number(a));
+
+    anios.forEach((anio) => {
+      const seccion = document.createElement("section");
+      seccion.className = "grupo-anio";
+      seccion.innerHTML =
+        `<div class="anio-margen"><span class="anio-num">${anio}</span></div>` +
+        `<ol class="lista-anio">${grupos[anio].map(filaHTML).join("")}</ol>`;
+      cont.appendChild(seccion);
+    });
+  }
+
+  function filtrar() {
+    const q = norm(input.value).trim();
+    const tokens = q.split(/\s+/).filter(Boolean);
+
+    if (tokens.length === 0) {
+      estado.textContent = "";
+      render(resumenes, "");
+      return;
+    }
+
+    // Coincidencia por TODAS las palabras (AND)
+    const lista = resumenes.filter((r) => tokens.every((t) => r._buscable.includes(t)));
+
+    estado.textContent =
+      lista.length === 0 ? "Sin coincidencias" :
+      lista.length === 1 ? "1 resumen encontrado" :
+      lista.length + " resúmenes encontrados";
+
+    render(lista, input.value.trim());
+  }
+
+  input.addEventListener("input", filtrar);
+
+  // Cargar los resúmenes desde el archivo único y arrancar
+  fetch("resumenes.json", { cache: "no-store" })
+    .then((r) => {
+      if (!r.ok) throw new Error("HTTP " + r.status);
+      return r.json();
+    })
+    .then((data) => {
+      resumenes = Array.isArray(data) ? data : [];
+      // Índice de texto buscable por resumen
+      resumenes.forEach((r) => {
+        r._buscable = norm([r.titulo, r.autor, r.revista, r.anio, r.registro, r.doi, r.objetivo, r.hallazgo].join(" "));
+      });
+      render(resumenes, "");
+      document.getElementById("conteo").textContent = resumenes.length;
+    })
+    .catch((err) => {
+      console.error("No se pudo cargar resumenes.json:", err);
+      cont.innerHTML = `<div class="sin-resultados">No se pudieron cargar los resúmenes en este momento. Recarga la página en unos segundos.</div>`;
+    });
 </script>
 
 </body>
