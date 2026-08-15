@@ -166,6 +166,12 @@
     text-decoration: none; transition: color .2s ease;
   }
   .adelanto-caja .abrir:hover { color: var(--teal); }
+  .adelanto-caja .abrir-links {
+    display: flex; flex-wrap: wrap; gap: 8px 28px; margin-top: 16px;
+  }
+  .adelanto-caja .abrir-links .abrir { margin-top: 0; }
+  .adelanto-caja .abrir-breve { color: var(--ambar); }
+  .adelanto-caja .abrir-breve:hover { color: var(--teal); }
   .sin-resultados {
     padding: 52px 0; font-size: 20px; color: var(--tinta-2);
     border-top: 1px solid var(--linea);
@@ -325,7 +331,10 @@
             <div class="adelanto-caja">
               <div class="obj">${r.objetivo}</div>
               <div class="hallazgo">${r.hallazgo}</div>
-              <a class="abrir" href="resumen.html?id=${r.id}">Leer el resumen completo →</a>
+              <div class="abrir-links">
+                <a class="abrir" href="resumen.html?id=${r.id}">Resumen completo →</a>
+                ${r.corto ? `<a class="abrir abrir-breve" href="resumen.html?id=${r.id}&amp;v=corto">Resumen breve →</a>` : ""}
+              </div>
             </div>
           </div>
         </div>

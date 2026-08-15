@@ -68,6 +68,22 @@
     article p { text-align:left; hyphens:manual; }
   }
 
+  /* Navegación entre versión completa y breve */
+  .version-nav {
+    margin-top:14px; display:flex; flex-wrap:wrap; gap:8px 18px; align-items:baseline;
+    font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.06em;
+  }
+  .version-etiqueta {
+    color:var(--ambar); text-transform:uppercase; letter-spacing:0.12em; font-size:11px;
+  }
+  .cambio-version { color:var(--teal-hondo); text-decoration:none; }
+  .cambio-version:hover { color:var(--teal); }
+
+  /* Versión breve: una sola columna, más estrecha, para lectura rápida */
+  body.modo-corto .envoltorio { max-width:820px; }
+  article.corto { columns:1; }
+  article.corto p { text-align:left; hyphens:manual; }
+
   .enlace-original {
     margin:8px 0 40px; padding:20px 24px;
     background:var(--papel-2); border-radius:3px;
@@ -123,21 +139,30 @@
       const dato = (Array.isArray(data) ? data : []).find((x) => String(x.id) === String(id));
       if (!dato) { noEncontrado(); return; }
 
-      // La línea de fuente se compone desde los campos (revista con año aquí)
-      const fuente = [
-        dato.autor,
-        dato.anio ? `${dato.revista} ${dato.anio}` : dato.revista,
-        dato.registro,
-        dato.financiacion,
-      ].filter(Boolean).join(" · ");
+      // ¿Versión breve? Solo si se pide y existe.
+      const esCorto = params.get("v") === "corto" && !!dato.corto;
+      const cuerpoHTML = esCorto ? dato.corto : dato.cuerpo;
+      document.body.classList.toggle("modo-corto", esCorto);
 
-      document.title = dato.titulo + " · Síntesis";
+      // Enlace para cambiar de versión
+      let versionNav = "";
+      if (esCorto) {
+        versionNav =
+          `<span class="version-etiqueta">Versión breve · lectura rápida</span>` +
+          `<a class="cambio-version" href="resumen.html?id=${dato.id}">Ver versión completa →</a>`;
+      } else if (dato.corto) {
+        versionNav =
+          `<a class="cambio-version" href="resumen.html?id=${dato.id}&v=corto">Ver versión breve →</a>`;
+      }
+
+      document.title = dato.titulo + (esCorto ? " · resumen breve" : "") + " · Síntesis";
       cont.innerHTML = `
         <div class="envoltorio">
           <header class="art">
             <h1>${dato.titulo}</h1>
+            ${versionNav ? `<div class="version-nav">${versionNav}</div>` : ""}
           </header>
-          <article>${dato.cuerpo}</article>
+          <article class="${esCorto ? "corto" : ""}">${cuerpoHTML}</article>
           ${dato.original ? `<div class="enlace-original">Artículo original: <a href="${dato.original}" target="_blank" rel="noopener">${dato.original}</a></div>` : ""}
           <footer class="art">Escribimos este resumen crítico pensando en médicos y profesionales de la salud. Léelo como una guía de lectura, nunca como un reemplazo del artículo original ni de tu propio juicio clínico.</footer>
         </div>
