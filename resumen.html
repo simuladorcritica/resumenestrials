@@ -60,7 +60,7 @@
     border-left:2px solid var(--teal);
     font-size:16px;
   }
-  .enlace-original a { color:var(--teal-hondo); }
+  .enlace-original a { color:var(--teal-hondo); overflow-wrap:anywhere; word-break:break-word; }
 
   footer.art {
     margin-top:40px; padding:32px 0 60px;
@@ -121,12 +121,11 @@
       cont.innerHTML = `
         <div class="envoltorio">
           <header class="art">
-            <div class="fuente-linea">${fuente}</div>
             <h1>${dato.titulo}</h1>
           </header>
           <article>${dato.cuerpo}</article>
-          ${dato.original ? `<div class="enlace-original">Artículo original: <a href="${dato.original}" target="_blank" rel="noopener">consultar en la revista →</a></div>` : ""}
-          <footer class="art">Síntesis · Resumen crítico para uso profesional. No sustituye la lectura del artículo original ni el juicio clínico.</footer>
+          ${dato.original ? `<div class="enlace-original">Artículo original: <a href="${dato.original}" target="_blank" rel="noopener">${dato.original}</a></div>` : ""}
+          <footer class="art">Escribimos este resumen crítico pensando en médicos y profesionales de la salud. Léelo como una guía de lectura, nunca como un reemplazo del artículo original ni de tu propio juicio clínico.</footer>
         </div>
       `;
     })

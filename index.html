@@ -163,7 +163,9 @@
     display: inline-block; margin-top: 16px;
     font-family: 'IBM Plex Mono', monospace; font-size: 12px;
     letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal-hondo);
+    text-decoration: none; transition: color .2s ease;
   }
+  .adelanto-caja .abrir:hover { color: var(--teal); }
   .sin-resultados {
     padding: 52px 0; font-size: 20px; color: var(--tinta-2);
     border-top: 1px solid var(--linea);
@@ -323,7 +325,7 @@
             <div class="adelanto-caja">
               <div class="obj">${r.objetivo}</div>
               <div class="hallazgo">${r.hallazgo}</div>
-              <span class="abrir">Leer el resumen completo →</span>
+              <a class="abrir" href="resumen.html?id=${r.id}">Leer el resumen completo →</a>
             </div>
           </div>
         </div>
