@@ -33,20 +33,24 @@
   h1.titulo {
     font-family: 'Fraunces', serif; font-weight: 600;
     font-size: clamp(52px, 9vw, 104px); line-height: 0.98;
-    letter-spacing: -0.03em; max-width: 14ch; margin-bottom: 28px;
+    letter-spacing: -0.03em; margin: 0 auto 30px; text-align: center;
   }
-  .bajada { font-size: 20px; color: var(--tinta-2); max-width: 64ch; }
-  .bajada p { margin-bottom: 16px; }
-  .bajada p:last-child { margin-bottom: 0; }
+  .bajada { font-size: 20px; color: var(--tinta-2); text-align: center; }
   .bajada .lead {
     font-size: clamp(22px, 2.4vw, 27px); line-height: 1.42;
-    color: var(--tinta); max-width: 30ch; margin-bottom: 22px;
+    color: var(--tinta); max-width: 34ch; margin: 0 auto 34px;
   }
+  .bajada-cols {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: clamp(28px, 4vw, 56px); text-align: left;
+  }
+  .bajada-cols p { margin: 0; }
   .barra-meta {
-    display: flex; gap: 56px; flex-wrap: wrap;
-    margin-top: 48px; padding-top: 30px; border-top: 1px solid var(--linea);
+    display: flex; justify-content: center; gap: 56px; flex-wrap: wrap;
+    margin-top: 54px; padding-top: 30px; border-top: 1px solid var(--linea);
+    text-align: center;
   }
-  .meta-dato { display: flex; flex-direction: column; }
+  .meta-dato { display: flex; flex-direction: column; align-items: center; }
   .meta-num {
     font-family: 'Fraunces', serif; font-size: 36px; font-weight: 500;
     line-height: 1; color: var(--tinta);
@@ -201,6 +205,7 @@
     .pie-cols { grid-template-columns: 1fr; gap: 32px; }
     .fila-cuerpo h3 { font-size: 23px; }
     h1.titulo { font-size: 42px; }
+    .bajada-cols { grid-template-columns: 1fr; gap: 18px; }
     .grupo-anio { grid-template-columns: 1fr; gap: 6px; padding: 32px 0; }
     .grupo-anio:first-child { padding-top: 14px; }
     .anio-margen { position: static; margin-bottom: 6px; }
@@ -220,8 +225,10 @@
     <h1 class="titulo">Evidencia sin ruido.</h1>
     <div class="bajada">
       <p class="lead">La medicina publica más de lo que nadie puede leer.</p>
-      <p>Cada semana llegan decenas de ensayos nuevos, y ponerse al día con todos, sin robarle horas a la consulta, se ha vuelto una batalla perdida. Ese trabajo lo hacemos aquí: escogemos los ensayos aleatorizados que de verdad importan y los leemos enteros, sin saltarnos la letra menuda ni los anexos que casi nadie abre. Lo que encontramos te lo contamos en español, con calma y sin adornos.</p>
-      <p>No recortamos para que la ciencia parezca sencilla, sino para dejar a la vista lo que de verdad pesa. Cada síntesis va al dato que mueve la práctica, nombra sin rodeos los conflictos de interés y distingue con honestidad lo que un ensayo demuestra de lo que apenas insinúa. Se lee en minutos y no te cobra el rigor a cambio.</p>
+      <div class="bajada-cols">
+        <p>Cada semana llegan decenas de ensayos nuevos, y ponerse al día con todos, sin robarle horas a la consulta, se ha vuelto una batalla perdida. Ese trabajo lo hacemos aquí: escogemos los ensayos aleatorizados que de verdad importan y los leemos enteros, sin saltarnos la letra menuda ni los anexos que casi nadie abre. Lo que encontramos te lo contamos en español, con calma y sin adornos.</p>
+        <p>No recortamos para que la ciencia parezca sencilla, sino para dejar a la vista lo que de verdad pesa. Cada síntesis va al dato que mueve la práctica, nombra sin rodeos los conflictos de interés y distingue con honestidad lo que un ensayo demuestra de lo que apenas insinúa. Se lee en minutos y no te cobra el rigor a cambio.</p>
+      </div>
     </div>
     <div class="barra-meta">
       <div class="meta-dato">
