@@ -3,7 +3,32 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Resumen · Resumenes Trials</title>
+<title>Resumen clínico · Resumenes Trials</title>
+<meta name="description" id="meta-description" content="Resumen crítico en español de un ensayo clínico aleatorizado. Metodología, resultados, limitaciones y aplicación clínica.">
+<meta name="robots" id="meta-robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" id="canonical-url" href="https://resumenestrials.com/resumen.html">
+<meta name="theme-color" content="#f7f6f2">
+
+<!-- Open Graph: Telegram, WhatsApp, Facebook, LinkedIn -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Resumenes Trials">
+<meta property="og:locale" content="es_MX">
+<meta property="og:title" id="og-title" content="Resumen clínico · Resumenes Trials">
+<meta property="og:description" id="og-description" content="Resumen crítico en español de un ensayo clínico aleatorizado.">
+<meta property="og:url" id="og-url" content="https://resumenestrials.com/resumen.html">
+<meta property="og:image" content="https://resumenestrials.com/logo.png">
+<meta property="og:image:alt" content="Logo de Resumenes Trials">
+
+<!-- X -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" id="twitter-title" content="Resumen clínico · Resumenes Trials">
+<meta name="twitter:description" id="twitter-description" content="Resumen crítico en español de un ensayo clínico aleatorizado.">
+<meta name="twitter:image" content="https://resumenestrials.com/logo.png">
+<meta name="twitter:image:alt" content="Logo de Resumenes Trials">
+
+<!-- Datos estructurados: se completan dinámicamente según el trial -->
+<script id="structured-data" type="application/ld+json">{}</script>
+
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -134,8 +159,92 @@
   const params = new URLSearchParams(window.location.search);
   const id = params.get("id");
   const cont = document.getElementById("contenido");
+  const BASE_URL = "https://resumenestrials.com";
+
+  function textoPlano(valor) {
+    const div = document.createElement("div");
+    div.innerHTML = String(valor || "");
+    return (div.textContent || div.innerText || "").replace(/\s+/g, " ").trim();
+  }
+
+  function recortar(texto, max = 158) {
+    const limpio = textoPlano(texto);
+    if (limpio.length <= max) return limpio;
+    const corte = limpio.slice(0, max + 1);
+    const ultimoEspacio = corte.lastIndexOf(" ");
+    return (ultimoEspacio > 100 ? corte.slice(0, ultimoEspacio) : limpio.slice(0, max)).trim() + "…";
+  }
+
+  function fijarMeta(selector, atributo, valor) {
+    const el = document.querySelector(selector);
+    if (el && valor) el.setAttribute(atributo, valor);
+  }
+
+  function actualizarSEO(dato, esCorto) {
+    // La versión breve y la completa comparten canonical para evitar contenido duplicado.
+    const canonical = `${BASE_URL}/resumen.html?id=${encodeURIComponent(dato.id)}`;
+    const urlCompartida = esCorto ? `${canonical}&v=corto` : canonical;
+    const sufijo = esCorto ? " · resumen breve" : "";
+    const titulo = `${textoPlano(dato.titulo)}${sufijo} · Resumenes Trials`;
+
+    const baseDescripcion = dato.objetivo || dato.hallazgo ||
+      "Resumen crítico en español de un ensayo clínico aleatorizado.";
+    const descripcion = recortar(baseDescripcion);
+
+    document.title = titulo;
+    fijarMeta('#meta-description', 'content', descripcion);
+    fijarMeta('#meta-robots', 'content', 'index,follow,max-image-preview:large');
+    fijarMeta('#canonical-url', 'href', canonical);
+
+    fijarMeta('#og-title', 'content', titulo);
+    fijarMeta('#og-description', 'content', descripcion);
+    fijarMeta('#og-url', 'content', urlCompartida);
+
+    fijarMeta('#twitter-title', 'content', titulo);
+    fijarMeta('#twitter-description', 'content', descripcion);
+
+    const schema = {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": textoPlano(dato.titulo),
+      "description": descripcion,
+      "inLanguage": "es",
+      "mainEntityOfPage": canonical,
+      "url": canonical,
+      "publisher": {
+        "@type": "Organization",
+        "name": "Resumenes Trials",
+        "url": `${BASE_URL}/`,
+        "logo": {
+          "@type": "ImageObject",
+          "url": `${BASE_URL}/logo.png`
+        }
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Ensayo clínico aleatorizado"
+      }
+    };
+
+    if (dato.autor) {
+      schema.author = { "@type": "Person", "name": textoPlano(dato.autor) };
+    }
+    if (dato.original) {
+      schema.isBasedOn = dato.original;
+    }
+    if (dato.doi) {
+      schema.identifier = `https://doi.org/${textoPlano(dato.doi)}`;
+    }
+
+    const jsonLd = document.getElementById("structured-data");
+    if (jsonLd) jsonLd.textContent = JSON.stringify(schema);
+  }
 
   function noEncontrado() {
+    document.title = "Resumen no encontrado · Resumenes Trials";
+    fijarMeta('#meta-description', 'content', 'El resumen solicitado no está disponible en Resumenes Trials.');
+    fijarMeta('#meta-robots', 'content', 'noindex,follow');
+    fijarMeta('#canonical-url', 'href', `${BASE_URL}/resumen.html`);
     cont.innerHTML = `<div class="envoltorio"><p class="aviso">No se encontró ese resumen. <a href="index.html" style="color:var(--teal-hondo)">Volver al índice</a> para ver los disponibles.</p></div>`;
   }
 
@@ -172,7 +281,8 @@
         versionNavPie = `<a class="cambio-version" href="resumen.html?id=${dato.id}&v=corto">Ver versión breve →</a>`;
       }
 
-      document.title = dato.titulo + (esCorto ? " · resumen breve" : "") + " · Resumenes Trials";
+      actualizarSEO(dato, esCorto);
+
       cont.innerHTML = `
         <div class="envoltorio">
           <header class="art">
