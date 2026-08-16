@@ -6,7 +6,6 @@
 <title>Resumen clínico · Resumenes Trials</title>
 <meta name="description" id="meta-description" content="Resumen crítico en español de un ensayo clínico aleatorizado. Metodología, resultados, limitaciones y aplicación clínica.">
 <meta name="robots" id="meta-robots" content="index,follow,max-image-preview:large">
-<link rel="canonical" id="canonical-url" href="https://resumenestrials.com/resumen.html">
 <meta name="theme-color" content="#f7f6f2">
 
 <!-- Open Graph: Telegram, WhatsApp, Facebook, LinkedIn -->
@@ -180,6 +179,17 @@
     if (el && valor) el.setAttribute(atributo, valor);
   }
 
+  function fijarCanonical(valor) {
+    if (!valor) return;
+    let el = document.querySelector('link[rel=\"canonical\"]');
+    if (!el) {
+      el = document.createElement('link');
+      el.setAttribute('rel', 'canonical');
+      document.head.appendChild(el);
+    }
+    el.setAttribute('href', valor);
+  }
+
   function actualizarSEO(dato, esCorto) {
     // La versión breve y la completa comparten canonical para evitar contenido duplicado.
     const canonical = `${BASE_URL}/resumen.html?id=${encodeURIComponent(dato.id)}`;
@@ -194,7 +204,7 @@
     document.title = titulo;
     fijarMeta('#meta-description', 'content', descripcion);
     fijarMeta('#meta-robots', 'content', 'index,follow,max-image-preview:large');
-    fijarMeta('#canonical-url', 'href', canonical);
+    fijarCanonical(canonical);
 
     fijarMeta('#og-title', 'content', titulo);
     fijarMeta('#og-description', 'content', descripcion);
@@ -244,7 +254,8 @@
     document.title = "Resumen no encontrado · Resumenes Trials";
     fijarMeta('#meta-description', 'content', 'El resumen solicitado no está disponible en Resumenes Trials.');
     fijarMeta('#meta-robots', 'content', 'noindex,follow');
-    fijarMeta('#canonical-url', 'href', `${BASE_URL}/resumen.html`);
+    const canonicalExistente = document.querySelector('link[rel=\"canonical\"]');
+    if (canonicalExistente) canonicalExistente.remove();
     cont.innerHTML = `<div class="envoltorio"><p class="aviso">No se encontró ese resumen. <a href="index.html" style="color:var(--teal-hondo)">Volver al índice</a> para ver los disponibles.</p></div>`;
   }
 
