@@ -82,7 +82,7 @@
   /* Versión breve: una sola columna, más estrecha, para lectura rápida */
   body.modo-corto .envoltorio { max-width:820px; }
   article.corto { columns:1; }
-  article.corto p { text-align:left; hyphens:manual; }
+  article.corto p { text-align:justify; hyphens:auto; -webkit-hyphens:auto; }
 
   .enlace-original {
     margin:8px 0 40px; padding:20px 24px;
@@ -92,8 +92,15 @@
   }
   .enlace-original a { color:var(--teal-hondo); overflow-wrap:anywhere; word-break:break-word; }
 
+  .pie-nav {
+    margin-top:40px; padding-top:24px; border-top:1px solid var(--linea);
+    display:flex; flex-wrap:wrap; gap:12px 24px;
+    align-items:baseline; justify-content:space-between;
+  }
+  .pie-nav .volver { margin:0; }
+
   footer.art {
-    margin-top:40px; padding:32px 0 60px;
+    margin-top:24px; padding:32px 0 60px;
     border-top:1px solid var(--linea);
     font-family:'IBM Plex Mono',monospace; font-size:12px;
     color:var(--tinta-2);
@@ -148,11 +155,19 @@
       let versionNav = "";
       if (esCorto) {
         versionNav =
-          `<span class="version-etiqueta">Versión breve · lectura rápida</span>` +
+          `<span class="version-etiqueta">Lectura rápida</span>` +
           `<a class="cambio-version" href="resumen.html?id=${dato.id}">Ver versión completa →</a>`;
       } else if (dato.corto) {
         versionNav =
           `<a class="cambio-version" href="resumen.html?id=${dato.id}&v=corto">Ver versión breve →</a>`;
+      }
+
+      // Enlace de cambio de versión para el pie (solo el enlace, sin la etiqueta)
+      let versionNavPie = "";
+      if (esCorto) {
+        versionNavPie = `<a class="cambio-version" href="resumen.html?id=${dato.id}">Ver versión completa →</a>`;
+      } else if (dato.corto) {
+        versionNavPie = `<a class="cambio-version" href="resumen.html?id=${dato.id}&v=corto">Ver versión breve →</a>`;
       }
 
       document.title = dato.titulo + (esCorto ? " · resumen breve" : "") + " · Síntesis";
@@ -164,6 +179,10 @@
           </header>
           <article class="${esCorto ? "corto" : ""}">${cuerpoHTML}</article>
           ${dato.original ? `<div class="enlace-original">Artículo original: <a href="${dato.original}" target="_blank" rel="noopener">${dato.original}</a></div>` : ""}
+          <nav class="pie-nav">
+            <a class="volver" href="index.html">← Volver al índice</a>
+            ${versionNavPie}
+          </nav>
           <footer class="art">Escribimos este resumen crítico pensando en médicos y profesionales de la salud. Léelo como una guía de lectura, nunca como un reemplazo del artículo original ni de tu propio juicio clínico.</footer>
         </div>
       `;
