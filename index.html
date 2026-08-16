@@ -3,7 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Síntesis · Evidencia clínica en español</title>
+<title>Resumenes Trials · Evidencia clínica en español</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -29,7 +31,11 @@
     -webkit-font-smoothing: antialiased;
   }
   .envoltorio { max-width: 1500px; margin: 0 auto; padding: 0 clamp(32px, 6vw, 96px); }
-  header.sitio { padding: 92px 0 56px; border-bottom: 1px solid var(--linea); }
+  header.sitio { padding: 56px 0 56px; border-bottom: 1px solid var(--linea); }
+  .marca-logo {
+    display: block; margin: 0 auto 30px;
+    width: auto; max-height: 118px;
+  }
   h1.titulo {
     font-family: 'Fraunces', serif; font-weight: 600;
     font-size: clamp(52px, 9vw, 104px); line-height: 0.98;
@@ -189,18 +195,21 @@
   .pie-bloque p {
     font-size: 14px; line-height: 1.65; color: var(--tinta-2);
     margin-bottom: 10px; max-width: 62ch;
+    text-align: justify; hyphens: auto; -webkit-hyphens: auto;
   }
   .contacto-lista { list-style: none; margin-top: 14px; }
   .contacto-lista li {
-    display: flex; align-items: baseline; gap: 12px;
+    display: flex; align-items: center; gap: 12px;
     font-size: 14px; color: var(--tinta-2); margin-bottom: 11px;
   }
+  .contacto-icono { width: 15px; height: 15px; flex: none; color: var(--teal-hondo); }
   .contacto-eti {
     flex: none; min-width: 74px;
     font-family: 'IBM Plex Mono', monospace; font-size: 11px;
     letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal-hondo);
   }
   .contacto-lista a {
+    display: inline-flex; align-items: center; gap: 7px;
     color: var(--tinta); text-decoration: none;
     border-bottom: 1px solid var(--linea); transition: color .2s, border-color .2s;
   }
@@ -230,6 +239,7 @@
 
 <header class="sitio">
   <div class="envoltorio">
+    <img class="marca-logo" src="logo.png" alt="Resumenes Trials" width="793" height="605">
     <h1 class="titulo">Evidencia sin ruido.</h1>
     <div class="bajada">
       <p class="lead">La medicina publica más de lo que nadie puede leer.</p>
@@ -267,7 +277,7 @@
     <div class="pie-cols">
       <div class="pie-bloque">
         <h4>Aviso médico</h4>
-        <p>Síntesis publica resúmenes críticos con fines educativos e informativos, dirigidos a médicos y profesionales de la salud; no está pensado para pacientes ni para el público general. El contenido no constituye consejo médico ni recomendación de tratamiento para ningún caso concreto, y su lectura no crea una relación médico-paciente.</p>
+        <p>Resumenes Trials publica resúmenes críticos con fines educativos e informativos, dirigidos a médicos y profesionales de la salud; no está pensado para pacientes ni para el público general. El contenido no constituye consejo médico ni recomendación de tratamiento para ningún caso concreto, y su lectura no crea una relación médico-paciente.</p>
         <p>Ningún resumen sustituye la lectura del artículo original, el criterio clínico del profesional ni la valoración individual de cada caso. Las decisiones diagnósticas y terapéuticas son responsabilidad exclusiva del profesional tratante. La información se ofrece «tal cual», sin garantías de exactitud o vigencia, y sus responsables no asumen responsabilidad por el uso que se haga de ella.</p>
       </div>
       <div class="pie-bloque">
@@ -281,15 +291,15 @@
         <ul class="contacto-lista">
           <li>
             <span class="contacto-eti">Correo</span>
-            <a href="mailto:resumenestrials@outlook.com">resumenestrials@outlook.com</a>
+            <a href="mailto:resumenestrials@outlook.com"><svg class="contacto-icono" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3 7 9 6 9-6"></path></svg>resumenestrials@outlook.com</a>
           </li>
           <li>
             <span class="contacto-eti">Telegram</span>
-            <a href="https://t.me/ResumenesTrials" target="_blank" rel="noopener">t.me/ResumenesTrials</a>
+            <a href="https://t.me/ResumenesTrials" target="_blank" rel="noopener"><svg class="contacto-icono" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 2 11 13"></path><path d="M22 2 15 22l-4-9-9-4 20-7z"></path></svg>t.me/ResumenesTrials</a>
           </li>
           <li>
             <span class="contacto-eti">X</span>
-            <a href="https://x.com/resumenestrials" target="_blank" rel="noopener">@resumenestrials</a>
+            <a href="https://x.com/resumenestrials" target="_blank" rel="noopener"><svg class="contacto-icono" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.66l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"></path></svg>@resumenestrials</a>
           </li>
         </ul>
       </div>
@@ -312,13 +322,21 @@
   const norm = (s) => (s || "").toString().toLowerCase()
     .normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 
+  // Fecha ISO (AAAA-MM-DD) -> DD/MM/AAAA
+  const fmtFecha = (iso) => {
+    if (!iso) return "";
+    const p = iso.split("-");
+    return p.length === 3 ? `${p[2]}/${p[1]}/${p[0]}` : iso;
+  };
+
   function filaHTML(r) {
+    const fecha = r.fecha ? ` · ${fmtFecha(r.fecha)}` : "";
     return `
       <li class="fila">
         <a class="cabeza" href="resumen.html?id=${r.id}">
           <span class="fila-cuerpo">
             <h3>${r.titulo}</h3>
-            <span class="fuente">${r.autor} · ${r.revista} · ${r.registro} · ${r.doi}</span>
+            <span class="fuente">${r.autor} · ${r.revista}${fecha} · ${r.registro} · ${r.doi}</span>
           </span>
           <span class="fila-flecha">→</span>
         </a>
@@ -391,9 +409,11 @@
     })
     .then((data) => {
       resumenes = Array.isArray(data) ? data : [];
+      // Orden global por fecha de publicación, del más reciente al más antiguo
+      resumenes.sort((a, b) => (b.fecha || "").localeCompare(a.fecha || ""));
       // Índice de texto buscable por resumen
       resumenes.forEach((r) => {
-        r._buscable = norm([r.titulo, r.autor, r.revista, r.anio, r.registro, r.doi, r.objetivo, r.hallazgo].join(" "));
+        r._buscable = norm([r.titulo, r.autor, r.revista, r.anio, fmtFecha(r.fecha), r.registro, r.doi, r.objetivo, r.hallazgo].join(" "));
       });
       render(resumenes, "");
       document.getElementById("conteo").textContent = resumenes.length;
