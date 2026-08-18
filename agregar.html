@@ -142,6 +142,38 @@
       </fieldset>
 
       <fieldset>
+        <legend>Clasificación</legend>
+        <div class="fila2">
+          <div class="campo">
+            <label>Especialidad principal</label>
+            <select id="especialidad_principal">
+              <option value="Medicina Crítica">Medicina Crítica</option>
+              <option value="Medicina Interna">Medicina Interna</option>
+            </select>
+          </div>
+          <div class="campo">
+            <label>Especialidad secundaria (opcional)</label>
+            <select id="especialidad_secundaria">
+              <option value="">— ninguna —</option>
+              <option value="Medicina Crítica">Medicina Crítica</option>
+              <option value="Medicina Interna">Medicina Interna</option>
+            </select>
+          </div>
+        </div>
+        <div class="fila2">
+          <div class="campo">
+            <label>Temas (separados por comas)</label>
+            <input type="text" id="temas" placeholder="Sepsis, Choque séptico, Fluidoterapia">
+          </div>
+          <div class="campo">
+            <label>Tipo de estudio</label>
+            <input type="text" id="tipo_estudio" value="Ensayo clínico aleatorizado">
+          </div>
+        </div>
+        <div class="ayuda">La especialidad secundaria solo se usa cuando el trial pertenece de verdad a ambas áreas; entonces aparecerá al filtrar cualquiera de las dos.</div>
+      </fieldset>
+
+      <fieldset>
         <legend>Adelanto (lo que se ve en el índice)</legend>
         <div class="campo">
           <label>Objetivo (breve)</label>
@@ -241,16 +273,21 @@
   // ---- objeto resumen ----
   const v = (id) => $(id).value.trim();
   function objeto(){
+    const temas = v("temas").split(",").map(t => t.trim()).filter(Boolean);
     return {
       id: Number(v("id")) || 0,
       titulo: v("titulo"),
       autor: v("autor"),
       revista: v("revista"),
-      anio: v("anio"),
+      anio: /^\d{4}$/.test(v("anio")) ? Number(v("anio")) : v("anio"),
       registro: v("registro"),
       doi: v("doi"),
       financiacion: v("financiacion"),
       original: v("original"),
+      especialidad_principal: v("especialidad_principal"),
+      especialidad_secundaria: v("especialidad_secundaria"),
+      temas: temas,
+      tipo_estudio: v("tipo_estudio"),
       objetivo: inline(v("objetivo")),
       hallazgo: inline(v("hallazgo")),
       cuerpo: construirCuerpo()
@@ -261,7 +298,10 @@
   function preview(){
     const o = objeto();
     const lineaIdx = [o.autor, o.revista, o.registro, o.doi].filter(Boolean).join(" · ");
+    const esps = [o.especialidad_principal, o.especialidad_secundaria].filter(Boolean)
+      .map(e => '<span style="font-family:\'IBM Plex Mono\',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border:1px solid var(--linea);border-radius:2px;margin-right:6px;color:var(--teal-hondo)">' + e + '</span>').join("");
     $("pvCard").innerHTML =
+      (esps ? '<div style="margin-bottom:10px">' + esps + '</div>' : '') +
       '<div class="pv-tit">' + (o.titulo || "(título)") + '</div>' +
       '<div class="pv-fuente">' + (lineaIdx || "autor · revista · NCT · DOI") + '</div>' +
       '<div class="pv-caja">' +
@@ -279,7 +319,7 @@
 
   // ---- validación ----
   function validar(o){
-    const req = { titulo:"Título", autor:"Autor", revista:"Revista", anio:"Año", registro:"Registro (NCT)" };
+    const req = { titulo:"Título", autor:"Autor", revista:"Revista", anio:"Año", registro:"Registro (NCT)", especialidad_principal:"Especialidad principal" };
     const faltan = Object.entries(req).filter(([k]) => !o[k]).map(([,n]) => n);
     const msgs = [];
     if (faltan.length) msgs.push("Faltan: " + faltan.join(", "));

@@ -4,6 +4,43 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Resumenes Trials · Evidencia clínica en español</title>
+<meta name="description" content="Biblioteca de resúmenes críticos en español de ensayos clínicos aleatorizados en Medicina Crítica y Medicina Interna. Metodología, resultados, límites y aplicación clínica, sin ruido.">
+<link rel="canonical" href="https://resumenestrials.com/">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="theme-color" content="#f7f6f2">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Resumenes Trials">
+<meta property="og:locale" content="es_MX">
+<meta property="og:title" content="Resumenes Trials · Evidencia clínica en español">
+<meta property="og:description" content="Resúmenes críticos de ensayos clínicos en Medicina Crítica y Medicina Interna. Evidencia sin ruido.">
+<meta property="og:url" content="https://resumenestrials.com/">
+<meta property="og:image" content="https://resumenestrials.com/logo.png">
+<meta property="og:image:alt" content="Resumenes Trials">
+<!-- X -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Resumenes Trials · Evidencia clínica en español">
+<meta name="twitter:description" content="Resúmenes críticos de ensayos clínicos en Medicina Crítica y Medicina Interna. Evidencia sin ruido.">
+<meta name="twitter:image" content="https://resumenestrials.com/logo.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Resumenes Trials",
+  "alternateName": "Evidencia sin ruido",
+  "url": "https://resumenestrials.com/",
+  "inLanguage": "es",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Resumenes Trials",
+    "url": "https://resumenestrials.com/",
+    "logo": { "@type": "ImageObject", "url": "https://resumenestrials.com/logo.png" }
+  }
+}
+</script>
+
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,6 +56,8 @@
     --papel-2:    #efece4;
     --linea:      #ddd8cc;
     --ambar:      #c8892a;
+    --critica:    #0f5f5f;
+    --interna:    #8a4a1c;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
@@ -31,11 +70,32 @@
     -webkit-font-smoothing: antialiased;
   }
   .envoltorio { max-width: 1500px; margin: 0 auto; padding: 0 clamp(32px, 6vw, 96px); }
-  header.sitio { padding: 56px 0 56px; border-bottom: 1px solid var(--linea); }
-  .marca-logo {
-    display: block; margin: 0 auto 30px;
-    width: auto; max-height: 118px;
+
+  /* ---- Masthead persistente ---- */
+  .topbar {
+    position: sticky; top: 0; z-index: 40;
+    background: rgba(247,246,242,.92);
+    backdrop-filter: saturate(1.2) blur(8px);
+    border-bottom: 1px solid var(--linea);
   }
+  .topbar-in {
+    max-width: 1500px; margin: 0 auto;
+    padding: 12px clamp(20px, 6vw, 96px);
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  }
+  .marca-top { display: inline-flex; align-items: center; }
+  .marca-top img { display: block; height: 30px; width: auto; }
+  .top-links { display: flex; align-items: center; gap: 8px; }
+  .top-links a {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 36px; height: 36px; border-radius: 3px;
+    color: var(--teal-hondo); text-decoration: none;
+    transition: background .2s ease, color .2s ease;
+  }
+  .top-links a:hover { background: var(--papel-2); color: var(--teal); }
+  .top-links svg { width: 18px; height: 18px; }
+
+  header.sitio { padding: 52px 0 48px; border-bottom: 1px solid var(--linea); }
   h1.titulo {
     font-family: 'Fraunces', serif; font-weight: 600;
     font-size: clamp(52px, 9vw, 104px); line-height: 0.98;
@@ -52,14 +112,14 @@
   }
   .bajada-cols p { margin: 0; }
   .barra-meta {
-    display: flex; justify-content: center; gap: 56px; flex-wrap: wrap;
-    margin-top: 54px; padding-top: 30px; border-top: 1px solid var(--linea);
+    display: flex; justify-content: center; gap: clamp(36px, 6vw, 72px); flex-wrap: wrap;
+    margin-top: 50px; padding-top: 30px; border-top: 1px solid var(--linea);
     text-align: center;
   }
   .meta-dato { display: flex; flex-direction: column; align-items: center; }
   .meta-num {
     font-family: 'Fraunces', serif; font-size: 36px; font-weight: 500;
-    line-height: 1; color: var(--tinta);
+    line-height: 1; color: var(--tinta); font-variant-numeric: tabular-nums;
   }
   .meta-eti {
     font-family: 'IBM Plex Mono', monospace; font-size: 11px;
@@ -67,24 +127,33 @@
     color: var(--tinta-2); margin-top: 8px;
   }
 
-  /* ---- Cabecera del índice + buscador ---- */
+  /* ---- Cabecera del índice: filtros + buscador ---- */
   .indice-cabecera {
     display: flex; align-items: center; justify-content: space-between;
-    gap: 24px; flex-wrap: wrap;
-    margin: 64px 0 6px; padding-bottom: 20px;
+    gap: 20px; flex-wrap: wrap;
+    margin: 56px 0 6px; padding-bottom: 4px;
   }
-  .seccion-eti {
+  .filtros { display: inline-flex; gap: 6px; flex-wrap: wrap; }
+  .filtro {
     font-family: 'IBM Plex Mono', monospace; font-size: 12px;
-    letter-spacing: 0.2em; text-transform: uppercase;
-    color: var(--tinta-2);
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--tinta-2); background: transparent;
+    border: 1px solid var(--linea); border-radius: 3px;
+    padding: 9px 15px; cursor: pointer;
+    transition: color .2s, border-color .2s, background .2s;
   }
+  .filtro:hover { color: var(--teal-hondo); border-color: var(--teal); }
+  .filtro[aria-pressed="true"] {
+    color: var(--papel); background: var(--teal-hondo); border-color: var(--teal-hondo);
+  }
+  .filtro .n { opacity: .7; margin-left: 6px; font-size: 11px; }
   .buscador {
     display: flex; align-items: center; gap: 10px;
     background: var(--papel-2);
     border: 1px solid var(--linea);
     border-radius: 3px;
-    padding: 11px 15px;
-    min-width: min(360px, 100%);
+    padding: 10px 15px;
+    min-width: min(320px, 100%);
     transition: border-color .2s ease, box-shadow .2s ease;
   }
   .buscador:focus-within {
@@ -101,21 +170,20 @@
   .conteo-busqueda {
     font-family: 'IBM Plex Mono', monospace; font-size: 11px;
     letter-spacing: 0.12em; text-transform: uppercase;
-    color: var(--tinta-2); min-height: 14px; margin-bottom: 8px;
+    color: var(--tinta-2); min-height: 14px; margin: 14px 0 8px;
   }
 
   /* ---- Índice editorial agrupado por año ---- */
-  .indice { }
   .grupo-anio {
     display: grid;
     grid-template-columns: clamp(74px, 10vw, 132px) 1fr;
     gap: clamp(22px, 4vw, 60px);
     align-items: start;
-    padding: 46px 0;
+    padding: 44px 0;
     border-top: 1px solid var(--linea);
   }
-  .grupo-anio:first-child { border-top: none; padding-top: 20px; }
-  .anio-margen { position: sticky; top: 28px; }
+  .grupo-anio:first-child { border-top: none; padding-top: 18px; }
+  .anio-margen { position: sticky; top: 72px; }
   .anio-num {
     font-family: 'Fraunces', serif; font-weight: 400; font-style: italic;
     font-size: clamp(27px, 3.4vw, 38px); line-height: 1;
@@ -127,16 +195,23 @@
   ol.lista-anio .fila:last-child { border-bottom: none; }
   .fila a.cabeza {
     display: grid; grid-template-columns: 1fr auto; gap: 24px;
-    align-items: center; padding: 30px 0;
+    align-items: center; padding: 28px 0;
     text-decoration: none; color: inherit; cursor: pointer;
   }
   ol.lista-anio .fila:first-child a.cabeza { padding-top: 4px; }
+  .etiquetas { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+  .badge {
+    font-family: 'IBM Plex Mono', monospace; font-size: 10px;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 3px 9px; border-radius: 2px; white-space: nowrap;
+    border: 1px solid; line-height: 1.5;
+  }
+  .badge.critica { color: var(--critica); border-color: rgba(15,95,95,.32); background: rgba(15,95,95,.06); }
+  .badge.interna { color: var(--interna); border-color: rgba(138,74,28,.30); background: rgba(138,74,28,.06); }
   .fila-cuerpo h3 {
     font-family: 'Fraunces', serif; font-weight: 500; font-size: 30px;
     line-height: 1.16; letter-spacing: -0.01em;
-    transition: color .25s ease; max-width: 48ch;
-    display: -webkit-box; -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2; line-clamp: 2; overflow: hidden;
+    transition: color .25s ease; max-width: 52ch;
   }
   .fila-cuerpo .fuente {
     font-family: 'IBM Plex Mono', monospace; font-size: 12px;
@@ -155,7 +230,7 @@
   .fila:hover .adelanto, .fila:focus-within .adelanto { grid-template-rows: 1fr; }
   .adelanto-interior { overflow: hidden; min-height: 0; }
   .adelanto-caja {
-    margin: 0 0 32px 0; padding: 24px 30px;
+    margin: 0 0 30px 0; padding: 24px 30px;
     background: var(--papel-2); border-left: 2px solid var(--teal);
     border-radius: 2px; max-width: 88ch;
   }
@@ -187,7 +262,7 @@
   .sin-resultados strong { color: var(--tinta); font-weight: 500; }
   .marca-busqueda { color: var(--ambar); font-weight: 500; font-style: normal; }
 
-  footer.sitio { margin-top: 80px; padding: 48px 0 64px; border-top: 1px solid var(--linea); }
+  footer.sitio { margin-top: 76px; padding: 48px 0 64px; border-top: 1px solid var(--linea); }
   .pie-cols { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 48px; }
   .pie-bloque h4 {
     font-family: 'IBM Plex Mono', monospace; font-size: 11px;
@@ -216,7 +291,6 @@
     border-bottom: 1px solid var(--linea); transition: color .2s, border-color .2s;
   }
   .contacto-lista a:hover { color: var(--teal-hondo); border-color: var(--teal); }
-  .contacto-proximo { color: var(--tinta-2); font-style: italic; }
   @media (max-width: 980px) {
     .pie-cols { grid-template-columns: 1fr 1fr; }
   }
@@ -225,23 +299,40 @@
     .fila-cuerpo h3 { font-size: 23px; }
     h1.titulo { font-size: 42px; }
     .bajada-cols { grid-template-columns: 1fr; gap: 18px; }
-    .grupo-anio { grid-template-columns: 1fr; gap: 6px; padding: 32px 0; }
-    .grupo-anio:first-child { padding-top: 14px; }
+    .grupo-anio { grid-template-columns: 1fr; gap: 6px; padding: 30px 0; }
+    .grupo-anio:first-child { padding-top: 12px; }
     .anio-margen { position: static; margin-bottom: 6px; }
     .anio-num { font-size: 23px; }
-    .indice-cabecera { align-items: stretch; gap: 16px; }
+    .indice-cabecera { align-items: stretch; gap: 14px; }
     .buscador { min-width: 100%; }
+    .filtros { width: 100%; }
+    .filtro { flex: 1; text-align: center; }
   }
   @media (hover: none) { .adelanto { grid-template-rows: 1fr; } }
   @media (prefers-reduced-motion: reduce) { * { transition: none !important; scroll-behavior: auto; } }
-  a:focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; }
 </style>
 </head>
 <body>
 
+<div class="topbar">
+  <div class="topbar-in">
+    <a class="marca-top" href="index.html" aria-label="Resumenes Trials, inicio">
+      <img src="logo.png" alt="Resumenes Trials" width="1600" height="400">
+    </a>
+    <nav class="top-links" aria-label="Redes">
+      <a href="https://t.me/ResumenesTrials" target="_blank" rel="noopener" aria-label="Telegram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 2 11 13"></path><path d="M22 2 15 22l-4-9-9-4 20-7z"></path></svg>
+      </a>
+      <a href="https://x.com/resumenestrials" target="_blank" rel="noopener" aria-label="X">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.66l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"></path></svg>
+      </a>
+    </nav>
+  </div>
+</div>
+
 <header class="sitio">
   <div class="envoltorio">
-    <img class="marca-logo" src="logo.png" alt="Resumenes Trials" width="793" height="605">
     <h1 class="titulo">Evidencia sin ruido.</h1>
     <div class="bajada">
       <p class="lead">La medicina publica más de lo que nadie puede leer.</p>
@@ -252,8 +343,16 @@
     </div>
     <div class="barra-meta">
       <div class="meta-dato">
-        <span class="meta-num" id="conteo">1</span>
-        <span class="meta-eti">Resúmenes publicados</span>
+        <span class="meta-num" id="conteo">0</span>
+        <span class="meta-eti">Resúmenes</span>
+      </div>
+      <div class="meta-dato">
+        <span class="meta-num" id="conteo-crit">0</span>
+        <span class="meta-eti">Medicina Crítica</span>
+      </div>
+      <div class="meta-dato">
+        <span class="meta-num" id="conteo-int">0</span>
+        <span class="meta-eti">Medicina Interna</span>
       </div>
     </div>
   </div>
@@ -261,13 +360,17 @@
 
 <main class="envoltorio">
   <div class="indice-cabecera">
-    <div class="seccion-eti">Índice</div>
+    <div class="filtros" id="filtros" role="group" aria-label="Filtrar por especialidad">
+      <button class="filtro" data-esp="todos" aria-pressed="true">Todos<span class="n" id="n-todos"></span></button>
+      <button class="filtro" data-esp="Medicina Crítica" aria-pressed="false">Medicina Crítica<span class="n" id="n-crit"></span></button>
+      <button class="filtro" data-esp="Medicina Interna" aria-pressed="false">Medicina Interna<span class="n" id="n-int"></span></button>
+    </div>
     <div class="buscador">
       <svg class="buscador-lupa" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <circle cx="11" cy="11" r="7"></circle>
         <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
       </svg>
-      <input type="search" id="q" class="buscador-input" placeholder="Buscar" autocomplete="off" aria-label="Buscar resúmenes">
+      <input type="search" id="q" class="buscador-input" placeholder="Buscar trial, fármaco, tema, autor…" autocomplete="off" aria-label="Buscar resúmenes">
     </div>
   </div>
   <div class="conteo-busqueda" id="estado" role="status" aria-live="polite"></div>
@@ -311,25 +414,39 @@
 
 <script>
   // ====== DATOS ======
-  // Los resúmenes viven en un único archivo: resumenes.json
+  // Los resúmenes viven en un único archivo: resumenes.json (fuente única).
   // Para publicar uno nuevo NO se toca este archivo: se edita resumenes.json
-  // (lo más cómodo es usar la página agregar.html, que lo arma sin errores).
+  // (lo más cómodo es usar agregar.html, que lo arma sin errores).
   let resumenes = [];
+  let filtroEsp = "todos";
 
   const cont   = document.getElementById("indice");
   const input  = document.getElementById("q");
   const estado = document.getElementById("estado");
+  const filtrosBox = document.getElementById("filtros");
 
-  // Normaliza: minúsculas y sin acentos, para que "cronica" encuentre "crónica"
   const norm = (s) => (s || "").toString().toLowerCase()
     .normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 
-  // Fecha ISO (AAAA-MM-DD) -> DD/MM/AAAA
   const fmtFecha = (iso) => {
     if (!iso) return "";
     const p = iso.split("-");
     return p.length === 3 ? `${p[2]}/${p[1]}/${p[0]}` : iso;
   };
+
+  // ¿El resumen pertenece a la especialidad seleccionada? (principal O secundaria)
+  const perteneceA = (r, esp) =>
+    esp === "todos" ||
+    r.especialidad_principal === esp ||
+    r.especialidad_secundaria === esp;
+
+  function badgesHTML(r) {
+    const b = [];
+    const clase = (e) => e === "Medicina Crítica" ? "critica" : "interna";
+    if (r.especialidad_principal) b.push(`<span class="badge ${clase(r.especialidad_principal)}">${r.especialidad_principal}</span>`);
+    if (r.especialidad_secundaria) b.push(`<span class="badge ${clase(r.especialidad_secundaria)}">${r.especialidad_secundaria}</span>`);
+    return b.length ? `<div class="etiquetas">${b.join("")}</div>` : "";
+  }
 
   function filaHTML(r) {
     const fecha = r.fecha ? ` · ${fmtFecha(r.fecha)}` : "";
@@ -337,7 +454,8 @@
       <li class="fila">
         <a class="cabeza" href="resumen.html?id=${r.id}">
           <span class="fila-cuerpo">
-            <h3 title="${r.titulo}">${r.titulo}</h3>
+            ${badgesHTML(r)}
+            <h3>${r.titulo}</h3>
             <span class="fuente">${r.autor} · ${r.revista}${fecha} · ${r.registro} · ${r.doi}</span>
           </span>
           <span class="fila-flecha">→</span>
@@ -359,17 +477,17 @@
 
   function render(lista, consulta) {
     cont.innerHTML = "";
-
     if (lista.length === 0) {
-      cont.innerHTML = `<div class="sin-resultados">No hay resúmenes que coincidan con <span class="marca-busqueda">“${consulta}”</span>. Prueba con otro término: el nombre del fármaco, la enfermedad, el autor, la revista o el registro.</div>`;
+      const marco = consulta
+        ? `No hay resúmenes que coincidan con <span class="marca-busqueda">“${consulta}”</span> en esta especialidad. Prueba con otro término o cambia de pestaña.`
+        : `No hay resúmenes en esta especialidad todavía.`;
+      cont.innerHTML = `<div class="sin-resultados">${marco}</div>`;
       return;
     }
-
     // Agrupar por año, del más reciente al más antiguo
     const grupos = {};
     lista.forEach((r) => { (grupos[r.anio] = grupos[r.anio] || []).push(r); });
     const anios = Object.keys(grupos).sort((a, b) => Number(b) - Number(a));
-
     anios.forEach((anio) => {
       const seccion = document.createElement("section");
       seccion.className = "grupo-anio";
@@ -380,45 +498,68 @@
     });
   }
 
-  function filtrar() {
+  function aplicar() {
     const q = norm(input.value).trim();
     const tokens = q.split(/\s+/).filter(Boolean);
 
-    if (tokens.length === 0) {
-      estado.textContent = "";
-      render(resumenes, "");
-      return;
+    // 1) filtro por especialidad  2) filtro por búsqueda (AND por palabra)
+    let lista = resumenes.filter((r) => perteneceA(r, filtroEsp));
+    if (tokens.length) {
+      lista = lista.filter((r) => tokens.every((t) => r._buscable.includes(t)));
     }
 
-    // Coincidencia por TODAS las palabras (AND)
-    const lista = resumenes.filter((r) => tokens.every((t) => r._buscable.includes(t)));
+    const partes = [];
+    if (filtroEsp !== "todos") partes.push(filtroEsp);
+    if (tokens.length) {
+      partes.push(
+        lista.length === 0 ? "sin coincidencias" :
+        lista.length === 1 ? "1 resumen" : lista.length + " resúmenes"
+      );
+    }
+    estado.textContent = partes.join(" · ");
 
-    estado.textContent =
-      lista.length === 0 ? "Sin coincidencias" :
-      lista.length === 1 ? "1 resumen encontrado" :
-      lista.length + " resúmenes encontrados";
-
-    render(lista, input.value.trim());
+    render(lista, tokens.length ? input.value.trim() : "");
   }
 
-  input.addEventListener("input", filtrar);
+  input.addEventListener("input", aplicar);
 
-  // Cargar los resúmenes desde el archivo único y arrancar
+  filtrosBox.addEventListener("click", (e) => {
+    const btn = e.target.closest(".filtro");
+    if (!btn) return;
+    filtroEsp = btn.dataset.esp;
+    [...filtrosBox.querySelectorAll(".filtro")].forEach((b) =>
+      b.setAttribute("aria-pressed", b === btn ? "true" : "false"));
+    aplicar();
+  });
+
   fetch("resumenes.json", { cache: "no-store" })
-    .then((r) => {
-      if (!r.ok) throw new Error("HTTP " + r.status);
-      return r.json();
-    })
+    .then((r) => { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
     .then((data) => {
       resumenes = Array.isArray(data) ? data : [];
       // Orden global por fecha de publicación, del más reciente al más antiguo
       resumenes.sort((a, b) => (b.fecha || "").localeCompare(a.fecha || ""));
-      // Índice de texto buscable por resumen
+      // Índice de texto buscable (incluye especialidad y temas)
       resumenes.forEach((r) => {
-        r._buscable = norm([r.titulo, r.autor, r.revista, r.anio, fmtFecha(r.fecha), r.registro, r.doi, r.objetivo, r.hallazgo].join(" "));
+        r._buscable = norm([
+          r.titulo, r.autor, r.revista, r.anio, fmtFecha(r.fecha), r.registro, r.doi,
+          r.especialidad_principal, r.especialidad_secundaria,
+          Array.isArray(r.temas) ? r.temas.join(" ") : "",
+          r.tipo_estudio, r.objetivo, r.hallazgo
+        ].join(" "));
       });
-      render(resumenes, "");
-      document.getElementById("conteo").textContent = resumenes.length;
+
+      // Conteos
+      const total = resumenes.length;
+      const nCrit = resumenes.filter((r) => perteneceA(r, "Medicina Crítica")).length;
+      const nInt  = resumenes.filter((r) => perteneceA(r, "Medicina Interna")).length;
+      document.getElementById("conteo").textContent = total;
+      document.getElementById("conteo-crit").textContent = nCrit;
+      document.getElementById("conteo-int").textContent = nInt;
+      document.getElementById("n-todos").textContent = total;
+      document.getElementById("n-crit").textContent = nCrit;
+      document.getElementById("n-int").textContent = nInt;
+
+      aplicar();
     })
     .catch((err) => {
       console.error("No se pudo cargar resumenes.json:", err);

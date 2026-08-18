@@ -37,6 +37,7 @@
   :root {
     --tinta:#12233b; --tinta-2:#38506e; --teal:#1c8a8a; --teal-hondo:#0f5f5f;
     --papel:#f7f6f2; --papel-2:#efece4; --linea:#ddd8cc; --ambar:#c8892a;
+    --critica:#0f5f5f; --interna:#8a4a1c;
   }
   * { box-sizing:border-box; margin:0; padding:0; }
   body {
@@ -46,21 +47,58 @@
   }
   .envoltorio { max-width:1200px; margin:0 auto; padding:0 clamp(24px,5vw,64px); }
 
-  .volver {
-    display:inline-block; margin:36px 0 0;
-    font-family:'IBM Plex Mono',monospace; font-size:12px;
-    letter-spacing:0.1em; text-transform:uppercase;
-    color:var(--teal-hondo); text-decoration:none;
+  /* ---- Masthead persistente ---- */
+  .topbar {
+    position: sticky; top: 0; z-index: 40;
+    background: rgba(247,246,242,.92);
+    backdrop-filter: saturate(1.2) blur(8px);
+    border-bottom: 1px solid var(--linea);
   }
-  .volver:hover { color:var(--teal); }
+  .topbar-in {
+    max-width:1200px; margin:0 auto;
+    padding:12px clamp(24px,5vw,64px);
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+  }
+  .marca-top { display:inline-flex; align-items:center; }
+  .marca-top img { display:block; height:30px; width:auto; }
+  .top-links { display:flex; align-items:center; gap:8px; }
+  .top-links a {
+    display:inline-flex; align-items:center; justify-content:center;
+    width:36px; height:36px; border-radius:3px;
+    color:var(--teal-hondo); text-decoration:none;
+    transition:background .2s ease, color .2s ease;
+  }
+  .top-links a:hover { background:var(--papel-2); color:var(--teal); }
+  .top-links svg { width:18px; height:18px; }
+
+  /* ---- Migas de pan ---- */
+  .migas {
+    margin:22px 0 0; display:flex; flex-wrap:wrap; gap:8px; align-items:center;
+    font-family:'IBM Plex Mono',monospace; font-size:11.5px;
+    letter-spacing:0.06em; color:var(--tinta-2);
+  }
+  .migas a { color:var(--teal-hondo); text-decoration:none; }
+  .migas a:hover { color:var(--teal); }
+  .migas .sep { opacity:.5; }
+  .migas .actual { color:var(--tinta-2); }
 
   header.art {
-    padding:28px 0 32px; margin-bottom:8px;
+    padding:14px 0 30px; margin-bottom:8px;
     border-bottom:1px solid var(--linea);
   }
+  .etiquetas { display:flex; flex-wrap:wrap; gap:8px; margin:16px 0 16px; }
+  .badge {
+    font-family:'IBM Plex Mono',monospace; font-size:10px;
+    letter-spacing:0.12em; text-transform:uppercase;
+    padding:3px 9px; border-radius:2px; white-space:nowrap;
+    border:1px solid; line-height:1.5;
+  }
+  .badge.critica { color:var(--critica); border-color:rgba(15,95,95,.32); background:rgba(15,95,95,.06); }
+  .badge.interna { color:var(--interna); border-color:rgba(138,74,28,.30); background:rgba(138,74,28,.06); }
+  .badge.tema { color:var(--tinta-2); border-color:var(--linea); background:transparent; text-transform:none; letter-spacing:0.02em; }
   .fuente-linea {
     font-family:'IBM Plex Mono',monospace; font-size:12px;
-    letter-spacing:0.06em; color:var(--tinta-2); margin-bottom:18px;
+    letter-spacing:0.06em; color:var(--tinta-2); margin-bottom:16px;
   }
   h1 {
     font-family:'Fraunces',serif; font-weight:500;
@@ -69,11 +107,9 @@
   }
 
   article {
-    padding:16px 0 20px;
+    padding:20px 0 20px;
     columns:2; column-gap:clamp(36px,4vw,64px);
   }
-
-  /* Los encabezados ### del resumen se estilizan así */
   article h2 {
     font-family:'IBM Plex Mono',monospace;
     font-size:12px; letter-spacing:0.18em; text-transform:uppercase;
@@ -82,11 +118,7 @@
     break-inside:avoid; break-after:avoid-column;
   }
   article h2:first-child { margin-top:0; }
-  article p {
-    margin-bottom:16px;
-    text-align:justify;
-    hyphens:auto; -webkit-hyphens:auto;
-  }
+  article p { margin-bottom:16px; text-align:justify; hyphens:auto; -webkit-hyphens:auto; }
   article strong { color:var(--tinta); font-weight:600; }
 
   @media (max-width:900px){
@@ -94,19 +126,16 @@
     article p { text-align:left; hyphens:manual; }
   }
 
-  /* Navegación entre versión completa y breve */
   .version-nav {
     margin-top:14px; display:flex; flex-wrap:wrap; gap:8px 18px; align-items:baseline;
     font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.06em;
   }
-  .version-etiqueta {
-    color:var(--ambar); text-transform:uppercase; letter-spacing:0.12em; font-size:11px;
-  }
+  .version-etiqueta { color:var(--ambar); text-transform:uppercase; letter-spacing:0.12em; font-size:11px; }
   .cambio-version { color:var(--teal-hondo); text-decoration:none; }
   .cambio-version:hover { color:var(--teal); }
 
-  /* Versión breve: una sola columna, más estrecha, para lectura rápida */
   body.modo-corto .envoltorio { max-width:820px; }
+  body.modo-corto .topbar-in { max-width:820px; }
   article.corto { columns:1; }
   article.corto p { text-align:justify; hyphens:auto; -webkit-hyphens:auto; }
 
@@ -118,11 +147,41 @@
   }
   .enlace-original a { color:var(--teal-hondo); overflow-wrap:anywhere; word-break:break-word; }
 
+  /* ---- Artículos relacionados ---- */
+  .relacionados { margin:8px 0 8px; padding-top:14px; }
+  .relacionados h2 {
+    font-family:'IBM Plex Mono',monospace; font-size:12px;
+    letter-spacing:0.18em; text-transform:uppercase;
+    color:var(--teal-hondo); font-weight:500; margin-bottom:20px;
+  }
+  .rel-grid { display:grid; grid-template-columns:1fr 1fr; gap:2px 40px; }
+  .rel-item { border-top:1px solid var(--linea); padding:18px 0; }
+  .rel-item a { text-decoration:none; color:inherit; display:block; }
+  .rel-item .rel-tit {
+    font-family:'Fraunces',serif; font-weight:500; font-size:20px;
+    line-height:1.2; letter-spacing:-0.01em; transition:color .2s ease;
+    max-width:44ch;
+  }
+  .rel-item a:hover .rel-tit { color:var(--teal-hondo); }
+  .rel-item .rel-fuente {
+    font-family:'IBM Plex Mono',monospace; font-size:11px;
+    letter-spacing:0.04em; color:var(--tinta-2); margin-top:8px;
+  }
+  .rel-item .etiquetas { margin:0 0 10px; }
+  @media (max-width:760px){ .rel-grid { grid-template-columns:1fr; } }
+
   .pie-nav {
     margin-top:40px; padding-top:24px; border-top:1px solid var(--linea);
     display:flex; flex-wrap:wrap; gap:12px 24px;
     align-items:baseline; justify-content:space-between;
   }
+  .volver {
+    display:inline-block;
+    font-family:'IBM Plex Mono',monospace; font-size:12px;
+    letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--teal-hondo); text-decoration:none;
+  }
+  .volver:hover { color:var(--teal); }
   .pie-nav .volver { margin:0; }
 
   footer.art {
@@ -131,11 +190,7 @@
     font-family:'IBM Plex Mono',monospace; font-size:12px;
     color:var(--tinta-2);
   }
-
-  .aviso {
-    font-family:'IBM Plex Mono',monospace; font-size:13px;
-    color:var(--tinta-2); padding:40px 0;
-  }
+  .aviso { font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--tinta-2); padding:40px 0; }
 
   @media (prefers-reduced-motion: reduce){ *{transition:none} }
   a:focus-visible{ outline:2px solid var(--teal); outline-offset:3px; }
@@ -143,8 +198,20 @@
 </head>
 <body>
 
-<div class="envoltorio">
-  <a class="volver" href="index.html">← Volver al índice</a>
+<div class="topbar">
+  <div class="topbar-in">
+    <a class="marca-top" href="index.html" aria-label="Resumenes Trials, inicio">
+      <img src="logo.png" alt="Resumenes Trials" width="1600" height="400">
+    </a>
+    <nav class="top-links" aria-label="Redes">
+      <a href="https://t.me/ResumenesTrials" target="_blank" rel="noopener" aria-label="Telegram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 2 11 13"></path><path d="M22 2 15 22l-4-9-9-4 20-7z"></path></svg>
+      </a>
+      <a href="https://x.com/resumenestrials" target="_blank" rel="noopener" aria-label="X">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.66l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"></path></svg>
+      </a>
+    </nav>
+  </div>
 </div>
 
 <div id="contenido"></div>
@@ -165,7 +232,6 @@
     div.innerHTML = String(valor || "");
     return (div.textContent || div.innerText || "").replace(/\s+/g, " ").trim();
   }
-
   function recortar(texto, max = 158) {
     const limpio = textoPlano(texto);
     if (limpio.length <= max) return limpio;
@@ -173,30 +239,38 @@
     const ultimoEspacio = corte.lastIndexOf(" ");
     return (ultimoEspacio > 100 ? corte.slice(0, ultimoEspacio) : limpio.slice(0, max)).trim() + "…";
   }
+  const esc = (s) => String(s || "").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+  const fmtFecha = (iso) => {
+    if (!iso) return "";
+    const p = String(iso).split("-");
+    return p.length === 3 ? `${p[2]}/${p[1]}/${p[0]}` : iso;
+  };
+  const claseEsp = (e) => e === "Medicina Crítica" ? "critica" : "interna";
 
   function fijarMeta(selector, atributo, valor) {
     const el = document.querySelector(selector);
     if (el && valor) el.setAttribute(atributo, valor);
   }
-
   function fijarCanonical(valor) {
     if (!valor) return;
-    let el = document.querySelector('link[rel=\"canonical\"]');
-    if (!el) {
-      el = document.createElement('link');
-      el.setAttribute('rel', 'canonical');
-      document.head.appendChild(el);
-    }
+    let el = document.querySelector('link[rel="canonical"]');
+    if (!el) { el = document.createElement('link'); el.setAttribute('rel','canonical'); document.head.appendChild(el); }
     el.setAttribute('href', valor);
   }
 
+  function badgesHTML(dato) {
+    const b = [];
+    if (dato.especialidad_principal) b.push(`<span class="badge ${claseEsp(dato.especialidad_principal)}">${dato.especialidad_principal}</span>`);
+    if (dato.especialidad_secundaria) b.push(`<span class="badge ${claseEsp(dato.especialidad_secundaria)}">${dato.especialidad_secundaria}</span>`);
+    (Array.isArray(dato.temas) ? dato.temas : []).forEach((t) => b.push(`<span class="badge tema">${esc(t)}</span>`));
+    return b.length ? `<div class="etiquetas">${b.join("")}</div>` : "";
+  }
+
   function actualizarSEO(dato, esCorto) {
-    // La versión breve y la completa comparten canonical para evitar contenido duplicado.
     const canonical = `${BASE_URL}/resumen.html?id=${encodeURIComponent(dato.id)}`;
     const urlCompartida = esCorto ? `${canonical}&v=corto` : canonical;
     const sufijo = esCorto ? " · resumen breve" : "";
     const titulo = `${textoPlano(dato.titulo)}${sufijo} · Resumenes Trials`;
-
     const baseDescripcion = dato.objetivo || dato.hallazgo ||
       "Resumen crítico en español de un ensayo clínico aleatorizado.";
     const descripcion = recortar(baseDescripcion);
@@ -205,17 +279,18 @@
     fijarMeta('#meta-description', 'content', descripcion);
     fijarMeta('#meta-robots', 'content', 'index,follow,max-image-preview:large');
     fijarCanonical(canonical);
-
     fijarMeta('#og-title', 'content', titulo);
     fijarMeta('#og-description', 'content', descripcion);
     fijarMeta('#og-url', 'content', urlCompartida);
-
     fijarMeta('#twitter-title', 'content', titulo);
     fijarMeta('#twitter-description', 'content', descripcion);
 
-    const schema = {
-      "@context": "https://schema.org",
-      "@type": "Article",
+    const temasArr = Array.isArray(dato.temas) ? dato.temas : [];
+    const about = [dato.especialidad_principal, dato.especialidad_secundaria, ...temasArr]
+      .filter(Boolean).map((n) => ({ "@type": "MedicalEntity", "name": n }));
+
+    const articulo = {
+      "@type": "MedicalScholarlyArticle",
       "headline": textoPlano(dato.titulo),
       "description": descripcion,
       "inLanguage": "es",
@@ -225,66 +300,105 @@
         "@type": "Organization",
         "name": "Resumenes Trials",
         "url": `${BASE_URL}/`,
-        "logo": {
-          "@type": "ImageObject",
-          "url": `${BASE_URL}/logo.png`
-        }
-      },
-      "about": {
-        "@type": "Thing",
-        "name": "Ensayo clínico aleatorizado"
+        "logo": { "@type": "ImageObject", "url": `${BASE_URL}/logo.png` }
       }
     };
+    if (dato.fecha) articulo.datePublished = dato.fecha;
+    if (dato.autor) articulo.author = { "@type": "Person", "name": textoPlano(dato.autor) };
+    if (dato.revista) articulo.isPartOf = { "@type": "Periodical", "name": textoPlano(dato.revista) };
+    if (dato.original) articulo.isBasedOn = dato.original;
+    if (dato.doi) { const d = textoPlano(dato.doi); articulo.identifier = `https://doi.org/${d}`; articulo.sameAs = `https://doi.org/${d}`; }
+    if (about.length) articulo.about = about;
+    if (temasArr.length) articulo.keywords = temasArr.join(", ");
 
-    if (dato.autor) {
-      schema.author = { "@type": "Person", "name": textoPlano(dato.autor) };
-    }
-    if (dato.original) {
-      schema.isBasedOn = dato.original;
-    }
-    if (dato.doi) {
-      schema.identifier = `https://doi.org/${textoPlano(dato.doi)}`;
-    }
+    const migas = {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Índice", "item": `${BASE_URL}/` },
+        { "@type": "ListItem", "position": 2, "name": dato.especialidad_principal || "Resúmenes", "item": `${BASE_URL}/` },
+        { "@type": "ListItem", "position": 3, "name": textoPlano(dato.titulo), "item": canonical }
+      ]
+    };
 
     const jsonLd = document.getElementById("structured-data");
-    if (jsonLd) jsonLd.textContent = JSON.stringify(schema);
+    if (jsonLd) jsonLd.textContent = JSON.stringify({ "@context": "https://schema.org", "@graph": [articulo, migas] });
+  }
+
+  function migasHTML(dato) {
+    const esp = dato.especialidad_principal || "Resúmenes";
+    return `
+      <nav class="migas" aria-label="Ruta">
+        <a href="index.html">Índice</a>
+        <span class="sep">›</span>
+        <a href="index.html">${esc(esp)}</a>
+        <span class="sep">›</span>
+        <span class="actual">${esc(dato.registro || "Resumen")}</span>
+      </nav>`;
+  }
+
+  // Artículos relacionados: por especialidad y temas compartidos, más recientes primero.
+  function relacionadosHTML(dato, todos) {
+    const espActual = [dato.especialidad_principal, dato.especialidad_secundaria].filter(Boolean);
+    const temasActual = new Set(Array.isArray(dato.temas) ? dato.temas : []);
+    const puntuar = (r) => {
+      const espR = [r.especialidad_principal, r.especialidad_secundaria].filter(Boolean);
+      const espComun = espR.filter((e) => espActual.includes(e)).length;
+      const temasComun = (Array.isArray(r.temas) ? r.temas : []).filter((t) => temasActual.has(t)).length;
+      return temasComun * 2 + espComun;
+    };
+    const candidatos = todos
+      .filter((r) => String(r.id) !== String(dato.id))
+      .map((r) => ({ r, s: puntuar(r) }))
+      .filter((x) => x.s > 0)
+      .sort((a, b) => (b.s - a.s) || (String(b.r.fecha||"").localeCompare(String(a.r.fecha||""))))
+      .slice(0, 4)
+      .map((x) => x.r);
+
+    if (!candidatos.length) return "";
+    const items = candidatos.map((r) => `
+      <div class="rel-item">
+        <a href="resumen.html?id=${r.id}">
+          ${badgesEspHTML(r)}
+          <div class="rel-tit">${r.titulo}</div>
+          <div class="rel-fuente">${esc(r.autor)} · ${esc(r.revista)}${r.fecha ? " · " + fmtFecha(r.fecha) : ""}</div>
+        </a>
+      </div>`).join("");
+    return `<section class="relacionados"><h2>Evidencia relacionada</h2><div class="rel-grid">${items}</div></section>`;
+  }
+  function badgesEspHTML(r) {
+    const b = [];
+    if (r.especialidad_principal) b.push(`<span class="badge ${claseEsp(r.especialidad_principal)}">${r.especialidad_principal}</span>`);
+    if (r.especialidad_secundaria) b.push(`<span class="badge ${claseEsp(r.especialidad_secundaria)}">${r.especialidad_secundaria}</span>`);
+    return b.length ? `<div class="etiquetas">${b.join("")}</div>` : "";
   }
 
   function noEncontrado() {
     document.title = "Resumen no encontrado · Resumenes Trials";
     fijarMeta('#meta-description', 'content', 'El resumen solicitado no está disponible en Resumenes Trials.');
     fijarMeta('#meta-robots', 'content', 'noindex,follow');
-    const canonicalExistente = document.querySelector('link[rel=\"canonical\"]');
+    const canonicalExistente = document.querySelector('link[rel="canonical"]');
     if (canonicalExistente) canonicalExistente.remove();
     cont.innerHTML = `<div class="envoltorio"><p class="aviso">No se encontró ese resumen. <a href="index.html" style="color:var(--teal-hondo)">Volver al índice</a> para ver los disponibles.</p></div>`;
   }
 
   fetch("resumenes.json", { cache: "no-store" })
-    .then((r) => {
-      if (!r.ok) throw new Error("HTTP " + r.status);
-      return r.json();
-    })
+    .then((r) => { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
     .then((data) => {
-      const dato = (Array.isArray(data) ? data : []).find((x) => String(x.id) === String(id));
+      const todos = Array.isArray(data) ? data : [];
+      const dato = todos.find((x) => String(x.id) === String(id));
       if (!dato) { noEncontrado(); return; }
 
-      // ¿Versión breve? Solo si se pide y existe.
       const esCorto = params.get("v") === "corto" && !!dato.corto;
       const cuerpoHTML = esCorto ? dato.corto : dato.cuerpo;
       document.body.classList.toggle("modo-corto", esCorto);
 
-      // Enlace para cambiar de versión
       let versionNav = "";
       if (esCorto) {
-        versionNav =
-          `<span class="version-etiqueta">Lectura rápida</span>` +
+        versionNav = `<span class="version-etiqueta">Lectura rápida</span>` +
           `<a class="cambio-version" href="resumen.html?id=${dato.id}">Ver versión completa →</a>`;
       } else if (dato.corto) {
-        versionNav =
-          `<a class="cambio-version" href="resumen.html?id=${dato.id}&v=corto">Ver versión breve →</a>`;
+        versionNav = `<a class="cambio-version" href="resumen.html?id=${dato.id}&v=corto">Ver versión breve →</a>`;
       }
-
-      // Enlace de cambio de versión para el pie (solo el enlace, sin la etiqueta)
       let versionNavPie = "";
       if (esCorto) {
         versionNavPie = `<a class="cambio-version" href="resumen.html?id=${dato.id}">Ver versión completa →</a>`;
@@ -294,14 +408,21 @@
 
       actualizarSEO(dato, esCorto);
 
+      const fuenteLinea = [dato.autor, dato.anio ? `${dato.revista} ${dato.anio}` : dato.revista, dato.registro, dato.doi]
+        .filter(Boolean).join(" · ");
+
       cont.innerHTML = `
         <div class="envoltorio">
+          ${migasHTML(dato)}
           <header class="art">
+            ${badgesHTML(dato)}
             <h1>${dato.titulo}</h1>
+            <div class="fuente-linea" style="margin-top:16px">${esc(fuenteLinea)}</div>
             ${versionNav ? `<div class="version-nav">${versionNav}</div>` : ""}
           </header>
           <article class="${esCorto ? "corto" : ""}">${cuerpoHTML}</article>
           ${dato.original ? `<div class="enlace-original">Artículo original: <a href="${dato.original}" target="_blank" rel="noopener">${dato.original}</a></div>` : ""}
+          ${esCorto ? "" : relacionadosHTML(dato, todos)}
           <nav class="pie-nav">
             <a class="volver" href="index.html">← Volver al índice</a>
             ${versionNavPie}
