@@ -223,6 +223,19 @@
   }
   .fila:hover h3 { color: var(--teal-hondo); }
   .fila:hover .fila-flecha { transform: translateX(8px); color: var(--teal); }
+
+  .fila-pdf { padding: 0 0 20px; margin-top: -6px; }
+  .btn-pdf {
+    display: inline-flex; align-items: center; gap: 7px;
+    font-family: 'IBM Plex Mono', monospace; font-size: 11px;
+    letter-spacing: 0.06em; color: var(--teal-hondo);
+    background: transparent; border: 1px solid rgba(15,95,95,.32);
+    padding: 6px 13px; border-radius: 999px; cursor: pointer;
+    transition: background .2s ease, color .2s ease, border-color .2s ease;
+  }
+  .btn-pdf:hover { background: var(--teal-hondo); color: #fff; border-color: var(--teal-hondo); }
+  .btn-pdf:disabled { opacity: .6; cursor: progress; }
+  .btn-pdf:focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; }
   .adelanto {
     display: grid; grid-template-rows: 0fr;
     transition: grid-template-rows .38s cubic-bezier(.4,0,.2,1);
@@ -312,6 +325,7 @@
   @media (prefers-reduced-motion: reduce) { * { transition: none !important; scroll-behavior: auto; } }
   a:focus-visible, button:focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; }
 </style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.3/html2pdf.bundle.min.js" defer></script>
 </head>
 <body>
 
@@ -456,10 +470,13 @@
           <span class="fila-cuerpo">
             ${badgesHTML(r)}
             <h3>${r.titulo}</h3>
-            <span class="fuente">${r.autor} · ${r.revista}${fecha} · ${r.registro} · ${r.doi}</span>
+            <span class="fuente">${r.autor} · ${r.revista}${fecha}${r.doi ? " · " + r.doi : ""}</span>
           </span>
           <span class="fila-flecha">→</span>
         </a>
+        <div class="fila-pdf">
+          <button type="button" class="btn-pdf" data-id="${r.id}" aria-label="Descargar el resumen completo en PDF">⬇ Descargar resumen en PDF</button>
+        </div>
         <div class="adelanto">
           <div class="adelanto-interior">
             <div class="adelanto-caja">
@@ -530,6 +547,65 @@
     [...filtrosBox.querySelectorAll(".filtro")].forEach((b) =>
       b.setAttribute("aria-pressed", b === btn ? "true" : "false"));
     aplicar();
+  });
+
+  // ---- Descarga en PDF del resumen completo (fondo blanco, limpio) ----
+  function textoPlano(html) {
+    const d = document.createElement("div");
+    d.innerHTML = html || "";
+    return (d.textContent || "").replace(/\s+/g, " ").trim();
+  }
+  function nombreArchivoPDF(r) {
+    const base = (textoPlano(r.titulo).split(":")[0] || "resumen").trim();
+    const seguro = base.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^\w\-]+/g, "_").slice(0, 40) || "resumen";
+    return `Resumen_${seguro}.pdf`;
+  }
+  function construirNodoPDF(r) {
+    const meta = [r.autor, r.anio ? `${r.revista} ${r.anio}` : r.revista, r.registro, r.doi ? `DOI: ${r.doi}` : ""]
+      .filter(Boolean).join("   ·   ");
+    const nodo = document.createElement("div");
+    nodo.style.cssText = "position:absolute;left:-99999px;top:0;width:760px;background:#ffffff;color:#151515;font-family:Georgia,'Times New Roman',serif;font-size:13px;line-height:1.55;";
+    nodo.innerHTML =
+      `<div style="border-bottom:2px solid #0f5f5f;padding-bottom:12px;margin-bottom:16px">
+         <div style="font-family:Arial,Helvetica,sans-serif;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:#0f5f5f">Resúmenes Trials · Evidencia sin ruido</div>
+         <h1 style="font-size:21px;line-height:1.2;margin:9px 0 8px;color:#12233b;font-family:Georgia,serif">${r.titulo || ""}</h1>
+         <div style="font-family:Arial,Helvetica,sans-serif;font-size:10.5px;color:#38506e;line-height:1.5">${meta}</div>
+       </div>
+       <div class="pdf-cuerpo">${r.cuerpo || ""}</div>
+       ${r.original ? `<div style="margin-top:16px;font-family:Arial,Helvetica,sans-serif;font-size:10px;color:#38506e;word-break:break-all">Artículo original: ${r.original}</div>` : ""}
+       <div style="margin-top:16px;border-top:1px solid #d8d8d8;padding-top:9px;font-family:Arial,Helvetica,sans-serif;font-size:9.5px;color:#777;line-height:1.5">Resumen crítico para profesionales de la salud. Es una guía de lectura; no reemplaza el artículo original ni el juicio clínico. https://resumenestrials.com/resumen.html?id=${r.id}</div>`;
+    nodo.querySelectorAll(".pdf-cuerpo h2").forEach((h) => { h.style.cssText = "font-family:Arial,Helvetica,sans-serif;font-size:11px;letter-spacing:1.4px;text-transform:uppercase;color:#0f5f5f;margin:16px 0 6px;font-weight:bold"; });
+    nodo.querySelectorAll(".pdf-cuerpo p").forEach((p) => { p.style.cssText = "margin:0 0 9px;text-align:justify"; });
+    nodo.querySelectorAll(".pdf-cuerpo strong").forEach((s) => { s.style.color = "#12233b"; });
+    return nodo;
+  }
+  function descargarPDF(r, boton) {
+    const nodo = construirNodoPDF(r);
+    document.body.appendChild(nodo);
+    const limpiar = () => { if (nodo.parentNode) nodo.parentNode.removeChild(nodo); };
+    const rotulo = boton ? boton.textContent : "";
+    if (boton) { boton.disabled = true; boton.textContent = "Generando…"; }
+    const restaurar = () => { if (boton) { boton.disabled = false; boton.textContent = rotulo; } };
+    if (window.html2pdf) {
+      window.html2pdf().set({
+        margin: [12, 12, 14, 12],
+        filename: nombreArchivoPDF(r),
+        image: { type: "jpeg", quality: 0.98 },
+        html2canvas: { scale: 2, useCORS: true, backgroundColor: "#ffffff" },
+        jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
+        pagebreak: { mode: ["css", "legacy"] }
+      }).from(nodo).save().then(() => { limpiar(); restaurar(); }).catch(() => { limpiar(); restaurar(); });
+    } else {
+      limpiar(); restaurar();
+      window.open(`resumen.html?id=${r.id}`, "_blank");
+    }
+  }
+  cont.addEventListener("click", (e) => {
+    const b = e.target.closest(".btn-pdf");
+    if (!b) return;
+    e.preventDefault();
+    const r = resumenes.find((x) => String(x.id) === b.dataset.id);
+    if (r) descargarPDF(r, b);
   });
 
   fetch("resumenes.json", { cache: "no-store" })
