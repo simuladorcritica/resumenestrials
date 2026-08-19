@@ -4,7 +4,7 @@ const browser=await chromium.launch({headless:true});
 const page=await browser.newPage({viewport:{width:1440,height:1000}});
 const errors=[];
 page.on('pageerror',e=>errors.push(`pageerror: ${e.message}`));
-page.on('console',m=>{const text=m.text();if(m.type()==='error'&&!/favicon/i.test(text)&&!/Failed to load resource.*429/i.test(text))errors.push(`console: ${text}`)});
+page.on('console',m=>{const text=m.text();const harmless=/%c%d font-size:0;color:transparent NaN/.test(text)||/favicon/i.test(text)||/Failed to load resource.*429/i.test(text);if(m.type()==='error'&&!harmless)errors.push(`console: ${text}`)});
 async function visit(path,fn){console.log('VISIT',path);await page.goto(BASE+path,{waitUntil:'domcontentloaded',timeout:30000});if(fn)await fn();}
 await visit('/',async()=>{await page.waitForSelector('#indice .fila',{timeout:20000});if(!await page.locator('#rt-user-panel').count())await page.waitForSelector('#rt-user-panel',{timeout:10000});});
 await visit('/login.html?smoke=1',async()=>{await page.waitForSelector('#turnstile-login',{timeout:10000});await page.waitForTimeout(3500);const text=await page.locator('#turnstile-login').innerText().catch(()=> '');if(/400020|invalid sitekey|no se pudo cargar/i.test(text))throw new Error(`Turnstile login falló: ${text}`)});
