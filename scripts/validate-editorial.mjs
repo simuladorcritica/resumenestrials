@@ -7,6 +7,7 @@ const ok = (message) => console.log(`EDITORIAL PASS: ${message}`);
 const homeAuth = read('home-auth-ui.js');
 const interactive = read('interactive-home.js');
 const account = read('cuenta.html');
+const auth = read('auth.js');
 const login = read('login.html');
 const register = read('registro.html');
 const recovery = read('recuperar.html');
@@ -34,6 +35,27 @@ else ok('Login con una sola ruta a creación de cuenta.');
 for (const [name, html] of [['cuenta.html', account], ['login.html', login], ['registro.html', register], ['recuperar.html', recovery]]) {
   if (!html.includes("Fraunces") || !html.includes("Newsreader") || !html.includes("IBM+Plex+Mono")) fail(`${name} no conserva las tres familias tipográficas del sistema.`);
   else ok(`${name} conserva Fraunces, Newsreader e IBM Plex Mono.`);
+}
+
+if (!auth.includes('getAccountPreferences') || !auth.includes('updateAccountPreferences')) fail('auth.js no expone el contrato de preferencias de cuenta.');
+else ok('Contrato de preferencias disponible en auth.js.');
+
+const requiredAccountFragments = [
+  "updateProfile({firstName:",
+  "newsletterOptIn:",
+  "saved.notifications||{}",
+  "saved.preferences||{}",
+  "updateAccountPreferences({notifications:{",
+  "updateAccountPreferences({preferences:{"
+];
+for (const fragment of requiredAccountFragments) {
+  if (!account.includes(fragment)) fail(`cuenta.html no respeta el contrato actual de auth.js: falta ${fragment}`);
+}
+if (!process.exitCode) ok('Cuenta y auth.js comparten el mismo contrato de perfil y preferencias.');
+
+const obsoleteAccountFragments = ['notifications_enabled', 'notify_critical_care', 'notify_internal_medicine', 'sort_preference'];
+for (const fragment of obsoleteAccountFragments) {
+  if (account.includes(fragment)) fail(`cuenta.html usa una clave obsoleta no soportada por auth.js: ${fragment}`);
 }
 
 if (process.exitCode) process.exit(process.exitCode);
