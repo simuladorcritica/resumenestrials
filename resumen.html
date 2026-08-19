@@ -194,7 +194,7 @@
 
   /* ---- Volver al índice (destacado) + contexto ---- */
   .migas { margin:22px 0 0; display:flex; flex-wrap:wrap; gap:12px 14px; align-items:center; }
-  .volver-top {
+  .migas a.volver-top {
     display:inline-flex; align-items:center; gap:8px;
     font-family:'IBM Plex Mono',monospace; font-size:12px; font-weight:500;
     letter-spacing:0.08em; text-transform:uppercase;
@@ -202,7 +202,7 @@
     padding:9px 17px; border-radius:999px; text-decoration:none;
     transition:background .2s ease, transform .2s ease;
   }
-  .volver-top:hover { background:var(--teal); transform:translateX(-2px); }
+  .migas a.volver-top:hover { color:#fff; background:var(--teal); transform:translateX(-2px); }
   .miga-esp {
     font-family:'IBM Plex Mono',monospace; font-size:11.5px;
     letter-spacing:0.06em; color:var(--tinta-2);
@@ -240,7 +240,7 @@
   @media (prefers-reduced-motion: reduce){ *{transition:none} }
   a:focus-visible{ outline:2px solid var(--teal); outline-offset:3px; }
 </style>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.3/html2pdf.bundle.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
 </head>
 <body>
 
@@ -428,45 +428,97 @@
     const seguro = base.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^\w\-]+/g, "_").slice(0, 40) || "resumen";
     return `Resumen_${seguro}${esCorto ? "_breve" : ""}.pdf`;
   }
-  function construirNodoPDF(dato, esCorto) {
-    const meta = [dato.autor, dato.anio ? `${dato.revista} ${dato.anio}` : dato.revista, dato.registro, dato.doi ? `DOI: ${dato.doi}` : ""]
+  function sanPDF(s) {
+    return String(s == null ? "" : s)
+      .replace(/[\u2014\u2013]/g, "-").replace(/[\u2018\u2019]/g, "'")
+      .replace(/[\u201C\u201D]/g, '"').replace(/\u2026/g, "...").replace(/\u00A0/g, " ");
+  }
+  function generarPDF(dato, esCorto) {
+    const ns = window.jspdf;
+    if (!ns || !ns.jsPDF) { window.print(); return; }
+    const doc = new ns.jsPDF({ unit: "pt", format: "a4" });
+    const pageW = doc.internal.pageSize.getWidth();
+    const pageH = doc.internal.pageSize.getHeight();
+    const M = 50, maxW = pageW - M * 2, bottom = pageH - M;
+    let y = M;
+    const salto = () => { doc.addPage(); y = M; };
+    const asegura = (h) => { if (y + h > bottom) salto(); };
+    const lineas = (txt, w) => doc.splitTextToSize(sanPDF(txt), w);
+
+    doc.setFont("helvetica", "bold"); doc.setFontSize(8); doc.setTextColor(15, 95, 95);
+    doc.text("RESÚMENES TRIALS  ·  EVIDENCIA SIN RUIDO", M, y); y += 18;
+
+    doc.setFont("times", "bold"); doc.setFontSize(17); doc.setTextColor(18, 35, 59);
+    lineas(textoPlano(dato.titulo), maxW).forEach((l) => { asegura(21); doc.text(l, M, y); y += 21; });
+    y += 5;
+
+    const meta = [dato.autor, dato.anio ? `${dato.revista} ${dato.anio}` : dato.revista, dato.registro, dato.doi ? "DOI: " + dato.doi : ""]
       .filter(Boolean).join("   ·   ");
-    const cuerpo = esCorto ? (dato.corto || "") : (dato.cuerpo || "");
-    const nodo = document.createElement("div");
-    nodo.style.cssText = "position:absolute;left:-99999px;top:0;width:760px;background:#ffffff;color:#151515;font-family:Georgia,'Times New Roman',serif;font-size:13px;line-height:1.55;padding:0;";
-    nodo.innerHTML =
-      `<div style="border-bottom:2px solid #0f5f5f;padding-bottom:12px;margin-bottom:16px">
-         <div style="font-family:Arial,Helvetica,sans-serif;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:#0f5f5f">Resúmenes Trials · Evidencia sin ruido</div>
-         <h1 style="font-size:21px;line-height:1.2;margin:9px 0 8px;color:#12233b;font-family:Georgia,serif">${dato.titulo || ""}</h1>
-         <div style="font-family:Arial,Helvetica,sans-serif;font-size:10.5px;color:#38506e;line-height:1.5">${meta}</div>
-       </div>
-       <div class="pdf-cuerpo">${cuerpo}</div>
-       ${dato.original ? `<div style="margin-top:16px;font-family:Arial,Helvetica,sans-serif;font-size:10px;color:#38506e;word-break:break-all">Artículo original: ${dato.original}</div>` : ""}
-       <div style="margin-top:16px;border-top:1px solid #d8d8d8;padding-top:9px;font-family:Arial,Helvetica,sans-serif;font-size:9.5px;color:#777;line-height:1.5">Resumen crítico para profesionales de la salud. Es una guía de lectura; no reemplaza el artículo original ni el juicio clínico. https://resumenestrials.com/resumen.html?id=${dato.id}</div>`;
-    nodo.querySelectorAll(".pdf-cuerpo h2").forEach((h) => { h.style.cssText = "font-family:Arial,Helvetica,sans-serif;font-size:11px;letter-spacing:1.4px;text-transform:uppercase;color:#0f5f5f;margin:16px 0 6px;font-weight:bold"; });
-    nodo.querySelectorAll(".pdf-cuerpo p").forEach((p) => { p.style.cssText = "margin:0 0 9px;text-align:justify"; });
-    nodo.querySelectorAll(".pdf-cuerpo strong").forEach((s) => { s.style.color = "#12233b"; });
-    return nodo;
+    doc.setFont("helvetica", "normal"); doc.setFontSize(9); doc.setTextColor(56, 80, 110);
+    lineas(meta, maxW).forEach((l) => { asegura(13); doc.text(l, M, y); y += 13; });
+    y += 9;
+    asegura(14); doc.setDrawColor(15, 95, 95); doc.setLineWidth(1.2); doc.line(M, y, pageW - M, y); y += 20;
+
+    const cont = document.createElement("div");
+    cont.innerHTML = esCorto ? (dato.corto || "") : (dato.cuerpo || "");
+
+    const runsDe = (el) => {
+      const runs = [];
+      el.childNodes.forEach((n) => {
+        if (n.nodeType === 3) runs.push({ text: n.textContent, bold: false });
+        else if (n.nodeType === 1) runs.push({ text: n.textContent, bold: (n.tagName === "STRONG" || n.tagName === "B") });
+      });
+      return runs.length ? runs : [{ text: el.textContent || "", bold: false }];
+    };
+    const escribirRuns = (runs, fs, lh) => {
+      doc.setFontSize(fs); doc.setTextColor(20, 20, 20);
+      let x = M; asegura(lh);
+      const toks = [];
+      runs.forEach((r) => r.text.split(/\s+/).forEach((p) => { if (p !== "") toks.push({ t: sanPDF(p), bold: r.bold }); }));
+      toks.forEach((w, i) => {
+        doc.setFont("times", w.bold ? "bold" : "normal");
+        const anchoPal = doc.getTextWidth(w.t);
+        if (x + anchoPal > M + maxW && x > M) { y += lh; x = M; if (y > bottom) salto(); }
+        const dibujo = i < toks.length - 1 ? w.t + " " : w.t;
+        doc.text(dibujo, x, y); x += doc.getTextWidth(dibujo);
+      });
+      y += lh;
+    };
+
+    Array.from(cont.childNodes).forEach((n) => {
+      if (n.nodeType === 1 && n.tagName === "H2") {
+        y += 8; asegura(15);
+        doc.setFont("helvetica", "bold"); doc.setFontSize(9.5); doc.setTextColor(15, 95, 95);
+        lineas(n.textContent.toUpperCase(), maxW).forEach((l) => { asegura(13); doc.text(l, M, y); y += 13; });
+        y += 4;
+      } else if (n.nodeType === 1 && n.tagName === "P") {
+        escribirRuns(runsDe(n), 10.5, 14.5); y += 7;
+      } else if (n.nodeType === 1 && (n.tagName === "UL" || n.tagName === "OL")) {
+        n.querySelectorAll("li").forEach((li) => { escribirRuns([{ text: "•  ", bold: false }].concat(runsDe(li)), 10.5, 14.5); y += 3; });
+        y += 5;
+      } else if (n.nodeType === 3 && n.textContent.trim()) {
+        escribirRuns([{ text: n.textContent, bold: false }], 10.5, 14.5); y += 7;
+      }
+    });
+
+    if (dato.original) {
+      y += 4; doc.setFont("helvetica", "normal"); doc.setFontSize(9); doc.setTextColor(56, 80, 110);
+      lineas("Artículo original: " + dato.original, maxW).forEach((l) => { asegura(12); doc.text(l, M, y); y += 12; });
+    }
+    y += 10; asegura(24);
+    doc.setDrawColor(210); doc.setLineWidth(0.5); doc.line(M, y, pageW - M, y); y += 12;
+    doc.setFont("helvetica", "normal"); doc.setFontSize(8); doc.setTextColor(120, 120, 120);
+    lineas("Resumen crítico para profesionales de la salud. Es una guía de lectura; no reemplaza el artículo original ni el juicio clínico. https://resumenestrials.com/resumen.html?id=" + dato.id, maxW)
+      .forEach((l) => { asegura(11); doc.text(l, M, y); y += 11; });
+
+    doc.save(nombreArchivoPDF(dato, esCorto));
   }
   function descargarPDF(dato, esCorto, boton) {
-    const nodo = construirNodoPDF(dato, esCorto);
-    document.body.appendChild(nodo);
-    const limpiar = () => { if (nodo.parentNode) nodo.parentNode.removeChild(nodo); };
     const rotulo = boton ? boton.textContent : "";
     if (boton) { boton.disabled = true; boton.textContent = "Generando…"; }
-    const restaurar = () => { if (boton) { boton.disabled = false; boton.textContent = rotulo; } };
-    if (window.html2pdf) {
-      window.html2pdf().set({
-        margin: [12, 12, 14, 12],
-        filename: nombreArchivoPDF(dato, esCorto),
-        image: { type: "jpeg", quality: 0.98 },
-        html2canvas: { scale: 2, useCORS: true, backgroundColor: "#ffffff" },
-        jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
-        pagebreak: { mode: ["css", "legacy"] }
-      }).from(nodo).save().then(() => { limpiar(); restaurar(); }).catch(() => { limpiar(); restaurar(); window.print(); });
-    } else {
-      limpiar(); restaurar(); window.print();
-    }
+    try { generarPDF(dato, esCorto); }
+    catch (err) { console.error("PDF:", err); window.print(); }
+    finally { if (boton) { boton.disabled = false; boton.textContent = rotulo; } }
   }
 
   // ---- Impedir copiar el texto de los resúmenes (el resto sí se puede) ----
@@ -509,7 +561,7 @@
 
       actualizarSEO(dato, esCorto);
 
-      const fuenteLinea = [dato.autor, dato.anio ? `${dato.revista} ${dato.anio}` : dato.revista, dato.registro, dato.doi]
+      const fuenteLinea = [dato.autor, dato.anio ? `${dato.revista} ${dato.anio}` : dato.revista, dato.doi]
         .filter(Boolean).join(" · ");
 
       cont.innerHTML = `
