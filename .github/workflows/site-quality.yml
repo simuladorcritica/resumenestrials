@@ -26,6 +26,7 @@ jobs:
           node --check library-store.js
           node --check client-monitor.js
           node --check app-version.js
+          node --check runtime-consistency.js
           node --check scripts/validate-data.mjs
           node --check scripts/production-health.mjs
           node --check scripts/browser-smoke.mjs
@@ -33,7 +34,6 @@ jobs:
         run: node scripts/validate-data.mjs
 
   production-health:
-    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -44,7 +44,6 @@ jobs:
         run: node scripts/production-health.mjs
 
   browser-smoke:
-    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     timeout-minutes: 12
     steps:
