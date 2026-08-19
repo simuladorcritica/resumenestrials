@@ -32,10 +32,13 @@ jobs:
           node --check scripts/production-health.mjs
           node --check scripts/browser-smoke.mjs
           node --check scripts/validate-inline-modules.mjs
+          node --check scripts/validate-editorial.mjs
       - name: Validate embedded module scripts
         run: node scripts/validate-inline-modules.mjs
       - name: Validate resumenes.json
         run: node scripts/validate-data.mjs
+      - name: Validate editorial architecture
+        run: node scripts/validate-editorial.mjs
 
   production-health:
     if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main'
