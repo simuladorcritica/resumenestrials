@@ -49,11 +49,36 @@ export async function signUpUser({ firstName, lastName, username, email, passwor
   return data;
 }
 
-export async function signInUser({ email, password }) {
+export async function signInUser({ identifier, email, password }) {
   assertSupabaseConfigured();
-  const { data, error } = await supabase.auth.signInWithPassword({
-    email: String(email || "").trim().toLowerCase(),
-    password
+  const id = String(identifier ?? email ?? "").trim();
+  if (!id) throw new Error("Escribe tu correo electrónico o nombre de usuario.");
+
+  if (id.includes("@")) {
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email: id.toLowerCase(),
+      password
+    });
+    if (error) throw error;
+    return data;
+  }
+
+  const username = normalizeUsername(id);
+  if (!validUsername(username)) throw new Error("Correo, usuario o contraseña incorrectos.");
+
+  const response = await fetch(`${SUPABASE_URL}/functions/v1/login-username`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json", "apikey": SUPABASE_PUBLISHABLE_KEY },
+    body: JSON.stringify({ username, password })
+  });
+  const payload = await response.json().catch(() => ({}));
+  if (!response.ok || !payload?.access_token || !payload?.refresh_token) {
+    throw new Error("Correo, usuario o contraseña incorrectos.");
+  }
+
+  const { data, error } = await supabase.auth.setSession({
+    access_token: payload.access_token,
+    refresh_token: payload.refresh_token
   });
   if (error) throw error;
   return data;
