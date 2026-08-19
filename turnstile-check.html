@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>Diagnóstico Turnstile · Resúmenes Trials</title>
+<style>
+body{margin:0;background:#f7f6f2;color:#12233b;font-family:system-ui,-apple-system,sans-serif}.box{max-width:560px;margin:70px auto;padding:34px;background:#fff;border:1px solid #ddd8cc;border-radius:14px}.box h1{margin-top:0}.status{margin-top:18px;padding:12px 14px;border-radius:7px;background:#eef4f1;color:#0f5f5f}.err{background:#faeeee;color:#a3311f}
+</style>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+</head>
+<body>
+<main class="box">
+<h1>Verificación de seguridad</h1>
+<p>Esta página comprueba únicamente la conexión entre resumenestrials.com y Cloudflare Turnstile.</p>
+<div class="cf-turnstile" data-sitekey="0x4AAAAAAAEV-hx4kk2dIe8ZF" data-theme="light" data-appearance="always" data-callback="okTurnstile" data-error-callback="errorTurnstile"></div>
+<div id="status" class="status">Esperando a Cloudflare Turnstile…</div>
+</main>
+<script>
+function okTurnstile(){document.getElementById('status').className='status';document.getElementById('status').textContent='Turnstile cargó y verificó correctamente.'}
+function errorTurnstile(code){const e=document.getElementById('status');e.className='status err';e.textContent='Turnstile devolvió el error '+code+'.';return true}
+</script>
+</body>
+</html>
