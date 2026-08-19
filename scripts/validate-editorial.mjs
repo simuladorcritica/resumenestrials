@@ -7,6 +7,7 @@ const ok = (message) => console.log(`EDITORIAL PASS: ${message}`);
 const homeAuth = read('home-auth-ui.js');
 const interactive = read('interactive-home.js');
 const internalMedicineUx = read('internal-medicine-ux.js');
+const homeVisualTuning = read('home-visual-tuning.js');
 const index = read('index.html');
 const privacy = read('privacidad.html');
 const account = read('cuenta.html');
@@ -80,6 +81,25 @@ for (const fragment of uxFragments) {
   if (!internalMedicineUx.includes(fragment)) fail(`internal-medicine-ux.js incompleto: falta ${fragment}`);
 }
 if (!process.exitCode) ok('Taxonomía de Medicina Interna y descargas completa/breve presentes.');
+
+if (!index.includes('home-visual-tuning.js')) fail('index.html no carga el ajuste visual ampliado de portada.');
+else ok('Portada carga el ajuste visual ampliado.');
+
+const visualFragments = [
+  'max-width:1400px',
+  'clamp(40px,8vw,120px)',
+  'body{font-size:20px',
+  '.fila-cuerpo h3{font-size:34px',
+  'data-subspecialty="cardiologia"',
+  'data-subspecialty="infectologia"',
+  'data-subspecialty="neurologia"',
+  'data-subspecialty="hematologia"',
+  'data-subspecialty="neumologia"'
+];
+for (const fragment of visualFragments) {
+  if (!homeVisualTuning.includes(fragment)) fail(`home-visual-tuning.js incompleto: falta ${fragment}`);
+}
+if (!process.exitCode) ok('Portada con márgenes más amplios, tipografía mayor y subespecialidades diferenciadas por color.');
 
 if (!privacy.includes('text-align:justify') || !privacy.includes('text-justify:inter-word')) fail('El aviso de privacidad no está justificado.');
 else ok('Aviso de privacidad con texto justificado.');
