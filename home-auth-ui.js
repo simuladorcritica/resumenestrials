@@ -1,4 +1,4 @@
-import { currentUser } from "./auth.js";
+import { currentUser, getProfile } from "./auth.js";
 
 function integrarCuentaEnPortada() {
   const nav = document.querySelector(".top-links");
@@ -36,12 +36,24 @@ function integrarCuentaEnPortada() {
       .top-links .auth-primary { background: var(--teal-hondo); color: #fff; border-color: var(--teal-hondo); }
       .top-links .auth-primary:hover { background: var(--teal); color: #fff; border-color: var(--teal); }
       .top-links .auth-secondary:hover { border-color: var(--teal); }
+      .top-links .auth-user {
+        text-transform: none; letter-spacing: .02em; gap: 7px; padding: 0 12px;
+        border-radius: 999px; background: rgba(15,95,95,.08); color: var(--teal-hondo);
+        border-color: rgba(15,95,95,.24); max-width: 210px; overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .top-links .auth-user::before {
+        content: ''; width: 7px; height: 7px; flex: none; border-radius: 50%;
+        background: var(--teal); box-shadow: 0 0 0 3px rgba(28,138,138,.12);
+      }
+      .top-links .auth-user:hover { background: rgba(15,95,95,.13); border-color: var(--teal); }
       .pie-bloque a.aviso-privacidad { color: var(--teal-hondo); }
       @media (max-width: 520px) {
         .topbar-in { padding-left: 12px; padding-right: 12px; gap: 8px; }
         .marca-top img { height: 24px; }
         .top-links { gap: 3px; }
-        .top-links .auth-link { padding: 0 6px; font-size: 9px; letter-spacing: .03em; }
+        .top-links .auth-link { padding: 0 7px; font-size: 9px; letter-spacing: .02em; }
+        .top-links .auth-user { max-width: 145px; }
         .top-links a:not(.auth-link) { width: 32px; height: 32px; }
       }
     `;
@@ -63,12 +75,24 @@ async function sincronizarSesion() {
 
   try {
     const user = await currentUser();
-    if (user) {
-      cuenta.href = "cuenta.html";
-      cuenta.textContent = "Mi cuenta";
-      cuenta.setAttribute("aria-label", "Abrir mi cuenta");
-      if (login) login.hidden = true;
+    if (!user) return;
+
+    let username = user.user_metadata?.username || "";
+    try {
+      const profile = await getProfile();
+      if (profile?.username) username = profile.username;
+    } catch (error) {
+      console.debug("No se pudo cargar el perfil para la cabecera:", error?.message || error);
     }
+
+    cuenta.href = "cuenta.html";
+    cuenta.classList.remove("auth-primary");
+    cuenta.classList.add("auth-user");
+    cuenta.textContent = username ? `@${username}` : "Mi cuenta";
+    cuenta.setAttribute("aria-label", username ? `Abrir cuenta de ${username}` : "Abrir mi cuenta");
+
+    // Si ya existe una sesión, la acción «Entrar» deja de tener sentido.
+    if (login) login.remove();
   } catch (error) {
     console.debug("Sesión no disponible:", error?.message || error);
   }
