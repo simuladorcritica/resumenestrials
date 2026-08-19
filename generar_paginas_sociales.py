@@ -7,6 +7,8 @@ ROOT = Path(__file__).resolve().parent
 OUT = ROOT / "resumen"
 BASE_URL = "https://resumenestrials.com"
 
+# Fuente única: resumenes.json. Cada cambio regenera las vistas sociales estáticas.
+
 
 def texto_plano(valor):
     texto = re.sub(r"<[^>]+>", " ", str(valor or ""))
@@ -39,8 +41,7 @@ def pagina(item, corta=False):
     destino = f"../resumen.html?id={trial_id}" + ("&v=corto" if corta else "")
     canonical = f"{BASE_URL}/resumen.html?id={trial_id}"
 
-    # Se usa deliberadamente el logo oficial. X lo muestra como tarjeta cuadrada
-    # sin crear ni deformar una imagen de marca alternativa.
+    # Imagen oficial: no se crea ni se deforma una identidad alternativa.
     logo = f"{BASE_URL}/logo.png"
 
     return f'''<!DOCTYPE html>
@@ -88,7 +89,6 @@ def main():
 
     OUT.mkdir(exist_ok=True)
 
-    # Elimina únicamente páginas HTML generadas anteriormente.
     for archivo in OUT.glob("*.html"):
         archivo.unlink()
 
