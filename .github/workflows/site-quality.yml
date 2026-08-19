@@ -23,6 +23,7 @@ jobs:
       - name: Validate JavaScript syntax
         run: |
           node --check interactive-home.js
+          node --check recommendations.js
           node --check library-store.js
           node --check client-monitor.js
           node --check app-version.js
@@ -37,7 +38,6 @@ jobs:
         run: node scripts/validate-data.mjs
 
   production-health:
-    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -48,7 +48,6 @@ jobs:
         run: node scripts/production-health.mjs
 
   browser-smoke:
-    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     timeout-minutes: 12
     steps:
