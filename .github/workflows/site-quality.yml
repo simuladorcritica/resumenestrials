@@ -35,8 +35,11 @@ jobs:
           node --check scripts/browser-smoke.mjs
           node --check scripts/validate-inline-modules.mjs
           node --check scripts/validate-editorial.mjs
+          node --check scripts/validate-resumen-page.mjs
       - name: Validate embedded module scripts
         run: node scripts/validate-inline-modules.mjs
+      - name: Validate article detail page
+        run: node scripts/validate-resumen-page.mjs
       - name: Validate resumenes.json
         run: node scripts/validate-data.mjs
       - name: Validate editorial architecture
