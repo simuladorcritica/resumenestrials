@@ -23,7 +23,7 @@ function integrarCuentaEnPortada() {
     entry.id = "account-entry";
     configurarEntradaCuenta(entry, {
       kicker: "Tu evidencia",
-      main: "Entrar o crear cuenta",
+      main: "Entrar o crear una cuenta",
       href: "login.html",
       label: "Entrar o crear una cuenta en Resumenes Trials"
     });
@@ -36,17 +36,17 @@ function integrarCuentaEnPortada() {
     style.textContent = `
       .marca-top img{height:52px!important;width:auto!important;max-width:min(320px,38vw);object-fit:contain}
       .topbar-in{min-height:78px}
-      .top-links{gap:6px}
-      .top-links .auth-entry{width:auto;height:auto;min-width:0;min-height:46px;padding:4px 14px 4px 16px;border:0;border-left:1px solid var(--linea);border-radius:0;background:transparent;color:var(--tinta);display:inline-flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:3px;text-decoration:none;white-space:nowrap}
+      .top-links{gap:8px}
+      .top-links .auth-entry{width:auto;height:auto;min-width:0;min-height:54px;padding:5px 18px 5px 19px;border:0;border-left:1px solid var(--linea);border-radius:0;background:transparent;color:var(--tinta);display:inline-flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:5px;text-decoration:none;white-space:nowrap}
       .top-links .auth-entry:hover{background:transparent;color:var(--tinta)}
-      .auth-entry-kicker{font:500 8.5px/1 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--tinta-2)}
-      .auth-entry-main{font:500 15px/1.1 'Newsreader',Georgia,serif;color:var(--teal-hondo);transition:color .18s ease}
-      .auth-entry:hover .auth-entry-main{color:var(--teal)}
-      .auth-entry.is-user .auth-entry-kicker{text-transform:none;letter-spacing:.04em;max-width:180px;overflow:hidden;text-overflow:ellipsis}
-      .auth-entry.is-user .auth-entry-main{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase}
+      .auth-entry-kicker{font:500 10px/1 'IBM Plex Mono',monospace;letter-spacing:.13em;text-transform:uppercase;color:var(--tinta-2)}
+      .auth-entry-main{font:500 18px/1.08 'Newsreader',Georgia,serif;color:var(--teal-hondo);border-bottom:1px solid rgba(15,95,95,.24);padding-bottom:2px;transition:color .18s ease,border-color .18s ease}
+      .auth-entry:hover .auth-entry-main{color:var(--teal);border-bottom-color:var(--teal)}
+      .auth-entry.is-user .auth-entry-kicker{text-transform:none;letter-spacing:.04em;max-width:190px;overflow:hidden;text-overflow:ellipsis}
+      .auth-entry.is-user .auth-entry-main{font-family:'Newsreader',Georgia,serif;font-size:18px;letter-spacing:0;text-transform:none}
       .pie-bloque a.aviso-privacidad{color:var(--teal-hondo)}
-      @media(max-width:760px){.marca-top img{height:44px!important;max-width:220px}.topbar-in{min-height:68px}.top-links .auth-entry{min-height:40px;padding-left:11px;padding-right:10px}.auth-entry-main{font-size:13px}.auth-entry-kicker{font-size:8px}}
-      @media(max-width:520px){.topbar-in{padding-left:12px;padding-right:12px;gap:8px}.marca-top img{height:38px!important;max-width:150px}.top-links{gap:2px}.top-links .auth-entry{padding-left:8px;padding-right:6px;border-left:0}.auth-entry-kicker{display:none}.auth-entry-main{font:500 9px/1.1 'IBM Plex Mono',monospace;letter-spacing:.05em;text-transform:uppercase}.top-links a:not(.auth-entry){width:30px;height:30px}}
+      @media(max-width:760px){.marca-top img{height:44px!important;max-width:220px}.topbar-in{min-height:70px}.top-links .auth-entry{min-height:48px;padding-left:12px;padding-right:11px;gap:4px}.auth-entry-main{font-size:16px}.auth-entry-kicker{font-size:9px}}
+      @media(max-width:520px){.topbar-in{padding-left:12px;padding-right:12px;gap:8px}.marca-top img{height:38px!important;max-width:145px}.top-links{gap:2px}.top-links .auth-entry{min-height:42px;padding-left:7px;padding-right:5px;border-left:0}.auth-entry-kicker{display:none}.auth-entry-main{font:500 12px/1.1 'Newsreader',Georgia,serif;letter-spacing:0;text-transform:none;padding-bottom:1px}.auth-entry.is-user .auth-entry-main{font-size:13px}.top-links a:not(.auth-entry){width:30px;height:30px}}
     `;
     document.head.appendChild(style);
   }
