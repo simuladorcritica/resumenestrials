@@ -27,6 +27,13 @@ function integrarCuentaEnPortada() {
     const style = document.createElement("style");
     style.id = "auth-ui-style";
     style.textContent = `
+      .marca-top img {
+        height: 44px !important;
+        width: auto !important;
+        max-width: min(250px, 34vw);
+        object-fit: contain;
+      }
+      .topbar-in { min-height: 68px; }
       .top-links .auth-link {
         width: auto; min-width: 36px; padding: 0 11px;
         border: 1px solid rgba(15,95,95,.30);
@@ -37,23 +44,28 @@ function integrarCuentaEnPortada() {
       .top-links .auth-primary:hover { background: var(--teal); color: #fff; border-color: var(--teal); }
       .top-links .auth-secondary:hover { border-color: var(--teal); }
       .top-links .auth-user {
-        text-transform: none; letter-spacing: .02em; gap: 7px; padding: 0 12px;
-        border-radius: 999px; background: rgba(15,95,95,.08); color: var(--teal-hondo);
-        border-color: rgba(15,95,95,.24); max-width: 210px; overflow: hidden;
-        text-overflow: ellipsis;
+        text-transform: none; letter-spacing: .01em; gap: 8px; padding: 0 14px;
+        min-height: 38px; border-radius: 999px;
+        background: rgba(15,95,95,.08); color: var(--teal-hondo);
+        border-color: rgba(15,95,95,.24); max-width: 230px; overflow: hidden;
+        text-overflow: ellipsis; font-size: 12px; font-weight: 500;
       }
       .top-links .auth-user::before {
-        content: ''; width: 7px; height: 7px; flex: none; border-radius: 50%;
+        content: ''; width: 8px; height: 8px; flex: none; border-radius: 50%;
         background: var(--teal); box-shadow: 0 0 0 3px rgba(28,138,138,.12);
       }
       .top-links .auth-user:hover { background: rgba(15,95,95,.13); border-color: var(--teal); }
       .pie-bloque a.aviso-privacidad { color: var(--teal-hondo); }
+      @media (max-width: 760px) {
+        .marca-top img { height: 38px !important; max-width: 190px; }
+        .topbar-in { min-height: 62px; }
+      }
       @media (max-width: 520px) {
         .topbar-in { padding-left: 12px; padding-right: 12px; gap: 8px; }
-        .marca-top img { height: 24px; }
+        .marca-top img { height: 34px !important; max-width: 150px; }
         .top-links { gap: 3px; }
         .top-links .auth-link { padding: 0 7px; font-size: 9px; letter-spacing: .02em; }
-        .top-links .auth-user { max-width: 145px; }
+        .top-links .auth-user { max-width: 130px; min-height: 34px; }
         .top-links a:not(.auth-link) { width: 32px; height: 32px; }
       }
     `;
@@ -91,7 +103,6 @@ async function sincronizarSesion() {
     cuenta.textContent = username ? `@${username}` : "Mi cuenta";
     cuenta.setAttribute("aria-label", username ? `Abrir cuenta de ${username}` : "Abrir mi cuenta");
 
-    // Si ya existe una sesión, la acción «Entrar» deja de tener sentido.
     if (login) login.remove();
   } catch (error) {
     console.debug("Sesión no disponible:", error?.message || error);
