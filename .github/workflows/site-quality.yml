@@ -26,9 +26,13 @@ jobs:
           node --check library-store.js
           node --check client-monitor.js
           node --check app-version.js
+          node --check runtime-consistency.js
           node --check scripts/validate-data.mjs
           node --check scripts/production-health.mjs
           node --check scripts/browser-smoke.mjs
+          node --check scripts/validate-inline-modules.mjs
+      - name: Validate embedded module scripts
+        run: node scripts/validate-inline-modules.mjs
       - name: Validate resumenes.json
         run: node scripts/validate-data.mjs
 
