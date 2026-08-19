@@ -6,21 +6,6 @@ const corsHeaders = {
   "Access-Control-Allow-Methods": "POST, OPTIONS",
 };
 
-async function validateTurnstile(token: string, req: Request) {
-  const secret = Deno.env.get("TURNSTILE_SECRET_KEY");
-  if (!secret) return true; // Se exigirá cuando configuremos el secreto en Supabase.
-  if (!token) return false;
-
-  const remoteip = req.headers.get("cf-connecting-ip") || req.headers.get("x-forwarded-for")?.split(",")[0]?.trim();
-  const response = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ secret, response: token, remoteip }),
-  });
-  const result = await response.json();
-  return Boolean(result?.success) && (!result.action || result.action === "login") && (!result.hostname || result.hostname === "resumenestrials.com");
-}
-
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") return new Response("ok", { headers: corsHeaders });
   if (req.method !== "POST") return json({ error: "Método no permitido" }, 405);
@@ -29,13 +14,10 @@ Deno.serve(async (req) => {
     const { username, password, captchaToken } = await req.json();
     const cleanUsername = String(username || "").trim().toLowerCase();
     const cleanPassword = String(password || "");
+    const cleanCaptcha = String(captchaToken || "");
 
-    if (!/^[a-z0-9._-]{3,30}$/.test(cleanUsername) || cleanPassword.length < 1) {
-      return json({ error: "Credenciales incorrectas" }, 400);
-    }
-
-    if (!(await validateTurnstile(String(captchaToken || ""), req))) {
-      return json({ error: "Verificación de seguridad no válida" }, 403);
+    if (!/^[a-z0-9._-]{3,30}$/.test(cleanUsername) || cleanPassword.length < 1 || !cleanCaptcha) {
+      return json({ error: "Credenciales o verificación incorrectas" }, 400);
     }
 
     const url = Deno.env.get("SUPABASE_URL");
@@ -62,9 +44,10 @@ Deno.serve(async (req) => {
     const { data, error } = await authClient.auth.signInWithPassword({
       email: profile.email,
       password: cleanPassword,
+      options: { captchaToken: cleanCaptcha },
     });
 
-    if (error || !data.session) return json({ error: "Credenciales incorrectas" }, 400);
+    if (error || !data.session) return json({ error: "Credenciales o verificación incorrectas" }, 400);
 
     return json({
       access_token: data.session.access_token,
