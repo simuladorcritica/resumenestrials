@@ -1,0 +1,139 @@
+name: Revisión nocturna de resúmenes
+
+# ---------------------------------------------------------------------------
+#  Corre todos los días de madrugada y revisa TODOS los resúmenes publicados:
+#    · formato de la casa (validar_resumenes.py)
+#    · render de la página y descargas de PDF (revisar_pagina_pdf.mjs)
+#  Si detecta algún ERROR, abre o actualiza un Issue con el detalle.
+#
+#  HORA: GitHub programa siempre en UTC (no ajusta el horario de verano).
+#  '0 9 * * *' = 09:00 UTC = 3:00 a.m. en UTC-6 (México / Centroamérica).
+#  Para tu zona, cambia solo la hora de la línea 'cron':
+#    España  (CET/CEST): '0 1 * * *' en verano, '0 2 * * *' en invierno
+#    México  (UTC-6):     '0 9 * * *'
+#    Colombia/Perú (UTC-5):'0 8 * * *'
+#    Argentina (UTC-3):   '0 6 * * *'
+#    EE. UU. Pacífico:    '0 10 * * *' (verano) / '0 11 * * *' (invierno)
+# ---------------------------------------------------------------------------
+on:
+  schedule:
+    - cron: '0 9 * * *'
+  workflow_dispatch: {}   # permite lanzarla a mano desde la pestaña Actions
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  revision:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar el repositorio
+        uses: actions/checkout@v4
+
+      - name: Preparar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Revisar formato de los resúmenes
+        id: resumenes
+        run: |
+          python3 tools/validar_resumenes.py resumenes.json --json informe_resumenes.json \
+            | tee salida_resumenes.txt
+        continue-on-error: true
+
+      - name: Preparar Node y navegador
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Instalar Playwright (Chromium)
+        run: |
+          npm init -y >/dev/null 2>&1
+          npm install -D playwright >/dev/null 2>&1
+          npx playwright install --with-deps chromium
+
+      - name: Servir el sitio en local
+        run: |
+          python3 -m http.server 8000 >/dev/null 2>&1 &
+          sleep 3
+
+      - name: Revisar página y descargas de PDF
+        id: pagina
+        env:
+          BASE_URL: http://localhost:8000
+        run: |
+          node tools/revisar_pagina_pdf.mjs | tee salida_pagina.txt
+        continue-on-error: true
+
+      - name: Guardar informes como artefacto
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: informe-revision-nocturna
+          path: |
+            informe_resumenes.json
+            salida_resumenes.txt
+            salida_pagina.txt
+          if-no-files-found: ignore
+
+      - name: Abrir o actualizar Issue si hubo problemas
+        if: always()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const leer = (f) => fs.existsSync(f) ? fs.readFileSync(f, 'utf8') : '';
+            const okResumenes = '${{ steps.resumenes.outcome }}' === 'success';
+            const okPagina    = '${{ steps.pagina.outcome }}'    === 'success';
+            if (okResumenes && okPagina) {
+              core.info('Sin problemas: no se abre Issue.');
+              return;
+            }
+            const hoy = new Date().toISOString().slice(0, 10);
+            const cuerpo = [
+              `Revisión automática del ${hoy}. Se detectaron problemas.`,
+              '',
+              '## Formato de los resúmenes',
+              '```',
+              (leer('salida_resumenes.txt') || '(sin salida)').trim(),
+              '```',
+              '## Página y descargas de PDF',
+              '```',
+              (leer('salida_pagina.txt') || '(sin salida)').trim(),
+              '```',
+              '',
+              `_Ejecución: ${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}_`,
+            ].join('\n');
+
+            const marca = '<!-- revision-nocturna -->';
+            const titulo = 'Revisión nocturna: problemas detectados';
+            const abiertos = await github.rest.issues.listForRepo({
+              owner: context.repo.owner, repo: context.repo.repo,
+              state: 'open', labels: 'revision-nocturna', per_page: 20,
+            });
+            const existente = abiertos.data.find(i => i.body && i.body.includes(marca));
+            const body = marca + '\n' + cuerpo;
+            if (existente) {
+              await github.rest.issues.update({
+                owner: context.repo.owner, repo: context.repo.repo,
+                issue_number: existente.number, body, state: 'open',
+              });
+              await github.rest.issues.createComment({
+                owner: context.repo.owner, repo: context.repo.repo,
+                issue_number: existente.number,
+                body: `Actualizado el ${hoy}: siguen detectándose problemas.`,
+              });
+            } else {
+              await github.rest.issues.create({
+                owner: context.repo.owner, repo: context.repo.repo,
+                title: titulo, body, labels: ['revision-nocturna'],
+              });
+            }
+
+      - name: Marcar el job como fallido si hubo problemas
+        if: steps.resumenes.outcome != 'success' || steps.pagina.outcome != 'success'
+        run: |
+          echo "Se detectaron problemas en la revisión nocturna." >&2
+          exit 1
