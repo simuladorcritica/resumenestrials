@@ -4,13 +4,23 @@ function integrarCuentaEnPortada() {
   const nav = document.querySelector(".top-links");
   if (nav && !document.getElementById("cuenta-link")) {
     nav.setAttribute("aria-label", "Cuenta y redes");
-    const link = document.createElement("a");
-    link.id = "cuenta-link";
-    link.className = "auth-link";
-    link.href = "registro.html";
-    link.textContent = "Crear cuenta";
-    link.setAttribute("aria-label", "Crear cuenta");
-    nav.prepend(link);
+
+    const login = document.createElement("a");
+    login.id = "login-link";
+    login.className = "auth-link auth-secondary";
+    login.href = "login.html";
+    login.textContent = "Entrar";
+    login.setAttribute("aria-label", "Iniciar sesión");
+
+    const cuenta = document.createElement("a");
+    cuenta.id = "cuenta-link";
+    cuenta.className = "auth-link auth-primary";
+    cuenta.href = "registro.html";
+    cuenta.textContent = "Crear cuenta";
+    cuenta.setAttribute("aria-label", "Crear cuenta");
+
+    nav.prepend(login);
+    nav.prepend(cuenta);
   }
 
   if (!document.getElementById("auth-ui-style")) {
@@ -23,13 +33,16 @@ function integrarCuentaEnPortada() {
         font-family: 'IBM Plex Mono', monospace; font-size: 11px;
         letter-spacing: .06em; text-transform: uppercase; white-space: nowrap;
       }
-      .top-links .auth-link:hover { border-color: var(--teal); }
+      .top-links .auth-primary { background: var(--teal-hondo); color: #fff; border-color: var(--teal-hondo); }
+      .top-links .auth-primary:hover { background: var(--teal); color: #fff; border-color: var(--teal); }
+      .top-links .auth-secondary:hover { border-color: var(--teal); }
       .pie-bloque a.aviso-privacidad { color: var(--teal-hondo); }
       @media (max-width: 520px) {
-        .topbar-in { padding-left: 14px; padding-right: 14px; }
-        .marca-top img { height: 26px; }
-        .top-links { gap: 4px; }
-        .top-links .auth-link { padding: 0 8px; font-size: 10px; }
+        .topbar-in { padding-left: 12px; padding-right: 12px; gap: 8px; }
+        .marca-top img { height: 24px; }
+        .top-links { gap: 3px; }
+        .top-links .auth-link { padding: 0 6px; font-size: 9px; letter-spacing: .03em; }
+        .top-links a:not(.auth-link) { width: 32px; height: 32px; }
       }
     `;
     document.head.appendChild(style);
@@ -44,14 +57,17 @@ function integrarCuentaEnPortada() {
 }
 
 async function sincronizarSesion() {
-  const link = document.getElementById("cuenta-link");
-  if (!link) return;
+  const cuenta = document.getElementById("cuenta-link");
+  const login = document.getElementById("login-link");
+  if (!cuenta) return;
+
   try {
     const user = await currentUser();
     if (user) {
-      link.href = "cuenta.html";
-      link.textContent = "Mi cuenta";
-      link.setAttribute("aria-label", "Abrir mi cuenta");
+      cuenta.href = "cuenta.html";
+      cuenta.textContent = "Mi cuenta";
+      cuenta.setAttribute("aria-label", "Abrir mi cuenta");
+      if (login) login.hidden = true;
     }
   } catch (error) {
     console.debug("Sesión no disponible:", error?.message || error);
