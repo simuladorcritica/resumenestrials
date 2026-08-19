@@ -1,10 +1,11 @@
-import { TURNSTILE_SITE_KEY } from './turnstile-config.js?v=3';
+// Cloudflare Turnstile para resumenestrials.com.
+// La Site Key es pública. La Secret Key permanece exclusivamente en Supabase.
+const TURNSTILE_SITE_KEY = '0x4AAAAAAAEV-hx4kk2dIe8ZF';
 
 let scriptPromise = null;
 
 function loadScript() {
-  if (!TURNSTILE_SITE_KEY) return Promise.resolve(false);
-  if (window.turnstile) return Promise.resolve(true);
+  if (window.turnstile?.render) return Promise.resolve(true);
   if (scriptPromise) return scriptPromise;
 
   scriptPromise = new Promise((resolve, reject) => {
@@ -12,7 +13,10 @@ function loadScript() {
     script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
     script.async = true;
     script.defer = true;
-    script.onload = () => resolve(true);
+    script.onload = () => {
+      if (window.turnstile?.render) resolve(true);
+      else reject(new Error('Cloudflare Turnstile no quedó disponible después de cargar el script.'));
+    };
     script.onerror = () => reject(new Error('No fue posible descargar Cloudflare Turnstile.'));
     document.head.appendChild(script);
   });
@@ -21,30 +25,25 @@ function loadScript() {
 }
 
 export function turnstileEnabled() {
-  return Boolean(TURNSTILE_SITE_KEY);
+  return true;
 }
 
 export async function mountTurnstile(containerId, action) {
-  if (!TURNSTILE_SITE_KEY) {
-    return { enabled: false, getToken: () => null, reset: () => {} };
-  }
-
   const container = document.getElementById(containerId);
   if (!container) throw new Error('No se encontró el contenedor de seguridad.');
 
-  const showStatus = (text, isError = false) => {
-    container.innerHTML = `<div style="font:11px IBM Plex Mono,monospace;color:${isError ? '#a3311f' : '#38506e'};padding:10px 0">${text}</div>`;
-  };
-
-  showStatus('Cargando verificación de seguridad…');
+  const status = document.createElement('div');
+  status.style.cssText = 'font:11px IBM Plex Mono,monospace;color:#38506e;padding:10px 0';
+  status.textContent = 'Cargando verificación de seguridad…';
+  container.replaceChildren(status);
 
   await loadScript();
-  if (!window.turnstile?.render) throw new Error('La API de Turnstile no quedó disponible.');
+  container.replaceChildren();
 
-  container.innerHTML = '';
   let token = null;
+  let widgetId = null;
 
-  const widgetId = window.turnstile.render(container, {
+  widgetId = window.turnstile.render(container, {
     sitekey: TURNSTILE_SITE_KEY,
     theme: 'light',
     size: 'normal',
@@ -54,6 +53,7 @@ export async function mountTurnstile(containerId, action) {
     callback: (value) => {
       token = value;
       container.dataset.turnstileStatus = 'ok';
+      delete container.dataset.turnstileError;
     },
     'expired-callback': () => {
       token = null;
@@ -65,14 +65,16 @@ export async function mountTurnstile(containerId, action) {
     },
     'error-callback': (code) => {
       token = null;
+      const value = String(code || 'desconocido');
       container.dataset.turnstileStatus = 'error';
-      container.dataset.turnstileError = String(code || 'unknown');
-      console.error('Turnstile error:', code);
-      showStatus(`No se pudo cargar la verificación de seguridad (código ${code || 'desconocido'}). Recarga la página.`, true);
+      container.dataset.turnstileError = value;
+      console.error('Cloudflare Turnstile error:', value);
+      container.innerHTML = `<div style="font:11px IBM Plex Mono,monospace;color:#a3311f;padding:10px 0">No se pudo cargar la verificación de seguridad (código ${value}).</div>`;
       return true;
     },
     'refresh-expired': 'auto',
-    retry: 'auto'
+    retry: 'auto',
+    'retry-interval': 3000
   });
 
   if (widgetId === undefined || widgetId === null) {
@@ -84,7 +86,7 @@ export async function mountTurnstile(containerId, action) {
     getToken: () => token || window.turnstile?.getResponse?.(widgetId) || null,
     reset: () => {
       token = null;
-      window.turnstile?.reset?.(widgetId);
+      if (widgetId !== null) window.turnstile?.reset?.(widgetId);
     }
   };
 }
