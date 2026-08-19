@@ -1,4 +1,4 @@
-name: Actualizar sitemap
+name: Actualizar sitio derivado
 
 on:
   push:
@@ -6,17 +6,19 @@ on:
       - main
     paths:
       - "resumenes.json"
+      - "generar_paginas_sociales.py"
+      - ".github/workflows/actualizar-sitemap.yml"
   workflow_dispatch:
 
 permissions:
   contents: write
 
 concurrency:
-  group: actualizar-sitemap-main
+  group: actualizar-sitio-derivado-main
   cancel-in-progress: false
 
 jobs:
-  actualizar-sitemap:
+  actualizar-sitio:
     runs-on: ubuntu-latest
 
     steps:
@@ -31,6 +33,11 @@ jobs:
         uses: actions/setup-python@v7.0.0
         with:
           python-version: "3.13"
+
+      - name: Generar páginas sociales por trial
+        shell: bash
+        run: |
+          python generar_paginas_sociales.py
 
       - name: Generar sitemap.xml
         shell: bash
@@ -50,24 +57,18 @@ jobs:
               raise ValueError("resumenes.json debe contener una lista de resúmenes")
 
           ids = []
-
           for resumen in datos:
               if not isinstance(resumen, dict) or "id" not in resumen:
-                  raise ValueError(
-                      "Cada resumen debe ser un objeto con un campo 'id'"
-                  )
-
+                  raise ValueError("Cada resumen debe ser un objeto con un campo 'id'")
               ids.append(str(resumen["id"]))
 
           if len(ids) != len(set(ids)):
               raise ValueError("Hay IDs duplicados en resumenes.json")
 
+          # Las páginas /resumen/ID.html existen para que X/Telegram puedan leer
+          # metadatos estáticos, pero llevan noindex y canonical al resumen principal.
           urls = [f"{BASE_URL}/"]
-
-          urls.extend(
-              f"{BASE_URL}/resumen.html?id={id_}"
-              for id_ in ids
-          )
+          urls.extend(f"{BASE_URL}/resumen.html?id={id_}" for id_ in ids)
 
           lineas = [
               '<?xml version="1.0" encoding="UTF-8"?>',
@@ -82,29 +83,21 @@ jobs:
               ])
 
           lineas.append("</urlset>")
-
-          SITEMAP_PATH.write_text(
-              "\n".join(lineas) + "\n",
-              encoding="utf-8"
-          )
-
-          print(
-              f"Sitemap generado correctamente con {len(urls)} URLs."
-          )
+          SITEMAP_PATH.write_text("\n".join(lineas) + "\n", encoding="utf-8")
+          print(f"Sitemap generado correctamente con {len(urls)} URLs.")
           PY
 
-      - name: Guardar sitemap actualizado
+      - name: Guardar archivos derivados
         shell: bash
         run: |
-          if git diff --quiet -- sitemap.xml; then
-            echo "sitemap.xml ya está actualizado; no hay cambios que guardar."
+          if git diff --quiet -- sitemap.xml resumen/; then
+            echo "Las páginas sociales y el sitemap ya están actualizados."
             exit 0
           fi
 
           git config user.name "github-actions[bot]"
-          git config user.email \
-            "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add sitemap.xml
-          git commit -m "Actualizar sitemap automáticamente"
+          git add sitemap.xml resumen/
+          git commit -m "Actualizar vistas sociales y sitemap automáticamente"
           git push origin HEAD:main
