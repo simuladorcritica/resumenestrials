@@ -1,7 +1,6 @@
 // Resumenes Trials · configuración pública de Supabase
-// Sustituir estos dos valores por los del proyecto antes de fusionar esta rama.
-// La publishable/anon key está diseñada para usarse en el navegador cuando RLS está activo.
-// NUNCA colocar aquí la service_role key.
+// Estos valores son públicos y están diseñados para usarse en el navegador con RLS activo.
+// NUNCA colocar aquí la service_role key ni ninguna secret key.
 
-export const SUPABASE_URL = "https://TU-PROYECTO.supabase.co";
-export const SUPABASE_PUBLISHABLE_KEY = "TU_PUBLISHABLE_KEY";
+export const SUPABASE_URL = "https://hnsmozvatgyrascxbhys.supabase.co";
+export const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_IfNh1tBO7c5c5u9Kc5_qSQ_QFHHY7wK";
