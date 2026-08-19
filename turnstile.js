@@ -1,6 +1,6 @@
 // Cloudflare Turnstile para resumenestrials.com.
 // La Site Key es pública. La Secret Key permanece exclusivamente en Supabase.
-const TURNSTILE_SITE_KEY = '0x4AAAAAAAEV-hx4kk2dIe8ZF';
+const TURNSTILE_SITE_KEY = '0x4AAAAAAEV-hx4kk2dLe8ZF';
 
 let scriptPromise = null;
 
