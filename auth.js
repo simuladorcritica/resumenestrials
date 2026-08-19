@@ -63,6 +63,23 @@ export async function signInUser({ email, password }) {
   return data;
 }
 
+export async function requestPasswordReset(email) {
+  assertSupabaseConfigured();
+  const { data, error } = await supabase.auth.resetPasswordForEmail(
+    String(email || "").trim().toLowerCase(),
+    { redirectTo: "https://resumenestrials.com/recuperar.html?modo=nueva" }
+  );
+  if (error) throw error;
+  return data;
+}
+
+export async function updatePassword(password) {
+  assertSupabaseConfigured();
+  const { data, error } = await supabase.auth.updateUser({ password });
+  if (error) throw error;
+  return data;
+}
+
 export async function signOutUser() {
   assertSupabaseConfigured();
   const { error } = await supabase.auth.signOut();
