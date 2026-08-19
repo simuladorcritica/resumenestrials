@@ -1,0 +1,118 @@
+name: Integrar cuenta en portada
+
+on:
+  push:
+    branches:
+      - agent/registro-supabase
+
+permissions:
+  contents: write
+
+jobs:
+  patch-index:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Integrar UI de cuenta y privacidad
+        shell: python
+        run: |
+          from pathlib import Path
+
+          path = Path('index.html')
+          text = path.read_text(encoding='utf-8')
+
+          css_anchor = "  .top-links svg { width: 18px; height: 18px; }\n"
+          css_block = """
+  .top-links .auth-link {
+    width: auto; min-width: 36px; padding: 0 11px;
+    border: 1px solid rgba(15,95,95,.30);
+    font-family: 'IBM Plex Mono', monospace; font-size: 11px;
+    letter-spacing: .06em; text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .top-links .auth-link:hover { border-color: var(--teal); }
+  @media (max-width: 520px) {
+    .topbar-in { padding-left: 14px; padding-right: 14px; }
+    .marca-top img { height: 26px; }
+    .top-links { gap: 4px; }
+    .top-links .auth-link { padding: 0 8px; font-size: 10px; }
+  }
+"""
+          if '.top-links .auth-link' not in text:
+              if css_anchor not in text:
+                  raise SystemExit('No se encontró ancla CSS de top-links')
+              text = text.replace(css_anchor, css_anchor + css_block, 1)
+
+          nav_old = '    <nav class="top-links" aria-label="Redes">\n'
+          nav_new = '''    <nav class="top-links" aria-label="Cuenta y redes">\n      <a id="cuenta-link" class="auth-link" href="registro.html" aria-label="Crear cuenta">Crear cuenta</a>\n'''
+          if 'id="cuenta-link"' not in text:
+              if nav_old not in text:
+                  raise SystemExit('No se encontró navegación superior')
+              text = text.replace(nav_old, nav_new, 1)
+
+          privacy_old = '''<p>Este sitio no recopila datos personales de sus visitantes ni utiliza cookies de seguimiento o publicidad. El proveedor de alojamiento puede registrar datos técnicos, como la dirección IP, en sus propios registros de seguridad. Al escribirnos por correo o Telegram compartes los datos que decidas incluir en tu mensaje; los usamos únicamente para responderte y no los cedemos a terceros. Si más adelante se incorporan formularios o registro, se publicará un aviso de privacidad detallado antes de recabar más datos.</p>'''
+          privacy_new = '''<p>La navegación pública no requiere una cuenta ni utiliza cookies de publicidad. Si decides crear una cuenta, recabamos los datos necesarios para identificar tu perfil, autenticar el acceso y administrar tus preferencias. Los avisos por correo sobre nuevos resúmenes son opcionales y dependen de tu consentimiento. Consulta el <a href="privacidad.html">Aviso de privacidad</a> para conocer qué datos tratamos, sus finalidades y cómo ejercer tus derechos.</p>'''
+          if privacy_old in text:
+              text = text.replace(privacy_old, privacy_new, 1)
+          elif 'La navegación pública no requiere una cuenta' not in text:
+              raise SystemExit('No se encontró el párrafo de privacidad esperado')
+
+          auth_script = '''
+<script type="module">
+  import { currentUser } from "./auth.js";
+  const cuentaLink = document.getElementById("cuenta-link");
+  if (cuentaLink) {
+    try {
+      const user = await currentUser();
+      if (user) {
+        cuentaLink.href = "cuenta.html";
+        cuentaLink.textContent = "Mi cuenta";
+        cuentaLink.setAttribute("aria-label", "Abrir mi cuenta");
+      }
+    } catch (error) {
+      console.debug("Sesión no disponible:", error?.message || error);
+    }
+  }
+</script>
+'''
+          if 'import { currentUser } from "./auth.js";' not in text:
+              closing = '\n</body>\n</html>'
+              if closing not in text:
+                  raise SystemExit('No se encontró cierre de documento')
+              text = text.replace(closing, auth_script + closing, 1)
+
+          path.write_text(text, encoding='utf-8')
+
+          workflow = Path('.github/workflows/integrate-auth-ui.yml')
+          if workflow.exists():
+              workflow.unlink()
+
+      - name: Validar integración
+        shell: python
+        run: |
+          from pathlib import Path
+          s = Path('index.html').read_text(encoding='utf-8')
+          required = [
+              'id="cuenta-link"',
+              'href="privacidad.html"',
+              'import { currentUser } from "./auth.js";',
+              'La navegación pública no requiere una cuenta'
+          ]
+          missing = [x for x in required if x not in s]
+          if missing:
+              raise SystemExit('Faltan elementos: ' + ', '.join(missing))
+          for f in ['registro.html','login.html','recuperar.html','cuenta.html','auth.js','supabase-config.js','privacidad.html']:
+              if not Path(f).exists():
+                  raise SystemExit('Falta archivo: ' + f)
+          print('Integración validada')
+
+      - name: Commit de integración
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Integrar cuentas en la portada"
+          git push
