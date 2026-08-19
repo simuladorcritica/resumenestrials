@@ -29,6 +29,7 @@ jobs:
           node --check app-version.js
           node --check runtime-consistency.js
           node --check internal-medicine-ux.js
+          node --check home-visual-tuning.js
           node --check scripts/validate-data.mjs
           node --check scripts/production-health.mjs
           node --check scripts/browser-smoke.mjs
