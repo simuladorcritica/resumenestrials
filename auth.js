@@ -25,40 +25,43 @@ export function validUsername(value) {
   return /^[a-z0-9._-]{3,30}$/.test(normalizeUsername(value));
 }
 
-export async function signUpUser({ firstName, lastName, username, email, password, newsletterOptIn }) {
+export async function signUpUser({ firstName, lastName, username, email, password, newsletterOptIn, captchaToken }) {
   assertSupabaseConfigured();
   const cleanUsername = normalizeUsername(username);
   if (!validUsername(cleanUsername)) {
     throw new Error("El nombre de usuario debe tener entre 3 y 30 caracteres y usar solo letras, números, punto, guion o guion bajo.");
   }
 
+  const options = {
+    emailRedirectTo: "https://resumenestrials.com/login.html?confirmado=1",
+    data: {
+      first_name: String(firstName || "").trim(),
+      last_name: String(lastName || "").trim(),
+      username: cleanUsername,
+      newsletter_opt_in: Boolean(newsletterOptIn)
+    }
+  };
+  if (captchaToken) options.captchaToken = captchaToken;
+
   const { data, error } = await supabase.auth.signUp({
     email: String(email || "").trim().toLowerCase(),
     password,
-    options: {
-      emailRedirectTo: "https://resumenestrials.com/login.html?confirmado=1",
-      data: {
-        first_name: String(firstName || "").trim(),
-        last_name: String(lastName || "").trim(),
-        username: cleanUsername,
-        newsletter_opt_in: Boolean(newsletterOptIn)
-      }
-    }
+    options
   });
   if (error) throw error;
   return data;
 }
 
-export async function signInUser({ identifier, email, password }) {
+export async function signInUser({ identifier, email, password, captchaToken }) {
   assertSupabaseConfigured();
   const id = String(identifier ?? email ?? "").trim();
   if (!id) throw new Error("Escribe tu correo electrónico o nombre de usuario.");
 
   if (id.includes("@")) {
-    const { data, error } = await supabase.auth.signInWithPassword({
-      email: id.toLowerCase(),
-      password
-    });
+    const options = captchaToken ? { captchaToken } : undefined;
+    const credentials = { email: id.toLowerCase(), password };
+    if (options) credentials.options = options;
+    const { data, error } = await supabase.auth.signInWithPassword(credentials);
     if (error) throw error;
     return data;
   }
@@ -69,11 +72,11 @@ export async function signInUser({ identifier, email, password }) {
   const response = await fetch(`${SUPABASE_URL}/functions/v1/login-username`, {
     method: "POST",
     headers: { "Content-Type": "application/json", "apikey": SUPABASE_PUBLISHABLE_KEY },
-    body: JSON.stringify({ username, password })
+    body: JSON.stringify({ username, password, captchaToken: captchaToken || null })
   });
   const payload = await response.json().catch(() => ({}));
   if (!response.ok || !payload?.access_token || !payload?.refresh_token) {
-    throw new Error("Correo, usuario o contraseña incorrectos.");
+    throw new Error(payload?.error || "Correo, usuario o contraseña incorrectos.");
   }
 
   const { data, error } = await supabase.auth.setSession({
@@ -84,11 +87,13 @@ export async function signInUser({ identifier, email, password }) {
   return data;
 }
 
-export async function requestPasswordReset(email) {
+export async function requestPasswordReset(email, captchaToken) {
   assertSupabaseConfigured();
+  const options = { redirectTo: "https://resumenestrials.com/recuperar.html?modo=nueva" };
+  if (captchaToken) options.captchaToken = captchaToken;
   const { data, error } = await supabase.auth.resetPasswordForEmail(
     String(email || "").trim().toLowerCase(),
-    { redirectTo: "https://resumenestrials.com/recuperar.html?modo=nueva" }
+    options
   );
   if (error) throw error;
   return data;
@@ -150,4 +155,27 @@ export async function updateProfile({ firstName, lastName, username, newsletterO
     .single();
   if (error) throw error;
   return data;
+}
+
+export async function getAccountPreferences() {
+  const user = await currentUser();
+  if (!user) throw new Error("Debes iniciar sesión.");
+  const meta = user.user_metadata || {};
+  return {
+    notifications: meta.notifications || {},
+    preferences: meta.preferences || {}
+  };
+}
+
+export async function updateAccountPreferences({ notifications, preferences }) {
+  assertSupabaseConfigured();
+  const user = await currentUser();
+  if (!user) throw new Error("Debes iniciar sesión.");
+  const current = user.user_metadata || {};
+  const data = { ...current };
+  if (notifications) data.notifications = { ...(current.notifications || {}), ...notifications };
+  if (preferences) data.preferences = { ...(current.preferences || {}), ...preferences };
+  const { data: result, error } = await supabase.auth.updateUser({ data });
+  if (error) throw error;
+  return result.user;
 }
