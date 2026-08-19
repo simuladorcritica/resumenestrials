@@ -11,15 +11,18 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Newsreader:opsz,wght@6..72,400;6..72,500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{--tinta:#12233b;--tinta-2:#38506e;--teal:#1c8a8a;--teal-hondo:#0f5f5f;--papel:#f7f6f2;--papel-2:#efece4;--linea:#ddd8cc;--err:#a3311f;--ok:#0f5f5f}
-*{box-sizing:border-box;margin:0;padding:0}body{background:var(--papel);color:var(--tinta);font-family:'Newsreader',Georgia,serif;font-size:18px;line-height:1.55}.wrap{max-width:720px;margin:0 auto;padding:42px 24px 80px}.volver{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--teal-hondo);text-decoration:none}.eyebrow{margin-top:42px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--teal-hondo)}h1{font-family:'Fraunces',serif;font-size:clamp(36px,7vw,58px);font-weight:600;line-height:1.03;margin:8px 0 12px}.sub{color:var(--tinta-2);margin-bottom:28px}.panel{border-top:1px solid var(--linea);padding-top:28px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}@media(max-width:640px){.grid{grid-template-columns:1fr}}.campo{margin-bottom:17px}label{display:block;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--tinta-2);margin-bottom:6px}input[type=text],input[type=email],input[type=password]{width:100%;font:inherit;color:var(--tinta);background:#fff;border:1px solid var(--linea);border-radius:4px;padding:11px 12px}input:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 3px rgba(28,138,138,.12)}.check{display:flex;gap:10px;align-items:flex-start;margin:18px 0;color:var(--tinta-2);font-size:15px}.check input{margin-top:5px}.check label{font-family:inherit;font-size:15px;letter-spacing:0;text-transform:none;margin:0}.check a{color:var(--teal-hondo)}button{width:100%;border:1px solid var(--teal-hondo);border-radius:4px;background:var(--teal-hondo);color:#fff;font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.04em;padding:13px 18px;cursor:pointer}button:disabled{opacity:.55;cursor:wait}.estado{min-height:22px;margin-top:14px;font-family:'IBM Plex Mono',monospace;font-size:12px}.estado.err{color:var(--err)}.estado.ok{color:var(--ok)}.login{text-align:center;margin-top:24px;color:var(--tinta-2);font-size:15px}.login a{color:var(--teal-hondo)}
+*{box-sizing:border-box;margin:0;padding:0}body{background:var(--papel);color:var(--tinta);font-family:'Newsreader',Georgia,serif;font-size:18px;line-height:1.55}.wrap{max-width:720px;margin:0 auto;padding:42px 24px 80px}.volver{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--teal-hondo);text-decoration:none}.eyebrow{margin-top:42px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--teal-hondo)}h1{font-family:'Fraunces',serif;font-size:clamp(36px,7vw,58px);font-weight:600;line-height:1.03;margin:8px 0 12px}.sub{color:var(--tinta-2);margin-bottom:28px}.panel{border-top:1px solid var(--linea);padding-top:28px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}@media(max-width:640px){.grid{grid-template-columns:1fr}}.campo{margin-bottom:17px}label{display:block;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--tinta-2);margin-bottom:6px}input[type=text],input[type=email],input[type=password]{width:100%;font:inherit;color:var(--tinta);background:#fff;border:1px solid var(--linea);border-radius:4px;padding:11px 12px}input:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 3px rgba(28,138,138,.12)}.check{display:flex;gap:10px;align-items:flex-start;margin:18px 0;color:var(--tinta-2);font-size:15px}.check input{margin-top:5px}.check label{font-family:inherit;font-size:15px;letter-spacing:0;text-transform:none;margin:0}.check a{color:var(--teal-hondo)}button,.btn{width:100%;border:1px solid var(--teal-hondo);border-radius:4px;background:var(--teal-hondo);color:#fff;font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.04em;padding:13px 18px;cursor:pointer;text-decoration:none;text-align:center;display:inline-flex;align-items:center;justify-content:center}button:disabled{opacity:.55;cursor:wait}.estado{min-height:22px;margin-top:14px;font-family:'IBM Plex Mono',monospace;font-size:12px}.estado.err{color:var(--err)}.login{text-align:center;margin-top:24px;color:var(--tinta-2);font-size:15px}.login a{color:var(--teal-hondo)}
+.exito{display:none;margin-top:30px;border:1px solid rgba(15,95,95,.25);border-radius:8px;background:#fff;padding:clamp(26px,5vw,42px);box-shadow:0 18px 50px rgba(18,35,59,.08)}.exito.visible{display:block;animation:entrada .35s ease-out}.exito-icono{width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(28,138,138,.10);color:var(--teal-hondo);margin-bottom:22px}.exito-icono svg{width:30px;height:30px}.exito .kicker{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--teal-hondo);margin-bottom:8px}.exito h2{font-family:'Fraunces',serif;font-size:clamp(34px,6vw,50px);font-weight:600;line-height:1.05;margin-bottom:14px}.exito .intro{font-size:19px;color:var(--tinta-2);margin-bottom:24px}.correo-destino{background:var(--papel);border:1px solid var(--linea);border-radius:5px;padding:14px 16px;margin-bottom:24px}.correo-destino span{display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--tinta-2);margin-bottom:3px}.correo-destino strong{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--tinta);font-weight:500;overflow-wrap:anywhere}.pasos{list-style:none;counter-reset:paso;margin:0 0 28px}.pasos li{counter-increment:paso;display:grid;grid-template-columns:32px 1fr;gap:12px;align-items:start;padding:12px 0;border-top:1px solid var(--linea);color:var(--tinta-2);font-size:16px}.pasos li:before{content:counter(paso);width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--papel-2);font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--teal-hondo)}.acciones-exito{display:grid;grid-template-columns:1fr 1fr;gap:10px}.btn.sec{background:transparent;color:var(--teal-hondo)}.nota{margin-top:16px;font-size:14px;color:var(--tinta-2)}@media(max-width:560px){.acciones-exito{grid-template-columns:1fr}}@keyframes entrada{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}@media(prefers-reduced-motion:reduce){.exito.visible{animation:none}}
 </style>
 </head>
 <body>
 <main class="wrap">
   <a class="volver" href="index.html">← Volver al sitio</a>
-  <div class="eyebrow">Cuenta personal</div>
-  <h1>Crear cuenta</h1>
-  <p class="sub">Regístrate para recibir novedades y, más adelante, guardar tus preferencias y resúmenes favoritos.</p>
+  <div id="cabecera-registro">
+    <div class="eyebrow">Cuenta personal</div>
+    <h1>Crear cuenta</h1>
+    <p class="sub">Regístrate para recibir novedades y, más adelante, guardar tus preferencias y resúmenes favoritos.</p>
+  </div>
 
   <form id="registro" class="panel" novalidate>
     <div class="grid">
@@ -40,12 +43,30 @@
     <div id="estado" class="estado" role="status" aria-live="polite"></div>
   </form>
 
-  <p class="login">¿Ya tienes cuenta? <a href="login.html">Iniciar sesión</a></p>
+  <section id="exito" class="exito" tabindex="-1" aria-labelledby="exito-titulo" aria-live="polite">
+    <div class="exito-icono" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+    <div class="kicker">Registro completado</div>
+    <h2 id="exito-titulo">Tu cuenta ya está creada.</h2>
+    <p class="intro">Solo falta confirmar tu correo para activar el acceso a Resumenes Trials.</p>
+    <div class="correo-destino"><span>Correo de confirmación enviado a</span><strong id="correo-confirmacion"></strong></div>
+    <ol class="pasos">
+      <li>Abre el mensaje de <strong>Supabase Auth</strong> que acabamos de enviarte.</li>
+      <li>Pulsa <strong>Confirm email address</strong> para verificar tu dirección.</li>
+      <li>Regresa a Resumenes Trials e inicia sesión con tu cuenta.</li>
+    </ol>
+    <div class="acciones-exito">
+      <a class="btn" href="login.html">Ir a iniciar sesión</a>
+      <a class="btn sec" href="index.html">Volver a los resúmenes</a>
+    </div>
+    <p class="nota">Si no ves el correo en unos minutos, revisa también Spam o Correo no deseado.</p>
+  </section>
+
+  <p id="login-pie" class="login">¿Ya tienes cuenta? <a href="login.html">Iniciar sesión</a></p>
 </main>
 
 <script type="module">
 import { signUpUser, validUsername } from "./auth.js";
-const form=document.getElementById("registro");const estado=document.getElementById("estado");const btn=document.getElementById("enviar");
+const form=document.getElementById("registro");const estado=document.getElementById("estado");const btn=document.getElementById("enviar");const exito=document.getElementById("exito");
 form.addEventListener("submit",async(e)=>{e.preventDefault();estado.className="estado";estado.textContent="";
   const firstName=document.getElementById("nombre").value.trim();
   const lastName=document.getElementById("apellido").value.trim();
@@ -58,7 +79,16 @@ form.addEventListener("submit",async(e)=>{e.preventDefault();estado.className="e
   if(!validUsername(username)){estado.className="estado err";estado.textContent="El nombre de usuario debe tener 3–30 caracteres y usar solo letras, números, punto, guion o guion bajo.";return;}
   if(password!==password2){estado.className="estado err";estado.textContent="Las contraseñas no coinciden.";return;}
   btn.disabled=true;btn.textContent="Creando cuenta…";
-  try{await signUpUser({firstName,lastName,username,email,password,newsletterOptIn});form.reset();document.getElementById("novedades").checked=true;estado.className="estado ok";estado.textContent="Cuenta creada. Revisa tu correo y confirma tu dirección antes de iniciar sesión.";}
+  try{
+    await signUpUser({firstName,lastName,username,email,password,newsletterOptIn});
+    document.getElementById("correo-confirmacion").textContent=email;
+    form.hidden=true;
+    document.getElementById("cabecera-registro").hidden=true;
+    document.getElementById("login-pie").hidden=true;
+    exito.classList.add("visible");
+    exito.focus({preventScroll:true});
+    exito.scrollIntoView({behavior:"smooth",block:"center"});
+  }
   catch(err){console.error(err);estado.className="estado err";estado.textContent=err?.message||"No fue posible crear la cuenta.";}
   finally{btn.disabled=false;btn.textContent="Crear cuenta";}
 });
