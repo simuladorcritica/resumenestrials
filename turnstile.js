@@ -32,7 +32,11 @@ export async function mountTurnstile(containerId, action) {
   const container = document.getElementById(containerId);
   if (!container) throw new Error('No se encontró el contenedor de seguridad.');
 
-  container.innerHTML = '<div style="font:11px IBM Plex Mono,monospace;color:#38506e;padding:10px 0">Cargando verificación de seguridad…</div>';
+  const showStatus = (text, isError = false) => {
+    container.innerHTML = `<div style="font:11px IBM Plex Mono,monospace;color:${isError ? '#a3311f' : '#38506e'};padding:10px 0">${text}</div>`;
+  };
+
+  showStatus('Cargando verificación de seguridad…');
 
   await loadScript();
   if (!window.turnstile?.render) throw new Error('La API de Turnstile no quedó disponible.');
@@ -64,6 +68,8 @@ export async function mountTurnstile(containerId, action) {
       container.dataset.turnstileStatus = 'error';
       container.dataset.turnstileError = String(code || 'unknown');
       console.error('Turnstile error:', code);
+      showStatus(`No se pudo cargar la verificación de seguridad (código ${code || 'desconocido'}). Recarga la página.`, true);
+      return true;
     },
     'refresh-expired': 'auto',
     retry: 'auto'
