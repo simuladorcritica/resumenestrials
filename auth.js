@@ -14,9 +14,7 @@ export const supabase = configured
   : null;
 
 export function assertSupabaseConfigured() {
-  if (!supabase) {
-    throw new Error("Supabase todavía no está configurado en este entorno.");
-  }
+  if (!supabase) throw new Error("Supabase todavía no está configurado en este entorno.");
 }
 
 export function normalizeUsername(value) {
@@ -30,7 +28,6 @@ export function validUsername(value) {
 export async function signUpUser({ firstName, lastName, username, email, password, newsletterOptIn }) {
   assertSupabaseConfigured();
   const cleanUsername = normalizeUsername(username);
-
   if (!validUsername(cleanUsername)) {
     throw new Error("El nombre de usuario debe tener entre 3 y 30 caracteres y usar solo letras, números, punto, guion o guion bajo.");
   }
@@ -48,7 +45,6 @@ export async function signUpUser({ firstName, lastName, username, email, passwor
       }
     }
   });
-
   if (error) throw error;
   return data;
 }
@@ -91,4 +87,42 @@ export async function currentUser() {
   const { data, error } = await supabase.auth.getUser();
   if (error) throw error;
   return data.user;
+}
+
+export async function getProfile() {
+  const user = await currentUser();
+  if (!user) return null;
+  const { data, error } = await supabase
+    .from("profiles")
+    .select("id, first_name, last_name, username, email, newsletter_opt_in, created_at, updated_at")
+    .eq("id", user.id)
+    .single();
+  if (error) throw error;
+  return data;
+}
+
+export async function updateProfile({ firstName, lastName, username, newsletterOptIn }) {
+  assertSupabaseConfigured();
+  const user = await currentUser();
+  if (!user) throw new Error("Debes iniciar sesión.");
+  const cleanUsername = normalizeUsername(username);
+  if (!validUsername(cleanUsername)) {
+    throw new Error("El nombre de usuario debe tener entre 3 y 30 caracteres y usar solo letras, números, punto, guion o guion bajo.");
+  }
+
+  const optIn = Boolean(newsletterOptIn);
+  const { data, error } = await supabase
+    .from("profiles")
+    .update({
+      first_name: String(firstName || "").trim(),
+      last_name: String(lastName || "").trim(),
+      username: cleanUsername,
+      newsletter_opt_in: optIn,
+      newsletter_opt_in_at: optIn ? new Date().toISOString() : null
+    })
+    .eq("id", user.id)
+    .select("id, first_name, last_name, username, email, newsletter_opt_in, created_at, updated_at")
+    .single();
+  if (error) throw error;
+  return data;
 }
