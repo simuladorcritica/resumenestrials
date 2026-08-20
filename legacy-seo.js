@@ -10,7 +10,6 @@
       const entry = manifest?.[id];
       if (!entry?.url) return;
       const canonical = entry.url;
-      const destination = entry.path + (params.get('v') === 'corto' ? '#resumen-breve' : '');
 
       const enforce = () => {
         let link = document.querySelector('link[rel="canonical"]');
@@ -35,11 +34,12 @@
       };
 
       enforce();
-      new MutationObserver(enforce).observe(document.head, { childList: true, subtree: true, attributes: true, attributeFilter: ['href', 'content'] });
-
-      if (location.pathname + location.search !== destination) {
-        setTimeout(() => location.replace(destination), 0);
-      }
+      new MutationObserver(enforce).observe(document.head, {
+        childList: true,
+        subtree: true,
+        attributes: true,
+        attributeFilter: ['href', 'content']
+      });
     })
     .catch((err) => console.warn('Legacy SEO:', err));
 })();
