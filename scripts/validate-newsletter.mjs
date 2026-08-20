@@ -82,11 +82,15 @@ for (const token of [
   'novedades@resumenestrials.com',
   'Verificar servicio desplegado',
   'runtime/newsletter-deploy-status.json',
-  'status": "healthy',
+  'if: always()',
+  'failed_stage',
+  'OUTCOME_HEALTH',
+  '"status": "$status"',
+  'git push origin HEAD:main',
 ]) {
   if (!deploy.includes(token)) fail(`Workflow de despliegue incompleto: falta ${token}`);
 }
-if (!failed) pass('Despliegue de producción usa CLI oficial actual, configura secretos, publica por API, ejecuta health check y registra el último despliegue saludable.');
+if (!failed) pass('Despliegue de producción usa CLI oficial actual, configura secretos, publica por API, ejecuta health check y registra resultado saludable o etapa de fallo.');
 
 if (failed) process.exit(1);
 console.log('Newsletter integration PASS');
