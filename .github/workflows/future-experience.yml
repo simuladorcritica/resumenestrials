@@ -85,7 +85,6 @@ jobs:
           retention-days: 7
 
   future-production:
-    if: github.event_name != 'pull_request'
     needs: future-experience
     runs-on: ubuntu-latest
     timeout-minutes: 12
