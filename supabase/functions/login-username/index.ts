@@ -14,10 +14,10 @@ Deno.serve(async (req) => {
     const { username, password, captchaToken } = await req.json();
     const cleanUsername = String(username || "").trim().toLowerCase();
     const cleanPassword = String(password || "");
-    const cleanCaptcha = String(captchaToken || "");
+    const cleanCaptcha = String(captchaToken || "").trim();
 
-    if (!/^[a-z0-9._-]{3,30}$/.test(cleanUsername) || cleanPassword.length < 1 || !cleanCaptcha) {
-      return json({ error: "Credenciales o verificación incorrectas" }, 400);
+    if (!/^[a-z0-9._-]{3,30}$/.test(cleanUsername) || cleanPassword.length < 1) {
+      return json({ error: "Credenciales incorrectas" }, 400);
     }
 
     const url = Deno.env.get("SUPABASE_URL");
@@ -29,25 +29,35 @@ Deno.serve(async (req) => {
       auth: { persistSession: false, autoRefreshToken: false },
     });
 
-    const { data: profile } = await admin
+    const { data: profile, error: profileError } = await admin
       .from("profiles")
       .select("email")
       .eq("username", cleanUsername)
       .maybeSingle();
 
+    if (profileError) {
+      console.error("login-username profile", profileError.message);
+      return json({ error: "Servicio de acceso no disponible" }, 500);
+    }
     if (!profile?.email) return json({ error: "Credenciales incorrectas" }, 400);
 
     const authClient = createClient(url, anonKey, {
       auth: { persistSession: false, autoRefreshToken: false },
     });
 
-    const { data, error } = await authClient.auth.signInWithPassword({
+    const credentials: {
+      email: string;
+      password: string;
+      options?: { captchaToken: string };
+    } = {
       email: profile.email,
       password: cleanPassword,
-      options: { captchaToken: cleanCaptcha },
-    });
+    };
+    if (cleanCaptcha) credentials.options = { captchaToken: cleanCaptcha };
 
-    if (error || !data.session) return json({ error: "Credenciales o verificación incorrectas" }, 400);
+    const { data, error } = await authClient.auth.signInWithPassword(credentials);
+
+    if (error || !data.session) return json({ error: "Credenciales incorrectas" }, 400);
 
     return json({
       access_token: data.session.access_token,
