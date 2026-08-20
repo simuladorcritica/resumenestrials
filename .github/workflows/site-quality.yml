@@ -161,13 +161,24 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Generate the exact corrected site under test
+        run: |
+          python3 -m pip install --disable-pip-version-check pillow==11.3.0
+          python3 generar_seo.py
+          python3 generar_seo_semantico.py
+          python3 generar_seo_avanzado.py
+          python3 restaurar_arquitectura.py
+          python3 actualizar_agregar_editorial.py
       - name: Install PDF inspection and Playwright
         run: |
           sudo apt-get update
           sudo apt-get install -y poppler-utils
           npm install --no-save playwright@1.55.0
           npx playwright install --with-deps chromium
-      - name: Serve branch locally
+      - name: Serve generated site locally
         run: |
           python3 -m http.server 8000 >/tmp/rt-http.log 2>&1 &
           sleep 3
