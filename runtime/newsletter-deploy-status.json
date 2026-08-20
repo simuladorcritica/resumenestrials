@@ -1,0 +1,9 @@
+{
+  "service": "notify-new-summaries",
+  "status": "failed",
+  "failed_stage": "resend",
+  "checked_at": "2026-08-20T02:10:22Z",
+  "source_sha": "c7541ae52c87d5a7749553e12645e3c38ce70468",
+  "project_ref": "hnsmozvatgyrascxbhys",
+  "domain": "resumenestrials.com"
+}
