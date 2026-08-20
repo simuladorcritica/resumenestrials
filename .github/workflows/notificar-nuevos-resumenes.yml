@@ -8,6 +8,7 @@ on:
 
 permissions:
   contents: read
+  actions: read
 
 concurrency:
   group: newsletter-${{ github.sha }}
@@ -23,14 +24,17 @@ jobs:
           ENDPOINT: https://hnsmozvatgyrascxbhys.supabase.co/functions/v1/notify-new-summaries
           RUN_ID: ${{ github.run_id }}
           RUN_ATTEMPT: ${{ github.run_attempt }}
+          BEFORE_SHA: ${{ github.event.before }}
           HEAD_SHA: ${{ github.sha }}
+          CALLBACK_GITHUB_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
           payload=$(jq -nc \
             --argjson run_id "$RUN_ID" \
             --argjson run_attempt "$RUN_ATTEMPT" \
+            --arg before_sha "$BEFORE_SHA" \
             --arg head_sha "$HEAD_SHA" \
-            '{run_id:$run_id,run_attempt:$run_attempt,head_sha:$head_sha}')
+            '{run_id:$run_id,run_attempt:$run_attempt,before_sha:$before_sha,head_sha:$head_sha}')
 
           for intento in 1 2 3; do
             salida=$(mktemp)
@@ -41,6 +45,7 @@ jobs:
               --max-time 90 \
               --request POST \
               --header 'Content-Type: application/json' \
+              --header "X-GitHub-Token: $CALLBACK_GITHUB_TOKEN" \
               --data "$payload" \
               "$ENDPOINT" || true)
 
