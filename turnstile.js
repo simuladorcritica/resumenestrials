@@ -1,10 +1,14 @@
 // Cloudflare Turnstile para resumenestrials.com.
-// La Site Key es pública. La Secret Key permanece exclusivamente en Supabase.
+// El widget queda desactivado mientras Supabase no tenga un Secret Key válido.
+// Mantener un widget que visualmente diga "operación exitosa" pero cuyo secreto
+// servidor sea inválido bloquea registros e inicios de sesión legítimos.
 const TURNSTILE_SITE_KEY = '0x4AAAAAAEV-hx4kk2dLe8ZF';
+const CAPTCHA_ENABLED = false;
 
 let scriptPromise = null;
 
 function loadScript() {
+  if (!CAPTCHA_ENABLED) return Promise.resolve(false);
   if (window.turnstile?.render) return Promise.resolve(true);
   if (scriptPromise) return scriptPromise;
 
@@ -25,13 +29,27 @@ function loadScript() {
 }
 
 export function turnstileEnabled() {
-  return true;
+  return CAPTCHA_ENABLED;
 }
 
 export async function mountTurnstile(containerId, action) {
   const container = document.getElementById(containerId);
   if (!container) throw new Error('No se encontró el contenedor de seguridad.');
 
+  if (!CAPTCHA_ENABLED) {
+    container.replaceChildren();
+    container.hidden = true;
+    container.setAttribute('aria-hidden', 'true');
+    container.dataset.turnstileStatus = 'disabled';
+    return {
+      enabled: false,
+      getToken: () => null,
+      reset: () => {}
+    };
+  }
+
+  container.hidden = false;
+  container.removeAttribute('aria-hidden');
   const status = document.createElement('div');
   status.style.cssText = 'font:11px IBM Plex Mono,monospace;color:#38506e;padding:10px 0';
   status.textContent = 'Cargando verificación de seguridad…';
