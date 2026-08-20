@@ -12,7 +12,17 @@
         "path": "/medicina-critica/ventilacion-respiratoria/",
         "url": "https://resumenestrials.com/medicina-critica/ventilacion-respiratoria/"
       }
-    ]
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/soho-oxigeno-alto-flujo-oxigeno-estandar-insuficiencia-respiratoria-hipoxemica-aguda-16x9.jpg",
+      "https://resumenestrials.com/images/trials/soho-oxigeno-alto-flujo-oxigeno-estandar-insuficiencia-respiratoria-hipoxemica-aguda-4x3.jpg",
+      "https://resumenestrials.com/images/trials/soho-oxigeno-alto-flujo-oxigeno-estandar-insuficiencia-respiratoria-hipoxemica-aguda-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si el oxígeno de alto flujo por cánula nasal reduce la mortalidad a 28 días frente al oxígeno estándar en adultos con insuficiencia respiratoria hipoxémica aguda ingresados en cuidados intensivos.",
+      "answer": "La mortalidad fue idéntica: 14.6% frente a 14.6% a los 28 días.",
+      "population": "La población fueron adultos ingresados en cuidados intensivos por insuficiencia respiratoria hipoxémica aguda, definida por tres criterios simultáneos: frecuencia respiratoria mayor de 25 por minuto, infiltrados pulmonares en la imagen de tórax y una relación PaO2:FiO2 de 200 o menos mientras recibían oxígeno a 10 litros por minuto o más con mascarilla con reservorio. El estudio se hizo en 42 unidades de cuidados intensivos de…"
+    }
   },
   "2": {
     "slug": "arise-fluids-vasopresores-liquidos-shock-septico-temprano",
@@ -32,7 +42,17 @@
         "path": "/medicina-critica/hemodinamica-cardiovascular/",
         "url": "https://resumenestrials.com/medicina-critica/hemodinamica-cardiovascular/"
       }
-    ]
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/arise-fluids-vasopresores-liquidos-shock-septico-temprano-16x9.jpg",
+      "https://resumenestrials.com/images/trials/arise-fluids-vasopresores-liquidos-shock-septico-temprano-4x3.jpg",
+      "https://resumenestrials.com/images/trials/arise-fluids-vasopresores-liquidos-shock-septico-temprano-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si una estrategia de líquidos restringidos y vasopresores tempranos aumenta los días vivo y fuera del hospital a 90 días frente a mayores volúmenes de líquido y vasopresores más tardíos, en adultos con shock séptico temprano en urgencias.",
+      "answer": "Los días vivo y fuera del hospital fueron idénticos: 76 frente a 76 (p=1.00), sin cambios en la mortalidad.",
+      "population": "La población fueron adultos que llegaron al servicio de urgencias con shock séptico, definido por infección clínicamente sospechada, presión sistólica menor de 90 mmHg o presión arterial media menor de 65 mmHg pese a haber recibido al menos 1000 ml de líquido en bolos, lactato mayor de 2.0 mmol/l y al menos una dosis de antimicrobiano intravenoso, todo dentro de las primeras 6 horas de llegada. El estudio se hizo casi por…"
+    }
   },
   "3": {
     "slug": "rsi-ketamina-etomidato-intubacion-traqueal-adulto-estado-critico",
@@ -47,7 +67,17 @@
         "path": "/medicina-critica/ventilacion-respiratoria/",
         "url": "https://resumenestrials.com/medicina-critica/ventilacion-respiratoria/"
       }
-    ]
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/rsi-ketamina-etomidato-intubacion-traqueal-adulto-estado-critico-16x9.jpg",
+      "https://resumenestrials.com/images/trials/rsi-ketamina-etomidato-intubacion-traqueal-adulto-estado-critico-4x3.jpg",
+      "https://resumenestrials.com/images/trials/rsi-ketamina-etomidato-intubacion-traqueal-adulto-estado-critico-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si la ketamina reduce la mortalidad frente al etomidato como inductor en la intubación de urgencia del paciente crítico.",
+      "answer": "Misma mortalidad a 28 días ( 28.1% vs 29.1% ; p=0.65), pero más colapso cardiovascular con ketamina (22.1% vs 17.0%).",
+      "population": "Población. Adultos de 18 años o más, en estado crítico, sometidos a intubación traqueal de urgencia con un fármaco para inducir la anestesia, en un servicio de urgencias o una unidad de cuidados intensivos de Estados Unidos. La distribución por raza o grupo étnico fue de alrededor de 59% blancos no hispanos, 25% negros no hispanos, 11% hispanos y 5% de otros grupos. Intervención. Ketamina intravenosa para la inducción de la…"
+    }
   },
   "4": {
     "slug": "logical-oxigeno-conservador-oxigeno-liberal-paciente-inconsciente-tras-paro-cardiaco",
@@ -67,7 +97,17 @@
         "path": "/medicina-critica/paro-resucitacion/",
         "url": "https://resumenestrials.com/medicina-critica/paro-resucitacion/"
       }
-    ]
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/logical-oxigeno-conservador-oxigeno-liberal-paciente-inconsciente-tras-paro-cardiaco-16x9.jpg",
+      "https://resumenestrials.com/images/trials/logical-oxigeno-conservador-oxigeno-liberal-paciente-inconsciente-tras-paro-cardiaco-4x3.jpg",
+      "https://resumenestrials.com/images/trials/logical-oxigeno-conservador-oxigeno-liberal-paciente-inconsciente-tras-paro-cardiaco-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si el oxígeno conservador, frente al liberal, mejora la supervivencia con buena función neurológica en el adulto inconsciente tras un paro cardiaco.",
+      "answer": "Sin diferencia en el desenlace funcional a 180 días ( 38.2% vs 39.7% ; RR 0.97; p=0.65) ni en la mortalidad (48.0% vs 49.7%).",
+      "population": "La población fueron adultos de 18 años o más que, tras recuperar la circulación después de un paro cardiaco, permanecían inconscientes y con ventilación mecánica en la unidad de cuidados intensivos, con sospecha de encefalopatía isquémica; es decir, incapaces de obedecer órdenes verbales y con preocupación clínica por posible daño cerebral. El origen fue Australia, Nueva Zelanda e Irlanda; la raza o etnia no se reportó."
+    }
   },
   "5": {
     "slug": "march-carbocisteina-solucion-salina-hipertonica-insuficiencia-respiratoria-aguda",
@@ -82,7 +122,17 @@
         "path": "/medicina-critica/ventilacion-respiratoria/",
         "url": "https://resumenestrials.com/medicina-critica/ventilacion-respiratoria/"
       }
-    ]
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/march-carbocisteina-solucion-salina-hipertonica-insuficiencia-respiratoria-aguda-16x9.jpg",
+      "https://resumenestrials.com/images/trials/march-carbocisteina-solucion-salina-hipertonica-insuficiencia-respiratoria-aguda-4x3.jpg",
+      "https://resumenestrials.com/images/trials/march-carbocisteina-solucion-salina-hipertonica-insuficiencia-respiratoria-aguda-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si la carbocisteína o la solución salina hipertónica, añadidas al cuidado habitual, acortan la duración de la ventilación mecánica en el adulto crítico con insuficiencia respiratoria aguda y secreciones difíciles de aclarar.",
+      "answer": "Sin diferencia en la ventilación mecánica, ni con carbocisteína ( 186.1 vs 172.7 h ; RR 0.96; p=0.34) ni con solución salina (184.5 vs 174.3 h; RR 1.00; p=0.98).",
+      "population": "Población. Adultos de 16 años o más, en estado crítico, que recibían ventilación mecánica invasiva por una insuficiencia respiratoria aguda y potencialmente reversible, y que presentaban secreciones difíciles de movilizar con el manejo habitual de la vía aérea, según el juicio del equipo tratante. La distribución por raza fue de alrededor de 86% blancos, 3% asiáticos y 2% negros, con cerca de un 8% de origen desconocido…"
+    }
   },
   "6": {
     "slug": "soda-bic-bicarbonato-sodio-placebo-adulto-critico-acidosis-metabolica-shock",
@@ -107,7 +157,17 @@
         "path": "/medicina-critica/hemodinamica-cardiovascular/",
         "url": "https://resumenestrials.com/medicina-critica/hemodinamica-cardiovascular/"
       }
-    ]
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/soda-bic-bicarbonato-sodio-placebo-adulto-critico-acidosis-metabolica-shock-16x9.jpg",
+      "https://resumenestrials.com/images/trials/soda-bic-bicarbonato-sodio-placebo-adulto-critico-acidosis-metabolica-shock-4x3.jpg",
+      "https://resumenestrials.com/images/trials/soda-bic-bicarbonato-sodio-placebo-adulto-critico-acidosis-metabolica-shock-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si una infusión de bicarbonato de sodio, frente a placebo, reduce los eventos renales adversos mayores a 30 días en adultos críticos con acidosis metabólica que reciben vasopresores.",
+      "answer": "Sin diferencia: el evento renal adverso mayor ocurrió en 40.2% frente a 39.4% a los 30 días.",
+      "population": "La población fueron adultos de dieciocho años o más ingresados en cuidados intensivos que recibían una infusión continua de vasopresores para corregir la hipotensión y que además cursaban con acidosis metabólica, definida por tres criterios simultáneos: un pH por debajo de 7.30, un exceso de base no mayor de −4 mmol por litro y una presión parcial de dióxido de carbono arterial no mayor de 45 mm Hg sin intubación, o no mayor…"
+    }
   },
   "7": {
     "slug": "suddicu-descontaminacion-selectiva-tubo-digestivo-ventilacion-mecanica-cuidados-intensivos",
@@ -127,7 +187,17 @@
         "path": "/medicina-critica/infecciones-antibioticos/",
         "url": "https://resumenestrials.com/medicina-critica/infecciones-antibioticos/"
       }
-    ]
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/suddicu-descontaminacion-selectiva-tubo-digestivo-ventilacion-mecanica-cuidados-intensivos-16x9.jpg",
+      "https://resumenestrials.com/images/trials/suddicu-descontaminacion-selectiva-tubo-digestivo-ventilacion-mecanica-cuidados-intensivos-4x3.jpg",
+      "https://resumenestrials.com/images/trials/suddicu-descontaminacion-selectiva-tubo-digestivo-ventilacion-mecanica-cuidados-intensivos-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si la descontaminación selectiva del tubo digestivo reduce la mortalidad intrahospitalaria a 90 días frente a los cuidados habituales en adultos que reciben ventilación mecánica en cuidados intensivos.",
+      "answer": "La mortalidad intrahospitalaria a 90 días fue del 27.9% frente al 29.5% , sin diferencia significativa.",
+      "population": "La población fueron adultos ingresados en unidades de cuidados intensivos médico-quirúrgicas de Australia y Canadá que recibían ventilación mecánica invasiva a través de un tubo endotraqueal y en quienes se preveía que la necesitarían más allá del día siguiente a su ingreso. La raza o etnia no se reporta."
+    }
   },
   "8": {
     "slug": "expres-puntaje-predictivo-extubacion-reducir-reintubacion-cuidados-intensivos",
@@ -142,7 +212,17 @@
         "path": "/medicina-critica/ventilacion-respiratoria/",
         "url": "https://resumenestrials.com/medicina-critica/ventilacion-respiratoria/"
       }
-    ]
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/expres-puntaje-predictivo-extubacion-reducir-reintubacion-cuidados-intensivos-16x9.jpg",
+      "https://resumenestrials.com/images/trials/expres-puntaje-predictivo-extubacion-reducir-reintubacion-cuidados-intensivos-4x3.jpg",
+      "https://resumenestrials.com/images/trials/expres-puntaje-predictivo-extubacion-reducir-reintubacion-cuidados-intensivos-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si guiar la decisión de extubar con el Extubation Predictive Score (ExPreS) reduce la reintubación dentro de las 48 horas frente al protocolo habitual en adultos ventilados que superan una prueba de respiración espontánea.",
+      "answer": "El fracaso de la extubación a 48 horas fue del 13.0% frente al 8.0% , sin significancia en el análisis principal (p=0.070).",
+      "population": "La población fueron adultos, de 18 años o más, sin COVID-19, que llevaban al menos 24 horas con ventilación mecánica invasiva y que habían superado una prueba de respiración espontánea. La raza o etnia no se reporta."
+    }
   },
   "9": {
     "slug": "cleanse-hemoadsorcion-ha-330-shock-septico-requiere-dosis-altas-noradrenalina",
@@ -167,7 +247,17 @@
         "path": "/medicina-critica/hemodinamica-cardiovascular/",
         "url": "https://resumenestrials.com/medicina-critica/hemodinamica-cardiovascular/"
       }
-    ]
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/cleanse-hemoadsorcion-ha-330-shock-septico-requiere-dosis-altas-noradrenalina-16x9.jpg",
+      "https://resumenestrials.com/images/trials/cleanse-hemoadsorcion-ha-330-shock-septico-requiere-dosis-altas-noradrenalina-4x3.jpg",
+      "https://resumenestrials.com/images/trials/cleanse-hemoadsorcion-ha-330-shock-septico-requiere-dosis-altas-noradrenalina-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si añadir dos sesiones de hemoadsorción con el cartucho HA-330 al tratamiento estándar reduce la mortalidad a 28 días en adultos con shock séptico que requieren dosis altas de vasopresores.",
+      "answer": "La mortalidad a 28 días fue del 58% frente al 44% a favor de la hemoadsorción, sin alcanzar significancia (RR 0.76; IC 95%, 0.54-1.07; p=0.16).",
+      "population": "La población fueron adultos, de 18 años o más, con shock séptico según los criterios Sepsis-3 que requerían dosis altas de vasopresores, definidas como noradrenalina a 0.2 mcg/kg/min o más, o una dosis equipotente de otro vasopresor. La raza o etnia no se reporta."
+    }
   },
   "10": {
     "slug": "digisep-secuenciacion-metagenomica-anadida-microbiologia-estandar-sepsis-shock-septico",
@@ -187,7 +277,17 @@
         "path": "/medicina-critica/hemodinamica-cardiovascular/",
         "url": "https://resumenestrials.com/medicina-critica/hemodinamica-cardiovascular/"
       }
-    ]
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/digisep-secuenciacion-metagenomica-anadida-microbiologia-estandar-sepsis-shock-septico-16x9.jpg",
+      "https://resumenestrials.com/images/trials/digisep-secuenciacion-metagenomica-anadida-microbiologia-estandar-sepsis-shock-septico-4x3.jpg",
+      "https://resumenestrials.com/images/trials/digisep-secuenciacion-metagenomica-anadida-microbiologia-estandar-sepsis-shock-septico-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si añadir la secuenciación metagenómica de nueva generación (mNGS) del ADN microbiano libre en plasma a la microbiología estándar mejora el desenlace clínico, medido con el puntaje DOOR/RADAR a 28 días, en adultos con sepsis o shock séptico.",
+      "answer": "El puntaje DOOR/RADAR a 28 días no mejoró: 3.21 frente a 3.49 a favor de la metagenómica, sin significancia (diferencia −0.28; IC 95%, −0.58 a 0.03; p=0.149).",
+      "population": "La población fueron adultos, de 18 años o más, con sepsis o shock séptico según los criterios Sepsis-3 y con el diagnóstico establecido en las 24 horas previas. La raza o etnia no se reporta."
+    }
   },
   "11": {
     "slug": "promine-propofol-ketamina-intubacion-secuencia-rapida-paciente-critico",
@@ -202,7 +302,17 @@
         "path": "/medicina-critica/ventilacion-respiratoria/",
         "url": "https://resumenestrials.com/medicina-critica/ventilacion-respiratoria/"
       }
-    ]
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/promine-propofol-ketamina-intubacion-secuencia-rapida-paciente-critico-16x9.jpg",
+      "https://resumenestrials.com/images/trials/promine-propofol-ketamina-intubacion-secuencia-rapida-paciente-critico-4x3.jpg",
+      "https://resumenestrials.com/images/trials/promine-propofol-ketamina-intubacion-secuencia-rapida-paciente-critico-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Evaluar si la ketamina, frente al propofol, produce una menor caída de la presión arterial media en los primeros diez minutos tras la inducción para la intubación de secuencia rápida en pacientes críticos.",
+      "answer": "La presión arterial media más baja en los primeros diez minutos fue 66 frente a 60 mmHg a favor de la ketamina, sin significancia (diferencia 6.0; IC 95%, −0.0 a 11.9; p=0.05) y por debajo del umbral clínico de 10 mmHg.",
+      "population": "La población fueron adultos, de 18 años o más, ingresados en cuidados intensivos que requerían intubación orotraqueal mediante secuencia rápida. La raza o etnia no se reporta."
+    }
   },
   "12": {
     "slug": "relieve-aki-ultrafiltracion-neta-restrictiva-liberal-lesion-renal-aguda",
@@ -217,7 +327,17 @@
         "path": "/medicina-critica/renal-acido-base/",
         "url": "https://resumenestrials.com/medicina-critica/renal-acido-base/"
       }
-    ]
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/relieve-aki-ultrafiltracion-neta-restrictiva-liberal-lesion-renal-aguda-16x9.jpg",
+      "https://resumenestrials.com/images/trials/relieve-aki-ultrafiltracion-neta-restrictiva-liberal-lesion-renal-aguda-4x3.jpg",
+      "https://resumenestrials.com/images/trials/relieve-aki-ultrafiltracion-neta-restrictiva-liberal-lesion-renal-aguda-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Evaluar la factibilidad de mantener en la práctica clínica dos estrategias alternativas, restrictiva y liberal, de tasa de ultrafiltración neta durante la terapia de reemplazo renal continuo en adultos con lesión renal aguda.",
+      "answer": "La separación en la tasa de ultrafiltración administrada fue mínima, de 2.05 frente a 1.81 mL/kg/h (P ajustada=0.4), y no alcanzó el umbral de factibilidad de 0.53 mL/kg/h.",
+      "population": "La población fueron adultos con lesión renal aguda en estadio 3 que ya habían iniciado terapia de reemplazo renal continuo y en quienes se anticipaba la necesidad de retirar líquido durante al menos 48 horas. En cuanto a la etnia, el 90.7% era de raza blanca y el 6.2% de raza negra. Se excluyó a quienes tenían edema pulmonar que exigía retirada urgente de líquido, una infusión masiva de líquidos o diálisis crónica previa…"
+    }
   },
   "13": {
     "slug": "swift-sangre-total-prehospitalaria-hemocomponentes-hemorragia-traumatica-grave",
@@ -226,7 +346,17 @@
     "title": "SWiFT: sangre total prehospitalaria frente a hemocomponentes en la hemorragia traumática grave",
     "seo_title": "SWiFT trial: sangre total prehospitalaria frente a hemocomponentes en la hemorragia traumática grave | Resúmenes Trials",
     "description": "SWiFT: El desenlace combinado de muerte o transfusión masiva a 24 horas fue casi idéntico: 48.7% frente a 47.7% (RR 1.02; IC 95% 0.80-1.31; P=0.84). La sangre…",
-    "clusters": []
+    "clusters": [],
+    "images": [
+      "https://resumenestrials.com/images/trials/swift-sangre-total-prehospitalaria-hemocomponentes-hemorragia-traumatica-grave-16x9.jpg",
+      "https://resumenestrials.com/images/trials/swift-sangre-total-prehospitalaria-hemocomponentes-hemorragia-traumatica-grave-4x3.jpg",
+      "https://resumenestrials.com/images/trials/swift-sangre-total-prehospitalaria-hemocomponentes-hemorragia-traumatica-grave-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si la transfusión prehospitalaria de hasta 2 unidades de sangre total es superior al tratamiento estándar con hemocomponentes para reducir la muerte o la transfusión masiva a 24 horas en pacientes con hemorragia traumática potencialmente mortal.",
+      "answer": "El desenlace combinado de muerte o transfusión masiva a 24 horas fue casi idéntico: 48.7% frente a 47.7% (RR 1.02; IC 95% 0.80-1.31; P=0.84).",
+      "population": "La población fueron pacientes de cualquier edad con una lesión traumática que motivó una transfusión prehospitalaria por hemorragia mayor, atendidos por servicios de ambulancia aérea en Inglaterra. El origen étnico no se reportó. Se excluyó a quienes no permitían un acceso intravenoso o intraóseo, a quienes tenían una objeción conocida a la transfusión y a quienes ya habían recibido hemocomponentes antes de la llegada del…"
+    }
   },
   "14": {
     "slug": "towar-sangre-total-tipo-prehospitalaria-hemocomponentes-trauma-hemorragia",
@@ -235,7 +365,17 @@
     "title": "TOWAR: sangre total tipo O prehospitalaria frente a hemocomponentes en el trauma con hemorragia",
     "seo_title": "TOWAR trial: sangre total tipo O prehospitalaria frente a hemocomponentes en el trauma con hemorragia | Resúmenes Trials",
     "description": "TOWAR: La mortalidad a 30 días fue 25.9% frente a 20.5% (OR ajustado 1.24; IC 95% 0.87-1.76; P=0.24), sin diferencia significativa. La sangre total…",
-    "clusters": []
+    "clusters": [],
+    "images": [
+      "https://resumenestrials.com/images/trials/towar-sangre-total-tipo-prehospitalaria-hemocomponentes-trauma-hemorragia-16x9.jpg",
+      "https://resumenestrials.com/images/trials/towar-sangre-total-tipo-prehospitalaria-hemocomponentes-trauma-hemorragia-4x3.jpg",
+      "https://resumenestrials.com/images/trials/towar-sangre-total-tipo-prehospitalaria-hemocomponentes-trauma-hemorragia-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si la transfusión prehospitalaria de hasta 2 unidades de sangre total tipo O de título bajo reduce la mortalidad a 30 días frente a los hemocomponentes en pacientes con lesión traumática y riesgo de shock hemorrágico.",
+      "answer": "La mortalidad a 30 días fue 25.9% frente a 20.5% (OR ajustado 1.24; IC 95% 0.87-1.76; P=0.24), sin diferencia significativa.",
+      "population": "La población fueron pacientes de 18 a 90 años con una lesión traumática que motivó una transfusión prehospitalaria por riesgo de shock hemorrágico, atendidos por bases médicas aéreas en Estados Unidos y Canadá. Para entrar debían haber tenido al menos un episodio de hipotensión, definida como una presión arterial sistólica de 90 mm Hg o menos, junto con taquicardia, definida como una frecuencia cardiaca de 108 latidos por…"
+    }
   },
   "15": {
     "slug": "smart-decision-suspension-continuacion-betabloqueador-tras-infarto-miocardio",
@@ -250,7 +390,17 @@
         "path": "/medicina-interna/cardiovascular/",
         "url": "https://resumenestrials.com/medicina-interna/cardiovascular/"
       }
-    ]
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/smart-decision-suspension-continuacion-betabloqueador-tras-infarto-miocardio-16x9.jpg",
+      "https://resumenestrials.com/images/trials/smart-decision-suspension-continuacion-betabloqueador-tras-infarto-miocardio-4x3.jpg",
+      "https://resumenestrials.com/images/trials/smart-decision-suspension-continuacion-betabloqueador-tras-infarto-miocardio-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si la suspensión del betabloqueador es no inferior a su continuación en pacientes estables, sin insuficiencia cardiaca ni disfunción sistólica, que lo recibían desde hacía más de un año tras un infarto de miocardio.",
+      "answer": "El desenlace primario compuesto ocurrió en el 7.2% frente al 9.0% (HR 0.80; IC 95% 0.57-1.13; P=0.001 para no inferioridad), cumpliendo el margen preespecificado de 1.4.",
+      "population": "La población fueron pacientes en condición estable tras un infarto de miocardio, con una fracción de eyección del ventrículo izquierdo de al menos 40%, sin insuficiencia cardiaca, que llevaban al menos un año recibiendo un betabloqueador y que habían permanecido libres de eventos desde el infarto índice hasta el tamizaje. Todos fueron atendidos en Corea del Sur, de modo que se trata de una población coreana homogénea; la raza…"
+    }
   },
   "16": {
     "slug": "trident-tres-antihipertensivos-dosis-bajas-sola-pildora-tras-hemorragia-intracerebral",
@@ -265,7 +415,17 @@
         "path": "/medicina-interna/neurologia/",
         "url": "https://resumenestrials.com/medicina-interna/neurologia/"
       }
-    ]
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/trident-tres-antihipertensivos-dosis-bajas-sola-pildora-tras-hemorragia-intracerebral-16x9.jpg",
+      "https://resumenestrials.com/images/trials/trident-tres-antihipertensivos-dosis-bajas-sola-pildora-tras-hemorragia-intracerebral-4x3.jpg",
+      "https://resumenestrials.com/images/trials/trident-tres-antihipertensivos-dosis-bajas-sola-pildora-tras-hemorragia-intracerebral-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Evaluar si una píldora única con tres antihipertensivos a dosis bajas, añadida al tratamiento estándar, reduce el ictus recurrente y controla mejor la presión arterial en pacientes con antecedente de hemorragia intracerebral.",
+      "answer": "El ictus recurrente ocurrió en el 4.6% frente al 7.4% (HR 0.61; IC 95% 0.41-0.92; P=0.02), con un número necesario a tratar de 35.",
+      "population": "La población fueron adultos con antecedente de hemorragia intracerebral espontánea, es decir, no traumática, en condición clínicamente estable y con una presión arterial sistólica de 130 a 160 mm Hg sentados y en reposo. Se reclutaron en hospitales académicos, tanto en salas de hospitalización como en consulta externa. La raza la reportó el propio paciente: el 72.6% eran asiáticos y dos tercios residían en Sri Lanka."
+    }
   },
   "17": {
     "slug": "hi-peitho-fibrinolisis-dirigida-cateter-facilitada-ultrasonido-embolia-pulmonar-aguda-riesgo",
@@ -280,7 +440,17 @@
         "path": "/medicina-critica/ventilacion-respiratoria/",
         "url": "https://resumenestrials.com/medicina-critica/ventilacion-respiratoria/"
       }
-    ]
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/hi-peitho-fibrinolisis-dirigida-cateter-facilitada-ultrasonido-embolia-pulmonar-aguda-riesgo-16x9.jpg",
+      "https://resumenestrials.com/images/trials/hi-peitho-fibrinolisis-dirigida-cateter-facilitada-ultrasonido-embolia-pulmonar-aguda-riesgo-4x3.jpg",
+      "https://resumenestrials.com/images/trials/hi-peitho-fibrinolisis-dirigida-cateter-facilitada-ultrasonido-embolia-pulmonar-aguda-riesgo-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si la fibrinólisis dirigida por catéter y facilitada por ultrasonido, sumada a anticoagulación, es superior a la anticoagulación sola para reducir un desenlace combinado de muerte, colapso cardiorrespiratorio o recurrencia a 7 días en la embolia pulmonar aguda de riesgo intermedio.",
+      "answer": "El desenlace combinado a 7 días cayó del 10.3% al 4.0% (RR 0.39; IC 95% 0.20-0.77; P=0.005), impulsado por menos deterioro cardiorrespiratorio.",
+      "population": "La población fueron adultos de 18 a 80 años con embolia pulmonar aguda de riesgo intermedio, confirmada por angiografía pulmonar por tomografía en al menos una arteria pulmonar principal o lobar proximal. El 15.8% se identificó con una raza distinta de la blanca. Para ingresar debían tener una relación entre el diámetro telediastólico del ventrículo derecho y el del izquierdo de 1.0 o mayor, troponina elevada y al menos dos…"
+    }
   },
   "18": {
     "slug": "vesalius-cv-evolocumab-pacientes-infarto-miocardio-ni-ictus-previos",
@@ -300,7 +470,17 @@
         "path": "/medicina-interna/neurologia/",
         "url": "https://resumenestrials.com/medicina-interna/neurologia/"
       }
-    ]
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/vesalius-cv-evolocumab-pacientes-infarto-miocardio-ni-ictus-previos-16x9.jpg",
+      "https://resumenestrials.com/images/trials/vesalius-cv-evolocumab-pacientes-infarto-miocardio-ni-ictus-previos-4x3.jpg",
+      "https://resumenestrials.com/images/trials/vesalius-cv-evolocumab-pacientes-infarto-miocardio-ni-ictus-previos-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si el evolocumab, un inhibidor de PCSK9, sumado al tratamiento hipolipemiante de base, es superior al placebo para prevenir el primer gran evento cardiovascular en adultos con aterosclerosis o diabetes de alto riesgo pero sin infarto de miocardio ni ictus previos.",
+      "answer": "El MACE de 3 puntos bajo del 8.0% al 6.2% a cinco anos (HR 0.75; IC 95% 0.65-0.86; P<0.001), con un numero necesario a tratar de 56.",
+      "population": "La población fueron adultos de alto riesgo cardiovascular, varones de 50 a 79 años y mujeres de 55 a 79, con aterosclerosis o diabetes de alto riesgo pero sin antecedente de infarto de miocardio ni de ictus. El 93% se identificó como de raza blanca y el 17% de origen hispano, según reporte del propio paciente. Debían tener un colesterol LDL de al menos 90 mg/dl, o un colesterol no-HDL de al menos 120 mg/dl, o una…"
+    }
   },
   "19": {
     "slug": "oriental-mevo-trombectomia-endovascular-ictus-oclusion-vaso-mediano",
@@ -315,7 +495,17 @@
         "path": "/medicina-interna/neurologia/",
         "url": "https://resumenestrials.com/medicina-interna/neurologia/"
       }
-    ]
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/oriental-mevo-trombectomia-endovascular-ictus-oclusion-vaso-mediano-16x9.jpg",
+      "https://resumenestrials.com/images/trials/oriental-mevo-trombectomia-endovascular-ictus-oclusion-vaso-mediano-4x3.jpg",
+      "https://resumenestrials.com/images/trials/oriental-mevo-trombectomia-endovascular-ictus-oclusion-vaso-mediano-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si la trombectomia endovascular sumada al tratamiento medico es superior al tratamiento medico solo para mejorar la independencia funcional a los 90 dias en adultos con ictus isquemico por oclusion de vaso mediano y deficit moderado a grave, dentro de 24 horas.",
+      "answer": "La independencia funcional a 90 dias paso del 46.6% al 58.6% (RR ajustado 1.24; IC 95% 1.07-1.44; P=0.004), con un numero necesario a tratar de 8.",
+      "population": "La población fueron adultos de 18 años o más, con independencia funcional previa al ictus, que presentaban un déficit neurológico moderado a grave dentro de las 24 horas desde la última vez que se les vio sanos. El déficit se definió por la escala de ictus de los Institutos Nacionales de Salud, la NIHSS, con un puntaje de 6 o más; esta escala va de 0 a 42 y un valor más alto indica mayor daño neurológico. Debían tener una…"
+    }
   },
   "20": {
     "slug": "tigris-hemoadsorcion-polimixina-b-shock-septico-endotoxico",
@@ -335,7 +525,17 @@
         "path": "/medicina-critica/hemodinamica-cardiovascular/",
         "url": "https://resumenestrials.com/medicina-critica/hemodinamica-cardiovascular/"
       }
-    ]
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/tigris-hemoadsorcion-polimixina-b-shock-septico-endotoxico-16x9.jpg",
+      "https://resumenestrials.com/images/trials/tigris-hemoadsorcion-polimixina-b-shock-septico-endotoxico-4x3.jpg",
+      "https://resumenestrials.com/images/trials/tigris-hemoadsorcion-polimixina-b-shock-septico-endotoxico-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si dos sesiones de hemoadsorción con polimixina B, añadidas al tratamiento estándar, reducen la mortalidad a 28 días en adultos con shock séptico endotóxico definido por actividad de endotoxina elevada y fallo multiorgánico.",
+      "answer": "La mortalidad a 28 días fue del 39% frente al 45% a favor de la polimixina B, con una probabilidad posterior de beneficio del 95.3%, justo en el umbral de éxito (OR ajustado 0.67; ICr 95%, 0.39-1.08).",
+      "population": "La población fueron adultos, de 18 años o más, con shock séptico endotóxico, un subtipo de shock séptico caracterizado por endotoxina circulante alta y fallo de varios órganos. Para entrar debían tener hipotensión que requiriera noradrenalina por encima de 0.05 mcg/kg/min durante al menos dos horas, reanimación previa con más de 30 mL/kg de líquidos, infección documentada o sospechada con antibióticos, disfunción multiorgánica…"
+    }
   },
   "21": {
     "slug": "e-crrt-integracion-separacion-circuito-depuracion-renal-continua-paciente-ecmo",
@@ -350,7 +550,17 @@
         "path": "/medicina-critica/renal-acido-base/",
         "url": "https://resumenestrials.com/medicina-critica/renal-acido-base/"
       }
-    ]
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/e-crrt-integracion-separacion-circuito-depuracion-renal-continua-paciente-ecmo-16x9.jpg",
+      "https://resumenestrials.com/images/trials/e-crrt-integracion-separacion-circuito-depuracion-renal-continua-paciente-ecmo-4x3.jpg",
+      "https://resumenestrials.com/images/trials/e-crrt-integracion-separacion-circuito-depuracion-renal-continua-paciente-ecmo-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Comparar la duración del circuito de terapia de reemplazo renal continuo entre las técnicas de integración y de separación en pacientes con oxigenación por membrana extracorpórea que requieren depuración renal continua.",
+      "answer": "La duración mediana del circuito no difirió: 72 frente a 71 horas (p=0.52).",
+      "population": "La población fueron adultos, de 18 años o más, ingresados en cuidados intensivos, que precisaban oxigenación por membrana extracorpórea y desarrollaban una lesión renal aguda que exigía terapia de reemplazo renal continuo. Se excluyeron el embarazo, la contraindicación a la heparina y las causas renales concretas como trombosis de ambas arterias renales, vasculitis, glomerulonefritis o causa obstructiva. La raza o etnia no se…"
+    }
   },
   "22": {
     "slug": "shosreb-remimazolam-besilato-propofol-sedacion-ligera-corta-duracion-uci",
@@ -359,7 +569,17 @@
     "title": "SHOSREB: remimazolam besilato frente a propofol para la sedación ligera de corta duración en la UCI",
     "seo_title": "SHOSREB trial: remimazolam besilato frente a propofol para la sedación ligera de corta duración en la UCI | Resúmenes Trials",
     "description": "SHOSREB: La sedación exitosa fue del 97.5% en ambos grupos (diferencia 0; IC 95%, -6.5% a 6.4%), dentro del margen de no inferioridad del -8%. El remimazolam…",
-    "clusters": []
+    "clusters": [],
+    "images": [
+      "https://resumenestrials.com/images/trials/shosreb-remimazolam-besilato-propofol-sedacion-ligera-corta-duracion-uci-16x9.jpg",
+      "https://resumenestrials.com/images/trials/shosreb-remimazolam-besilato-propofol-sedacion-ligera-corta-duracion-uci-4x3.jpg",
+      "https://resumenestrials.com/images/trials/shosreb-remimazolam-besilato-propofol-sedacion-ligera-corta-duracion-uci-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Evaluar si el remimazolam besilato no es inferior al propofol para lograr una sedación ligera y de corta duración exitosa en pacientes de cuidados intensivos con ventilación mecánica.",
+      "answer": "La sedación exitosa fue del 97.5% en ambos grupos (diferencia 0; IC 95%, -6.5% a 6.4%), dentro del margen de no inferioridad del -8%.",
+      "population": "La población fueron adultos de 18 a 80 años, con índice de masa corporal entre 18 y 30, intubados en las 48 horas previas, con expectativa de ventilación mecánica de al menos 6 horas y que necesitaban sedación ligera. Esa profundidad se definió con la escala de agitación y sedación de Richmond, que va de menos 5, sin respuesta, a más 4, combativo; el tramo de menos 2 a más 1 corresponde a una sedación ligera, con el paciente…"
+    }
   },
   "23": {
     "slug": "vitacca-vitamina-c-intravenosa-temprana-dosis-altas-tras-paro-cardiaco",
@@ -374,7 +594,17 @@
         "path": "/medicina-critica/paro-resucitacion/",
         "url": "https://resumenestrials.com/medicina-critica/paro-resucitacion/"
       }
-    ]
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/vitacca-vitamina-c-intravenosa-temprana-dosis-altas-tras-paro-cardiaco-16x9.jpg",
+      "https://resumenestrials.com/images/trials/vitacca-vitamina-c-intravenosa-temprana-dosis-altas-tras-paro-cardiaco-4x3.jpg",
+      "https://resumenestrials.com/images/trials/vitacca-vitamina-c-intravenosa-temprana-dosis-altas-tras-paro-cardiaco-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Evaluar si la administración intravenosa temprana de vitamina C, a dosis suplementaria (3 g) o suprafisiológica (10 g) diaria durante 96 horas, atenúa la disfunción orgánica tras el paro cardiaco extrahospitalario con ritmo desfibrilable.",
+      "answer": "La vitamina C no redujo la disfunción orgánica a las 96 horas y la dosis de 10 g la empeoró: el cambio en la puntuación R-SOFA fue de -3.2 con placebo frente a -0.8 con 10 g (2.5 puntos menos de mejoría; IC 95%, 0.5 a 4.5; p=0.01).",
+      "population": "La población fueron adultos en coma tras un paro cardiaco extrahospitalario con ritmo inicial desfibrilable y una puntuación en la escala de coma de Glasgow igual o menor de 8, reclutados en dos centros académicos y cuatro hospitales generales de los Países Bajos; no se reportó la raza ni la etnia. La primera dosis debía administrarse en menos de 5 horas desde la recuperación de la circulación espontánea."
+    }
   },
   "24": {
     "slug": "reboarrest-oclusion-aortica-balon-reboa-prehospitalaria-paro-cardiaco-extrahospitalario-no",
@@ -394,7 +624,17 @@
         "path": "/medicina-critica/paro-resucitacion/",
         "url": "https://resumenestrials.com/medicina-critica/paro-resucitacion/"
       }
-    ]
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/reboarrest-oclusion-aortica-balon-reboa-prehospitalaria-paro-cardiaco-extrahospitalario-no-16x9.jpg",
+      "https://resumenestrials.com/images/trials/reboarrest-oclusion-aortica-balon-reboa-prehospitalaria-paro-cardiaco-extrahospitalario-no-4x3.jpg",
+      "https://resumenestrials.com/images/trials/reboarrest-oclusion-aortica-balon-reboa-prehospitalaria-paro-cardiaco-extrahospitalario-no-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Evaluar si el despliegue prehospitalario de la oclusión aórtica con balón (REBOA) como complemento del soporte vital avanzado aumenta la tasa de retorno de la circulación espontánea sostenido en el paro cardiaco extrahospitalario no traumático.",
+      "answer": "La REBOA no aumentó el retorno de la circulación sostenido: 28% con REBOA frente al 26% con soporte vital avanzado solo (diferencia de riesgo ajustada 1.8%; IC 95%, -11 a 15; p=0.78).",
+      "population": "La población fueron adultos de 18 a 80 años con un paro cardiaco extrahospitalario de origen no traumático, en los que habían pasado menos de 10 minutos desde el inicio del paro hasta el comienzo del soporte vital y en los que este podía continuarse tras la aleatorización; no se recogieron datos de raza ni etnia. Se excluyeron el paro traumático, la hipotermia accidental, la sospecha de hemorragia cerebral o de otra causa…"
+    }
   },
   "25": {
     "slug": "ventsetfib-ajustes-ventilador-optimizados-broncoscopia-flexible-ventilacion-mecanica",
@@ -409,7 +649,17 @@
         "path": "/medicina-critica/ventilacion-respiratoria/",
         "url": "https://resumenestrials.com/medicina-critica/ventilacion-respiratoria/"
       }
-    ]
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/ventsetfib-ajustes-ventilador-optimizados-broncoscopia-flexible-ventilacion-mecanica-16x9.jpg",
+      "https://resumenestrials.com/images/trials/ventsetfib-ajustes-ventilador-optimizados-broncoscopia-flexible-ventilacion-mecanica-4x3.jpg",
+      "https://resumenestrials.com/images/trials/ventsetfib-ajustes-ventilador-optimizados-broncoscopia-flexible-ventilacion-mecanica-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si unos ajustes del ventilador optimizados para la broncoscopia, con volumen controlado, flujo inspiratorio bajo y volumen corriente bajo, reducen los eventos adversos graves durante la broncoscopia flexible respecto a los ajustes convencionales en el paciente intubado.",
+      "answer": "Los ajustes optimizados casi eliminaron el evento adverso grave: ocurrió en 1 de 23 (4%) frente a 22 de 23 (96%) con los ajustes convencionales (riesgo relativo 0.05; IC 95%, 0.007 a 0.31; diferencia de riesgo -91.3%; p<0.001).",
+      "population": "La población fueron adultos críticos, intubados, sedados y con ventilación mecánica por insuficiencia respiratoria aguda, que precisaban una broncoscopia flexible en la unidad de cuidados intensivos; por la normativa francesa no se reportó la raza ni la etnia. Se excluyeron las contraindicaciones absolutas a la broncoscopia, como el síndrome de dificultad respiratoria aguda grave o el shock refractario, y las asincronías…"
+    }
   },
   "26": {
     "slug": "imodern-revascularizacion-coronaria-inmediata-guiada-ifr-diferida-guiada-resonancia-estres",
@@ -424,7 +674,17 @@
         "path": "/medicina-interna/cardiovascular/",
         "url": "https://resumenestrials.com/medicina-interna/cardiovascular/"
       }
-    ]
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/imodern-revascularizacion-coronaria-inmediata-guiada-ifr-diferida-guiada-resonancia-estres-16x9.jpg",
+      "https://resumenestrials.com/images/trials/imodern-revascularizacion-coronaria-inmediata-guiada-ifr-diferida-guiada-resonancia-estres-4x3.jpg",
+      "https://resumenestrials.com/images/trials/imodern-revascularizacion-coronaria-inmediata-guiada-ifr-diferida-guiada-resonancia-estres-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si la revascularización inmediata de las lesiones no culpables guiada por iFR es superior a la diferida guiada por resonancia magnética de estrés para reducir la muerte, el reinfarto o la hospitalización por insuficiencia cardiaca a 3 años en el infarto con elevación del ST y enfermedad multivaso.",
+      "answer": "No hubo diferencia en el desenlace primario: ocurrió en 10.6% con la estrategia inmediata guiada por iFR frente a 10.2% con la diferida guiada por resonancia (razón de riesgos 1.05; IC 95%, 0.73 a 1.52; p=0.78) .",
+      "population": "La población fueron adultos de 18 años o más con infarto agudo de miocardio con elevación del ST a quienes se había practicado una angioplastia primaria exitosa dentro de las 12 horas del inicio de los síntomas, con flujo TIMI 3 y estenosis residual mínima de la lesión culpable, y que además tenían al menos una lesión no culpable con estenosis mayor del 50% en una arteria distinta a la del infarto, abordable por angioplastia…"
+    }
   },
   "27": {
     "slug": "cobrra-apixaban-rivaroxaban-riesgo-hemorragia-enfermedad-tromboembolica-venosa-aguda",
@@ -439,7 +699,17 @@
         "path": "/medicina-interna/cardiovascular/",
         "url": "https://resumenestrials.com/medicina-interna/cardiovascular/"
       }
-    ]
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/cobrra-apixaban-rivaroxaban-riesgo-hemorragia-enfermedad-tromboembolica-venosa-aguda-16x9.jpg",
+      "https://resumenestrials.com/images/trials/cobrra-apixaban-rivaroxaban-riesgo-hemorragia-enfermedad-tromboembolica-venosa-aguda-4x3.jpg",
+      "https://resumenestrials.com/images/trials/cobrra-apixaban-rivaroxaban-riesgo-hemorragia-enfermedad-tromboembolica-venosa-aguda-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si apixabán es superior a rivaroxabán en seguridad, medida como hemorragia clínicamente relevante, durante 3 meses de tratamiento de la enfermedad tromboembólica venosa aguda.",
+      "answer": "Apixabán fue superior: la hemorragia clínicamente relevante ocurrió en 3.3% frente a 7.1% con rivaroxabán (riesgo relativo 0.46; IC 95%, 0.33 a 0.65; p<0.001) , con recurrencia trombótica similar.",
+      "population": "La población fueron adultos de 18 años o más con enfermedad tromboembólica venosa aguda sintomática, definida como trombosis venosa profunda proximal de la extremidad inferior o embolia pulmonar segmentaria o más proximal. Se excluyeron quienes habían recibido anticoagulación terapéutica durante más de 72 horas antes de la inclusión, la insuficiencia renal con aclaramiento de creatinina menor de 30 ml por minuto, cualquier…"
+    }
   },
   "28": {
     "slug": "closure-af-cierre-percutaneo-orejuela-izquierda-mejor-tratamiento-medico-fibrilacion-auricular",
@@ -454,7 +724,17 @@
         "path": "/medicina-interna/cardiovascular/",
         "url": "https://resumenestrials.com/medicina-interna/cardiovascular/"
       }
-    ]
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/closure-af-cierre-percutaneo-orejuela-izquierda-mejor-tratamiento-medico-fibrilacion-auricular-16x9.jpg",
+      "https://resumenestrials.com/images/trials/closure-af-cierre-percutaneo-orejuela-izquierda-mejor-tratamiento-medico-fibrilacion-auricular-4x3.jpg",
+      "https://resumenestrials.com/images/trials/closure-af-cierre-percutaneo-orejuela-izquierda-mejor-tratamiento-medico-fibrilacion-auricular-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si el cierre percutáneo de la orejuela izquierda es no inferior al mejor tratamiento médico para un compuesto de ictus, embolia sistémica, hemorragia mayor o muerte cardiovascular o inexplicada en la fibrilación auricular con alto riesgo de ictus y de sangrado.",
+      "answer": "El cierre de la orejuela no demostró no inferioridad: 16.8 frente a 13.3 eventos por 100 pacientes-año (diferencia en supervivencia media restringida -0.36 años; IC 95%, -0.70 a -0.01; p=0.44) , con más eventos y sin reducir la hemorragia.",
+      "population": "La población fueron adultos con fibrilación auricular y alto riesgo simultáneo de ictus y de sangrado, o con contraindicaciones para la anticoagulación a largo plazo. El alto riesgo de ictus se definió por una puntuación CHA2DS2-VASc de 2 o más, una escala de 0 a 9 en la que un valor mayor indica más riesgo embólico; el alto riesgo de sangrado, por una HAS-BLED de 3 o más, escala de 0 a 9 en la que un valor mayor indica más…"
+    }
   },
   "29": {
     "slug": "champion-af-cierre-percutaneo-orejuela-izquierda-anticoagulantes-orales-directos-fibrilacion",
@@ -469,7 +749,17 @@
         "path": "/medicina-interna/cardiovascular/",
         "url": "https://resumenestrials.com/medicina-interna/cardiovascular/"
       }
-    ]
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/champion-af-cierre-percutaneo-orejuela-izquierda-anticoagulantes-orales-directos-fibrilacion-16x9.jpg",
+      "https://resumenestrials.com/images/trials/champion-af-cierre-percutaneo-orejuela-izquierda-anticoagulantes-orales-directos-fibrilacion-4x3.jpg",
+      "https://resumenestrials.com/images/trials/champion-af-cierre-percutaneo-orejuela-izquierda-anticoagulantes-orales-directos-fibrilacion-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si el cierre percutáneo de la orejuela izquierda con Watchman FLX es no inferior a los anticoagulantes orales directos para un compuesto de muerte cardiovascular, ictus o embolia sistémica, y superior en hemorragia no ligada al procedimiento, en la fibrilación auricular apta para anticoagular.",
+      "answer": "El dispositivo fue no inferior en eficacia ( 5.7% frente a 4.8%; diferencia 0.9 puntos; IC 95%, -0.8 a 2.6; p<0.001 para no inferioridad ) y superior en seguridad, con menos hemorragia no ligada al procedimiento ( 10.9% frente a 19.0%; razón de riesgos 0.55; p<0.001 ).",
+      "population": "La población fueron pacientes con fibrilación auricular y riesgo aumentado de ictus, definido por una puntuación CHA2DS2-VASc de 2 o más en varones y de 3 o más en mujeres, en una escala de 0 a 9 en la que un valor mayor indica más riesgo embólico, que además eran candidatos adecuados a la anticoagulación. Se excluyeron el infarto, el ictus o el accidente isquémico transitorio en los 30 días previos y la hemorragia mayor…"
+    }
   },
   "30": {
     "slug": "ez-pave-objetivo-intensivo-colesterol-ldl-menor-55-mg-dl-menor",
@@ -484,7 +774,17 @@
         "path": "/medicina-interna/cardiovascular/",
         "url": "https://resumenestrials.com/medicina-interna/cardiovascular/"
       }
-    ]
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/ez-pave-objetivo-intensivo-colesterol-ldl-menor-55-mg-dl-menor-16x9.jpg",
+      "https://resumenestrials.com/images/trials/ez-pave-objetivo-intensivo-colesterol-ldl-menor-55-mg-dl-menor-4x3.jpg",
+      "https://resumenestrials.com/images/trials/ez-pave-objetivo-intensivo-colesterol-ldl-menor-55-mg-dl-menor-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si un objetivo de colesterol LDL menor de 55 mg/dl es superior a uno menor de 70 mg/dl para prevenir eventos cardiovasculares a 3 años en pacientes con enfermedad cardiovascular aterosclerótica.",
+      "answer": "El objetivo intensivo fue superior: el compuesto primario ocurrió en 6.6% frente a 9.7% con el objetivo convencional (razón de riesgos 0.67; IC 95%, 0.52 a 0.86; p=0.002) , a expensas sobre todo de la revascularización.",
+      "population": "La población fueron adultos de 19 a 80 años con enfermedad cardiovascular aterosclerótica documentada, definida por antecedente de síndrome coronario agudo, angina estable con estudios de imagen o funcionales, revascularización coronaria o arterial, ictus o accidente isquémico transitorio, o enfermedad arterial periférica. Un criterio de exclusión clave fue tener un colesterol LDL menor de 70 mg/dl sin estatina."
+    }
   },
   "31": {
     "slug": "snap-cefazolina-penicilinas-antiestafilococicas-bacteriemia-staphylococcus-aureus-sensible",
@@ -504,7 +804,17 @@
         "path": "/medicina-interna/infecciosas/",
         "url": "https://resumenestrials.com/medicina-interna/infecciosas/"
       }
-    ]
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/snap-cefazolina-penicilinas-antiestafilococicas-bacteriemia-staphylococcus-aureus-sensible-16x9.jpg",
+      "https://resumenestrials.com/images/trials/snap-cefazolina-penicilinas-antiestafilococicas-bacteriemia-staphylococcus-aureus-sensible-4x3.jpg",
+      "https://resumenestrials.com/images/trials/snap-cefazolina-penicilinas-antiestafilococicas-bacteriemia-staphylococcus-aureus-sensible-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si la cefazolina es no inferior a las penicilinas antiestafilocócicas (flucloxacilina o cloxacilina) para la mortalidad por cualquier causa a 90 días en la bacteriemia por Staphylococcus aureus sensible a meticilina.",
+      "answer": "La cefazolina fue no inferior en mortalidad a 90 días ( 15.0% frente a 17.0%; razón de probabilidades ajustada 0.81; intervalo de credibilidad del 95%, 0.59 a 1.12; probabilidad de no inferioridad 99.2% ) y produjo menos daño renal agudo (13.9% frente a 19.6%).",
+      "population": "La población fueron adultos hospitalizados con bacteriemia por Staphylococcus aureus sensible a meticilina y resistente a penicilina, incluidos en las 72 horas siguientes al primer hemocultivo positivo. Se restringió a las cepas resistentes a penicilina, productoras de penicilinasa, precisamente para no favorecer de forma artificial la no inferioridad de la cefazolina a través del llamado efecto inóculo. Se excluyeron la…"
+    }
   },
   "32": {
     "slug": "panoramic-y-cantreatcovid-nirmatrelvir-ritonavir-oral-pacientes-ambulatorios-vacunados-mayor",
@@ -519,7 +829,17 @@
         "path": "/medicina-interna/infecciosas/",
         "url": "https://resumenestrials.com/medicina-interna/infecciosas/"
       }
-    ]
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/panoramic-y-cantreatcovid-nirmatrelvir-ritonavir-oral-pacientes-ambulatorios-vacunados-mayor-16x9.jpg",
+      "https://resumenestrials.com/images/trials/panoramic-y-cantreatcovid-nirmatrelvir-ritonavir-oral-pacientes-ambulatorios-vacunados-mayor-4x3.jpg",
+      "https://resumenestrials.com/images/trials/panoramic-y-cantreatcovid-nirmatrelvir-ritonavir-oral-pacientes-ambulatorios-vacunados-mayor-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si el nirmatrelvir-ritonavir precoz reduce la hospitalización o la muerte por cualquier causa a 28 días en adultos comunitarios, mayoritariamente vacunados, con mayor riesgo de Covid-19 grave.",
+      "answer": "No hubo reducción de la hospitalización o la muerte: 0.8% frente a 0.7% en PANORAMIC (razón de probabilidades 1.18; intervalo de credibilidad del 95%, 0.55 a 2.62) y 0.6% frente a 1.2% en CanTreatCOVID (razón 0.48; intervalo, 0.08 a 2.23) , con eventos inferiores al 1%.",
+      "population": "La población fueron adultos de la comunidad con mayor riesgo, definidos por tener 50 años o más, o 18 o más con enfermedades concomitantes relevantes, con prueba positiva para SARS-CoV-2 y síntomas de 5 días o menos. La gran mayoría estaba vacunada, cerca del 98%. Se excluyeron el embarazo, la lactancia, el uso previo del antiviral y las contraindicaciones, incluidas las numerosas interacciones farmacológicas."
+    }
   },
   "33": {
     "slug": "fast-iii-vffr-obtenido-angiografia-ffr-guia-presion-guiar-revascularizacion-coronaria",
@@ -534,7 +854,17 @@
         "path": "/medicina-interna/cardiovascular/",
         "url": "https://resumenestrials.com/medicina-interna/cardiovascular/"
       }
-    ]
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/fast-iii-vffr-obtenido-angiografia-ffr-guia-presion-guiar-revascularizacion-coronaria-16x9.jpg",
+      "https://resumenestrials.com/images/trials/fast-iii-vffr-obtenido-angiografia-ffr-guia-presion-guiar-revascularizacion-coronaria-4x3.jpg",
+      "https://resumenestrials.com/images/trials/fast-iii-vffr-obtenido-angiografia-ffr-guia-presion-guiar-revascularizacion-coronaria-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si guiar la revascularización de lesiones coronarias intermedias con el vFFR, derivado solo de la angiografía, no es inferior a hacerlo con el FFR medido con guía de presión, en cuanto a muerte, infarto o revascularización a un año.",
+      "answer": "El vFFR fue no inferior: el desenlace primario ocurrió en el 7.5% con vFFR frente al 7.5% con FFR (diferencia de riesgo -0.02 puntos porcentuales; IC 95%, -2.25 a 2.21; p=0.004 para no inferioridad) , con procedimientos algo más cortos.",
+      "population": "La población fueron adultos con lesiones coronarias intermedias, definidas por una estenosis del 30 al 80%, en un vaso nativo de al menos 2.5 mm, que se presentaban con síndrome coronario crónico, angina inestable o síndrome coronario agudo sin elevación del segmento ST. No se reportó la distribución por raza o etnia."
+    }
   },
   "34": {
     "slug": "chip-bcis3-descarga-ventriculo-izquierdo-bomba-flujo-microaxial-cuidado-estandar-intervencion",
@@ -549,7 +879,17 @@
         "path": "/medicina-interna/cardiovascular/",
         "url": "https://resumenestrials.com/medicina-interna/cardiovascular/"
       }
-    ]
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/chip-bcis3-descarga-ventriculo-izquierdo-bomba-flujo-microaxial-cuidado-estandar-intervencion-16x9.jpg",
+      "https://resumenestrials.com/images/trials/chip-bcis3-descarga-ventriculo-izquierdo-bomba-flujo-microaxial-cuidado-estandar-intervencion-4x3.jpg",
+      "https://resumenestrials.com/images/trials/chip-bcis3-descarga-ventriculo-izquierdo-bomba-flujo-microaxial-cuidado-estandar-intervencion-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si la descarga electiva del ventrículo izquierdo con una bomba de flujo microaxial reduce la muerte y las complicaciones mayores, frente al cuidado estándar, en pacientes con disfunción ventricular grave sometidos a intervención coronaria percutánea compleja.",
+      "answer": "No hubo beneficio: la razón de victorias del compuesto jerárquico fue de 0.85 a favor del cuidado estándar (IC 95%, 0.63 a 1.15; p=0.30) , con más muerte cardiovascular en la rama de la bomba (razón de riesgos 1.91; IC 95%, 1.11 a 3.30).",
+      "population": "La población fueron pacientes con disfunción sistólica grave del ventrículo izquierdo, definida por una fracción de eyección del 35% o menos, o del 45% o menos si había insuficiencia mitral grave, y enfermedad coronaria extensa, que iban a someterse a una intervención coronaria percutánea compleja. La raza o etnia se reportó por el propio paciente, y en torno al 84% eran blancos, el 12% asiáticos y menos del 2% negros."
+    }
   },
   "35": {
     "slug": "find-ckd-finerenona-placebo-enfermedad-renal-cronica-diabetes",
@@ -558,7 +898,17 @@
     "title": "FIND-CKD: finerenona frente a placebo en la enfermedad renal crónica sin diabetes",
     "seo_title": "FIND-CKD trial: finerenona frente a placebo en la enfermedad renal crónica sin diabetes | Resúmenes Trials",
     "description": "FIND-CKD: La finerenona frenó la caída: la pendiente total del filtrado fue de -3.3 frente a -4.0 ml/min/1.73 m2 al año con placebo (diferencia 0.7; IC 95%…",
-    "clusters": []
+    "clusters": [],
+    "images": [
+      "https://resumenestrials.com/images/trials/find-ckd-finerenona-placebo-enfermedad-renal-cronica-diabetes-16x9.jpg",
+      "https://resumenestrials.com/images/trials/find-ckd-finerenona-placebo-enfermedad-renal-cronica-diabetes-4x3.jpg",
+      "https://resumenestrials.com/images/trials/find-ckd-finerenona-placebo-enfermedad-renal-cronica-diabetes-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si la finerenona, frente a placebo, frena la caída del filtrado glomerular a lo largo de 32 meses en adultos con enfermedad renal crónica sin diabetes.",
+      "answer": "La finerenona frenó la caída: la pendiente total del filtrado fue de -3.3 frente a -4.0 ml/min/1.73 m2 al año con placebo (diferencia 0.7; IC 95%, 0.3 a 1.1; p , con más hiperpotasemia.",
+      "population": "La población fueron adultos sin diabetes con enfermedad renal crónica, definida por un filtrado glomerular estimado de 25 a menos de 90 ml/min/1.73 m2 y albuminuria, con un cociente albúmina-creatinina de 200 a 3500, que ya recibían un inhibidor del sistema renina-angiotensina. Según raza o etnia declarada, en torno al 55% eran asiáticos, el 40% blancos y menos del 3% negros."
+    }
   },
   "36": {
     "slug": "adapt-af-des-monoterapia-anticoagulante-anticoagulante-mas-clopidogrel-fibrilacion-auricular",
@@ -573,7 +923,17 @@
         "path": "/medicina-interna/cardiovascular/",
         "url": "https://resumenestrials.com/medicina-interna/cardiovascular/"
       }
-    ]
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/adapt-af-des-monoterapia-anticoagulante-anticoagulante-mas-clopidogrel-fibrilacion-auricular-16x9.jpg",
+      "https://resumenestrials.com/images/trials/adapt-af-des-monoterapia-anticoagulante-anticoagulante-mas-clopidogrel-fibrilacion-auricular-4x3.jpg",
+      "https://resumenestrials.com/images/trials/adapt-af-des-monoterapia-anticoagulante-anticoagulante-mas-clopidogrel-fibrilacion-auricular-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si, más de un año después de implantar un stent liberador de fármaco, la monoterapia con un anticoagulante oral directo no es inferior a la combinación de ese anticoagulante con clopidogrel para los eventos adversos clínicos netos a un año, en pacientes con fibrilación auricular.",
+      "answer": "La monoterapia fue no inferior y superior: los eventos adversos netos ocurrieron en el 9.6% frente al 17.2% con la combinación (razón de riesgos 0.54; IC 95.2%, 0.37 a 0.77; p , a expensas sobre todo de menos hemorragias.",
+      "population": "La población fueron pacientes con fibrilación auricular a quienes se había implantado un stent liberador de fármaco de segunda o tercera generación al menos un año antes, con enfermedad coronaria estable y alto riesgo tromboembólico, definido por una puntuación CHA2DS2-VASc de 2 o más. La CHA2DS2-VASc estima el riesgo de ictus en la fibrilación auricular en una escala de 0 a 9, donde las puntuaciones altas indican mayor…"
+    }
   },
   "37": {
     "slug": "ocean-rivaroxaban-aspirina-tras-ablacion-exitosa-fibrilacion-auricular",
@@ -588,7 +948,17 @@
         "path": "/medicina-interna/cardiovascular/",
         "url": "https://resumenestrials.com/medicina-interna/cardiovascular/"
       }
-    ]
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/ocean-rivaroxaban-aspirina-tras-ablacion-exitosa-fibrilacion-auricular-16x9.jpg",
+      "https://resumenestrials.com/images/trials/ocean-rivaroxaban-aspirina-tras-ablacion-exitosa-fibrilacion-auricular-4x3.jpg",
+      "https://resumenestrials.com/images/trials/ocean-rivaroxaban-aspirina-tras-ablacion-exitosa-fibrilacion-auricular-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si, tras una ablación exitosa de fibrilación auricular en pacientes con factores de riesgo de ictus, mantener el rivaroxabán es superior a la aspirina para prevenir el ictus, la embolia sistémica y el ictus embólico encubierto a tres años.",
+      "answer": "No hubo diferencia significativa: el desenlace primario ocurrió en el 0.8% con rivaroxabán frente al 1.4% con aspirina (riesgo relativo 0.56; IC 95%, 0.19 a 1.65; p=0.28) , con más hemorragia clínicamente relevante no mayor bajo rivaroxabán.",
+      "population": "La población fueron pacientes que habían recibido una ablación con catéter exitosa de fibrilación auricular no valvular al menos un año antes, sin arritmia auricular documentada, con factores de riesgo de ictus definidos por una puntuación CHA2DS2-VASc de 1 o más, o de 2 o más en mujeres y en quienes la enfermedad vascular era el factor de riesgo. La CHA2DS2-VASc estima el riesgo de ictus en la fibrilación auricular en una…"
+    }
   },
   "38": {
     "slug": "beat-tuberculosis-estrategia-seis-meses-tratamiento-estandar-tuberculosis-resistente-rifampicina",
@@ -603,6 +973,16 @@
         "path": "/medicina-interna/infecciosas/",
         "url": "https://resumenestrials.com/medicina-interna/infecciosas/"
       }
-    ]
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/beat-tuberculosis-estrategia-seis-meses-tratamiento-estandar-tuberculosis-resistente-rifampicina-16x9.jpg",
+      "https://resumenestrials.com/images/trials/beat-tuberculosis-estrategia-seis-meses-tratamiento-estandar-tuberculosis-resistente-rifampicina-4x3.jpg",
+      "https://resumenestrials.com/images/trials/beat-tuberculosis-estrategia-seis-meses-tratamiento-estandar-tuberculosis-resistente-rifampicina-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si, en la tuberculosis pulmonar resistente a rifampicina, una estrategia de tratamiento de seis meses no es inferior al tratamiento estándar de nueve meses en cuanto a la proporción de pacientes con un desenlace exitoso a las 76 semanas.",
+      "answer": "La estrategia de seis meses fue no inferior: el desenlace exitoso ocurrió en el 86.1% con la estrategia de seis meses frente al 86.0% con el estándar (diferencia de riesgo ajustada -0.2 puntos porcentuales; IC 95%, -6.9 a 6.5; p=0.001 para no inferioridad) , con una seguridad similar.",
+      "population": "La población fueron personas de 6 años o más con tuberculosis pulmonar resistente a rifampicina, con o sin resistencia añadida a isoniacida o a fluoroquinolonas, incluidas mujeres embarazadas o en lactancia, un grupo habitualmente excluido de los ensayos. La raza, declarada por los participantes, fue negra en el 76.9%, mixta en el 22.3% y blanca en el 0.7%."
+    }
   }
 }

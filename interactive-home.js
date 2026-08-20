@@ -45,6 +45,8 @@ async function loadData() {
 }
 
 function articleId(row) {
+  const direct = row?.dataset?.id;
+  if (direct) return direct;
   const a = row.querySelector('a.cabeza[href*="resumen.html?id="]');
   if (!a) return null;
   try { return new URL(a.href, location.href).searchParams.get('id'); }
