@@ -53,7 +53,8 @@ jobs:
               assert '/future-experience.css?v=1' in s, f'{path}: falta CSS futuro'
               assert '/future-experience-patch.css?v=1' in s, f'{path}: falta patch futuro'
               assert '/future-experience.js?v=1' in s, f'{path}: falta JS futuro'
-              assert '/future-experience-final.js?v=1' in s, f'{path}: falta ajuste JS final'
+              assert '/future-experience-final.js?v=2' in s, f'{path}: falta ajuste JS final v2'
+              assert '/future-experience-final.js?v=1' not in s, f'{path}: conserva ajuste JS final obsoleto v1'
           print(f'Assets futuros presentes en {len(targets)} objetivos')
           PY
       - name: Instalar Playwright

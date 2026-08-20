@@ -16,10 +16,10 @@ async function waitForDeployment(){
       const css=await fetch(`${BASE}/future-experience.css?qa=${Date.now()}`,{signal:AbortSignal.timeout(12000)});
       const js=await fetch(`${BASE}/future-experience.js?qa=${Date.now()}`,{signal:AbortSignal.timeout(12000)});
       const finalJs=await fetch(`${BASE}/future-experience-final.js?qa=${Date.now()}`,{signal:AbortSignal.timeout(12000)});
-      if(html.includes('/future-experience.css?v=1')&&html.includes('/future-experience.js?v=1')&&html.includes('/future-experience-final.js?v=1')&&css.ok&&js.ok&&finalJs.ok){
+      if(html.includes('/future-experience.css?v=1')&&html.includes('/future-experience.js?v=1')&&html.includes('/future-experience-final.js?v=2')&&css.ok&&js.ok&&finalJs.ok){
         console.log(`FUTURE DEPLOYMENT READY · intento ${i}`);return;
       }
-      last=`HTML futuro=${html.includes('/future-experience.css?v=1')} final=${html.includes('/future-experience-final.js?v=1')} CSS=${css.status} JS=${js.status} FINAL=${finalJs.status}`;
+      last=`HTML futuro=${html.includes('/future-experience.css?v=1')} final-v2=${html.includes('/future-experience-final.js?v=2')} CSS=${css.status} JS=${js.status} FINAL=${finalJs.status}`;
     }catch(e){last=e.message}
     console.log(`Esperando publicación futura (${i}/32) · ${last}`);
     await sleep(15000);
@@ -47,8 +47,19 @@ try{
   await page.waitForSelector('body.rt-future-home',{timeout:15000});
   await page.waitForSelector('.rt-orbit',{timeout:15000});
   await page.waitForSelector('.rt-explorer-stage',{timeout:15000});
-  assert(await page.locator('.fila').count()>=38,'Producción: portada no muestra los 38 trials');
-  assert(await page.locator('.fila.rt-featured').count()===1,'Producción: falta ensayo destacado');
+  await page.waitForFunction(()=>document.querySelectorAll('#indice .fila').length>=38,{timeout:15000});
+
+  // Fuerza el re-render real del explorador para comprobar que el destacado persiste.
+  const search=page.locator('#q');
+  await search.fill('ARISE');
+  await page.waitForFunction(()=>document.querySelectorAll('#indice .fila').length===1,{timeout:15000});
+  await page.waitForTimeout(80);
+  assert(await page.locator('#indice .fila.rt-featured').count()===1,'Producción: el destacado desaparece al filtrar');
+  await search.fill('');
+  await page.waitForFunction(()=>document.querySelectorAll('#indice .fila').length>=38,{timeout:15000});
+  await page.waitForTimeout(80);
+  assert(await page.locator('#indice .fila.rt-featured').count()===1,'Producción: falta ensayo destacado tras re-render completo');
+
   const account=page.locator('.topbar .top-links #account-entry');
   await account.waitFor({state:'visible',timeout:15000});
   const accountText=(await account.innerText()).trim();
@@ -64,6 +75,7 @@ try{
   await page.setViewportSize({width:390,height:844});await page.waitForTimeout(200);await noOverflow(page,'Producción portada móvil');
   assert(await page.locator('#q').isVisible(),'Producción móvil: búsqueda clínica no visible');
   assert(await account.isVisible(),'Producción móvil: CTA de cuenta no visible');
+  assert(await page.locator('#indice .fila.rt-featured').count()===1,'Producción móvil: falta trial destacado');
 
   await page.setViewportSize({width:1440,height:1000});
   await page.goto(`${BASE}${entry.path}?qa=${Date.now()}`,{waitUntil:'domcontentloaded',timeout:30000});
@@ -91,5 +103,5 @@ try{
   await noOverflow(page,'Producción login');
 
   assert(errors.length===0,`Producción: errores JavaScript: ${errors.join(' | ')}`);
-  console.log(`FUTURE PRODUCTION STRICT PASS · ${ids.length} trials · cuenta/año/revista OK · ${entry.path}`);
+  console.log(`FUTURE PRODUCTION STRICT PASS · ${ids.length} trials · destacado persistente · cuenta/año/revista OK · ${entry.path}`);
 }finally{await browser.close()}
