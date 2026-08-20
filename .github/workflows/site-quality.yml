@@ -82,10 +82,14 @@ jobs:
           node --check scripts/validate-newsletter.mjs
       - name: Validate Supabase Edge Function
         run: deno check supabase/functions/notify-new-summaries/index.ts
-      - name: Validate Python audit syntax
+      - name: Validate Python and SEO generator syntax
         run: |
           python3 -m py_compile tools/validar_resumenes.py
           python3 -m py_compile tools/auditoria_editorial_profunda.py
+          python3 -m py_compile generar_seo.py
+          python3 -m py_compile generar_seo_clusters.py
+          python3 -m py_compile generar_paginas_sociales.py
+          python3 -m json.tool seo-clusters.json >/dev/null
       - name: Validate embedded module scripts
         run: node scripts/validate-inline-modules.mjs
       - name: Validate article detail page
