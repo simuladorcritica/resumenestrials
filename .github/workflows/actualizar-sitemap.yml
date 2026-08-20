@@ -1,4 +1,4 @@
-name: Actualizar sitio derivado
+name: Actualizar sitio derivado y SEO
 
 on:
   push:
@@ -6,7 +6,11 @@ on:
       - main
     paths:
       - "resumenes.json"
+      - "generar_seo.py"
       - "generar_paginas_sociales.py"
+      - "trial.css"
+      - "seo-routing.js"
+      - "legacy-seo.js"
       - ".github/workflows/actualizar-sitemap.yml"
   workflow_dispatch:
 
@@ -34,70 +38,47 @@ jobs:
         with:
           python-version: "3.13"
 
-      - name: Generar páginas sociales por trial
-        shell: bash
-        run: |
-          python generar_paginas_sociales.py
+      - name: Validar generadores
+        run: python -m py_compile generar_seo.py generar_paginas_sociales.py
 
-      - name: Generar sitemap.xml
-        shell: bash
+      - name: Generar paginas SEO y sitemap
+        run: python generar_seo.py
+
+      - name: Generar paginas sociales por trial
+        run: python generar_paginas_sociales.py
+
+      - name: Verificar salida SEO
         run: |
           python - <<'PY'
           import json
+          import xml.etree.ElementTree as ET
           from pathlib import Path
-
-          BASE_URL = "https://resumenestrials.com"
-          JSON_PATH = Path("resumenes.json")
-          SITEMAP_PATH = Path("sitemap.xml")
-
-          with JSON_PATH.open("r", encoding="utf-8") as f:
-              datos = json.load(f)
-
-          if not isinstance(datos, list):
-              raise ValueError("resumenes.json debe contener una lista de resúmenes")
-
-          ids = []
-          for resumen in datos:
-              if not isinstance(resumen, dict) or "id" not in resumen:
-                  raise ValueError("Cada resumen debe ser un objeto con un campo 'id'")
-              ids.append(str(resumen["id"]))
-
-          if len(ids) != len(set(ids)):
-              raise ValueError("Hay IDs duplicados en resumenes.json")
-
-          # Las páginas /resumen/ID.html existen para que X/Telegram puedan leer
-          # metadatos estáticos, pero llevan noindex y canonical al resumen principal.
-          urls = [f"{BASE_URL}/"]
-          urls.extend(f"{BASE_URL}/resumen.html?id={id_}" for id_ in ids)
-
-          lineas = [
-              '<?xml version="1.0" encoding="UTF-8"?>',
-              '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
-          ]
-
-          for url in urls:
-              lineas.extend([
-                  "  <url>",
-                  f"    <loc>{url}</loc>",
-                  "  </url>",
-              ])
-
-          lineas.append("</urlset>")
-          SITEMAP_PATH.write_text("\n".join(lineas) + "\n", encoding="utf-8")
-          print(f"Sitemap generado correctamente con {len(urls)} URLs.")
+          datos = json.loads(Path('resumenes.json').read_text(encoding='utf-8'))
+          manifest = json.loads(Path('seo-manifest.json').read_text(encoding='utf-8'))
+          if len(manifest) != len(datos):
+              raise SystemExit(f'Manifiesto incompleto: {len(manifest)} de {len(datos)}')
+          for item in datos:
+              entry = manifest.get(str(item['id']))
+              if not entry:
+                  raise SystemExit(f'Falta id {item["id"]} en seo-manifest.json')
+              page = Path(entry['path'].lstrip('/')) / 'index.html'
+              if not page.is_file():
+                  raise SystemExit(f'No existe {page}')
+              source = page.read_text(encoding='utf-8')
+              if entry['url'] not in source or '<link rel="canonical"' not in source:
+                  raise SystemExit(f'Canonical SEO invalida en {page}')
+          ET.parse('sitemap.xml')
+          print(f'PASS: {len(datos)} paginas SEO y sitemap valido')
           PY
 
       - name: Guardar archivos derivados
-        shell: bash
         run: |
-          if git diff --quiet -- sitemap.xml resumen/; then
-            echo "Las páginas sociales y el sitemap ya están actualizados."
+          if git diff --quiet -- sitemap.xml seo-manifest.json trials/ medicina-critica/ medicina-interna/ resumen/; then
+            echo "Las paginas derivadas y el SEO ya estan actualizados."
             exit 0
           fi
-
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
-          git add sitemap.xml resumen/
-          git commit -m "Actualizar vistas sociales y sitemap automáticamente"
+          git add sitemap.xml seo-manifest.json trials/ medicina-critica/ medicina-interna/ resumen/
+          git commit -m "Actualizar paginas SEO y sitemap automaticamente"
           git push origin HEAD:main
