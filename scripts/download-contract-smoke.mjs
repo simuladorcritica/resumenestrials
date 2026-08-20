@@ -1,5 +1,5 @@
 import { chromium } from 'playwright';
-import { mkdtempSync, statSync } from 'node:fs';
+import { mkdtempSync, statSync, readFileSync, writeFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
@@ -31,6 +31,10 @@ function assertPdfContact(path) {
   for (const token of requiredContacts) assert(text.includes(token), `El PDF no contiene ${token}`);
 }
 
+const source = readFileSync('_includes/index-source.html', 'utf8');
+const fixture = `${source}\n<script type="module" src="internal-medicine-ux.js?v=1"></script>\n<script src="pdf-contact.js?v=2"></script>\n`;
+writeFileSync('index-smoke.html', fixture, 'utf8');
+
 const data = await fetch(`${BASE}/resumenes.json`).then((r) => r.json());
 const sample = data.find((r) => r.corto) || data[0];
 assert(sample, 'No hay resúmenes para probar');
@@ -38,12 +42,13 @@ assert(sample, 'No hay resúmenes para probar');
 const browser = await chromium.launch({ headless: true });
 const page = await browser.newPage({ viewport: { width: 1600, height: 1000 }, acceptDownloads: true });
 
-await page.goto(`${BASE}/index.html`, { waitUntil: 'networkidle' });
+await page.goto(`${BASE}/index-smoke.html`, { waitUntil: 'networkidle' });
 await page.waitForSelector('.fila-pdf .btn-pdf', { timeout: 15000 });
-await page.waitForTimeout(500);
+await page.waitForTimeout(700);
 const indexFull = await page.locator('.fila-pdf .btn-pdf:not(.rt-download-brief)').first().innerText();
 assert(/Descargar resumen completo PDF/i.test(indexFull), `Etiqueta completa incorrecta en índice: ${indexFull}`);
 if (data.some((r) => r.corto)) {
+  await page.waitForSelector('.fila-pdf .rt-download-brief', { timeout: 10000 });
   const indexBrief = await page.locator('.fila-pdf .rt-download-brief').first().innerText();
   assert(/Descargar resumen breve PDF/i.test(indexBrief), `Etiqueta breve incorrecta en índice: ${indexBrief}`);
 }
