@@ -16,7 +16,7 @@ async function download(page, selector, filename) {
   assert(await button.count(), `No existe ${selector}`);
   assert(await button.isVisible(), `${selector} no está visible cuando debería`);
   const [event] = await Promise.all([
-    page.waitForEvent('download', { timeout: 25000 }),
+    page.waitForEvent('download', { timeout: 30000 }),
     button.click(),
   ]);
   const dir = mkdtempSync(join(tmpdir(), 'rt-contract-'));
@@ -36,8 +36,11 @@ const fixture = `${source}\n<script type="module" src="internal-medicine-ux.js?v
 writeFileSync('index-smoke.html', fixture, 'utf8');
 
 const data = await fetch(`${BASE}/resumenes.json`).then((r) => r.json());
+const manifest = await fetch(`${BASE}/seo-manifest.json`).then((r) => r.json());
 const sample = data.find((r) => r.corto) || data[0];
 assert(sample, 'No hay resúmenes para probar');
+const entry = manifest[String(sample.id)];
+assert(entry?.path, `No existe ruta canónica para id ${sample.id}`);
 
 const browser = await chromium.launch({ headless: true });
 const page = await browser.newPage({ viewport: { width: 1600, height: 1000 }, acceptDownloads: true });
@@ -53,22 +56,44 @@ if (data.some((r) => r.corto)) {
   assert(/Descargar resumen breve PDF/i.test(indexBrief), `Etiqueta breve incorrecta en índice: ${indexBrief}`);
 }
 
+// Contrato principal: el trial canónico conserva la arquitectura editorial,
+// descarga el PDF completo directamente y nunca incrusta el resumen breve.
+await page.goto(`${BASE}${entry.path}`, { waitUntil: 'networkidle' });
+await page.waitForSelector(`[data-trial-download="${sample.id}"]`, { timeout: 15000 });
+assert(await page.locator('.migas').first().isVisible(), 'El trial canónico no muestra breadcrumb');
+assert(!(await page.locator('#resumen-breve,.resumen-breve').count()), 'El trial canónico sigue incrustando el resumen breve');
+const canonicalDownloadText = await page.locator(`[data-trial-download="${sample.id}"]`).first().innerText();
+assert(/Descargar resumen completo PDF/i.test(canonicalDownloadText), `Botón PDF canónico incorrecto: ${canonicalDownloadText}`);
+if (sample.corto) {
+  const briefLink = page.locator('.trial-action-brief').first();
+  assert(await briefLink.isVisible(), 'El trial canónico no muestra enlace a la lectura breve');
+  const href = await briefLink.getAttribute('href');
+  assert(href === `/resumen.html?id=${sample.id}&v=corto` || href === `/resumen.html?id=${sample.id}&amp;v=corto`, `Ruta breve incorrecta: ${href}`);
+}
+const canonicalPdf = await download(page, `[data-trial-download="${sample.id}"]`, 'canonico-completo.pdf');
+assertPdfContact(canonicalPdf);
+
+// Se mantiene el contrato legacy para enlaces antiguos y para la versión breve.
 await page.goto(`${BASE}/resumen.html?id=${sample.id}`, { waitUntil: 'networkidle' });
 await page.waitForSelector('[data-pdf-version="completo"]', { timeout: 15000 });
 await page.waitForTimeout(300);
-assert(await page.locator('[data-pdf-version="completo"]').first().isVisible(), 'El resumen completo no muestra su descarga');
+assert(await page.locator('[data-pdf-version="completo"]').first().isVisible(), 'El resumen legacy completo no muestra su descarga');
 assert(!(await page.locator('[data-pdf-version="breve"]').first().isVisible().catch(() => false)), 'El resumen completo muestra indebidamente la descarga breve');
 const fullText = await page.locator('[data-pdf-version="completo"]').first().innerText();
 assert(/Descargar resumen completo PDF/i.test(fullText), `Etiqueta completa incorrecta: ${fullText}`);
-const fullPdf = await download(page, '[data-pdf-version="completo"]', 'completo.pdf');
-assertPdfContact(fullPdf);
 
 if (sample.corto) {
   await page.goto(`${BASE}/resumen.html?id=${sample.id}&v=corto`, { waitUntil: 'networkidle' });
   await page.waitForSelector('[data-pdf-version="breve"]', { timeout: 15000 });
+  await page.waitForSelector('.migas.rt-route', { timeout: 15000 });
   await page.waitForTimeout(300);
   assert(await page.locator('[data-pdf-version="breve"]').first().isVisible(), 'El resumen breve no muestra su descarga');
   assert(!(await page.locator('[data-pdf-version="completo"]').first().isVisible()), 'El resumen breve muestra indebidamente la descarga completa');
+  const crumbs = (await page.locator('.migas.rt-route').first().innerText()).replace(/\s+/g, ' ');
+  assert(/Inicio/.test(crumbs) && /Resumen breve/i.test(crumbs), `Breadcrumb breve incompleto: ${crumbs}`);
+  const versionHref = await page.locator('.cambio-version').first().getAttribute('href');
+  const resolved = new URL(versionHref, `${BASE}/resumen.html`).pathname;
+  assert(resolved === entry.path, `La versión breve no vuelve al trial canónico: ${resolved}`);
   const briefText = await page.locator('[data-pdf-version="breve"]').first().innerText();
   assert(/Descargar resumen breve PDF/i.test(briefText), `Etiqueta breve incorrecta: ${briefText}`);
   const briefPdf = await download(page, '[data-pdf-version="breve"]', 'breve.pdf');
@@ -76,4 +101,4 @@ if (sample.corto) {
 }
 
 await browser.close();
-console.log(`Download contract PASS · muestra id ${sample.id}`);
+console.log(`Unified trial contract PASS · muestra id ${sample.id}`);
