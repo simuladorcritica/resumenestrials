@@ -20,6 +20,9 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
       - name: Validate JavaScript syntax
         run: |
           node --check interactive-home.js
@@ -30,16 +33,27 @@ jobs:
           node --check runtime-consistency.js
           node --check internal-medicine-ux.js
           node --check home-visual-tuning.js
+          node --check pdf-contact.js
+          node --check home-control-layout.js
+          node --check tools/revisar_pagina_pdf.mjs
+          node --check tools/auditoria_sitio_profunda.mjs
           node --check scripts/validate-data.mjs
           node --check scripts/production-health.mjs
           node --check scripts/browser-smoke.mjs
           node --check scripts/validate-inline-modules.mjs
           node --check scripts/validate-editorial.mjs
           node --check scripts/validate-resumen-page.mjs
+          node --check scripts/validate-night-audit.mjs
+      - name: Validate Python audit syntax
+        run: |
+          python3 -m py_compile tools/validar_resumenes.py
+          python3 -m py_compile tools/auditoria_editorial_profunda.py
       - name: Validate embedded module scripts
         run: node scripts/validate-inline-modules.mjs
       - name: Validate article detail page
         run: node scripts/validate-resumen-page.mjs
+      - name: Validate nightly audit integration
+        run: node scripts/validate-night-audit.mjs
       - name: Validate resumenes.json
         run: node scripts/validate-data.mjs
       - name: Validate editorial architecture

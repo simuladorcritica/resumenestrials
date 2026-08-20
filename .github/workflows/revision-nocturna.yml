@@ -1,24 +1,18 @@
-name: Revisión nocturna de resúmenes
+name: Revisión nocturna exhaustiva
 
-# ---------------------------------------------------------------------------
-#  Corre todos los días de madrugada y revisa TODOS los resúmenes publicados:
-#    · formato de la casa (validar_resumenes.py)
-#    · render de la página y descargas de PDF (revisar_pagina_pdf.mjs)
-#  Si detecta algún ERROR, abre o actualiza un Issue con el detalle.
-#
-#  HORA: GitHub programa siempre en UTC (no ajusta el horario de verano).
-#  '0 9 * * *' = 09:00 UTC = 3:00 a.m. en UTC-6 (México / Centroamérica).
-#  Para tu zona, cambia solo la hora de la línea 'cron':
-#    España  (CET/CEST): '0 1 * * *' en verano, '0 2 * * *' en invierno
-#    México  (UTC-6):     '0 9 * * *'
-#    Colombia/Perú (UTC-5):'0 8 * * *'
-#    Argentina (UTC-3):   '0 6 * * *'
-#    EE. UU. Pacífico:    '0 10 * * *' (verano) / '0 11 * * *' (invierno)
-# ---------------------------------------------------------------------------
+# Auditoría NO destructiva de Resúmenes Trials.
+# 09:00 UTC = 03:00 CDMX (UTC-6). La auditoría nunca modifica resumenes.json.
+# El criterio editorial completo está documentado en:
+# PROMPT_AUDITORIA_NOCTURNA_RESUMENES_TRIALS.md
+
 on:
   schedule:
     - cron: '0 9 * * *'
-  workflow_dispatch: {}   # permite lanzarla a mano desde la pestaña Actions
+  workflow_dispatch: {}
+
+concurrency:
+  group: revision-nocturna
+  cancel-in-progress: false
 
 permissions:
   contents: read
@@ -27,8 +21,9 @@ permissions:
 jobs:
   revision:
     runs-on: ubuntu-latest
+    timeout-minutes: 45
     steps:
-      - name: Descargar el repositorio
+      - name: Descargar repositorio
         uses: actions/checkout@v4
 
       - name: Preparar Python
@@ -36,30 +31,49 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Revisar formato de los resúmenes
-        id: resumenes
+      - name: Validar sintaxis de auditores Python
+        run: |
+          python3 -m py_compile tools/validar_resumenes.py
+          python3 -m py_compile tools/auditoria_editorial_profunda.py
+
+      - name: Revisar formato canónico de todos los resúmenes
+        id: formato
         run: |
           python3 tools/validar_resumenes.py resumenes.json --json informe_resumenes.json \
             | tee salida_resumenes.txt
         continue-on-error: true
 
-      - name: Preparar Node y navegador
+      - name: Auditoría editorial y de consistencia profunda
+        id: editorial
+        run: |
+          python3 tools/auditoria_editorial_profunda.py resumenes.json --json informe_editorial.json \
+            | tee salida_editorial.txt
+        continue-on-error: true
+
+      - name: Preparar Node
         uses: actions/setup-node@v4
         with:
           node-version: '20'
 
-      - name: Instalar Playwright (Chromium)
+      - name: Validar sintaxis JavaScript de auditoría
         run: |
-          npm init -y >/dev/null 2>&1
-          npm install -D playwright >/dev/null 2>&1
+          node --check tools/revisar_pagina_pdf.mjs
+          node --check tools/auditoria_sitio_profunda.mjs
+          node --check pdf-contact.js
+          node --check home-control-layout.js
+
+      - name: Instalar Playwright Chromium
+        run: |
+          npm install --no-save playwright@1.55.0
           npx playwright install --with-deps chromium
 
-      - name: Servir el sitio en local
+      - name: Servir sitio local
         run: |
-          python3 -m http.server 8000 >/dev/null 2>&1 &
+          python3 -m http.server 8000 >servidor_local.log 2>&1 &
+          echo $! > servidor_local.pid
           sleep 3
 
-      - name: Revisar página y descargas de PDF
+      - name: Prueba base de páginas y PDF
         id: pagina
         env:
           BASE_URL: http://localhost:8000
@@ -67,73 +81,192 @@ jobs:
           node tools/revisar_pagina_pdf.mjs | tee salida_pagina.txt
         continue-on-error: true
 
-      - name: Guardar informes como artefacto
+      - name: Auditoría profunda UX SEO accesibilidad y PDF
+        id: profunda
+        env:
+          BASE_URL: http://localhost:8000
+          AUDIT_JSON: informe_sitio_profundo.json
+        run: |
+          node tools/auditoria_sitio_profunda.mjs | tee salida_sitio_profundo.txt
+        continue-on-error: true
+
+      - name: Construir reporte nocturno visible
+        id: reporte
+        if: always()
+        env:
+          OUT_FORMATO: ${{ steps.formato.outcome }}
+          OUT_EDITORIAL: ${{ steps.editorial.outcome }}
+          OUT_PAGINA: ${{ steps.pagina.outcome }}
+          OUT_PROFUNDA: ${{ steps.profunda.outcome }}
+        run: |
+          python3 - <<'PY'
+          import json, os
+          from pathlib import Path
+          from datetime import datetime, timezone
+
+          def load_json(path):
+              try:
+                  return json.loads(Path(path).read_text(encoding='utf-8'))
+              except Exception:
+                  return {}
+
+          def text(path, limit=10000):
+              try:
+                  value = Path(path).read_text(encoding='utf-8', errors='replace').strip()
+              except Exception:
+                  value = '(sin salida)'
+              if len(value) > limit:
+                  value = value[:limit] + '\n… salida truncada; consulta el artefacto completo.'
+              return value
+
+          editorial = load_json('informe_editorial.json')
+          site = load_json('informe_sitio_profundo.json')
+          outcomes = {
+              'Formato canónico': os.environ.get('OUT_FORMATO', 'unknown'),
+              'Auditoría editorial profunda': os.environ.get('OUT_EDITORIAL', 'unknown'),
+              'Página/PDF base': os.environ.get('OUT_PAGINA', 'unknown'),
+              'Sitio profundo': os.environ.get('OUT_PROFUNDA', 'unknown'),
+          }
+          ecounts = editorial.get('resumen', {}) or {}
+          scounts = site.get('counts', {}) or {}
+          critical = int(ecounts.get('CRÍTICO', 0)) + int(scounts.get('CRÍTICO', 0))
+          high = int(ecounts.get('ALTO', 0)) + int(scounts.get('ALTO', 0))
+          review = int(ecounts.get('REVISIÓN HUMANA', 0)) + int(scounts.get('REVISIÓN HUMANA', 0))
+          medium = int(ecounts.get('MEDIO', 0)) + int(scounts.get('MEDIO', 0))
+          low = int(ecounts.get('BAJO', 0)) + int(scounts.get('BAJO', 0))
+          failed = [name for name, value in outcomes.items() if value != 'success']
+          if critical or high or failed:
+              status = 'REVISIÓN PRIORITARIA'
+          elif review or medium or low:
+              status = 'PASS CON OBSERVACIONES'
+          else:
+              status = 'PASS'
+
+          articles = site.get('articles_checked') or editorial.get('articulos_revisados') or '?'
+          today = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')
+
+          lines = [
+              '<!-- revision-nocturna -->',
+              f'# Revisión nocturna — {status}',
+              '',
+              f'**Ejecución:** {today}',
+              f'**Artículos auditados:** {articles}',
+              f'**Hallazgos agregados:** CRÍTICO {critical} · ALTO {high} · REVISIÓN HUMANA {review} · MEDIO {medium} · BAJO {low}',
+              '',
+              '## Estado de controles',
+          ]
+          for name, value in outcomes.items():
+              icon = '✅' if value == 'success' else '⚠️'
+              lines.append(f'- {icon} **{name}:** `{value}`')
+
+          def table(title, items, max_items=30):
+              if not items:
+                  return
+              lines.extend(['', f'## {title}', '', '| Severidad | ID/página | Área | Hallazgo | Evidencia |', '|---|---|---|---|---|'])
+              for item in items[:max_items]:
+                  sev = item.get('severidad') or item.get('severity') or ''
+                  ident = item.get('id') or item.get('page') or ''
+                  area = item.get('area') or ''
+                  msg = str(item.get('hallazgo') or item.get('message') or '').replace('|', '\\|').replace('\n', ' ')
+                  ev = str(item.get('evidencia') or item.get('evidence') or '').replace('|', '\\|').replace('\n', ' ')
+                  lines.append(f'| {sev} | {ident} | {area} | {msg[:260]} | {ev[:260]} |')
+              if len(items) > max_items:
+                  lines.append(f'\n_Se muestran {max_items} de {len(items)} hallazgos; el JSON del artefacto contiene el resto._')
+
+          table('Hallazgos editoriales y de consistencia', editorial.get('hallazgos', []) or [])
+          table('Hallazgos técnicos, UX, SEO, accesibilidad y PDF', site.get('findings', []) or [])
+
+          lines.extend([
+              '',
+              '## Salida del validador canónico',
+              '```text', text('salida_resumenes.txt', 6000), '```',
+              '',
+              '## Salida de prueba base de página/PDF',
+              '```text', text('salida_pagina.txt', 6000), '```',
+              '',
+              '## Integridad',
+              '',
+              '**Esta auditoría no modificó ningún resumen, dato científico ni archivo de contenido. Todos los hallazgos son propuestas para revisión humana.**',
+          ])
+
+          report = '\n'.join(lines) + '\n'
+          Path('reporte_revision_nocturna.md').write_text(report, encoding='utf-8')
+          with open(os.environ['GITHUB_OUTPUT'], 'a', encoding='utf-8') as f:
+              f.write(f'status={status}\n')
+              f.write(f'critical={critical}\n')
+              f.write(f'high={high}\n')
+              f.write(f'total={critical+high+review+medium+low}\n')
+          PY
+
+      - name: Publicar reporte en el resumen de Actions
+        if: always()
+        run: cat reporte_revision_nocturna.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Guardar informes completos como artefacto
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: informe-revision-nocturna
           path: |
+            reporte_revision_nocturna.md
             informe_resumenes.json
+            informe_editorial.json
+            informe_sitio_profundo.json
             salida_resumenes.txt
+            salida_editorial.txt
             salida_pagina.txt
+            salida_sitio_profundo.txt
+            servidor_local.log
           if-no-files-found: ignore
+          retention-days: 30
 
-      - name: Abrir o actualizar Issue si hubo problemas
+      - name: Crear o actualizar Issue con el reporte vigente
         if: always()
         uses: actions/github-script@v7
+        env:
+          REPORT_STATUS: ${{ steps.reporte.outputs.status }}
         with:
           script: |
             const fs = require('fs');
-            const leer = (f) => fs.existsSync(f) ? fs.readFileSync(f, 'utf8') : '';
-            const okResumenes = '${{ steps.resumenes.outcome }}' === 'success';
-            const okPagina    = '${{ steps.pagina.outcome }}'    === 'success';
-            if (okResumenes && okPagina) {
-              core.info('Sin problemas: no se abre Issue.');
-              return;
-            }
-            const hoy = new Date().toISOString().slice(0, 10);
-            const cuerpo = [
-              `Revisión automática del ${hoy}. Se detectaron problemas.`,
-              '',
-              '## Formato de los resúmenes',
-              '```',
-              (leer('salida_resumenes.txt') || '(sin salida)').trim(),
-              '```',
-              '## Página y descargas de PDF',
-              '```',
-              (leer('salida_pagina.txt') || '(sin salida)').trim(),
-              '```',
-              '',
-              `_Ejecución: ${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}_`,
-            ].join('\n');
-
-            const marca = '<!-- revision-nocturna -->';
-            const titulo = 'Revisión nocturna: problemas detectados';
-            const abiertos = await github.rest.issues.listForRepo({
-              owner: context.repo.owner, repo: context.repo.repo,
-              state: 'open', labels: 'revision-nocturna', per_page: 20,
+            const marker = '<!-- revision-nocturna -->';
+            const report = fs.existsSync('reporte_revision_nocturna.md')
+              ? fs.readFileSync('reporte_revision_nocturna.md', 'utf8')
+              : `${marker}\n# Revisión nocturna — ERROR DE EJECUCIÓN\n\nNo fue posible construir el reporte.`;
+            const status = process.env.REPORT_STATUS || 'ESTADO DESCONOCIDO';
+            const title = `Revisión nocturna — ${status}`;
+            const issues = await github.paginate(github.rest.issues.listForRepo, {
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'all',
+              per_page: 100,
             });
-            const existente = abiertos.data.find(i => i.body && i.body.includes(marca));
-            const body = marca + '\n' + cuerpo;
-            if (existente) {
+            const existing = issues.find(i => !i.pull_request && i.body && i.body.includes(marker));
+            if (existing) {
               await github.rest.issues.update({
-                owner: context.repo.owner, repo: context.repo.repo,
-                issue_number: existente.number, body, state: 'open',
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: existing.number,
+                title,
+                body: report.slice(0, 64000),
+                state: 'open',
               });
               await github.rest.issues.createComment({
-                owner: context.repo.owner, repo: context.repo.repo,
-                issue_number: existente.number,
-                body: `Actualizado el ${hoy}: siguen detectándose problemas.`,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: existing.number,
+                body: `Reporte actualizado: **${status}**. Ejecución: ${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`,
               });
             } else {
               await github.rest.issues.create({
-                owner: context.repo.owner, repo: context.repo.repo,
-                title: titulo, body, labels: ['revision-nocturna'],
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title,
+                body: report.slice(0, 64000),
               });
             }
 
-      - name: Marcar el job como fallido si hubo problemas
-        if: steps.resumenes.outcome != 'success' || steps.pagina.outcome != 'success'
+      - name: Marcar ejecución como fallida si existen problemas altos o críticos
+        if: always() && (steps.formato.outcome != 'success' || steps.editorial.outcome != 'success' || steps.pagina.outcome != 'success' || steps.profunda.outcome != 'success')
         run: |
-          echo "Se detectaron problemas en la revisión nocturna." >&2
+          echo "La revisión nocturna detectó problemas que requieren revisión." >&2
           exit 1
