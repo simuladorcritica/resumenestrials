@@ -8,9 +8,15 @@ const OUT = process.env.AUDIT_JSON || 'informe_sitio_profundo.json';
 const PDF_MIN = 3000;
 const findings = [];
 const resources = new Set();
+const LOCAL_QA = /^https?:\/\/(?:localhost|127\.0\.0\.1)(?::\d+)?$/i.test(BASE);
+const EXPECTED_LOCAL_THIRD_PARTY = /(?:challenges\.cloudflare\.com|turnstile|supabase\.co|fonts\.googleapis\.com|fonts\.gstatic\.com)/i;
 
 function add(severity, page, area, message, evidence = '') {
   findings.push({ severity, page: String(page), area, message, evidence: String(evidence).slice(0, 500) });
+}
+
+function expectedLocalThirdPartyNoise(text) {
+  return LOCAL_QA && EXPECTED_LOCAL_THIRD_PARTY.test(String(text || ''));
 }
 
 async function guardedGoto(page, url, label) {
@@ -18,11 +24,18 @@ async function guardedGoto(page, url, label) {
   const onConsole = (msg) => {
     if (msg.type() !== 'error') return;
     const text = msg.text();
-    if (/favicon/i.test(text)) return;
+    if (/favicon/i.test(text) || expectedLocalThirdPartyNoise(text)) return;
     errors.push(`console: ${text}`);
   };
-  const onPageError = (err) => errors.push(`pageerror: ${err.message || err}`);
-  const onFailed = (req) => resources.add(`${label} :: ${req.url()} :: ${req.failure()?.errorText || 'requestfailed'}`);
+  const onPageError = (err) => {
+    const text = err.message || String(err);
+    if (!expectedLocalThirdPartyNoise(text)) errors.push(`pageerror: ${text}`);
+  };
+  const onFailed = (req) => {
+    const urlFailed = req.url();
+    if (expectedLocalThirdPartyNoise(urlFailed)) return;
+    resources.add(`${label} :: ${urlFailed} :: ${req.failure()?.errorText || 'requestfailed'}`);
+  };
   page.on('console', onConsole);
   page.on('pageerror', onPageError);
   page.on('requestfailed', onFailed);
@@ -73,8 +86,10 @@ async function duplicateDownload(page, selector, filename) {
 
 function checkPdf(result, label) {
   if (result.size < PDF_MIN) add('ALTO', label, 'PDF', `PDF sospechosamente pequeño: ${result.size} bytes`);
+  // El escaneo binario es una comprobación secundaria: jsPDF puede comprimir/codificar
+  // cadenas aunque el pie sea visible. Por eso una ausencia aquí es MEDIO, no un falso CRÍTICO.
   for (const token of ['resumenestrials.com', '@resumenestrials', 'resumenestrials@outlook.com']) {
-    if (!result.raw.includes(token)) add('ALTO', label, 'PDF', `no se encontró '${token}' dentro del PDF generado`);
+    if (!result.raw.includes(token)) add('MEDIO', label, 'PDF', `el escaneo binario no localizó '${token}'; revisar visualmente el artefacto`);
   }
 }
 
@@ -108,6 +123,9 @@ async function checkArticle(page, record) {
 
   const backText = await page.locator('.migas').innerText().catch(() => '');
   if (/Medicina (?:Crítica|Interna)/.test(backText)) add('MEDIO', label, 'UX', 'la especialidad reapareció junto a Volver al índice', backText);
+
+  const pdfFooterPatched = await page.evaluate(() => !!(window.jspdf?.jsPDF?.API?.__rtContactFooterPatched || window.jsPDF?.API?.__rtContactFooterPatched)).catch(() => false);
+  if (!pdfFooterPatched) add('ALTO', label, 'PDF', 'el módulo de contacto no quedó enlazado al generador jsPDF');
 
   const fullButtons = page.locator('[data-pdf-version="completo"]');
   if (!(await fullButtons.count())) add('CRÍTICO', label, 'PDF', 'falta botón de resumen completo PDF');
