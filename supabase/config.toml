@@ -1,2 +1,5 @@
 [functions.login-username]
 verify_jwt = false
+
+[functions.notify-new-summaries]
+verify_jwt = false
