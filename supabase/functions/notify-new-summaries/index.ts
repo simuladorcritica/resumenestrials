@@ -7,6 +7,7 @@ const RAW_GITHUB = "https://raw.githubusercontent.com";
 const RESEND_BATCH_URL = "https://api.resend.com/emails/batch";
 const FROM_EMAIL = Deno.env.get("NEWSLETTER_FROM") || "Resúmenes Trials <novedades@resumenestrials.com>";
 const REPLY_TO = Deno.env.get("NEWSLETTER_REPLY_TO") || "resumenestrials@outlook.com";
+const TEXT_ENCODER = new TextEncoder();
 
 type Subscriber = { id: string; email: string; first_name: string | null };
 
@@ -16,6 +17,17 @@ function json(body: unknown, status = 200) {
     headers: {
       "Content-Type": "application/json; charset=utf-8",
       "Cache-Control": "no-store",
+    },
+  });
+}
+
+function html(body: string, status = 200) {
+  return new Response(body, {
+    status,
+    headers: {
+      "Content-Type": "text/html; charset=utf-8",
+      "Cache-Control": "no-store",
+      "X-Robots-Tag": "noindex, nofollow",
     },
   });
 }
@@ -56,9 +68,51 @@ function chunk<T>(items: T[], size: number) {
   return out;
 }
 
-async function githubJson(path: string) {
+function toBase64Url(bytes: Uint8Array) {
+  let binary = "";
+  for (const byte of bytes) binary += String.fromCharCode(byte);
+  return btoa(binary).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/g, "");
+}
+
+function constantTimeEqual(a: string, b: string) {
+  if (a.length !== b.length) return false;
+  let diff = 0;
+  for (let i = 0; i < a.length; i += 1) diff |= a.charCodeAt(i) ^ b.charCodeAt(i);
+  return diff === 0;
+}
+
+async function unsubscribeKey(serviceRole: string) {
+  return await crypto.subtle.importKey(
+    "raw",
+    TEXT_ENCODER.encode(serviceRole),
+    { name: "HMAC", hash: "SHA-256" },
+    false,
+    ["sign"],
+  );
+}
+
+async function signSubscriberId(key: CryptoKey, id: string) {
+  const signature = await crypto.subtle.sign(
+    "HMAC",
+    key,
+    TEXT_ENCODER.encode(`resumenestrials-newsletter-unsubscribe-v1:${id}`),
+  );
+  return toBase64Url(new Uint8Array(signature));
+}
+
+async function verifyUnsubscribeToken(key: CryptoKey, token: string) {
+  const match = /^([0-9a-f-]{36})\.([A-Za-z0-9_-]{43})$/i.exec(token);
+  if (!match) return null;
+  const [, id, supplied] = match;
+  if (!/^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(id)) return null;
+  const expected = await signSubscriberId(key, id);
+  return constantTimeEqual(expected, supplied) ? id : null;
+}
+
+async function githubJson(path: string, token: string) {
   const response = await fetch(`${GITHUB_API}${path}`, {
     headers: {
+      Authorization: `Bearer ${token}`,
       Accept: "application/vnd.github+json",
       "User-Agent": "resumenestrials-newsletter/1.0",
       "X-GitHub-Api-Version": "2022-11-28",
@@ -66,6 +120,36 @@ async function githubJson(path: string) {
   });
   if (!response.ok) throw new Error(`GitHub ${response.status} en ${path}`);
   return await response.json();
+}
+
+async function validateInstallationToken(token: string) {
+  if (!token) throw new Error("Falta el token efímero de GitHub Actions");
+  const payload = await githubJson("/installation/repositories?per_page=100", token);
+  const allowed = (payload?.repositories || []).some((repo: any) => repo?.full_name === REPOSITORY);
+  if (!allowed) throw new Error("El token de GitHub no pertenece a la instalación autorizada para este repositorio");
+}
+
+async function validateRun(runId: number, runAttempt: number, beforeSha: string, headSha: string, token: string) {
+  if (!Number.isInteger(runId) || runId <= 0) throw new Error("run_id inválido");
+  if (!Number.isInteger(runAttempt) || runAttempt <= 0) throw new Error("run_attempt inválido");
+  if (!/^[0-9a-f]{40}$/i.test(beforeSha) || /^0{40}$/.test(beforeSha)) throw new Error("before_sha inválido");
+  if (!/^[0-9a-f]{40}$/i.test(headSha)) throw new Error("head_sha inválido");
+
+  await validateInstallationToken(token);
+  const run = await githubJson(`/repos/${REPOSITORY}/actions/runs/${runId}`, token);
+  if (run?.repository?.full_name !== REPOSITORY) throw new Error("Repositorio no autorizado");
+  if (run?.event !== "push" || run?.head_branch !== "main" || run?.head_sha !== headSha) {
+    throw new Error("La ejecución no corresponde a un push válido de main");
+  }
+  if (Number(run?.run_attempt || 1) !== runAttempt) throw new Error("run_attempt no coincide con GitHub");
+
+  const createdAt = Date.parse(String(run?.created_at || ""));
+  if (runAttempt > 1 && (!Number.isFinite(createdAt) || Date.now() - createdAt > 23 * 60 * 60 * 1000)) {
+    throw new Error("El reintento está fuera de la ventana segura de idempotencia");
+  }
+
+  const comparison = await githubJson(`/repos/${REPOSITORY}/compare/${beforeSha}...${headSha}`, token);
+  if (comparison?.status !== "ahead") throw new Error("before_sha y head_sha no forman el push esperado");
 }
 
 async function rawJson(sha: string, path: string) {
@@ -76,32 +160,9 @@ async function rawJson(sha: string, path: string) {
   return await response.json();
 }
 
-async function validateRun(runId: number, headSha: string, runAttempt: number) {
-  if (!Number.isInteger(runId) || runId <= 0) throw new Error("run_id inválido");
-  if (!/^[0-9a-f]{40}$/i.test(headSha)) throw new Error("head_sha inválido");
-  if (runAttempt !== 1) return { skip: true, reason: "Los reintentos no reenvían correos." };
-
-  const run = await githubJson(`/repos/${REPOSITORY}/actions/runs/${runId}`);
-  if (run?.repository?.full_name !== REPOSITORY) throw new Error("Repositorio no autorizado");
-  if (run?.event !== "push" || run?.head_branch !== "main" || run?.head_sha !== headSha) {
-    throw new Error("La ejecución no corresponde a un push válido de main");
-  }
-  if (Number(run?.run_attempt || 1) !== 1) return { skip: true, reason: "Ejecución repetida." };
-
-  const createdAt = Date.parse(String(run?.created_at || ""));
-  if (!Number.isFinite(createdAt) || Math.abs(Date.now() - createdAt) > 20 * 60 * 1000) {
-    throw new Error("La ejecución de GitHub ya no está dentro de la ventana autorizada");
-  }
-  return { skip: false, reason: "" };
-}
-
-async function addedSummaries(headSha: string) {
-  const commit = await githubJson(`/repos/${REPOSITORY}/commits/${headSha}`);
-  const parentSha = commit?.parents?.[0]?.sha;
-  if (!parentSha) return [];
-
+async function addedSummaries(beforeSha: string, headSha: string) {
   const [before, after] = await Promise.all([
-    rawJson(parentSha, "resumenes.json"),
+    rawJson(beforeSha, "resumenes.json"),
     rawJson(headSha, "resumenes.json"),
   ]);
   const previousIds = new Set((Array.isArray(before) ? before : []).map((item: any) => String(item?.id)));
@@ -127,6 +188,7 @@ async function confirmedOptInSubscribers(admin: any) {
       .select("id,email,first_name")
       .eq("newsletter_opt_in", true)
       .not("email", "is", null)
+      .order("id", { ascending: true })
       .range(from, from + 999);
     if (error) throw error;
     const rows = (data || []) as Subscriber[];
@@ -135,22 +197,31 @@ async function confirmedOptInSubscribers(admin: any) {
   }
 
   const seen = new Set<string>();
-  return profiles.filter((profile) => {
-    const email = String(profile.email || "").trim().toLowerCase();
-    if (!confirmed.has(profile.id) || !email || seen.has(email)) return false;
-    seen.add(email);
-    profile.email = email;
-    return true;
-  });
+  return profiles
+    .filter((profile) => {
+      const email = String(profile.email || "").trim().toLowerCase();
+      if (!confirmed.has(profile.id) || !email || seen.has(email)) return false;
+      seen.add(email);
+      profile.email = email;
+      return true;
+    })
+    .sort((a, b) => a.id.localeCompare(b.id));
 }
 
-function emailFor(subscriber: { email: string; first_name: string | null }, summaries: any[]) {
+async function emailFor(
+  subscriber: Subscriber,
+  summaries: any[],
+  key: CryptoKey,
+  supabaseUrl: string,
+) {
   const firstName = short(subscriber.first_name || "", 60);
   const hello = firstName ? `Hola, ${escapeHtml(firstName)}.` : "Hola.";
   const plural = summaries.length !== 1;
   const subject = plural
     ? `${summaries.length} nuevos resúmenes en Resúmenes Trials`
     : `Nuevo resumen: ${short(plainText(summaries[0]?.titulo).split(":")[0] || summaries[0]?.titulo, 90)}`;
+  const signature = await signSubscriberId(key, subscriber.id);
+  const unsubscribe = `${supabaseUrl.replace(/\/$/, "")}/functions/v1/notify-new-summaries?unsubscribe=${encodeURIComponent(`${subscriber.id}.${signature}`)}`;
 
   const cards = summaries.map((summary) => {
     const title = plainText(summary?.titulo || "Nuevo resumen");
@@ -171,7 +242,7 @@ function emailFor(subscriber: { email: string; first_name: string | null }, summ
       </td></tr>`;
   }).join("");
 
-  const html = `<!doctype html><html><body style="margin:0;background:#f7f6f2;color:#12233b">
+  const htmlBody = `<!doctype html><html><body style="margin:0;background:#f7f6f2;color:#12233b">
     <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse:collapse;background:#f7f6f2"><tr><td align="center" style="padding:28px 16px">
       <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:640px;border-collapse:collapse;background:#ffffff;border:1px solid #e4dfd3">
         <tr><td style="padding:28px 34px 20px;border-bottom:2px solid #0f5f5f">
@@ -183,8 +254,9 @@ function emailFor(subscriber: { email: string; first_name: string | null }, summ
           <div style="margin-top:10px;font-family:Georgia,'Times New Roman',serif;font-size:18px;line-height:1.55;color:#263b55">${plural ? "Acabamos de publicar nuevos resúmenes que ya puedes consultar." : "Acabamos de publicar un nuevo resumen que ya puedes consultar."}</div>
         </td></tr>
         <tr><td style="padding:10px 34px 4px"><table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse:collapse">${cards}</table></td></tr>
-        <tr><td style="padding:22px 34px 30px;border-top:1px solid #ddd8cc;font-family:Arial,sans-serif;font-size:11px;line-height:1.6;color:#6d7784">
-          Recibes este correo porque aceptaste avisos de nuevos resúmenes en Resúmenes Trials. Puedes desactivarlos en <a href="${SITE_URL}/cuenta.html" style="color:#0f5f5f">tu cuenta</a> en cualquier momento.<br>
+        <tr><td style="padding:22px 34px 30px;border-top:1px solid #ddd8cc;font-family:Arial,sans-serif;font-size:11px;line-height:1.65;color:#6d7784">
+          Recibes este correo porque aceptaste avisos de nuevos resúmenes en Resúmenes Trials.<br>
+          <a href="${unsubscribe}" style="color:#0f5f5f">Cancelar estos avisos</a> · <a href="${SITE_URL}/cuenta.html#notificaciones" style="color:#0f5f5f">Administrar notificaciones</a><br>
           <a href="${SITE_URL}" style="color:#0f5f5f">resumenestrials.com</a> · X: @resumenestrials · Telegram: @ResumenesTrials · resumenestrials@outlook.com
         </td></tr>
       </table>
@@ -198,23 +270,35 @@ function emailFor(subscriber: { email: string; first_name: string | null }, summ
     const url = `${SITE_URL}/resumen.html?id=${encodeURIComponent(String(summary.id))}`;
     return `${title}\n${meta}${meta ? "\n" : ""}${finding}${finding ? "\n" : ""}${url}`;
   }).join("\n\n");
-  const text = `${firstName ? `Hola, ${firstName}.` : "Hola."}\n\n${plural ? "Acabamos de publicar nuevos resúmenes." : "Acabamos de publicar un nuevo resumen."}\n\n${textItems}\n\nRecibes este correo porque aceptaste avisos de nuevos resúmenes en Resúmenes Trials. Puedes desactivarlos en ${SITE_URL}/cuenta.html\n\nresumenestrials.com · X: @resumenestrials · Telegram: @ResumenesTrials · resumenestrials@outlook.com`;
+  const text = `${firstName ? `Hola, ${firstName}.` : "Hola."}\n\n${plural ? "Acabamos de publicar nuevos resúmenes." : "Acabamos de publicar un nuevo resumen."}\n\n${textItems}\n\nCancelar estos avisos: ${unsubscribe}\nAdministrar notificaciones: ${SITE_URL}/cuenta.html#notificaciones\n\nresumenestrials.com · X: @resumenestrials · Telegram: @ResumenesTrials · resumenestrials@outlook.com`;
 
   return {
     from: FROM_EMAIL,
     to: [subscriber.email],
     reply_to: REPLY_TO,
     subject,
-    html,
+    html: htmlBody,
     text,
+    headers: {
+      "List-Unsubscribe": `<${unsubscribe}>`,
+      "List-Unsubscribe-Post": "List-Unsubscribe=One-Click",
+    },
   };
 }
 
-async function sendBatches(resendKey: string, subscribers: any[], summaries: any[], headSha: string) {
+async function sendBatches(
+  resendKey: string,
+  subscribers: Subscriber[],
+  summaries: any[],
+  headSha: string,
+  serviceRole: string,
+  supabaseUrl: string,
+) {
+  const key = await unsubscribeKey(serviceRole);
   const batches = chunk(subscribers, 100);
   let queued = 0;
   for (let index = 0; index < batches.length; index += 1) {
-    const emails = batches[index].map((subscriber) => emailFor(subscriber, summaries));
+    const emails = await Promise.all(batches[index].map((subscriber) => emailFor(subscriber, summaries, key, supabaseUrl)));
     const response = await fetch(RESEND_BATCH_URL, {
       method: "POST",
       headers: {
@@ -234,19 +318,49 @@ async function sendBatches(resendKey: string, subscribers: any[], summaries: any
   return { batches: batches.length, queued };
 }
 
+async function handleUnsubscribe(token: string, method: string) {
+  const supabaseUrl = Deno.env.get("SUPABASE_URL");
+  const serviceRole = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
+  if (!supabaseUrl || !serviceRole) return method === "POST" ? new Response("", { status: 503 }) : html("Servicio temporalmente no disponible.", 503);
+
+  const key = await unsubscribeKey(serviceRole);
+  const id = await verifyUnsubscribeToken(key, token);
+  if (!id) return method === "POST" ? new Response("", { status: 400 }) : html("Enlace de cancelación no válido.", 400);
+
+  const admin = createClient(supabaseUrl, serviceRole, { auth: { persistSession: false, autoRefreshToken: false } });
+  const { error } = await admin
+    .from("profiles")
+    .update({ newsletter_opt_in: false, newsletter_opt_in_at: null })
+    .eq("id", id);
+  if (error) {
+    console.error("unsubscribe", error);
+    return method === "POST" ? new Response("", { status: 503 }) : html("No fue posible procesar la solicitud. Inténtalo de nuevo.", 503);
+  }
+
+  if (method === "POST") return new Response("", { status: 200, headers: { "Cache-Control": "no-store" } });
+  return html(`<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Avisos desactivados · Resúmenes Trials</title></head><body style="margin:0;background:#f7f6f2;color:#12233b;font-family:Georgia,'Times New Roman',serif"><main style="max-width:640px;margin:8vh auto;padding:32px"><div style="font-family:Arial,sans-serif;font-size:13px;letter-spacing:.14em;font-weight:700;color:#0f5f5f">RESÚMENES TRIALS</div><h1 style="font-size:34px;font-weight:500">Avisos por correo desactivados</h1><p style="font-size:18px;line-height:1.6">No volverás a recibir avisos de nuevos resúmenes mientras esta preferencia permanezca desactivada.</p><p style="font-size:16px;line-height:1.6">Puedes volver a activarlos cuando quieras desde <a href="${SITE_URL}/cuenta.html#notificaciones" style="color:#0f5f5f">tu cuenta</a>.</p><p><a href="${SITE_URL}" style="color:#0f5f5f">Volver a Resúmenes Trials</a></p></main></body></html>`);
+}
+
 Deno.serve(async (req) => {
+  const url = new URL(req.url);
+  const unsubscribe = url.searchParams.get("unsubscribe");
+  if (unsubscribe && (req.method === "GET" || req.method === "POST")) {
+    return await handleUnsubscribe(unsubscribe, req.method);
+  }
+
+  if (req.method === "GET") return json({ ok: true, service: "notify-new-summaries" }, 200);
   if (req.method !== "POST") return json({ error: "Método no permitido" }, 405);
 
   try {
+    const githubToken = req.headers.get("x-github-token") || "";
     const body = await req.json().catch(() => ({}));
     const runId = Number(body?.run_id);
     const runAttempt = Number(body?.run_attempt || 1);
+    const beforeSha = String(body?.before_sha || "").trim();
     const headSha = String(body?.head_sha || "").trim();
 
-    const validation = await validateRun(runId, headSha, runAttempt);
-    if (validation.skip) return json({ ok: true, skipped: true, reason: validation.reason }, 200);
-
-    const summaries = await addedSummaries(headSha);
+    await validateRun(runId, runAttempt, beforeSha, headSha, githubToken);
+    const summaries = await addedSummaries(beforeSha, headSha);
     if (!summaries.length) return json({ ok: true, skipped: true, reason: "No se agregaron nuevos IDs a resumenes.json." }, 200);
 
     const supabaseUrl = Deno.env.get("SUPABASE_URL");
@@ -263,7 +377,7 @@ Deno.serve(async (req) => {
       return json({ ok: true, summaries: summaries.map((item: any) => item.id), subscribers: 0, queued: 0 }, 200);
     }
 
-    const result = await sendBatches(resendKey, subscribers, summaries, headSha);
+    const result = await sendBatches(resendKey, subscribers, summaries, headSha, serviceRole, supabaseUrl);
     return json({
       ok: true,
       summaries: summaries.map((item: any) => item.id),
