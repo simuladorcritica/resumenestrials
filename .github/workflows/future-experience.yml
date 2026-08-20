@@ -27,6 +27,7 @@ jobs:
           node --check future-experience.js
           node --check scripts/future-experience-smoke.mjs
           node --check scripts/future-visual-capture.mjs
+          node --check scripts/future-production-smoke.mjs
           python3 -m py_compile aplicar_experiencia_futura.py
           python3 -m py_compile actualizar_agregar_editorial.py
       - name: Generar exactamente el sitio final
@@ -76,3 +77,20 @@ jobs:
           name: future-experience-screenshots
           path: future-screenshots/*.png
           retention-days: 7
+
+  future-production:
+    if: github.event_name != 'pull_request'
+    needs: future-experience
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Instalar navegador
+        run: |
+          npm install --no-save playwright@1.55.0
+          npx playwright install --with-deps chromium
+      - name: Esperar despliegue y validar producción
+        run: node scripts/future-production-smoke.mjs
