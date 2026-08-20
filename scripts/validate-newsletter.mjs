@@ -21,7 +21,8 @@ if (!registration.includes('Quiero recibir avisos por correo cuando se publiquen
   fail('El registro no solicita consentimiento explícito para avisos de nuevos resúmenes.');
 } else pass('El registro mantiene consentimiento explícito para nuevos resúmenes.');
 
-if (!account.includes('notifMaster') || !account.includes('Recibir avisos cuando publiquemos nuevos resúmenes.')) {
+const hasNotificationControl = account.includes('notifMaster') && /Recibir(?: un aviso| avisos)? cuando publiquemos nuevos resúmenes\./.test(account);
+if (!hasNotificationControl) {
   fail('La página de cuenta no ofrece un control identificable para activar o desactivar los avisos.');
 } else pass('La cuenta conserva control directo de alta/baja de avisos.');
 

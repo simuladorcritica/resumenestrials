@@ -1,0 +1,39 @@
+name: Validar interfaz principal
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - home-control-layout.js
+      - interactive-home.js
+      - _includes/index-source.html
+      - scripts/home-controls-smoke.mjs
+      - .github/workflows/ui-layout-smoke.yml
+  push:
+    branches: [main]
+    paths:
+      - home-control-layout.js
+      - interactive-home.js
+      - _includes/index-source.html
+      - scripts/home-controls-smoke.mjs
+      - .github/workflows/ui-layout-smoke.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  controls:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Instalar Playwright
+        run: |
+          npm install --no-save playwright@1.55.0
+          npx playwright install --with-deps chromium
+      - name: Validar filtro de revistas y fila completa
+        run: node scripts/home-controls-smoke.mjs

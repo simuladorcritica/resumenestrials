@@ -18,6 +18,8 @@ on:
       - "seo-pro.css"
       - "generar_paginas_sociales.py"
       - "trial.css"
+      - "trial-pdf.js"
+      - "pdf-contact.js"
       - "seo-routing.js"
       - "legacy-seo.js"
       - "interactive-home.js"
@@ -100,6 +102,8 @@ jobs:
               raise SystemExit('Las descargas de portada no reconocen las filas con URL canónica')
           if 'await window.cargarJsPDF();' not in ux:
               raise SystemExit('La descarga breve no carga jsPDF bajo demanda')
+          if not Path('trial-pdf.js').is_file():
+              raise SystemExit('Falta el controlador PDF de los trials canónicos')
 
           for item in datos:
               entry = manifest.get(str(item['id']))
@@ -117,10 +121,20 @@ jobs:
                   raise SystemExit(f'La portada gráfica volvió a invadir el artículo: {page}')
               if 'RT-INTENT-START' in source or 'class="respuesta-clinica"' in source:
                   raise SystemExit(f'El resumen rápido duplicado volvió a aparecer: {page}')
+              if 'id="resumen-breve"' in source or 'class="resumen-breve"' in source:
+                  raise SystemExit(f'El resumen breve volvió a incrustarse dentro del completo: {page}')
               if re.search(r'<img[^>]+images/trials/', source):
                   raise SystemExit(f'Hay una imagen social visible dentro del artículo: {page}')
               if '<article class="articulo">' not in source:
                   raise SystemExit(f'Falta el artículo con la arquitectura original: {page}')
+              if f'data-trial-download="{item["id"]}"' not in source:
+                  raise SystemExit(f'Falta descarga PDF completa en {page}')
+              if '/trial-pdf.js?v=1' not in source:
+                  raise SystemExit(f'Falta el controlador PDF en {page}')
+              if '/trial.css?v=2' not in source:
+                  raise SystemExit(f'El trial no usa los estilos unificados: {page}')
+              if item.get('corto') and f'/resumen.html?id={item["id"]}&amp;v=corto' not in source:
+                  raise SystemExit(f'Falta enlace a la lectura breve independiente en {page}')
               images = entry.get('images') or []
               if len(images) != 3:
                   raise SystemExit(f'Faltan variantes de imagen social en id {item["id"]}')
@@ -171,7 +185,7 @@ jobs:
           if missing:
               raise SystemExit(f'Faltan URLs en sitemap: {sorted(missing)}')
 
-          print(f'PASS: {len(datos)} trials con arquitectura original, imágenes solo SEO, {len(clusters)} clusters limpios, portada prerenderizada y descargas compatibles')
+          print(f'PASS: {len(datos)} trials unificados, resumen breve independiente, PDF completo, {len(clusters)} clusters limpios y portada prerenderizada')
           PY
 
       - name: Guardar archivos derivados

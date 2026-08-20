@@ -1,0 +1,44 @@
+name: Auditoria integral del sitio
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Generar exactamente el sitio que será publicado
+        run: |
+          python3 -m pip install --disable-pip-version-check pillow==11.3.0
+          python3 generar_seo.py
+          python3 generar_seo_semantico.py
+          python3 generar_seo_avanzado.py
+          python3 restaurar_arquitectura.py
+          python3 actualizar_agregar_editorial.py
+      - name: Instalar navegador de auditoría
+        run: |
+          npm install --no-save playwright@1.55.0
+          npx playwright install --with-deps chromium
+      - name: Servir sitio localmente
+        run: |
+          python3 -m http.server 8000 >/tmp/rt-full-audit-http.log 2>&1 &
+          sleep 3
+      - name: Auditoría funcional integral
+        env:
+          RT_BASE_URL: http://127.0.0.1:8000
+        run: node scripts/full-site-audit.mjs

@@ -1,5 +1,9 @@
 (() => {
   const CONTACT = 'resumenestrials.com · X: @resumenestrials · Telegram: @ResumenesTrials · Contacto: resumenestrials@outlook.com';
+  const params = new URLSearchParams(location.search);
+  const shortMode = /\/resumen\.html$/i.test(location.pathname) && params.get('v') === 'corto';
+  const articleId = params.get('id');
+  let canonicalEntry = null;
 
   function addContact(doc) {
     if (!doc || doc.__rtContactDone) return;
@@ -38,7 +42,6 @@
     const Original = ns?.jsPDF || window.jsPDF;
     if (typeof Original !== 'function') return false;
     if (Original.__rtConstructorWrapped) return true;
-
     if (Original.API && typeof Original.API.save === 'function' && !Original.API.__rtContactPatched) {
       const apiSave = Original.API.save;
       Original.API.save = function (...args) {
@@ -47,15 +50,11 @@
       };
       Original.API.__rtContactPatched = true;
     }
-
-    const Wrapped = function (...args) {
-      return wrapDocument(new Original(...args));
-    };
+    const Wrapped = function (...args) { return wrapDocument(new Original(...args)); };
     Wrapped.API = Original.API;
     Wrapped.prototype = Original.prototype;
     Wrapped.__rtConstructorWrapped = true;
     Wrapped.__rtOriginal = Original;
-
     if (ns && ns.jsPDF === Original) ns.jsPDF = Wrapped;
     if (window.jsPDF === Original) window.jsPDF = Wrapped;
     return true;
@@ -78,6 +77,21 @@
     button.setAttribute('aria-label', text);
   };
 
+  function applyShortCanonicalLink() {
+    if (!shortMode || !canonicalEntry) return;
+    const fullHref = canonicalEntry.path || canonicalEntry.url || '/';
+    const targetText = 'Ver versión completa →';
+    const targetHref = new URL(fullHref, location.href).href;
+    document.querySelectorAll('.cambio-version').forEach((link) => {
+      // MutationObserver(sync) observa childList/characterData. Reescribir
+      // textContent aunque sea idéntico vuelve a disparar el observer y, en
+      // modo corto, producía un bucle de mutaciones que bloqueaba la página.
+      // Solo tocamos el DOM cuando el valor realmente cambia.
+      if (link.href !== targetHref) link.href = fullHref;
+      if (link.textContent !== targetText) link.textContent = targetText;
+    });
+  }
+
   function sync() {
     const isArticle = /\/resumen\.html$/i.test(location.pathname) || document.querySelector('[data-pdf-version]');
     if (isArticle) {
@@ -86,9 +100,11 @@
         const version = button.dataset.pdfVersion;
         const show = short ? version === 'breve' : version === 'completo';
         button.hidden = !show;
-        button.style.display = show ? '' : 'none';
+        button.style.display = show ? 'inline-flex' : 'none';
+        button.setAttribute('aria-hidden', show ? 'false' : 'true');
         label(button, version === 'breve' ? 'Descargar resumen breve PDF' : 'Descargar resumen completo PDF');
       });
+      if (short) applyShortCanonicalLink();
       return;
     }
     document.querySelectorAll('.fila-pdf').forEach((area) => {
@@ -97,9 +113,25 @@
     });
   }
 
+  if (shortMode && articleId) {
+    fetch('/seo-manifest.json', { cache: 'no-store' })
+      .then((r) => r.ok ? r.json() : Promise.reject(new Error(`HTTP ${r.status}`)))
+      .then((manifest) => { canonicalEntry = manifest?.[articleId] || null; sync(); })
+      .catch((error) => console.warn('Enlace canónico del resumen breve:', error));
+  }
+
   const start = () => {
     sync();
     new MutationObserver(sync).observe(document.documentElement, { childList: true, subtree: true, characterData: true });
+    let syncAttempts = 0;
+    const syncTimer = setInterval(() => {
+      syncAttempts += 1;
+      sync();
+      const expected = shortMode
+        ? document.querySelector('[data-pdf-version="breve"]')
+        : document.querySelector('[data-pdf-version="completo"]');
+      if (expected || syncAttempts >= 120) clearInterval(syncTimer);
+    }, 100);
   };
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start, { once: true });
   else start();
@@ -109,6 +141,10 @@ const seoHelper = document.createElement('script');
 seoHelper.defer = true;
 if (/\/resumen\.html$/i.test(location.pathname)) {
   seoHelper.src = '/legacy-seo.js?v=1';
+  const designHelper = document.createElement('script');
+  designHelper.defer = true;
+  designHelper.src = '/legacy-reader-design-v4.js?v=1';
+  document.head.appendChild(designHelper);
 } else if (/\/(?:index\.html)?$/i.test(location.pathname)) {
   seoHelper.src = '/seo-routing.js?v=1';
 }
