@@ -37,10 +37,43 @@
     }
   };
 
+  const ensureFeaturedTrial = () => {
+    if (!document.body.classList.contains('rt-future-home')) return;
+    const index = document.querySelector('#indice');
+    if (!index) return;
+    const rows = [...index.querySelectorAll('.fila')];
+    rows.forEach((row, position) => {
+      row.style.setProperty('--rt-row-index', String(position + 1));
+      row.classList.toggle('rt-featured', position === 0);
+    });
+  };
+
+  const watchExplorer = () => {
+    const index = document.querySelector('#indice');
+    if (!index || index.dataset.rtFutureFinalWatch === '1') return;
+    index.dataset.rtFutureFinalWatch = '1';
+    let scheduled = false;
+    const refresh = () => {
+      if (scheduled) return;
+      scheduled = true;
+      queueMicrotask(() => {
+        scheduled = false;
+        ensureFeaturedTrial();
+      });
+    };
+    new MutationObserver(refresh).observe(index, { childList: true, subtree: true });
+    ensureFeaturedTrial();
+  };
+
   const boot = () => {
     ensureAccountEntry();
-    // La cabecera puede regenerarse una vez durante el arranque de la portada.
-    setTimeout(ensureAccountEntry, 350);
+    watchExplorer();
+    // La cabecera y el índice pueden regenerarse durante el arranque de la portada.
+    setTimeout(() => {
+      ensureAccountEntry();
+      watchExplorer();
+      ensureFeaturedTrial();
+    }, 350);
   };
 
   if (document.readyState === 'loading') {
