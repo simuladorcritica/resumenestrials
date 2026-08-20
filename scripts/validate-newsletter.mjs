@@ -20,14 +20,11 @@ if (!registration.includes('Quiero recibir avisos por correo cuando se publiquen
   fail('El registro no solicita consentimiento explícito para avisos de nuevos resúmenes.');
 } else pass('El registro mantiene consentimiento explícito para nuevos resúmenes.');
 
-if (!account.includes('newsletter') && !account.includes('novedad') && !account.includes('avis')) {
-  fail('La página de cuenta no parece ofrecer control de avisos.');
-} else pass('La cuenta conserva control de preferencias de avisos.');
+if (!account.includes('notifMaster') || !account.includes('Recibir avisos cuando publiquemos nuevos resúmenes.')) {
+  fail('La página de cuenta no ofrece un control identificable para activar o desactivar los avisos.');
+} else pass('La cuenta conserva control directo de alta/baja de avisos.');
 
-for (const token of [
-  '[functions.notify-new-summaries]',
-  'verify_jwt = false',
-]) {
+for (const token of ['[functions.notify-new-summaries]', 'verify_jwt = false']) {
   if (!config.includes(token)) fail(`supabase/config.toml no contiene ${token}`);
 }
 
@@ -38,27 +35,38 @@ for (const token of [
   'https://api.resend.com/emails/batch',
   'Idempotency-Key',
   'run_attempt',
+  'before_sha',
   'head_branch !== "main"',
+  '/installation/repositories?per_page=100',
+  'x-github-token',
   'resumenes.json',
-  'cuenta.html',
+  'List-Unsubscribe',
+  'List-Unsubscribe-Post',
+  'newsletter_opt_in: false',
+  'newsletter_opt_in_at: null',
+  'cuenta.html#notificaciones',
   'resumenestrials@outlook.com',
 ]) {
   if (!fn.includes(token)) fail(`La Edge Function no contiene el control requerido: ${token}`);
 }
-if (!failed) pass('Edge Function: consentimiento, confirmación, origen, idempotencia y opt-out verificados por contrato.');
+if (!failed) pass('Edge Function: consentimiento, correo confirmado, autenticación de callback, rango completo del push, idempotencia y baja en un clic verificados por contrato.');
 
 for (const token of [
   'branches: [main]',
   '- resumenes.json',
+  'actions: read',
   'github.run_id',
   'github.run_attempt',
+  'github.event.before',
   'github.sha',
+  'github.token',
+  'X-GitHub-Token',
   'notify-new-summaries',
   'for intento in 1 2 3',
 ]) {
   if (!workflow.includes(token)) fail(`Workflow de avisos incompleto: falta ${token}`);
 }
-if (!failed) pass('Workflow limitado a altas publicadas en resumenes.json sobre main.');
+if (!failed) pass('Workflow limitado a altas publicadas en resumenes.json, autenticado con token efímero de GitHub Actions y con reintentos.');
 
 if (failed) process.exit(1);
 console.log('Newsletter integration PASS');
