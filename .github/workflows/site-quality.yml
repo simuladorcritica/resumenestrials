@@ -201,7 +201,7 @@ jobs:
         run: node scripts/download-contract-smoke.mjs
 
   production-health:
-    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main'
+    if: github.event_name == 'pull_request' || github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -212,7 +212,7 @@ jobs:
         run: node scripts/production-health.mjs
 
   browser-smoke:
-    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main'
+    if: github.event_name == 'pull_request' || github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     timeout-minutes: 12
     steps:
