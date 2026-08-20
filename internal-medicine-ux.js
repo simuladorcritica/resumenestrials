@@ -77,6 +77,8 @@ function injectStyles() {
 }
 
 function rowId(row) {
+  const direct = row?.dataset?.id;
+  if (direct) return String(direct);
   const link = row.querySelector('a.cabeza[href*="resumen.html?id="]');
   if (!link) return '';
   try { return new URL(link.href, location.href).searchParams.get('id') || ''; }
@@ -177,6 +179,10 @@ function briefBlocks(html) {
 }
 
 async function generateBriefPDF(record) {
+  if (!window.jspdf?.jsPDF && typeof window.cargarJsPDF === 'function') {
+    try { await window.cargarJsPDF(); }
+    catch (error) { console.warn('No se pudo cargar jsPDF para la versión breve', error); }
+  }
   const ns = window.jspdf;
   if (!ns?.jsPDF) {
     window.open(`resumen.html?id=${record.id}&v=corto`, '_blank', 'noopener');

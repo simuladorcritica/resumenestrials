@@ -143,19 +143,9 @@
     "description": "SODa-BIC: Sin diferencia: el evento renal adverso mayor ocurrió en 40.2% frente a 39.4% a los 30 días. El bicarbonato corrigió el pH y recortó las…",
     "clusters": [
       {
-        "name": "Sepsis y shock",
-        "path": "/medicina-critica/sepsis-shock/",
-        "url": "https://resumenestrials.com/medicina-critica/sepsis-shock/"
-      },
-      {
         "name": "Renal y ácido-base",
         "path": "/medicina-critica/renal-acido-base/",
         "url": "https://resumenestrials.com/medicina-critica/renal-acido-base/"
-      },
-      {
-        "name": "Hemodinámica y cardiovascular",
-        "path": "/medicina-critica/hemodinamica-cardiovascular/",
-        "url": "https://resumenestrials.com/medicina-critica/hemodinamica-cardiovascular/"
       }
     ],
     "images": [
@@ -271,11 +261,6 @@
         "name": "Sepsis y shock",
         "path": "/medicina-critica/sepsis-shock/",
         "url": "https://resumenestrials.com/medicina-critica/sepsis-shock/"
-      },
-      {
-        "name": "Hemodinámica y cardiovascular",
-        "path": "/medicina-critica/hemodinamica-cardiovascular/",
-        "url": "https://resumenestrials.com/medicina-critica/hemodinamica-cardiovascular/"
       }
     ],
     "images": [
@@ -464,11 +449,6 @@
         "name": "Cardiología y prevención cardiovascular",
         "path": "/medicina-interna/cardiovascular/",
         "url": "https://resumenestrials.com/medicina-interna/cardiovascular/"
-      },
-      {
-        "name": "Neurología",
-        "path": "/medicina-interna/neurologia/",
-        "url": "https://resumenestrials.com/medicina-interna/neurologia/"
       }
     ],
     "images": [
@@ -519,11 +499,6 @@
         "name": "Sepsis y shock",
         "path": "/medicina-critica/sepsis-shock/",
         "url": "https://resumenestrials.com/medicina-critica/sepsis-shock/"
-      },
-      {
-        "name": "Hemodinámica y cardiovascular",
-        "path": "/medicina-critica/hemodinamica-cardiovascular/",
-        "url": "https://resumenestrials.com/medicina-critica/hemodinamica-cardiovascular/"
       }
     ],
     "images": [
@@ -614,11 +589,6 @@
     "seo_title": "REBOARREST trial: oclusión aórtica con balón (REBOA) prehospitalaria en el paro cardiaco extrahospitalario no traumático | Resúmenes Trials",
     "description": "REBOARREST: La REBOA no aumentó el retorno de la circulación sostenido: 28% con REBOA frente al 26% con soporte vital avanzado solo (diferencia de riesgo…",
     "clusters": [
-      {
-        "name": "Sepsis y shock",
-        "path": "/medicina-critica/sepsis-shock/",
-        "url": "https://resumenestrials.com/medicina-critica/sepsis-shock/"
-      },
       {
         "name": "Paro cardiaco y resucitación",
         "path": "/medicina-critica/paro-resucitacion/",
