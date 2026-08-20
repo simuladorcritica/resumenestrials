@@ -76,14 +76,54 @@ jobs:
           print(f'PASS: experiencia futura v2 verificada en {checked} páginas')
           PY
 
+      - name: Stagear todas las salidas publicables
+        run: |
+          git add sitemap.xml seo-manifest.json seo-cluster-manifest.json trials/ medicina-critica/ medicina-interna/ metodologia/ equipo-editorial/ resumen/ images/trials/ _includes/index-source.html interactive-home.js internal-medicine-ux.js
+          python - <<'PY'
+          from pathlib import Path
+          import subprocess
+          import aplicar_experiencia_futura as future
+
+          root = Path.cwd().resolve()
+          candidates = []
+          for path in future.candidates():
+              if not path.is_file():
+                  continue
+              candidates.append(str(path.resolve().relative_to(root)))
+          if not candidates:
+              raise SystemExit('No se encontraron candidatos de experiencia futura para stagear')
+          subprocess.run(['git', 'add', '--', *candidates], check=True)
+          print(f'Stageados {len(candidates)} candidatos de experiencia futura')
+          PY
+
+      - name: Verificar que ningún candidato quede fuera del commit
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import subprocess
+          import aplicar_experiencia_futura as future
+
+          root = Path.cwd().resolve()
+          unstaged = []
+          for path in future.candidates():
+              if not path.is_file():
+                  continue
+              rel = str(path.resolve().relative_to(root))
+              rc = subprocess.run(['git', 'diff', '--quiet', '--', rel]).returncode
+              if rc != 0:
+                  unstaged.append(rel)
+          if unstaged:
+              raise SystemExit('Candidatos modificados sin stagear: ' + ', '.join(unstaged))
+          print('PASS: ningún candidato de experiencia futura quedó fuera del commit')
+          PY
+
       - name: Guardar salidas regeneradas
         run: |
-          if git diff --quiet -- sitemap.xml seo-manifest.json seo-cluster-manifest.json trials/ medicina-critica/ medicina-interna/ metodologia/ equipo-editorial/ resumen/ images/trials/ _includes/index-source.html interactive-home.js internal-medicine-ux.js agregar.html; then
+          if git diff --cached --quiet; then
             echo "Las salidas ya estaban actualizadas."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add sitemap.xml seo-manifest.json seo-cluster-manifest.json trials/ medicina-critica/ medicina-interna/ metodologia/ equipo-editorial/ resumen/ images/trials/ _includes/index-source.html interactive-home.js internal-medicine-ux.js agregar.html
           git commit -m "Regenerar experiencia futura v2"
           git push origin HEAD:main
