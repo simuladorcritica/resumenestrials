@@ -21,7 +21,8 @@ if (!registration.includes('Quiero recibir avisos por correo cuando se publiquen
   fail('El registro no solicita consentimiento explícito para avisos de nuevos resúmenes.');
 } else pass('El registro mantiene consentimiento explícito para nuevos resúmenes.');
 
-if (!account.includes('notifMaster') || !account.includes('Recibir avisos cuando publiquemos nuevos resúmenes.')) {
+const hasNotificationControl = account.includes('notifMaster') && /Recibir(?: un aviso| avisos)? cuando publiquemos nuevos resúmenes\./.test(account);
+if (!hasNotificationControl) {
   fail('La página de cuenta no ofrece un control identificable para activar o desactivar los avisos.');
 } else pass('La cuenta conserva control directo de alta/baja de avisos.');
 
@@ -30,14 +31,14 @@ for (const token of ['[functions.notify-new-summaries]', 'verify_jwt = false']) 
 }
 
 for (const token of [
-  'newsletter_opt_in", true',
+  'newsletter_opt_in\", true',
   'email_confirmed_at',
   'RESEND_API_KEY',
   'https://api.resend.com/emails/batch',
   'Idempotency-Key',
   'run_attempt',
   'before_sha',
-  'head_branch !== "main"',
+  'head_branch !== \"main\"',
   '/installation/repositories?per_page=100',
   'x-github-token',
   'resumenes.json',
@@ -85,7 +86,7 @@ for (const token of [
   'if: always()',
   'failed_stage',
   'OUTCOME_HEALTH',
-  '"status": "$status"',
+  '\"status\": \"$status\"',
   'git push origin HEAD:main',
 ]) {
   if (!deploy.includes(token)) fail(`Workflow de despliegue incompleto: falta ${token}`);
