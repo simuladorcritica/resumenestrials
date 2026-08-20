@@ -91,18 +91,21 @@ jobs:
           python3 -m py_compile generar_seo_clusters.py
           python3 -m py_compile generar_seo_semantico.py
           python3 -m py_compile generar_seo_avanzado.py
+          python3 -m py_compile restaurar_arquitectura.py
           python3 -m py_compile actualizar_agregar_editorial.py
           python3 -m py_compile generar_paginas_sociales.py
           python3 -m json.tool seo-clusters.json >/dev/null
-      - name: Validate advanced SEO generation
+      - name: Validate SEO without visual regressions
         run: |
           python3 -m pip install --disable-pip-version-check pillow==11.3.0
           python3 generar_seo.py
           python3 generar_seo_semantico.py
           python3 generar_seo_avanzado.py
+          python3 restaurar_arquitectura.py
           python3 actualizar_agregar_editorial.py
           python3 - <<'PY'
           import json
+          import re
           from pathlib import Path
           data=json.loads(Path('resumenes.json').read_text(encoding='utf-8'))
           manifest=json.loads(Path('seo-manifest.json').read_text(encoding='utf-8'))
@@ -117,15 +120,25 @@ jobs:
               assert len(entry.get('images') or []) == 3
               page=Path(entry['path'].lstrip('/'))/'index.html'
               source=page.read_text(encoding='utf-8')
-              assert '<!-- RT-HERO-START -->' in source
-              assert '<!-- RT-INTENT-START -->' in source
+              assert '<!-- RT-HERO-START -->' not in source
+              assert 'class="trial-hero"' not in source
+              assert '<!-- RT-INTENT-START -->' not in source
+              assert 'class="respuesta-clinica"' not in source
+              assert not re.search(r'<img[^>]+images/trials/', source)
+              assert '<article class="articulo">' in source
+              assert '<link rel="canonical"' in source
               for url in entry['images']:
+                  assert url in source
                   assert Path(url.replace('https://resumenestrials.com/','')).is_file()
           clusters=json.loads(Path('seo-cluster-manifest.json').read_text(encoding='utf-8'))
-          for c in clusters.values():
+          for slug,c in clusters.items():
               source=(Path(c['path'].lstrip('/'))/'index.html').read_text(encoding='utf-8')
-              assert '<!-- RT-CLUSTER-SYNTHESIS-START -->' in source
-          print(f'Advanced SEO PASS: {len(data)} trials, {len(clusters)} clusters')
+              assert '<!-- RT-CLUSTER-SYNTHESIS-START -->' not in source
+              assert 'class="cluster-synthesis"' not in source
+              assert '<section class="cat-grid">' in source
+          assert '24' not in [str(x) for x in clusters.get('sepsis-shock',{}).get('trial_ids',[])]
+          assert '18' not in [str(x) for x in clusters.get('neurologia',{}).get('trial_ids',[])]
+          print(f'Architecture SEO PASS: {len(data)} trials, {len(clusters)} clusters')
           PY
       - name: Validate embedded module scripts
         run: node scripts/validate-inline-modules.mjs
@@ -148,13 +161,24 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Generate the exact corrected site under test
+        run: |
+          python3 -m pip install --disable-pip-version-check pillow==11.3.0
+          python3 generar_seo.py
+          python3 generar_seo_semantico.py
+          python3 generar_seo_avanzado.py
+          python3 restaurar_arquitectura.py
+          python3 actualizar_agregar_editorial.py
       - name: Install PDF inspection and Playwright
         run: |
           sudo apt-get update
           sudo apt-get install -y poppler-utils
           npm install --no-save playwright@1.55.0
           npx playwright install --with-deps chromium
-      - name: Serve branch locally
+      - name: Serve generated site locally
         run: |
           python3 -m http.server 8000 >/tmp/rt-http.log 2>&1 &
           sleep 3
