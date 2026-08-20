@@ -24,6 +24,7 @@ jobs:
       SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
       RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
       PROJECT_REF: hnsmozvatgyrascxbhys
+      NEWSLETTER_DOMAIN: resumenestrials.com
       NEWSLETTER_FROM: Resúmenes Trials <novedades@resumenestrials.com>
       NEWSLETTER_REPLY_TO: resumenestrials@outlook.com
     steps:
@@ -42,6 +43,29 @@ jobs:
             echo "Falta el secreto RESEND_API_KEY." >&2
             exit 1
           fi
+
+      - name: Verificar dominio remitente en Resend
+        run: |
+          set -euo pipefail
+          salida=$(mktemp)
+          codigo=$(curl --silent --show-error \
+            --output "$salida" \
+            --write-out '%{http_code}' \
+            --connect-timeout 10 \
+            --max-time 30 \
+            --header "Authorization: Bearer $RESEND_API_KEY" \
+            --header 'Accept: application/json' \
+            https://api.resend.com/domains || true)
+          if [ "$codigo" != "200" ]; then
+            echo "La API de Resend rechazó la credencial: HTTP $codigo" >&2
+            cat "$salida" >&2 || true
+            exit 1
+          fi
+          if ! jq -e --arg domain "$NEWSLETTER_DOMAIN" '.data[]? | select(.name == $domain and .status == "verified")' "$salida" >/dev/null; then
+            echo "El dominio $NEWSLETTER_DOMAIN todavía no aparece como verificado en Resend." >&2
+            exit 1
+          fi
+          echo "Dominio remitente verificado en Resend."
 
       - uses: supabase/setup-cli@v2
         with:
