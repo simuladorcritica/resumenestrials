@@ -69,6 +69,7 @@ jobs:
           node --check internal-medicine-ux.js
           node --check home-visual-tuning.js
           node --check pdf-contact.js
+          node --check trial-pdf.js
           node --check home-control-layout.js
           node --check tools/revisar_pagina_pdf.mjs
           node --check tools/auditoria_sitio_profunda.mjs
@@ -115,6 +116,7 @@ jobs:
           assert 'async function cargarJsPDF()' in home
           assert 'jspdf.umd.min.js" defer' not in home
           assert '/agregar-editorial-dates.js?v=1' in Path('agregar.html').read_text(encoding='utf-8')
+          assert Path('trial-pdf.js').is_file()
           for item in data:
               entry=manifest[str(item['id'])]
               assert len(entry.get('images') or []) == 3
@@ -124,8 +126,14 @@ jobs:
               assert 'class="trial-hero"' not in source
               assert '<!-- RT-INTENT-START -->' not in source
               assert 'class="respuesta-clinica"' not in source
+              assert 'id="resumen-breve"' not in source
+              assert 'class="resumen-breve"' not in source
               assert not re.search(r'<img[^>]+images/trials/', source)
               assert '<article class="articulo">' in source
+              assert f'data-trial-download="{item["id"]}"' in source
+              assert '/trial-pdf.js?v=1' in source
+              if item.get('corto'):
+                  assert f'/resumen.html?id={item["id"]}&amp;v=corto' in source
               assert '<link rel="canonical"' in source
               for url in entry['images']:
                   assert url in source
@@ -138,7 +146,7 @@ jobs:
               assert '<section class="cat-grid">' in source
           assert '24' not in [str(x) for x in clusters.get('sepsis-shock',{}).get('trial_ids',[])]
           assert '18' not in [str(x) for x in clusters.get('neurologia',{}).get('trial_ids',[])]
-          print(f'Architecture SEO PASS: {len(data)} trials, {len(clusters)} clusters')
+          print(f'Unified architecture PASS: {len(data)} trials, {len(clusters)} clusters')
           PY
       - name: Validate embedded module scripts
         run: node scripts/validate-inline-modules.mjs
@@ -182,7 +190,7 @@ jobs:
         run: |
           python3 -m http.server 8000 >/tmp/rt-http.log 2>&1 &
           sleep 3
-      - name: Validate visible download contract and PDF contact
+      - name: Validate unified trial, short summary and PDF contract
         env:
           RT_BASE_URL: http://127.0.0.1:8000
         run: node scripts/download-contract-smoke.mjs
