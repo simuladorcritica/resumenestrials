@@ -73,15 +73,20 @@ for (const token of [
   'SUPABASE_ACCESS_TOKEN',
   'RESEND_API_KEY',
   'hnsmozvatgyrascxbhys',
+  'supabase/setup-cli@v3',
+  'version: latest',
   'supabase secrets set',
   'supabase functions deploy notify-new-summaries',
   '--no-verify-jwt',
+  '--use-api',
   'novedades@resumenestrials.com',
   'Verificar servicio desplegado',
+  'runtime/newsletter-deploy-status.json',
+  'status": "healthy',
 ]) {
   if (!deploy.includes(token)) fail(`Workflow de despliegue incompleto: falta ${token}`);
 }
-if (!failed) pass('Despliegue de producción configura secretos, publica la Edge Function y ejecuta health check.');
+if (!failed) pass('Despliegue de producción usa CLI oficial actual, configura secretos, publica por API, ejecuta health check y registra el último despliegue saludable.');
 
 if (failed) process.exit(1);
 console.log('Newsletter integration PASS');
