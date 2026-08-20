@@ -104,3 +104,12 @@
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start, { once: true });
   else start();
 })();
+
+const seoHelper = document.createElement('script');
+seoHelper.defer = true;
+if (/\/resumen\.html$/i.test(location.pathname)) {
+  seoHelper.src = '/legacy-seo.js?v=1';
+} else if (/\/(?:index\.html)?$/i.test(location.pathname)) {
+  seoHelper.src = '/seo-routing.js?v=1';
+}
+if (seoHelper.src) document.head.appendChild(seoHelper);
