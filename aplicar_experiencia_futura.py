@@ -3,7 +3,10 @@ from __future__ import annotations
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
-STYLE = '<link rel="stylesheet" href="/future-experience.css?v=1">'
+STYLES = [
+    '<link rel="stylesheet" href="/future-experience.css?v=1">',
+    '<link rel="stylesheet" href="/future-experience-patch.css?v=1">',
+]
 SCRIPT = '<script src="/future-experience.js?v=1" defer></script>'
 
 
@@ -12,9 +15,11 @@ def inject(path: Path) -> bool:
         return False
     source = path.read_text(encoding="utf-8")
     changed = False
-    if STYLE not in source and '</head>' in source:
-        source = source.replace('</head>', STYLE + '</head>', 1)
-        changed = True
+    if '</head>' in source:
+        missing = ''.join(style for style in STYLES if style not in source)
+        if missing:
+            source = source.replace('</head>', missing + '</head>', 1)
+            changed = True
     if SCRIPT not in source and '</body>' in source:
         source = source.replace('</body>', SCRIPT + '</body>', 1)
         changed = True
