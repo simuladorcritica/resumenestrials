@@ -56,8 +56,7 @@ if (data.some((r) => r.corto)) {
   assert(/Descargar resumen breve PDF/i.test(indexBrief), `Etiqueta breve incorrecta en índice: ${indexBrief}`);
 }
 
-// Contrato principal: el trial canónico conserva la arquitectura editorial,
-// descarga el PDF completo directamente y nunca incrusta el resumen breve.
+// Trial canónico: breadcrumb, descarga directa y resumen breve como página separada.
 await page.goto(`${BASE}${entry.path}`, { waitUntil: 'networkidle' });
 await page.waitForSelector(`[data-trial-download="${sample.id}"]`, { timeout: 15000 });
 assert(await page.locator('.migas').first().isVisible(), 'El trial canónico no muestra breadcrumb');
@@ -73,7 +72,7 @@ if (sample.corto) {
 const canonicalPdf = await download(page, `[data-trial-download="${sample.id}"]`, 'canonico-completo.pdf');
 assertPdfContact(canonicalPdf);
 
-// Se mantiene el contrato legacy para enlaces antiguos y para la versión breve.
+// Compatibilidad del resumen completo antiguo.
 await page.goto(`${BASE}/resumen.html?id=${sample.id}`, { waitUntil: 'networkidle' });
 await page.waitForSelector('[data-pdf-version="completo"]', { timeout: 15000 });
 await page.waitForTimeout(300);
@@ -85,12 +84,14 @@ assert(/Descargar resumen completo PDF/i.test(fullText), `Etiqueta completa inco
 if (sample.corto) {
   await page.goto(`${BASE}/resumen.html?id=${sample.id}&v=corto`, { waitUntil: 'networkidle' });
   await page.waitForSelector('[data-pdf-version="breve"]', { timeout: 15000 });
-  await page.waitForSelector('.migas.rt-route', { timeout: 15000 });
+  await page.waitForSelector('.migas .volver-top', { timeout: 15000 });
   await page.waitForTimeout(300);
+  assert(await page.locator('body').evaluate((el) => el.classList.contains('modo-corto')), 'El resumen breve perdió su arquitectura estrecha');
+  assert(await page.locator('article.corto').first().isVisible(), 'El resumen breve perdió su artículo monocolumna');
+  const backText = (await page.locator('.migas .volver-top').first().innerText()).replace(/\s+/g, ' ');
+  assert(/Volver al índice/i.test(backText), `El resumen breve perdió su navegación anterior: ${backText}`);
   assert(await page.locator('[data-pdf-version="breve"]').first().isVisible(), 'El resumen breve no muestra su descarga');
   assert(!(await page.locator('[data-pdf-version="completo"]').first().isVisible()), 'El resumen breve muestra indebidamente la descarga completa');
-  const crumbs = (await page.locator('.migas.rt-route').first().innerText()).replace(/\s+/g, ' ');
-  assert(/Inicio/.test(crumbs) && /Resumen breve/i.test(crumbs), `Breadcrumb breve incompleto: ${crumbs}`);
   const versionHref = await page.locator('.cambio-version').first().getAttribute('href');
   const resolved = new URL(versionHref, `${BASE}/resumen.html`).pathname;
   assert(resolved === entry.path, `La versión breve no vuelve al trial canónico: ${resolved}`);
