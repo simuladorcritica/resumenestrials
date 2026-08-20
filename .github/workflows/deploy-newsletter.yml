@@ -39,7 +39,7 @@ jobs:
           [ -n "$RESEND_API_KEY" ] || { echo "Falta RESEND_API_KEY." >&2; exit 1; }
           echo "Credenciales de despliegue presentes."
 
-      - name: Verificar dominio remitente en Resend
+      - name: Validar credencial Resend de mínimo privilegio
         id: resend
         if: steps.credentials.outcome == 'success'
         continue-on-error: true
@@ -54,16 +54,24 @@ jobs:
             --header "Authorization: Bearer $RESEND_API_KEY" \
             --header 'Accept: application/json' \
             https://api.resend.com/domains || true)
-          if [ "$codigo" != "200" ]; then
-            echo "La API de Resend rechazó la credencial: HTTP $codigo" >&2
-            cat "$salida" >&2 || true
-            exit 1
+
+          if [ "$codigo" = "200" ]; then
+            if ! jq -e --arg domain "$NEWSLETTER_DOMAIN" '.data[]? | select(.name == $domain and .status == "verified")' "$salida" >/dev/null; then
+              echo "El dominio $NEWSLETTER_DOMAIN no aparece como verificado en Resend." >&2
+              exit 1
+            fi
+            echo "Credencial Resend válida y dominio verificado."
+            exit 0
           fi
-          if ! jq -e --arg domain "$NEWSLETTER_DOMAIN" '.data[]? | select(.name == $domain and .status == "verified")' "$salida" >/dev/null; then
-            echo "El dominio $NEWSLETTER_DOMAIN no aparece como verificado en Resend." >&2
-            exit 1
+
+          if [ "$codigo" = "401" ] && grep -q 'restricted_api_key' "$salida"; then
+            echo "Credencial Resend válida con Sending access; se conserva el principio de mínimo privilegio."
+            exit 0
           fi
-          echo "Dominio remitente verificado en Resend."
+
+          echo "La credencial de Resend no superó la validación: HTTP $codigo" >&2
+          cat "$salida" >&2 || true
+          exit 1
 
       - uses: supabase/setup-cli@v3
         id: setup
