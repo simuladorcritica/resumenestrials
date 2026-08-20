@@ -60,6 +60,7 @@ jobs:
       - name: Validate JavaScript syntax
         run: |
           node --check interactive-home.js
+          node --check agregar-editorial-dates.js
           node --check recommendations.js
           node --check library-store.js
           node --check client-monitor.js
@@ -89,8 +90,43 @@ jobs:
           python3 -m py_compile generar_seo.py
           python3 -m py_compile generar_seo_clusters.py
           python3 -m py_compile generar_seo_semantico.py
+          python3 -m py_compile generar_seo_avanzado.py
+          python3 -m py_compile actualizar_agregar_editorial.py
           python3 -m py_compile generar_paginas_sociales.py
           python3 -m json.tool seo-clusters.json >/dev/null
+      - name: Validate advanced SEO generation
+        run: |
+          python3 -m pip install --disable-pip-version-check pillow==11.3.0
+          python3 generar_seo.py
+          python3 generar_seo_semantico.py
+          python3 generar_seo_avanzado.py
+          python3 actualizar_agregar_editorial.py
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          data=json.loads(Path('resumenes.json').read_text(encoding='utf-8'))
+          manifest=json.loads(Path('seo-manifest.json').read_text(encoding='utf-8'))
+          home=Path('_includes/index-source.html').read_text(encoding='utf-8')
+          assert home.count('class="fila" data-id=') >= len(data)
+          assert '<!-- RT-PRERENDER-START -->' in home
+          assert 'async function cargarJsPDF()' in home
+          assert 'jspdf.umd.min.js" defer' not in home
+          assert '/agregar-editorial-dates.js?v=1' in Path('agregar.html').read_text(encoding='utf-8')
+          for item in data:
+              entry=manifest[str(item['id'])]
+              assert len(entry.get('images') or []) == 3
+              page=Path(entry['path'].lstrip('/'))/'index.html'
+              source=page.read_text(encoding='utf-8')
+              assert '<!-- RT-HERO-START -->' in source
+              assert '<!-- RT-INTENT-START -->' in source
+              for url in entry['images']:
+                  assert Path(url.replace('https://resumenestrials.com/','')).is_file()
+          clusters=json.loads(Path('seo-cluster-manifest.json').read_text(encoding='utf-8'))
+          for c in clusters.values():
+              source=(Path(c['path'].lstrip('/'))/'index.html').read_text(encoding='utf-8')
+              assert '<!-- RT-CLUSTER-SYNTHESIS-START -->' in source
+          print(f'Advanced SEO PASS: {len(data)} trials, {len(clusters)} clusters')
+          PY
       - name: Validate embedded module scripts
         run: node scripts/validate-inline-modules.mjs
       - name: Validate article detail page
