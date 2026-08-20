@@ -3,9 +3,11 @@
   const style = document.createElement('style');
   style.id = 'rt-home-control-layout';
   style.textContent = `
+    html,body{max-width:100%;overflow-x:clip}
+    .indice-cabecera,.indice-cabecera>*{min-width:0}
     @media (min-width:1360px) {
-      /* Ganamos espacio horizontal reduciendo solo el margen exterior. Los
-         controles conservan su tipografía, altura y padding originales. */
+      /* Conservamos el contrato de anchura de los controles y recortamos
+         únicamente cualquier ornamento que salga del lienzo editorial. */
       .envoltorio {
         padding-left:48px !important;
         padding-right:48px !important;
