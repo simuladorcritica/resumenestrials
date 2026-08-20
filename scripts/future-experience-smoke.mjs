@@ -89,8 +89,9 @@ try{
   await page.goto(`${BASE}/registro.html`,{waitUntil:'domcontentloaded',timeout:25000});
   await page.waitForSelector('body.rt-future-account',{timeout:10000});
   assert(await page.locator('form').first().isVisible(),'Registro: formulario no visible');
-  const text=(await page.locator('body').innerText()).toLowerCase();
-  assert(text.includes('spam')||text.includes('correo no deseado'),'Registro: falta aviso para revisar Spam/correo no deseado');
+  const mailNote=(await page.locator('.mail-note').textContent()).toLowerCase();
+  assert(mailNote.includes('spam')&&mailNote.includes('correo no deseado'),'Registro: el estado exitoso no advierte revisar Spam y Correo no deseado');
+  assert(await page.locator('#exito').count()===1,'Registro: falta estado de confirmación exitoso');
   await noOverflow(page,'Registro');
 
   assert(pageErrors.length===0,`Errores JavaScript detectados: ${pageErrors.join(' | ')}`);
