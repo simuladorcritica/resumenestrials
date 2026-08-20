@@ -31,6 +31,8 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Verificar credenciales requeridas
+        id: credentials
+        continue-on-error: true
         run: |
           set -euo pipefail
           [ -n "$SUPABASE_ACCESS_TOKEN" ] || { echo "Falta SUPABASE_ACCESS_TOKEN." >&2; exit 1; }
@@ -38,6 +40,9 @@ jobs:
           echo "Credenciales de despliegue presentes."
 
       - name: Verificar dominio remitente en Resend
+        id: resend
+        if: steps.credentials.outcome == 'success'
+        continue-on-error: true
         run: |
           set -euo pipefail
           salida=$(mktemp)
@@ -61,10 +66,16 @@ jobs:
           echo "Dominio remitente verificado en Resend."
 
       - uses: supabase/setup-cli@v3
+        id: setup
+        if: steps.credentials.outcome == 'success' && steps.resend.outcome == 'success'
+        continue-on-error: true
         with:
           version: latest
 
       - name: Configurar secretos del servicio
+        id: secrets
+        if: steps.setup.outcome == 'success'
+        continue-on-error: true
         run: |
           set -euo pipefail
           supabase secrets set \
@@ -74,6 +85,9 @@ jobs:
             NEWSLETTER_REPLY_TO="$NEWSLETTER_REPLY_TO"
 
       - name: Desplegar Edge Function
+        id: deploy
+        if: steps.secrets.outcome == 'success'
+        continue-on-error: true
         run: |
           set -euo pipefail
           supabase functions deploy notify-new-summaries \
@@ -82,6 +96,9 @@ jobs:
             --use-api
 
       - name: Verificar servicio desplegado
+        id: health
+        if: steps.deploy.outcome == 'success'
+        continue-on-error: true
         run: |
           set -euo pipefail
           endpoint="https://${PROJECT_REF}.supabase.co/functions/v1/notify-new-summaries"
@@ -105,27 +122,59 @@ jobs:
           echo "El servicio no superó la comprobación posterior al despliegue." >&2
           exit 1
 
-      - name: Registrar despliegue saludable
+      - name: Registrar resultado del despliegue
+        if: always()
+        env:
+          OUTCOME_CREDENTIALS: ${{ steps.credentials.outcome }}
+          OUTCOME_RESEND: ${{ steps.resend.outcome }}
+          OUTCOME_SETUP: ${{ steps.setup.outcome }}
+          OUTCOME_SECRETS: ${{ steps.secrets.outcome }}
+          OUTCOME_DEPLOY: ${{ steps.deploy.outcome }}
+          OUTCOME_HEALTH: ${{ steps.health.outcome }}
         run: |
           set -euo pipefail
+          status="healthy"
+          failed_stage=""
+          for pair in \
+            "credentials:$OUTCOME_CREDENTIALS" \
+            "resend:$OUTCOME_RESEND" \
+            "setup-cli:$OUTCOME_SETUP" \
+            "supabase-secrets:$OUTCOME_SECRETS" \
+            "edge-function-deploy:$OUTCOME_DEPLOY" \
+            "health-check:$OUTCOME_HEALTH"; do
+            stage="${pair%%:*}"
+            outcome="${pair#*:}"
+            if [ "$outcome" != "success" ]; then
+              status="failed"
+              failed_stage="$stage"
+              break
+            fi
+          done
+
           mkdir -p runtime
           deployed_at=$(date -u +'%Y-%m-%dT%H:%M:%SZ')
           cat > runtime/newsletter-deploy-status.json <<EOF
           {
             "service": "notify-new-summaries",
-            "status": "healthy",
-            "deployed_at": "$deployed_at",
+            "status": "$status",
+            "failed_stage": "$failed_stage",
+            "checked_at": "$deployed_at",
             "source_sha": "$GITHUB_SHA",
             "project_ref": "$PROJECT_REF",
             "domain": "$NEWSLETTER_DOMAIN"
           }
           EOF
+
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add runtime/newsletter-deploy-status.json
-          if git diff --cached --quiet; then
-            echo "El estado de despliegue ya está actualizado."
-            exit 0
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: registrar estado de despliegue newsletter [skip ci]"
+            git push origin HEAD:main
           fi
-          git commit -m "chore: registrar despliegue newsletter saludable [skip ci]"
-          git push origin HEAD:main
+
+          if [ "$status" != "healthy" ]; then
+            echo "El despliegue falló en: $failed_stage" >&2
+            exit 1
+          fi
+          echo "Despliegue saludable y registrado."
