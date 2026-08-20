@@ -6,6 +6,7 @@ import { join } from 'node:path';
 
 const BASE = (process.env.RT_BASE_URL || 'http://127.0.0.1:8000').replace(/\/$/, '');
 const requiredContacts = ['resumenestrials.com', '@resumenestrials', '@ResumenesTrials', 'resumenestrials@outlook.com'];
+const jsPdfBundle = readFileSync('node_modules/jspdf/dist/jspdf.umd.min.js', 'utf8');
 
 function assert(condition, message) {
   if (!condition) throw new Error(message);
@@ -66,9 +67,19 @@ page.on('console', (message) => {
   if (message.type() === 'error') browserErrors.push(`console:${message.text()}`);
 });
 
-await page.goto(`${BASE}/index-smoke.html`, { waitUntil: 'networkidle' });
+// El sitio usa jsPDF desde CDN en producción. En CI servimos exactamente la
+// misma librería/version desde node_modules para que una caída o lentitud del
+// CDN no convierta una prueba funcional en un falso negativo. Las fuentes web
+// son decorativas para este contrato y se abortan deliberadamente.
+await page.route('https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js', (route) =>
+  route.fulfill({ status: 200, contentType: 'application/javascript; charset=utf-8', body: jsPdfBundle })
+);
+await page.route('https://fonts.googleapis.com/**', (route) => route.abort());
+await page.route('https://fonts.gstatic.com/**', (route) => route.abort());
+
+await page.goto(`${BASE}/index-smoke.html`, { waitUntil: 'networkidle', timeout: 30000 });
 await page.waitForSelector('.fila-pdf .btn-pdf', { timeout: 15000 });
-await page.waitForTimeout(700);
+await page.waitForTimeout(500);
 const indexFull = await page.locator('.fila-pdf .btn-pdf:not(.rt-download-brief)').first().innerText();
 assert(/Descargar resumen completo PDF/i.test(indexFull), `Etiqueta completa incorrecta en índice: ${indexFull}`);
 if (data.some((r) => r.corto)) {
@@ -77,7 +88,7 @@ if (data.some((r) => r.corto)) {
   assert(/Descargar resumen breve PDF/i.test(indexBrief), `Etiqueta breve incorrecta en índice: ${indexBrief}`);
 }
 
-await page.goto(`${BASE}${entry.path}`, { waitUntil: 'networkidle' });
+await page.goto(`${BASE}${entry.path}`, { waitUntil: 'domcontentloaded', timeout: 30000 });
 await page.waitForSelector(`[data-trial-download="${sample.id}"]`, { timeout: 15000 });
 assert(await page.locator('.migas').first().isVisible(), 'El trial canónico no muestra breadcrumb');
 assert(!(await page.locator('#resumen-breve,.resumen-breve').count()), 'El trial canónico sigue incrustando el resumen breve');
@@ -94,7 +105,7 @@ assertPdfContact(canonicalPdf);
 
 await page.goto(`${BASE}/resumen.html?id=${sample.id}`, { waitUntil: 'domcontentloaded', timeout: 30000 });
 await page.waitForSelector('[data-pdf-version="completo"]', { timeout: 15000 });
-await page.waitForTimeout(300);
+await page.waitForTimeout(200);
 assert(await page.locator('[data-pdf-version="completo"]').first().isVisible(), 'El resumen legacy completo no muestra su descarga');
 assert(!(await page.locator('[data-pdf-version="breve"]').first().isVisible().catch(() => false)), 'El resumen completo muestra indebidamente la descarga breve');
 const fullText = await page.locator('[data-pdf-version="completo"]').first().innerText();
