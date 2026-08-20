@@ -21,6 +21,7 @@ on:
       - "seo-routing.js"
       - "legacy-seo.js"
       - "interactive-home.js"
+      - "internal-medicine-ux.js"
       - "_includes/index-source.html"
       - ".github/workflows/actualizar-sitemap.yml"
   workflow_dispatch:
@@ -94,6 +95,12 @@ jobs:
           if 'cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer' in home:
               raise SystemExit('jsPDF sigue bloqueando la carga inicial')
 
+          ux = Path('internal-medicine-ux.js').read_text(encoding='utf-8')
+          if 'const direct = row?.dataset?.id;' not in ux:
+              raise SystemExit('Las descargas de portada no reconocen las filas con URL canónica')
+          if 'await window.cargarJsPDF();' not in ux:
+              raise SystemExit('La descarga breve no carga jsPDF bajo demanda')
+
           for item in datos:
               entry = manifest.get(str(item['id']))
               if not entry:
@@ -164,17 +171,17 @@ jobs:
           if missing:
               raise SystemExit(f'Faltan URLs en sitemap: {sorted(missing)}')
 
-          print(f'PASS: {len(datos)} trials con arquitectura original, imágenes solo SEO, {len(clusters)} clusters limpios y portada prerenderizada')
+          print(f'PASS: {len(datos)} trials con arquitectura original, imágenes solo SEO, {len(clusters)} clusters limpios, portada prerenderizada y descargas compatibles')
           PY
 
       - name: Guardar archivos derivados
         run: |
-          if git diff --quiet -- sitemap.xml seo-manifest.json seo-cluster-manifest.json trials/ medicina-critica/ medicina-interna/ metodologia/ equipo-editorial/ resumen/ images/trials/ _includes/index-source.html interactive-home.js agregar.html; then
+          if git diff --quiet -- sitemap.xml seo-manifest.json seo-cluster-manifest.json trials/ medicina-critica/ medicina-interna/ metodologia/ equipo-editorial/ resumen/ images/trials/ _includes/index-source.html interactive-home.js internal-medicine-ux.js agregar.html; then
             echo "Las paginas derivadas y el SEO ya estan actualizados."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add sitemap.xml seo-manifest.json seo-cluster-manifest.json trials/ medicina-critica/ medicina-interna/ metodologia/ equipo-editorial/ resumen/ images/trials/ _includes/index-source.html interactive-home.js agregar.html
+          git add sitemap.xml seo-manifest.json seo-cluster-manifest.json trials/ medicina-critica/ medicina-interna/ metodologia/ equipo-editorial/ resumen/ images/trials/ _includes/index-source.html interactive-home.js internal-medicine-ux.js agregar.html
           git commit -m "Actualizar SEO respetando arquitectura editorial"
           git push origin HEAD:main
