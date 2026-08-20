@@ -8,6 +8,7 @@ on:
       - "resumenes.json"
       - "generar_seo.py"
       - "generar_seo_clusters.py"
+      - "generar_seo_semantico.py"
       - "seo-clusters.json"
       - "seo-semantic.css"
       - "generar_paginas_sociales.py"
@@ -42,13 +43,13 @@ jobs:
           python-version: "3.13"
 
       - name: Validar generadores
-        run: python -m py_compile generar_seo.py generar_seo_clusters.py generar_paginas_sociales.py
+        run: python -m py_compile generar_seo.py generar_seo_clusters.py generar_seo_semantico.py generar_paginas_sociales.py
 
       - name: Generar paginas SEO y sitemap
         run: python generar_seo.py
 
       - name: Generar clusters y transparencia editorial
-        run: python generar_seo_clusters.py
+        run: python generar_seo_semantico.py
 
       - name: Generar paginas sociales por trial
         run: python generar_paginas_sociales.py
