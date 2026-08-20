@@ -87,6 +87,61 @@ export async function signInUser({ identifier, email, password, captchaToken }) 
   return data;
 }
 
+export async function getMfaLoginState() {
+  assertSupabaseConfigured();
+  const user = await currentUser().catch(() => null);
+  if (!user) return { requiresMfa: false, factorId: null, currentLevel: null, nextLevel: null };
+
+  const [{ data: assurance, error: assuranceError }, { data: factors, error: factorsError }] = await Promise.all([
+    supabase.auth.mfa.getAuthenticatorAssuranceLevel(),
+    supabase.auth.mfa.listFactors()
+  ]);
+  if (assuranceError) throw assuranceError;
+  if (factorsError) throw factorsError;
+
+  const verifiedTotp = (factors?.totp || []).find((factor) => factor.status === "verified") || null;
+  const currentLevel = assurance?.currentLevel || null;
+  const nextLevel = assurance?.nextLevel || null;
+  const requiresMfa = Boolean(verifiedTotp && nextLevel === "aal2" && currentLevel !== "aal2");
+  return {
+    requiresMfa,
+    factorId: verifiedTotp?.id || null,
+    currentLevel,
+    nextLevel
+  };
+}
+
+export async function verifyMfaLoginCode(code, factorId = null) {
+  assertSupabaseConfigured();
+  const cleanCode = String(code || "").replace(/\s+/g, "");
+  if (!/^\d{6}$/.test(cleanCode)) throw new Error("Escribe el código de 6 dígitos de tu aplicación autenticadora.");
+
+  let targetFactorId = factorId;
+  if (!targetFactorId) {
+    const state = await getMfaLoginState();
+    targetFactorId = state.factorId;
+  }
+  if (!targetFactorId) throw new Error("No encontramos un segundo factor verificado para esta cuenta.");
+
+  const { data: challenge, error: challengeError } = await supabase.auth.mfa.challenge({ factorId: targetFactorId });
+  if (challengeError) throw challengeError;
+  const challengeId = challenge?.id;
+  if (!challengeId) throw new Error("No fue posible iniciar la verificación en dos pasos.");
+
+  const { data, error } = await supabase.auth.mfa.verify({
+    factorId: targetFactorId,
+    challengeId,
+    code: cleanCode
+  });
+  if (error) throw error;
+
+  const state = await getMfaLoginState();
+  if (state.requiresMfa || state.currentLevel !== "aal2") {
+    throw new Error("No fue posible completar la verificación en dos pasos.");
+  }
+  return data;
+}
+
 export async function requestPasswordReset(email, captchaToken) {
   assertSupabaseConfigured();
   const options = { redirectTo: "https://resumenestrials.com/recuperar.html?modo=nueva" };
@@ -124,7 +179,7 @@ export async function getProfile() {
   if (!user) return null;
   const { data, error } = await supabase
     .from("profiles")
-    .select("id, first_name, last_name, username, email, newsletter_opt_in, created_at, updated_at")
+    .select("id, first_name, last_name, username, email, newsletter_opt_in, newsletter_opt_in_at, created_at, updated_at")
     .eq("id", user.id)
     .single();
   if (error) throw error;
@@ -140,7 +195,18 @@ export async function updateProfile({ firstName, lastName, username, newsletterO
     throw new Error("El nombre de usuario debe tener entre 3 y 30 caracteres y usar solo letras, números, punto, guion o guion bajo.");
   }
 
+  const { data: existing, error: existingError } = await supabase
+    .from("profiles")
+    .select("newsletter_opt_in, newsletter_opt_in_at")
+    .eq("id", user.id)
+    .single();
+  if (existingError) throw existingError;
+
   const optIn = Boolean(newsletterOptIn);
+  const newsletterOptInAt = optIn
+    ? (existing?.newsletter_opt_in_at || new Date().toISOString())
+    : null;
+
   const { data, error } = await supabase
     .from("profiles")
     .update({
@@ -148,10 +214,10 @@ export async function updateProfile({ firstName, lastName, username, newsletterO
       last_name: String(lastName || "").trim(),
       username: cleanUsername,
       newsletter_opt_in: optIn,
-      newsletter_opt_in_at: optIn ? new Date().toISOString() : null
+      newsletter_opt_in_at: newsletterOptInAt
     })
     .eq("id", user.id)
-    .select("id, first_name, last_name, username, email, newsletter_opt_in, created_at, updated_at")
+    .select("id, first_name, last_name, username, email, newsletter_opt_in, newsletter_opt_in_at, created_at, updated_at")
     .single();
   if (error) throw error;
   return data;
