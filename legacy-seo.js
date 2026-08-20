@@ -20,14 +20,11 @@
         }
         if (link.href !== canonical) link.href = canonical;
 
-        let robots = document.querySelector('meta[name="robots"]');
-        if (!robots) {
-          robots = document.createElement('meta');
-          robots.name = 'robots';
-          document.head.appendChild(robots);
+        const robots = document.querySelector('meta[name="robots"]');
+        if (robots) {
+          const robotsValue = 'index,follow,max-image-preview:large';
+          if (robots.content !== robotsValue) robots.content = robotsValue;
         }
-        const robotsValue = 'noindex,follow,max-image-preview:large';
-        if (robots.content !== robotsValue) robots.content = robotsValue;
 
         const og = document.querySelector('meta[property="og:url"]');
         if (og && og.content !== canonical) og.content = canonical;
