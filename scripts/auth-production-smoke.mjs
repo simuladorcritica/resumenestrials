@@ -10,6 +10,8 @@ function assert(value, message) {
   if (!value) throw new Error(message);
 }
 
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
 async function readJson(response, label) {
   const text = await response.text();
   let payload = null;
@@ -50,17 +52,26 @@ function backendHeaders(key) {
   return headers;
 }
 
-async function authRequest(path, { method = 'POST', key = PUBLIC_KEY, body, headers = {} } = {}) {
-  const response = await fetch(`${SUPABASE_URL}${path}`, {
-    method,
-    headers: {
-      apikey: key,
-      'Content-Type': 'application/json',
-      ...headers
-    },
-    body: body === undefined ? undefined : JSON.stringify(body)
-  });
-  return readJson(response, `Supabase ${path}`);
+async function passwordLoginWithPropagation(email, password) {
+  let lastDetail = '';
+  for (let attempt = 1; attempt <= 12; attempt += 1) {
+    const response = await fetch(`${SUPABASE_URL}/auth/v1/token?grant_type=password`, {
+      method: 'POST',
+      headers: { apikey: PUBLIC_KEY, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, password })
+    });
+    const text = await response.text();
+    let payload = {};
+    try { payload = text ? JSON.parse(text) : {}; } catch {}
+    if (response.ok && payload?.access_token && payload?.refresh_token) return payload;
+    lastDetail = payload?.message || payload?.error_description || payload?.error || payload?.msg || `HTTP ${response.status}`;
+    if (!/captcha protection/i.test(lastDetail)) {
+      throw new Error(`Inicio de sesión por correo: ${lastDetail}`);
+    }
+    console.log(`Esperando propagación de Auth (${attempt}/12)…`);
+    await sleep(5000);
+  }
+  throw new Error(`Inicio de sesión por correo: ${lastDetail || 'la configuración CAPTCHA no se propagó'}`);
 }
 
 async function main() {
@@ -116,10 +127,7 @@ async function main() {
     userId = created?.id || created?.user?.id;
     assert(userId, 'La creación del usuario temporal no devolvió id');
 
-    const login = await authRequest('/auth/v1/token?grant_type=password', {
-      body: { email, password }
-    });
-    assert(login.access_token && login.refresh_token, 'El inicio de sesión por correo no devolvió sesión');
+    const login = await passwordLoginWithPropagation(email, password);
 
     const profileResponse = await fetch(`${SUPABASE_URL}/rest/v1/profiles?select=id,username,email&id=eq.${encodeURIComponent(userId)}`, {
       headers: {
