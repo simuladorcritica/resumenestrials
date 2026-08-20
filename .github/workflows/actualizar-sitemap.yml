@@ -9,12 +9,18 @@ on:
       - "generar_seo.py"
       - "generar_seo_clusters.py"
       - "generar_seo_semantico.py"
+      - "generar_seo_avanzado.py"
+      - "actualizar_agregar_editorial.py"
+      - "agregar-editorial-dates.js"
       - "seo-clusters.json"
       - "seo-semantic.css"
+      - "seo-pro.css"
       - "generar_paginas_sociales.py"
       - "trial.css"
       - "seo-routing.js"
       - "legacy-seo.js"
+      - "interactive-home.js"
+      - "_includes/index-source.html"
       - ".github/workflows/actualizar-sitemap.yml"
   workflow_dispatch:
 
@@ -42,14 +48,23 @@ jobs:
         with:
           python-version: "3.13"
 
+      - name: Instalar generador de imágenes
+        run: python -m pip install --disable-pip-version-check pillow==11.3.0
+
       - name: Validar generadores
-        run: python -m py_compile generar_seo.py generar_seo_clusters.py generar_seo_semantico.py generar_paginas_sociales.py
+        run: python -m py_compile generar_seo.py generar_seo_clusters.py generar_seo_semantico.py generar_seo_avanzado.py actualizar_agregar_editorial.py generar_paginas_sociales.py
 
       - name: Generar paginas SEO y sitemap
         run: python generar_seo.py
 
       - name: Generar clusters y transparencia editorial
         run: python generar_seo_semantico.py
+
+      - name: Generar SEO avanzado, imágenes y portada prerenderizada
+        run: python generar_seo_avanzado.py
+
+      - name: Activar fechas editoriales en panel de carga
+        run: python actualizar_agregar_editorial.py
 
       - name: Generar paginas sociales por trial
         run: python generar_paginas_sociales.py
@@ -68,6 +83,12 @@ jobs:
           if len(manifest) != len(datos):
               raise SystemExit(f'Manifiesto incompleto: {len(manifest)} de {len(datos)}')
 
+          home = Path('_includes/index-source.html').read_text(encoding='utf-8')
+          if '<!-- RT-PRERENDER-START -->' not in home or home.count('class="fila" data-id=') < len(datos):
+              raise SystemExit('La portada no quedó prerenderizada con todos los trials')
+          if 'cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer' in home:
+              raise SystemExit('jsPDF sigue bloqueando la carga inicial')
+
           for item in datos:
               entry = manifest.get(str(item['id']))
               if not entry:
@@ -80,6 +101,15 @@ jobs:
                   raise SystemExit(f'Canonical SEO invalida en {page}')
               if '/metodologia/' not in source or '/equipo-editorial/' not in source:
                   raise SystemExit(f'Faltan enlaces de transparencia en {page}')
+              if '<!-- RT-INTENT-START -->' not in source or '<!-- RT-HERO-START -->' not in source:
+                  raise SystemExit(f'Falta respuesta clínica o imagen editorial en {page}')
+              images = entry.get('images') or []
+              if len(images) != 3:
+                  raise SystemExit(f'Faltan variantes de imagen en id {item["id"]}')
+              for image_url in images:
+                  local = Path(image_url.replace('https://resumenestrials.com/', ''))
+                  if not local.is_file():
+                      raise SystemExit(f'No existe imagen {local}')
               for cluster in entry.get('clusters', []):
                   if cluster['path'] not in source:
                       raise SystemExit(f'Falta enlace semantico {cluster["path"]} en {page}')
@@ -88,12 +118,19 @@ jobs:
               page = Path(cluster['path'].lstrip('/')) / 'index.html'
               if not page.is_file():
                   raise SystemExit(f'No existe cluster {slug}: {page}')
+              source = page.read_text(encoding='utf-8')
               if cluster['count'] < 2:
                   raise SystemExit(f'Cluster demasiado pequeño: {slug}')
+              if '<!-- RT-CLUSTER-SYNTHESIS-START -->' not in source:
+                  raise SystemExit(f'Falta síntesis editorial en cluster {slug}')
 
           for page in [Path('metodologia/index.html'), Path('equipo-editorial/index.html')]:
-              if not page.is_file() or '<link rel="canonical"' not in page.read_text(encoding='utf-8'):
-                  raise SystemExit(f'Pagina editorial invalida: {page}')
+              source = page.read_text(encoding='utf-8') if page.is_file() else ''
+              if '<link rel="canonical"' not in source or 'sameAs' not in source:
+                  raise SystemExit(f'Pagina editorial invalida o entidad incompleta: {page}')
+
+          if '/agregar-editorial-dates.js?v=1' not in Path('agregar.html').read_text(encoding='utf-8'):
+              raise SystemExit('El panel de carga no registra fechas editoriales')
 
           tree = ET.parse('sitemap.xml')
           locs = {node.text for node in tree.getroot().iter() if node.tag.endswith('loc')}
@@ -106,17 +143,17 @@ jobs:
           if missing:
               raise SystemExit(f'Faltan URLs en sitemap: {sorted(missing)}')
 
-          print(f'PASS: {len(datos)} trials, {len(clusters)} clusters, paginas editoriales y sitemap validos')
+          print(f'PASS: {len(datos)} trials prerenderizados, 3 imágenes por trial, {len(clusters)} clusters enriquecidos y SEO avanzado válido')
           PY
 
       - name: Guardar archivos derivados
         run: |
-          if git diff --quiet -- sitemap.xml seo-manifest.json seo-cluster-manifest.json trials/ medicina-critica/ medicina-interna/ metodologia/ equipo-editorial/ resumen/; then
+          if git diff --quiet -- sitemap.xml seo-manifest.json seo-cluster-manifest.json trials/ medicina-critica/ medicina-interna/ metodologia/ equipo-editorial/ resumen/ images/trials/ _includes/index-source.html interactive-home.js agregar.html; then
             echo "Las paginas derivadas y el SEO ya estan actualizados."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add sitemap.xml seo-manifest.json seo-cluster-manifest.json trials/ medicina-critica/ medicina-interna/ metodologia/ equipo-editorial/ resumen/
-          git commit -m "Actualizar SEO semantico y paginas derivadas"
+          git add sitemap.xml seo-manifest.json seo-cluster-manifest.json trials/ medicina-critica/ medicina-interna/ metodologia/ equipo-editorial/ resumen/ images/trials/ _includes/index-source.html interactive-home.js agregar.html
+          git commit -m "Actualizar SEO avanzado, imágenes y portada prerenderizada"
           git push origin HEAD:main
