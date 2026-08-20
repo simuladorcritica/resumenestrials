@@ -85,7 +85,7 @@ for (const token of [
   'if: always()',
   'failed_stage',
   'OUTCOME_HEALTH',
-  'status="$status"',
+  '"status": "$status"',
   'git push origin HEAD:main',
 ]) {
   if (!deploy.includes(token)) fail(`Workflow de despliegue incompleto: falta ${token}`);
