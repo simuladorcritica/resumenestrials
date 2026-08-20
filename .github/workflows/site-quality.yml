@@ -23,6 +23,9 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
       - name: Validate JavaScript syntax
         run: |
           node --check interactive-home.js
@@ -45,6 +48,9 @@ jobs:
           node --check scripts/validate-editorial.mjs
           node --check scripts/validate-resumen-page.mjs
           node --check scripts/validate-night-audit.mjs
+          node --check scripts/validate-newsletter.mjs
+      - name: Validate Supabase Edge Function
+        run: deno check supabase/functions/notify-new-summaries/index.ts
       - name: Validate Python audit syntax
         run: |
           python3 -m py_compile tools/validar_resumenes.py
@@ -55,6 +61,8 @@ jobs:
         run: node scripts/validate-resumen-page.mjs
       - name: Validate nightly audit integration
         run: node scripts/validate-night-audit.mjs
+      - name: Validate newsletter integration
+        run: node scripts/validate-newsletter.mjs
       - name: Validate resumenes.json
         run: node scripts/validate-data.mjs
       - name: Validate editorial architecture
