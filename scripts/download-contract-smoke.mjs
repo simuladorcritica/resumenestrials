@@ -7,23 +7,58 @@ import { join } from 'node:path';
 const BASE = (process.env.RT_BASE_URL || 'http://127.0.0.1:8000').replace(/\/$/, '');
 const requiredContacts = ['resumenestrials.com', '@resumenestrials', '@ResumenesTrials', 'resumenestrials@outlook.com'];
 const jsPdfBundle = readFileSync('node_modules/jspdf/dist/jspdf.umd.min.js', 'utf8');
+const watchdog = setTimeout(() => {
+  console.error('PDF CONTRACT HARD TIMEOUT · la prueba excedió 180 s');
+  process.exit(1);
+}, 180000);
+watchdog.unref();
 
 function assert(condition, message) {
   if (!condition) throw new Error(message);
+}
+
+function stage(message) {
+  console.log(`PDF CONTRACT · ${message}`);
+}
+
+async function withTimeout(label, promise, ms = 20000) {
+  let timer;
+  try {
+    return await Promise.race([
+      promise,
+      new Promise((_, reject) => {
+        timer = setTimeout(() => reject(new Error(`${label} excedió ${ms} ms`)), ms);
+      }),
+    ]);
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+async function getJson(path) {
+  const response = await fetch(`${BASE}${path}`, { signal: AbortSignal.timeout(10000) });
+  if (!response.ok) throw new Error(`${path}: HTTP ${response.status}`);
+  return response.json();
 }
 
 async function download(page, selector, filename) {
   const button = page.locator(selector).first();
   assert(await button.count(), `No existe ${selector}`);
   assert(await button.isVisible(), `${selector} no está visible cuando debería`);
-  const [event] = await Promise.all([
-    page.waitForEvent('download', { timeout: 30000 }),
-    button.click(),
-  ]);
+  stage(`iniciando descarga ${filename}`);
+  const [event] = await withTimeout(
+    `evento de descarga ${filename}`,
+    Promise.all([
+      page.waitForEvent('download', { timeout: 20000 }),
+      button.click({ timeout: 20000 }),
+    ]),
+    25000,
+  );
   const dir = mkdtempSync(join(tmpdir(), 'rt-contract-'));
   const target = join(dir, filename);
-  await event.saveAs(target);
+  await withTimeout(`guardar ${filename}`, event.saveAs(target), 15000);
   assert(statSync(target).size > 3000, `PDF demasiado pequeño: ${target}`);
+  stage(`descarga verificada ${filename} (${statSync(target).size} bytes)`);
   return target;
 }
 
@@ -48,19 +83,24 @@ async function shortDiagnostic(page, errors) {
   return `${JSON.stringify(snapshot)} · errores=${errors.join(' | ') || 'ninguno'}`;
 }
 
+stage('preparando fixture de portada');
 const source = readFileSync('_includes/index-source.html', 'utf8');
 const fixture = `${source}\n<script type="module" src="internal-medicine-ux.js?v=1"></script>\n<script src="pdf-contact.js?v=2"></script>\n`;
 writeFileSync('index-smoke.html', fixture, 'utf8');
 
-const data = await fetch(`${BASE}/resumenes.json`).then((r) => r.json());
-const manifest = await fetch(`${BASE}/seo-manifest.json`).then((r) => r.json());
+stage('cargando datos y manifiesto');
+const data = await getJson('/resumenes.json');
+const manifest = await getJson('/seo-manifest.json');
 const sample = data.find((r) => r.corto) || data[0];
 assert(sample, 'No hay resúmenes para probar');
 const entry = manifest[String(sample.id)];
 assert(entry?.path, `No existe ruta canónica para id ${sample.id}`);
+stage(`muestra seleccionada id=${sample.id}`);
 
 const browser = await chromium.launch({ headless: true });
 const page = await browser.newPage({ viewport: { width: 1600, height: 1000 }, acceptDownloads: true });
+page.setDefaultTimeout(15000);
+page.setDefaultNavigationTimeout(20000);
 const browserErrors = [];
 page.on('pageerror', (error) => browserErrors.push(`pageerror:${error.message}`));
 page.on('console', (message) => {
@@ -77,7 +117,8 @@ await page.route('https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.m
 await page.route('https://fonts.googleapis.com/**', (route) => route.abort());
 await page.route('https://fonts.gstatic.com/**', (route) => route.abort());
 
-await page.goto(`${BASE}/index-smoke.html`, { waitUntil: 'networkidle', timeout: 30000 });
+stage('validando descargas en portada');
+await page.goto(`${BASE}/index-smoke.html`, { waitUntil: 'domcontentloaded', timeout: 20000 });
 await page.waitForSelector('.fila-pdf .btn-pdf', { timeout: 15000 });
 await page.waitForTimeout(500);
 const indexFull = await page.locator('.fila-pdf .btn-pdf:not(.rt-download-brief)').first().innerText();
@@ -87,8 +128,10 @@ if (data.some((r) => r.corto)) {
   const indexBrief = await page.locator('.fila-pdf .rt-download-brief').first().innerText();
   assert(/Descargar resumen breve PDF/i.test(indexBrief), `Etiqueta breve incorrecta en índice: ${indexBrief}`);
 }
+stage('portada PASS');
 
-await page.goto(`${BASE}${entry.path}`, { waitUntil: 'domcontentloaded', timeout: 30000 });
+stage('validando trial canónico y PDF completo');
+await page.goto(`${BASE}${entry.path}`, { waitUntil: 'domcontentloaded', timeout: 20000 });
 await page.waitForSelector(`[data-trial-download="${sample.id}"]`, { timeout: 15000 });
 assert(await page.locator('.migas').first().isVisible(), 'El trial canónico no muestra breadcrumb');
 assert(!(await page.locator('#resumen-breve,.resumen-breve').count()), 'El trial canónico sigue incrustando el resumen breve');
@@ -102,18 +145,22 @@ if (sample.corto) {
 }
 const canonicalPdf = await download(page, `[data-trial-download="${sample.id}"]`, 'canonico-completo.pdf');
 assertPdfContact(canonicalPdf);
+stage('trial canónico PASS');
 
-await page.goto(`${BASE}/resumen.html?id=${sample.id}`, { waitUntil: 'domcontentloaded', timeout: 30000 });
+stage('validando lector completo legacy');
+await page.goto(`${BASE}/resumen.html?id=${sample.id}`, { waitUntil: 'domcontentloaded', timeout: 20000 });
 await page.waitForSelector('[data-pdf-version="completo"]', { timeout: 15000 });
 await page.waitForTimeout(200);
 assert(await page.locator('[data-pdf-version="completo"]').first().isVisible(), 'El resumen legacy completo no muestra su descarga');
 assert(!(await page.locator('[data-pdf-version="breve"]').first().isVisible().catch(() => false)), 'El resumen completo muestra indebidamente la descarga breve');
 const fullText = await page.locator('[data-pdf-version="completo"]').first().innerText();
 assert(/Descargar resumen completo PDF/i.test(fullText), `Etiqueta completa incorrecta: ${fullText}`);
+stage('lector completo legacy PASS');
 
 if (sample.corto) {
+  stage('validando lector breve y PDF breve');
   browserErrors.length = 0;
-  await page.goto(`${BASE}/resumen.html?id=${sample.id}&v=corto`, { waitUntil: 'domcontentloaded', timeout: 30000 });
+  await page.goto(`${BASE}/resumen.html?id=${sample.id}&v=corto`, { waitUntil: 'domcontentloaded', timeout: 20000 });
   try {
     await page.waitForSelector('body.modo-corto', { timeout: 10000 });
     await page.waitForSelector('[data-pdf-version="breve"]', { state: 'attached', timeout: 10000 });
@@ -140,7 +187,10 @@ if (sample.corto) {
   assert(/Descargar resumen breve PDF/i.test(briefText), `Etiqueta breve incorrecta: ${briefText}`);
   const briefPdf = await download(page, '[data-pdf-version="breve"]', 'breve.pdf');
   assertPdfContact(briefPdf);
+  stage('lector breve PASS');
 }
 
-await browser.close();
+stage('cerrando navegador');
+await withTimeout('cierre de Chromium', browser.close(), 10000);
+clearTimeout(watchdog);
 console.log(`Unified trial contract PASS · muestra id ${sample.id}`);
