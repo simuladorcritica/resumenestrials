@@ -30,6 +30,23 @@ async function noHorizontalOverflow(label){
   const values=await page.evaluate(()=>({scrollWidth:document.documentElement.scrollWidth,innerWidth:window.innerWidth}));
   assert(values.scrollWidth<=values.innerWidth+2,`${label}: overflow horizontal ${values.scrollWidth}px > ${values.innerWidth}px`);
 }
+async function validateTurnstile(containerId){
+  const slot=page.locator(`#${containerId}`);
+  await slot.waitFor({state:'attached',timeout:10000});
+  await page.waitForTimeout(500);
+  const status=await slot.getAttribute('data-turnstile-status');
+  if(status==='disabled'){
+    assert(await slot.isHidden(),`${containerId}: Turnstile desactivado pero visible`);
+    console.log(`TURNSTILE ${containerId}: disabled by configuration (PASS)`);
+    return;
+  }
+  await slot.waitFor({state:'visible',timeout:10000});
+  await page.waitForTimeout(2500);
+  const text=await slot.innerText().catch(()=> '');
+  const finalStatus=await slot.getAttribute('data-turnstile-status');
+  assert(!/400020|invalid sitekey|no se pudo cargar/i.test(text),`${containerId}: Turnstile falló: ${text}`);
+  assert(finalStatus!=='error',`${containerId}: Turnstile reporta error`);
+}
 
 await visit('/',async()=>{
   await page.waitForSelector('#indice .fila',{timeout:20000});
@@ -77,8 +94,6 @@ if(sample.corto){
     await page.waitForFunction(()=>{const a=document.querySelector('.cambio-version');return a&&/\/trials\//.test(a.href)},{timeout:12000});
     const resolved=new URL(await full.getAttribute('href'),BASE).pathname;
     assert(resolved===entry.path,`lector breve no regresa al canónico: ${resolved}`);
-    // Si reapareciera el antiguo bucle de MutationObserver, la evaluación y el
-    // timeout siguiente dejarían de progresar. Verificamos estabilidad real.
     const before=await full.innerText();
     await page.waitForTimeout(800);
     const after=await full.innerText();
@@ -100,14 +115,9 @@ await visit(entry.path,async()=>{
 });
 
 await page.setViewportSize({width:1440,height:1000});
-await visit('/login.html?smoke=1',async()=>{
-  await page.waitForSelector('#turnstile-login',{timeout:10000});
-  await page.waitForTimeout(3500);
-  const text=await page.locator('#turnstile-login').innerText().catch(()=> '');
-  assert(!/400020|invalid sitekey|no se pudo cargar/i.test(text),`Turnstile login falló: ${text}`);
-});
-await visit('/registro.html?smoke=1',async()=>{await page.waitForSelector('#turnstile-registro',{timeout:10000});await page.waitForTimeout(1000)});
-await visit('/recuperar.html?smoke=1',async()=>{await page.waitForSelector('#turnstile-recuperar',{timeout:10000});await page.waitForTimeout(1000)});
+await visit('/login.html?smoke=1',async()=>{await validateTurnstile('turnstile-login')});
+await visit('/registro.html?smoke=1',async()=>{await validateTurnstile('turnstile-registro')});
+await visit('/recuperar.html?smoke=1',async()=>{await validateTurnstile('turnstile-recuperar')});
 await visit('/biblioteca.html',async()=>{await page.waitForURL(/login\.html/,{timeout:12000})});
 
 await browser.close();
