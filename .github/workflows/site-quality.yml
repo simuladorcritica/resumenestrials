@@ -37,6 +37,7 @@ jobs:
           node --check home-control-layout.js
           node --check tools/revisar_pagina_pdf.mjs
           node --check tools/auditoria_sitio_profunda.mjs
+          node --check scripts/download-contract-smoke.mjs
           node --check scripts/validate-data.mjs
           node --check scripts/production-health.mjs
           node --check scripts/browser-smoke.mjs
@@ -58,6 +59,29 @@ jobs:
         run: node scripts/validate-data.mjs
       - name: Validate editorial architecture
         run: node scripts/validate-editorial.mjs
+
+  download-contract-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install PDF inspection and Playwright
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y poppler-utils
+          npm install --no-save playwright@1.55.0
+          npx playwright install --with-deps chromium
+      - name: Serve branch locally
+        run: |
+          python3 -m http.server 8000 >/tmp/rt-http.log 2>&1 &
+          sleep 3
+      - name: Validate visible download contract and PDF contact
+        env:
+          RT_BASE_URL: http://127.0.0.1:8000
+        run: node scripts/download-contract-smoke.mjs
 
   production-health:
     if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main'
