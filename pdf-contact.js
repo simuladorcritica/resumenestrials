@@ -42,7 +42,6 @@
     const Original = ns?.jsPDF || window.jsPDF;
     if (typeof Original !== 'function') return false;
     if (Original.__rtConstructorWrapped) return true;
-
     if (Original.API && typeof Original.API.save === 'function' && !Original.API.__rtContactPatched) {
       const apiSave = Original.API.save;
       Original.API.save = function (...args) {
@@ -51,15 +50,11 @@
       };
       Original.API.__rtContactPatched = true;
     }
-
-    const Wrapped = function (...args) {
-      return wrapDocument(new Original(...args));
-    };
+    const Wrapped = function (...args) { return wrapDocument(new Original(...args)); };
     Wrapped.API = Original.API;
     Wrapped.prototype = Original.prototype;
     Wrapped.__rtConstructorWrapped = true;
     Wrapped.__rtOriginal = Original;
-
     if (ns && ns.jsPDF === Original) ns.jsPDF = Wrapped;
     if (window.jsPDF === Original) window.jsPDF = Wrapped;
     return true;
@@ -140,6 +135,10 @@ const seoHelper = document.createElement('script');
 seoHelper.defer = true;
 if (/\/resumen\.html$/i.test(location.pathname)) {
   seoHelper.src = '/legacy-seo.js?v=1';
+  const designHelper = document.createElement('script');
+  designHelper.defer = true;
+  designHelper.src = '/legacy-reader-design-v4.js?v=1';
+  document.head.appendChild(designHelper);
 } else if (/\/(?:index\.html)?$/i.test(location.pathname)) {
   seoHelper.src = '/seo-routing.js?v=1';
 }
