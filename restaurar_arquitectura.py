@@ -10,6 +10,7 @@ ROOT = base.ROOT
 TRIALS_DIR = ROOT / "trials"
 CLUSTER_MANIFEST = ROOT / "seo-cluster-manifest.json"
 SEO_MANIFEST = ROOT / "seo-manifest.json"
+INTERNAL_UX = ROOT / "internal-medicine-ux.js"
 
 
 def limpiar_trial(path: Path) -> None:
@@ -67,6 +68,53 @@ def limpiar_clusters() -> None:
         path.write_text(source, encoding="utf-8")
 
 
+def adaptar_descargas_portada() -> None:
+    """Mantiene los PDF de portada al migrar sus enlaces a /trials/.../."""
+    if not INTERNAL_UX.exists():
+        return
+    source = INTERNAL_UX.read_text(encoding="utf-8")
+
+    old_row_id = '''function rowId(row) {
+  const link = row.querySelector('a.cabeza[href*="resumen.html?id="]');
+  if (!link) return '';
+  try { return new URL(link.href, location.href).searchParams.get('id') || ''; }
+  catch { return ''; }
+}'''
+    new_row_id = '''function rowId(row) {
+  const direct = row?.dataset?.id;
+  if (direct) return String(direct);
+  const link = row.querySelector('a.cabeza[href*="resumen.html?id="]');
+  if (!link) return '';
+  try { return new URL(link.href, location.href).searchParams.get('id') || ''; }
+  catch { return ''; }
+}'''
+    if old_row_id in source:
+        source = source.replace(old_row_id, new_row_id, 1)
+
+    # jsPDF dejó de bloquear la carga inicial. La versión breve debe solicitarlo
+    # bajo demanda igual que el PDF completo, en vez de degradar a abrir otra URL.
+    old_pdf = '''async function generateBriefPDF(record) {
+  const ns = window.jspdf;
+  if (!ns?.jsPDF) {
+    window.open(`resumen.html?id=${record.id}&v=corto`, '_blank', 'noopener');
+    return;
+  }'''
+    new_pdf = '''async function generateBriefPDF(record) {
+  if (!window.jspdf?.jsPDF && typeof window.cargarJsPDF === 'function') {
+    try { await window.cargarJsPDF(); }
+    catch (error) { console.warn('No se pudo cargar jsPDF para la versión breve', error); }
+  }
+  const ns = window.jspdf;
+  if (!ns?.jsPDF) {
+    window.open(`resumen.html?id=${record.id}&v=corto`, '_blank', 'noopener');
+    return;
+  }'''
+    if old_pdf in source:
+        source = source.replace(old_pdf, new_pdf, 1)
+
+    INTERNAL_UX.write_text(source, encoding="utf-8")
+
+
 def validar_arquitectura() -> None:
     manifest = json.loads(SEO_MANIFEST.read_text(encoding="utf-8"))
     errors: list[str] = []
@@ -98,13 +146,22 @@ def validar_arquitectura() -> None:
             if '<section class="cat-grid">' not in source:
                 errors.append(f"cluster {slug}: perdió la colección de trials")
 
-    # Regresión concreta detectada durante la revisión: REBOARREST no es un
-    # ensayo de sepsis y no debe aparecer en ese cluster.
+    # Regresiones semánticas concretas detectadas durante la revisión.
     if CLUSTER_MANIFEST.exists():
         clusters = json.loads(CLUSTER_MANIFEST.read_text(encoding="utf-8"))
         sepsis = clusters.get("sepsis-shock", {})
         if "24" in [str(x) for x in sepsis.get("trial_ids", [])]:
             errors.append("cluster sepsis-shock: REBOARREST (id 24) clasificado erróneamente")
+        neurologia = clusters.get("neurologia", {})
+        if "18" in [str(x) for x in neurologia.get("trial_ids", [])]:
+            errors.append("cluster neurologia: VESALIUS-CV (id 18) clasificado por una frase de exclusión")
+
+    if INTERNAL_UX.exists():
+        ux = INTERNAL_UX.read_text(encoding="utf-8")
+        if "const direct = row?.dataset?.id;" not in ux:
+            errors.append("descargas de portada: el módulo no reconoce data-id en enlaces canónicos")
+        if "await window.cargarJsPDF();" not in ux:
+            errors.append("descarga breve: jsPDF no se carga bajo demanda")
 
     if errors:
         raise SystemExit("Arquitectura inválida:\n- " + "\n- ".join(errors))
@@ -114,8 +171,9 @@ def main() -> None:
     for path in sorted(TRIALS_DIR.glob("*/index.html")):
         limpiar_trial(path)
     limpiar_clusters()
+    adaptar_descargas_portada()
     validar_arquitectura()
-    print("PASS: arquitectura editorial restaurada; SEO no visual conservado")
+    print("PASS: arquitectura editorial restaurada; SEO no visual y descargas conservados")
 
 
 if __name__ == "__main__":
