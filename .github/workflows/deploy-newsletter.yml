@@ -1,0 +1,105 @@
+name: Desplegar servicio de correo
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - supabase/functions/notify-new-summaries/**
+      - supabase/config.toml
+      - .github/workflows/deploy-newsletter.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-newsletter-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+      RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+      PROJECT_REF: hnsmozvatgyrascxbhys
+      NEWSLETTER_DOMAIN: resumenestrials.com
+      NEWSLETTER_FROM: Resúmenes Trials <novedades@resumenestrials.com>
+      NEWSLETTER_REPLY_TO: resumenestrials@outlook.com
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Verificar credenciales requeridas
+        run: |
+          set -euo pipefail
+          if [ -z "$SUPABASE_ACCESS_TOKEN" ]; then
+            echo "Falta el secreto SUPABASE_ACCESS_TOKEN." >&2
+            exit 1
+          fi
+          if [ -z "$RESEND_API_KEY" ]; then
+            echo "Falta el secreto RESEND_API_KEY." >&2
+            exit 1
+          fi
+
+      - name: Verificar dominio remitente en Resend
+        run: |
+          set -euo pipefail
+          salida=$(mktemp)
+          codigo=$(curl --silent --show-error \
+            --output "$salida" \
+            --write-out '%{http_code}' \
+            --connect-timeout 10 \
+            --max-time 30 \
+            --header "Authorization: Bearer $RESEND_API_KEY" \
+            --header 'Accept: application/json' \
+            https://api.resend.com/domains || true)
+          if [ "$codigo" != "200" ]; then
+            echo "La API de Resend rechazó la credencial: HTTP $codigo" >&2
+            cat "$salida" >&2 || true
+            exit 1
+          fi
+          if ! jq -e --arg domain "$NEWSLETTER_DOMAIN" '.data[]? | select(.name == $domain and .status == "verified")' "$salida" >/dev/null; then
+            echo "El dominio $NEWSLETTER_DOMAIN todavía no aparece como verificado en Resend." >&2
+            exit 1
+          fi
+          echo "Dominio remitente verificado en Resend."
+
+      - uses: supabase/setup-cli@v2
+        with:
+          version: 2.101.0
+
+      - name: Configurar secretos del servicio
+        run: |
+          supabase secrets set \
+            --project-ref "$PROJECT_REF" \
+            RESEND_API_KEY="$RESEND_API_KEY" \
+            NEWSLETTER_FROM="$NEWSLETTER_FROM" \
+            NEWSLETTER_REPLY_TO="$NEWSLETTER_REPLY_TO"
+
+      - name: Desplegar Edge Function
+        run: |
+          supabase functions deploy notify-new-summaries \
+            --project-ref "$PROJECT_REF" \
+            --no-verify-jwt
+
+      - name: Verificar servicio desplegado
+        run: |
+          set -euo pipefail
+          endpoint="https://${PROJECT_REF}.supabase.co/functions/v1/notify-new-summaries"
+          for intento in 1 2 3 4 5; do
+            salida=$(mktemp)
+            codigo=$(curl --silent --show-error --output "$salida" --write-out '%{http_code}' --connect-timeout 10 --max-time 30 "$endpoint" || true)
+            if [ "$codigo" = "200" ] && grep -q '"service":"notify-new-summaries"' "$salida"; then
+              echo "Servicio de correo desplegado y saludable."
+              exit 0
+            fi
+            echo "Comprobación $intento: HTTP $codigo"
+            cat "$salida" || true
+            echo
+            sleep $((intento * 3))
+          done
+          echo "El servicio no superó la comprobación posterior al despliegue." >&2
+          exit 1

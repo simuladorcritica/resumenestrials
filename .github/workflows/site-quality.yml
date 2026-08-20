@@ -11,6 +11,7 @@ on:
 
 permissions:
   contents: read
+  actions: read
 
 jobs:
   data-validation:
@@ -23,6 +24,39 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+      - name: Check newsletter deployment readiness
+        env:
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+        run: |
+          set -euo pipefail
+          [ -n "$SUPABASE_ACCESS_TOKEN" ] || { echo "SUPABASE_ACCESS_TOKEN: missing" >&2; exit 1; }
+          [ -n "$RESEND_API_KEY" ] || { echo "RESEND_API_KEY: missing" >&2; exit 1; }
+          echo "SUPABASE_ACCESS_TOKEN: configured"
+          echo "RESEND_API_KEY: configured"
+      - name: Validate GitHub Actions callback token
+        env:
+          CALLBACK_GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          node - <<'NODE'
+          const token = process.env.CALLBACK_GITHUB_TOKEN;
+          const response = await fetch('https://api.github.com/installation/repositories?per_page=100', {
+            headers: {
+              'Authorization': `Bearer ${token}`,
+              'Accept': 'application/vnd.github+json',
+              'X-GitHub-Api-Version': '2022-11-28',
+              'User-Agent': 'resumenestrials-newsletter-validation/1.0'
+            }
+          });
+          if (!response.ok) throw new Error(`GitHub installation token validation HTTP ${response.status}`);
+          const payload = await response.json();
+          const ok = (payload.repositories || []).some((repo) => repo.full_name === 'simuladorcritica/resumenestrials');
+          if (!ok) throw new Error('El GITHUB_TOKEN no demuestra acceso a simuladorcritica/resumenestrials');
+          console.log('GitHub Actions installation token: PASS');
+          NODE
       - name: Validate JavaScript syntax
         run: |
           node --check interactive-home.js
@@ -45,6 +79,9 @@ jobs:
           node --check scripts/validate-editorial.mjs
           node --check scripts/validate-resumen-page.mjs
           node --check scripts/validate-night-audit.mjs
+          node --check scripts/validate-newsletter.mjs
+      - name: Validate Supabase Edge Function
+        run: deno check supabase/functions/notify-new-summaries/index.ts
       - name: Validate Python audit syntax
         run: |
           python3 -m py_compile tools/validar_resumenes.py
@@ -55,6 +92,8 @@ jobs:
         run: node scripts/validate-resumen-page.mjs
       - name: Validate nightly audit integration
         run: node scripts/validate-night-audit.mjs
+      - name: Validate newsletter integration
+        run: node scripts/validate-newsletter.mjs
       - name: Validate resumenes.json
         run: node scripts/validate-data.mjs
       - name: Validate editorial architecture
