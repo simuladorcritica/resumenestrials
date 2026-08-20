@@ -162,6 +162,7 @@
     }
 
     const total = doc.getNumberOfPages();
+    const sourceRef = `resumenestrials.com/resumen.html?id=${record.id}`;
     for (let p = 1; p <= total; p++) {
       doc.setPage(p);
       doc.setDrawColor(224, 221, 213);
@@ -170,7 +171,7 @@
       doc.setFont('helvetica', 'normal');
       doc.setFontSize(7.3);
       doc.setTextColor(120, 120, 120);
-      doc.text(location.href.replace(location.hash, ''), margin, pageH - 34);
+      doc.text(sourceRef, margin, pageH - 34);
       doc.text(`Página ${p} de ${total}`, pageW - margin, pageH - 34, { align: 'right' });
       doc.setFontSize(7.1);
       doc.setTextColor(15, 95, 95);
