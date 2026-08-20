@@ -1,4 +1,4 @@
-import { supabase, currentUser } from './auth.js';
+import { supabase, currentUser, getMfaLoginState } from './auth.js';
 
 const MAX_IDS=500;
 
@@ -8,7 +8,9 @@ function uniqIds(values){
 
 export async function getLibraryState(){
   const user=await currentUser().catch(()=>null);
-  if(!user) return {signedIn:false,user:null,favorites:[],read:[],lastVisit:null,preferences:{}};
+  if(!user) return {signedIn:false,user:null,favorites:[],read:[],lastVisit:null,preferences:{},mfaRequired:false};
+  const mfa=await getMfaLoginState().catch(()=>({requiresMfa:false}));
+  if(mfa.requiresMfa) return {signedIn:false,user:null,favorites:[],read:[],lastVisit:null,preferences:{},mfaRequired:true};
   const meta=user.user_metadata||{};
   return {
     signedIn:true,
@@ -16,14 +18,16 @@ export async function getLibraryState(){
     favorites:uniqIds(meta.rt_favorites),
     read:uniqIds(meta.rt_read),
     lastVisit:meta.rt_last_visit||null,
-    preferences:meta.preferences||{}
+    preferences:meta.preferences||{},
+    mfaRequired:false
   };
 }
 
 async function patchMetadata(patch){
-  const user=await currentUser();
-  if(!user) throw new Error('Debes iniciar sesión.');
-  const current=user.user_metadata||{};
+  const state=await getLibraryState();
+  if(state.mfaRequired) throw new Error('Completa la verificación en dos pasos para continuar.');
+  if(!state.signedIn) throw new Error('Debes iniciar sesión.');
+  const current=state.user.user_metadata||{};
   const {data,error}=await supabase.auth.updateUser({data:{...current,...patch}});
   if(error) throw error;
   return data.user;
@@ -31,6 +35,7 @@ async function patchMetadata(patch){
 
 export async function toggleFavorite(id){
   const state=await getLibraryState();
+  if(state.mfaRequired) throw new Error('Completa la verificación en dos pasos para continuar.');
   if(!state.signedIn) throw new Error('Debes iniciar sesión para guardar artículos.');
   const key=String(id);
   const set=new Set(state.favorites);
@@ -42,7 +47,7 @@ export async function toggleFavorite(id){
 
 export async function markRead(id){
   const state=await getLibraryState();
-  if(!state.signedIn) return false;
+  if(!state.signedIn)return false;
   const set=new Set(state.read);set.add(String(id));
   await patchMetadata({rt_read:[...set].slice(-MAX_IDS)});
   return true;
@@ -50,7 +55,7 @@ export async function markRead(id){
 
 export async function touchLastVisit(){
   const state=await getLibraryState();
-  if(!state.signedIn) return null;
+  if(!state.signedIn)return null;
   const now=new Date().toISOString();
   await patchMetadata({rt_last_visit:now});
   return now;
