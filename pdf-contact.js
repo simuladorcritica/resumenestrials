@@ -99,7 +99,8 @@
         const version = button.dataset.pdfVersion;
         const show = short ? version === 'breve' : version === 'completo';
         button.hidden = !show;
-        button.style.display = show ? '' : 'none';
+        button.style.display = show ? 'inline-flex' : 'none';
+        button.setAttribute('aria-hidden', show ? 'false' : 'true');
         label(button, version === 'breve' ? 'Descargar resumen breve PDF' : 'Descargar resumen completo PDF');
       });
       if (short) applyShortCanonicalLink();
@@ -121,6 +122,15 @@
   const start = () => {
     sync();
     new MutationObserver(sync).observe(document.documentElement, { childList: true, subtree: true, characterData: true });
+    let syncAttempts = 0;
+    const syncTimer = setInterval(() => {
+      syncAttempts += 1;
+      sync();
+      const expected = shortMode
+        ? document.querySelector('[data-pdf-version="breve"]')
+        : document.querySelector('[data-pdf-version="completo"]');
+      if (expected || syncAttempts >= 120) clearInterval(syncTimer);
+    }, 100);
   };
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start, { once: true });
   else start();
