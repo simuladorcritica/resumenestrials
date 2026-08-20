@@ -1,6 +1,15 @@
 ---
 ---
-{% include index-source.html %}
+{% capture pagina_base %}{% include index-source.html %}{% endcapture %}
+{% capture seo_hubs %}
+<nav class="seo-hubs-home" aria-label="Explorar colecciones por especialidad">
+  <span class="seo-hubs-label">Explorar colecciones</span>
+  <a href="/medicina-critica/">Medicina Crítica</a>
+  <a href="/medicina-interna/">Medicina Interna</a>
+</nav>
+{% endcapture %}
+{% capture cierre_body %}{{ seo_hubs }}</body>{% endcapture %}
+{{ pagina_base | replace: '</body>', cierre_body }}
 <script type="module" src="home-auth-ui.js?v=8"></script>
 <script type="module" src="interactive-home.js?v=20260819.4"></script>
 <script type="module" src="recommendations.js?v=2"></script>
@@ -9,4 +18,4 @@
 <script type="module" src="home-visual-tuning.js?v=1"></script>
 <script src="pdf-contact.js?v=2" defer></script>
 <script src="home-control-layout.js?v=1" defer></script>
-<script src="seo-hubs-home.js?v=1" defer></script>
+<script src="seo-hubs-home.js?v=2" defer></script>
