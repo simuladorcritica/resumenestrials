@@ -7,6 +7,9 @@ on:
     paths:
       - "resumenes.json"
       - "generar_seo.py"
+      - "generar_seo_clusters.py"
+      - "seo-clusters.json"
+      - "seo-semantic.css"
       - "generar_paginas_sociales.py"
       - "trial.css"
       - "seo-routing.js"
@@ -39,10 +42,13 @@ jobs:
           python-version: "3.13"
 
       - name: Validar generadores
-        run: python -m py_compile generar_seo.py generar_paginas_sociales.py
+        run: python -m py_compile generar_seo.py generar_seo_clusters.py generar_paginas_sociales.py
 
       - name: Generar paginas SEO y sitemap
         run: python generar_seo.py
+
+      - name: Generar clusters y transparencia editorial
+        run: python generar_seo_clusters.py
 
       - name: Generar paginas sociales por trial
         run: python generar_paginas_sociales.py
@@ -53,10 +59,14 @@ jobs:
           import json
           import xml.etree.ElementTree as ET
           from pathlib import Path
+
           datos = json.loads(Path('resumenes.json').read_text(encoding='utf-8'))
           manifest = json.loads(Path('seo-manifest.json').read_text(encoding='utf-8'))
+          clusters = json.loads(Path('seo-cluster-manifest.json').read_text(encoding='utf-8'))
+
           if len(manifest) != len(datos):
               raise SystemExit(f'Manifiesto incompleto: {len(manifest)} de {len(datos)}')
+
           for item in datos:
               entry = manifest.get(str(item['id']))
               if not entry:
@@ -67,18 +77,45 @@ jobs:
               source = page.read_text(encoding='utf-8')
               if entry['url'] not in source or '<link rel="canonical"' not in source:
                   raise SystemExit(f'Canonical SEO invalida en {page}')
-          ET.parse('sitemap.xml')
-          print(f'PASS: {len(datos)} paginas SEO y sitemap valido')
+              if '/metodologia/' not in source or '/equipo-editorial/' not in source:
+                  raise SystemExit(f'Faltan enlaces de transparencia en {page}')
+              for cluster in entry.get('clusters', []):
+                  if cluster['path'] not in source:
+                      raise SystemExit(f'Falta enlace semantico {cluster["path"]} en {page}')
+
+          for slug, cluster in clusters.items():
+              page = Path(cluster['path'].lstrip('/')) / 'index.html'
+              if not page.is_file():
+                  raise SystemExit(f'No existe cluster {slug}: {page}')
+              if cluster['count'] < 2:
+                  raise SystemExit(f'Cluster demasiado pequeño: {slug}')
+
+          for page in [Path('metodologia/index.html'), Path('equipo-editorial/index.html')]:
+              if not page.is_file() or '<link rel="canonical"' not in page.read_text(encoding='utf-8'):
+                  raise SystemExit(f'Pagina editorial invalida: {page}')
+
+          tree = ET.parse('sitemap.xml')
+          locs = {node.text for node in tree.getroot().iter() if node.tag.endswith('loc')}
+          required = {
+              'https://resumenestrials.com/metodologia/',
+              'https://resumenestrials.com/equipo-editorial/',
+          }
+          required.update(cluster['url'] for cluster in clusters.values())
+          missing = required - locs
+          if missing:
+              raise SystemExit(f'Faltan URLs en sitemap: {sorted(missing)}')
+
+          print(f'PASS: {len(datos)} trials, {len(clusters)} clusters, paginas editoriales y sitemap validos')
           PY
 
       - name: Guardar archivos derivados
         run: |
-          if git diff --quiet -- sitemap.xml seo-manifest.json trials/ medicina-critica/ medicina-interna/ resumen/; then
+          if git diff --quiet -- sitemap.xml seo-manifest.json seo-cluster-manifest.json trials/ medicina-critica/ medicina-interna/ metodologia/ equipo-editorial/ resumen/; then
             echo "Las paginas derivadas y el SEO ya estan actualizados."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add sitemap.xml seo-manifest.json trials/ medicina-critica/ medicina-interna/ resumen/
-          git commit -m "Actualizar paginas SEO y sitemap automaticamente"
+          git add sitemap.xml seo-manifest.json seo-cluster-manifest.json trials/ medicina-critica/ medicina-interna/ metodologia/ equipo-editorial/ resumen/
+          git commit -m "Actualizar SEO semantico y paginas derivadas"
           git push origin HEAD:main
