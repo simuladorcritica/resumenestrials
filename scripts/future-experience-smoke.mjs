@@ -4,8 +4,11 @@ import { readFileSync, writeFileSync } from 'node:fs';
 const BASE=(process.env.RT_BASE_URL||'http://127.0.0.1:8000').replace(/\/$/,'');
 const data=JSON.parse(readFileSync('resumenes.json','utf8'));
 const manifest=JSON.parse(readFileSync('seo-manifest.json','utf8'));
+// El index.html del repositorio es una plantilla Jekyll. Para el servidor local
+// de CI materializamos exactamente la fuente final en la ruta real /index.html,
+// de modo que la detección de portada se pruebe igual que en producción.
 const home=readFileSync('_includes/index-source.html','utf8');
-writeFileSync('future-home-smoke.html',home,'utf8');
+writeFileSync('index.html',home,'utf8');
 
 function assert(value,message){if(!value)throw new Error(message)}
 async function noOverflow(page,label){
@@ -25,7 +28,7 @@ try{
   const pageErrors=[];
   page.on('pageerror',e=>pageErrors.push(e.message));
 
-  await page.goto(`${BASE}/future-home-smoke.html`,{waitUntil:'domcontentloaded',timeout:25000});
+  await page.goto(`${BASE}/index.html`,{waitUntil:'domcontentloaded',timeout:25000});
   await page.waitForSelector('body.rt-future-home',{timeout:10000});
   await page.waitForSelector('.rt-orbit',{timeout:10000});
   await page.waitForSelector('.rt-explorer-stage',{timeout:10000});
