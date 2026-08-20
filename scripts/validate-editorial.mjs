@@ -48,10 +48,10 @@ else ok('Contrato de preferencias disponible en auth.js.');
 
 const accountContracts = [
   ['actualización de perfil', /updateProfile\(\{firstName:/],
-  ['consentimiento de avisos', /newsletterOptIn:/],
-  ['lectura de notificaciones', /saved\.notifications\s*\|\|\s*\{\}/],
+  ['consentimiento del perfil', /newsletterOptIn:/],
+  ['lectura del consentimiento vigente', /notifMaster'\)\.checked=!!profile\?\.newsletter_opt_in/],
   ['lectura de preferencias', /saved\.preferences\s*\|\|\s*\{\}/],
-  ['escritura de notificaciones', /updateAccountPreferences\(\{\s*notifications\s*:/],
+  ['alta y baja de avisos mediante updateProfile', /newsletterOptIn:\$\('notifMaster'\)\.checked/],
   ['escritura de preferencias', /updateAccountPreferences\(\{\s*preferences\s*:/]
 ];
 for (const [label, pattern] of accountContracts) {
@@ -111,7 +111,7 @@ const memberFragments = [
   'ARCHIVO PERSONAL / EVIDENCIA GUARDADA',
   'MEMBERS / RT',
   '.mail-note',
-  '--rt-ink:#10253d'
+  'background:#10253d!important'
 ];
 for (const fragment of memberFragments) {
   if (!memberDesign.includes(fragment)) fail(`member-design-v3.js incompleto: falta ${fragment}`);
