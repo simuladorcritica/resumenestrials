@@ -25,7 +25,9 @@ jobs:
       - name: Validar sintaxis
         run: |
           node --check future-experience.js
+          node --check future-experience-final.js
           node --check scripts/future-experience-smoke.mjs
+          node --check scripts/future-final-smoke.mjs
           node --check scripts/future-visual-capture.mjs
           node --check scripts/future-production-smoke.mjs
           python3 -m py_compile aplicar_experiencia_futura.py
@@ -51,6 +53,7 @@ jobs:
               assert '/future-experience.css?v=1' in s, f'{path}: falta CSS futuro'
               assert '/future-experience-patch.css?v=1' in s, f'{path}: falta patch futuro'
               assert '/future-experience.js?v=1' in s, f'{path}: falta JS futuro'
+              assert '/future-experience-final.js?v=1' in s, f'{path}: falta ajuste JS final'
           print(f'Assets futuros presentes en {len(targets)} objetivos')
           PY
       - name: Instalar Playwright
@@ -64,7 +67,9 @@ jobs:
       - name: Probar experiencia completa
         env:
           RT_BASE_URL: http://127.0.0.1:8000
-        run: node scripts/future-experience-smoke.mjs
+        run: |
+          node scripts/future-experience-smoke.mjs
+          node scripts/future-final-smoke.mjs
       - name: Generar capturas de auditoría visual
         if: success()
         env:
