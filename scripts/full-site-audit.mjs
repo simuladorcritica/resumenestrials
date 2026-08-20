@@ -13,7 +13,7 @@ const read=p=>readFileSync(join(ROOT,p),'utf8');
 function walk(dir='.'){
   const out=[];
   for(const entry of readdirSync(join(ROOT,dir),{withFileTypes:true})){
-    if(['.git','node_modules','.jekyll-cache','vendor'].includes(entry.name))continue;
+    if(['.git','node_modules','.jekyll-cache','vendor','_includes'].includes(entry.name))continue;
     const rel=dir==='.'?entry.name:join(dir,entry.name);
     if(entry.isDirectory())out.push(...walk(rel));else out.push(rel.replaceAll('\\','/'));
   }
@@ -64,6 +64,9 @@ function staticAudit(){
   const auth=read('auth.js');
   const login=read('login.html');
   if(!auth.includes('getMfaLoginState')||!auth.includes('verifyMfaLoginCode')||!login.includes('mfa-form'))fail('2FA','el segundo factor no está integrado en el inicio de sesión');
+
+  const privacy=read('privacidad.html');
+  if(!/Resend/.test(privacy))fail('privacidad','no declara al proveedor real de envío de correos');
 
   const data=JSON.parse(read('resumenes.json'));
   const manifest=JSON.parse(read('seo-manifest.json'));
