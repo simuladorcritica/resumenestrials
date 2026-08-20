@@ -3,31 +3,61 @@
 
   function addContact(doc) {
     if (!doc || doc.__rtContactDone) return;
-    const active = doc.internal.getCurrentPageInfo?.().pageNumber || 1;
-    const total = doc.getNumberOfPages();
-    for (let p = 1; p <= total; p++) {
-      doc.setPage(p);
-      const w = doc.internal.pageSize.getWidth();
-      const h = doc.internal.pageSize.getHeight();
-      doc.setFont('helvetica', 'normal');
-      doc.setFontSize(7.2);
-      doc.setTextColor(15, 95, 95);
-      doc.text(CONTACT, w / 2, h - 15, { align: 'center' });
+    try {
+      const active = doc.internal.getCurrentPageInfo?.().pageNumber || 1;
+      const total = doc.getNumberOfPages();
+      for (let p = 1; p <= total; p++) {
+        doc.setPage(p);
+        const w = doc.internal.pageSize.getWidth();
+        const h = doc.internal.pageSize.getHeight();
+        doc.setFont('helvetica', 'normal');
+        doc.setFontSize(7.2);
+        doc.setTextColor(15, 95, 95);
+        doc.text(CONTACT, w / 2, h - 15, { align: 'center' });
+      }
+      doc.setPage(Math.min(active, total));
+      doc.__rtContactDone = true;
+    } catch (error) {
+      console.warn('No se pudo añadir el pie de contacto al PDF:', error);
     }
-    doc.setPage(Math.min(active, total));
-    doc.__rtContactDone = true;
+  }
+
+  function wrapDocument(doc) {
+    if (!doc || doc.__rtSaveWrapped || typeof doc.save !== 'function') return doc;
+    const originalSave = doc.save.bind(doc);
+    doc.save = (...args) => {
+      addContact(doc);
+      return originalSave(...args);
+    };
+    doc.__rtSaveWrapped = true;
+    return doc;
   }
 
   function patch() {
-    const Ctor = window.jspdf?.jsPDF || window.jsPDF;
-    if (!Ctor?.API || Ctor.API.__rtContactPatched) return Boolean(Ctor?.API?.__rtContactPatched);
-    const original = Ctor.API.save;
-    if (typeof original !== 'function') return false;
-    Ctor.API.save = function (...args) {
-      addContact(this);
-      return original.apply(this, args);
+    const ns = window.jspdf;
+    const Original = ns?.jsPDF || window.jsPDF;
+    if (typeof Original !== 'function') return false;
+    if (Original.__rtConstructorWrapped) return true;
+
+    if (Original.API && typeof Original.API.save === 'function' && !Original.API.__rtContactPatched) {
+      const apiSave = Original.API.save;
+      Original.API.save = function (...args) {
+        addContact(this);
+        return apiSave.apply(this, args);
+      };
+      Original.API.__rtContactPatched = true;
+    }
+
+    const Wrapped = function (...args) {
+      return wrapDocument(new Original(...args));
     };
-    Ctor.API.__rtContactPatched = true;
+    Wrapped.API = Original.API;
+    Wrapped.prototype = Original.prototype;
+    Wrapped.__rtConstructorWrapped = true;
+    Wrapped.__rtOriginal = Original;
+
+    if (ns && ns.jsPDF === Original) ns.jsPDF = Wrapped;
+    if (window.jsPDF === Original) window.jsPDF = Wrapped;
     return true;
   }
 
