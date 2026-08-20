@@ -954,5 +954,24 @@
       "answer": "La estrategia de seis meses fue no inferior: el desenlace exitoso ocurrió en el 86.1% con la estrategia de seis meses frente al 86.0% con el estándar (diferencia de riesgo ajustada -0.2 puntos porcentuales; IC 95%, -6.9 a 6.5; p=0.001 para no inferioridad) , con una seguridad similar.",
       "population": "La población fueron personas de 6 años o más con tuberculosis pulmonar resistente a rifampicina, con o sin resistencia añadida a isoniacida o a fluoroquinolonas, incluidas mujeres embarazadas o en lactancia, un grupo habitualmente excluido de los ensayos. La raza, declarada por los participantes, fue negra en el 76.9%, mixta en el 22.3% y blanca en el 0.7%."
     }
+  },
+  "39": {
+    "slug": "latitude-cabotegravir-rilpivirina-inyectable-mensual-tratamiento-oral-personas-vih-dificultades",
+    "path": "/trials/latitude-cabotegravir-rilpivirina-inyectable-mensual-tratamiento-oral-personas-vih-dificultades/",
+    "url": "https://resumenestrials.com/trials/latitude-cabotegravir-rilpivirina-inyectable-mensual-tratamiento-oral-personas-vih-dificultades/",
+    "title": "LATITUDE: cabotegravir-rilpivirina inyectable mensual frente al tratamiento oral en personas con VIH y dificultades de adherencia",
+    "seo_title": "LATITUDE trial: cabotegravir-rilpivirina inyectable mensual frente al tratamiento oral en personas con VIH y dificultades de adherencia | Resúmenes Trials",
+    "description": "LATITUDE: El inyectable mensual fue superior: el fracaso del régimen a la semana 48 fue del 22.8% frente al 41.2% con el tratamiento oral (diferencia -18.4…",
+    "clusters": [],
+    "images": [
+      "https://resumenestrials.com/images/trials/latitude-cabotegravir-rilpivirina-inyectable-mensual-tratamiento-oral-personas-vih-dificultades-16x9.jpg",
+      "https://resumenestrials.com/images/trials/latitude-cabotegravir-rilpivirina-inyectable-mensual-tratamiento-oral-personas-vih-dificultades-4x3.jpg",
+      "https://resumenestrials.com/images/trials/latitude-cabotegravir-rilpivirina-inyectable-mensual-tratamiento-oral-personas-vih-dificultades-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si cambiar a cabotegravir-rilpivirina inyectable mensual reduce el fracaso del régimen frente a continuar el tratamiento antirretroviral oral, en personas con VIH y dificultades de adherencia que ya habían logrado la supresión viral.",
+      "answer": "El inyectable mensual fue superior: el fracaso del régimen a la semana 48 fue del 22.8% frente al 41.2% con el tratamiento oral (diferencia -18.4 puntos porcentuales; IC 98.4%, -32.4 a -4.3; p=0.002) , a expensas sobre todo de menos fracaso virológico.",
+      "population": "La población fueron adultos con VIH y antecedente de dificultades de adherencia, definidas por una respuesta virológica pobre o pérdida del seguimiento clínico durante al menos 6 meses consecutivos en los 18 meses previos, sin coinfección por hepatitis B y sin mutaciones de resistencia clínicamente relevantes a rilpivirina ni a inhibidores de la integrasa. No se excluyó a nadie por su recuento de CD4, por consumo de alcohol o…"
+    }
   }
 }
