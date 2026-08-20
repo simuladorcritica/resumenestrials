@@ -70,7 +70,9 @@
 
   const icon = '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v11"></path><path d="m7.5 10 4.5 4.5 4.5-4.5"></path><path d="M5 20h14"></path></svg>';
   const label = (button, text) => {
-    if (!button || button.dataset.rtLabel === text) return;
+    if (!button) return;
+    const current = (button.textContent || '').replace(/\s+/g, ' ').trim();
+    if (button.dataset.rtLabel === text && current === text && button.querySelector('svg')) return;
     button.dataset.rtLabel = text;
     button.innerHTML = `${icon}<span>${text}</span>`;
     button.setAttribute('aria-label', text);
@@ -97,7 +99,7 @@
 
   const start = () => {
     sync();
-    new MutationObserver(sync).observe(document.documentElement, { childList: true, subtree: true });
+    new MutationObserver(sync).observe(document.documentElement, { childList: true, subtree: true, characterData: true });
   };
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start, { once: true });
   else start();
