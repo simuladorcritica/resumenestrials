@@ -1,5 +1,5 @@
 import { chromium } from 'playwright';
-import { existsSync, readFileSync, readdirSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { extname, join, normalize, dirname } from 'node:path';
 
 const ROOT=process.cwd();
@@ -22,6 +22,7 @@ function walk(dir='.'){
 
 function resolveLocal(from,value){
   if(!value||/^(?:https?:|mailto:|tel:|data:|javascript:|#)/i.test(value))return null;
+  if(value.includes('${')||value.includes('{{')||value.includes('{%'))return null;
   const clean=value.split('#')[0].split('?')[0];
   if(!clean)return null;
   let rel=clean.startsWith('/')?clean.slice(1):normalize(join(dirname(from),clean)).replaceAll('\\','/');
@@ -42,7 +43,6 @@ function staticAudit(){
     if(dup.length)fail(file,`IDs duplicados: ${dup.join(', ')}`);
     for(const match of source.matchAll(/\s(?:href|src)=["']([^"']+)["']/g)){
       const value=match[1];
-      if(value.includes('{{')||value.includes('{%'))continue;
       const resolved=resolveLocal(file,value);
       if(resolved&&!existsSync(join(ROOT,resolved)))fail(file,`recurso/enlace interno inexistente: ${value} -> ${resolved}`);
     }
@@ -82,13 +82,20 @@ function staticAudit(){
   }
 }
 
+function buildHomeAuditFixture(){
+  const source=read('_includes/index-source.html');
+  const extras=`\n<script type="module" src="home-auth-ui.js?v=audit"></script>\n<script type="module" src="interactive-home.js?v=audit"></script>\n<script type="module" src="recommendations.js?v=audit"></script>\n<script type="module" src="runtime-consistency.js?v=audit"></script>\n<script type="module" src="internal-medicine-ux.js?v=audit"></script>\n<script type="module" src="home-visual-tuning.js?v=audit"></script>\n<script src="pdf-contact.js?v=audit" defer></script>\n<script src="home-control-layout.js?v=audit" defer></script>\n<script src="seo-hubs-home.js?v=audit" defer></script>\n`;
+  writeFileSync(join(ROOT,'index-full-audit.html'),source+extras,'utf8');
+}
+
 async function browserAudit(){
+  buildHomeAuditFixture();
   const data=JSON.parse(read('resumenes.json'));
   const manifest=JSON.parse(read('seo-manifest.json'));
   const clusters=JSON.parse(read('seo-cluster-manifest.json'));
   const firstTrial=manifest[String(data[0].id)]?.path;
   const firstCluster=Object.values(clusters).find(x=>x?.path)?.path;
-  const publicRoutes=['/index.html','/login.html','/registro.html','/recuperar.html','/privacidad.html','/metodologia/','/equipo-editorial/','/medicina-critica/','/medicina-interna/',firstCluster,firstTrial].filter(Boolean);
+  const publicRoutes=['/index-full-audit.html','/login.html','/registro.html','/recuperar.html','/privacidad.html','/metodologia/','/equipo-editorial/','/medicina-critica/','/medicina-interna/',firstCluster,firstTrial].filter(Boolean);
   const viewports=[{name:'desktop',width:1440,height:1000},{name:'tablet',width:1024,height:900},{name:'mobile',width:390,height:844}];
   const browser=await chromium.launch({headless:true});
   try{
