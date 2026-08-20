@@ -8,6 +8,8 @@ const RESEND_BATCH_URL = "https://api.resend.com/emails/batch";
 const FROM_EMAIL = Deno.env.get("NEWSLETTER_FROM") || "Resúmenes Trials <novedades@resumenestrials.com>";
 const REPLY_TO = Deno.env.get("NEWSLETTER_REPLY_TO") || "resumenestrials@outlook.com";
 
+type Subscriber = { id: string; email: string; first_name: string | null };
+
 function json(body: unknown, status = 200) {
   return new Response(JSON.stringify(body), {
     status,
@@ -106,19 +108,19 @@ async function addedSummaries(headSha: string) {
   return (Array.isArray(after) ? after : []).filter((item: any) => item?.id != null && !previousIds.has(String(item.id)));
 }
 
-async function confirmedOptInSubscribers(admin: ReturnType<typeof createClient>) {
+async function confirmedOptInSubscribers(admin: any) {
   const confirmed = new Set<string>();
   for (let page = 1; page <= 1000; page += 1) {
     const { data, error } = await admin.auth.admin.listUsers({ page, perPage: 1000 });
     if (error) throw error;
     const users = data?.users || [];
     for (const user of users) {
-      if (user.email && (user.email_confirmed_at || user.confirmed_at)) confirmed.add(user.id);
+      if (user.email && user.email_confirmed_at) confirmed.add(user.id);
     }
     if (users.length < 1000) break;
   }
 
-  const profiles: Array<{ id: string; email: string; first_name: string | null }> = [];
+  const profiles: Subscriber[] = [];
   for (let from = 0; from < 100000; from += 1000) {
     const { data, error } = await admin
       .from("profiles")
@@ -127,7 +129,7 @@ async function confirmedOptInSubscribers(admin: ReturnType<typeof createClient>)
       .not("email", "is", null)
       .range(from, from + 999);
     if (error) throw error;
-    const rows = data || [];
+    const rows = (data || []) as Subscriber[];
     profiles.push(...rows);
     if (rows.length < 1000) break;
   }
