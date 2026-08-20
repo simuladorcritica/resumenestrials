@@ -72,8 +72,9 @@ if (sample.corto) {
 const canonicalPdf = await download(page, `[data-trial-download="${sample.id}"]`, 'canonico-completo.pdf');
 assertPdfContact(canonicalPdf);
 
-// Compatibilidad del resumen completo antiguo.
-await page.goto(`${BASE}/resumen.html?id=${sample.id}`, { waitUntil: 'networkidle' });
+// Las páginas dinámicas cargan fuentes/scripts externos: esperamos el DOM y luego
+// comprobamos explícitamente cada control, en vez de exigir networkidle global.
+await page.goto(`${BASE}/resumen.html?id=${sample.id}`, { waitUntil: 'domcontentloaded', timeout: 30000 });
 await page.waitForSelector('[data-pdf-version="completo"]', { timeout: 15000 });
 await page.waitForTimeout(300);
 assert(await page.locator('[data-pdf-version="completo"]').first().isVisible(), 'El resumen legacy completo no muestra su descarga');
@@ -82,7 +83,7 @@ const fullText = await page.locator('[data-pdf-version="completo"]').first().inn
 assert(/Descargar resumen completo PDF/i.test(fullText), `Etiqueta completa incorrecta: ${fullText}`);
 
 if (sample.corto) {
-  await page.goto(`${BASE}/resumen.html?id=${sample.id}&v=corto`, { waitUntil: 'networkidle' });
+  await page.goto(`${BASE}/resumen.html?id=${sample.id}&v=corto`, { waitUntil: 'domcontentloaded', timeout: 30000 });
   await page.waitForSelector('[data-pdf-version="breve"]', { timeout: 15000 });
   await page.waitForSelector('.migas .volver-top', { timeout: 15000 });
   await page.waitForTimeout(300);
@@ -92,6 +93,10 @@ if (sample.corto) {
   assert(/Volver al índice/i.test(backText), `El resumen breve perdió su navegación anterior: ${backText}`);
   assert(await page.locator('[data-pdf-version="breve"]').first().isVisible(), 'El resumen breve no muestra su descarga');
   assert(!(await page.locator('[data-pdf-version="completo"]').first().isVisible()), 'El resumen breve muestra indebidamente la descarga completa');
+  await page.waitForFunction(() => {
+    const link = document.querySelector('.cambio-version');
+    return link && /\/trials\//.test(link.href);
+  }, { timeout: 15000 });
   const versionHref = await page.locator('.cambio-version').first().getAttribute('href');
   const resolved = new URL(versionHref, `${BASE}/resumen.html`).pathname;
   assert(resolved === entry.path, `La versión breve no vuelve al trial canónico: ${resolved}`);
