@@ -1,0 +1,89 @@
+name: Regenerar experiencia futura
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "aplicar_experiencia_futura.py"
+      - "future-experience.css"
+      - "future-experience-patch.css"
+      - "future-experience.js"
+      - "future-experience-final.js"
+      - ".github/workflows/future-regenerate.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: actualizar-sitio-derivado-main
+  cancel-in-progress: false
+
+jobs:
+  regenerar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Descargar main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+          persist-credentials: true
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Instalar dependencias
+        run: python -m pip install --disable-pip-version-check pillow==11.3.0
+
+      - name: Validar generadores e inyector
+        run: |
+          python -m py_compile generar_seo.py generar_seo_clusters.py generar_seo_semantico.py generar_seo_avanzado.py restaurar_arquitectura.py actualizar_agregar_editorial.py aplicar_experiencia_futura.py generar_paginas_sociales.py
+          node --check future-experience.js
+          node --check future-experience-final.js
+
+      - name: Regenerar sitio completo
+        run: |
+          python generar_seo.py
+          python generar_seo_semantico.py
+          python generar_seo_avanzado.py
+          python restaurar_arquitectura.py
+          python actualizar_agregar_editorial.py
+          python generar_paginas_sociales.py
+
+      - name: Verificar experiencia v2 en todas las salidas
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import aplicar_experiencia_futura as future
+
+          checked = 0
+          for path in future.candidates():
+              if not path.is_file():
+                  continue
+              source = path.read_text(encoding='utf-8')
+              assert '/future-experience.css?v=1' in source, f'{path}: falta CSS futuro'
+              assert '/future-experience-patch.css?v=1' in source, f'{path}: falta patch CSS futuro'
+              assert '/future-experience.js?v=1' in source, f'{path}: falta JS futuro'
+              assert '/future-experience-final.js?v=2' in source, f'{path}: falta ajuste final v2'
+              assert '/future-experience-final.js?v=1' not in source, f'{path}: conserva ajuste final v1 obsoleto'
+              checked += 1
+          if checked < 50:
+              raise SystemExit(f'Solo se verificaron {checked} páginas; se esperaban al menos 50')
+          print(f'PASS: experiencia futura v2 verificada en {checked} páginas')
+          PY
+
+      - name: Guardar salidas regeneradas
+        run: |
+          if git diff --quiet -- sitemap.xml seo-manifest.json seo-cluster-manifest.json trials/ medicina-critica/ medicina-interna/ metodologia/ equipo-editorial/ resumen/ images/trials/ _includes/index-source.html interactive-home.js internal-medicine-ux.js agregar.html; then
+            echo "Las salidas ya estaban actualizadas."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add sitemap.xml seo-manifest.json seo-cluster-manifest.json trials/ medicina-critica/ medicina-interna/ metodologia/ equipo-editorial/ resumen/ images/trials/ _includes/index-source.html interactive-home.js internal-medicine-ux.js agregar.html
+          git commit -m "Regenerar experiencia futura v2"
+          git push origin HEAD:main
