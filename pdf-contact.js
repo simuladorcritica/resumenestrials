@@ -80,9 +80,15 @@
   function applyShortCanonicalLink() {
     if (!shortMode || !canonicalEntry) return;
     const fullHref = canonicalEntry.path || canonicalEntry.url || '/';
+    const targetText = 'Ver versión completa →';
+    const targetHref = new URL(fullHref, location.href).href;
     document.querySelectorAll('.cambio-version').forEach((link) => {
-      link.href = fullHref;
-      link.textContent = 'Ver versión completa →';
+      // MutationObserver(sync) observa childList/characterData. Reescribir
+      // textContent aunque sea idéntico vuelve a disparar el observer y, en
+      // modo corto, producía un bucle de mutaciones que bloqueaba la página.
+      // Solo tocamos el DOM cuando el valor realmente cambia.
+      if (link.href !== targetHref) link.href = fullHref;
+      if (link.textContent !== targetText) link.textContent = targetText;
     });
   }
 
