@@ -26,6 +26,13 @@ jobs:
       - uses: denoland/setup-deno@v2
         with:
           deno-version: v2.x
+      - name: Check newsletter deployment readiness
+        env:
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+        run: |
+          if [ -n "$SUPABASE_ACCESS_TOKEN" ]; then echo "SUPABASE_ACCESS_TOKEN: configured"; else echo "SUPABASE_ACCESS_TOKEN: missing"; fi
+          if [ -n "$RESEND_API_KEY" ]; then echo "RESEND_API_KEY: configured"; else echo "RESEND_API_KEY: missing"; fi
       - name: Validate JavaScript syntax
         run: |
           node --check interactive-home.js
