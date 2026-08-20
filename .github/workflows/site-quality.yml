@@ -88,6 +88,7 @@ jobs:
           python3 -m py_compile tools/auditoria_editorial_profunda.py
           python3 -m py_compile generar_seo.py
           python3 -m py_compile generar_seo_clusters.py
+          python3 -m py_compile generar_seo_semantico.py
           python3 -m py_compile generar_paginas_sociales.py
           python3 -m json.tool seo-clusters.json >/dev/null
       - name: Validate embedded module scripts
