@@ -82,63 +82,8 @@
     button.setAttribute('aria-label', text);
   };
 
-  function injectShortStyles() {
-    if (!shortMode || document.getElementById('rt-short-unified-style')) return;
-    const style = document.createElement('style');
-    style.id = 'rt-short-unified-style';
-    style.textContent = `
-      body.modo-corto .migas.rt-route{
-        width:fit-content;max-width:100%;margin:22px 0 0;padding:8px 10px 8px 13px;
-        display:flex;align-items:center;gap:8px;flex-wrap:wrap;
-        border:1px solid rgba(15,95,95,.18);border-left:3px solid var(--teal-hondo);
-        border-radius:5px;background:rgba(255,255,255,.34);box-shadow:0 8px 24px rgba(18,35,59,.035);
-        font-family:'IBM Plex Mono',monospace;font-size:10.5px;line-height:1.35;color:#8390a0
-      }
-      body.modo-corto .migas.rt-route a{
-        display:inline-flex;align-items:center;min-height:24px;padding:3px 4px;border-radius:3px;
-        color:var(--teal-hondo);text-decoration:none;font-size:10.5px;font-weight:400;
-        letter-spacing:.07em;text-transform:none;background:transparent;transition:background .18s ease,color .18s ease,transform .18s ease
-      }
-      body.modo-corto .migas.rt-route a:hover{background:rgba(28,138,138,.07);color:var(--teal);transform:none}
-      body.modo-corto .migas.rt-route>span:not(:last-child){color:#9aa3ad;font-size:12px}
-      body.modo-corto .migas.rt-route>span:last-child{
-        display:inline-flex;align-items:center;min-height:24px;padding:3px 9px;border-radius:999px;
-        background:var(--teal-hondo);color:#fff;letter-spacing:.09em;text-transform:uppercase;font-size:9.5px
-      }
-      body.modo-corto header.art{padding-top:18px}
-      body.modo-corto .acciones-art .btn-pdf.breve{background:rgba(200,137,42,.045);border-color:rgba(200,137,42,.52)}
-      body.modo-corto .acciones-art .btn-pdf.breve:hover{background:#9a6820;color:#fff}
-      body.modo-corto .version-nav{padding-top:1px}
-      body.modo-corto .version-nav .cambio-version{display:inline-flex;align-items:center;gap:6px}
-      @media(max-width:620px){body.modo-corto .migas.rt-route{width:100%;border-radius:4px}}
-    `;
-    document.head.appendChild(style);
-  }
-
-  function categoryFromPage() {
-    const badge = document.querySelector('header.art .badge.critica,header.art .badge.interna');
-    const name = (badge?.textContent || '').trim();
-    if (name === 'Medicina Crítica') return { name, path: '/medicina-critica/' };
-    if (name === 'Medicina Interna') return { name, path: '/medicina-interna/' };
-    return null;
-  }
-
-  function applyShortNavigation() {
+  function applyShortCanonicalLink() {
     if (!shortMode || !canonicalEntry) return;
-    injectShortStyles();
-    const nav = document.querySelector('.migas');
-    if (nav && !nav.classList.contains('rt-route')) {
-      const category = categoryFromPage();
-      const cluster = Array.isArray(canonicalEntry.clusters) ? canonicalEntry.clusters[0] : null;
-      const parts = ['<a href="/">Inicio</a><span>›</span>'];
-      if (category) parts.push(`<a href="${category.path}">${category.name}</a><span>›</span>`);
-      if (cluster?.path && cluster?.name) parts.push(`<a href="${cluster.path}">${cluster.name}</a><span>›</span>`);
-      parts.push('<span>Resumen breve</span>');
-      nav.className = 'migas rt-route';
-      nav.innerHTML = parts.join('');
-      nav.setAttribute('aria-label', 'Ruta');
-    }
-
     const fullHref = canonicalEntry.path || canonicalEntry.url || '/';
     document.querySelectorAll('.cambio-version').forEach((link) => {
       link.href = fullHref;
@@ -157,7 +102,7 @@
         button.style.display = show ? '' : 'none';
         label(button, version === 'breve' ? 'Descargar resumen breve PDF' : 'Descargar resumen completo PDF');
       });
-      if (short) applyShortNavigation();
+      if (short) applyShortCanonicalLink();
       return;
     }
     document.querySelectorAll('.fila-pdf').forEach((area) => {
@@ -170,7 +115,7 @@
     fetch('/seo-manifest.json', { cache: 'no-store' })
       .then((r) => r.ok ? r.json() : Promise.reject(new Error(`HTTP ${r.status}`)))
       .then((manifest) => { canonicalEntry = manifest?.[articleId] || null; sync(); })
-      .catch((error) => console.warn('Navegación resumen breve:', error));
+      .catch((error) => console.warn('Enlace canónico del resumen breve:', error));
   }
 
   const start = () => {
