@@ -81,6 +81,10 @@ def limpiar_trial(path: Path, item: dict) -> None:
         source,
     )
 
+    # Cache-busting para que el nuevo breadcrumb y las acciones aparezcan al
+    # desplegar, sin que el navegador reutilice trial.css previo.
+    source = source.replace('/trial.css?v=1', '/trial.css?v=2', 1)
+
     actions = acciones_trial(item)
     source, inserted = re.subn(
         r'(<header class="art-head">.*?)(</header>)',
@@ -193,6 +197,8 @@ def validar_arquitectura(items: list[dict]) -> None:
             errors.append(f"id {trial_id}: falta enlace independiente al resumen breve")
         if '/trial-pdf.js?v=1' not in source:
             errors.append(f"id {trial_id}: falta controlador de descarga PDF")
+        if '/trial.css?v=2' not in source:
+            errors.append(f"id {trial_id}: no usa la versión unificada de estilos")
         if 'images/trials/' not in source:
             errors.append(f"id {trial_id}: perdió imagen social/estructurada")
         if '<link rel="canonical"' not in source:
