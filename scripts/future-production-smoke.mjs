@@ -15,10 +15,11 @@ async function waitForDeployment(){
       const html=await fetchText('/');
       const css=await fetch(`${BASE}/future-experience.css?qa=${Date.now()}`,{signal:AbortSignal.timeout(12000)});
       const js=await fetch(`${BASE}/future-experience.js?qa=${Date.now()}`,{signal:AbortSignal.timeout(12000)});
-      if(html.includes('/future-experience.css?v=1')&&html.includes('/future-experience.js?v=1')&&css.ok&&js.ok){
+      const finalJs=await fetch(`${BASE}/future-experience-final.js?qa=${Date.now()}`,{signal:AbortSignal.timeout(12000)});
+      if(html.includes('/future-experience.css?v=1')&&html.includes('/future-experience.js?v=1')&&html.includes('/future-experience-final.js?v=1')&&css.ok&&js.ok&&finalJs.ok){
         console.log(`FUTURE DEPLOYMENT READY · intento ${i}`);return;
       }
-      last=`HTML futuro=${html.includes('/future-experience.css?v=1')} CSS=${css.status} JS=${js.status}`;
+      last=`HTML futuro=${html.includes('/future-experience.css?v=1')} final=${html.includes('/future-experience-final.js?v=1')} CSS=${css.status} JS=${js.status} FINAL=${finalJs.status}`;
     }catch(e){last=e.message}
     console.log(`Esperando publicación futura (${i}/32) · ${last}`);
     await sleep(15000);
@@ -32,6 +33,8 @@ async function noOverflow(page,label){
 
 await waitForDeployment();
 const manifest=JSON.parse(await fetchText('/seo-manifest.json'));
+const data=JSON.parse(await fetchText('/resumenes.json'));
+const newest=[...data].sort((a,b)=>(b.fecha||'').localeCompare(a.fecha||''))[0];
 const ids=Object.keys(manifest).sort((a,b)=>Number(a)-Number(b));
 assert(ids.length===38,`Producción: se esperaban 38 trials y hay ${ids.length}`);
 const entry=manifest[ids[0]];
@@ -46,10 +49,21 @@ try{
   await page.waitForSelector('.rt-explorer-stage',{timeout:15000});
   assert(await page.locator('.fila').count()>=38,'Producción: portada no muestra los 38 trials');
   assert(await page.locator('.fila.rt-featured').count()===1,'Producción: falta ensayo destacado');
+  const account=page.locator('.topbar .top-links #account-entry');
+  await account.waitFor({state:'visible',timeout:15000});
+  const accountText=(await account.innerText()).trim();
+  assert(accountText==='Entrar o crear cuenta'||accountText==='Mi cuenta',`Producción: CTA de cuenta inesperado: ${accountText}`);
+  const year=page.locator('.grupo-anio .anio-num').first();
+  assert(await year.isVisible(),'Producción: año no visible en el explorador');
+  assert((await year.innerText()).trim()===String(newest.anio),'Producción: año más reciente no coincide con los datos');
+  const source=page.locator('.fila .fuente').first();
+  assert(await source.isVisible(),'Producción: revista/fuente no visible');
+  assert((await source.innerText()).includes(newest.revista),`Producción: la revista ${newest.revista} no aparece en la primera ficha`);
   await noOverflow(page,'Producción portada desktop');
 
   await page.setViewportSize({width:390,height:844});await page.waitForTimeout(200);await noOverflow(page,'Producción portada móvil');
   assert(await page.locator('#q').isVisible(),'Producción móvil: búsqueda clínica no visible');
+  assert(await account.isVisible(),'Producción móvil: CTA de cuenta no visible');
 
   await page.setViewportSize({width:1440,height:1000});
   await page.goto(`${BASE}${entry.path}?qa=${Date.now()}`,{waitUntil:'domcontentloaded',timeout:30000});
@@ -77,5 +91,5 @@ try{
   await noOverflow(page,'Producción login');
 
   assert(errors.length===0,`Producción: errores JavaScript: ${errors.join(' | ')}`);
-  console.log(`FUTURE PRODUCTION STRICT PASS · ${ids.length} trials · ${entry.path}`);
+  console.log(`FUTURE PRODUCTION STRICT PASS · ${ids.length} trials · cuenta/año/revista OK · ${entry.path}`);
 }finally{await browser.close()}
