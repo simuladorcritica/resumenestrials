@@ -3,228 +3,714 @@
     "slug": "soho-oxigeno-alto-flujo-oxigeno-estandar-insuficiencia-respiratoria-hipoxemica-aguda",
     "path": "/trials/soho-oxigeno-alto-flujo-oxigeno-estandar-insuficiencia-respiratoria-hipoxemica-aguda/",
     "url": "https://resumenestrials.com/trials/soho-oxigeno-alto-flujo-oxigeno-estandar-insuficiencia-respiratoria-hipoxemica-aguda/",
-    "title": "SOHO: oxígeno de alto flujo frente a oxígeno estándar en la insuficiencia respiratoria hipoxémica aguda"
+    "title": "SOHO: oxígeno de alto flujo frente a oxígeno estándar en la insuficiencia respiratoria hipoxémica aguda",
+    "seo_title": "SOHO trial: oxígeno de alto flujo frente a oxígeno estándar en la ins…",
+    "description": "SOHO: La mortalidad fue idéntica: 14.6% frente a 14.6% a los 28 días. El alto flujo redujo las intubaciones y mejoró el confort, pero no alargó la vida…",
+    "clusters": [
+      {
+        "name": "Ventilación e insuficiencia respiratoria",
+        "path": "/medicina-critica/ventilacion-respiratoria/",
+        "url": "https://resumenestrials.com/medicina-critica/ventilacion-respiratoria/"
+      }
+    ]
   },
   "2": {
     "slug": "arise-fluids-vasopresores-liquidos-shock-septico-temprano",
     "path": "/trials/arise-fluids-vasopresores-liquidos-shock-septico-temprano/",
     "url": "https://resumenestrials.com/trials/arise-fluids-vasopresores-liquidos-shock-septico-temprano/",
-    "title": "ARISE FLUIDS: vasopresores frente a líquidos en el shock séptico temprano"
+    "title": "ARISE FLUIDS: vasopresores frente a líquidos en el shock séptico temprano",
+    "seo_title": "ARISE FLUIDS trial: vasopresores frente a líquidos en el shock séptic…",
+    "description": "ARISE FLUIDS: Los días vivo y fuera del hospital fueron idénticos: 76 frente a 76 (p=1.00), sin cambios en la mortalidad. La estrategia restrictiva sí redujo…",
+    "clusters": [
+      {
+        "name": "Sepsis y shock",
+        "path": "/medicina-critica/sepsis-shock/",
+        "url": "https://resumenestrials.com/medicina-critica/sepsis-shock/"
+      },
+      {
+        "name": "Ventilación e insuficiencia respiratoria",
+        "path": "/medicina-critica/ventilacion-respiratoria/",
+        "url": "https://resumenestrials.com/medicina-critica/ventilacion-respiratoria/"
+      },
+      {
+        "name": "Hemodinámica y cardiovascular",
+        "path": "/medicina-critica/hemodinamica-cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-critica/hemodinamica-cardiovascular/"
+      }
+    ]
   },
   "3": {
     "slug": "rsi-ketamina-etomidato-intubacion-traqueal-adulto-estado-critico",
     "path": "/trials/rsi-ketamina-etomidato-intubacion-traqueal-adulto-estado-critico/",
     "url": "https://resumenestrials.com/trials/rsi-ketamina-etomidato-intubacion-traqueal-adulto-estado-critico/",
-    "title": "RSI: ketamina o etomidato para la intubación traqueal del adulto en estado crítico"
+    "title": "RSI: ketamina o etomidato para la intubación traqueal del adulto en estado crítico",
+    "seo_title": "RSI trial: ketamina o etomidato para la intubación traqueal del adult…",
+    "description": "RSI: Misma mortalidad a 28 días ( 28.1% vs 29.1% ; p=0.65), pero más colapso cardiovascular con ketamina (22.1% vs 17.0%). Análisis crítico y resultados en…",
+    "clusters": [
+      {
+        "name": "Ventilación e insuficiencia respiratoria",
+        "path": "/medicina-critica/ventilacion-respiratoria/",
+        "url": "https://resumenestrials.com/medicina-critica/ventilacion-respiratoria/"
+      }
+    ]
   },
   "4": {
     "slug": "logical-oxigeno-conservador-oxigeno-liberal-paciente-inconsciente-tras-paro-cardiaco",
     "path": "/trials/logical-oxigeno-conservador-oxigeno-liberal-paciente-inconsciente-tras-paro-cardiaco/",
     "url": "https://resumenestrials.com/trials/logical-oxigeno-conservador-oxigeno-liberal-paciente-inconsciente-tras-paro-cardiaco/",
-    "title": "LOGICAL: oxígeno conservador frente a oxígeno liberal en el paciente inconsciente tras un paro cardiaco"
+    "title": "LOGICAL: oxígeno conservador frente a oxígeno liberal en el paciente inconsciente tras un paro cardiaco",
+    "seo_title": "LOGICAL trial: oxígeno conservador frente a oxígeno liberal en el pac…",
+    "description": "LOGICAL: Sin diferencia en el desenlace funcional a 180 días ( 38.2% vs 39.7% ; RR 0.97; p=0.65) ni en la mortalidad (48.0% vs 49.7%). Análisis crítico y…",
+    "clusters": [
+      {
+        "name": "Ventilación e insuficiencia respiratoria",
+        "path": "/medicina-critica/ventilacion-respiratoria/",
+        "url": "https://resumenestrials.com/medicina-critica/ventilacion-respiratoria/"
+      },
+      {
+        "name": "Neurocríticos",
+        "path": "/medicina-critica/neurocriticos/",
+        "url": "https://resumenestrials.com/medicina-critica/neurocriticos/"
+      },
+      {
+        "name": "Paro cardiaco y resucitación",
+        "path": "/medicina-critica/paro-resucitacion/",
+        "url": "https://resumenestrials.com/medicina-critica/paro-resucitacion/"
+      }
+    ]
   },
   "5": {
     "slug": "march-carbocisteina-solucion-salina-hipertonica-insuficiencia-respiratoria-aguda",
     "path": "/trials/march-carbocisteina-solucion-salina-hipertonica-insuficiencia-respiratoria-aguda/",
     "url": "https://resumenestrials.com/trials/march-carbocisteina-solucion-salina-hipertonica-insuficiencia-respiratoria-aguda/",
-    "title": "MARCH: carbocisteína o solución salina hipertónica en la insuficiencia respiratoria aguda"
+    "title": "MARCH: carbocisteína o solución salina hipertónica en la insuficiencia respiratoria aguda",
+    "seo_title": "MARCH trial: carbocisteína o solución salina hipertónica en la insufi…",
+    "description": "MARCH: Sin diferencia en la ventilación mecánica, ni con carbocisteína ( 186.1 vs 172.7 h ; RR 0.96; p=0.34) ni con solución salina (184.5 vs 174.3 h; RR…",
+    "clusters": [
+      {
+        "name": "Ventilación e insuficiencia respiratoria",
+        "path": "/medicina-critica/ventilacion-respiratoria/",
+        "url": "https://resumenestrials.com/medicina-critica/ventilacion-respiratoria/"
+      }
+    ]
   },
   "6": {
     "slug": "soda-bic-bicarbonato-sodio-placebo-adulto-critico-acidosis-metabolica-shock",
     "path": "/trials/soda-bic-bicarbonato-sodio-placebo-adulto-critico-acidosis-metabolica-shock/",
     "url": "https://resumenestrials.com/trials/soda-bic-bicarbonato-sodio-placebo-adulto-critico-acidosis-metabolica-shock/",
-    "title": "SODa-BIC: bicarbonato de sodio frente a placebo en el adulto crítico con acidosis metabólica y shock"
+    "title": "SODa-BIC: bicarbonato de sodio frente a placebo en el adulto crítico con acidosis metabólica y shock",
+    "seo_title": "SODa-BIC trial: bicarbonato de sodio frente a placebo en el adulto cr…",
+    "description": "SODa-BIC: Sin diferencia: el evento renal adverso mayor ocurrió en 40.2% frente a 39.4% a los 30 días. El bicarbonato corrigió el pH y recortó las…",
+    "clusters": [
+      {
+        "name": "Sepsis y shock",
+        "path": "/medicina-critica/sepsis-shock/",
+        "url": "https://resumenestrials.com/medicina-critica/sepsis-shock/"
+      },
+      {
+        "name": "Renal y ácido-base",
+        "path": "/medicina-critica/renal-acido-base/",
+        "url": "https://resumenestrials.com/medicina-critica/renal-acido-base/"
+      },
+      {
+        "name": "Hemodinámica y cardiovascular",
+        "path": "/medicina-critica/hemodinamica-cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-critica/hemodinamica-cardiovascular/"
+      }
+    ]
   },
   "7": {
     "slug": "suddicu-descontaminacion-selectiva-tubo-digestivo-ventilacion-mecanica-cuidados-intensivos",
     "path": "/trials/suddicu-descontaminacion-selectiva-tubo-digestivo-ventilacion-mecanica-cuidados-intensivos/",
     "url": "https://resumenestrials.com/trials/suddicu-descontaminacion-selectiva-tubo-digestivo-ventilacion-mecanica-cuidados-intensivos/",
-    "title": "SuDDICU: descontaminación selectiva del tubo digestivo durante la ventilación mecánica en cuidados intensivos"
+    "title": "SuDDICU: descontaminación selectiva del tubo digestivo durante la ventilación mecánica en cuidados intensivos",
+    "seo_title": "SuDDICU trial: descontaminación selectiva del tubo digestivo durante…",
+    "description": "SuDDICU: La mortalidad intrahospitalaria a 90 días fue del 27.9% frente al 29.5% , sin diferencia significativa. La descontaminación redujo las infecciones y…",
+    "clusters": [
+      {
+        "name": "Ventilación e insuficiencia respiratoria",
+        "path": "/medicina-critica/ventilacion-respiratoria/",
+        "url": "https://resumenestrials.com/medicina-critica/ventilacion-respiratoria/"
+      },
+      {
+        "name": "Infecciones y antibióticos",
+        "path": "/medicina-critica/infecciones-antibioticos/",
+        "url": "https://resumenestrials.com/medicina-critica/infecciones-antibioticos/"
+      }
+    ]
   },
   "8": {
     "slug": "expres-puntaje-predictivo-extubacion-reducir-reintubacion-cuidados-intensivos",
     "path": "/trials/expres-puntaje-predictivo-extubacion-reducir-reintubacion-cuidados-intensivos/",
     "url": "https://resumenestrials.com/trials/expres-puntaje-predictivo-extubacion-reducir-reintubacion-cuidados-intensivos/",
-    "title": "ExPreS: puntaje predictivo de extubación para reducir la reintubación en cuidados intensivos"
+    "title": "ExPreS: puntaje predictivo de extubación para reducir la reintubación en cuidados intensivos",
+    "seo_title": "ExPreS trial: puntaje predictivo de extubación para reducir la reintu…",
+    "description": "ExPreS: El fracaso de la extubación a 48 horas fue del 13.0% frente al 8.0% , sin significancia en el análisis principal (p=0.070). El puntaje apunta a menos…",
+    "clusters": [
+      {
+        "name": "Ventilación e insuficiencia respiratoria",
+        "path": "/medicina-critica/ventilacion-respiratoria/",
+        "url": "https://resumenestrials.com/medicina-critica/ventilacion-respiratoria/"
+      }
+    ]
   },
   "9": {
     "slug": "cleanse-hemoadsorcion-ha-330-shock-septico-requiere-dosis-altas-noradrenalina",
     "path": "/trials/cleanse-hemoadsorcion-ha-330-shock-septico-requiere-dosis-altas-noradrenalina/",
     "url": "https://resumenestrials.com/trials/cleanse-hemoadsorcion-ha-330-shock-septico-requiere-dosis-altas-noradrenalina/",
-    "title": "CLEANSE: hemoadsorción con HA-330 en el shock séptico que requiere dosis altas de noradrenalina"
+    "title": "CLEANSE: hemoadsorción con HA-330 en el shock séptico que requiere dosis altas de noradrenalina",
+    "seo_title": "CLEANSE trial: hemoadsorción con HA-330 en el shock séptico que requi…",
+    "description": "CLEANSE: La mortalidad a 28 días fue del 58% frente al 44% a favor de la hemoadsorción, sin alcanzar significancia (RR 0.76; IC 95%, 0.54-1.07; p=0.16). El…",
+    "clusters": [
+      {
+        "name": "Sepsis y shock",
+        "path": "/medicina-critica/sepsis-shock/",
+        "url": "https://resumenestrials.com/medicina-critica/sepsis-shock/"
+      },
+      {
+        "name": "Renal y ácido-base",
+        "path": "/medicina-critica/renal-acido-base/",
+        "url": "https://resumenestrials.com/medicina-critica/renal-acido-base/"
+      },
+      {
+        "name": "Hemodinámica y cardiovascular",
+        "path": "/medicina-critica/hemodinamica-cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-critica/hemodinamica-cardiovascular/"
+      }
+    ]
   },
   "10": {
     "slug": "digisep-secuenciacion-metagenomica-anadida-microbiologia-estandar-sepsis-shock-septico",
     "path": "/trials/digisep-secuenciacion-metagenomica-anadida-microbiologia-estandar-sepsis-shock-septico/",
     "url": "https://resumenestrials.com/trials/digisep-secuenciacion-metagenomica-anadida-microbiologia-estandar-sepsis-shock-septico/",
-    "title": "DigiSep: secuenciación metagenómica añadida a la microbiología estándar en la sepsis y el shock séptico"
+    "title": "DigiSep: secuenciación metagenómica añadida a la microbiología estándar en la sepsis y el shock séptico",
+    "seo_title": "DigiSep trial: secuenciación metagenómica añadida a la microbiología…",
+    "description": "DigiSep: El puntaje DOOR/RADAR a 28 días no mejoró: 3.21 frente a 3.49 a favor de la metagenómica, sin significancia (diferencia −0.28; IC 95%, −0.58 a 0.03…",
+    "clusters": [
+      {
+        "name": "Sepsis y shock",
+        "path": "/medicina-critica/sepsis-shock/",
+        "url": "https://resumenestrials.com/medicina-critica/sepsis-shock/"
+      },
+      {
+        "name": "Hemodinámica y cardiovascular",
+        "path": "/medicina-critica/hemodinamica-cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-critica/hemodinamica-cardiovascular/"
+      }
+    ]
   },
   "11": {
     "slug": "promine-propofol-ketamina-intubacion-secuencia-rapida-paciente-critico",
     "path": "/trials/promine-propofol-ketamina-intubacion-secuencia-rapida-paciente-critico/",
     "url": "https://resumenestrials.com/trials/promine-propofol-ketamina-intubacion-secuencia-rapida-paciente-critico/",
-    "title": "PROMINE: propofol frente a ketamina en la intubación de secuencia rápida del paciente crítico"
+    "title": "PROMINE: propofol frente a ketamina en la intubación de secuencia rápida del paciente crítico",
+    "seo_title": "PROMINE trial: propofol frente a ketamina en la intubación de secuenc…",
+    "description": "PROMINE: La presión arterial media más baja en los primeros diez minutos fue 66 frente a 60 mmHg a favor de la ketamina, sin significancia (diferencia 6.0; IC…",
+    "clusters": [
+      {
+        "name": "Ventilación e insuficiencia respiratoria",
+        "path": "/medicina-critica/ventilacion-respiratoria/",
+        "url": "https://resumenestrials.com/medicina-critica/ventilacion-respiratoria/"
+      },
+      {
+        "name": "Hemodinámica y cardiovascular",
+        "path": "/medicina-critica/hemodinamica-cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-critica/hemodinamica-cardiovascular/"
+      }
+    ]
   },
   "12": {
     "slug": "relieve-aki-ultrafiltracion-neta-restrictiva-liberal-lesion-renal-aguda",
     "path": "/trials/relieve-aki-ultrafiltracion-neta-restrictiva-liberal-lesion-renal-aguda/",
     "url": "https://resumenestrials.com/trials/relieve-aki-ultrafiltracion-neta-restrictiva-liberal-lesion-renal-aguda/",
-    "title": "RELIEVE-AKI: ultrafiltración neta restrictiva frente a liberal en la lesión renal aguda"
+    "title": "RELIEVE-AKI: ultrafiltración neta restrictiva frente a liberal en la lesión renal aguda",
+    "seo_title": "RELIEVE-AKI trial: ultrafiltración neta restrictiva frente a liberal…",
+    "description": "RELIEVE-AKI: La separación en la tasa de ultrafiltración administrada fue mínima, de 2.05 frente a 1.81 mL/kg/h (P ajustada=0.4), y no alcanzó el umbral de…",
+    "clusters": [
+      {
+        "name": "Renal y ácido-base",
+        "path": "/medicina-critica/renal-acido-base/",
+        "url": "https://resumenestrials.com/medicina-critica/renal-acido-base/"
+      }
+    ]
   },
   "13": {
     "slug": "swift-sangre-total-prehospitalaria-hemocomponentes-hemorragia-traumatica-grave",
     "path": "/trials/swift-sangre-total-prehospitalaria-hemocomponentes-hemorragia-traumatica-grave/",
     "url": "https://resumenestrials.com/trials/swift-sangre-total-prehospitalaria-hemocomponentes-hemorragia-traumatica-grave/",
-    "title": "SWiFT: sangre total prehospitalaria frente a hemocomponentes en la hemorragia traumática grave"
+    "title": "SWiFT: sangre total prehospitalaria frente a hemocomponentes en la hemorragia traumática grave",
+    "seo_title": "SWiFT trial: sangre total prehospitalaria frente a hemocomponentes en…",
+    "description": "SWiFT: El desenlace combinado de muerte o transfusión masiva a 24 horas fue casi idéntico: 48.7% frente a 47.7% (RR 1.02; IC 95% 0.80-1.31; P=0.84). La sangre…",
+    "clusters": []
   },
   "14": {
     "slug": "towar-sangre-total-tipo-prehospitalaria-hemocomponentes-trauma-hemorragia",
     "path": "/trials/towar-sangre-total-tipo-prehospitalaria-hemocomponentes-trauma-hemorragia/",
     "url": "https://resumenestrials.com/trials/towar-sangre-total-tipo-prehospitalaria-hemocomponentes-trauma-hemorragia/",
-    "title": "TOWAR: sangre total tipo O prehospitalaria frente a hemocomponentes en el trauma con hemorragia"
+    "title": "TOWAR: sangre total tipo O prehospitalaria frente a hemocomponentes en el trauma con hemorragia",
+    "seo_title": "TOWAR trial: sangre total tipo O prehospitalaria frente a hemocompone…",
+    "description": "TOWAR: La mortalidad a 30 días fue 25.9% frente a 20.5% (OR ajustado 1.24; IC 95% 0.87-1.76; P=0.24), sin diferencia significativa. La sangre total…",
+    "clusters": [
+      {
+        "name": "Sepsis y shock",
+        "path": "/medicina-critica/sepsis-shock/",
+        "url": "https://resumenestrials.com/medicina-critica/sepsis-shock/"
+      },
+      {
+        "name": "Hemodinámica y cardiovascular",
+        "path": "/medicina-critica/hemodinamica-cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-critica/hemodinamica-cardiovascular/"
+      }
+    ]
   },
   "15": {
     "slug": "smart-decision-suspension-continuacion-betabloqueador-tras-infarto-miocardio",
     "path": "/trials/smart-decision-suspension-continuacion-betabloqueador-tras-infarto-miocardio/",
     "url": "https://resumenestrials.com/trials/smart-decision-suspension-continuacion-betabloqueador-tras-infarto-miocardio/",
-    "title": "SMART-DECISION: suspensión frente a continuación del betabloqueador tras el infarto de miocardio"
+    "title": "SMART-DECISION: suspensión frente a continuación del betabloqueador tras el infarto de miocardio",
+    "seo_title": "SMART-DECISION trial: suspensión frente a continuación del betabloque…",
+    "description": "SMART-DECISION: El desenlace primario compuesto ocurrió en el 7.2% frente al 9.0% (HR 0.80; IC 95% 0.57-1.13; P=0.001 para no inferioridad), cumpliendo el…",
+    "clusters": [
+      {
+        "name": "Cardiología y prevención cardiovascular",
+        "path": "/medicina-interna/cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-interna/cardiovascular/"
+      }
+    ]
   },
   "16": {
     "slug": "trident-tres-antihipertensivos-dosis-bajas-sola-pildora-tras-hemorragia-intracerebral",
     "path": "/trials/trident-tres-antihipertensivos-dosis-bajas-sola-pildora-tras-hemorragia-intracerebral/",
     "url": "https://resumenestrials.com/trials/trident-tres-antihipertensivos-dosis-bajas-sola-pildora-tras-hemorragia-intracerebral/",
-    "title": "TRIDENT: tres antihipertensivos a dosis bajas en una sola píldora tras la hemorragia intracerebral"
+    "title": "TRIDENT: tres antihipertensivos a dosis bajas en una sola píldora tras la hemorragia intracerebral",
+    "seo_title": "TRIDENT trial: tres antihipertensivos a dosis bajas en una sola píldo…",
+    "description": "TRIDENT: El ictus recurrente ocurrió en el 4.6% frente al 7.4% (HR 0.61; IC 95% 0.41-0.92; P=0.02), con un número necesario a tratar de 35. La píldora triple…",
+    "clusters": [
+      {
+        "name": "Cardiología y prevención cardiovascular",
+        "path": "/medicina-interna/cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-interna/cardiovascular/"
+      },
+      {
+        "name": "Neurología",
+        "path": "/medicina-interna/neurologia/",
+        "url": "https://resumenestrials.com/medicina-interna/neurologia/"
+      }
+    ]
   },
   "17": {
     "slug": "hi-peitho-fibrinolisis-dirigida-cateter-facilitada-ultrasonido-embolia-pulmonar-aguda-riesgo",
     "path": "/trials/hi-peitho-fibrinolisis-dirigida-cateter-facilitada-ultrasonido-embolia-pulmonar-aguda-riesgo/",
     "url": "https://resumenestrials.com/trials/hi-peitho-fibrinolisis-dirigida-cateter-facilitada-ultrasonido-embolia-pulmonar-aguda-riesgo/",
-    "title": "HI-PEITHO: fibrinólisis dirigida por catéter y facilitada por ultrasonido en la embolia pulmonar aguda de riesgo intermedio"
+    "title": "HI-PEITHO: fibrinólisis dirigida por catéter y facilitada por ultrasonido en la embolia pulmonar aguda de riesgo intermedio",
+    "seo_title": "HI-PEITHO trial: fibrinólisis dirigida por catéter y facilitada por u…",
+    "description": "HI-PEITHO: El desenlace combinado a 7 días cayó del 10.3% al 4.0% (RR 0.39; IC 95% 0.20-0.77; P=0.005), impulsado por menos deterioro cardiorrespiratorio. No…",
+    "clusters": [
+      {
+        "name": "Ventilación e insuficiencia respiratoria",
+        "path": "/medicina-critica/ventilacion-respiratoria/",
+        "url": "https://resumenestrials.com/medicina-critica/ventilacion-respiratoria/"
+      },
+      {
+        "name": "Neurocríticos",
+        "path": "/medicina-critica/neurocriticos/",
+        "url": "https://resumenestrials.com/medicina-critica/neurocriticos/"
+      },
+      {
+        "name": "Cardiología y prevención cardiovascular",
+        "path": "/medicina-interna/cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-interna/cardiovascular/"
+      },
+      {
+        "name": "Neumología",
+        "path": "/medicina-interna/neumologia/",
+        "url": "https://resumenestrials.com/medicina-interna/neumologia/"
+      }
+    ]
   },
   "18": {
     "slug": "vesalius-cv-evolocumab-pacientes-infarto-miocardio-ni-ictus-previos",
     "path": "/trials/vesalius-cv-evolocumab-pacientes-infarto-miocardio-ni-ictus-previos/",
     "url": "https://resumenestrials.com/trials/vesalius-cv-evolocumab-pacientes-infarto-miocardio-ni-ictus-previos/",
-    "title": "VESALIUS-CV: evolocumab en pacientes sin infarto de miocardio ni ictus previos"
+    "title": "VESALIUS-CV: evolocumab en pacientes sin infarto de miocardio ni ictus previos",
+    "seo_title": "VESALIUS-CV trial: evolocumab en pacientes sin infarto de miocardio n…",
+    "description": "VESALIUS-CV: El MACE de 3 puntos bajo del 8.0% al 6.2% a cinco anos (HR 0.75; IC 95% 0.65-0.86; P<0.001), con un numero necesario a tratar de 56. El…",
+    "clusters": [
+      {
+        "name": "Cardiología y prevención cardiovascular",
+        "path": "/medicina-interna/cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-interna/cardiovascular/"
+      },
+      {
+        "name": "Renal y metabolismo",
+        "path": "/medicina-interna/renal-metabolica/",
+        "url": "https://resumenestrials.com/medicina-interna/renal-metabolica/"
+      },
+      {
+        "name": "Neurología",
+        "path": "/medicina-interna/neurologia/",
+        "url": "https://resumenestrials.com/medicina-interna/neurologia/"
+      }
+    ]
   },
   "19": {
     "slug": "oriental-mevo-trombectomia-endovascular-ictus-oclusion-vaso-mediano",
     "path": "/trials/oriental-mevo-trombectomia-endovascular-ictus-oclusion-vaso-mediano/",
     "url": "https://resumenestrials.com/trials/oriental-mevo-trombectomia-endovascular-ictus-oclusion-vaso-mediano/",
-    "title": "ORIENTAL-MeVO: trombectomia endovascular en el ictus por oclusion de vaso mediano"
+    "title": "ORIENTAL-MeVO: trombectomia endovascular en el ictus por oclusion de vaso mediano",
+    "seo_title": "ORIENTAL-MeVO trial: trombectomia endovascular en el ictus por oclusi…",
+    "description": "ORIENTAL-MeVO: La independencia funcional a 90 dias paso del 46.6% al 58.6% (RR ajustado 1.24; IC 95% 1.07-1.44; P=0.004), con un numero necesario a tratar de…",
+    "clusters": [
+      {
+        "name": "Neurocríticos",
+        "path": "/medicina-critica/neurocriticos/",
+        "url": "https://resumenestrials.com/medicina-critica/neurocriticos/"
+      },
+      {
+        "name": "Neurología",
+        "path": "/medicina-interna/neurologia/",
+        "url": "https://resumenestrials.com/medicina-interna/neurologia/"
+      }
+    ]
   },
   "20": {
     "slug": "tigris-hemoadsorcion-polimixina-b-shock-septico-endotoxico",
     "path": "/trials/tigris-hemoadsorcion-polimixina-b-shock-septico-endotoxico/",
     "url": "https://resumenestrials.com/trials/tigris-hemoadsorcion-polimixina-b-shock-septico-endotoxico/",
-    "title": "TIGRIS: hemoadsorción con polimixina B en el shock séptico endotóxico"
+    "title": "TIGRIS: hemoadsorción con polimixina B en el shock séptico endotóxico",
+    "seo_title": "TIGRIS trial: hemoadsorción con polimixina B en el shock séptico endo…",
+    "description": "TIGRIS: La mortalidad a 28 días fue del 39% frente al 45% a favor de la polimixina B, con una probabilidad posterior de beneficio del 95.3%, justo en el…",
+    "clusters": [
+      {
+        "name": "Sepsis y shock",
+        "path": "/medicina-critica/sepsis-shock/",
+        "url": "https://resumenestrials.com/medicina-critica/sepsis-shock/"
+      },
+      {
+        "name": "Hemodinámica y cardiovascular",
+        "path": "/medicina-critica/hemodinamica-cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-critica/hemodinamica-cardiovascular/"
+      }
+    ]
   },
   "21": {
     "slug": "e-crrt-integracion-separacion-circuito-depuracion-renal-continua-paciente-ecmo",
     "path": "/trials/e-crrt-integracion-separacion-circuito-depuracion-renal-continua-paciente-ecmo/",
     "url": "https://resumenestrials.com/trials/e-crrt-integracion-separacion-circuito-depuracion-renal-continua-paciente-ecmo/",
-    "title": "E-CRRT: integración frente a separación del circuito de depuración renal continua en el paciente con ECMO"
+    "title": "E-CRRT: integración frente a separación del circuito de depuración renal continua en el paciente con ECMO",
+    "seo_title": "E-CRRT trial: integración frente a separación del circuito de depurac…",
+    "description": "E-CRRT: La duración mediana del circuito no difirió: 72 frente a 71 horas (p=0.52). Tampoco cambiaron la mortalidad a 28 días (32.5% frente al 35%) ni los…",
+    "clusters": [
+      {
+        "name": "Renal y ácido-base",
+        "path": "/medicina-critica/renal-acido-base/",
+        "url": "https://resumenestrials.com/medicina-critica/renal-acido-base/"
+      }
+    ]
   },
   "22": {
     "slug": "shosreb-remimazolam-besilato-propofol-sedacion-ligera-corta-duracion-uci",
     "path": "/trials/shosreb-remimazolam-besilato-propofol-sedacion-ligera-corta-duracion-uci/",
     "url": "https://resumenestrials.com/trials/shosreb-remimazolam-besilato-propofol-sedacion-ligera-corta-duracion-uci/",
-    "title": "SHOSREB: remimazolam besilato frente a propofol para la sedación ligera de corta duración en la UCI"
+    "title": "SHOSREB: remimazolam besilato frente a propofol para la sedación ligera de corta duración en la UCI",
+    "seo_title": "SHOSREB trial: remimazolam besilato frente a propofol para la sedació…",
+    "description": "SHOSREB: La sedación exitosa fue del 97.5% en ambos grupos (diferencia 0; IC 95%, -6.5% a 6.4%), dentro del margen de no inferioridad del -8%. El remimazolam…",
+    "clusters": [
+      {
+        "name": "Ventilación e insuficiencia respiratoria",
+        "path": "/medicina-critica/ventilacion-respiratoria/",
+        "url": "https://resumenestrials.com/medicina-critica/ventilacion-respiratoria/"
+      }
+    ]
   },
   "23": {
     "slug": "vitacca-vitamina-c-intravenosa-temprana-dosis-altas-tras-paro-cardiaco",
     "path": "/trials/vitacca-vitamina-c-intravenosa-temprana-dosis-altas-tras-paro-cardiaco/",
     "url": "https://resumenestrials.com/trials/vitacca-vitamina-c-intravenosa-temprana-dosis-altas-tras-paro-cardiaco/",
-    "title": "VITaCCA: vitamina C intravenosa temprana a dosis altas tras el paro cardiaco extrahospitalario"
+    "title": "VITaCCA: vitamina C intravenosa temprana a dosis altas tras el paro cardiaco extrahospitalario",
+    "seo_title": "VITaCCA trial: vitamina C intravenosa temprana a dosis altas tras el…",
+    "description": "VITaCCA: La vitamina C no redujo la disfunción orgánica a las 96 horas y la dosis de 10 g la empeoró: el cambio en la puntuación R-SOFA fue de -3.2 con…",
+    "clusters": [
+      {
+        "name": "Neurocríticos",
+        "path": "/medicina-critica/neurocriticos/",
+        "url": "https://resumenestrials.com/medicina-critica/neurocriticos/"
+      },
+      {
+        "name": "Renal y ácido-base",
+        "path": "/medicina-critica/renal-acido-base/",
+        "url": "https://resumenestrials.com/medicina-critica/renal-acido-base/"
+      },
+      {
+        "name": "Paro cardiaco y resucitación",
+        "path": "/medicina-critica/paro-resucitacion/",
+        "url": "https://resumenestrials.com/medicina-critica/paro-resucitacion/"
+      }
+    ]
   },
   "24": {
     "slug": "reboarrest-oclusion-aortica-balon-reboa-prehospitalaria-paro-cardiaco-extrahospitalario-no",
     "path": "/trials/reboarrest-oclusion-aortica-balon-reboa-prehospitalaria-paro-cardiaco-extrahospitalario-no/",
     "url": "https://resumenestrials.com/trials/reboarrest-oclusion-aortica-balon-reboa-prehospitalaria-paro-cardiaco-extrahospitalario-no/",
-    "title": "REBOARREST: oclusión aórtica con balón (REBOA) prehospitalaria en el paro cardiaco extrahospitalario no traumático"
+    "title": "REBOARREST: oclusión aórtica con balón (REBOA) prehospitalaria en el paro cardiaco extrahospitalario no traumático",
+    "seo_title": "REBOARREST trial: oclusión aórtica con balón (REBOA) prehospitalaria…",
+    "description": "REBOARREST: La REBOA no aumentó el retorno de la circulación sostenido: 28% con REBOA frente al 26% con soporte vital avanzado solo (diferencia de riesgo…",
+    "clusters": [
+      {
+        "name": "Sepsis y shock",
+        "path": "/medicina-critica/sepsis-shock/",
+        "url": "https://resumenestrials.com/medicina-critica/sepsis-shock/"
+      },
+      {
+        "name": "Paro cardiaco y resucitación",
+        "path": "/medicina-critica/paro-resucitacion/",
+        "url": "https://resumenestrials.com/medicina-critica/paro-resucitacion/"
+      }
+    ]
   },
   "25": {
     "slug": "ventsetfib-ajustes-ventilador-optimizados-broncoscopia-flexible-ventilacion-mecanica",
     "path": "/trials/ventsetfib-ajustes-ventilador-optimizados-broncoscopia-flexible-ventilacion-mecanica/",
     "url": "https://resumenestrials.com/trials/ventsetfib-ajustes-ventilador-optimizados-broncoscopia-flexible-ventilacion-mecanica/",
-    "title": "VentSetFib: ajustes del ventilador optimizados para la broncoscopia flexible durante la ventilación mecánica"
+    "title": "VentSetFib: ajustes del ventilador optimizados para la broncoscopia flexible durante la ventilación mecánica",
+    "seo_title": "VentSetFib trial: ajustes del ventilador optimizados para la broncosc…",
+    "description": "VentSetFib: Los ajustes optimizados casi eliminaron el evento adverso grave: ocurrió en 1 de 23 (4%) frente a 22 de 23 (96%) con los ajustes convencionales…",
+    "clusters": [
+      {
+        "name": "Ventilación e insuficiencia respiratoria",
+        "path": "/medicina-critica/ventilacion-respiratoria/",
+        "url": "https://resumenestrials.com/medicina-critica/ventilacion-respiratoria/"
+      }
+    ]
   },
   "26": {
     "slug": "imodern-revascularizacion-coronaria-inmediata-guiada-ifr-diferida-guiada-resonancia-estres",
     "path": "/trials/imodern-revascularizacion-coronaria-inmediata-guiada-ifr-diferida-guiada-resonancia-estres/",
     "url": "https://resumenestrials.com/trials/imodern-revascularizacion-coronaria-inmediata-guiada-ifr-diferida-guiada-resonancia-estres/",
-    "title": "iMODERN: revascularización coronaria inmediata guiada por iFR frente a diferida guiada por resonancia de estrés en las lesiones no culpables del infarto con elevación del ST"
+    "title": "iMODERN: revascularización coronaria inmediata guiada por iFR frente a diferida guiada por resonancia de estrés en las lesiones no culpables del infarto con elevación del ST",
+    "seo_title": "iMODERN trial: revascularización coronaria inmediata guiada por iFR f…",
+    "description": "iMODERN: No hubo diferencia en el desenlace primario: ocurrió en 10.6% con la estrategia inmediata guiada por iFR frente a 10.2% con la diferida guiada por…",
+    "clusters": [
+      {
+        "name": "Cardiología y prevención cardiovascular",
+        "path": "/medicina-interna/cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-interna/cardiovascular/"
+      }
+    ]
   },
   "27": {
     "slug": "cobrra-apixaban-rivaroxaban-riesgo-hemorragia-enfermedad-tromboembolica-venosa-aguda",
     "path": "/trials/cobrra-apixaban-rivaroxaban-riesgo-hemorragia-enfermedad-tromboembolica-venosa-aguda/",
     "url": "https://resumenestrials.com/trials/cobrra-apixaban-rivaroxaban-riesgo-hemorragia-enfermedad-tromboembolica-venosa-aguda/",
-    "title": "COBRRA: apixabán frente a rivaroxabán y riesgo de hemorragia en la enfermedad tromboembólica venosa aguda"
+    "title": "COBRRA: apixabán frente a rivaroxabán y riesgo de hemorragia en la enfermedad tromboembólica venosa aguda",
+    "seo_title": "COBRRA trial: apixabán frente a rivaroxabán y riesgo de hemorragia en…",
+    "description": "COBRRA: Apixabán fue superior: la hemorragia clínicamente relevante ocurrió en 3.3% frente a 7.1% con rivaroxabán (riesgo relativo 0.46; IC 95%, 0.33 a 0.65…",
+    "clusters": [
+      {
+        "name": "Cardiología y prevención cardiovascular",
+        "path": "/medicina-interna/cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-interna/cardiovascular/"
+      }
+    ]
   },
   "28": {
     "slug": "closure-af-cierre-percutaneo-orejuela-izquierda-mejor-tratamiento-medico-fibrilacion-auricular",
     "path": "/trials/closure-af-cierre-percutaneo-orejuela-izquierda-mejor-tratamiento-medico-fibrilacion-auricular/",
     "url": "https://resumenestrials.com/trials/closure-af-cierre-percutaneo-orejuela-izquierda-mejor-tratamiento-medico-fibrilacion-auricular/",
-    "title": "CLOSURE-AF: cierre percutáneo de la orejuela izquierda frente al mejor tratamiento médico en la fibrilación auricular de alto riesgo"
+    "title": "CLOSURE-AF: cierre percutáneo de la orejuela izquierda frente al mejor tratamiento médico en la fibrilación auricular de alto riesgo",
+    "seo_title": "CLOSURE-AF trial: cierre percutáneo de la orejuela izquierda frente a…",
+    "description": "CLOSURE-AF: El cierre de la orejuela no demostró no inferioridad: 16.8 frente a 13.3 eventos por 100 pacientes-año (diferencia en supervivencia media…",
+    "clusters": [
+      {
+        "name": "Cardiología y prevención cardiovascular",
+        "path": "/medicina-interna/cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-interna/cardiovascular/"
+      },
+      {
+        "name": "Neurología",
+        "path": "/medicina-interna/neurologia/",
+        "url": "https://resumenestrials.com/medicina-interna/neurologia/"
+      }
+    ]
   },
   "29": {
     "slug": "champion-af-cierre-percutaneo-orejuela-izquierda-anticoagulantes-orales-directos-fibrilacion",
     "path": "/trials/champion-af-cierre-percutaneo-orejuela-izquierda-anticoagulantes-orales-directos-fibrilacion/",
     "url": "https://resumenestrials.com/trials/champion-af-cierre-percutaneo-orejuela-izquierda-anticoagulantes-orales-directos-fibrilacion/",
-    "title": "CHAMPION-AF: cierre percutáneo de la orejuela izquierda frente a anticoagulantes orales directos en la fibrilación auricular apta para anticoagular"
+    "title": "CHAMPION-AF: cierre percutáneo de la orejuela izquierda frente a anticoagulantes orales directos en la fibrilación auricular apta para anticoagular",
+    "seo_title": "CHAMPION-AF trial: cierre percutáneo de la orejuela izquierda frente…",
+    "description": "CHAMPION-AF: El dispositivo fue no inferior en eficacia ( 5.7% frente a 4.8%; diferencia 0.9 puntos; IC 95%, -0.8 a 2.6; p<0.001 para no inferioridad ) y…",
+    "clusters": [
+      {
+        "name": "Cardiología y prevención cardiovascular",
+        "path": "/medicina-interna/cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-interna/cardiovascular/"
+      },
+      {
+        "name": "Neurología",
+        "path": "/medicina-interna/neurologia/",
+        "url": "https://resumenestrials.com/medicina-interna/neurologia/"
+      }
+    ]
   },
   "30": {
     "slug": "ez-pave-objetivo-intensivo-colesterol-ldl-menor-55-mg-dl-menor",
     "path": "/trials/ez-pave-objetivo-intensivo-colesterol-ldl-menor-55-mg-dl-menor/",
     "url": "https://resumenestrials.com/trials/ez-pave-objetivo-intensivo-colesterol-ldl-menor-55-mg-dl-menor/",
-    "title": "Ez-PAVE: objetivo intensivo de colesterol LDL menor de 55 mg/dl frente a menor de 70 mg/dl en la enfermedad cardiovascular aterosclerótica"
+    "title": "Ez-PAVE: objetivo intensivo de colesterol LDL menor de 55 mg/dl frente a menor de 70 mg/dl en la enfermedad cardiovascular aterosclerótica",
+    "seo_title": "Ez-PAVE trial: objetivo intensivo de colesterol LDL menor de 55 mg/dl…",
+    "description": "Ez-PAVE: El objetivo intensivo fue superior: el compuesto primario ocurrió en 6.6% frente a 9.7% con el objetivo convencional (razón de riesgos 0.67; IC 95%…",
+    "clusters": [
+      {
+        "name": "Cardiología y prevención cardiovascular",
+        "path": "/medicina-interna/cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-interna/cardiovascular/"
+      }
+    ]
   },
   "31": {
     "slug": "snap-cefazolina-penicilinas-antiestafilococicas-bacteriemia-staphylococcus-aureus-sensible",
     "path": "/trials/snap-cefazolina-penicilinas-antiestafilococicas-bacteriemia-staphylococcus-aureus-sensible/",
     "url": "https://resumenestrials.com/trials/snap-cefazolina-penicilinas-antiestafilococicas-bacteriemia-staphylococcus-aureus-sensible/",
-    "title": "SNAP: cefazolina frente a penicilinas antiestafilocócicas en la bacteriemia por Staphylococcus aureus sensible a meticilina"
+    "title": "SNAP: cefazolina frente a penicilinas antiestafilocócicas en la bacteriemia por Staphylococcus aureus sensible a meticilina",
+    "seo_title": "SNAP trial: cefazolina frente a penicilinas antiestafilocócicas en la…",
+    "description": "SNAP: La cefazolina fue no inferior en mortalidad a 90 días ( 15.0% frente a 17.0%; razón de probabilidades ajustada 0.81; intervalo de credibilidad del 95%…",
+    "clusters": [
+      {
+        "name": "Renal y ácido-base",
+        "path": "/medicina-critica/renal-acido-base/",
+        "url": "https://resumenestrials.com/medicina-critica/renal-acido-base/"
+      },
+      {
+        "name": "Infecciones y antibióticos",
+        "path": "/medicina-critica/infecciones-antibioticos/",
+        "url": "https://resumenestrials.com/medicina-critica/infecciones-antibioticos/"
+      },
+      {
+        "name": "Enfermedades infecciosas",
+        "path": "/medicina-interna/infecciosas/",
+        "url": "https://resumenestrials.com/medicina-interna/infecciosas/"
+      },
+      {
+        "name": "Renal y metabolismo",
+        "path": "/medicina-interna/renal-metabolica/",
+        "url": "https://resumenestrials.com/medicina-interna/renal-metabolica/"
+      }
+    ]
   },
   "32": {
     "slug": "panoramic-y-cantreatcovid-nirmatrelvir-ritonavir-oral-pacientes-ambulatorios-vacunados-mayor",
     "path": "/trials/panoramic-y-cantreatcovid-nirmatrelvir-ritonavir-oral-pacientes-ambulatorios-vacunados-mayor/",
     "url": "https://resumenestrials.com/trials/panoramic-y-cantreatcovid-nirmatrelvir-ritonavir-oral-pacientes-ambulatorios-vacunados-mayor/",
-    "title": "PANORAMIC y CanTreatCOVID: nirmatrelvir-ritonavir oral en pacientes ambulatorios vacunados de mayor riesgo con Covid-19"
+    "title": "PANORAMIC y CanTreatCOVID: nirmatrelvir-ritonavir oral en pacientes ambulatorios vacunados de mayor riesgo con Covid-19",
+    "seo_title": "PANORAMIC y CanTreatCOVID trial: nirmatrelvir-ritonavir oral en pacie…",
+    "description": "PANORAMIC y CanTreatCOVID: No hubo reducción de la hospitalización o la muerte: 0.8% frente a 0.7% en PANORAMIC (razón de probabilidades 1.18; intervalo de…",
+    "clusters": [
+      {
+        "name": "Enfermedades infecciosas",
+        "path": "/medicina-interna/infecciosas/",
+        "url": "https://resumenestrials.com/medicina-interna/infecciosas/"
+      }
+    ]
   },
   "33": {
     "slug": "fast-iii-vffr-obtenido-angiografia-ffr-guia-presion-guiar-revascularizacion-coronaria",
     "path": "/trials/fast-iii-vffr-obtenido-angiografia-ffr-guia-presion-guiar-revascularizacion-coronaria/",
     "url": "https://resumenestrials.com/trials/fast-iii-vffr-obtenido-angiografia-ffr-guia-presion-guiar-revascularizacion-coronaria/",
-    "title": "FAST III: vFFR obtenido de la angiografía frente a FFR con guía de presión para guiar la revascularización coronaria"
+    "title": "FAST III: vFFR obtenido de la angiografía frente a FFR con guía de presión para guiar la revascularización coronaria",
+    "seo_title": "FAST III trial: vFFR obtenido de la angiografía frente a FFR con guía…",
+    "description": "FAST III: El vFFR fue no inferior: el desenlace primario ocurrió en el 7.5% con vFFR frente al 7.5% con FFR (diferencia de riesgo -0.02 puntos porcentuales…",
+    "clusters": [
+      {
+        "name": "Cardiología y prevención cardiovascular",
+        "path": "/medicina-interna/cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-interna/cardiovascular/"
+      }
+    ]
   },
   "34": {
     "slug": "chip-bcis3-descarga-ventriculo-izquierdo-bomba-flujo-microaxial-cuidado-estandar-intervencion",
     "path": "/trials/chip-bcis3-descarga-ventriculo-izquierdo-bomba-flujo-microaxial-cuidado-estandar-intervencion/",
     "url": "https://resumenestrials.com/trials/chip-bcis3-descarga-ventriculo-izquierdo-bomba-flujo-microaxial-cuidado-estandar-intervencion/",
-    "title": "CHIP-BCIS3: descarga del ventrículo izquierdo con bomba de flujo microaxial frente a cuidado estándar en la intervención coronaria percutánea compleja de alto riesgo"
+    "title": "CHIP-BCIS3: descarga del ventrículo izquierdo con bomba de flujo microaxial frente a cuidado estándar en la intervención coronaria percutánea compleja de alto riesgo",
+    "seo_title": "CHIP-BCIS3 trial: descarga del ventrículo izquierdo con bomba de fluj…",
+    "description": "CHIP-BCIS3: No hubo beneficio: la razón de victorias del compuesto jerárquico fue de 0.85 a favor del cuidado estándar (IC 95%, 0.63 a 1.15; p=0.30) , con más…",
+    "clusters": [
+      {
+        "name": "Cardiología y prevención cardiovascular",
+        "path": "/medicina-interna/cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-interna/cardiovascular/"
+      }
+    ]
   },
   "35": {
     "slug": "find-ckd-finerenona-placebo-enfermedad-renal-cronica-diabetes",
     "path": "/trials/find-ckd-finerenona-placebo-enfermedad-renal-cronica-diabetes/",
     "url": "https://resumenestrials.com/trials/find-ckd-finerenona-placebo-enfermedad-renal-cronica-diabetes/",
-    "title": "FIND-CKD: finerenona frente a placebo en la enfermedad renal crónica sin diabetes"
+    "title": "FIND-CKD: finerenona frente a placebo en la enfermedad renal crónica sin diabetes",
+    "seo_title": "FIND-CKD trial: finerenona frente a placebo en la enfermedad renal cr…",
+    "description": "FIND-CKD: La finerenona frenó la caída: la pendiente total del filtrado fue de -3.3 frente a -4.0 ml/min/1.73 m2 al año con placebo (diferencia 0.7; IC 95%…",
+    "clusters": [
+      {
+        "name": "Renal y metabolismo",
+        "path": "/medicina-interna/renal-metabolica/",
+        "url": "https://resumenestrials.com/medicina-interna/renal-metabolica/"
+      }
+    ]
   },
   "36": {
     "slug": "adapt-af-des-monoterapia-anticoagulante-anticoagulante-mas-clopidogrel-fibrilacion-auricular",
     "path": "/trials/adapt-af-des-monoterapia-anticoagulante-anticoagulante-mas-clopidogrel-fibrilacion-auricular/",
     "url": "https://resumenestrials.com/trials/adapt-af-des-monoterapia-anticoagulante-anticoagulante-mas-clopidogrel-fibrilacion-auricular/",
-    "title": "ADAPT AF-DES: monoterapia con anticoagulante frente a anticoagulante más clopidogrel en la fibrilación auricular con stent liberador de fármaco"
+    "title": "ADAPT AF-DES: monoterapia con anticoagulante frente a anticoagulante más clopidogrel en la fibrilación auricular con stent liberador de fármaco",
+    "seo_title": "ADAPT AF-DES trial: monoterapia con anticoagulante frente a anticoagu…",
+    "description": "ADAPT AF-DES: La monoterapia fue no inferior y superior: los eventos adversos netos ocurrieron en el 9.6% frente al 17.2% con la combinación (razón de riesgos…",
+    "clusters": [
+      {
+        "name": "Cardiología y prevención cardiovascular",
+        "path": "/medicina-interna/cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-interna/cardiovascular/"
+      }
+    ]
   },
   "37": {
     "slug": "ocean-rivaroxaban-aspirina-tras-ablacion-exitosa-fibrilacion-auricular",
     "path": "/trials/ocean-rivaroxaban-aspirina-tras-ablacion-exitosa-fibrilacion-auricular/",
     "url": "https://resumenestrials.com/trials/ocean-rivaroxaban-aspirina-tras-ablacion-exitosa-fibrilacion-auricular/",
-    "title": "OCEAN: rivaroxabán frente a aspirina tras una ablación exitosa de fibrilación auricular"
+    "title": "OCEAN: rivaroxabán frente a aspirina tras una ablación exitosa de fibrilación auricular",
+    "seo_title": "OCEAN trial: rivaroxabán frente a aspirina tras una ablación exitosa…",
+    "description": "OCEAN: No hubo diferencia significativa: el desenlace primario ocurrió en el 0.8% con rivaroxabán frente al 1.4% con aspirina (riesgo relativo 0.56; IC 95%…",
+    "clusters": [
+      {
+        "name": "Cardiología y prevención cardiovascular",
+        "path": "/medicina-interna/cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-interna/cardiovascular/"
+      },
+      {
+        "name": "Neurología",
+        "path": "/medicina-interna/neurologia/",
+        "url": "https://resumenestrials.com/medicina-interna/neurologia/"
+      }
+    ]
   },
   "38": {
     "slug": "beat-tuberculosis-estrategia-seis-meses-tratamiento-estandar-tuberculosis-resistente-rifampicina",
     "path": "/trials/beat-tuberculosis-estrategia-seis-meses-tratamiento-estandar-tuberculosis-resistente-rifampicina/",
     "url": "https://resumenestrials.com/trials/beat-tuberculosis-estrategia-seis-meses-tratamiento-estandar-tuberculosis-resistente-rifampicina/",
-    "title": "BEAT Tuberculosis: estrategia de seis meses frente al tratamiento estándar en la tuberculosis resistente a rifampicina"
+    "title": "BEAT Tuberculosis: estrategia de seis meses frente al tratamiento estándar en la tuberculosis resistente a rifampicina",
+    "seo_title": "BEAT Tuberculosis trial: estrategia de seis meses frente al tratamien…",
+    "description": "BEAT Tuberculosis: La estrategia de seis meses fue no inferior: el desenlace exitoso ocurrió en el 86.1% con la estrategia de seis meses frente al 86.0% con…",
+    "clusters": [
+      {
+        "name": "Enfermedades infecciosas",
+        "path": "/medicina-interna/infecciosas/",
+        "url": "https://resumenestrials.com/medicina-interna/infecciosas/"
+      },
+      {
+        "name": "Neumología",
+        "path": "/medicina-interna/neumologia/",
+        "url": "https://resumenestrials.com/medicina-interna/neumologia/"
+      }
+    ]
   }
 }
