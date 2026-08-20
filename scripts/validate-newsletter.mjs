@@ -31,14 +31,14 @@ for (const token of ['[functions.notify-new-summaries]', 'verify_jwt = false']) 
 }
 
 for (const token of [
-  'newsletter_opt_in\", true',
+  'newsletter_opt_in", true',
   'email_confirmed_at',
   'RESEND_API_KEY',
   'https://api.resend.com/emails/batch',
   'Idempotency-Key',
   'run_attempt',
   'before_sha',
-  'head_branch !== \"main\"',
+  'head_branch !== "main"',
   '/installation/repositories?per_page=100',
   'x-github-token',
   'resumenes.json',
@@ -86,7 +86,7 @@ for (const token of [
   'if: always()',
   'failed_stage',
   'OUTCOME_HEALTH',
-  '\"status\": \"$status\"',
+  '"status": "$status"',
   'git push origin HEAD:main',
 ]) {
   if (!deploy.includes(token)) fail(`Workflow de despliegue incompleto: falta ${token}`);
