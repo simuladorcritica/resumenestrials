@@ -22,6 +22,20 @@ try{
   const accountText=(await account.innerText()).trim();
   assert(accountText==='Entrar o crear cuenta'||accountText==='Mi cuenta',`Portada: CTA de cuenta inesperado: ${accountText}`);
 
+  await page.waitForFunction((expected)=>document.querySelectorAll('#indice .fila').length>=expected,data.length,{timeout:10000});
+  assert(await page.locator('#indice .fila.rt-featured').count()===1,'Portada: debe existir exactamente un trial destacado después de cargar datos');
+
+  // Fuerza los mismos re-renders que antes eliminaban la clase visual destacada.
+  const search=page.locator('#q');
+  await search.fill('ARISE');
+  await page.waitForFunction(()=>document.querySelectorAll('#indice .fila').length===1,{timeout:10000});
+  await page.waitForTimeout(50);
+  assert(await page.locator('#indice .fila.rt-featured').count()===1,'Portada: el trial destacado se perdió tras filtrar');
+  await search.fill('');
+  await page.waitForFunction((expected)=>document.querySelectorAll('#indice .fila').length>=expected,data.length,{timeout:10000});
+  await page.waitForTimeout(50);
+  assert(await page.locator('#indice .fila.rt-featured').count()===1,'Portada: el trial destacado se perdió tras restaurar el índice');
+
   const year=page.locator('.grupo-anio .anio-num').first();
   assert(await year.isVisible(),'Portada: el año no es visible en el explorador');
   assert((await year.innerText()).trim()===String(newest.anio),'Portada: el año más reciente no coincide con los datos');
@@ -34,9 +48,10 @@ try{
   await page.setViewportSize({width:390,height:844});
   await page.waitForTimeout(200);
   assert(await account.isVisible(),'Portada móvil: CTA de cuenta no visible');
+  assert(await page.locator('#indice .fila.rt-featured').count()===1,'Portada móvil: falta trial destacado');
   const widths=await page.evaluate(()=>({client:document.documentElement.clientWidth,scroll:document.documentElement.scrollWidth}));
   assert(widths.scroll<=widths.client+2,`Portada móvil: overflow ${JSON.stringify(widths)}`);
 
   assert(errors.length===0,`Errores JavaScript: ${errors.join(' | ')}`);
-  console.log(`FINAL NAV PASS · cuenta visible · año ${newest.anio} · revista ${newest.revista}`);
+  console.log(`FINAL NAV PASS · cuenta visible · destacado persistente · año ${newest.anio} · revista ${newest.revista}`);
 }finally{await browser.close()}
