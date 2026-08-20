@@ -1,0 +1,114 @@
+[
+  {
+    "category": "Medicina Crítica",
+    "slug": "sepsis-shock",
+    "name": "Sepsis y shock",
+    "description": "Ensayos clínicos sobre sepsis, shock séptico, reanimación, líquidos y vasopresores, resumidos críticamente en español.",
+    "keywords": ["sepsis", "septico", "séptico", "shock", "vasopresor", "norepinefrina", "liquidos", "líquidos", "fluid", "lactato", "reanimacion", "reanimación"],
+    "min_items": 2
+  },
+  {
+    "category": "Medicina Crítica",
+    "slug": "ventilacion-respiratoria",
+    "name": "Ventilación e insuficiencia respiratoria",
+    "description": "Ensayos sobre ventilación mecánica, oxigenoterapia, intubación e insuficiencia respiratoria aguda en pacientes críticos.",
+    "keywords": ["ventilacion", "ventilación", "ventilador", "intubacion", "intubación", "oxigeno", "oxígeno", "alto flujo", "hipoxemia", "respiratoria", "pulmonar"],
+    "min_items": 2
+  },
+  {
+    "category": "Medicina Crítica",
+    "slug": "sdra-ecmo",
+    "name": "SDRA y ECMO",
+    "description": "Evidencia clínica sobre síndrome de dificultad respiratoria aguda, ventilación protectora, prono y ECMO.",
+    "keywords": ["sdra", "ards", "ecmo", "extracorporea", "extracorpórea", "prono", "prone"],
+    "min_items": 2
+  },
+  {
+    "category": "Medicina Crítica",
+    "slug": "neurocriticos",
+    "name": "Neurocríticos",
+    "description": "Ensayos clínicos relevantes en lesión cerebral aguda, ictus, hemorragia intracraneal, TCE y cuidados neurocríticos.",
+    "keywords": ["neuro", "tce", "traumatismo craneo", "ictus", "stroke", "intracrane", "subaracno", "cerebral", "estatus epilept", "status epilept"],
+    "min_items": 2
+  },
+  {
+    "category": "Medicina Crítica",
+    "slug": "renal-acido-base",
+    "name": "Renal y ácido-base",
+    "description": "Ensayos sobre lesión renal aguda, terapia de reemplazo renal, bicarbonato, electrolitos y trastornos ácido-base en pacientes críticos.",
+    "keywords": ["renal", "riñon", "riñón", "kidney", "aki", "lesion renal", "lesión renal", "dialisis", "diálisis", "bicarbonato", "acidosis", "electrolito"],
+    "min_items": 2
+  },
+  {
+    "category": "Medicina Crítica",
+    "slug": "hemodinamica-cardiovascular",
+    "name": "Hemodinámica y cardiovascular",
+    "description": "Ensayos clínicos sobre monitorización hemodinámica, presión arterial, perfusión, shock y soporte cardiovascular en cuidados críticos.",
+    "keywords": ["hemodinam", "presion arterial", "presión arterial", "perfusión", "perfusion", "cardiogen", "vasopresor", "inotrop", "shock"],
+    "min_items": 2
+  },
+  {
+    "category": "Medicina Crítica",
+    "slug": "paro-resucitacion",
+    "name": "Paro cardiaco y resucitación",
+    "description": "Ensayos sobre paro cardiaco, reanimación cardiopulmonar y cuidados posteriores a la recuperación de circulación espontánea.",
+    "keywords": ["paro cardiaco", "paro cardíaco", "cardiac arrest", "resucit", "reanimacion cardiopulmonar", "reanimación cardiopulmonar", "post-paro"],
+    "min_items": 2
+  },
+  {
+    "category": "Medicina Crítica",
+    "slug": "infecciones-antibioticos",
+    "name": "Infecciones y antibióticos",
+    "description": "Ensayos de infecciones graves, neumonía, estrategias antibióticas y tratamiento antimicrobiano en pacientes críticos.",
+    "keywords": ["antibiot", "antibiót", "infeccion", "infección", "neumonia", "neumonía", "pneumonia", "bacteriem", "antimicrob"],
+    "min_items": 2
+  },
+  {
+    "category": "Medicina Interna",
+    "slug": "cardiovascular",
+    "name": "Cardiología y prevención cardiovascular",
+    "description": "Ensayos clínicos de prevención cardiovascular, enfermedad coronaria, insuficiencia cardiaca, arritmias y tratamiento antitrombótico.",
+    "keywords": ["cardiovascular", "infarto", "miocard", "coronari", "aterosclero", "colesterol", "lipid", "evolocumab", "fibrilacion auricular", "fibrilación auricular", "ablacion", "ablación", "anticoag", "aspirina", "insuficiencia cardiaca", "insuficiencia cardíaca"],
+    "min_items": 2
+  },
+  {
+    "category": "Medicina Interna",
+    "slug": "infecciosas",
+    "name": "Enfermedades infecciosas",
+    "description": "Ensayos clínicos de tuberculosis, infecciones respiratorias, antivirales, antimicrobianos y otras enfermedades infecciosas de medicina interna.",
+    "keywords": ["tuberculosis", "infeccion", "infección", "antibiot", "antibiót", "antiviral", "virus", "covid", "neumonia", "neumonía"],
+    "min_items": 2
+  },
+  {
+    "category": "Medicina Interna",
+    "slug": "hematologia-oncologia",
+    "name": "Hematología y oncología",
+    "description": "Ensayos de hematología, mieloma, linfoma, leucemia, cáncer y terapias antineoplásicas relevantes para medicina interna.",
+    "keywords": ["mieloma", "linfoma", "leucemia", "cancer", "cáncer", "oncolog", "hematolog", "quimioter", "inmunoter"],
+    "min_items": 2
+  },
+  {
+    "category": "Medicina Interna",
+    "slug": "renal-metabolica",
+    "name": "Renal y metabolismo",
+    "description": "Ensayos sobre enfermedad renal, diabetes, obesidad, metabolismo y prevención de complicaciones cardiorrenales.",
+    "keywords": ["renal", "riñon", "riñón", "kidney", "diabetes", "glucosa", "obesidad", "metabol", "sglt", "electrolito"],
+    "min_items": 2
+  },
+  {
+    "category": "Medicina Interna",
+    "slug": "neurologia",
+    "name": "Neurología",
+    "description": "Ensayos clínicos de ictus, prevención cerebrovascular y otras enfermedades neurológicas relevantes para medicina interna.",
+    "keywords": ["ictus", "stroke", "cerebrovascular", "neurolog", "migra", "epilep", "demencia"],
+    "min_items": 2
+  },
+  {
+    "category": "Medicina Interna",
+    "slug": "neumologia",
+    "name": "Neumología",
+    "description": "Ensayos sobre EPOC, asma, enfermedad pulmonar e insuficiencia respiratoria relevantes para medicina interna.",
+    "keywords": ["epoc", "asma", "pulmonar", "respiratoria", "oxigeno", "oxígeno", "fibrosis", "neumonia", "neumonía"],
+    "min_items": 2
+  }
+]
