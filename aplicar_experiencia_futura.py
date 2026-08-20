@@ -7,7 +7,10 @@ STYLES = [
     '<link rel="stylesheet" href="/future-experience.css?v=1">',
     '<link rel="stylesheet" href="/future-experience-patch.css?v=1">',
 ]
-SCRIPT = '<script src="/future-experience.js?v=1" defer></script>'
+SCRIPTS = [
+    '<script src="/future-experience.js?v=1" defer></script>',
+    '<script src="/future-experience-final.js?v=1" defer></script>',
+]
 
 
 def inject(path: Path) -> bool:
@@ -20,9 +23,11 @@ def inject(path: Path) -> bool:
         if missing:
             source = source.replace('</head>', missing + '</head>', 1)
             changed = True
-    if SCRIPT not in source and '</body>' in source:
-        source = source.replace('</body>', SCRIPT + '</body>', 1)
-        changed = True
+    if '</body>' in source:
+        missing_scripts = ''.join(script for script in SCRIPTS if script not in source)
+        if missing_scripts:
+            source = source.replace('</body>', missing_scripts + '</body>', 1)
+            changed = True
     if changed:
         path.write_text(source, encoding="utf-8")
     return changed
