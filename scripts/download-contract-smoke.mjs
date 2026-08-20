@@ -31,6 +31,22 @@ function assertPdfContact(path) {
   for (const token of requiredContacts) assert(text.includes(token), `El PDF no contiene ${token}`);
 }
 
+async function shortDiagnostic(page, errors) {
+  const snapshot = await page.evaluate(() => ({
+    url: location.href,
+    title: document.title,
+    bodyClass: document.body?.className || '',
+    contenido: (document.getElementById('contenido')?.innerText || '').replace(/\s+/g, ' ').slice(0, 700),
+    buttons: [...document.querySelectorAll('[data-pdf-version]')].map((b) => ({
+      version: b.dataset.pdfVersion,
+      hidden: b.hidden,
+      display: getComputedStyle(b).display,
+      text: (b.textContent || '').replace(/\s+/g, ' ').trim(),
+    })),
+  }));
+  return `${JSON.stringify(snapshot)} · errores=${errors.join(' | ') || 'ninguno'}`;
+}
+
 const source = readFileSync('_includes/index-source.html', 'utf8');
 const fixture = `${source}\n<script type="module" src="internal-medicine-ux.js?v=1"></script>\n<script src="pdf-contact.js?v=2"></script>\n`;
 writeFileSync('index-smoke.html', fixture, 'utf8');
@@ -44,6 +60,11 @@ assert(entry?.path, `No existe ruta canónica para id ${sample.id}`);
 
 const browser = await chromium.launch({ headless: true });
 const page = await browser.newPage({ viewport: { width: 1600, height: 1000 }, acceptDownloads: true });
+const browserErrors = [];
+page.on('pageerror', (error) => browserErrors.push(`pageerror:${error.message}`));
+page.on('console', (message) => {
+  if (message.type() === 'error') browserErrors.push(`console:${message.text()}`);
+});
 
 await page.goto(`${BASE}/index-smoke.html`, { waitUntil: 'networkidle' });
 await page.waitForSelector('.fila-pdf .btn-pdf', { timeout: 15000 });
@@ -56,7 +77,6 @@ if (data.some((r) => r.corto)) {
   assert(/Descargar resumen breve PDF/i.test(indexBrief), `Etiqueta breve incorrecta en índice: ${indexBrief}`);
 }
 
-// Trial canónico: breadcrumb, descarga directa y resumen breve como página separada.
 await page.goto(`${BASE}${entry.path}`, { waitUntil: 'networkidle' });
 await page.waitForSelector(`[data-trial-download="${sample.id}"]`, { timeout: 15000 });
 assert(await page.locator('.migas').first().isVisible(), 'El trial canónico no muestra breadcrumb');
@@ -72,8 +92,6 @@ if (sample.corto) {
 const canonicalPdf = await download(page, `[data-trial-download="${sample.id}"]`, 'canonico-completo.pdf');
 assertPdfContact(canonicalPdf);
 
-// Las páginas dinámicas cargan fuentes/scripts externos: esperamos el DOM y luego
-// comprobamos explícitamente cada control, en vez de exigir networkidle global.
 await page.goto(`${BASE}/resumen.html?id=${sample.id}`, { waitUntil: 'domcontentloaded', timeout: 30000 });
 await page.waitForSelector('[data-pdf-version="completo"]', { timeout: 15000 });
 await page.waitForTimeout(300);
@@ -83,15 +101,22 @@ const fullText = await page.locator('[data-pdf-version="completo"]').first().inn
 assert(/Descargar resumen completo PDF/i.test(fullText), `Etiqueta completa incorrecta: ${fullText}`);
 
 if (sample.corto) {
+  browserErrors.length = 0;
   await page.goto(`${BASE}/resumen.html?id=${sample.id}&v=corto`, { waitUntil: 'domcontentloaded', timeout: 30000 });
-  await page.waitForSelector('[data-pdf-version="breve"]', { timeout: 15000 });
-  await page.waitForSelector('.migas .volver-top', { timeout: 15000 });
-  await page.waitForTimeout(300);
-  assert(await page.locator('body').evaluate((el) => el.classList.contains('modo-corto')), 'El resumen breve perdió su arquitectura estrecha');
+  try {
+    await page.waitForSelector('body.modo-corto', { timeout: 10000 });
+    await page.waitForSelector('[data-pdf-version="breve"]', { state: 'attached', timeout: 10000 });
+    await page.waitForFunction(() => {
+      const button = document.querySelector('[data-pdf-version="breve"]');
+      return button && !button.hidden && getComputedStyle(button).display !== 'none';
+    }, { timeout: 10000 });
+  } catch (error) {
+    throw new Error(`La versión breve no terminó de renderizar correctamente: ${await shortDiagnostic(page, browserErrors)}`);
+  }
+  await page.waitForSelector('.migas .volver-top', { timeout: 10000 });
   assert(await page.locator('article.corto').first().isVisible(), 'El resumen breve perdió su artículo monocolumna');
   const backText = (await page.locator('.migas .volver-top').first().innerText()).replace(/\s+/g, ' ');
   assert(/Volver al índice/i.test(backText), `El resumen breve perdió su navegación anterior: ${backText}`);
-  assert(await page.locator('[data-pdf-version="breve"]').first().isVisible(), 'El resumen breve no muestra su descarga');
   assert(!(await page.locator('[data-pdf-version="completo"]').first().isVisible()), 'El resumen breve muestra indebidamente la descarga completa');
   await page.waitForFunction(() => {
     const link = document.querySelector('.cambio-version');
