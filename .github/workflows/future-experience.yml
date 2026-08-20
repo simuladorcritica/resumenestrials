@@ -1,0 +1,65 @@
+name: Validar experiencia futura
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  future-experience:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validar sintaxis
+        run: |
+          node --check future-experience.js
+          node --check scripts/future-experience-smoke.mjs
+          python3 -m py_compile aplicar_experiencia_futura.py
+          python3 -m py_compile actualizar_agregar_editorial.py
+      - name: Generar exactamente el sitio final
+        run: |
+          python3 -m pip install --disable-pip-version-check pillow==11.3.0
+          python3 generar_seo.py
+          python3 generar_seo_semantico.py
+          python3 generar_seo_avanzado.py
+          python3 restaurar_arquitectura.py
+          python3 actualizar_agregar_editorial.py
+      - name: Verificar inyección global
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          targets=[Path('_includes/index-source.html'),Path('resumen.html'),Path('login.html'),Path('registro.html'),Path('medicina-critica/index.html'),Path('metodologia/index.html')]
+          targets += list(Path('trials').glob('*/index.html'))
+          for path in targets:
+              if not path.is_file():
+                  continue
+              s=path.read_text(encoding='utf-8')
+              assert '/future-experience.css?v=1' in s, f'{path}: falta CSS futuro'
+              assert '/future-experience-patch.css?v=1' in s, f'{path}: falta patch futuro'
+              assert '/future-experience.js?v=1' in s, f'{path}: falta JS futuro'
+          print(f'Assets futuros presentes en {len(targets)} objetivos')
+          PY
+      - name: Instalar Playwright
+        run: |
+          npm install --no-save playwright@1.55.0
+          npx playwright install --with-deps chromium
+      - name: Servir sitio generado
+        run: |
+          python3 -m http.server 8000 >/tmp/rt-future-http.log 2>&1 &
+          sleep 3
+      - name: Probar experiencia completa
+        env:
+          RT_BASE_URL: http://127.0.0.1:8000
+        run: node scripts/future-experience-smoke.mjs
