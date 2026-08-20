@@ -12,6 +12,7 @@ const schema = read('supabase/schema.sql');
 const config = read('supabase/config.toml');
 const fn = read('supabase/functions/notify-new-summaries/index.ts');
 const workflow = read('.github/workflows/notificar-nuevos-resumenes.yml');
+const deploy = read('.github/workflows/deploy-newsletter.yml');
 
 for (const token of ['newsletter_opt_in', 'newsletter_opt_in_at']) {
   if (!schema.includes(token) || !auth.includes(token)) fail(`La preferencia ${token} no está integrada entre esquema y cuenta.`);
@@ -67,6 +68,20 @@ for (const token of [
   if (!workflow.includes(token)) fail(`Workflow de avisos incompleto: falta ${token}`);
 }
 if (!failed) pass('Workflow limitado a altas publicadas en resumenes.json, autenticado con token efímero de GitHub Actions y con reintentos.');
+
+for (const token of [
+  'SUPABASE_ACCESS_TOKEN',
+  'RESEND_API_KEY',
+  'hnsmozvatgyrascxbhys',
+  'supabase secrets set',
+  'supabase functions deploy notify-new-summaries',
+  '--no-verify-jwt',
+  'novedades@resumenestrials.com',
+  'Verificar servicio desplegado',
+]) {
+  if (!deploy.includes(token)) fail(`Workflow de despliegue incompleto: falta ${token}`);
+}
+if (!failed) pass('Despliegue de producción configura secretos, publica la Edge Function y ejecuta health check.');
 
 if (failed) process.exit(1);
 console.log('Newsletter integration PASS');
