@@ -34,9 +34,16 @@ async function noOverflow(page,label){
 await waitForDeployment();
 const manifest=JSON.parse(await fetchText('/seo-manifest.json'));
 const data=JSON.parse(await fetchText('/resumenes.json'));
+assert(Array.isArray(data)&&data.length>0,'Producción: resumenes.json está vacío o no es una lista');
+const expectedCount=data.length;
 const newest=[...data].sort((a,b)=>(b.fecha||'').localeCompare(a.fecha||''))[0];
 const ids=Object.keys(manifest).sort((a,b)=>Number(a)-Number(b));
-assert(ids.length===38,`Producción: se esperaban 38 trials y hay ${ids.length}`);
+const dataIds=new Set(data.map(item=>String(item.id)));
+const manifestIds=new Set(ids);
+const missing=[...dataIds].filter(id=>!manifestIds.has(id));
+const extra=[...manifestIds].filter(id=>!dataIds.has(id));
+assert(ids.length===expectedCount,`Producción: manifest=${ids.length} y resumenes.json=${expectedCount}`);
+assert(missing.length===0&&extra.length===0,`Producción: IDs desalineados; faltan=${missing.join(',')||'ninguno'} extras=${extra.join(',')||'ninguno'}`);
 const entry=manifest[ids[0]];
 assert(entry?.path,'Producción: manifiesto sin primera ruta canónica');
 const browser=await chromium.launch({headless:true});
@@ -47,16 +54,18 @@ try{
   await page.waitForSelector('body.rt-future-home',{timeout:15000});
   await page.waitForSelector('.rt-orbit',{timeout:15000});
   await page.waitForSelector('.rt-explorer-stage',{timeout:15000});
-  await page.waitForFunction(()=>document.querySelectorAll('#indice .fila').length>=38,{timeout:15000});
+  await page.waitForFunction(expected=>document.querySelectorAll('#indice .fila').length>=expected,expectedCount,{timeout:15000});
 
-  // Fuerza el re-render real del explorador para comprobar que el destacado persiste.
+  // Fuerza el re-render real del explorador con una consulta única del trial más reciente.
   const search=page.locator('#q');
-  await search.fill('ARISE');
+  const uniqueSearch=String(newest.doi||newest.titulo||'').trim();
+  assert(uniqueSearch,'Producción: no hay término único disponible para probar el buscador');
+  await search.fill(uniqueSearch);
   await page.waitForFunction(()=>document.querySelectorAll('#indice .fila').length===1,{timeout:15000});
   await page.waitForTimeout(80);
   assert(await page.locator('#indice .fila.rt-featured').count()===1,'Producción: el destacado desaparece al filtrar');
   await search.fill('');
-  await page.waitForFunction(()=>document.querySelectorAll('#indice .fila').length>=38,{timeout:15000});
+  await page.waitForFunction(expected=>document.querySelectorAll('#indice .fila').length>=expected,expectedCount,{timeout:15000});
   await page.waitForTimeout(80);
   assert(await page.locator('#indice .fila.rt-featured').count()===1,'Producción: falta ensayo destacado tras re-render completo');
 
