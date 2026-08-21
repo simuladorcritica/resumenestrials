@@ -27,6 +27,7 @@ jobs:
           node --check future-experience.js
           node --check future-experience-final.js
           node --check future-experience-fix-v4.js
+          node --check future-experience-fix-v4-compat.js
           node --check legacy-reader-design-v5.js
           node --check pdf-contact.js
           node --check trial-pdf.js
@@ -62,6 +63,7 @@ jobs:
               assert '/future-experience.js?v=1' in s, f'{path}: falta JS futuro'
               assert '/future-experience-final.js?v=3' in s, f'{path}: falta ajuste JS final v3'
               assert '/future-experience-fix-v4.js?v=1' in s, f'{path}: falta unificación visual v4'
+              assert '/future-experience-fix-v4-compat.js?v=1' in s, f'{path}: falta candado tipográfico v4'
               assert '/future-experience-final.js?v=1' not in s, f'{path}: conserva ajuste JS final obsoleto v1'
               assert '/future-experience-final.js?v=2' not in s, f'{path}: conserva ajuste JS final obsoleto v2'
           print(f'Assets futuros v4 presentes en {len(targets)} objetivos')
