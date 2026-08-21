@@ -44,6 +44,9 @@ jobs:
           python -m py_compile generar_seo.py generar_seo_clusters.py generar_seo_semantico.py generar_seo_avanzado.py restaurar_arquitectura.py actualizar_agregar_editorial.py aplicar_experiencia_futura.py generar_paginas_sociales.py
           node --check future-experience.js
           node --check future-experience-final.js
+          node --check legacy-reader-design-v5.js
+          node --check pdf-contact.js
+          node --check trial-pdf.js
 
       - name: Regenerar sitio completo
         run: |
@@ -54,7 +57,7 @@ jobs:
           python actualizar_agregar_editorial.py
           python generar_paginas_sociales.py
 
-      - name: Verificar experiencia v2 en todas las salidas
+      - name: Verificar experiencia v3 en todas las salidas
         run: |
           python - <<'PY'
           from pathlib import Path
@@ -68,12 +71,13 @@ jobs:
               assert '/future-experience.css?v=1' in source, f'{path}: falta CSS futuro'
               assert '/future-experience-patch.css?v=1' in source, f'{path}: falta patch CSS futuro'
               assert '/future-experience.js?v=1' in source, f'{path}: falta JS futuro'
-              assert '/future-experience-final.js?v=2' in source, f'{path}: falta ajuste final v2'
+              assert '/future-experience-final.js?v=3' in source, f'{path}: falta ajuste final v3'
               assert '/future-experience-final.js?v=1' not in source, f'{path}: conserva ajuste final v1 obsoleto'
+              assert '/future-experience-final.js?v=2' not in source, f'{path}: conserva ajuste final v2 obsoleto'
               checked += 1
           if checked < 50:
               raise SystemExit(f'Solo se verificaron {checked} páginas; se esperaban al menos 50')
-          print(f'PASS: experiencia futura v2 verificada en {checked} páginas')
+          print(f'PASS: experiencia futura v3 verificada en {checked} páginas')
           PY
 
       - name: Stagear todas las salidas publicables
@@ -125,5 +129,5 @@ jobs:
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -m "Regenerar experiencia futura v2"
+          git commit -m "Regenerar experiencia futura v3"
           git push origin HEAD:main
