@@ -25,6 +25,7 @@ jobs:
       - name: Validar sintaxis
         run: |
           node --check future-experience.js
+          node --check global-search.js
           node --check future-experience-final.js
           node --check future-experience-fix-v4.js
           node --check future-experience-fix-v4-compat.js
@@ -68,7 +69,9 @@ jobs:
               s = path.read_text(encoding='utf-8')
               assert '/future-experience.css?v=1' in s, f'{path}: falta CSS futuro'
               assert '/future-experience-patch.css?v=1' in s, f'{path}: falta patch futuro'
+              assert '/global-search.css?v=1' in s, f'{path}: falta CSS del buscador global'
               assert '/future-experience.js?v=1' in s, f'{path}: falta JS futuro'
+              assert '/global-search.js?v=1' in s, f'{path}: falta JS del buscador global'
               assert '/future-experience-final.js?v=3' in s, f'{path}: falta ajuste JS final v3'
               assert '/future-experience-fix-v4.js?v=1' in s, f'{path}: falta unificación visual v4'
               assert '/future-experience-fix-v4-compat.js?v=1' in s, f'{path}: falta candado tipográfico v4'
@@ -82,7 +85,7 @@ jobs:
               checked += 1
           if checked < 50:
               raise SystemExit(f'Solo se verificaron {checked} páginas; se esperaban al menos 50')
-          print(f'Assets futuros v4 + AdSense presentes en {checked} páginas; ads.txt válido')
+          print(f'Assets futuros v4 + buscador global + AdSense presentes en {checked} páginas; ads.txt válido')
           PY
       - name: Instalar Playwright
         run: |
