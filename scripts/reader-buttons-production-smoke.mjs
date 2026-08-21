@@ -26,14 +26,14 @@ async function waitDeployment(){
     try{
       const html=await fetchText(trialPath);
       const js=await fetchText('/reader-controls-v9.js');
-      const ready=html.includes('/reader-controls-v9.js?v=1')&&js.includes('__rtReaderControlsV9');
-      if(ready){console.log(`READER BUTTONS V9 DEPLOYMENT READY · intento ${i}`);return;}
-      last=`html=${html.includes('/reader-controls-v9.js?v=1')} js=${js.includes('__rtReaderControlsV9')}`;
+      const ready=html.includes('/reader-controls-v9.js?v=2')&&js.includes("min-height', '54px'")&&js.includes('__rtReaderControlsV9');
+      if(ready){console.log(`READER BUTTONS V9.2 DEPLOYMENT READY · intento ${i}`);return;}
+      last=`htmlV2=${html.includes('/reader-controls-v9.js?v=2')} min54=${js.includes("min-height', '54px'")} js=${js.includes('__rtReaderControlsV9')}`;
     }catch(error){last=error.message}
-    console.log(`Esperando despliegue de controles v9 (${i}/36) · ${last}`);
+    console.log(`Esperando despliegue de controles v9.2 (${i}/36) · ${last}`);
     await sleep(10000);
   }
-  throw new Error(`La capa de controles v9 no llegó a producción: ${last}`);
+  throw new Error(`La capa de controles v9.2 no llegó a producción: ${last}`);
 }
 
 async function physicalRelease(page,selector,waiter){
@@ -88,17 +88,17 @@ try{
   assert(/\.pdf$/i.test(download.suggestedFilename()),`Nombre de archivo PDF inesperado: ${download.suggestedFilename()}`);
   assert(Boolean(await download.path()),'La descarga PDF no produjo archivo');
 
-  // 4) La misma capa debe quedar utilizable en móvil, sin perder interacción.
+  // 4) La misma capa debe quedar utilizable en móvil, con superficie táctil suficiente.
   await page.setViewportSize({width:390,height:844});
   await openTrial();
   const mobile=await page.evaluate(()=>{
     const selectors=['.rt-reader-back','.rt-reader-version','.rt-reader-footer-download'];
     return selectors.map(selector=>{
       const el=document.querySelector(selector); const r=el?.getBoundingClientRect();
-      return {selector,width:r?.width||0,height:r?.height||0,pointer:el?getComputedStyle(el).pointerEvents:''};
+      return {selector,width:r?.width||0,height:r?.height||0,pointer:el?getComputedStyle(el).pointerEvents:'',touch:el?getComputedStyle(el).touchAction:''};
     });
   });
-  assert(mobile.every(x=>x.width>=300&&x.height>=48&&x.pointer==='auto'),`Controles móviles inválidos: ${JSON.stringify(mobile)}`);
+  assert(mobile.every(x=>x.width>=300&&x.height>=54&&x.pointer==='auto'&&x.touch==='manipulation'),`Controles móviles inválidos: ${JSON.stringify(mobile)}`);
   await physicalRelease(page,'.rt-reader-version',()=>page.waitForURL(url=>url.pathname==='/resumen.html'&&url.searchParams.get('id')===String(sample.id)&&url.searchParams.get('v')==='corto',{timeout:15000}));
 
   assert(errors.length===0,`Errores JavaScript durante la prueba: ${[...new Set(errors)].join(' | ')}`);
