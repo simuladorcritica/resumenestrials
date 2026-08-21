@@ -32,6 +32,7 @@
 
     html body.rt-future.rt-future-trial .migas{font-size:15px!important;line-height:1.55!important}
     html body.rt-future.rt-future-trial .art-head::before{font-size:14px!important;line-height:1.4!important}
+    html body.rt-future.rt-future-trial .art-head h1{font-size:clamp(58px,5.6vw,88px)!important;line-height:.99!important}
     html body.rt-future.rt-future-trial .badge,
     html body.rt-future.rt-future-trial .tema{font-size:14px!important;line-height:1.4!important}
     html body.rt-future.rt-future-trial .fuente,
@@ -54,6 +55,8 @@
     html body.rt-future.rt-future-legacy,
     html body.rt-future.rt-future-legacy.modo-corto{font-size:21px!important;line-height:1.82!important}
     html body.rt-future.rt-future-legacy header.art h1{font-size:clamp(58px,5.6vw,88px)!important;line-height:.99!important}
+    html body.rt-future.rt-future-legacy:not(.modo-corto) [data-pdf-version="breve"]{display:none!important}
+    html body.rt-future.rt-future-legacy.modo-corto [data-pdf-version="completo"]{display:none!important}
     html body.rt-future.rt-future-legacy .fuente-linea{font-size:16px!important;line-height:1.65!important}
     html body.rt-future.rt-future-legacy .badge{font-size:14px!important;line-height:1.4!important}
     html body.rt-future.rt-future-legacy .btn-pdf{font-size:16px!important;line-height:1.3!important}
@@ -89,6 +92,8 @@
 
     @media (max-width:700px){
       html body.rt-future.rt-future-home .bajada-cols{font-size:18px!important;line-height:1.68!important}
+      html body.rt-future.rt-future-trial .art-head h1,
+      html body.rt-future.rt-future-legacy header.art h1{font-size:clamp(48px,13vw,68px)!important;line-height:.99!important}
       html body.rt-future.rt-future-trial .rt-evidence-section h2,
       html body.rt-future.rt-future-legacy article h2,
       html body.rt-future.rt-future-legacy article.corto h2{font-size:31px!important;line-height:1.22!important}
