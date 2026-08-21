@@ -28,32 +28,40 @@
     }
 
     html body.rt-future.rt-future-legacy.modo-corto .relacionados{
-      max-width:800px!important;width:100%!important;margin:38px auto 0!important;padding:28px 0 0!important;
-      border-top:1px solid var(--rt-line)!important
+      max-width:800px!important;width:100%!important;min-width:0!important;margin:38px auto 0!important;padding:28px 0 0!important;
+      border-top:1px solid var(--rt-line)!important;overflow:hidden!important
     }
     html body.rt-future.rt-future-legacy.modo-corto .relacionados>h2{
       margin:0 0 18px!important;color:#eef2ef!important;font:500 22px/1.25 var(--rt-editorial)!important;
       letter-spacing:-.01em!important;text-transform:none!important
     }
     html body.rt-future.rt-future-legacy.modo-corto .rel-grid{
-      display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important;border:0!important
+      display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important;border:0!important;
+      width:100%!important;max-width:100%!important;min-width:0!important
     }
     html body.rt-future.rt-future-legacy.modo-corto .rel-item{
-      min-width:0!important;margin:0!important;padding:18px!important;border:1px solid var(--rt-line)!important;
+      display:block!important;columns:1!important;column-gap:0!important;width:100%!important;max-width:100%!important;min-width:0!important;
+      margin:0!important;padding:18px!important;border:1px solid var(--rt-line)!important;overflow:hidden!important;
       border-radius:11px!important;background:linear-gradient(180deg,rgba(12,39,57,.68),rgba(7,26,40,.58))!important
     }
     html body.rt-future.rt-future-legacy.modo-corto .rel-item a{
-      display:block!important;color:inherit!important;text-decoration:none!important
+      display:block!important;width:100%!important;max-width:100%!important;min-width:0!important;color:inherit!important;text-decoration:none!important;
+      overflow-wrap:anywhere!important
+    }
+    html body.rt-future.rt-future-legacy.modo-corto .rel-item .badge,
+    html body.rt-future.rt-future-legacy.modo-corto .rel-item .tema{
+      display:inline-flex!important;max-width:100%!important;white-space:normal!important;overflow-wrap:anywhere!important;word-break:break-word!important;
+      margin:0 6px 6px 0!important
     }
     html body.rt-future.rt-future-legacy.modo-corto .rel-item h3,
     html body.rt-future.rt-future-legacy.modo-corto .rel-item .rel-tit{
-      margin:10px 0 0!important;color:#dce6e5!important;font:500 20px/1.16 var(--rt-editorial)!important;
-      letter-spacing:-.015em!important
+      max-width:100%!important;margin:10px 0 0!important;color:#dce6e5!important;font:500 20px/1.16 var(--rt-editorial)!important;
+      letter-spacing:-.015em!important;overflow-wrap:anywhere!important;word-break:normal!important
     }
     html body.rt-future.rt-future-legacy.modo-corto .rel-item p,
     html body.rt-future.rt-future-legacy.modo-corto .rel-item .rel-fuente{
-      margin:10px 0 0!important;color:#91a6af!important;font:500 11px/1.5 var(--rt-mono)!important;
-      letter-spacing:.025em!important
+      max-width:100%!important;margin:10px 0 0!important;color:#91a6af!important;font:500 11px/1.5 var(--rt-mono)!important;
+      letter-spacing:.025em!important;overflow-wrap:anywhere!important;word-break:normal!important
     }
     html body.rt-future.rt-future-legacy.modo-corto .rel-item:hover{
       border-color:rgba(36,200,180,.38)!important;background:linear-gradient(180deg,rgba(13,48,66,.78),rgba(8,34,49,.68))!important
@@ -64,8 +72,11 @@
     @media(max-width:700px){
       html body.rt-future.rt-future-trial .pie-nav{padding-top:18px!important}
       html body.rt-future.rt-future-trial .relacionados{margin-top:28px!important}
-      html body.rt-future.rt-future-legacy.modo-corto .relacionados{margin-top:30px!important;padding-top:22px!important}
-      html body.rt-future.rt-future-legacy.modo-corto .rel-grid{grid-template-columns:1fr!important}
+      html body.rt-future.rt-future-legacy.modo-corto .relacionados{
+        width:100%!important;max-width:100%!important;min-width:0!important;margin-top:30px!important;padding-top:22px!important
+      }
+      html body.rt-future.rt-future-legacy.modo-corto .rel-grid{grid-template-columns:minmax(0,1fr)!important}
+      html body.rt-future.rt-future-legacy.modo-corto .rel-item{width:100%!important;max-width:100%!important;min-width:0!important}
     }
   `;
 
