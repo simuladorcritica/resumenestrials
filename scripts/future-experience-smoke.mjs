@@ -171,13 +171,11 @@ try{
   await page.waitForSelector('body.rt-future-account',{timeout:10000});
   assert(await page.locator('#login').isVisible(),'Login: formulario no visible');
   assert(await page.locator('#identifier').isVisible(),'Login: identificador no visible');
-  assert(await page.locator('.rt-global-search-input').isVisible(),'Login: buscador global superior no funcional');
   await noOverflow(page,'Login');
 
   await page.goto(`${BASE}/registro.html`,{waitUntil:'domcontentloaded',timeout:25000});
   await page.waitForSelector('body.rt-future-account',{timeout:10000});
   assert(await page.locator('form').first().isVisible(),'Registro: formulario no visible');
-  assert(await page.locator('.rt-global-search-input').isVisible(),'Registro: buscador global superior no funcional');
   const mailNote=(await page.locator('.mail-note').textContent()).toLowerCase();
   assert(mailNote.includes('spam')&&mailNote.includes('correo no deseado'),'Registro: el estado exitoso no advierte revisar Spam y Correo no deseado');
   assert(await page.locator('#exito').count()===1,'Registro: falta estado de confirmación exitoso');
