@@ -31,19 +31,33 @@ function assertAdsenseHtml(path, html) {
   assert(html.includes('crossorigin="anonymous"'), `${path}: falta crossorigin="anonymous" en la integración de AdSense`);
 }
 
+function assertPrivacyUpdated(home, privacy) {
+  assert(home.includes('Google AdSense'), 'Portada: el aviso de privacidad todavía no informa sobre Google AdSense');
+  assert(!home.includes('no utiliza cookies de seguimiento o publicidad'), 'Portada: persiste la declaración antigua de que no hay cookies de publicidad');
+  assert(privacy.includes('Google AdSense'), 'Aviso de privacidad: falta informar sobre Google AdSense');
+  assert(privacy.includes('Cookies, publicidad y navegación pública'), 'Aviso de privacidad: falta la sección actualizada de cookies y publicidad');
+  assert(!privacy.includes('no utiliza cookies de publicidad'), 'Aviso de privacidad: persiste la declaración antigua de que no hay cookies de publicidad');
+}
+
 async function waitForAdsenseDeployment() {
   let last = '';
   for (let attempt = 1; attempt <= 32; attempt++) {
     try {
-      const [home, adsTxt] = await Promise.all([fetchText('/'), fetchText('/ads.txt')]);
+      const [home, adsTxt, privacy] = await Promise.all([
+        fetchText('/'),
+        fetchText('/ads.txt'),
+        fetchText('/privacidad.html'),
+      ]);
       const count = home.split(ADSENSE_URL).length - 1;
       const adsOk = adsTxt.trim() === ADS_TXT_RECORD;
-      if (count === 1 && adsOk) {
+      const privacyOk = home.includes('Google AdSense') && privacy.includes('Google AdSense') && privacy.includes('Cookies, publicidad y navegación pública');
+      if (count === 1 && adsOk && privacyOk) {
         assertAdsenseHtml('/', home);
+        assertPrivacyUpdated(home, privacy);
         console.log(`ADSENSE DEPLOYMENT READY · intento ${attempt}`);
         return;
       }
-      last = `script-home=${count}, ads.txt=${adsOk ? 'ok' : 'pendiente'}`;
+      last = `script-home=${count}, ads.txt=${adsOk ? 'ok' : 'pendiente'}, privacidad=${privacyOk ? 'ok' : 'pendiente'}`;
     } catch (error) {
       last = error.message;
     }
@@ -55,12 +69,15 @@ async function waitForAdsenseDeployment() {
 
 await waitForAdsenseDeployment();
 
-const [dataText, manifestText, adsTxt] = await Promise.all([
+const [dataText, manifestText, adsTxt, homeHtml, privacyHtml] = await Promise.all([
   fetchText('/resumenes.json'),
   fetchText('/seo-manifest.json'),
   fetchText('/ads.txt'),
+  fetchText('/'),
+  fetchText('/privacidad.html'),
 ]);
 assert(adsTxt.trim() === ADS_TXT_RECORD, `ads.txt incorrecto: ${adsTxt.trim()}`);
+assertPrivacyUpdated(homeHtml, privacyHtml);
 
 const data = JSON.parse(dataText);
 const manifest = JSON.parse(manifestText);
@@ -91,4 +108,4 @@ for (const path of paths) {
   assertAdsenseHtml(path, html);
 }
 
-console.log(`ADSENSE PRODUCTION PASS · ${paths.length} páginas · ${ADSENSE_CLIENT} · ads.txt válido`);
+console.log(`ADSENSE PRODUCTION PASS · ${paths.length} páginas · ${ADSENSE_CLIENT} · ads.txt válido · privacidad actualizada`);
