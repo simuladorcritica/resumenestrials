@@ -33,7 +33,7 @@
     /* Lector v5 · navegación inferior, biblioteca y progreso */
     html body.rt-future.rt-future-trial .pie-nav,
     html body.rt-future.rt-future-legacy .pie-nav{
-      max-width:none!important;width:100%!important;margin:34px 0 0!important;padding:28px 0 24px!important;
+      max-width:none!important;width:100%!important;margin:34px 0 0!important;padding:28px 0 18px!important;
       border-top:1px solid var(--rt-line)!important;border-bottom:0!important;
       display:flex!important;flex-wrap:wrap!important;align-items:center!important;justify-content:space-between!important;
       gap:18px 28px!important;background:transparent!important
@@ -54,6 +54,28 @@
     }
     html body.rt-future.rt-future-trial .pie-nav .rt-reader-version:hover,
     html body.rt-future.rt-future-legacy .pie-nav .rt-reader-version:hover{color:#a0f1e9!important}
+
+    /* Resumen completo: reproduce la composición inferior del resumen breve. */
+    html body.rt-future.rt-future-trial .rt-reader-bottom-actions{
+      grid-column:1!important;max-width:none!important;width:100%!important;margin:0!important;padding:8px 0 24px!important;
+      border-bottom:1px solid var(--rt-line)!important;display:flex!important;align-items:center!important;justify-content:flex-start!important;
+      gap:12px!important;background:transparent!important
+    }
+    html body.rt-future.rt-future-trial .rt-reader-footer-download{
+      display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:10px!important;
+      min-height:52px!important;width:auto!important;padding:12px 17px!important;border-radius:9px!important;
+      border:1px solid rgba(36,200,180,.38)!important;background:linear-gradient(135deg,#0d988e,#08716c)!important;
+      color:#fff!important;font:600 16px/1.3 var(--rt-mono)!important;letter-spacing:.01em!important;text-transform:none!important;
+      cursor:pointer!important;box-shadow:none!important
+    }
+    html body.rt-future.rt-future-trial .rt-reader-footer-download:hover{
+      background:#0d988e!important;border-color:#55d5c9!important;transform:translateY(-1px)!important
+    }
+    html body.rt-future.rt-future-trial .rt-reader-footer-download:disabled{opacity:.62!important;cursor:progress!important;transform:none!important}
+    html body.rt-future.rt-future-trial .rt-reader-footer-download svg{width:17px!important;height:17px!important;flex:0 0 auto!important}
+    html body.rt-future.rt-future-trial .art-footer{
+      border-top:0!important;margin-top:0!important;padding-top:26px!important
+    }
 
     html body.rt-future.rt-future-legacy.modo-corto header.art .rt-save-action{
       display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:9px!important;
@@ -94,11 +116,13 @@
 
     @media(max-width:700px){
       html body.rt-future.rt-future-trial .pie-nav,
-      html body.rt-future.rt-future-legacy .pie-nav{align-items:flex-start!important;padding:22px 0 20px!important;gap:8px 18px!important}
+      html body.rt-future.rt-future-legacy .pie-nav{align-items:flex-start!important;padding:22px 0 14px!important;gap:8px 18px!important}
       html body.rt-future.rt-future-trial .pie-nav .rt-reader-back,
       html body.rt-future.rt-future-legacy .pie-nav .rt-reader-back{font-size:14px!important}
       html body.rt-future.rt-future-trial .pie-nav .rt-reader-version,
       html body.rt-future.rt-future-legacy .pie-nav .rt-reader-version{font-size:17px!important}
+      html body.rt-future.rt-future-trial .rt-reader-bottom-actions{padding:7px 0 22px!important}
+      html body.rt-future.rt-future-trial .rt-reader-footer-download{width:100%!important;min-height:54px!important}
       html body.rt-future.rt-future-legacy.modo-corto header.art .rt-save-action{width:100%!important;min-height:54px!important}
     }
   `;
@@ -140,6 +164,41 @@
     }
     if (version) version.classList.add('rt-reader-version');
     nav.dataset.rtReaderNav = 'v5';
+  }
+
+  function ensureCanonicalFooterDownload() {
+    if (!isCanonical) return;
+    const nav = $('.pie-nav');
+    const source = $('.art-head [data-trial-download]');
+    if (!nav || !source) return;
+
+    let actions = nav.nextElementSibling;
+    if (!actions || !actions.classList.contains('rt-reader-bottom-actions')) {
+      actions = document.createElement('div');
+      actions.className = 'rt-reader-bottom-actions';
+      actions.setAttribute('aria-label', 'Descarga del resumen completo');
+      nav.insertAdjacentElement('afterend', actions);
+    }
+    if (actions.querySelector('.rt-reader-footer-download')) return;
+
+    const trialId = source.getAttribute('data-trial-download') || '';
+    const button = source.cloneNode(true);
+    button.className = 'rt-reader-footer-download';
+    button.removeAttribute('id');
+    button.removeAttribute('style');
+    button.removeAttribute('data-trial-download');
+    button.setAttribute('data-rt-footer-download', trialId);
+    button.disabled = false;
+    button.classList.remove('is-loading');
+    button.setAttribute('aria-label', 'Descargar resumen completo PDF');
+    const label = button.querySelector('span:last-child');
+    if (label) label.textContent = 'Descargar resumen completo PDF';
+    button.addEventListener('click', (event) => {
+      event.preventDefault();
+      if (!source.disabled) source.click();
+    });
+    actions.appendChild(button);
+    actions.dataset.rtReaderBottomActions = 'v6';
   }
 
   async function addBriefSaveAction() {
@@ -237,6 +296,7 @@
   function apply() {
     ensureStyle();
     polishFooter();
+    ensureCanonicalFooterDownload();
     addBriefSaveAction();
     wireLegacyProgress();
   }
