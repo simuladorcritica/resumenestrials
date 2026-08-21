@@ -113,6 +113,11 @@
     const tail = actions || nav;
     if (related) tail.insertAdjacentElement('afterend', related);
 
+    // La capa v5 puede terminar de cargar después; fijamos aquí el acabado final
+    // para impedir que reaparezca una línea entre el artículo original y la navegación.
+    nav.style.setProperty('border-top', '0', 'important');
+    nav.style.setProperty('margin', '0', 'important');
+
     nav.dataset.rtEndmatterOrder = 'v7';
     if (actions) actions.dataset.rtEndmatterOrder = 'v7';
     if (related) related.dataset.rtEndmatterOrder = 'v7';
