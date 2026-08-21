@@ -46,6 +46,8 @@ try{
   assert(await page.locator('.rt-editorial-prelude').count()===0,'Portada: Explora/Interpreta/Conserva aparece duplicado');
   assert(await page.locator('.rt-step small').count()===0,'Portada: persiste numeración 01/02/03');
   assert(await page.locator('.rt-hero-actions a').count()===1,'Portada: debe conservarse un único CTA superior en el héroe');
+  assert(await page.locator('.rt-main-nav a[href="/metodologia/"]').isVisible(),'Portada: Metodología superior debe conservarse');
+  assert(await page.locator('.rt-main-nav a[href="/equipo-editorial/"]').isVisible(),'Portada: Equipo editorial superior debe conservarse');
 
   const heroBox=await page.locator('header.sitio .envoltorio').boundingBox();
   assert(heroBox && heroBox.x>20 && heroBox.x+heroBox.width<1420,'Portada: el héroe no quedó centrado dentro del viewport');
@@ -80,6 +82,8 @@ try{
   assert(await page.locator('.rt-summary-deck').count()===0,'Trial: no debe existir Resumen editorial');
   assert(await page.locator('.rt-reader-rail .rt-rail-card').filter({hasText:'Hallazgo clave'}).count()===0,'Trial: persiste el recuadro Hallazgo clave');
   assert(await page.locator('.rt-evidence-section[data-index]').count()===0,'Trial: persiste numeración de secciones');
+  assert(!(await page.locator('.rt-main-nav a[href="/metodologia/"]').isVisible()),'Trial: Metodología no debe repetirse fuera de la portada');
+  assert(!(await page.locator('.rt-main-nav a[href="/equipo-editorial/"]').isVisible()),'Trial: Equipo editorial no debe repetirse fuera de la portada');
   assert(await page.locator(`[data-trial-download="${sample.id}"]`).isVisible(),'Trial: falta descarga completa');
   if(sample.corto)assert(await page.locator('.trial-action-brief').isVisible(),'Trial: falta acceso al resumen breve');
   assert(await page.locator('.rt-save-action').isVisible(),'Trial: falta guardar en biblioteca');
@@ -87,6 +91,9 @@ try{
   const trialType=await paragraph.evaluate(el=>({size:parseFloat(getComputedStyle(el).fontSize),align:getComputedStyle(el).textAlign}));
   assert(trialType.size>=17,`Trial: cuerpo demasiado pequeño (${trialType.size}px)`);
   assert(trialType.align==='justify',`Trial: texto completo no justificado (${trialType.align})`);
+  const sectionLook=await page.locator('.rt-evidence-section').first().evaluate(el=>({bg:getComputedStyle(el).backgroundImage,radius:getComputedStyle(el).borderRadius}));
+  assert(sectionLook.bg==='none',`Trial: el cuerpo completo conserva tarjetas visuales (${sectionLook.bg})`);
+  assert(sectionLook.radius==='0px',`Trial: el cuerpo completo no coincide con la lectura breve (${sectionLook.radius})`);
   const strong=page.locator('.rt-evidence-section strong').first();
   if(await strong.count()){
     const mark=await strong.evaluate(el=>({bg:getComputedStyle(el).backgroundImage,deco:getComputedStyle(el).textDecorationLine}));
@@ -98,6 +105,11 @@ try{
   await page.setViewportSize({width:390,height:844});
   await page.waitForTimeout(150);
   assert(await page.locator('.rt-evidence-section').first().isVisible(),'Trial móvil: lectura clínica no visible');
+  const orderOk=await page.evaluate(()=>{
+    const article=document.querySelector('article.articulo');
+    return !!article?.nextElementSibling?.classList.contains('rt-reader-rail');
+  });
+  assert(orderOk,'Trial móvil: las herramientas interrumpen la lectura antes del resumen completo');
   await noOverflow(page,'Trial móvil');
 
   if(sample.corto){
@@ -107,6 +119,7 @@ try{
     assert(await page.locator('article.corto').isVisible(),'Resumen breve: artículo no visible');
     const shortType=await page.locator('article.corto p').first().evaluate(el=>({size:parseFloat(getComputedStyle(el).fontSize),max:getComputedStyle(document.querySelector('.envoltorio')).maxWidth}));
     assert(shortType.size>=17,`Resumen breve: cuerpo demasiado pequeño (${shortType.size}px)`);
+    assert(Math.abs(shortType.size-trialType.size)<=1,`Resumen breve/completo: tipografías desalineadas (${shortType.size}px vs ${trialType.size}px)`);
     assert(shortType.max!=='820px','Resumen breve: conserva ancho distinto al resumen completo');
     await noOverflow(page,'Resumen breve móvil');
   }
@@ -116,6 +129,8 @@ try{
   await page.waitForSelector('body.rt-future-hub',{timeout:10000});
   assert(await page.locator('.cluster-card').count()>=3,'Hub: faltan colecciones clínicas');
   assert(await page.locator('.cat-card').count()>=5,'Hub: faltan trials');
+  const catIndex=await page.locator('.cat-card').first().evaluate(el=>getComputedStyle(el,'::before').content);
+  assert(catIndex==='none'||catIndex==='""',`Hub: persiste numeración decorativa (${catIndex})`);
   await noOverflow(page,'Hub');
 
   await page.goto(`${BASE}/login.html`,{waitUntil:'domcontentloaded',timeout:25000});
@@ -133,7 +148,7 @@ try{
   await noOverflow(page,'Registro');
 
   assert(pageErrors.length===0,`Errores JavaScript detectados: ${pageErrors.join(' | ')}`);
-  console.log(`FUTURE EXPERIENCE PASS · ${data.length} resúmenes · trial ${sample.id} · ${sectionCount} secciones · lector simplificado`);
+  console.log(`FUTURE EXPERIENCE PASS · ${data.length} resúmenes · trial ${sample.id} · ${sectionCount} secciones · lector uniforme`);
 } finally {
   await browser.close();
 }
