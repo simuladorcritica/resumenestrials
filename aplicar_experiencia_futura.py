@@ -72,7 +72,8 @@ LEGACY_UNIFIER_V4 = '<script src="/legacy-unifier-v4.js?v=1" defer></script>'
 ENDMATTER_V7 = '<script src="/reader-endmatter-v7.js?v=1" defer></script>'
 READER_UI_V8 = '<script src="/reader-ui-v8.js?v=1" defer></script>'
 HOME_DOWNLOADS_V8 = '<script src="/home-downloads-v8.js?v=1" defer></script>'
-READER_CONTROLS_V9 = '<script src="/reader-controls-v9.js?v=1" defer></script>'
+READER_CONTROLS_V9_OLD = '<script src="/reader-controls-v9.js?v=1" defer></script>'
+READER_CONTROLS_V9 = '<script src="/reader-controls-v9.js?v=2" defer></script>'
 SCRIPTS = [
     '<script src="/future-experience.js?v=1" defer></script>',
     GLOBAL_SEARCH,
@@ -97,6 +98,10 @@ def inject(path: Path) -> bool:
         if old in source:
             source = source.replace(old, FINAL_SCRIPT_V3)
             changed = True
+
+    if READER_CONTROLS_V9_OLD in source:
+        source = source.replace(READER_CONTROLS_V9_OLD, READER_CONTROLS_V9)
+        changed = True
 
     for old, new in PRIVACY_REPLACEMENTS:
         if old in source:
