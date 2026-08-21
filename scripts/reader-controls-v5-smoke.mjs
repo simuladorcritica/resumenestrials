@@ -23,30 +23,55 @@ try{
   const errors=[];
   page.on('pageerror',e=>errors.push(e.message));
 
-  // Resumen completo: la navegación inferior debe tener la misma jerarquía visual que el breve.
+  // Resumen completo: navegación y descarga inferior deben reproducir la composición del resumen breve.
   await page.goto(`${BASE}${trialPath}`,{waitUntil:'domcontentloaded',timeout:30000});
   await page.waitForSelector('body.rt-future-trial',{timeout:12000});
   await waitV5(page);
+  await page.waitForSelector('.rt-reader-bottom-actions[data-rt-reader-bottom-actions="v6"] .rt-reader-footer-download',{state:'visible',timeout:12000});
   const fullFooter=await page.evaluate(()=>{
     const nav=document.querySelector('.pie-nav');
     const back=nav?.querySelector('.rt-reader-back');
     const version=nav?.querySelector('.rt-reader-version');
-    if(!nav||!back)return null;
-    const nr=nav.getBoundingClientRect(),br=back.getBoundingClientRect();
-    const ns=getComputedStyle(nav),bs=getComputedStyle(back);
+    const actions=document.querySelector('.rt-reader-bottom-actions');
+    const download=actions?.querySelector('.rt-reader-footer-download');
+    const footer=document.querySelector('.art-footer');
+    if(!nav||!back||!actions||!download)return null;
+    const nr=nav.getBoundingClientRect(),br=back.getBoundingClientRect(),ar=actions.getBoundingClientRect(),dr=download.getBoundingClientRect(),fr=footer?.getBoundingClientRect();
+    const ns=getComputedStyle(nav),bs=getComputedStyle(back),as=getComputedStyle(actions),ds=getComputedStyle(download);
     return {
       navWidth:nr.width,backWidth:br.width,font:parseFloat(bs.fontSize),color:bs.color,
       borderTop:parseFloat(ns.borderTopWidth),backText:back.textContent.trim(),
-      versionText:version?.textContent.trim()||'',versionVisible:!!version&&version.getBoundingClientRect().width>0
+      versionText:version?.textContent.trim()||'',versionVisible:!!version&&version.getBoundingClientRect().width>0,
+      downloadText:download.textContent.trim(),downloadVisible:dr.width>0&&dr.height>0,
+      downloadData:download.getAttribute('data-trial-download')||'',downloadBg:ds.backgroundImage,downloadFont:parseFloat(ds.fontSize),
+      actionsBelowNav:ar.top>=nr.bottom-2,downloadLeftAligned:Math.abs(dr.left-ar.left)<=2,
+      bottomBorder:parseFloat(as.borderBottomWidth),footerBelow:!fr||fr.top>=ar.bottom-2
     };
   });
-  assert(fullFooter,'Completo: falta navegación inferior v5');
+  assert(fullFooter,'Completo: falta navegación inferior v5/v6');
   assert(fullFooter.navWidth>500,`Completo: navegación inferior demasiado estrecha (${fullFooter.navWidth}px)`);
   assert(fullFooter.font>=15,`Completo: Volver al índice sigue demasiado pequeño (${fullFooter.font}px)`);
   assert(fullFooter.borderTop>=1,'Completo: falta separador superior de navegación');
   assert(/Volver al índice/i.test(fullFooter.backText),'Completo: texto de regreso incorrecto');
   assert(fullFooter.versionVisible&&/resumen breve/i.test(fullFooter.versionText),'Completo: falta acceso simétrico al resumen breve en el pie');
+  assert(fullFooter.downloadVisible,'Completo: falta botón inferior de descarga PDF');
+  assert(/Descargar resumen completo PDF/i.test(fullFooter.downloadText),`Completo: texto de descarga inferior incorrecto (${fullFooter.downloadText})`);
+  assert(fullFooter.downloadData===String(sample.id),`Completo: botón inferior no conserva el trial id (${fullFooter.downloadData})`);
+  assert(fullFooter.downloadFont>=15,'Completo: botón inferior de PDF demasiado pequeño');
+  assert(fullFooter.actionsBelowNav,'Completo: la descarga no está debajo de la navegación');
+  assert(fullFooter.downloadLeftAligned,'Completo: el botón de descarga no está alineado a la izquierda');
+  assert(fullFooter.bottomBorder>=1,'Completo: falta separador inferior bajo la descarga');
+  assert(fullFooter.footerBelow,'Completo: el aviso editorial no está debajo de la descarga');
   await noOverflow(page,'Resumen completo desktop');
+
+  // El botón inferior debe usar exactamente el mismo contrato de descarga que el botón superior.
+  const downloadContract=await page.evaluate(()=>{
+    const top=document.querySelector('.art-head [data-trial-download]');
+    const bottom=document.querySelector('.rt-reader-footer-download');
+    return {top:top?.getAttribute('data-trial-download')||'',bottom:bottom?.getAttribute('data-trial-download')||'',tag:bottom?.tagName||'',type:bottom?.getAttribute('type')||''};
+  });
+  assert(downloadContract.top===downloadContract.bottom,'Completo: botón inferior y superior no descargan el mismo resumen');
+  assert(downloadContract.tag==='BUTTON','Completo: descarga inferior no es un botón');
 
   // Resumen breve: guardar en biblioteca + progreso circular/lineal + navegación por secciones.
   await page.goto(`${BASE}/resumen.html?id=${sample.id}&v=corto`,{waitUntil:'domcontentloaded',timeout:30000});
@@ -110,6 +135,12 @@ try{
 
   // Responsive: controles legibles y sin desbordamiento.
   await page.setViewportSize({width:390,height:844});
+  await page.goto(`${BASE}${trialPath}`,{waitUntil:'domcontentloaded',timeout:30000});
+  await page.waitForSelector('.rt-reader-footer-download',{state:'visible',timeout:15000});
+  const mobileFullDownload=await page.locator('.rt-reader-footer-download').boundingBox();
+  assert(mobileFullDownload&&mobileFullDownload.width>=330,`Completo móvil: descarga inferior demasiado estrecha (${JSON.stringify(mobileFullDownload)})`);
+  await noOverflow(page,'Resumen completo móvil');
+
   await page.goto(`${BASE}/resumen.html?id=${sample.id}&v=corto`,{waitUntil:'domcontentloaded',timeout:30000});
   await page.waitForSelector('header.art .rt-save-action',{state:'visible',timeout:15000});
   await page.waitForSelector('.rt-reader-rail[data-v4="1"]',{timeout:15000});
@@ -118,7 +149,7 @@ try{
   await noOverflow(page,'Resumen breve móvil');
 
   assert(errors.length===0,`Errores JavaScript: ${errors.join(' | ')}`);
-  console.log(`READER CONTROLS V5 PASS · trial ${sample.id} · pie completo + guardar + progreso ${progressAfter.value}% + navegación + móvil`);
+  console.log(`READER CONTROLS V6 PASS · trial ${sample.id} · pie completo igualado + descarga inferior + guardar + progreso ${progressAfter.value}% + navegación + móvil`);
 } finally {
   await browser.close();
 }
