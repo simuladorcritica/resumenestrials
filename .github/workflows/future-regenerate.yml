@@ -56,6 +56,7 @@ jobs:
           python restaurar_arquitectura.py
           python actualizar_agregar_editorial.py
           python generar_paginas_sociales.py
+          python aplicar_experiencia_futura.py
 
       - name: Verificar experiencia v3 en todas las salidas
         run: |
