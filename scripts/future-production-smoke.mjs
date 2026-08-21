@@ -16,10 +16,11 @@ async function waitForDeployment(){
       const css=await fetch(`${BASE}/future-experience.css?qa=${Date.now()}`,{signal:AbortSignal.timeout(12000)});
       const js=await fetch(`${BASE}/future-experience.js?qa=${Date.now()}`,{signal:AbortSignal.timeout(12000)});
       const finalJs=await fetch(`${BASE}/future-experience-final.js?qa=${Date.now()}`,{signal:AbortSignal.timeout(12000)});
-      if(html.includes('/future-experience.css?v=1')&&html.includes('/future-experience.js?v=1')&&html.includes('/future-experience-final.js?v=2')&&css.ok&&js.ok&&finalJs.ok){
-        console.log(`FUTURE DEPLOYMENT READY · intento ${i}`);return;
+      if(html.includes('/future-experience.css?v=1')&&html.includes('/future-experience.js?v=1')&&html.includes('/future-experience-final.js?v=3')&&css.ok&&js.ok&&finalJs.ok){
+        const finalText=await finalJs.text();
+        if(finalText.includes('rt-final-polish-v3')){console.log(`FUTURE DEPLOYMENT READY · intento ${i}`);return;}
       }
-      last=`HTML futuro=${html.includes('/future-experience.css?v=1')} final-v2=${html.includes('/future-experience-final.js?v=2')} CSS=${css.status} JS=${js.status} FINAL=${finalJs.status}`;
+      last=`HTML futuro=${html.includes('/future-experience.css?v=1')} final-v3=${html.includes('/future-experience-final.js?v=3')} CSS=${css.status} JS=${js.status} FINAL=${finalJs.status}`;
     }catch(e){last=e.message}
     console.log(`Esperando publicación futura (${i}/32) · ${last}`);
     await sleep(15000);
@@ -55,8 +56,17 @@ try{
   await page.waitForSelector('.rt-orbit',{timeout:15000});
   await page.waitForSelector('.rt-explorer-stage',{timeout:15000});
   await page.waitForFunction(expected=>document.querySelectorAll('#indice .fila').length>=expected,expectedCount,{timeout:15000});
+  assert(await page.locator('.seo-hubs-home').count()===0,'Producción: persisten botones inferiores duplicados');
+  assert(await page.locator('.rt-editorial-prelude').count()===0,'Producción: persiste segundo bloque Explora/Interpreta/Conserva');
+  assert(await page.locator('.rt-step small').count()===0,'Producción: persiste numeración de pasos');
+  assert(await page.locator('.rt-hero-actions a').count()===1,'Producción: el héroe conserva botones redundantes');
 
-  // Fuerza el re-render real del explorador con una consulta única del trial más reciente.
+  const heroCta=page.locator('.rt-hero-cta[href="#biblioteca-clinica"]');
+  await heroCta.click();
+  await page.waitForTimeout(400);
+  assert(await page.evaluate(()=>scrollY>100),'Producción: CTA Explora no desplaza a la biblioteca');
+  await page.evaluate(()=>scrollTo(0,0));
+
   const search=page.locator('#q');
   const uniqueSearch=String(newest.doi||newest.titulo||'').trim();
   assert(uniqueSearch,'Producción: no hay término único disponible para probar el buscador');
@@ -89,9 +99,14 @@ try{
   await page.setViewportSize({width:1440,height:1000});
   await page.goto(`${BASE}${entry.path}?qa=${Date.now()}`,{waitUntil:'domcontentloaded',timeout:30000});
   await page.waitForSelector('body.rt-future-trial',{timeout:15000});
-  await page.waitForSelector('.rt-summary-deck',{timeout:15000});
   await page.waitForSelector('.rt-reader-rail',{timeout:15000});
+  assert(await page.locator('.rt-summary-deck').count()===0,'Producción trial: persiste Resumen editorial');
+  assert(await page.locator('.rt-reader-rail .rt-rail-card').filter({hasText:'Hallazgo clave'}).count()===0,'Producción trial: persiste Hallazgo clave');
+  assert(await page.locator('.rt-evidence-section[data-index]').count()===0,'Producción trial: persiste numeración de secciones');
   assert(await page.locator('.rt-save-action').isVisible(),'Producción trial: guardar en biblioteca no visible');
+  const type=await page.locator('.rt-evidence-section p').first().evaluate(el=>({size:parseFloat(getComputedStyle(el).fontSize),align:getComputedStyle(el).textAlign}));
+  assert(type.size>=17,`Producción trial: cuerpo pequeño (${type.size}px)`);
+  assert(type.align==='justify',`Producción trial: cuerpo no justificado (${type.align})`);
   await noOverflow(page,'Producción trial desktop');
 
   await page.setViewportSize({width:390,height:844});await page.waitForTimeout(200);await noOverflow(page,'Producción trial móvil');
@@ -102,7 +117,16 @@ try{
     await page.goto(`${BASE}/resumen.html?id=${trialId}&v=corto&qa=${Date.now()}`,{waitUntil:'domcontentloaded',timeout:30000});
     await page.waitForSelector('body.rt-future-legacy',{timeout:15000});
     await page.waitForSelector('[data-pdf-version="breve"]',{state:'visible',timeout:15000});
+    const shortType=await page.locator('article.corto p').first().evaluate(el=>parseFloat(getComputedStyle(el).fontSize));
+    assert(shortType>=17,`Producción resumen breve: cuerpo pequeño (${shortType}px)`);
     await noOverflow(page,'Producción resumen breve');
+  }
+
+  const pdfContact=await fetchText('/pdf-contact.js');
+  const trialPdf=await fetchText('/trial-pdf.js');
+  for(const [label,sourceText] of [['pdf-contact.js',pdfContact],['trial-pdf.js',trialPdf]]){
+    assert(sourceText.includes('@resumenestrials'),`Producción ${label}: falta X`);
+    assert(sourceText.includes('@ResumenesTrials'),`Producción ${label}: falta Telegram`);
   }
 
   await page.setViewportSize({width:1280,height:900});
@@ -112,5 +136,5 @@ try{
   await noOverflow(page,'Producción login');
 
   assert(errors.length===0,`Producción: errores JavaScript: ${errors.join(' | ')}`);
-  console.log(`FUTURE PRODUCTION STRICT PASS · ${ids.length} trials · destacado persistente · cuenta/año/revista OK · ${entry.path}`);
+  console.log(`FUTURE PRODUCTION STRICT PASS · ${ids.length} trials · UX v3 · lector simplificado · ${entry.path}`);
 }finally{await browser.close()}
