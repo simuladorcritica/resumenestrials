@@ -35,6 +35,7 @@ jobs:
           node --check legacy-reader-design-v5.js
           node --check reader-endmatter-v7.js
           node --check reader-ui-v8.js
+          node --check home-downloads-v8.js
           node --check pdf-contact.js
           node --check trial-pdf.js
           node --check scripts/future-experience-smoke.mjs
@@ -84,6 +85,7 @@ jobs:
               assert '/legacy-unifier-v4.js?v=1' in s, f'{path}: falta unificador legacy v4'
               assert '/reader-endmatter-v7.js?v=1' in s, f'{path}: falta orden final y relacionados v7'
               assert '/reader-ui-v8.js?v=1' in s, f'{path}: falta corrección funcional y visual v8'
+              assert '/home-downloads-v8.js?v=1' in s, f'{path}: falta cargador seguro de descargas de portada v8'
               assert '/future-experience-final.js?v=1' not in s, f'{path}: conserva ajuste JS final obsoleto v1'
               assert '/future-experience-final.js?v=2' not in s, f'{path}: conserva ajuste JS final obsoleto v2'
               assert s.count(future.ADSENSE_URL) == 1, f'{path}: AdSense debe aparecer exactamente una vez'
@@ -93,7 +95,7 @@ jobs:
               checked += 1
           if checked < 50:
               raise SystemExit(f'Solo se verificaron {checked} páginas; se esperaban al menos 50')
-          print(f'Assets futuros v8 + buscador global + AdSense presentes en {checked} páginas; ads.txt válido')
+          print(f'Assets futuros v8 + descargas de portada + buscador global + AdSense presentes en {checked} páginas; ads.txt válido')
           PY
       - name: Instalar Playwright
         run: |
