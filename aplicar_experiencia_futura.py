@@ -11,10 +11,12 @@ FINAL_SCRIPT_V1 = '<script src="/future-experience-final.js?v=1" defer></script>
 FINAL_SCRIPT_V2 = '<script src="/future-experience-final.js?v=2" defer></script>'
 FINAL_SCRIPT_V3 = '<script src="/future-experience-final.js?v=3" defer></script>'
 FIX_SCRIPT_V4 = '<script src="/future-experience-fix-v4.js?v=1" defer></script>'
+FIX_SCRIPT_V4_COMPAT = '<script src="/future-experience-fix-v4-compat.js?v=1" defer></script>'
 SCRIPTS = [
     '<script src="/future-experience.js?v=1" defer></script>',
     FINAL_SCRIPT_V3,
     FIX_SCRIPT_V4,
+    FIX_SCRIPT_V4_COMPAT,
 ]
 
 
