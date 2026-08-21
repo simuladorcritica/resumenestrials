@@ -60,13 +60,14 @@ await visit('/',async()=>{
   const legacyOk=legacyCreate===1&&legacyLogin===1;
   assert(editorial===1||legacyOk,`Cabecera de cuenta incorrecta: editorial=${editorial}, crear=${legacyCreate}, entrar=${legacyLogin}`);
   assert(editorial<=1,`Módulo editorial de cuenta duplicado: ${editorial}`);
-  const search=page.locator('#q');
+  assert(!(await page.locator('#q').isVisible()),'el buscador local redundante volvió a ser visible');
+  const search=page.locator('.rt-global-search-input');
+  await search.waitFor({state:'visible'});
   await search.fill('SOHO');
-  await page.waitForTimeout(250);
-  const visible=page.locator('#indice .fila:visible');
-  assert(await visible.count()>=1,'el buscador no devuelve SOHO');
-  assert(/SOHO/i.test(await visible.first().innerText()),'el buscador devuelve un resultado inesperado para SOHO');
-  await search.fill('');
+  await page.waitForSelector('.rt-global-search-result',{timeout:10000});
+  const firstGlobal=(await page.locator('.rt-global-search-result-title').first().innerText()).trim();
+  assert(/SOHO/i.test(firstGlobal),`el buscador global devuelve un resultado inesperado para SOHO: ${firstGlobal}`);
+  await search.press('Escape');
   await noHorizontalOverflow('portada escritorio');
 });
 
@@ -106,7 +107,8 @@ await page.setViewportSize({width:390,height:844});
 await visit('/',async()=>{
   await page.waitForSelector('#indice .fila',{timeout:20000});
   assert((await page.locator('#conteo').innerText()).trim()===String(data.length),'contador móvil incorrecto');
-  assert(await page.locator('#q').isVisible(),'buscador no visible en móvil');
+  assert(!(await page.locator('#q').isVisible()),'el buscador local redundante volvió a ser visible en móvil');
+  assert(await page.locator('#rt-year').isVisible()&&await page.locator('#rt-journal').isVisible(),'los filtros año/revista no son visibles en móvil');
   await noHorizontalOverflow('portada móvil');
 });
 await visit(entry.path,async()=>{
