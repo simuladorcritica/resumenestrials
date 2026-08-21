@@ -15,6 +15,12 @@
       content:"RUTA"!important;color:var(--rt-amber)!important;font-size:13px!important;letter-spacing:.14em!important;margin-right:5px!important
     }
     body.rt-future-legacy.rt-legacy-normalized .migas a{color:#a8bbc4!important;text-decoration:none!important;font-size:15px!important}
+    body.rt-future-legacy.rt-legacy-normalized .migas a.volver-top{
+      display:inline-flex!important;align-items:center!important;gap:6px!important;width:auto!important;height:auto!important;
+      padding:0!important;border:0!important;border-radius:0!important;background:transparent!important;transform:none!important;
+      color:#a8bbc4!important;font:500 15px/1.5 var(--rt-mono)!important;letter-spacing:.045em!important;text-transform:none!important
+    }
+    body.rt-future-legacy.rt-legacy-normalized .migas a.volver-top:hover{background:transparent!important;color:#71dacf!important;transform:none!important}
     body.rt-future-legacy.rt-legacy-normalized .migas span:last-child{color:#71dacf!important}
 
     body.rt-future-legacy.rt-legacy-normalized header.art,
@@ -70,7 +76,8 @@
     }
     @media(max-width:700px){
       body.rt-future-legacy.rt-legacy-normalized .migas{font-size:13px!important;margin-top:18px!important}
-      body.rt-future-legacy.rt-legacy-normalized .migas a{font-size:13px!important}
+      body.rt-future-legacy.rt-legacy-normalized .migas a,
+      body.rt-future-legacy.rt-legacy-normalized .migas a.volver-top{font-size:13px!important}
       body.rt-future-legacy.rt-legacy-normalized .migas::before{font-size:12px!important}
       body.rt-future-legacy.rt-legacy-normalized header.art,
       body.rt-future-legacy.rt-legacy-normalized.modo-corto header.art{padding:44px 0 34px!important}
@@ -132,7 +139,7 @@
       }
       crumbs.setAttribute('aria-label', 'Ruta');
       crumbs.replaceChildren();
-      const home = make('a', '', 'Inicio'); home.href = '/'; crumbs.append(home, make('span','', '›'));
+      const home = make('a', 'volver-top', '← Volver al índice'); home.href = '/'; crumbs.append(home, make('span','', '›'));
       if (row.especialidad_principal) {
         const href = row.especialidad_principal.toLowerCase().includes('crítica') ? '/medicina-critica/' : '/medicina-interna/';
         const area = make('a','',row.especialidad_principal); area.href = href; crumbs.append(area, make('span','', '›'));
