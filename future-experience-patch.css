@@ -1,5 +1,6 @@
 .rt-future-trial .rt-reader-rail{grid-row:4 / span 8!important}
 .rt-pointer-glow{position:fixed;left:0;top:0;z-index:-1;width:420px;height:420px;border-radius:50%;pointer-events:none;transform:translate3d(-1000px,-1000px,0) translate(-50%,-50%);background:radial-gradient(circle,rgba(36,200,180,.065),rgba(36,200,180,.018) 36%,transparent 69%);filter:blur(6px);will-change:transform}
 .rt-future-institutional .pagina-institucional{min-width:0!important}.rt-future-institutional .cat-head{min-width:0!important;overflow:hidden!important}.rt-future-institutional .cat-head::after{right:0!important;max-width:100%!important}.rt-future-institutional .prose,.rt-future-institutional .confianza{min-width:0!important;max-width:100%!important}
+body.rt-future-home .rt-hero-eyebrow,body.rt-future-home .rt-explorer-head>div>.eyebrow{display:none!important}
 @media(max-width:980px){.rt-future-trial .rt-reader-rail{grid-row:auto!important}}
 @media(max-width:700px){.rt-future-trial .art-head{overflow:hidden!important}.rt-future-trial .art-head::after{right:-44px!important;width:250px!important;height:250px!important}}
