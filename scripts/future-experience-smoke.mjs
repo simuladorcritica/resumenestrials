@@ -36,7 +36,7 @@ try{
 
   await page.goto(`${BASE}/index.html`,{waitUntil:'domcontentloaded',timeout:25000});
   await page.waitForSelector('body.rt-future-home',{timeout:10000});
-  await page.waitForSelector('#rt-unified-reader-v4',{timeout:10000});
+  await page.waitForFunction(()=>!!document.getElementById('rt-unified-reader-v4'),{timeout:10000});
   await page.waitForSelector('.rt-orbit',{timeout:10000});
   await page.waitForSelector('.rt-explorer-stage',{timeout:10000});
   await page.waitForFunction(()=>document.querySelectorAll('.rt-hero-actions a').length===1&&!document.querySelector('.rt-step small'),{timeout:10000});
@@ -74,7 +74,7 @@ try{
   await page.setViewportSize({width:1440,height:1000});
   await page.goto(`${BASE}${trialPath}`,{waitUntil:'domcontentloaded',timeout:25000});
   await page.waitForSelector('body.rt-future-trial',{timeout:10000});
-  await page.waitForSelector('#rt-unified-reader-v4',{timeout:10000});
+  await page.waitForFunction(()=>!!document.getElementById('rt-unified-reader-v4'),{timeout:10000});
   await page.waitForSelector('.rt-reader-rail',{timeout:10000});
   await page.waitForFunction(()=>{
     const finding=[...document.querySelectorAll('.rt-reader-rail .rt-rail-card h3')].some(h=>h.textContent.trim().toLowerCase()==='hallazgo clave');
@@ -119,7 +119,7 @@ try{
   if(sample.corto){
     await page.goto(`${BASE}/resumen.html?id=${sample.id}&v=corto`,{waitUntil:'domcontentloaded',timeout:25000});
     await page.waitForSelector('body.rt-future-legacy',{timeout:10000});
-    await page.waitForSelector('#rt-unified-reader-v4',{timeout:10000});
+    await page.waitForFunction(()=>!!document.getElementById('rt-unified-reader-v4'),{timeout:10000});
     await page.waitForSelector('[data-pdf-version="breve"]',{state:'visible',timeout:12000});
     assert(await page.locator('article.corto').isVisible(),'Resumen breve: artículo no visible');
     const shortType=await page.locator('article.corto p').first().evaluate(el=>({size:parseFloat(getComputedStyle(el).fontSize),max:getComputedStyle(document.querySelector('.envoltorio')).maxWidth}));
