@@ -94,7 +94,7 @@ function buildHomeAuditFixture(){
 
 function ignorableConsoleError(message){
   return /favicon|ERR_FAILED|Failed to load resource/i.test(message) ||
-    (/\[Report Only\]/i.test(message) && /Refused to frame/i.test(message) && /frame-ancestors/i.test(message));
+    (/google\.com/i.test(message) && /report-only Content Security Policy/i.test(message) && /frame-ancestors/i.test(message));
 }
 
 async function browserAudit(){
@@ -113,6 +113,7 @@ async function browserAudit(){
       if(process.env.RT_BASE_URL)await installTurnstileTestRoutes(page,BASE);
       await page.route('https://fonts.googleapis.com/**',r=>r.abort());
       await page.route('https://fonts.gstatic.com/**',r=>r.abort());
+      await page.route('https://pagead2.googlesyndication.com/**',r=>r.fulfill({status:200,contentType:'application/javascript',body:''}));
       const pageErrors=[];
       page.on('pageerror',e=>pageErrors.push(e.message));
       page.on('console',m=>{if(m.type()==='error'&&!ignorableConsoleError(m.text()))pageErrors.push(m.text())});
