@@ -181,15 +181,22 @@
     }
     if (actions.querySelector('.rt-reader-footer-download')) return;
 
+    const trialId = source.getAttribute('data-trial-download') || '';
     const button = source.cloneNode(true);
     button.className = 'rt-reader-footer-download';
     button.removeAttribute('id');
     button.removeAttribute('style');
+    button.removeAttribute('data-trial-download');
+    button.setAttribute('data-rt-footer-download', trialId);
     button.disabled = false;
     button.classList.remove('is-loading');
     button.setAttribute('aria-label', 'Descargar resumen completo PDF');
     const label = button.querySelector('span:last-child');
     if (label) label.textContent = 'Descargar resumen completo PDF';
+    button.addEventListener('click', (event) => {
+      event.preventDefault();
+      if (!source.disabled) source.click();
+    });
     actions.appendChild(button);
     actions.dataset.rtReaderBottomActions = 'v6';
   }
