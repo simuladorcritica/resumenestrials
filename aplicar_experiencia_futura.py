@@ -10,9 +10,11 @@ STYLES = [
 FINAL_SCRIPT_V1 = '<script src="/future-experience-final.js?v=1" defer></script>'
 FINAL_SCRIPT_V2 = '<script src="/future-experience-final.js?v=2" defer></script>'
 FINAL_SCRIPT_V3 = '<script src="/future-experience-final.js?v=3" defer></script>'
+FIX_SCRIPT_V4 = '<script src="/future-experience-fix-v4.js?v=1" defer></script>'
 SCRIPTS = [
     '<script src="/future-experience.js?v=1" defer></script>',
     FINAL_SCRIPT_V3,
+    FIX_SCRIPT_V4,
 ]
 
 
@@ -22,8 +24,8 @@ def inject(path: Path) -> bool:
     source = path.read_text(encoding="utf-8")
     changed = False
 
-    # Cache-bust explícito del ajuste final. Sustituye versiones anteriores,
-    # no las duplica, para que navegador/CDN carguen inmediatamente el fix.
+    # Mantiene una sola versión de la capa final existente y añade la v4
+    # de unificación visual/tipográfica sin duplicar scripts.
     for old in (FINAL_SCRIPT_V1, FINAL_SCRIPT_V2):
         if old in source:
             source = source.replace(old, FINAL_SCRIPT_V3)
