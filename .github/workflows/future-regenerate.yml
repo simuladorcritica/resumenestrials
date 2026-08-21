@@ -11,6 +11,7 @@ on:
       - "future-experience-final.js"
       - "future-experience-fix-v4.js"
       - "future-experience-fix-v4-compat.js"
+      - "legacy-unifier-v4.js"
       - ".github/workflows/future-regenerate.yml"
   workflow_dispatch:
 
@@ -48,6 +49,7 @@ jobs:
           node --check future-experience-final.js
           node --check future-experience-fix-v4.js
           node --check future-experience-fix-v4-compat.js
+          node --check legacy-unifier-v4.js
           node --check legacy-reader-design-v5.js
           node --check pdf-contact.js
           node --check trial-pdf.js
@@ -79,6 +81,7 @@ jobs:
               assert '/future-experience-final.js?v=3' in source, f'{path}: falta ajuste final v3'
               assert '/future-experience-fix-v4.js?v=1' in source, f'{path}: falta unificación v4'
               assert '/future-experience-fix-v4-compat.js?v=1' in source, f'{path}: falta candado tipográfico v4'
+              assert '/legacy-unifier-v4.js?v=1' in source, f'{path}: falta unificador legacy v4'
               assert '/future-experience-final.js?v=1' not in source, f'{path}: conserva ajuste final v1 obsoleto'
               assert '/future-experience-final.js?v=2' not in source, f'{path}: conserva ajuste final v2 obsoleto'
               checked += 1
