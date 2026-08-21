@@ -69,6 +69,7 @@ GLOBAL_SEARCH = '<script src="/global-search.js?v=1" defer></script>'
 FIX_SCRIPT_V4 = '<script src="/future-experience-fix-v4.js?v=1" defer></script>'
 FIX_SCRIPT_V4_COMPAT = '<script src="/future-experience-fix-v4-compat.js?v=1" defer></script>'
 LEGACY_UNIFIER_V4 = '<script src="/legacy-unifier-v4.js?v=1" defer></script>'
+ENDMATTER_V7 = '<script src="/reader-endmatter-v7.js?v=1" defer></script>'
 SCRIPTS = [
     '<script src="/future-experience.js?v=1" defer></script>',
     GLOBAL_SEARCH,
@@ -76,6 +77,7 @@ SCRIPTS = [
     FIX_SCRIPT_V4,
     FIX_SCRIPT_V4_COMPAT,
     LEGACY_UNIFIER_V4,
+    ENDMATTER_V7,
 ]
 
 
@@ -85,8 +87,8 @@ def inject(path: Path) -> bool:
     source = path.read_text(encoding="utf-8")
     changed = False
 
-    # Mantiene una sola versión de la capa final existente y añade la v4
-    # de unificación visual/tipográfica sin duplicar scripts.
+    # Mantiene una sola versión de la capa final existente y añade las capas
+    # de unificación visual sin duplicar scripts.
     for old in (FINAL_SCRIPT_V1, FINAL_SCRIPT_V2):
         if old in source:
             source = source.replace(old, FINAL_SCRIPT_V3)
