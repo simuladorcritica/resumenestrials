@@ -218,9 +218,9 @@
   @media (prefers-reduced-motion: reduce){ *{transition:none} }
   a:focus-visible,button:focus-visible { outline:2px solid var(--teal); outline-offset:3px; }
 </style>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" integrity="sha384-JcnsjUPPylna1s1fvi1u12X5qjY5OL56iySh75FdtrwhO/SWXgMjoVqcKyIIWOLk" crossorigin="anonymous" defer></script>
 <script src="pdf-contact.js?v=2" defer></script>
-<link rel="stylesheet" href="/future-experience.css?v=1"><link rel="stylesheet" href="/future-experience-patch.css?v=1"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3132744538918477" crossorigin="anonymous"></script><link rel="stylesheet" href="/global-search.css?v=1"></head>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3132744538918477" crossorigin="anonymous"></script><link rel="stylesheet" href="/site-runtime.css?v=20260821"></head>
 <body>
 <div class="topbar">
   <div class="topbar-in">
@@ -297,6 +297,8 @@
     return (ultimoEspacio>100?corte.slice(0,ultimoEspacio):limpio.slice(0,max)).trim()+"…";
   }
   const esc=(s)=>String(s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+  function sanitizarHTML(valor){const t=document.createElement("template");t.innerHTML=String(valor||"");t.content.querySelectorAll("*").forEach((n)=>{if(!["H2","P","STRONG","EM"].includes(n.tagName))n.replaceWith(document.createTextNode(n.textContent||""));else[...n.attributes].forEach((a)=>n.removeAttribute(a.name));});return t.innerHTML;}
+  function urlSegura(valor){try{const u=new URL(String(valor||""),BASE_URL);return u.protocol==="https:"?u.href:"";}catch{return"";}}
   const fmtFecha=(iso)=>{if(!iso)return"";const p=String(iso).split("-");return p.length===3?`${p[2]}/${p[1]}/${p[0]}`:iso;};
   const claseEsp=(e)=>e==="Medicina Crítica"?"critica":"interna";
 
@@ -312,14 +314,14 @@
     return b.length?`<div class="etiquetas">${b.join("")}</div>`:"";
   }
 
-  function actualizarSEO(dato,esCorto) {
-    const canonical=`${BASE_URL}/resumen.html?id=${encodeURIComponent(dato.id)}`;
-    const urlCompartida=esCorto?`${canonical}&v=corto`:canonical;
+  function actualizarSEO(dato,esCorto,canonicalPath) {
+    const canonical=new URL(canonicalPath||`/resumen.html?id=${encodeURIComponent(dato.id)}`,BASE_URL).href;
+    const urlCompartida=canonical;
     const sufijo=esCorto?" · resumen breve":"";
     const titulo=`${textoPlano(dato.titulo)}${sufijo} · Resumenes Trials`;
     const descripcion=recortar(dato.objetivo||dato.hallazgo||"Resumen crítico en español de un ensayo clínico aleatorizado.");
     document.title=titulo;
-    fijarMeta('#meta-description','content',descripcion);fijarMeta('#meta-robots','content','index,follow,max-image-preview:large');
+    fijarMeta('#meta-description','content',descripcion);fijarMeta('#meta-robots','content','noindex,follow,max-image-preview:large');
     fijarCanonical(canonical);fijarMeta('#og-title','content',titulo);fijarMeta('#og-description','content',descripcion);fijarMeta('#og-url','content',urlCompartida);fijarMeta('#twitter-title','content',titulo);fijarMeta('#twitter-description','content',descripcion);
     const temasArr=Array.isArray(dato.temas)?dato.temas:[];
     const sub=subespecialidadMI(dato);
@@ -346,7 +348,7 @@
     const puntuar=(r)=>{const espR=[r.especialidad_principal,r.especialidad_secundaria].filter(Boolean);const espComun=espR.filter((e)=>espActual.includes(e)).length;const temasComun=(Array.isArray(r.temas)?r.temas:[]).filter((t)=>temasActual.has(t)).length;return temasComun*2+espComun;};
     const candidatos=todos.filter((r)=>String(r.id)!==String(dato.id)).map((r)=>({r,s:puntuar(r)})).filter((x)=>x.s>0).sort((a,b)=>(b.s-a.s)||(String(b.r.fecha||"").localeCompare(String(a.r.fecha||"")))).slice(0,4).map((x)=>x.r);
     if(!candidatos.length)return"";
-    const items=candidatos.map((r)=>`<div class="rel-item"><a href="resumen.html?id=${r.id}">${badgesHTML(r)}<div class="rel-tit">${r.titulo}</div><div class="rel-fuente">${esc(r.autor)} · ${esc(r.revista)}${r.fecha?" · "+fmtFecha(r.fecha):""}</div></a></div>`).join("");
+    const items=candidatos.map((r)=>`<div class="rel-item"><a href="resumen.html?id=${encodeURIComponent(r.id)}">${badgesHTML(r)}<div class="rel-tit">${esc(r.titulo)}</div><div class="rel-fuente">${esc(r.autor)} · ${esc(r.revista)}${r.fecha?" · "+fmtFecha(r.fecha):""}</div></a></div>`).join("");
     return `<section class="relacionados"><h2>Evidencia relacionada</h2><div class="rel-grid">${items}</div></section>`;
   }
 
@@ -367,7 +369,7 @@
     doc.setFont("times","bold");doc.setFontSize(18);doc.setTextColor(18,35,59);lineas(textoPlano(dato.titulo),maxW).forEach((l)=>{asegura(22);doc.text(l,ML,y);y+=22;});y+=6;
     const sub=subespecialidadMI(dato);const esp=[dato.especialidad_principal,dato.especialidad_secundaria,sub].filter(Boolean).filter((v,i,a)=>a.indexOf(v)===i).join(" · ");const clasif=[esp,dato.tipo_estudio].filter(Boolean).join("   ·   ");if(clasif){doc.setFont("helvetica","bold");doc.setFontSize(8);doc.setTextColor(15,95,95);lineas(clasif.toUpperCase(),maxW).forEach((l)=>{asegura(12);doc.text(l,ML,y);y+=12;});y+=3;}
     const meta=[dato.autor,dato.anio?`${dato.revista} ${dato.anio}`:dato.revista,dato.doi?"DOI: "+dato.doi:""].filter(Boolean).join("   ·   ");doc.setFont("helvetica","normal");doc.setFontSize(9);doc.setTextColor(56,80,110);lineas(meta,maxW).forEach((l)=>{asegura(13);doc.text(l,ML,y);y+=13;});y+=20;
-    const contenidoPDF=document.createElement("div");contenidoPDF.innerHTML=esCorto?(dato.corto||""):(dato.cuerpo||"");
+    const contenidoPDF=document.createElement("div");contenidoPDF.innerHTML=sanitizarHTML(esCorto?(dato.corto||""):(dato.cuerpo||""));
     const runsDe=(el)=>{const runs=[];el.childNodes.forEach((n)=>{if(n.nodeType===3)runs.push({text:n.textContent,bold:false});else if(n.nodeType===1)runs.push({text:n.textContent,bold:n.tagName==="STRONG"||n.tagName==="B"});});return runs.length?runs:[{text:el.textContent||"",bold:false}];};
     const escribirBloque=(runs,fs,lh,justificar)=>{doc.setFontSize(fs);doc.setTextColor(24,30,40);const words=[];runs.forEach((r)=>r.text.split(/\s+/).forEach((p)=>{if(p!=="")words.push({t:sanPDF(p),bold:r.bold});}));if(!words.length)return;doc.setFont("times","normal");const espN=doc.getTextWidth(" ");const anchoDe=(w)=>{doc.setFont("times",w.bold?"bold":"normal");return doc.getTextWidth(w.t);};const filas=[];let linea=[],suma=0;words.forEach((w)=>{const ww=anchoDe(w),proyecto=suma+(linea.length?espN:0)+ww;if(linea.length&&proyecto>maxW){filas.push({ws:linea,suma});linea=[w];suma=ww;}else{suma+=(linea.length?espN:0)+ww;linea.push(w);}});if(linea.length)filas.push({ws:linea,suma});filas.forEach((fila,idx)=>{asegura(lh);const nGaps=fila.ws.length-1,esUltima=idx===filas.length-1;let gap=espN;if(justificar&&!esUltima&&nGaps>0){const sumaPalabras=fila.suma-espN*nGaps;gap=(maxW-sumaPalabras)/nGaps;if(gap<espN)gap=espN;if(gap>espN*5)gap=espN;}let x=ML;fila.ws.forEach((w,i)=>{doc.setFont("times",w.bold?"bold":"normal");const ultimo=i===fila.ws.length-1;doc.text(ultimo?w.t:w.t+" ",x,y);x+=doc.getTextWidth(w.t)+(ultimo?0:gap);});y+=lh;});};
     Array.from(contenidoPDF.childNodes).forEach((n)=>{if(n.nodeType===1&&n.tagName==="H2"){y+=9;asegura(18);doc.setCharSpace(.6);doc.setFont("helvetica","bold");doc.setFontSize(9.5);doc.setTextColor(15,95,95);lineas(n.textContent.toUpperCase(),maxW).forEach((l)=>{asegura(13);doc.text(l,ML,y);y+=13;});doc.setCharSpace(0);y+=5;}else if(n.nodeType===1&&n.tagName==="P"){escribirBloque(runsDe(n),10.5,14.8,true);y+=7;}else if(n.nodeType===1&&(n.tagName==="UL"||n.tagName==="OL")){n.querySelectorAll("li").forEach((li)=>{escribirBloque([{text:"•  ",bold:false}].concat(runsDe(li)),10.5,14.8,false);y+=3;});y+=5;}else if(n.nodeType===3&&n.textContent.trim()){escribirBloque([{text:n.textContent,bold:false}],10.5,14.8,true);y+=7;}});
@@ -385,17 +387,17 @@
   document.addEventListener("contextmenu",(e)=>{if(dentroNoCopiar(e.target))e.preventDefault();},true);
   document.addEventListener("dragstart",(e)=>{if(dentroNoCopiar(e.target))e.preventDefault();},true);
 
-  fetch("resumenes.json",{cache:"no-store"}).then((r)=>{if(!r.ok)throw new Error("HTTP "+r.status);return r.json();}).then((data)=>{
+  Promise.all([fetch("resumenes.json",{cache:"no-store"}),fetch("seo-manifest.json",{cache:"no-store"})]).then(async([dataResponse,manifestResponse])=>{if(!dataResponse.ok)throw new Error("HTTP "+dataResponse.status);const data=await dataResponse.json();const manifest=manifestResponse.ok?await manifestResponse.json():{};return{data,manifest};}).then(({data,manifest})=>{
     const todos=Array.isArray(data)?data:[],dato=todos.find((x)=>String(x.id)===String(id));if(!dato){noEncontrado();return;}
-    const esCorto=params.get("v")==="corto"&&!!dato.corto,cuerpoHTML=esCorto?dato.corto:dato.cuerpo;document.body.classList.toggle("modo-corto",esCorto);
+    const esCorto=params.get("v")==="corto"&&!!dato.corto,cuerpoHTML=sanitizarHTML(esCorto?dato.corto:dato.cuerpo),originalSeguro=urlSegura(dato.original);document.body.classList.toggle("modo-corto",esCorto);
     let versionNav="",versionNavPie="";
     if(esCorto){versionNav=`<span class="version-etiqueta">Lectura rápida</span><a class="cambio-version" href="resumen.html?id=${dato.id}">Ver versión completa →</a>`;versionNavPie=`<a class="cambio-version" href="resumen.html?id=${dato.id}">Ver versión completa →</a>`;}else if(dato.corto){versionNav=`<a class="cambio-version" href="resumen.html?id=${dato.id}&v=corto">Ver versión breve →</a>`;versionNavPie=`<a class="cambio-version" href="resumen.html?id=${dato.id}&v=corto">Ver versión breve →</a>`;}
-    actualizarSEO(dato,esCorto);
+    actualizarSEO(dato,esCorto,manifest?.[String(dato.id)]?.path);
     const fuenteLinea=[dato.autor,dato.anio?`${dato.revista} ${dato.anio}`:dato.revista,dato.doi].filter(Boolean).join(" · ");
     const descargas=botonesDescargaHTML(dato);
-    cont.innerHTML=`<div class="envoltorio">${migasHTML()}<header class="art">${badgesHTML(dato)}<h1>${dato.titulo}</h1><div class="fuente-linea" style="margin-top:16px">${esc(fuenteLinea)}</div><div class="acciones-art">${descargas}</div>${versionNav?`<div class="version-nav">${versionNav}</div>`:""}</header><article class="no-copiar ${esCorto?"corto":""}">${cuerpoHTML}</article>${dato.original?`<div class="enlace-original">Artículo original: <a href="${dato.original}" target="_blank" rel="noopener">${dato.original}</a></div>`:""}<div class="acciones-art" style="margin:8px 0 4px">${descargas}</div>${esCorto?"":relacionadosHTML(dato,todos)}<nav class="pie-nav"><a class="volver" href="index.html">← Volver al índice</a>${versionNavPie}</nav><footer class="art">Escribimos este resumen crítico pensando en médicos y profesionales de la salud. Léelo como una guía de lectura, nunca como un reemplazo del artículo original ni de tu propio juicio clínico.</footer></div>`;
+    cont.innerHTML=`<div class="envoltorio">${migasHTML()}<header class="art">${badgesHTML(dato)}<h1>${esc(dato.titulo)}</h1><div class="fuente-linea" style="margin-top:16px">${esc(fuenteLinea)}</div><div class="acciones-art">${descargas}</div>${versionNav?`<div class="version-nav">${versionNav}</div>`:""}</header><article class="no-copiar ${esCorto?"corto":""}">${cuerpoHTML}</article>${originalSeguro?`<div class="enlace-original">Artículo original: <a href="${esc(originalSeguro)}" target="_blank" rel="noopener noreferrer">${esc(originalSeguro)}</a></div>`:""}<div class="acciones-art" style="margin:8px 0 4px">${descargas}</div>${esCorto?"":relacionadosHTML(dato,todos)}<nav class="pie-nav"><a class="volver" href="index.html">← Volver al índice</a>${versionNavPie}</nav><footer class="art">Escribimos este resumen crítico pensando en médicos y profesionales de la salud. Léelo como una guía de lectura, nunca como un reemplazo del artículo original ni de tu propio juicio clínico.</footer></div>`;
     document.querySelectorAll(".btn-pdf").forEach((b)=>b.addEventListener("click",()=>descargarPDF(dato,b.dataset.pdfVersion==="breve",b)));
   }).catch((err)=>{console.error("No se pudo cargar resumenes.json:",err);noEncontrado();});
 </script>
-<script src="/future-experience.js?v=1" defer></script><script src="/future-experience-final.js?v=3" defer></script><script src="/future-experience-fix-v4.js?v=1" defer></script><script src="/future-experience-fix-v4-compat.js?v=1" defer></script><script src="/legacy-unifier-v4.js?v=1" defer></script><script src="/global-search.js?v=1" defer></script><script src="/reader-endmatter-v7.js?v=1" defer></script><script src="/reader-ui-v8.js?v=1" defer></script><script src="/home-downloads-v8.js?v=1" defer></script><script src="/reader-controls-v9.js?v=2" defer></script></body>
+<script src="/site-runtime.js?v=20260821" defer></script></body>
 </html>

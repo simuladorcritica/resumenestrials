@@ -74,18 +74,10 @@ jobs:
               if not path.is_file():
                   continue
               s = path.read_text(encoding='utf-8')
-              assert '/future-experience.css?v=1' in s, f'{path}: falta CSS futuro'
-              assert '/future-experience-patch.css?v=1' in s, f'{path}: falta patch futuro'
-              assert '/global-search.css?v=1' in s, f'{path}: falta CSS del buscador global'
-              assert '/future-experience.js?v=1' in s, f'{path}: falta JS futuro'
-              assert '/global-search.js?v=1' in s, f'{path}: falta JS del buscador global'
-              assert '/future-experience-final.js?v=3' in s, f'{path}: falta ajuste JS final v3'
-              assert '/future-experience-fix-v4.js?v=1' in s, f'{path}: falta unificación visual v4'
-              assert '/future-experience-fix-v4-compat.js?v=1' in s, f'{path}: falta candado tipográfico v4'
-              assert '/legacy-unifier-v4.js?v=1' in s, f'{path}: falta unificador legacy v4'
-              assert '/reader-endmatter-v7.js?v=1' in s, f'{path}: falta orden final y relacionados v7'
-              assert '/reader-ui-v8.js?v=1' in s, f'{path}: falta corrección funcional y visual v8'
-              assert '/home-downloads-v8.js?v=1' in s, f'{path}: falta cargador seguro de descargas de portada v8'
+              assert s.count('/site-runtime.css?v=20260821') == 1, f'{path}: runtime CSS ausente o duplicado'
+              assert s.count('/site-runtime.js?v=20260821') == 1, f'{path}: runtime JS ausente o duplicado'
+              assert '/future-experience.css?v=1' not in s, f'{path}: conserva CSS fragmentado'
+              assert '/future-experience.js?v=1' not in s, f'{path}: conserva JS fragmentado'
               assert '/future-experience-final.js?v=1' not in s, f'{path}: conserva ajuste JS final obsoleto v1'
               assert '/future-experience-final.js?v=2' not in s, f'{path}: conserva ajuste JS final obsoleto v2'
               assert s.count(future.ADSENSE_URL) == 1, f'{path}: AdSense debe aparecer exactamente una vez'

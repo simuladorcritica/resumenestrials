@@ -163,6 +163,16 @@ jobs:
         run: node scripts/validate-newsletter.mjs
       - name: Validate resumenes.json
         run: node scripts/validate-data.mjs
+      - name: Validate generated runtime bundle
+        run: |
+          node scripts/build-site-runtime.mjs
+          git diff --exit-code -- site-runtime.js site-runtime.css
+      - name: Protect medical and editorial content
+        env:
+          CLINICAL_BASE_REF: ${{ github.event.pull_request.base.sha || 'HEAD^' }}
+        run: node scripts/verify-clinical-freeze.mjs
+      - name: Validate editorial contract and technical markup
+        run: python3 tools/validar_resumenes.py resumenes.json
       - name: Validate editorial architecture
         run: node scripts/validate-editorial.mjs
 

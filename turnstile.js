@@ -1,9 +1,6 @@
 // Cloudflare Turnstile para resumenestrials.com.
-// El widget queda desactivado mientras Supabase no tenga un Secret Key válido.
-// Mantener un widget que visualmente diga "operación exitosa" pero cuyo secreto
-// servidor sea inválido bloquea registros e inicios de sesión legítimos.
-const TURNSTILE_SITE_KEY = '0x4AAAAAAEV-hx4kk2dLe8ZF';
-const CAPTCHA_ENABLED = false;
+import { TURNSTILE_SITE_KEY } from './turnstile-config.js';
+const CAPTCHA_ENABLED = Boolean(TURNSTILE_SITE_KEY && !TURNSTILE_SITE_KEY.includes('TU_SITE_KEY'));
 
 let scriptPromise = null;
 
@@ -87,7 +84,10 @@ export async function mountTurnstile(containerId, action) {
       container.dataset.turnstileStatus = 'error';
       container.dataset.turnstileError = value;
       console.error('Cloudflare Turnstile error:', value);
-      container.innerHTML = `<div style="font:11px IBM Plex Mono,monospace;color:#a3311f;padding:10px 0">No se pudo cargar la verificación de seguridad (código ${value}).</div>`;
+      const message = document.createElement('div');
+      message.style.cssText = 'font:11px IBM Plex Mono,monospace;color:#a3311f;padding:10px 0';
+      message.textContent = `No se pudo cargar la verificación de seguridad (código ${value}).`;
+      container.replaceChildren(message);
       return true;
     },
     'refresh-expired': 'auto',

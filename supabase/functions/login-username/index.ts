@@ -1,4 +1,4 @@
-import { createClient } from "npm:@supabase/supabase-js@2";
+import { createClient } from "npm:@supabase/supabase-js@2.112.3";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "https://resumenestrials.com",
@@ -9,6 +9,7 @@ const corsHeaders = {
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") return new Response("ok", { headers: corsHeaders });
   if (req.method !== "POST") return json({ error: "Método no permitido" }, 405);
+  if (req.headers.get("origin") !== "https://resumenestrials.com") return json({ error: "Origen no permitido" }, 403);
 
   try {
     const { username, password, captchaToken } = await req.json();
@@ -16,7 +17,7 @@ Deno.serve(async (req) => {
     const cleanPassword = String(password || "");
     const cleanCaptcha = String(captchaToken || "").trim();
 
-    if (!/^[a-z0-9._-]{3,30}$/.test(cleanUsername) || cleanPassword.length < 1) {
+    if (!/^[a-z0-9._-]{3,30}$/.test(cleanUsername) || cleanPassword.length < 1 || !cleanCaptcha) {
       return json({ error: "Credenciales incorrectas" }, 400);
     }
 
@@ -53,7 +54,7 @@ Deno.serve(async (req) => {
       email: profile.email,
       password: cleanPassword,
     };
-    if (cleanCaptcha) credentials.options = { captchaToken: cleanCaptcha };
+    credentials.options = { captchaToken: cleanCaptcha };
 
     const { data, error } = await authClient.auth.signInWithPassword(credentials);
 

@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "browser": {
+    "@supabase/supabase-js": {
+      "version": "2.112.3",
+      "source": "https://esm.sh/@supabase/supabase-js@2.112.3"
+    },
+    "jspdf": {
+      "version": "2.5.1",
+      "source": "https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js",
+      "integrity": "sha384-JcnsjUPPylna1s1fvi1u12X5qjY5OL56iySh75FdtrwhO/SWXgMjoVqcKyIIWOLk"
+    },
+    "cloudflare-turnstile": {
+      "source": "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"
+    },
+    "google-adsense": {
+      "publisher": "ca-pub-3132744538918477"
+    }
+  },
+  "edge_functions": {
+    "@supabase/supabase-js": "2.112.3"
+  }
+}

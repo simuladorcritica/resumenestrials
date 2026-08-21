@@ -4,6 +4,8 @@ import { readFileSync, writeFileSync } from 'node:fs';
 const BASE=(process.env.RT_BASE_URL||'http://127.0.0.1:8000').replace(/\/$/,'');
 const data=JSON.parse(readFileSync('resumenes.json','utf8'));
 const manifest=JSON.parse(readFileSync('seo-manifest.json','utf8'));
+const originalIndex=readFileSync('index.html','utf8');
+process.once('exit',()=>writeFileSync('index.html',originalIndex,'utf8'));
 writeFileSync('index.html',readFileSync('_includes/index-source.html','utf8'),'utf8');
 
 function assert(v,m){if(!v)throw new Error(m)}

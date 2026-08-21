@@ -3,11 +3,12 @@ from __future__ import annotations
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
-STYLES = [
+LEGACY_STYLES = [
     '<link rel="stylesheet" href="/future-experience.css?v=1">',
     '<link rel="stylesheet" href="/future-experience-patch.css?v=1">',
     '<link rel="stylesheet" href="/global-search.css?v=1">',
 ]
+STYLES = ['<link rel="stylesheet" href="/site-runtime.css?v=20260821">']
 ADSENSE_CLIENT = 'ca-pub-3132744538918477'
 ADSENSE_URL = f'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={ADSENSE_CLIENT}'
 ADSENSE_SCRIPT = f'<script async src="{ADSENSE_URL}" crossorigin="anonymous"></script>'
@@ -75,16 +76,13 @@ HOME_DOWNLOADS_V8 = '<script src="/home-downloads-v8.js?v=1" defer></script>'
 READER_CONTROLS_V9_OLD = '<script src="/reader-controls-v9.js?v=1" defer></script>'
 READER_CONTROLS_V9 = '<script src="/reader-controls-v9.js?v=2" defer></script>'
 SCRIPTS = [
-    '<script src="/future-experience.js?v=1" defer></script>',
-    GLOBAL_SEARCH,
-    FINAL_SCRIPT_V3,
-    FIX_SCRIPT_V4,
-    FIX_SCRIPT_V4_COMPAT,
-    LEGACY_UNIFIER_V4,
-    ENDMATTER_V7,
-    READER_UI_V8,
-    HOME_DOWNLOADS_V8,
-    READER_CONTROLS_V9,
+    '<script src="/site-runtime.js?v=20260821" defer></script>',
+]
+LEGACY_SCRIPTS = [
+    '<script src="/future-experience.js?v=1" defer></script>', GLOBAL_SEARCH,
+    FINAL_SCRIPT_V1, FINAL_SCRIPT_V2, FINAL_SCRIPT_V3, FIX_SCRIPT_V4,
+    FIX_SCRIPT_V4_COMPAT, LEGACY_UNIFIER_V4, ENDMATTER_V7, READER_UI_V8,
+    HOME_DOWNLOADS_V8, READER_CONTROLS_V9_OLD, READER_CONTROLS_V9,
 ]
 
 
@@ -93,6 +91,11 @@ def inject(path: Path) -> bool:
         return False
     source = path.read_text(encoding="utf-8")
     changed = False
+
+    for old in LEGACY_STYLES + LEGACY_SCRIPTS:
+        if old in source:
+            source = source.replace(old, '')
+            changed = True
 
     for old in (FINAL_SCRIPT_V1, FINAL_SCRIPT_V2):
         if old in source:

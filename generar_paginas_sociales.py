@@ -3,7 +3,7 @@ import json
 import html
 import re
 
-from generar_seo import ruta_trial, url_trial
+from generar_seo import ruta_trial, url_trial, slug_para_item
 
 ROOT = Path(__file__).resolve().parent
 OUT = ROOT / "resumen"
@@ -37,10 +37,9 @@ def pagina(item, corta=False):
     )
 
     archivo = f"{trial_id}-corto.html" if corta else f"{trial_id}.html"
-    url_social = f"{BASE_URL}/resumen/{archivo}"
     destino = ruta_trial(item) + ("#resumen-breve" if corta else "")
     canonical = url_trial(item)
-    logo = f"{BASE_URL}/logo.png"
+    social_image = f"{BASE_URL}/images/trials/{slug_para_item(item)}-16x9.jpg"
 
     return f'''<!DOCTYPE html>
 <html lang="es">
@@ -56,16 +55,16 @@ def pagina(item, corta=False):
 <meta property="og:locale" content="es_MX">
 <meta property="og:title" content="{html.escape(titulo)}">
 <meta property="og:description" content="{html.escape(descripcion)}">
-<meta property="og:url" content="{html.escape(url_social)}">
-<meta property="og:image" content="{logo}">
-<meta property="og:image:secure_url" content="{logo}">
-<meta property="og:image:type" content="image/png">
-<meta property="og:image:alt" content="Logo oficial de Resúmenes Trials">
-<meta name="twitter:card" content="summary">
+<meta property="og:url" content="{html.escape(canonical)}">
+<meta property="og:image" content="{social_image}">
+<meta property="og:image:secure_url" content="{social_image}">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:alt" content="Ilustración editorial de {html.escape(titulo_base)}">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{html.escape(titulo)}">
 <meta name="twitter:description" content="{html.escape(descripcion)}">
-<meta name="twitter:image" content="{logo}">
-<meta name="twitter:image:alt" content="Logo oficial de Resúmenes Trials">
+<meta name="twitter:image" content="{social_image}">
+<meta name="twitter:image:alt" content="Ilustración editorial de {html.escape(titulo_base)}">
 <script>window.location.replace({json.dumps(destino)});</script>
 </head>
 <body>
@@ -81,8 +80,18 @@ def main():
         datos = json.load(f)
 
     OUT.mkdir(exist_ok=True)
-    for archivo in OUT.glob("*.html"):
-        archivo.unlink()
+    expected = {
+        f'{item["id"]}{suffix}.html'
+        for item in datos
+        if "id" in item
+        for suffix in (["", "-corto"] if item.get("corto") else [""])
+    }
+    stale = sorted(archivo.name for archivo in OUT.glob("*.html") if archivo.name not in expected)
+    if stale:
+        raise RuntimeError(
+            "Hay páginas sociales obsoletas que requieren revisión manual; "
+            "no se eliminaron: " + ", ".join(stale)
+        )
 
     generadas = 0
     for item in datos:

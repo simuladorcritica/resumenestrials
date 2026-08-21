@@ -308,6 +308,12 @@ def make_image(item: dict, width: int, height: int, suffix: str) -> str:
     slug = base.slug_para_item(item)
     filename = f"{slug}-{suffix}.jpg"
     path = IMAGES_DIR / filename
+    public_url = f"{base.BASE_URL}/images/trials/{filename}"
+    # Los binarios publicados son artefactos versionados. No se recomprimen en
+    # cada regeneración porque distintas versiones de Pillow producen bytes
+    # diferentes aunque la imagen visible sea equivalente.
+    if path.exists():
+        return public_url
 
     critical = "Medicina Crítica" in base.categorias(item)
     bg = (247, 246, 242)
@@ -357,7 +363,7 @@ def make_image(item: dict, width: int, height: int, suffix: str) -> str:
     draw.text((pad, int(height * .92)), "Resumen crítico en español · imagen editorial original", font=label_font, fill=muted)
 
     image.save(path, "JPEG", quality=88, optimize=True, progressive=True)
-    return f"{base.BASE_URL}/images/trials/{filename}"
+    return public_url
 
 
 def image_urls(item: dict) -> list[str]:

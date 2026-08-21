@@ -36,6 +36,8 @@
       }
       const script = document.createElement('script');
       script.src = 'https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js';
+      script.integrity = 'sha384-JcnsjUPPylna1s1fvi1u12X5qjY5OL56iySh75FdtrwhO/SWXgMjoVqcKyIIWOLk';
+      script.crossOrigin = 'anonymous';
       script.async = true;
       script.dataset.rtJspdf = '1';
       script.onload = () => window.jspdf?.jsPDF ? resolve(window.jspdf) : reject(new Error('jsPDF no disponible'));
@@ -63,6 +65,10 @@
   function blocks(html) {
     const root = document.createElement('div');
     root.innerHTML = html || '';
+    root.querySelectorAll('*').forEach((node) => {
+      if (!['H2', 'P', 'STRONG', 'EM', 'UL', 'OL', 'LI'].includes(node.tagName)) node.replaceWith(document.createTextNode(node.textContent || ''));
+      else [...node.attributes].forEach((attribute) => node.removeAttribute(attribute.name));
+    });
     const out = [];
     root.childNodes.forEach((node) => {
       if (node.nodeType === 3 && node.textContent.trim()) out.push({ type: 'p', text: node.textContent.trim() });

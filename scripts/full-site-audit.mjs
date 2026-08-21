@@ -52,7 +52,10 @@ function staticAudit(){
   for(const token of ['spam','correo no deseado','promociones'])if(!registration.includes(token))fail('registro','falta aviso posterior al registro sobre '+token);
 
   const turnstile=read('turnstile.js');
-  if(!/CAPTCHA_ENABLED\s*=\s*false/.test(turnstile))fail('captcha','Turnstile no está en el estado controlado esperado mientras el Secret Key es inválido');
+  const turnstileConfig=read('turnstile-config.js');
+  if(!turnstile.includes("import { TURNSTILE_SITE_KEY } from './turnstile-config.js'"))fail('captcha','Turnstile no consume la configuración pública centralizada');
+  if(!/TURNSTILE_SITE_KEY\s*=\s*["']0x[\w-]+["']/.test(turnstileConfig))fail('captcha','falta una Site Key pública de Turnstile válida');
+  if(/CAPTCHA_ENABLED\s*=\s*false/.test(turnstile))fail('captcha','Turnstile permanece desactivado de forma explícita');
   const diagnostic=read('turnstile-check.html');
   if(/challenges\.cloudflare\.com/.test(diagnostic))fail('captcha','la página diagnóstica sigue cargando el widget desactivado');
 

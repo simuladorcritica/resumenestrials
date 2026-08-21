@@ -259,12 +259,24 @@ def cluster_page(c: dict, items: list[dict], clusters: list[dict], active: dict[
 
 
 def generate_cluster_pages(items: list[dict], clusters: list[dict], active: dict[str, list[dict]]) -> dict:
-    for cat_path in base.CATEGORY_PATHS.values():
+    for category, cat_path in base.CATEGORY_PATHS.items():
         root = ROOT / cat_path
         if root.exists():
-            for child in root.iterdir():
-                if child.is_dir():
-                    shutil.rmtree(child)
+            expected = {
+                c["slug"]
+                for c in clusters
+                if c["category"] == category and active.get(c["slug"])
+            }
+            stale = sorted(
+                child.name
+                for child in root.iterdir()
+                if child.is_dir() and child.name not in expected
+            )
+            if stale:
+                raise RuntimeError(
+                    f"Hay clusters obsoletos en {cat_path} que requieren revisión manual; "
+                    "no se eliminaron: " + ", ".join(stale)
+                )
     manifest = {}
     for c in clusters:
         values = active.get(c["slug"], [])
@@ -334,9 +346,12 @@ def update_sitemap(items: list[dict], clusters: list[dict], active: dict[str, li
     urls.extend(cluster_url(c) for c in clusters if active.get(c["slug"]))
     urls.extend(base.url_trial(item) for item in items)
     root = ET.Element("urlset", xmlns="http://www.sitemaps.org/schemas/sitemap/0.9")
+    dates = {base.url_trial(item): str(item.get("fecha") or "") for item in items}
     for url in dict.fromkeys(urls):
         node = ET.SubElement(root, "url")
         ET.SubElement(node, "loc").text = url
+        if dates.get(url):
+            ET.SubElement(node, "lastmod").text = dates[url]
     ET.ElementTree(root).write(base.SITEMAP_PATH, encoding="utf-8", xml_declaration=True)
 
 
