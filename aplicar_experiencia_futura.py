@@ -71,6 +71,7 @@ FIX_SCRIPT_V4_COMPAT = '<script src="/future-experience-fix-v4-compat.js?v=1" de
 LEGACY_UNIFIER_V4 = '<script src="/legacy-unifier-v4.js?v=1" defer></script>'
 ENDMATTER_V7 = '<script src="/reader-endmatter-v7.js?v=1" defer></script>'
 READER_UI_V8 = '<script src="/reader-ui-v8.js?v=1" defer></script>'
+HOME_DOWNLOADS_V8 = '<script src="/home-downloads-v8.js?v=1" defer></script>'
 SCRIPTS = [
     '<script src="/future-experience.js?v=1" defer></script>',
     GLOBAL_SEARCH,
@@ -80,6 +81,7 @@ SCRIPTS = [
     LEGACY_UNIFIER_V4,
     ENDMATTER_V7,
     READER_UI_V8,
+    HOME_DOWNLOADS_V8,
 ]
 
 
@@ -89,23 +91,17 @@ def inject(path: Path) -> bool:
     source = path.read_text(encoding="utf-8")
     changed = False
 
-    # Mantiene una sola versión de la capa final existente y añade las capas
-    # de unificación visual sin duplicar scripts.
     for old in (FINAL_SCRIPT_V1, FINAL_SCRIPT_V2):
         if old in source:
             source = source.replace(old, FINAL_SCRIPT_V3)
             changed = True
 
-    # Al activar AdSense, la información de privacidad debe reflejar de forma
-    # persistente el uso de publicidad y no volver a una declaración obsoleta.
     for old, new in PRIVACY_REPLACEMENTS:
         if old in source:
             source = source.replace(old, new)
             changed = True
 
     if '</head>' in source:
-        # AdSense se inyecta desde un único punto para que todas las páginas
-        # actuales y futuras mantengan el mismo publisher ID sin duplicados.
         if ADSENSE_URL not in source:
             source = source.replace('</head>', ADSENSE_SCRIPT + '</head>', 1)
             changed = True
