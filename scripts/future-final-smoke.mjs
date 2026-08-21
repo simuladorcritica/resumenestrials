@@ -25,13 +25,13 @@ try{
   await page.waitForFunction((expected)=>document.querySelectorAll('#indice .fila').length>=expected,data.length,{timeout:10000});
   assert(await page.locator('#indice .fila.rt-featured').count()===1,'Portada: debe existir exactamente un trial destacado después de cargar datos');
 
-  // Fuerza los mismos re-renders que antes eliminaban la clase visual destacada.
+  // Fuerza el mismo re-render interno sin volver visible el buscador local que se retiró de la interfaz.
   const search=page.locator('#q');
-  await search.fill('ARISE');
+  await search.evaluate((el)=>{el.value='ARISE';el.dispatchEvent(new Event('input',{bubbles:true}))});
   await page.waitForFunction(()=>document.querySelectorAll('#indice .fila').length===1,{timeout:10000});
   await page.waitForTimeout(50);
   assert(await page.locator('#indice .fila.rt-featured').count()===1,'Portada: el trial destacado se perdió tras filtrar');
-  await search.fill('');
+  await search.evaluate((el)=>{el.value='';el.dispatchEvent(new Event('input',{bubbles:true}))});
   await page.waitForFunction((expected)=>document.querySelectorAll('#indice .fila').length>=expected,data.length,{timeout:10000});
   await page.waitForTimeout(50);
   assert(await page.locator('#indice .fila.rt-featured').count()===1,'Portada: el trial destacado se perdió tras restaurar el índice');
