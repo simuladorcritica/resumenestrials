@@ -43,6 +43,7 @@ jobs:
           python3 generar_seo_avanzado.py
           python3 restaurar_arquitectura.py
           python3 actualizar_agregar_editorial.py
+          python3 aplicar_experiencia_futura.py
       - name: Verificar inyección global
         run: |
           python3 - <<'PY'
