@@ -16,18 +16,19 @@ try{
   async function shot(url,name,selector){
     await page.goto(`${BASE}${url}`,{waitUntil:'domcontentloaded',timeout:25000});
     if(selector)await page.waitForSelector(selector,{timeout:12000});
-    await page.waitForTimeout(600);
+    await page.waitForTimeout(700);
     await page.screenshot({path:`future-screenshots/${name}.png`,fullPage:true});
   }
   await shot('/index.html','01-home-desktop','.rt-explorer-stage');
   await shot(trial,'02-trial-desktop','.rt-reader-rail');
-  await shot('/medicina-critica/','03-hub-desktop','body.rt-future-hub');
-  await shot('/login.html','04-login-desktop','body.rt-future-account');
+  if(sample.corto)await shot(`/resumen.html?id=${sample.id}&v=corto`,'03-resumen-breve-desktop','.rt-reader-rail[data-v4="1"]');
+  await shot('/medicina-critica/','04-hub-desktop','body.rt-future-hub');
+  await shot('/login.html','05-login-desktop','body.rt-future-account');
   await page.setViewportSize({width:390,height:844});
-  await shot('/index.html','05-home-mobile','.rt-orbit');
-  await shot(trial,'06-trial-mobile','.rt-evidence-section');
-  if(sample.corto)await shot(`/resumen.html?id=${sample.id}&v=corto`,'07-resumen-breve-mobile','article.corto');
-  console.log(`FUTURE VISUAL CAPTURE PASS · ${sample.corto?7:6} vistas`);
+  await shot('/index.html','06-home-mobile','.rt-orbit');
+  await shot(trial,'07-trial-mobile','.rt-evidence-section');
+  if(sample.corto)await shot(`/resumen.html?id=${sample.id}&v=corto`,'08-resumen-breve-mobile','article.corto');
+  console.log(`FUTURE VISUAL CAPTURE PASS · ${sample.corto?8:6} vistas`);
 } finally {
   await browser.close();
 }
