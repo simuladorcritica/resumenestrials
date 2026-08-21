@@ -24,6 +24,7 @@ async function navDoesNotOverlap(page,label){
     assert(!(overlapX>3&&overlapY>3),`${label}: ${an} se superpone con ${bn}: ${JSON.stringify({a,b})}`);
   }
 }
+async function waitV4(page){await page.waitForFunction(()=>!!document.getElementById('rt-unified-reader-v4'),{timeout:10000})}
 
 const sample=data.find(x=>x.corto&&manifest[String(x.id)]?.path);
 assert(sample,'No existe trial con resumen breve para QA');
@@ -34,7 +35,7 @@ try{
   const errors=[]; page.on('pageerror',e=>errors.push(e.message));
 
   await page.goto(`${BASE}/index.html`,{waitUntil:'domcontentloaded',timeout:25000});
-  await page.waitForSelector('#rt-unified-reader-v4',{timeout:10000});
+  await waitV4(page);
   await page.waitForSelector('.rt-nav-actions',{timeout:10000});
   await navDoesNotOverlap(page,'Portada desktop');
   await noOverflow(page,'Portada desktop');
@@ -46,7 +47,7 @@ try{
   await page.goto(`${BASE}${trialPath}`,{waitUntil:'domcontentloaded',timeout:25000});
   await page.waitForSelector('body.rt-future-trial',{timeout:10000});
   await page.waitForSelector('.rt-evidence-section p',{timeout:10000});
-  await page.waitForSelector('#rt-unified-reader-v4',{timeout:10000});
+  await waitV4(page);
   await navDoesNotOverlap(page,'Trial completo desktop');
   await noOverflow(page,'Trial completo desktop');
   const fullType=await page.evaluate(()=>({p:parseFloat(getComputedStyle(document.querySelector('.rt-evidence-section p')).fontSize),h2:parseFloat(getComputedStyle(document.querySelector('.rt-evidence-section h2')).fontSize),meta:parseFloat(getComputedStyle(document.querySelector('.fuente')).fontSize)}));
@@ -57,6 +58,7 @@ try{
   await page.goto(`${BASE}/resumen.html?id=${sample.id}&v=corto`,{waitUntil:'domcontentloaded',timeout:25000});
   await page.waitForSelector('body.rt-future-legacy',{timeout:10000});
   await page.waitForSelector('article.corto p',{timeout:12000});
+  await waitV4(page);
   await page.waitForSelector('.rt-reader-rail[data-v4="1"]',{timeout:12000});
   await navDoesNotOverlap(page,'Resumen breve desktop');
   await noOverflow(page,'Resumen breve desktop');
@@ -77,11 +79,13 @@ try{
 
   await page.goto(`${BASE}${trialPath}`,{waitUntil:'domcontentloaded',timeout:25000});
   await page.waitForSelector('.rt-evidence-section p',{timeout:10000});
+  await waitV4(page);
   await page.waitForTimeout(160);
   await noOverflow(page,'Trial completo móvil');
   const fullMobile=await page.evaluate(()=>parseFloat(getComputedStyle(document.querySelector('.rt-evidence-section p')).fontSize));
   assert(fullMobile>=18.5,`Trial completo móvil: cuerpo pequeño (${fullMobile}px)`);
+  assert(Math.abs(shortMobile.p-fullMobile)<=0.6,`Breve/completo móvil: cuerpo desalineado (${shortMobile.p}px vs ${fullMobile}px)`);
 
   assert(errors.length===0,`Errores JavaScript: ${errors.join(' | ')}`);
-  console.log(`UNIFIED READER V4 PASS · trial ${sample.id} · completo ${fullType.p}px · breve ${shortType.p}px · sin solapamientos`);
+  console.log(`UNIFIED READER V4 PASS · trial ${sample.id} · completo ${fullType.p}px · breve ${shortType.p}px · móvil ${fullMobile}px · sin solapamientos`);
 }finally{await browser.close()}
