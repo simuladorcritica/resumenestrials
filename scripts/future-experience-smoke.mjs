@@ -37,6 +37,7 @@ try{
   await page.waitForSelector('body.rt-future-home',{timeout:10000});
   await page.waitForSelector('.rt-orbit',{timeout:10000});
   await page.waitForSelector('.rt-explorer-stage',{timeout:10000});
+  await page.waitForFunction(()=>document.querySelectorAll('.rt-hero-actions a').length===1&&!document.querySelector('.rt-step small'),{timeout:10000});
   assert(await page.locator('.fila').count()>=data.length,`Portada: se esperaban al menos ${data.length} filas`);
   assert(await page.locator('.fila.rt-featured').count()===1,'Portada: falta trial destacado');
   assert(await page.locator('.rt-nav-search').isVisible(),'Portada: buscador global no visible');
@@ -70,6 +71,10 @@ try{
   await page.goto(`${BASE}${trialPath}`,{waitUntil:'domcontentloaded',timeout:25000});
   await page.waitForSelector('body.rt-future-trial',{timeout:10000});
   await page.waitForSelector('.rt-reader-rail',{timeout:10000});
+  await page.waitForFunction(()=>{
+    const finding=[...document.querySelectorAll('.rt-reader-rail .rt-rail-card h3')].some(h=>h.textContent.trim().toLowerCase()==='hallazgo clave');
+    return !document.querySelector('.rt-summary-deck')&&!finding&&!document.querySelector('.rt-evidence-section[data-index]');
+  },{timeout:10000});
   const sectionCount=await page.locator('.rt-evidence-section').count();
   assert(sectionCount>=4,`Trial: solo ${sectionCount} secciones estructuradas`);
   assert(await page.locator('.rt-summary-deck').count()===0,'Trial: no debe existir Resumen editorial');
@@ -100,8 +105,7 @@ try{
     await page.waitForSelector('body.rt-future-legacy',{timeout:10000});
     await page.waitForSelector('[data-pdf-version="breve"]',{state:'visible',timeout:12000});
     assert(await page.locator('article.corto').isVisible(),'Resumen breve: artículo no visible');
-    assert(await page.locator('article h2::before').count()===0 || true,'Resumen breve: verificación de pseudoelemento');
-    const shortType=await page.locator('article.corto p').first().evaluate(el=>({size:parseFloat(getComputedStyle(el).fontSize),align:getComputedStyle(el).textAlign,max:getComputedStyle(document.querySelector('.envoltorio')).maxWidth}));
+    const shortType=await page.locator('article.corto p').first().evaluate(el=>({size:parseFloat(getComputedStyle(el).fontSize),max:getComputedStyle(document.querySelector('.envoltorio')).maxWidth}));
     assert(shortType.size>=17,`Resumen breve: cuerpo demasiado pequeño (${shortType.size}px)`);
     assert(shortType.max!=='820px','Resumen breve: conserva ancho distinto al resumen completo');
     await noOverflow(page,'Resumen breve móvil');
