@@ -1,0 +1,16 @@
+{
+  "service": "reader-buttons-production",
+  "status": "FAIL",
+  "checked_at": "2026-08-21T13:35:23.369846Z",
+  "source_sha": "b7de960567a855c745bf211e91f7547077301ea6",
+  "run_id": "32487564919",
+  "run_attempt": "1",
+  "site": "https://resumenestrials.com",
+  "trial_id": 1,
+  "checks": {
+    "volver_al_indice_pointer": false,
+    "ver_resumen_breve_pointer": false,
+    "descargar_pdf_real": false,
+    "mobile_pointer": false
+  }
+}
