@@ -253,7 +253,7 @@
         normalizeLegacy();
       });
     });
-    observer.observe(document.documentElement, { childList: true, subtree: true });
+    observer.observe(document.body, { childList: true, subtree: true });
     [150, 450, 900, 1800].forEach(ms => setTimeout(() => {
       ensureStyle();
       normalizeLegacy();
