@@ -1,5 +1,6 @@
 (() => {
-  const CONTACT = 'resumenestrials.com · X: @resumenestrials · Telegram: @ResumenesTrials · Contacto: resumenestrials@outlook.com';
+  const SOCIAL = 'resumenestrials.com   |   X: @resumenestrials   |   Telegram: @ResumenesTrials';
+  const EMAIL = 'Contacto: resumenestrials@outlook.com';
   const params = new URLSearchParams(location.search);
   const shortMode = /\/resumen\.html$/i.test(location.pathname) && params.get('v') === 'corto';
   const articleId = params.get('id');
@@ -14,10 +15,14 @@
         doc.setPage(p);
         const w = doc.internal.pageSize.getWidth();
         const h = doc.internal.pageSize.getHeight();
-        doc.setFont('helvetica', 'normal');
-        doc.setFontSize(7.2);
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(8.4);
         doc.setTextColor(15, 95, 95);
-        doc.text(CONTACT, w / 2, h - 15, { align: 'center' });
+        doc.text(SOCIAL, w / 2, h - 24, { align: 'center' });
+        doc.setFont('helvetica', 'normal');
+        doc.setFontSize(8.1);
+        doc.setTextColor(70, 85, 100);
+        doc.text(EMAIL, w / 2, h - 12, { align: 'center' });
       }
       doc.setPage(Math.min(active, total));
       doc.__rtContactDone = true;
@@ -83,10 +88,6 @@
     const targetText = 'Ver versión completa →';
     const targetHref = new URL(fullHref, location.href).href;
     document.querySelectorAll('.cambio-version').forEach((link) => {
-      // MutationObserver(sync) observa childList/characterData. Reescribir
-      // textContent aunque sea idéntico vuelve a disparar el observer y, en
-      // modo corto, producía un bucle de mutaciones que bloqueaba la página.
-      // Solo tocamos el DOM cuando el valor realmente cambia.
       if (link.href !== targetHref) link.href = fullHref;
       if (link.textContent !== targetText) link.textContent = targetText;
     });
@@ -143,7 +144,7 @@ if (/\/resumen\.html$/i.test(location.pathname)) {
   seoHelper.src = '/legacy-seo.js?v=1';
   const designHelper = document.createElement('script');
   designHelper.defer = true;
-  designHelper.src = '/legacy-reader-design-v4.js?v=1';
+  designHelper.src = '/legacy-reader-design-v5.js?v=1';
   document.head.appendChild(designHelper);
 } else if (/\/(?:index\.html)?$/i.test(location.pathname)) {
   seoHelper.src = '/seo-routing.js?v=1';
