@@ -16,11 +16,12 @@ async function waitForDeployment(){
       const css=await fetch(`${BASE}/future-experience.css?qa=${Date.now()}`,{signal:AbortSignal.timeout(12000)});
       const js=await fetch(`${BASE}/future-experience.js?qa=${Date.now()}`,{signal:AbortSignal.timeout(12000)});
       const finalJs=await fetch(`${BASE}/future-experience-final.js?qa=${Date.now()}`,{signal:AbortSignal.timeout(12000)});
-      if(html.includes('/future-experience.css?v=1')&&html.includes('/future-experience.js?v=1')&&html.includes('/future-experience-final.js?v=3')&&css.ok&&js.ok&&finalJs.ok){
-        const finalText=await finalJs.text();
-        if(finalText.includes('rt-final-polish-v3')){console.log(`FUTURE DEPLOYMENT READY · intento ${i}`);return;}
+      const v4Js=await fetch(`${BASE}/future-experience-fix-v4.js?qa=${Date.now()}`,{signal:AbortSignal.timeout(12000)});
+      if(html.includes('/future-experience.css?v=1')&&html.includes('/future-experience.js?v=1')&&html.includes('/future-experience-final.js?v=3')&&html.includes('/future-experience-fix-v4.js?v=1')&&css.ok&&js.ok&&finalJs.ok&&v4Js.ok){
+        const [finalText,v4Text]=await Promise.all([finalJs.text(),v4Js.text()]);
+        if(finalText.includes('rt-final-polish-v3')&&v4Text.includes('rt-unified-reader-v4')){console.log(`FUTURE DEPLOYMENT READY · intento ${i}`);return;}
       }
-      last=`HTML futuro=${html.includes('/future-experience.css?v=1')} final-v3=${html.includes('/future-experience-final.js?v=3')} CSS=${css.status} JS=${js.status} FINAL=${finalJs.status}`;
+      last=`HTML futuro=${html.includes('/future-experience.css?v=1')} final-v3=${html.includes('/future-experience-final.js?v=3')} v4=${html.includes('/future-experience-fix-v4.js?v=1')} CSS=${css.status} JS=${js.status} FINAL=${finalJs.status} V4=${v4Js.status}`;
     }catch(e){last=e.message}
     console.log(`Esperando publicación futura (${i}/32) · ${last}`);
     await sleep(15000);
@@ -53,6 +54,7 @@ try{
   const errors=[];page.on('pageerror',e=>errors.push(e.message));
   await page.goto(`${BASE}/?qa=${Date.now()}`,{waitUntil:'domcontentloaded',timeout:30000});
   await page.waitForSelector('body.rt-future-home',{timeout:15000});
+  await page.waitForSelector('#rt-unified-reader-v4',{timeout:15000});
   await page.waitForSelector('.rt-orbit',{timeout:15000});
   await page.waitForSelector('.rt-explorer-stage',{timeout:15000});
   await page.waitForFunction(expected=>document.querySelectorAll('#indice .fila').length>=expected,expectedCount,{timeout:15000});
@@ -101,6 +103,7 @@ try{
   await page.setViewportSize({width:1440,height:1000});
   await page.goto(`${BASE}${entry.path}?qa=${Date.now()}`,{waitUntil:'domcontentloaded',timeout:30000});
   await page.waitForSelector('body.rt-future-trial',{timeout:15000});
+  await page.waitForSelector('#rt-unified-reader-v4',{timeout:15000});
   await page.waitForSelector('.rt-reader-rail',{timeout:15000});
   await page.waitForFunction(()=>!document.querySelector('.rt-summary-deck')&&!document.querySelector('.rt-evidence-section[data-index]'),{timeout:15000});
   assert(await page.locator('.rt-summary-deck').count()===0,'Producción trial: persiste Resumen editorial');
@@ -119,6 +122,7 @@ try{
   await page.setViewportSize({width:390,height:844});await page.waitForTimeout(200);
   const orderOk=await page.evaluate(()=>document.querySelector('article.articulo')?.nextElementSibling?.classList.contains('rt-reader-rail')===true);
   assert(orderOk,'Producción trial móvil: herramientas interrumpen la lectura completa');
+  const typeMobile=await page.locator('.rt-evidence-section p').first().evaluate(el=>({size:parseFloat(getComputedStyle(el).fontSize),align:getComputedStyle(el).textAlign}));
   await noOverflow(page,'Producción trial móvil');
 
   const trialId=ids[0];
@@ -126,10 +130,11 @@ try{
   if(shortHtml.includes('data-pdf-version="breve"')){
     await page.goto(`${BASE}/resumen.html?id=${trialId}&v=corto&qa=${Date.now()}`,{waitUntil:'domcontentloaded',timeout:30000});
     await page.waitForSelector('body.rt-future-legacy',{timeout:15000});
+    await page.waitForSelector('#rt-unified-reader-v4',{timeout:15000});
     await page.waitForSelector('[data-pdf-version="breve"]',{state:'visible',timeout:15000});
     const shortType=await page.locator('article.corto p').first().evaluate(el=>parseFloat(getComputedStyle(el).fontSize));
     assert(shortType>=17,`Producción resumen breve: cuerpo pequeño (${shortType}px)`);
-    assert(Math.abs(shortType-type.size)<=1,`Producción breve/completo: tipografías desalineadas (${shortType}px vs ${type.size}px)`);
+    assert(Math.abs(shortType-typeMobile.size)<=1,`Producción breve/completo móvil: tipografías desalineadas (${shortType}px vs ${typeMobile.size}px)`);
     await noOverflow(page,'Producción resumen breve');
   }
 
@@ -154,5 +159,5 @@ try{
   await noOverflow(page,'Producción login');
 
   assert(errors.length===0,`Producción: errores JavaScript: ${errors.join(' | ')}`);
-  console.log(`FUTURE PRODUCTION STRICT PASS · ${ids.length} trials · UX v3 · lector uniforme · ${entry.path}`);
+  console.log(`FUTURE PRODUCTION STRICT PASS · ${ids.length} trials · UX v4 · lector uniforme · ${entry.path}`);
 }finally{await browser.close()}
