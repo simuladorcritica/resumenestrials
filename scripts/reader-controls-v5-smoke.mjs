@@ -43,7 +43,7 @@ try{
       borderTop:parseFloat(ns.borderTopWidth),backText:back.textContent.trim(),
       versionText:version?.textContent.trim()||'',versionVisible:!!version&&version.getBoundingClientRect().width>0,
       downloadText:download.textContent.trim(),downloadVisible:dr.width>0&&dr.height>0,
-      downloadData:download.getAttribute('data-trial-download')||'',downloadBg:ds.backgroundImage,downloadFont:parseFloat(ds.fontSize),
+      footerPdfId:download.getAttribute('data-rt-footer-download')||'',downloadBg:ds.backgroundImage,downloadFont:parseFloat(ds.fontSize),
       actionsBelowNav:ar.top>=nr.bottom-2,downloadLeftAligned:Math.abs(dr.left-ar.left)<=2,
       bottomBorder:parseFloat(as.borderBottomWidth),footerBelow:!fr||fr.top>=ar.bottom-2
     };
@@ -56,7 +56,7 @@ try{
   assert(fullFooter.versionVisible&&/resumen breve/i.test(fullFooter.versionText),'Completo: falta acceso simétrico al resumen breve en el pie');
   assert(fullFooter.downloadVisible,'Completo: falta botón inferior de descarga PDF');
   assert(/Descargar resumen completo PDF/i.test(fullFooter.downloadText),`Completo: texto de descarga inferior incorrecto (${fullFooter.downloadText})`);
-  assert(fullFooter.downloadData===String(sample.id),`Completo: botón inferior no conserva el trial id (${fullFooter.downloadData})`);
+  assert(fullFooter.footerPdfId===String(sample.id),`Completo: botón inferior no conserva el trial id (${fullFooter.footerPdfId})`);
   assert(fullFooter.downloadFont>=15,'Completo: botón inferior de PDF demasiado pequeño');
   assert(fullFooter.actionsBelowNav,'Completo: la descarga no está debajo de la navegación');
   assert(fullFooter.downloadLeftAligned,'Completo: el botón de descarga no está alineado a la izquierda');
@@ -64,14 +64,23 @@ try{
   assert(fullFooter.footerBelow,'Completo: el aviso editorial no está debajo de la descarga');
   await noOverflow(page,'Resumen completo desktop');
 
-  // El botón inferior debe usar exactamente el mismo contrato de descarga que el botón superior.
+  // Debe existir un solo disparador real del PDF; el botón inferior delega en él.
   const downloadContract=await page.evaluate(()=>{
+    const real=[...document.querySelectorAll('[data-trial-download]')];
     const top=document.querySelector('.art-head [data-trial-download]');
     const bottom=document.querySelector('.rt-reader-footer-download');
-    return {top:top?.getAttribute('data-trial-download')||'',bottom:bottom?.getAttribute('data-trial-download')||'',tag:bottom?.tagName||'',type:bottom?.getAttribute('type')||''};
+    return {
+      realCount:real.length,
+      top:top?.getAttribute('data-trial-download')||'',
+      bottom:bottom?.getAttribute('data-rt-footer-download')||'',
+      tag:bottom?.tagName||'',
+      hasRealAttr:bottom?.hasAttribute('data-trial-download')||false
+    };
   });
-  assert(downloadContract.top===downloadContract.bottom,'Completo: botón inferior y superior no descargan el mismo resumen');
+  assert(downloadContract.realCount===1,`Completo: debe existir un único disparador PDF real (${downloadContract.realCount})`);
+  assert(downloadContract.top===downloadContract.bottom,'Completo: botón inferior y superior no apuntan al mismo resumen');
   assert(downloadContract.tag==='BUTTON','Completo: descarga inferior no es un botón');
+  assert(!downloadContract.hasRealAttr,'Completo: el botón inferior duplicó el atributo del disparador PDF');
 
   // Resumen breve: guardar en biblioteca + progreso circular/lineal + navegación por secciones.
   await page.goto(`${BASE}/resumen.html?id=${sample.id}&v=corto`,{waitUntil:'domcontentloaded',timeout:30000});
