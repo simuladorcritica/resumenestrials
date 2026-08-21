@@ -10,8 +10,9 @@
   <a href="/equipo-editorial/">Equipo editorial</a>
 </nav>
 {% endcapture %}
+{% capture cierre_head %}<link rel="stylesheet" href="/library-filter-polish.css?v=1"></head>{% endcapture %}
 {% capture cierre_body %}{{ seo_hubs }}</body>{% endcapture %}
-{{ pagina_base | replace: 'href="favicon.png"', 'href="/favicon.png?v=20260820"' | replace: '</body>', cierre_body }}
+{{ pagina_base | replace: 'href="favicon.png"', 'href="/favicon.png?v=20260820"' | replace: '</head>', cierre_head | replace: '</body>', cierre_body }}
 <script type="module" src="home-auth-ui.js?v=8"></script>
 <script type="module" src="interactive-home.js?v=20260819.4"></script>
 <script src="library-filter-cleanup.js?v=1" defer></script>
