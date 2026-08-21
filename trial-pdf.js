@@ -2,7 +2,8 @@
   const buttons = () => [...document.querySelectorAll('[data-trial-download]')];
   if (!buttons().length) return;
 
-  const CONTACT = 'resumenestrials.com · X: @resumenestrials · Telegram: @ResumenesTrials · Contacto: resumenestrials@outlook.com';
+  const SOCIAL = 'resumenestrials.com   |   X: @resumenestrials   |   Telegram: @ResumenesTrials';
+  const EMAIL = 'Contacto: resumenestrials@outlook.com';
   let dataPromise = null;
   let jsPdfPromise = null;
 
@@ -81,7 +82,7 @@
     const pageH = doc.internal.pageSize.getHeight();
     const margin = 56;
     const width = pageW - margin * 2;
-    const bottom = pageH - 68;
+    const bottom = pageH - 78;
     let y = 58;
 
     const lines = (value, w = width) => doc.splitTextToSize(clean(value), w);
@@ -167,15 +168,20 @@
       doc.setPage(p);
       doc.setDrawColor(224, 221, 213);
       doc.setLineWidth(.5);
-      doc.line(margin, pageH - 47, pageW - margin, pageH - 47);
+      doc.line(margin, pageH - 54, pageW - margin, pageH - 54);
       doc.setFont('helvetica', 'normal');
-      doc.setFontSize(7.3);
-      doc.setTextColor(120, 120, 120);
-      doc.text(sourceRef, margin, pageH - 34);
-      doc.text(`Página ${p} de ${total}`, pageW - margin, pageH - 34, { align: 'right' });
-      doc.setFontSize(7.1);
+      doc.setFontSize(7.5);
+      doc.setTextColor(110, 115, 120);
+      doc.text(sourceRef, margin, pageH - 42);
+      doc.text(`Página ${p} de ${total}`, pageW - margin, pageH - 42, { align: 'right' });
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(8.4);
       doc.setTextColor(15, 95, 95);
-      doc.text(CONTACT, pageW / 2, pageH - 18, { align: 'center' });
+      doc.text(SOCIAL, pageW / 2, pageH - 25, { align: 'center' });
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(8.1);
+      doc.setTextColor(70, 85, 100);
+      doc.text(EMAIL, pageW / 2, pageH - 13, { align: 'center' });
     }
     doc.save(filename(record));
   }

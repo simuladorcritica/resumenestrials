@@ -9,9 +9,10 @@ STYLES = [
 ]
 FINAL_SCRIPT_V1 = '<script src="/future-experience-final.js?v=1" defer></script>'
 FINAL_SCRIPT_V2 = '<script src="/future-experience-final.js?v=2" defer></script>'
+FINAL_SCRIPT_V3 = '<script src="/future-experience-final.js?v=3" defer></script>'
 SCRIPTS = [
     '<script src="/future-experience.js?v=1" defer></script>',
-    FINAL_SCRIPT_V2,
+    FINAL_SCRIPT_V3,
 ]
 
 
@@ -21,11 +22,12 @@ def inject(path: Path) -> bool:
     source = path.read_text(encoding="utf-8")
     changed = False
 
-    # Cache-bust explícito del ajuste final: sustituye la versión anterior,
-    # no la duplica, para que navegador/CDN carguen inmediatamente el fix.
-    if FINAL_SCRIPT_V1 in source:
-        source = source.replace(FINAL_SCRIPT_V1, FINAL_SCRIPT_V2)
-        changed = True
+    # Cache-bust explícito del ajuste final. Sustituye versiones anteriores,
+    # no las duplica, para que navegador/CDN carguen inmediatamente el fix.
+    for old in (FINAL_SCRIPT_V1, FINAL_SCRIPT_V2):
+        if old in source:
+            source = source.replace(old, FINAL_SCRIPT_V3)
+            changed = True
 
     if '</head>' in source:
         missing = ''.join(style for style in STYLES if style not in source)

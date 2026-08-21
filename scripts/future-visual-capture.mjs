@@ -25,8 +25,9 @@ try{
   await shot('/login.html','04-login-desktop','body.rt-future-account');
   await page.setViewportSize({width:390,height:844});
   await shot('/index.html','05-home-mobile','.rt-orbit');
-  await shot(trial,'06-trial-mobile','.rt-summary-deck');
-  console.log('FUTURE VISUAL CAPTURE PASS · 6 vistas');
+  await shot(trial,'06-trial-mobile','.rt-evidence-section');
+  if(sample.corto)await shot(`/resumen.html?id=${sample.id}&v=corto`,'07-resumen-breve-mobile','article.corto');
+  console.log(`FUTURE VISUAL CAPTURE PASS · ${sample.corto?7:6} vistas`);
 } finally {
   await browser.close();
 }

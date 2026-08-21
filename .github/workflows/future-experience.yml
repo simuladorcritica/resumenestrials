@@ -26,6 +26,9 @@ jobs:
         run: |
           node --check future-experience.js
           node --check future-experience-final.js
+          node --check legacy-reader-design-v5.js
+          node --check pdf-contact.js
+          node --check trial-pdf.js
           node --check scripts/future-experience-smoke.mjs
           node --check scripts/future-final-smoke.mjs
           node --check scripts/future-visual-capture.mjs
@@ -40,6 +43,7 @@ jobs:
           python3 generar_seo_avanzado.py
           python3 restaurar_arquitectura.py
           python3 actualizar_agregar_editorial.py
+          python3 aplicar_experiencia_futura.py
       - name: Verificar inyección global
         run: |
           python3 - <<'PY'
@@ -53,9 +57,10 @@ jobs:
               assert '/future-experience.css?v=1' in s, f'{path}: falta CSS futuro'
               assert '/future-experience-patch.css?v=1' in s, f'{path}: falta patch futuro'
               assert '/future-experience.js?v=1' in s, f'{path}: falta JS futuro'
-              assert '/future-experience-final.js?v=2' in s, f'{path}: falta ajuste JS final v2'
+              assert '/future-experience-final.js?v=3' in s, f'{path}: falta ajuste JS final v3'
               assert '/future-experience-final.js?v=1' not in s, f'{path}: conserva ajuste JS final obsoleto v1'
-          print(f'Assets futuros presentes en {len(targets)} objetivos')
+              assert '/future-experience-final.js?v=2' not in s, f'{path}: conserva ajuste JS final obsoleto v2'
+          print(f'Assets futuros v3 presentes en {len(targets)} objetivos')
           PY
       - name: Instalar Playwright
         run: |
