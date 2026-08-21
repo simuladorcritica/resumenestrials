@@ -204,13 +204,15 @@ def update_home(items: list[dict]) -> None:
                             'doc.text("resumenestrials.com" + rutaCanonical(r), ML, pageH - 31);')
 
     # jsPDF se carga únicamente cuando alguien solicita un PDF.
-    source = re.sub(r'\s*<script src="https://cdnjs\.cloudflare\.com/ajax/libs/jspdf/2\.5\.1/jspdf\.umd\.min\.js" defer></script>', '', source, count=1)
+    source = re.sub(r'\s*<script src="https://cdnjs\.cloudflare\.com/ajax/libs/jspdf/[^/]+/jspdf\.umd\.min\.js"[^>]*></script>', '', source, count=1)
     loader = '''  async function cargarJsPDF() {
     if (window.jspdf?.jsPDF) return window.jspdf;
     if (!window.__rtJsPdfPromise) {
       window.__rtJsPdfPromise = new Promise((resolve, reject) => {
         const s = document.createElement("script");
-        s.src = "https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js";
+        s.src = "https://cdnjs.cloudflare.com/ajax/libs/jspdf/4.2.1/jspdf.umd.min.js";
+        s.integrity = "sha384-qovJwSBbRDPP5cEjCp8S0UP66wrvnjaa60XMOGzTNanrThcrGfXfnZkvgY8N1KT3";
+        s.crossOrigin = "anonymous";
         s.async = true;
         s.onload = () => resolve(window.jspdf);
         s.onerror = () => reject(new Error("No se pudo cargar jsPDF"));
@@ -308,6 +310,12 @@ def make_image(item: dict, width: int, height: int, suffix: str) -> str:
     slug = base.slug_para_item(item)
     filename = f"{slug}-{suffix}.jpg"
     path = IMAGES_DIR / filename
+    public_url = f"{base.BASE_URL}/images/trials/{filename}"
+    # Los binarios publicados son artefactos versionados. No se recomprimen en
+    # cada regeneración porque distintas versiones de Pillow producen bytes
+    # diferentes aunque la imagen visible sea equivalente.
+    if path.exists():
+        return public_url
 
     critical = "Medicina Crítica" in base.categorias(item)
     bg = (247, 246, 242)
@@ -357,7 +365,7 @@ def make_image(item: dict, width: int, height: int, suffix: str) -> str:
     draw.text((pad, int(height * .92)), "Resumen crítico en español · imagen editorial original", font=label_font, fill=muted)
 
     image.save(path, "JPEG", quality=88, optimize=True, progressive=True)
-    return f"{base.BASE_URL}/images/trials/{filename}"
+    return public_url
 
 
 def image_urls(item: dict) -> list[str]:

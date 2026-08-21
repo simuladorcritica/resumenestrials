@@ -180,6 +180,7 @@ def jsonld_article(item: dict) -> str:
 def pagina_trial(item: dict, todos: list[dict]) -> str:
     titulo = texto_plano(item.get("titulo")) or "Resumen clínico"
     canonical = url_trial(item)
+    social_image = f"{BASE_URL}/images/trials/{slug_para_item(item)}-16x9.jpg"
     descripcion = recortar(item.get("objetivo") or item.get("hallazgo") or "Resumen crítico en español de un ensayo clínico aleatorizado.")
     cats = categorias(item)
     badges = "".join(badge(c) for c in cats)
@@ -236,12 +237,12 @@ def pagina_trial(item: dict, todos: list[dict]) -> str:
 <meta property="og:title" content="{html.escape(titulo)}">
 <meta property="og:description" content="{html.escape(descripcion)}">
 <meta property="og:url" content="{html.escape(canonical)}">
-<meta property="og:image" content="{BASE_URL}/logo.png">
-<meta property="og:image:alt" content="Resúmenes Trials">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="{social_image}">
+<meta property="og:image:alt" content="Ilustración editorial de {html.escape(titulo)}">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{html.escape(titulo)}">
 <meta name="twitter:description" content="{html.escape(descripcion)}">
-<meta name="twitter:image" content="{BASE_URL}/logo.png">
+<meta name="twitter:image" content="{social_image}">
 <script type="application/ld+json">{jsonld_article(item)}</script>
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="apple-touch-icon" href="/favicon.png">
@@ -340,9 +341,19 @@ def main() -> None:
     with DATA_PATH.open("r", encoding="utf-8") as f:
         items = validar(json.load(f))
 
-    if TRIALS_DIR.exists():
-        shutil.rmtree(TRIALS_DIR)
     TRIALS_DIR.mkdir(parents=True, exist_ok=True)
+
+    expected_slugs = {slug_para_item(item) for item in items}
+    stale = sorted(
+        child.name
+        for child in TRIALS_DIR.iterdir()
+        if child.is_dir() and child.name not in expected_slugs
+    )
+    if stale:
+        raise RuntimeError(
+            "Hay directorios de trials obsoletos que requieren revisión manual; "
+            "no se eliminaron: " + ", ".join(stale)
+        )
 
     manifest = {}
     categorias_contenido = {nombre: [] for nombre in CATEGORY_PATHS}

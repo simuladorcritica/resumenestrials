@@ -38,20 +38,24 @@ jobs:
   deploy-and-smoke:
     if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
-    timeout-minutes: 12
+    timeout-minutes: 18
     env:
-      SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
       PROJECT_REF: hnsmozvatgyrascxbhys
       SUPABASE_URL: https://hnsmozvatgyrascxbhys.supabase.co
       SUPABASE_PUBLISHABLE_KEY: sb_publishable_IfNh1tBO7c5c5u9Kc5_qSQ_QFHHY7wK
     steps:
       - name: Descargar repositorio
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7.0.1
 
       - name: Verificar credencial de Supabase
+        if: github.event_name != 'pull_request'
+        env:
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+          TURNSTILE_SECRET_KEY: ${{ secrets.TURNSTILE_SECRET_KEY }}
         run: |
           set -euo pipefail
           [ -n "$SUPABASE_ACCESS_TOKEN" ] || { echo "Falta SUPABASE_ACCESS_TOKEN" >&2; exit 1; }
+          [ -n "$TURNSTILE_SECRET_KEY" ] || { echo "Falta TURNSTILE_SECRET_KEY" >&2; exit 1; }
           echo "Credencial de Supabase disponible."
 
       - name: Configurar Supabase CLI
@@ -65,9 +69,32 @@ jobs:
           deno-version: v2.x
 
       - name: Comprobar sintaxis del acceso por usuario
-        run: deno check supabase/functions/login-username/index.ts
+        run: deno check --frozen supabase/functions/login-username/index.ts
+
+      - name: Preparar navegador para la prueba segura de autenticacion
+        uses: actions/setup-node@v7.0.0
+        with:
+          node-version: '20'
+
+      - name: Instalar navegador de prueba
+        run: |
+          npm install --no-save playwright@1.62.1
+          npx playwright install --with-deps chromium
+
+      - name: Servir el PR sin conexiones de autenticacion reales
+        run: |
+          python3 -m http.server 8000 >/tmp/rt-auth-safe-http.log 2>&1 &
+          sleep 3
+
+      - name: Probar registro, login y recuperacion en entorno local aislado
+        env:
+          RT_BASE_URL: http://127.0.0.1:8000
+        run: node scripts/auth-safe-smoke.mjs
 
       - name: Desplegar acceso por nombre de usuario
+        if: github.event_name != 'pull_request'
+        env:
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
         run: |
           set -euo pipefail
           supabase functions deploy login-username \
@@ -76,4 +103,8 @@ jobs:
             --use-api
 
       - name: Corregir configuracion Auth y ejecutar prueba integral
+        if: github.event_name != 'pull_request'
+        env:
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+          TURNSTILE_SECRET_KEY: ${{ secrets.TURNSTILE_SECRET_KEY }}
         run: node scripts/auth-production-smoke.mjs

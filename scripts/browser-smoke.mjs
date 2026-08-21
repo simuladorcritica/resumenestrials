@@ -1,7 +1,14 @@
 import { chromium } from 'playwright';
-import { readFileSync } from 'node:fs';
+import { readFileSync, writeFileSync } from 'node:fs';
+import { installTurnstileTestRoutes } from './turnstile-test-helpers.mjs';
 
 const BASE=(process.env.RT_BASE_URL||'https://resumenestrials.com').replace(/\/$/,'');
+if (process.env.RT_BASE_URL) {
+  const originalIndex=readFileSync('index.html','utf8');
+  process.once('exit',()=>writeFileSync('index.html',originalIndex,'utf8'));
+  const homeModules='<script type="module" src="/home-auth-ui.js?v=8"></script><script type="module" src="/interactive-home.js?v=20260819.4"></script><script src="/library-filter-cleanup.js?v=1" defer></script><script type="module" src="/recommendations.js?v=2"></script><script type="module" src="/internal-medicine-ux.js?v=1"></script><script type="module" src="/home-visual-tuning.js?v=1"></script><script src="/pdf-contact.js?v=2" defer></script><script src="/home-control-layout.js?v=1" defer></script>';
+  writeFileSync('index.html',readFileSync('_includes/index-source.html','utf8').replace('</body>',`${homeModules}</body>`),'utf8');
+}
 const data=JSON.parse(readFileSync('resumenes.json','utf8'));
 const manifest=JSON.parse(readFileSync('seo-manifest.json','utf8'));
 const expectedCrit=data.filter((r)=>r.especialidad_principal==='Medicina Crítica'||r.especialidad_secundaria==='Medicina Crítica').length;
@@ -12,6 +19,10 @@ const entry=manifest[String(sample.id)];
 function assert(condition,message){if(!condition)throw new Error(message)}
 const browser=await chromium.launch({headless:true});
 const page=await browser.newPage({viewport:{width:1440,height:1000},acceptDownloads:true});
+if (process.env.RT_BASE_URL) {
+  await installTurnstileTestRoutes(page, BASE);
+  await page.route('https://pagead2.googlesyndication.com/**',route=>route.fulfill({contentType:'application/javascript',body:''}));
+}
 page.setDefaultTimeout(15000);
 page.setDefaultNavigationTimeout(30000);
 const errors=[];

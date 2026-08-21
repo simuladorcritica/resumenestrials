@@ -5,6 +5,8 @@ const BASE=(process.env.RT_BASE_URL||'http://127.0.0.1:8000').replace(/\/$/,'');
 const data=JSON.parse(readFileSync('resumenes.json','utf8'));
 const manifest=JSON.parse(readFileSync('seo-manifest.json','utf8'));
 const home=readFileSync('_includes/index-source.html','utf8');
+const originalIndex=readFileSync('index.html','utf8');
+process.once('exit',()=>writeFileSync('index.html',originalIndex,'utf8'));
 writeFileSync('index.html',home,'utf8');
 
 function assert(value,message){if(!value)throw new Error(message)}
@@ -85,6 +87,7 @@ try{
   await page.setViewportSize({width:390,height:844});
   await page.waitForTimeout(150);
   assert(await page.locator('.rt-orbit').isVisible(),'Portada móvil: experiencia visual no visible');
+  assert(await page.locator('.rt-global-search-input').isVisible(),'Portada móvil: el buscador global no está disponible');
   assert(!(await page.locator('#q').isVisible()),'Portada móvil: el buscador redundante sigue visible');
   await noOverflow(page,'Portada móvil');
 

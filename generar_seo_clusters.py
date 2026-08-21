@@ -140,9 +140,14 @@ def update_jsonld(source: str, item: dict, item_clusters: list[dict]) -> str:
         article["author"] = {"@type": "Organization", "name": "Equipo editorial de Resúmenes Trials", "url": f"{base.BASE_URL}/equipo-editorial/"}
         publisher = article.setdefault("publisher", {"@type": "Organization", "name": "Resúmenes Trials"})
         publisher["url"] = f"{base.BASE_URL}/equipo-editorial/"
+        configured_cluster_names = {
+            plain(value.get("name"))
+            for value in json.loads(CONFIG.read_text(encoding="utf-8"))
+            if isinstance(value, dict) and plain(value.get("name"))
+        }
         names = []
         for x in article.get("about", []) if isinstance(article.get("about"), list) else []:
-            if isinstance(x, dict) and x.get("name"):
+            if isinstance(x, dict) and x.get("name") and plain(x["name"]) not in configured_cluster_names:
                 names.append(x["name"])
         names.extend(c["name"] for c in item_clusters)
         if names:
@@ -219,6 +224,7 @@ def improve_trials(items: list[dict], by_item: dict[str, list[dict]]) -> None:
         source = re.sub(r'<meta name="description" content=".*?">', f'<meta name="description" content="{html.escape(seo_description(item))}">', source, count=1, flags=re.S)
         source = add_semantic_css(expand_topbar(source))
         source = re.sub(r'<nav class="migas" aria-label="Ruta">.*?</nav>', visible_breadcrumb(item, clusters), source, count=1, flags=re.S)
+        source = re.sub(r'<a class="tema tema-link" href="[^"]+">.*?</a>', '', source, flags=re.S)
         if clusters:
             links = "".join(f'<a class="tema tema-link" href="{html.escape(cluster_path(c))}">{html.escape(c["name"])}</a>' for c in clusters)
             source = source.replace('<header class="art-head"><div class="badges">', '<header class="art-head"><div class="badges">' + links, 1)
@@ -259,12 +265,24 @@ def cluster_page(c: dict, items: list[dict], clusters: list[dict], active: dict[
 
 
 def generate_cluster_pages(items: list[dict], clusters: list[dict], active: dict[str, list[dict]]) -> dict:
-    for cat_path in base.CATEGORY_PATHS.values():
+    for category, cat_path in base.CATEGORY_PATHS.items():
         root = ROOT / cat_path
         if root.exists():
-            for child in root.iterdir():
-                if child.is_dir():
-                    shutil.rmtree(child)
+            expected = {
+                c["slug"]
+                for c in clusters
+                if c["category"] == category and active.get(c["slug"])
+            }
+            stale = sorted(
+                child.name
+                for child in root.iterdir()
+                if child.is_dir() and child.name not in expected
+            )
+            if stale:
+                raise RuntimeError(
+                    f"Hay clusters obsoletos en {cat_path} que requieren revisión manual; "
+                    "no se eliminaron: " + ", ".join(stale)
+                )
     manifest = {}
     for c in clusters:
         values = active.get(c["slug"], [])
@@ -281,6 +299,7 @@ def improve_categories(clusters: list[dict], active: dict[str, list[dict]]) -> N
     for cat, folder in base.CATEGORY_PATHS.items():
         path = ROOT / folder / "index.html"
         source = add_semantic_css(expand_topbar(path.read_text(encoding="utf-8")))
+        source = re.sub(r'<section class="cluster-section">.*?</section>', '', source, flags=re.S)
         cards = []
         for c in clusters:
             values = active.get(c["slug"], [])
@@ -334,9 +353,20 @@ def update_sitemap(items: list[dict], clusters: list[dict], active: dict[str, li
     urls.extend(cluster_url(c) for c in clusters if active.get(c["slug"]))
     urls.extend(base.url_trial(item) for item in items)
     root = ET.Element("urlset", xmlns="http://www.sitemaps.org/schemas/sitemap/0.9")
+    dates = {
+        base.url_trial(item): str(
+            item.get("fecha_revision")
+            or item.get("actualizado")
+            or item.get("fecha_publicacion_resumen")
+            or ""
+        ).strip()
+        for item in items
+    }
     for url in dict.fromkeys(urls):
         node = ET.SubElement(root, "url")
         ET.SubElement(node, "loc").text = url
+        if dates.get(url):
+            ET.SubElement(node, "lastmod").text = dates[url]
     ET.ElementTree(root).write(base.SITEMAP_PATH, encoding="utf-8", xml_declaration=True)
 
 

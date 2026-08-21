@@ -4,6 +4,7 @@ const PROJECT_REF = process.env.PROJECT_REF || 'hnsmozvatgyrascxbhys';
 const SUPABASE_URL = process.env.SUPABASE_URL || `https://${PROJECT_REF}.supabase.co`;
 const PUBLIC_KEY = process.env.SUPABASE_PUBLISHABLE_KEY || 'sb_publishable_IfNh1tBO7c5c5u9Kc5_qSQ_QFHHY7wK';
 const MANAGEMENT_TOKEN = process.env.SUPABASE_ACCESS_TOKEN || '';
+const TURNSTILE_SECRET_KEY = process.env.TURNSTILE_SECRET_KEY || '';
 const SITE_URL = 'https://resumenestrials.com';
 
 function assert(value, message) {
@@ -75,6 +76,7 @@ async function passwordLoginWithPropagation(email, password) {
 }
 
 async function main() {
+  assert(TURNSTILE_SECRET_KEY, 'Falta TURNSTILE_SECRET_KEY');
   const before = await management(`/v1/projects/${PROJECT_REF}/config/auth`);
   assert(before.disable_signup !== true, 'Supabase tiene desactivado el registro de usuarios');
   assert(before.external_email_enabled !== false, 'Supabase tiene desactivado el proveedor de correo');
@@ -85,12 +87,15 @@ async function main() {
   const after = await management(`/v1/projects/${PROJECT_REF}/config/auth`, {
     method: 'PATCH',
     body: JSON.stringify({
-      security_captcha_enabled: false,
+      security_captcha_enabled: true,
+      security_captcha_provider: 'turnstile',
+      security_captcha_secret: TURNSTILE_SECRET_KEY,
       site_url: `${SITE_URL}/`,
       uri_allow_list: [...allow].join(',')
     })
   });
-  assert(after.security_captcha_enabled === false, 'Supabase no desactivó el CAPTCHA con secreto inválido');
+  assert(after.security_captcha_enabled === true, 'Supabase no activó CAPTCHA');
+  assert(after.security_captcha_provider === 'turnstile', 'Supabase no configuró Turnstile');
   assert(String(after.site_url || '').startsWith(SITE_URL), 'Site URL de Auth no apunta a resumenestrials.com');
   assert(parseAllowList(after.uri_allow_list).some((x) => x.startsWith(SITE_URL)), 'Falta resumenestrials.com en Redirect URLs');
 
@@ -127,14 +132,8 @@ async function main() {
     userId = created?.id || created?.user?.id;
     assert(userId, 'La creación del usuario temporal no devolvió id');
 
-    const login = await passwordLoginWithPropagation(email, password);
-
     const profileResponse = await fetch(`${SUPABASE_URL}/rest/v1/profiles?select=id,username,email&id=eq.${encodeURIComponent(userId)}`, {
-      headers: {
-        apikey: PUBLIC_KEY,
-        Authorization: `Bearer ${login.access_token}`,
-        Accept: 'application/json'
-      }
+      headers: { ...backendHeaders(serverKey), Accept: 'application/json' }
     });
     const profiles = await readJson(profileResponse, 'Leer perfil del usuario temporal');
     assert(Array.isArray(profiles) && profiles.length === 1, 'El trigger de perfiles/RLS no devolvió el perfil del usuario');
@@ -149,14 +148,13 @@ async function main() {
       },
       body: JSON.stringify({ username, password, captchaToken: null })
     });
-    const usernameLogin = await readJson(usernameResponse, 'Inicio de sesión por nombre de usuario');
-    assert(usernameLogin.access_token && usernameLogin.refresh_token, 'El acceso por nombre de usuario no devolvió sesión');
+    const blocked = await usernameResponse.json().catch(() => ({}));
+    assert(usernameResponse.status === 400 && !blocked.access_token, 'El acceso sin Turnstile no quedó bloqueado');
 
     console.log('AUTH PRODUCTION PASS');
-    console.log('captcha=disabled-until-valid-secret');
-    console.log('email-login=pass');
-    console.log('username-login=pass');
-    console.log('profiles-trigger-and-rls=pass');
+    console.log('captcha=turnstile-enabled');
+    console.log('username-login-without-captcha=blocked');
+    console.log('profiles-trigger=pass');
     console.log('redirect-config=pass');
   } finally {
     if (userId && serverKey) {

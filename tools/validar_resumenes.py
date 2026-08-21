@@ -15,7 +15,7 @@ Código de salida: 0 si no hay ERRORES; 1 si hay al menos un ERROR.
 Las ADVERTENCIAS nunca cambian el código de salida (son para tu criterio).
 """
 
-import sys, os, re, json, unicodedata, argparse
+import sys, os, re, json, unicodedata, argparse, html
 from datetime import date
 
 # ----------------------------------------------------------------------------
@@ -35,8 +35,8 @@ SECCIONES_CUERPO = [
     "Población estudiada",
     "Desenlaces",
     "Resultados",
-    "Evaluación crítica del riesgo de sesgo",
     "Cálculos derivados del artículo",   # opcional: se omite si no aporta
+    "Evaluación crítica del riesgo de sesgo",
     "Conclusión",
 ]
 CUERPO_OPCIONAL = {"Cálculos derivados del artículo"}
@@ -47,7 +47,7 @@ SECCIONES_CORTO = [
 ]
 
 ESPECIALIDADES = {"Medicina Crítica", "Medicina Interna", ""}
-TAGS_PERMITIDAS = {"h2", "p", "strong"}
+TAGS_PERMITIDAS = {"h2", "p", "strong", "em"}
 
 # Factor de impacto de referencia (JCR Clarivate). Se comprueba consistencia
 # por revista y se avisa si aparece un valor distinto para la misma revista.
@@ -68,7 +68,7 @@ EMOJI = re.compile(
 # Utilidades
 # ----------------------------------------------------------------------------
 def strip_html(s: str) -> str:
-    return re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", s or "")).strip()
+    return re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", s or ""))).strip()
 
 def h2_titulos(html: str):
     return [
@@ -98,15 +98,15 @@ def run_comun_mas_largo(a: str, b: str):
     return best, " ".join(A[bi - best:bi])
 
 def es_lista_ordenada_valida(got, canon, opcionales):
-    """got debe ser una subsecuencia de canon que respete el orden y conserve
-    todas las secciones no opcionales."""
-    gi = 0
-    for sec in canon:
-        if gi < len(got) and norm(got[gi]) == norm(sec):
-            gi += 1
-        elif sec not in opcionales:
-            return False
-    return gi == len(got)
+    """Conserva todas las secciones obligatorias en orden.
+
+    Las secciones opcionales pueden aparecer antes o después de la evaluación
+    crítica: ambas variantes históricas son válidas y no cambian el contenido.
+    """
+    opcionales_norm = {norm(sec) for sec in opcionales}
+    got_obligatorias = [norm(sec) for sec in got if norm(sec) not in opcionales_norm]
+    canon_obligatorias = [norm(sec) for sec in canon if norm(sec) not in opcionales_norm]
+    return got_obligatorias == canon_obligatorias
 
 # ----------------------------------------------------------------------------
 # Validación de una entrada
@@ -231,7 +231,9 @@ def validar_entrada(e, H, if_vistos):
         # Etiquetas HTML reales (empiezan con letra) fuera del set preferido -> aviso
         for tag in re.findall(r"</?([A-Za-z]\w*)", s):
             if tag.lower() not in TAGS_PERMITIDAS:
-                H.aviso(idn, f'{c}: etiqueta fuera de <h2>/<p>/<strong>: <{tag}>')
+                H.aviso(idn, f'{c}: etiqueta HTML no permitida: <{tag}>')
+        if re.search(r"<(?:h2|p|strong|em)\s+[^>]+>", s, flags=re.I):
+            H.error(idn, f"{c}: las etiquetas clínicas no deben contener atributos")
         # '<' seguido de algo que no es letra, '/' ni '!' -> signo matemático sin escapar.
         # Nota: los navegadores modernos y jsPDF lo toleran (se ve bien y el PDF conserva
         # el texto), pero es HTML inválido y rompe cualquier extracción por regex
@@ -239,6 +241,10 @@ def validar_entrada(e, H, if_vistos):
         for mm in re.finditer(r"<(?![/!A-Za-z])", s):
             ctx = re.sub(r"\s+", " ", s[max(0, mm.start() - 18):mm.start() + 12])
             H.aviso(idn, f'{c}: "<" sin escapar (HTML inválido; usa &lt; o "menor de"): …{ctx}…')
+
+    original = str(e.get("original", ""))
+    if original and not re.fullmatch(r"https://[^\s]+", original):
+        H.error(idn, "'original' debe ser una URL HTTPS absoluta")
 
     # --- Factor de impacto: consistencia por revista ---
     for v in re.findall(r"factor de impacto de ([\d.]+)", e.get("cuerpo", "")):

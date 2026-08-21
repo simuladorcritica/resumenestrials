@@ -876,7 +876,7 @@
     ],
     "intent": {
       "question": "Determinar si la finerenona, frente a placebo, frena la caída del filtrado glomerular a lo largo de 32 meses en adultos con enfermedad renal crónica sin diabetes.",
-      "answer": "La finerenona frenó la caída: la pendiente total del filtrado fue de -3.3 frente a -4.0 ml/min/1.73 m2 al año con placebo (diferencia 0.7; IC 95%, 0.3 a 1.1; p , con más hiperpotasemia.",
+      "answer": "La finerenona frenó la caída: la pendiente total del filtrado fue de -3.3 frente a -4.0 ml/min/1.73 m2 al año con placebo (diferencia 0.7; IC 95%, 0.3 a 1.1; p<0.001) , con más hiperpotasemia.",
       "population": "La población fueron adultos sin diabetes con enfermedad renal crónica, definida por un filtrado glomerular estimado de 25 a menos de 90 ml/min/1.73 m2 y albuminuria, con un cociente albúmina-creatinina de 200 a 3500, que ya recibían un inhibidor del sistema renina-angiotensina. Según raza o etnia declarada, en torno al 55% eran asiáticos, el 40% blancos y menos del 3% negros."
     }
   },
@@ -901,7 +901,7 @@
     ],
     "intent": {
       "question": "Determinar si, más de un año después de implantar un stent liberador de fármaco, la monoterapia con un anticoagulante oral directo no es inferior a la combinación de ese anticoagulante con clopidogrel para los eventos adversos clínicos netos a un año, en pacientes con fibrilación auricular.",
-      "answer": "La monoterapia fue no inferior y superior: los eventos adversos netos ocurrieron en el 9.6% frente al 17.2% con la combinación (razón de riesgos 0.54; IC 95.2%, 0.37 a 0.77; p , a expensas sobre todo de menos hemorragias.",
+      "answer": "La monoterapia fue no inferior y superior: los eventos adversos netos ocurrieron en el 9.6% frente al 17.2% con la combinación (razón de riesgos 0.54; IC 95.2%, 0.37 a 0.77; p<0.001 para superioridad) , a expensas sobre todo de menos hemorragias.",
       "population": "La población fueron pacientes con fibrilación auricular a quienes se había implantado un stent liberador de fármaco de segunda o tercera generación al menos un año antes, con enfermedad coronaria estable y alto riesgo tromboembólico, definido por una puntuación CHA2DS2-VASc de 2 o más. La CHA2DS2-VASc estima el riesgo de ictus en la fibrilación auricular en una escala de 0 a 9, donde las puntuaciones altas indican mayor…"
     }
   },

@@ -94,7 +94,7 @@ jobs:
           home = Path('_includes/index-source.html').read_text(encoding='utf-8')
           if '<!-- RT-PRERENDER-START -->' not in home or home.count('class="fila" data-id=') < len(datos):
               raise SystemExit('La portada no quedó prerenderizada con todos los trials')
-          if 'cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer' in home:
+          if 'jspdf.umd.min.js" defer' in home:
               raise SystemExit('jsPDF sigue bloqueando la carga inicial')
 
           ux = Path('internal-medicine-ux.js').read_text(encoding='utf-8')

@@ -20,6 +20,10 @@ create unique index if not exists profiles_email_lower_unique
 
 alter table public.profiles enable row level security;
 
+revoke update on table public.profiles from authenticated;
+grant update (first_name, last_name, username, newsletter_opt_in, newsletter_opt_in_at)
+  on table public.profiles to authenticated;
+
 -- Cada usuario solo puede consultar su propio perfil.
 drop policy if exists "Users can read own profile" on public.profiles;
 create policy "Users can read own profile"

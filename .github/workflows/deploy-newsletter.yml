@@ -28,7 +28,7 @@ jobs:
       NEWSLETTER_FROM: Resúmenes Trials <novedades@resumenestrials.com>
       NEWSLETTER_REPLY_TO: resumenestrials@outlook.com
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7.0.1
 
       - name: Verificar credenciales requeridas
         id: credentials

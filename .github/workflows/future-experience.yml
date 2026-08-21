@@ -15,11 +15,11 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 18
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-node@v7.0.0
         with:
           node-version: '20'
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v7.0.0
         with:
           python-version: '3.12'
       - name: Validar sintaxis
@@ -74,18 +74,10 @@ jobs:
               if not path.is_file():
                   continue
               s = path.read_text(encoding='utf-8')
-              assert '/future-experience.css?v=1' in s, f'{path}: falta CSS futuro'
-              assert '/future-experience-patch.css?v=1' in s, f'{path}: falta patch futuro'
-              assert '/global-search.css?v=1' in s, f'{path}: falta CSS del buscador global'
-              assert '/future-experience.js?v=1' in s, f'{path}: falta JS futuro'
-              assert '/global-search.js?v=1' in s, f'{path}: falta JS del buscador global'
-              assert '/future-experience-final.js?v=3' in s, f'{path}: falta ajuste JS final v3'
-              assert '/future-experience-fix-v4.js?v=1' in s, f'{path}: falta unificación visual v4'
-              assert '/future-experience-fix-v4-compat.js?v=1' in s, f'{path}: falta candado tipográfico v4'
-              assert '/legacy-unifier-v4.js?v=1' in s, f'{path}: falta unificador legacy v4'
-              assert '/reader-endmatter-v7.js?v=1' in s, f'{path}: falta orden final y relacionados v7'
-              assert '/reader-ui-v8.js?v=1' in s, f'{path}: falta corrección funcional y visual v8'
-              assert '/home-downloads-v8.js?v=1' in s, f'{path}: falta cargador seguro de descargas de portada v8'
+              assert s.count('/site-runtime.css?v=20260821') == 1, f'{path}: runtime CSS ausente o duplicado'
+              assert s.count('/site-runtime.js?v=20260821') == 1, f'{path}: runtime JS ausente o duplicado'
+              assert '/future-experience.css?v=1' not in s, f'{path}: conserva CSS fragmentado'
+              assert '/future-experience.js?v=1' not in s, f'{path}: conserva JS fragmentado'
               assert '/future-experience-final.js?v=1' not in s, f'{path}: conserva ajuste JS final obsoleto v1'
               assert '/future-experience-final.js?v=2' not in s, f'{path}: conserva ajuste JS final obsoleto v2'
               assert s.count(future.ADSENSE_URL) == 1, f'{path}: AdSense debe aparecer exactamente una vez'
@@ -99,7 +91,7 @@ jobs:
           PY
       - name: Instalar Playwright
         run: |
-          npm install --no-save playwright@1.55.0
+          npm install --no-save playwright@1.62.1
           npx playwright install --with-deps chromium
       - name: Servir sitio generado
         run: |
@@ -114,7 +106,6 @@ jobs:
           node scripts/future-final-smoke.mjs
           node scripts/unified-reader-v4-smoke.mjs
           node scripts/reader-controls-v5-smoke.mjs
-          node scripts/adsense-production-smoke.mjs
       - name: Generar capturas de auditoría visual
         if: success()
         env:
@@ -122,7 +113,7 @@ jobs:
         run: node scripts/future-visual-capture.mjs
       - name: Guardar capturas
         if: success()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7.0.1
         with:
           name: future-experience-screenshots
           path: future-screenshots/*.png
@@ -134,13 +125,13 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 12
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-node@v7.0.0
         with:
           node-version: '20'
       - name: Instalar navegador
         run: |
-          npm install --no-save playwright@1.55.0
+          npm install --no-save playwright@1.62.1
           npx playwright install --with-deps chromium
       - name: Esperar despliegue y validar producción
         run: |

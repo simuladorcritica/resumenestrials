@@ -1,6 +1,7 @@
 import { chromium } from 'playwright';
 import { existsSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { extname, join, normalize, dirname } from 'node:path';
+import { installTurnstileTestRoutes } from './turnstile-test-helpers.mjs';
 
 const ROOT=process.cwd();
 const BASE=(process.env.RT_BASE_URL||'http://127.0.0.1:8000').replace(/\/$/,'');
@@ -52,7 +53,10 @@ function staticAudit(){
   for(const token of ['spam','correo no deseado','promociones'])if(!registration.includes(token))fail('registro','falta aviso posterior al registro sobre '+token);
 
   const turnstile=read('turnstile.js');
-  if(!/CAPTCHA_ENABLED\s*=\s*false/.test(turnstile))fail('captcha','Turnstile no está en el estado controlado esperado mientras el Secret Key es inválido');
+  const turnstileConfig=read('turnstile-config.js');
+  if(!turnstile.includes("import { TURNSTILE_SITE_KEY } from './turnstile-config.js'"))fail('captcha','Turnstile no consume la configuración pública centralizada');
+  if(!/TURNSTILE_SITE_KEY\s*=\s*["']0x[\w-]+["']/.test(turnstileConfig))fail('captcha','falta una Site Key pública de Turnstile válida');
+  if(/CAPTCHA_ENABLED\s*=\s*false/.test(turnstile))fail('captcha','Turnstile permanece desactivado de forma explícita');
   const diagnostic=read('turnstile-check.html');
   if(/challenges\.cloudflare\.com/.test(diagnostic))fail('captcha','la página diagnóstica sigue cargando el widget desactivado');
 
@@ -90,7 +94,7 @@ function buildHomeAuditFixture(){
 
 function ignorableConsoleError(message){
   return /favicon|ERR_FAILED|Failed to load resource/i.test(message) ||
-    (/\[Report Only\]/i.test(message) && /Refused to frame/i.test(message) && /frame-ancestors/i.test(message));
+    (/google\.com/i.test(message) && /report-only Content Security Policy/i.test(message) && /frame-ancestors/i.test(message));
 }
 
 async function browserAudit(){
@@ -106,8 +110,10 @@ async function browserAudit(){
   try{
     for(const viewport of viewports){
       const page=await browser.newPage({viewport:{width:viewport.width,height:viewport.height}});
+      if(process.env.RT_BASE_URL)await installTurnstileTestRoutes(page,BASE);
       await page.route('https://fonts.googleapis.com/**',r=>r.abort());
       await page.route('https://fonts.gstatic.com/**',r=>r.abort());
+      await page.route('https://pagead2.googlesyndication.com/**',r=>r.fulfill({status:200,contentType:'application/javascript',body:''}));
       const pageErrors=[];
       page.on('pageerror',e=>pageErrors.push(e.message));
       page.on('console',m=>{if(m.type()==='error'&&!ignorableConsoleError(m.text()))pageErrors.push(m.text())});
@@ -128,6 +134,7 @@ async function browserAudit(){
     }
 
     const page=await browser.newPage({viewport:{width:1440,height:900}});
+    if(process.env.RT_BASE_URL)await installTurnstileTestRoutes(page,BASE);
     await page.goto(`${BASE}/registro.html`,{waitUntil:'domcontentloaded'});
     const note=await page.locator('.mail-note').innerText().catch(()=> '');
     if(!/spam/i.test(note)||!/correo no deseado/i.test(note)||!/promociones/i.test(note))fail('registro navegador','el aviso de carpetas alternativas no está renderizado');

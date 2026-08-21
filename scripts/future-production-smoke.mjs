@@ -1,6 +1,8 @@
 import { chromium } from 'playwright';
 
-const BASE='https://resumenestrials.com';
+const BASE=(process.env.RT_BASE_URL||'https://resumenestrials.com').replace(/\/$/,'');
+const RUNTIME_CSS='/site-runtime.css?v=20260821';
+const RUNTIME_JS='/site-runtime.js?v=20260821';
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 function assert(value,message){if(!value)throw new Error(message)}
 async function fetchText(path){
@@ -13,15 +15,12 @@ async function waitForDeployment(){
   for(let i=1;i<=32;i++){
     try{
       const html=await fetchText('/');
-      const css=await fetch(`${BASE}/future-experience.css?qa=${Date.now()}`,{signal:AbortSignal.timeout(12000)});
-      const js=await fetch(`${BASE}/future-experience.js?qa=${Date.now()}`,{signal:AbortSignal.timeout(12000)});
-      const finalJs=await fetch(`${BASE}/future-experience-final.js?qa=${Date.now()}`,{signal:AbortSignal.timeout(12000)});
-      const v4Js=await fetch(`${BASE}/future-experience-fix-v4.js?qa=${Date.now()}`,{signal:AbortSignal.timeout(12000)});
-      if(html.includes('/future-experience.css?v=1')&&html.includes('/future-experience.js?v=1')&&html.includes('/future-experience-final.js?v=3')&&html.includes('/future-experience-fix-v4.js?v=1')&&css.ok&&js.ok&&finalJs.ok&&v4Js.ok){
-        const [finalText,v4Text]=await Promise.all([finalJs.text(),v4Js.text()]);
-        if(finalText.includes('rt-final-polish-v3')&&v4Text.includes('rt-unified-reader-v4')){console.log(`FUTURE DEPLOYMENT READY · intento ${i}`);return;}
-      }
-      last=`HTML futuro=${html.includes('/future-experience.css?v=1')} final-v3=${html.includes('/future-experience-final.js?v=3')} v4=${html.includes('/future-experience-fix-v4.js?v=1')} CSS=${css.status} JS=${js.status} FINAL=${finalJs.status} V4=${v4Js.status}`;
+      const [css,js]=await Promise.all([fetchText('/site-runtime.css'),fetchText('/site-runtime.js')]);
+      const htmlOk=html.includes(RUNTIME_CSS)&&html.includes(RUNTIME_JS);
+      const cssOk=css.includes('.rt-future-home')&&css.includes('.rt-future-trial');
+      const jsOk=['rt-final-polish-v3','rt-unified-reader-v4','rt-global-search-input'].every(marker=>js.includes(marker));
+      if(htmlOk&&cssOk&&jsOk){console.log(`FUTURE DEPLOYMENT READY · intento ${i}`);return;}
+      last=`runtime-html=${htmlOk} runtime-css=${cssOk} runtime-js=${jsOk}`;
     }catch(e){last=e.message}
     console.log(`Esperando publicación futura (${i}/32) · ${last}`);
     await sleep(15000);
@@ -72,17 +71,20 @@ try{
   assert(await page.evaluate(()=>scrollY>100),'Producción: CTA Explora no desplaza a la biblioteca');
   await page.evaluate(()=>scrollTo(0,0));
 
-  const search=page.locator('#q');
-  const uniqueSearch=String(newest.doi||newest.titulo||'').trim();
-  assert(uniqueSearch,'Producción: no hay término único disponible para probar el buscador');
+  const search=page.locator('.rt-global-search-input');
+  await search.waitFor({state:'visible',timeout:15000});
+  assert(!(await page.locator('#q').isVisible()),'Producción: el buscador redundante del índice sigue visible');
+  const searchSample=data.find(item=>/^SOHO\b/i.test(item.titulo))||newest;
+  const uniqueSearch=String(searchSample.titulo||'').trim().split(/\s+/)[0];
+  const expectedSearchPath=manifest[String(searchSample.id)]?.path;
+  assert(uniqueSearch&&expectedSearchPath,'Producción: no hay término o ruta canónica para probar el buscador global');
   await search.fill(uniqueSearch);
-  await page.waitForFunction(()=>document.querySelectorAll('#indice .fila').length===1,{timeout:15000});
-  await page.waitForTimeout(80);
-  assert(await page.locator('#indice .fila.rt-featured').count()===1,'Producción: el destacado desaparece al filtrar');
-  await search.fill('');
-  await page.waitForFunction(expected=>document.querySelectorAll('#indice .fila').length>=expected,expectedCount,{timeout:15000});
-  await page.waitForTimeout(80);
-  assert(await page.locator('#indice .fila.rt-featured').count()===1,'Producción: falta ensayo destacado tras re-render completo');
+  await page.waitForSelector('.rt-global-search-result',{timeout:15000});
+  const firstSearchResult=page.locator('.rt-global-search-result').first();
+  assert(await firstSearchResult.getAttribute('href')===expectedSearchPath,`Producción: ruta inesperada en búsqueda global para ${uniqueSearch}`);
+  await search.press('Escape');
+  assert(await page.locator('#rt-global-search-results').isHidden(),'Producción: Escape no cierra los resultados globales');
+  assert(await page.locator('#indice .fila.rt-featured').count()===1,'Producción: falta ensayo destacado tras usar el buscador global');
 
   const account=page.locator('.topbar .top-links #account-entry');
   await account.waitFor({state:'visible',timeout:15000});
@@ -97,7 +99,8 @@ try{
   await noOverflow(page,'Producción portada desktop');
 
   await page.setViewportSize({width:390,height:844});await page.waitForTimeout(200);await noOverflow(page,'Producción portada móvil');
-  assert(await page.locator('#q').isVisible(),'Producción móvil: búsqueda clínica no visible');
+  assert(await page.locator('.rt-global-search-input').isVisible(),'Producción móvil: búsqueda clínica global no visible');
+  assert(!(await page.locator('#q').isVisible()),'Producción móvil: el buscador redundante del índice sigue visible');
   assert(await account.isVisible(),'Producción móvil: CTA de cuenta no visible');
   assert(await page.locator('#indice .fila.rt-featured').count()===1,'Producción móvil: falta trial destacado');
 
