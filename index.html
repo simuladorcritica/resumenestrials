@@ -11,7 +11,7 @@
 </nav>
 {% endcapture %}
 {% capture cierre_body %}{{ seo_hubs }}</body>{% endcapture %}
-{{ pagina_base | replace: '</body>', cierre_body }}
+{{ pagina_base | replace: 'href="favicon.png"', 'href="/favicon.png?v=20260820"' | replace: '</body>', cierre_body }}
 <script type="module" src="home-auth-ui.js?v=8"></script>
 <script type="module" src="interactive-home.js?v=20260819.4"></script>
 <script type="module" src="recommendations.js?v=2"></script>
