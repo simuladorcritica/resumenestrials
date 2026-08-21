@@ -12,7 +12,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 concurrency:
   group: reader-buttons-production
@@ -24,6 +24,8 @@ jobs:
     timeout-minutes: 12
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
@@ -37,4 +39,68 @@ jobs:
           npm install --no-save playwright@1.55.0
           npx playwright install --with-deps chromium
       - name: Probar controles publicados con interacción física
+        id: smoke
+        continue-on-error: true
         run: node scripts/reader-buttons-production-smoke.mjs
+      - name: Persistir resultado verificable
+        if: always()
+        env:
+          SMOKE_OUTCOME: ${{ steps.smoke.outcome }}
+          SOURCE_SHA: ${{ github.sha }}
+          RUN_ID: ${{ github.run_id }}
+          RUN_ATTEMPT: ${{ github.run_attempt }}
+        run: |
+          set -euo pipefail
+          git fetch origin main
+          git checkout -B reader-buttons-status origin/main
+          mkdir -p runtime
+          python3 - <<'PY'
+          import json, os
+          from datetime import datetime, timezone
+          from pathlib import Path
+
+          outcome = os.environ.get('SMOKE_OUTCOME', 'unknown')
+          payload = {
+              'service': 'reader-buttons-production',
+              'status': 'PASS' if outcome == 'success' else 'FAIL',
+              'checked_at': datetime.now(timezone.utc).isoformat().replace('+00:00', 'Z'),
+              'source_sha': os.environ.get('SOURCE_SHA', ''),
+              'run_id': os.environ.get('RUN_ID', ''),
+              'run_attempt': os.environ.get('RUN_ATTEMPT', ''),
+              'site': 'https://resumenestrials.com',
+              'trial_id': 1,
+              'checks': {
+                  'volver_al_indice_pointer': outcome == 'success',
+                  'ver_resumen_breve_pointer': outcome == 'success',
+                  'descargar_pdf_real': outcome == 'success',
+                  'mobile_pointer': outcome == 'success',
+              },
+          }
+          Path('runtime/reader-buttons-production-status.json').write_text(
+              json.dumps(payload, ensure_ascii=False, indent=2) + '\n', encoding='utf-8'
+          )
+          PY
+          git add -- runtime/reader-buttons-production-status.json
+          if git diff --cached --quiet; then
+            echo "El estado persistente ya coincide con esta ejecución."
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git commit -m "Registrar verificación real de botones del lector"
+            for intento in 1 2 3; do
+              if git push origin HEAD:main; then
+                break
+              fi
+              if [ "$intento" = "3" ]; then
+                echo "No fue posible persistir el resultado después de 3 intentos." >&2
+                exit 1
+              fi
+              git pull --rebase origin main
+              sleep $((intento * 2))
+            done
+          fi
+      - name: Fallar si la interacción real no pasó
+        if: always() && steps.smoke.outcome != 'success'
+        run: |
+          echo "La prueba física de los botones del lector no pasó." >&2
+          exit 1
