@@ -35,6 +35,8 @@
       node.style.setProperty('pointer-events', 'auto', 'important');
       node.style.setProperty('position', 'relative', 'important');
       node.style.setProperty('z-index', '20', 'important');
+      node.style.setProperty('min-height', '54px', 'important');
+      node.style.setProperty('touch-action', 'manipulation', 'important');
       node.dataset.rtReaderControls = 'v9';
     }
     for (const node of [back.closest('.pie-nav'), pdf.closest('.rt-reader-bottom-actions')]) {
@@ -112,6 +114,7 @@
       ensureStableControls();
     });
     observer.observe(document.body, { childList: true, subtree: true });
+    addEventListener('resize', ensureStableControls, { passive: true });
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot, { once: true });
