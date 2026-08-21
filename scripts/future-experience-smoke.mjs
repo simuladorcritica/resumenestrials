@@ -87,6 +87,7 @@ try{
   await page.setViewportSize({width:390,height:844});
   await page.waitForTimeout(150);
   assert(await page.locator('.rt-orbit').isVisible(),'Portada móvil: experiencia visual no visible');
+  assert(await page.locator('.rt-global-search-input').isVisible(),'Portada móvil: el buscador global no está disponible');
   assert(!(await page.locator('#q').isVisible()),'Portada móvil: el buscador redundante sigue visible');
   await noOverflow(page,'Portada móvil');
 

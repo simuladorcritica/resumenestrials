@@ -1,6 +1,8 @@
 import { chromium } from 'playwright';
 
-const BASE='https://resumenestrials.com';
+const BASE=(process.env.RT_BASE_URL||'https://resumenestrials.com').replace(/\/$/,'');
+const RUNTIME_CSS='/site-runtime.css?v=20260821';
+const RUNTIME_JS='/site-runtime.js?v=20260821';
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 function assert(v,m){if(!v)throw new Error(m)}
 async function fetchText(path){
@@ -13,13 +15,11 @@ async function waitForV4(){
   let last='';
   for(let i=1;i<=32;i++){
     try{
-      const [html,js,compat,legacy]=await Promise.all([fetchText('/'),fetchText('/future-experience-fix-v4.js'),fetchText('/future-experience-fix-v4-compat.js'),fetchText('/legacy-unifier-v4.js')]);
-      const htmlOk=html.includes('/future-experience-fix-v4.js?v=1')&&html.includes('/future-experience-fix-v4-compat.js?v=1')&&html.includes('/legacy-unifier-v4.js?v=1');
-      const jsOk=js.includes('rt-unified-reader-v4');
-      const compatOk=compat.includes('rt-unified-reader-v4-compat');
-      const legacyOk=legacy.includes('rt-legacy-unifier-v4');
-      if(htmlOk&&jsOk&&compatOk&&legacyOk){console.log(`READER V4 DEPLOYMENT READY · intento ${i}`);return;}
-      last=`html=${htmlOk} js=${jsOk} compat=${compatOk} legacy=${legacyOk}`;
+      const [html,runtime]=await Promise.all([fetchText('/'),fetchText('/site-runtime.js')]);
+      const htmlOk=html.includes(RUNTIME_CSS)&&html.includes(RUNTIME_JS);
+      const runtimeOk=['rt-unified-reader-v4','rt-legacy-unifier-v4','rt-legacy-normalized'].every(marker=>runtime.includes(marker));
+      if(htmlOk&&runtimeOk){console.log(`READER V4 DEPLOYMENT READY · intento ${i}`);return;}
+      last=`runtime-html=${htmlOk} runtime-js=${runtimeOk}`;
     }catch(e){last=e.message}
     console.log(`Esperando lector v4 (${i}/32) · ${last}`);
     await sleep(15000);

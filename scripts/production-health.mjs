@@ -1,6 +1,7 @@
 import { readFileSync } from 'node:fs';
 
 const BASE=(process.env.RT_BASE_URL||'https://resumenestrials.com').replace(/\/$/,'');
+const CANONICAL_ORIGIN='https://resumenestrials.com';
 const timeout=15000;
 const failures=[];
 const checks=[];
@@ -94,8 +95,8 @@ for(const entry of Object.values(clusters)){
 
 await check('/sitemap.xml',(b)=>{
   for(const entry of Object.values(manifest))assert(b.includes(entry.url),`sitemap sin ${entry.url}`);
-  for(const entry of Object.values(clusters))assert(b.includes(`${BASE}${entry.path}`),`sitemap sin cluster ${entry.path}`);
-  for(const path of ['/medicina-critica/','/medicina-interna/','/metodologia/','/equipo-editorial/'])assert(b.includes(`${BASE}${path}`),`sitemap sin ${path}`);
+  for(const entry of Object.values(clusters))assert(b.includes(`${CANONICAL_ORIGIN}${entry.path}`),`sitemap sin cluster ${entry.path}`);
+  for(const path of ['/medicina-critica/','/medicina-interna/','/metodologia/','/equipo-editorial/'])assert(b.includes(`${CANONICAL_ORIGIN}${path}`),`sitemap sin ${path}`);
 });
 
 await check('/login.html',(b)=>{for(const x of ['turnstile-login','turnstile.js','auth.js'])assert(b.includes(x),`falta ${x}`)});
@@ -103,7 +104,14 @@ await check('/registro.html',(b)=>{for(const x of ['turnstile-registro','Crear m
 await check('/recuperar.html',(b)=>{assert(b.includes('turnstile-recuperar'),'falta Turnstile de recuperación')});
 await check('/cuenta.html',(b)=>{for(const x of ['Datos personales','Notificaciones','Seguridad','Preferencias'])assert(b.includes(x),`falta ${x}`)});
 await check('/biblioteca.html');
-await check('/turnstile.js',(b)=>{assert(b.includes('0x4AAAAAAEV-hx4kk2dLe8ZF'),'Site Key Turnstile inesperada')});
+await check('/turnstile-config.js',(b)=>{
+  assert(b.includes('0x4AAAAAAEV-hx4kk2dLe8ZF'),'Site Key pública de Turnstile inesperada');
+  assert(!b.includes('TU_SITE_KEY'),'Turnstile conserva una Site Key de marcador');
+});
+await check('/turnstile.js',(b)=>{
+  assert(b.includes("from './turnstile-config.js'"),'Turnstile no consume la configuración pública centralizada');
+  assert(!/CAPTCHA_ENABLED\s*=\s*false/.test(b),'Turnstile permanece desactivado explícitamente');
+});
 
 const slow=checks.filter((x)=>x.ms>5000);
 for(const x of slow)console.warn('SLOW',x.path,`${x.ms}ms`);
