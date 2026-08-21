@@ -2,8 +2,8 @@
   "service": "notify-new-summaries",
   "status": "healthy",
   "failed_stage": "",
-  "checked_at": "2026-08-20T02:15:06Z",
-  "source_sha": "da61d67098a357caff8308e265fa16846745dc03",
+  "checked_at": "2026-08-21T22:27:22Z",
+  "source_sha": "e36540c4fb90bfc5c021a194b79ba4a783ddf4a6",
   "project_ref": "hnsmozvatgyrascxbhys",
   "domain": "resumenestrials.com"
 }
