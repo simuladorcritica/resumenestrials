@@ -5,7 +5,7 @@ const BASE=(process.env.RT_BASE_URL||'http://127.0.0.1:8000').replace(/\/$/,'');
 const data=JSON.parse(readFileSync('resumenes.json','utf8'));
 const manifest=JSON.parse(readFileSync('seo-manifest.json','utf8'));
 const sample=data.find(x=>x.corto&&manifest[String(x.id)]?.path);
-if(!sample) throw new Error('No existe trial con resumen breve para probar lector v5');
+if(!sample) throw new Error('No existe trial con resumen breve para probar lector v7');
 const trialPath=manifest[String(sample.id)].path;
 
 function assert(value,message){if(!value)throw new Error(message)}
@@ -16,6 +16,9 @@ async function noOverflow(page,label){
 async function waitV5(page){
   await page.waitForFunction(()=>document.querySelector('.pie-nav')?.dataset.rtReaderNav==='v5',{timeout:15000});
 }
+async function waitV7Full(page){
+  await page.waitForFunction(()=>document.querySelector('.pie-nav')?.dataset.rtEndmatterOrder==='v7',{timeout:15000});
+}
 
 const browser=await chromium.launch({headless:true});
 try{
@@ -23,45 +26,56 @@ try{
   const errors=[];
   page.on('pageerror',e=>errors.push(e.message));
 
-  // Resumen completo: navegación y descarga inferior deben reproducir la composición del resumen breve.
+  // Resumen completo: fuente primaria seguida inmediatamente por navegación, descarga y evidencia relacionada.
   await page.goto(`${BASE}${trialPath}`,{waitUntil:'domcontentloaded',timeout:30000});
   await page.waitForSelector('body.rt-future-trial',{timeout:12000});
   await waitV5(page);
   await page.waitForSelector('.rt-reader-bottom-actions[data-rt-reader-bottom-actions="v6"] .rt-reader-footer-download',{state:'visible',timeout:12000});
+  await waitV7Full(page);
   const fullFooter=await page.evaluate(()=>{
+    const original=document.querySelector('.enlace-original');
     const nav=document.querySelector('.pie-nav');
     const back=nav?.querySelector('.rt-reader-back');
     const version=nav?.querySelector('.rt-reader-version');
     const actions=document.querySelector('.rt-reader-bottom-actions');
     const download=actions?.querySelector('.rt-reader-footer-download');
+    const related=document.querySelector('.relacionados');
     const footer=document.querySelector('.art-footer');
-    if(!nav||!back||!actions||!download)return null;
-    const nr=nav.getBoundingClientRect(),br=back.getBoundingClientRect(),ar=actions.getBoundingClientRect(),dr=download.getBoundingClientRect(),fr=footer?.getBoundingClientRect();
+    if(!original||!nav||!back||!actions||!download||!related)return null;
+    const or=original.getBoundingClientRect(),nr=nav.getBoundingClientRect(),ar=actions.getBoundingClientRect(),dr=download.getBoundingClientRect(),rr=related.getBoundingClientRect(),fr=footer?.getBoundingClientRect();
     const ns=getComputedStyle(nav),bs=getComputedStyle(back),as=getComputedStyle(actions),ds=getComputedStyle(download);
     return {
-      navWidth:nr.width,backWidth:br.width,font:parseFloat(bs.fontSize),color:bs.color,
-      borderTop:parseFloat(ns.borderTopWidth),backText:back.textContent.trim(),
+      navWidth:nr.width,font:parseFloat(bs.fontSize),borderTop:parseFloat(ns.borderTopWidth),backText:back.textContent.trim(),
       versionText:version?.textContent.trim()||'',versionVisible:!!version&&version.getBoundingClientRect().width>0,
       downloadText:download.textContent.trim(),downloadVisible:dr.width>0&&dr.height>0,
-      footerPdfId:download.getAttribute('data-rt-footer-download')||'',downloadBg:ds.backgroundImage,downloadFont:parseFloat(ds.fontSize),
+      footerPdfId:download.getAttribute('data-rt-footer-download')||'',downloadFont:parseFloat(ds.fontSize),
+      originalThenNav:original.nextElementSibling===nav,navThenActions:nav.nextElementSibling===actions,
+      actionsThenRelated:actions.nextElementSibling===related,navBelowOriginal:nr.top>=or.bottom-2,
       actionsBelowNav:ar.top>=nr.bottom-2,downloadLeftAligned:Math.abs(dr.left-ar.left)<=2,
-      bottomBorder:parseFloat(as.borderBottomWidth),footerBelow:!fr||fr.top>=ar.bottom-2
+      bottomBorder:parseFloat(as.borderBottomWidth),relatedBelow:rr.top>=ar.bottom-2,
+      footerBelow:!fr||fr.top>=rr.bottom-2,confidenceCount:document.querySelectorAll('.confianza').length,
+      noteText:document.body.innerText.includes('NOTA EDITORIAL')||document.body.innerText.includes('Transparencia editorial')
     };
   });
-  assert(fullFooter,'Completo: falta navegación inferior v5/v6');
+  assert(fullFooter,'Completo: falta estructura final v7');
   assert(fullFooter.navWidth>500,`Completo: navegación inferior demasiado estrecha (${fullFooter.navWidth}px)`);
   assert(fullFooter.font>=15,`Completo: Volver al índice sigue demasiado pequeño (${fullFooter.font}px)`);
-  assert(fullFooter.borderTop>=1,'Completo: falta separador superior de navegación');
+  assert(fullFooter.borderTop===0,`Completo: apareció una línea extra entre fuente primaria y navegación (${fullFooter.borderTop}px)`);
   assert(/Volver al índice/i.test(fullFooter.backText),'Completo: texto de regreso incorrecto');
-  assert(fullFooter.versionVisible&&/resumen breve/i.test(fullFooter.versionText),'Completo: falta acceso simétrico al resumen breve en el pie');
+  assert(fullFooter.versionVisible&&/resumen breve/i.test(fullFooter.versionText),'Completo: falta acceso al resumen breve');
   assert(fullFooter.downloadVisible,'Completo: falta botón inferior de descarga PDF');
-  assert(/Descargar resumen completo PDF/i.test(fullFooter.downloadText),`Completo: texto de descarga inferior incorrecto (${fullFooter.downloadText})`);
+  assert(/Descargar resumen completo PDF/i.test(fullFooter.downloadText),`Completo: texto de descarga incorrecto (${fullFooter.downloadText})`);
   assert(fullFooter.footerPdfId===String(sample.id),`Completo: botón inferior no conserva el trial id (${fullFooter.footerPdfId})`);
   assert(fullFooter.downloadFont>=15,'Completo: botón inferior de PDF demasiado pequeño');
-  assert(fullFooter.actionsBelowNav,'Completo: la descarga no está debajo de la navegación');
+  assert(fullFooter.originalThenNav,'Completo: Volver al índice no está inmediatamente debajo del artículo original');
+  assert(fullFooter.navThenActions,'Completo: descarga no sigue inmediatamente a la navegación');
+  assert(fullFooter.actionsThenRelated,'Completo: Evidencia relacionada no quedó después de los controles');
+  assert(fullFooter.navBelowOriginal&&fullFooter.actionsBelowNav&&fullFooter.relatedBelow,'Completo: orden vertical del final incorrecto');
   assert(fullFooter.downloadLeftAligned,'Completo: el botón de descarga no está alineado a la izquierda');
   assert(fullFooter.bottomBorder>=1,'Completo: falta separador inferior bajo la descarga');
-  assert(fullFooter.footerBelow,'Completo: el aviso editorial no está debajo de la descarga');
+  assert(fullFooter.footerBelow,'Completo: el aviso final no está después de la evidencia relacionada');
+  assert(fullFooter.confidenceCount===0,'Completo: sigue presente el bloque de nota/transparencia editorial');
+  assert(!fullFooter.noteText,'Completo: sigue visible texto de nota editorial');
   await noOverflow(page,'Resumen completo desktop');
 
   // Debe existir un solo disparador real del PDF; el botón inferior delega en él.
@@ -82,16 +96,37 @@ try{
   assert(downloadContract.tag==='BUTTON','Completo: descarga inferior no es un botón');
   assert(!downloadContract.hasRealAttr,'Completo: el botón inferior duplicó el atributo del disparador PDF');
 
-  // Resumen breve: guardar en biblioteca + progreso circular/lineal + navegación por secciones.
+  // Resumen breve: guardar + progreso + navegación + evidencia relacionada breve al final.
   await page.goto(`${BASE}/resumen.html?id=${sample.id}&v=corto`,{waitUntil:'domcontentloaded',timeout:30000});
   await page.waitForSelector('body.rt-future-legacy.modo-corto',{timeout:15000});
   await page.waitForSelector('.rt-reader-rail[data-v4="1"]',{timeout:15000});
   await page.waitForSelector('header.art .rt-save-action',{state:'visible',timeout:15000});
   await waitV5(page);
+  await page.waitForSelector('.relacionados[data-rt-brief-related="v7"]',{state:'visible',timeout:15000});
 
   const save=page.locator('header.art .rt-save-action');
   assert(/Guardar en biblioteca|Guardado/i.test((await save.innerText()).trim()),'Breve: texto de Guardar en biblioteca incorrecto');
   assert(await save.getAttribute('aria-pressed')!==null,'Breve: botón Guardar sin estado accesible');
+
+  const relatedBrief=await page.evaluate(()=>{
+    const section=document.querySelector('.relacionados[data-rt-brief-related="v7"]');
+    const footer=document.querySelector('footer.art');
+    const cards=[...section.querySelectorAll('.rel-item')];
+    const links=cards.map(card=>card.querySelector('a')?.getAttribute('href')||'');
+    const box=section.getBoundingClientRect();
+    return {
+      heading:section.querySelector('h2')?.textContent.trim()||'',count:cards.length,links,
+      visible:box.width>0&&box.height>0,beforeFooter:section.nextElementSibling===footer,
+      confidenceCount:document.querySelectorAll('.confianza').length,
+      noteText:document.body.innerText.includes('NOTA EDITORIAL')||document.body.innerText.includes('Transparencia editorial')
+    };
+  });
+  assert(relatedBrief.visible,'Breve: Evidencia relacionada no es visible');
+  assert(/Evidencia relacionada/i.test(relatedBrief.heading),'Breve: título de Evidencia relacionada incorrecto');
+  assert(relatedBrief.count>=1&&relatedBrief.count<=4,`Breve: cantidad de evidencia relacionada inválida (${relatedBrief.count})`);
+  assert(relatedBrief.links.every(href=>/\/resumen\.html\?id=\d+&v=corto/.test(href)),`Breve: los relacionados no abren su versión breve (${relatedBrief.links.join(' | ')})`);
+  assert(relatedBrief.beforeFooter,'Breve: Evidencia relacionada no quedó al final antes del aviso');
+  assert(relatedBrief.confidenceCount===0&&!relatedBrief.noteText,'Breve: apareció una nota editorial eliminada');
 
   const progressBefore=await page.evaluate(()=>{
     const ring=document.querySelector('.rt-progress-ring');
@@ -142,10 +177,11 @@ try{
     save.click()
   ]);
 
-  // Responsive: controles legibles y sin desbordamiento.
+  // Responsive: controles y evidencia relacionada legibles y sin desbordamiento.
   await page.setViewportSize({width:390,height:844});
   await page.goto(`${BASE}${trialPath}`,{waitUntil:'domcontentloaded',timeout:30000});
   await page.waitForSelector('.rt-reader-footer-download',{state:'visible',timeout:15000});
+  await waitV7Full(page);
   const mobileFullDownload=await page.locator('.rt-reader-footer-download').boundingBox();
   assert(mobileFullDownload&&mobileFullDownload.width>=330,`Completo móvil: descarga inferior demasiado estrecha (${JSON.stringify(mobileFullDownload)})`);
   await noOverflow(page,'Resumen completo móvil');
@@ -153,12 +189,23 @@ try{
   await page.goto(`${BASE}/resumen.html?id=${sample.id}&v=corto`,{waitUntil:'domcontentloaded',timeout:30000});
   await page.waitForSelector('header.art .rt-save-action',{state:'visible',timeout:15000});
   await page.waitForSelector('.rt-reader-rail[data-v4="1"]',{timeout:15000});
+  await page.waitForSelector('.relacionados[data-rt-brief-related="v7"]',{state:'visible',timeout:15000});
   const mobileSave=await page.locator('header.art .rt-save-action').boundingBox();
   assert(mobileSave&&mobileSave.width>=330,`Breve móvil: Guardar en biblioteca demasiado estrecho (${JSON.stringify(mobileSave)})`);
+  const mobileRelated=await page.evaluate(()=>{
+    const section=document.querySelector('.relacionados[data-rt-brief-related="v7"]');
+    const grid=section?.querySelector('.rel-grid');
+    const cards=[...section.querySelectorAll('.rel-item')];
+    const cols=getComputedStyle(grid).gridTemplateColumns.split(' ').filter(Boolean).length;
+    return {width:section.getBoundingClientRect().width,cols,cards:cards.length};
+  });
+  assert(mobileRelated.width>=330,`Breve móvil: Evidencia relacionada demasiado estrecha (${mobileRelated.width})`);
+  assert(mobileRelated.cols===1,`Breve móvil: relacionados no colapsan a una columna (${mobileRelated.cols})`);
+  assert(mobileRelated.cards>=1,'Breve móvil: faltan tarjetas relacionadas');
   await noOverflow(page,'Resumen breve móvil');
 
   assert(errors.length===0,`Errores JavaScript: ${errors.join(' | ')}`);
-  console.log(`READER CONTROLS V6 PASS · trial ${sample.id} · pie completo igualado + descarga inferior + guardar + progreso ${progressAfter.value}% + navegación + móvil`);
+  console.log(`READER CONTROLS V7 PASS · trial ${sample.id} · fuente→controles→relacionados + nota editorial eliminada + relacionados breves + PDF + guardar + progreso ${progressAfter.value}% + móvil`);
 } finally {
   await browser.close();
 }
