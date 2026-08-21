@@ -38,6 +38,7 @@ jobs:
           node --check scripts/unified-reader-v4-production-smoke.mjs
           node --check scripts/future-visual-capture.mjs
           node --check scripts/future-production-smoke.mjs
+          node --check scripts/adsense-production-smoke.mjs
           python3 -m py_compile aplicar_experiencia_futura.py
           python3 -m py_compile actualizar_agregar_editorial.py
       - name: Generar exactamente el sitio final
@@ -53,12 +54,18 @@ jobs:
         run: |
           python3 - <<'PY'
           from pathlib import Path
-          targets=[Path('_includes/index-source.html'),Path('resumen.html'),Path('login.html'),Path('registro.html'),Path('medicina-critica/index.html'),Path('metodologia/index.html')]
-          targets += list(Path('trials').glob('*/index.html'))
-          for path in targets:
+          import aplicar_experiencia_futura as future
+
+          expected_ads = 'google.com, pub-3132744538918477, DIRECT, f08c47fec0942fa0'
+          ads_path = Path('ads.txt')
+          assert ads_path.is_file(), 'Falta ads.txt en la raíz del sitio'
+          assert ads_path.read_text(encoding='utf-8').strip() == expected_ads, 'ads.txt no coincide con el publisher autorizado'
+
+          checked = 0
+          for path in future.candidates():
               if not path.is_file():
                   continue
-              s=path.read_text(encoding='utf-8')
+              s = path.read_text(encoding='utf-8')
               assert '/future-experience.css?v=1' in s, f'{path}: falta CSS futuro'
               assert '/future-experience-patch.css?v=1' in s, f'{path}: falta patch futuro'
               assert '/future-experience.js?v=1' in s, f'{path}: falta JS futuro'
@@ -68,7 +75,14 @@ jobs:
               assert '/legacy-unifier-v4.js?v=1' in s, f'{path}: falta unificador legacy v4'
               assert '/future-experience-final.js?v=1' not in s, f'{path}: conserva ajuste JS final obsoleto v1'
               assert '/future-experience-final.js?v=2' not in s, f'{path}: conserva ajuste JS final obsoleto v2'
-          print(f'Assets futuros v4 presentes en {len(targets)} objetivos')
+              assert s.count(future.ADSENSE_URL) == 1, f'{path}: AdSense debe aparecer exactamente una vez'
+              head, sep, _ = s.partition('</head>')
+              assert sep and future.ADSENSE_URL in head, f'{path}: el script de AdSense no está dentro de <head>'
+              assert 'crossorigin="anonymous"' in head, f'{path}: falta crossorigin de AdSense'
+              checked += 1
+          if checked < 50:
+              raise SystemExit(f'Solo se verificaron {checked} páginas; se esperaban al menos 50')
+          print(f'Assets futuros v4 + AdSense presentes en {checked} páginas; ads.txt válido')
           PY
       - name: Instalar Playwright
         run: |
@@ -85,6 +99,7 @@ jobs:
           node scripts/future-experience-smoke.mjs
           node scripts/future-final-smoke.mjs
           node scripts/unified-reader-v4-smoke.mjs
+          node scripts/adsense-production-smoke.mjs
       - name: Generar capturas de auditoría visual
         if: success()
         env:
@@ -116,3 +131,4 @@ jobs:
         run: |
           node scripts/future-production-smoke.mjs
           node scripts/unified-reader-v4-production-smoke.mjs
+          node scripts/adsense-production-smoke.mjs
