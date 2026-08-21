@@ -1,0 +1,40 @@
+name: Verificar botones del lector en producción
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "reader-controls-v9.js"
+      - "aplicar_experiencia_futura.py"
+      - "trial-pdf.js"
+      - "scripts/reader-buttons-production-smoke.mjs"
+      - ".github/workflows/reader-buttons-production.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: reader-buttons-production
+  cancel-in-progress: false
+
+jobs:
+  real-clicks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Validar sintaxis
+        run: |
+          node --check reader-controls-v9.js
+          node --check scripts/reader-buttons-production-smoke.mjs
+          python3 -m py_compile aplicar_experiencia_futura.py
+      - name: Instalar Chromium
+        run: |
+          npm install --no-save playwright@1.55.0
+          npx playwright install --with-deps chromium
+      - name: Probar controles publicados con interacción física
+        run: node scripts/reader-buttons-production-smoke.mjs
