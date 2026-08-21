@@ -10,9 +10,10 @@
   const isHome = /\/(?:index\.html)?$/.test(path);
 
   const CSS = `
-    /* Reader UI v8: controles funcionales y una retícula estable. */
+    /* Reader UI v8: retícula estable, controles funcionales y texto sin recortes. */
     html body.rt-future.rt-future-trial .enlace-original,
-    html body.rt-future.rt-future-trial .rt-endmatter-controls-v8,
+    html body.rt-future.rt-future-trial .pie-nav,
+    html body.rt-future.rt-future-trial .rt-reader-bottom-actions,
     html body.rt-future.rt-future-trial .relacionados{
       grid-column:1!important;min-width:0!important;width:100%!important;max-width:none!important;box-sizing:border-box!important
     }
@@ -24,44 +25,45 @@
     html body.rt-future.rt-future-trial .enlace-original a{
       display:inline!important;max-width:100%!important;overflow-wrap:anywhere!important;word-break:normal!important
     }
-    html body.rt-future.rt-future-trial .rt-endmatter-controls-v8{
-      display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:12px!important;
-      margin:16px 0 0!important;padding:0 0 28px!important;border-bottom:1px solid var(--rt-line)!important;
+    html body.rt-future.rt-future-trial .pie-nav{
+      display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important;
+      margin:14px 0 0!important;padding:0!important;border:0!important;background:transparent!important;
       position:relative!important;z-index:3!important
     }
-    html body.rt-future.rt-future-trial .rt-endmatter-controls-v8>.pie-nav,
-    html body.rt-future.rt-future-trial .rt-endmatter-controls-v8>.rt-reader-bottom-actions{
-      display:contents!important;margin:0!important;padding:0!important;border:0!important;background:none!important
-    }
-    html body.rt-future.rt-future-trial .rt-endmatter-controls-v8 .rt-reader-back,
-    html body.rt-future.rt-future-trial .rt-endmatter-controls-v8 .rt-reader-version,
-    html body.rt-future.rt-future-trial .rt-endmatter-controls-v8 .rt-reader-footer-download{
+    html body.rt-future.rt-future-trial .pie-nav .rt-reader-back,
+    html body.rt-future.rt-future-trial .pie-nav .rt-reader-version,
+    html body.rt-future.rt-future-trial .rt-reader-bottom-actions .rt-reader-footer-download{
       display:flex!important;align-items:center!important;justify-content:center!important;gap:10px!important;
       width:100%!important;min-width:0!important;min-height:58px!important;margin:0!important;padding:12px 16px!important;
       border:1px solid rgba(116,214,204,.32)!important;border-radius:10px!important;box-sizing:border-box!important;
       font:600 14px/1.3 var(--rt-mono)!important;letter-spacing:.02em!important;text-transform:none!important;
       text-align:center!important;text-decoration:none!important;white-space:normal!important;overflow:visible!important;
       overflow-wrap:break-word!important;word-break:normal!important;hyphens:none!important;cursor:pointer!important;
-      pointer-events:auto!important;position:relative!important;z-index:4!important;transition:transform .18s ease,border-color .18s ease,background .18s ease,color .18s ease!important
+      pointer-events:auto!important;position:relative!important;z-index:4!important;
+      transition:transform .18s ease,border-color .18s ease,background .18s ease,color .18s ease!important
     }
-    html body.rt-future.rt-future-trial .rt-endmatter-controls-v8 .rt-reader-back,
-    html body.rt-future.rt-future-trial .rt-endmatter-controls-v8 .rt-reader-version{
+    html body.rt-future.rt-future-trial .pie-nav .rt-reader-back,
+    html body.rt-future.rt-future-trial .pie-nav .rt-reader-version{
       color:#84ddd4!important;background:rgba(255,255,255,.018)!important
     }
-    html body.rt-future.rt-future-trial .rt-endmatter-controls-v8 .rt-reader-back:hover,
-    html body.rt-future.rt-future-trial .rt-endmatter-controls-v8 .rt-reader-version:hover{
+    html body.rt-future.rt-future-trial .pie-nav .rt-reader-back:hover,
+    html body.rt-future.rt-future-trial .pie-nav .rt-reader-version:hover{
       color:#b5f4ed!important;border-color:rgba(116,214,204,.62)!important;background:rgba(36,200,180,.065)!important;transform:translateY(-1px)!important
     }
-    html body.rt-future.rt-future-trial .rt-endmatter-controls-v8 .rt-reader-footer-download{
+    html body.rt-future.rt-future-trial .rt-reader-bottom-actions{
+      display:block!important;margin:10px 0 0!important;padding:0 0 28px!important;border:0!important;
+      border-bottom:1px solid var(--rt-line)!important;background:transparent!important;position:relative!important;z-index:3!important
+    }
+    html body.rt-future.rt-future-trial .rt-reader-bottom-actions .rt-reader-footer-download{
       color:#fff!important;border-color:rgba(36,200,180,.48)!important;background:linear-gradient(135deg,#0d988e,#08716c)!important
     }
-    html body.rt-future.rt-future-trial .rt-endmatter-controls-v8 .rt-reader-footer-download:hover{
+    html body.rt-future.rt-future-trial .rt-reader-bottom-actions .rt-reader-footer-download:hover{
       background:linear-gradient(135deg,#12a79c,#087a74)!important;border-color:#58d8cc!important;transform:translateY(-1px)!important
     }
-    html body.rt-future.rt-future-trial .rt-endmatter-controls-v8 .rt-reader-footer-download:disabled{
+    html body.rt-future.rt-future-trial .rt-reader-bottom-actions .rt-reader-footer-download:disabled{
       opacity:.62!important;cursor:progress!important;transform:none!important
     }
-    html body.rt-future.rt-future-trial .rt-endmatter-controls-v8 .rt-reader-footer-download svg{
+    html body.rt-future.rt-future-trial .rt-reader-bottom-actions .rt-reader-footer-download svg{
       width:17px!important;height:17px!important;flex:0 0 auto!important
     }
     html body.rt-future.rt-future-trial .relacionados{
@@ -78,11 +80,11 @@
       max-width:100%!important;white-space:normal!important;overflow-wrap:break-word!important;word-break:normal!important
     }
 
-    /* Resumen breve: la evidencia relacionada ocupa todo el lector y replica la retícula del completo. */
+    /* Resumen breve: misma lógica visual que la Evidencia relacionada del resumen completo. */
     html body.rt-future.rt-future-legacy.modo-corto .relacionados[data-rt-brief-related]{
       grid-column:1 / -1!important;align-self:start!important;min-width:0!important;width:100%!important;max-width:none!important;
       margin:42px 0 0!important;padding:24px 0 0!important;border:0!important;border-top:1px solid var(--rt-line)!important;
-      border-radius:0!important;background:transparent!important;box-shadow:none!important
+      border-radius:0!important;background:transparent!important;box-shadow:none!important;overflow:visible!important
     }
     html body.rt-future.rt-future-legacy.modo-corto .relacionados[data-rt-brief-related]>h2{
       margin:0 0 18px!important;padding:0!important;color:#eef2ef!important;
@@ -93,11 +95,12 @@
       width:100%!important;min-width:0!important;border:0!important;border-top:1px solid var(--rt-line)!important;background:transparent!important
     }
     html body.rt-future.rt-future-legacy.modo-corto .relacionados[data-rt-brief-related] .rel-item{
-      min-width:0!important;margin:0!important;padding:24px 0!important;border:0!important;border-bottom:1px solid var(--rt-line)!important;
+      display:block!important;columns:1!important;column-gap:0!important;min-width:0!important;width:100%!important;max-width:100%!important;
+      margin:0!important;padding:24px 0!important;border:0!important;border-bottom:1px solid var(--rt-line)!important;
       border-radius:0!important;background:transparent!important;box-shadow:none!important;overflow:visible!important
     }
     html body.rt-future.rt-future-legacy.modo-corto .relacionados[data-rt-brief-related] .rel-item a{
-      display:block!important;min-width:0!important;color:inherit!important;text-decoration:none!important;overflow:visible!important
+      display:block!important;min-width:0!important;width:100%!important;color:inherit!important;text-decoration:none!important;overflow:visible!important
     }
     html body.rt-future.rt-future-legacy.modo-corto .relacionados[data-rt-brief-related] .rel-item h3,
     html body.rt-future.rt-future-legacy.modo-corto .relacionados[data-rt-brief-related] .rel-item .rel-tit{
@@ -116,7 +119,7 @@
     html body.rt-future.rt-future-legacy.modo-corto .relacionados[data-rt-brief-related] .rel-item:hover h3,
     html body.rt-future.rt-future-legacy.modo-corto .relacionados[data-rt-brief-related] .rel-item:hover .rel-tit{color:#72ded3!important}
 
-    /* Portada: las dos descargas tienen exactamente la misma escala y geometría. */
+    /* Portada: descarga completa y breve con idéntica escala, ritmo y caja. */
     html body.rt-future-home .fila-pdf{
       display:flex!important;align-items:stretch!important;gap:10px!important;flex-wrap:wrap!important;min-width:0!important
     }
@@ -142,25 +145,23 @@
     html body.rt-future-home .fila-pdf .btn-pdf svg,
     html body.rt-future-home .fila-pdf .rt-download-brief svg{width:16px!important;height:16px!important;flex:0 0 16px!important}
 
-    @media(max-width:980px){
-      html body.rt-future.rt-future-trial .rt-endmatter-controls-v8{grid-template-columns:1fr!important}
-      html body.rt-future.rt-future-trial .rt-endmatter-controls-v8 .rt-reader-back,
-      html body.rt-future.rt-future-trial .rt-endmatter-controls-v8 .rt-reader-version,
-      html body.rt-future.rt-future-trial .rt-endmatter-controls-v8 .rt-reader-footer-download{justify-content:flex-start!important;text-align:left!important}
-    }
     @media(max-width:700px){
       html body.rt-future.rt-future-trial .enlace-original{padding:18px!important}
-      html body.rt-future.rt-future-trial .rt-endmatter-controls-v8{gap:9px!important;margin-top:12px!important;padding-bottom:24px!important}
-      html body.rt-future.rt-future-trial .rt-endmatter-controls-v8 .rt-reader-back,
-      html body.rt-future.rt-future-trial .rt-endmatter-controls-v8 .rt-reader-version,
-      html body.rt-future.rt-future-trial .rt-endmatter-controls-v8 .rt-reader-footer-download{min-height:54px!important;font-size:13px!important}
+      html body.rt-future.rt-future-trial .pie-nav{grid-template-columns:1fr!important;gap:9px!important;margin-top:12px!important}
+      html body.rt-future.rt-future-trial .pie-nav .rt-reader-back,
+      html body.rt-future.rt-future-trial .pie-nav .rt-reader-version,
+      html body.rt-future.rt-future-trial .rt-reader-bottom-actions .rt-reader-footer-download{
+        min-height:54px!important;font-size:13px!important;justify-content:flex-start!important;text-align:left!important
+      }
       html body.rt-future.rt-future-legacy.modo-corto .relacionados[data-rt-brief-related]{margin-top:32px!important;padding-top:22px!important}
       html body.rt-future.rt-future-legacy.modo-corto .relacionados[data-rt-brief-related] .rel-grid{grid-template-columns:1fr!important;gap:0!important}
       html body.rt-future.rt-future-legacy.modo-corto .relacionados[data-rt-brief-related] .rel-item h3,
       html body.rt-future.rt-future-legacy.modo-corto .relacionados[data-rt-brief-related] .rel-item .rel-tit{font-size:22px!important}
       html body.rt-future-home .fila-pdf{display:grid!important;grid-template-columns:1fr!important}
       html body.rt-future-home .fila-pdf .btn-pdf,
-      html body.rt-future-home .fila-pdf .rt-download-brief{width:100%!important;max-width:none!important;justify-content:center!important;text-align:center!important;min-height:50px!important}
+      html body.rt-future-home .fila-pdf .rt-download-brief{
+        width:100%!important;max-width:none!important;justify-content:center!important;text-align:center!important;min-height:50px!important
+      }
     }
   `;
 
@@ -172,11 +173,6 @@
       style.textContent = CSS;
       document.head.appendChild(style);
     }
-  }
-
-  function canonicalTrialId() {
-    return $('.art-head [data-trial-download]')?.getAttribute('data-trial-download') ||
-      $('.rt-reader-footer-download')?.getAttribute('data-rt-footer-download') || '';
   }
 
   function ensureCanonicalControls() {
@@ -214,6 +210,7 @@
       actions = document.createElement('div');
       actions.className = 'rt-reader-bottom-actions';
       actions.setAttribute('aria-label', 'Descarga del resumen completo');
+      nav.insertAdjacentElement('afterend', actions);
     }
 
     let bottom = actions.querySelector('.rt-reader-footer-download');
@@ -229,29 +226,19 @@
       fresh.disabled = false;
       if (bottom) bottom.replaceWith(fresh);
       else actions.appendChild(fresh);
-      bottom = fresh;
     } else {
       bottom.setAttribute('data-trial-download', id);
       bottom.setAttribute('data-rt-footer-download', id);
       bottom.disabled = false;
     }
 
-    let shell = $('.rt-endmatter-controls-v8');
-    if (!shell) {
-      shell = document.createElement('div');
-      shell.className = 'rt-endmatter-controls-v8';
-      shell.setAttribute('aria-label', 'Acciones al final del resumen');
-      original.insertAdjacentElement('afterend', shell);
-    }
-    if (nav.parentElement !== shell) shell.appendChild(nav);
-    if (actions.parentElement !== shell) shell.appendChild(actions);
-
     const related = $('.relacionados');
-    if (related && related.previousElementSibling !== shell) shell.insertAdjacentElement('afterend', related);
+    if (original.nextElementSibling !== nav) original.insertAdjacentElement('afterend', nav);
+    if (nav.nextElementSibling !== actions) nav.insertAdjacentElement('afterend', actions);
+    if (related && actions.nextElementSibling !== related) actions.insertAdjacentElement('afterend', related);
 
-    nav.dataset.rtEndmatterOrder = 'v8';
-    actions.dataset.rtEndmatterOrder = 'v8';
-    shell.dataset.rtEndmatterOrder = 'v8';
+    nav.dataset.rtReaderUi = 'v8';
+    actions.dataset.rtReaderUi = 'v8';
   }
 
   function polishBriefRelated() {
@@ -259,14 +246,6 @@
     const related = $('.relacionados');
     if (!related) return;
     related.dataset.rtBriefRelated = 'v8';
-    related.querySelectorAll('a[href]').forEach((anchor) => {
-      const href = anchor.getAttribute('href') || '';
-      if (/\/resumen\.html\?id=\d+&v=corto/.test(href)) return;
-      const match = href.match(/\/trials\/([^/]+)\/?/i);
-      if (!match || !window.__RT_SEO_MANIFEST__) return;
-      const entry = Object.entries(window.__RT_SEO_MANIFEST__).find(([, meta]) => String(meta?.path || '').includes(`/trials/${match[1]}/`));
-      if (entry) anchor.href = `/resumen.html?id=${encodeURIComponent(entry[0])}&v=corto`;
-    });
   }
 
   function markHomeDownloads() {
