@@ -10,6 +10,57 @@ STYLES = [
 ADSENSE_CLIENT = 'ca-pub-3132744538918477'
 ADSENSE_URL = f'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={ADSENSE_CLIENT}'
 ADSENSE_SCRIPT = f'<script async src="{ADSENSE_URL}" crossorigin="anonymous"></script>'
+
+LEGACY_HOME_PRIVACY = (
+    '<p>Este sitio no recopila datos personales de sus visitantes ni utiliza cookies de seguimiento o publicidad. '
+    'El proveedor de alojamiento puede registrar datos técnicos, como la dirección IP, en sus propios registros de seguridad. '
+    'Al escribirnos por correo o Telegram compartes los datos que decidas incluir en tu mensaje; los usamos únicamente para responderte y no los cedemos a terceros. '
+    'Si más adelante se incorporan formularios o registro, se publicará un aviso de privacidad detallado antes de recabar más datos.</p>'
+)
+ADSENSE_HOME_PRIVACY = (
+    '<p>Este sitio utiliza <strong>Google AdSense</strong> para gestionar publicidad. Google y sus socios pueden utilizar cookies, '
+    'almacenamiento local u otros identificadores para mostrar, medir y limitar anuncios, prevenir fraude y, según la configuración regional '
+    'y el consentimiento aplicable, personalizar publicidad. Esto puede implicar el tratamiento de datos técnicos como la dirección IP, '
+    'información del dispositivo o navegador e interacciones con anuncios. Las funciones de cuenta y el tratamiento de datos personales se '
+    'describen en el <a href="/privacidad.html">Aviso de privacidad</a>. Al escribirnos por correo o Telegram compartes los datos que decidas '
+    'incluir en tu mensaje; los usamos únicamente para responderte.</p>'
+)
+LEGACY_PROVIDER_NOTICE = (
+    '<h2>Proveedores tecnológicos</h2><p>La autenticación y la base de datos de perfiles se gestionan mediante <strong>Supabase</strong>. '
+    'El sitio se publica mediante infraestructura de <strong>GitHub</strong>. Cuando aceptas recibir avisos de nuevos resúmenes, el envío de esos '
+    'mensajes se procesa mediante <strong>Resend</strong>, proveedor de infraestructura de correo electrónico. Para efectuar el envío, Resend recibe '
+    'la información estrictamente necesaria, como la dirección de correo del destinatario y el contenido del mensaje. Estos proveedores pueden '
+    'procesar información técnica en los países donde operan sus servicios, conforme a sus propias condiciones y medidas de seguridad.</p>'
+)
+ADSENSE_PROVIDER_NOTICE = (
+    '<h2>Proveedores tecnológicos</h2><p>La autenticación y la base de datos de perfiles se gestionan mediante <strong>Supabase</strong>. '
+    'El sitio se publica mediante infraestructura de <strong>GitHub</strong>. Cuando aceptas recibir avisos de nuevos resúmenes, el envío de esos '
+    'mensajes se procesa mediante <strong>Resend</strong>, proveedor de infraestructura de correo electrónico. Para efectuar el envío, Resend recibe '
+    'la información estrictamente necesaria, como la dirección de correo del destinatario y el contenido del mensaje. El sitio también utiliza '
+    '<strong>Google AdSense</strong> para gestionar publicidad; Google y sus socios pueden tratar información técnica y utilizar cookies u otros '
+    'identificadores para servir, medir y proteger la publicidad, de acuerdo con la configuración regional y el consentimiento aplicable. Puedes '
+    'consultar la <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Política de Privacidad de Google</a>. Estos proveedores '
+    'pueden procesar información técnica en los países donde operan sus servicios, conforme a sus propias condiciones y medidas de seguridad.</p>'
+)
+LEGACY_COOKIE_NOTICE = (
+    '<h2>Cookies y navegación pública</h2><p>La navegación pública no requiere una cuenta ni utiliza cookies de publicidad. '
+    'El sistema de autenticación puede utilizar almacenamiento local u otros mecanismos técnicos indispensables para mantener una sesión iniciada.</p>'
+)
+ADSENSE_COOKIE_NOTICE = (
+    '<h2>Cookies, publicidad y navegación pública</h2><p>La navegación pública no requiere una cuenta. Para financiar el proyecto, el sitio utiliza '
+    '<strong>Google AdSense</strong>. Google y sus socios pueden utilizar cookies, almacenamiento local u otros identificadores para mostrar anuncios, '
+    'medir su rendimiento, limitar la frecuencia, detectar fraude y, cuando corresponda, personalizar la publicidad. La información tratada puede '
+    'incluir dirección IP, características del dispositivo y navegador e interacciones con anuncios. La disponibilidad y personalización de anuncios '
+    'puede variar según la región y el consentimiento aplicable. Puedes administrar preferencias publicitarias desde '
+    '<a href="https://myadcenter.google.com/" target="_blank" rel="noopener">Mi centro de anuncios de Google</a>. El sistema de autenticación también '
+    'puede utilizar almacenamiento local u otros mecanismos técnicos indispensables para mantener una sesión iniciada.</p>'
+)
+PRIVACY_REPLACEMENTS = [
+    (LEGACY_HOME_PRIVACY, ADSENSE_HOME_PRIVACY),
+    (LEGACY_PROVIDER_NOTICE, ADSENSE_PROVIDER_NOTICE),
+    (LEGACY_COOKIE_NOTICE, ADSENSE_COOKIE_NOTICE),
+]
+
 FINAL_SCRIPT_V1 = '<script src="/future-experience-final.js?v=1" defer></script>'
 FINAL_SCRIPT_V2 = '<script src="/future-experience-final.js?v=2" defer></script>'
 FINAL_SCRIPT_V3 = '<script src="/future-experience-final.js?v=3" defer></script>'
@@ -36,6 +87,13 @@ def inject(path: Path) -> bool:
     for old in (FINAL_SCRIPT_V1, FINAL_SCRIPT_V2):
         if old in source:
             source = source.replace(old, FINAL_SCRIPT_V3)
+            changed = True
+
+    # Al activar AdSense, la información de privacidad debe reflejar de forma
+    # persistente el uso de publicidad y no volver a una declaración obsoleta.
+    for old, new in PRIVACY_REPLACEMENTS:
+        if old in source:
+            source = source.replace(old, new)
             changed = True
 
     if '</head>' in source:
