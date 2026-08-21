@@ -1,7 +1,7 @@
 (() => {
   'use strict';
   const path = location.pathname.toLowerCase();
-  if (!/\/(?:index\.html)?$/.test(path)) return;
+  if (path !== '/' && path !== '/index.html') return;
   if (document.querySelector('script[src*="internal-medicine-ux.js"]')) return;
 
   const script = document.createElement('script');
