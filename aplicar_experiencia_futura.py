@@ -7,6 +7,9 @@ STYLES = [
     '<link rel="stylesheet" href="/future-experience.css?v=1">',
     '<link rel="stylesheet" href="/future-experience-patch.css?v=1">',
 ]
+ADSENSE_CLIENT = 'ca-pub-3132744538918477'
+ADSENSE_URL = f'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={ADSENSE_CLIENT}'
+ADSENSE_SCRIPT = f'<script async src="{ADSENSE_URL}" crossorigin="anonymous"></script>'
 FINAL_SCRIPT_V1 = '<script src="/future-experience-final.js?v=1" defer></script>'
 FINAL_SCRIPT_V2 = '<script src="/future-experience-final.js?v=2" defer></script>'
 FINAL_SCRIPT_V3 = '<script src="/future-experience-final.js?v=3" defer></script>'
@@ -36,6 +39,11 @@ def inject(path: Path) -> bool:
             changed = True
 
     if '</head>' in source:
+        # AdSense se inyecta desde un único punto para que todas las páginas
+        # actuales y futuras mantengan el mismo publisher ID sin duplicados.
+        if ADSENSE_URL not in source:
+            source = source.replace('</head>', ADSENSE_SCRIPT + '</head>', 1)
+            changed = True
         missing = ''.join(style for style in STYLES if style not in source)
         if missing:
             source = source.replace('</head>', missing + '</head>', 1)

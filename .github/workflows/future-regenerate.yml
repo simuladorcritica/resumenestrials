@@ -53,6 +53,7 @@ jobs:
           node --check legacy-reader-design-v5.js
           node --check pdf-contact.js
           node --check trial-pdf.js
+          node --check scripts/adsense-production-smoke.mjs
 
       - name: Regenerar sitio completo
         run: |
@@ -64,11 +65,16 @@ jobs:
           python generar_paginas_sociales.py
           python aplicar_experiencia_futura.py
 
-      - name: Verificar experiencia v4 en todas las salidas
+      - name: Verificar experiencia v4 y AdSense en todas las salidas
         run: |
           python - <<'PY'
           from pathlib import Path
           import aplicar_experiencia_futura as future
+
+          expected_ads = 'google.com, pub-3132744538918477, DIRECT, f08c47fec0942fa0'
+          ads_path = Path('ads.txt')
+          assert ads_path.is_file(), 'Falta ads.txt en la raíz del sitio'
+          assert ads_path.read_text(encoding='utf-8').strip() == expected_ads, 'ads.txt no coincide con el publisher autorizado'
 
           checked = 0
           for path in future.candidates():
@@ -84,10 +90,14 @@ jobs:
               assert '/legacy-unifier-v4.js?v=1' in source, f'{path}: falta unificador legacy v4'
               assert '/future-experience-final.js?v=1' not in source, f'{path}: conserva ajuste final v1 obsoleto'
               assert '/future-experience-final.js?v=2' not in source, f'{path}: conserva ajuste final v2 obsoleto'
+              assert source.count(future.ADSENSE_URL) == 1, f'{path}: AdSense debe aparecer exactamente una vez'
+              head, sep, _ = source.partition('</head>')
+              assert sep and future.ADSENSE_URL in head, f'{path}: el script de AdSense no está dentro de <head>'
+              assert 'crossorigin="anonymous"' in head, f'{path}: falta crossorigin de AdSense'
               checked += 1
           if checked < 50:
               raise SystemExit(f'Solo se verificaron {checked} páginas; se esperaban al menos 50')
-          print(f'PASS: experiencia futura v4 verificada en {checked} páginas')
+          print(f'PASS: experiencia futura v4 + AdSense verificados en {checked} páginas; ads.txt válido')
           PY
 
       - name: Stagear todas las salidas publicables
@@ -139,5 +149,5 @@ jobs:
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -m "Regenerar experiencia futura v4"
+          git commit -m "Regenerar experiencia futura v4 con AdSense"
           git push origin HEAD:main
