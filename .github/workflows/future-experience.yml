@@ -26,11 +26,13 @@ jobs:
         run: |
           node --check future-experience.js
           node --check future-experience-final.js
+          node --check future-experience-fix-v4.js
           node --check legacy-reader-design-v5.js
           node --check pdf-contact.js
           node --check trial-pdf.js
           node --check scripts/future-experience-smoke.mjs
           node --check scripts/future-final-smoke.mjs
+          node --check scripts/unified-reader-v4-smoke.mjs
           node --check scripts/future-visual-capture.mjs
           node --check scripts/future-production-smoke.mjs
           python3 -m py_compile aplicar_experiencia_futura.py
@@ -58,9 +60,10 @@ jobs:
               assert '/future-experience-patch.css?v=1' in s, f'{path}: falta patch futuro'
               assert '/future-experience.js?v=1' in s, f'{path}: falta JS futuro'
               assert '/future-experience-final.js?v=3' in s, f'{path}: falta ajuste JS final v3'
+              assert '/future-experience-fix-v4.js?v=1' in s, f'{path}: falta unificación visual v4'
               assert '/future-experience-final.js?v=1' not in s, f'{path}: conserva ajuste JS final obsoleto v1'
               assert '/future-experience-final.js?v=2' not in s, f'{path}: conserva ajuste JS final obsoleto v2'
-          print(f'Assets futuros v3 presentes en {len(targets)} objetivos')
+          print(f'Assets futuros v4 presentes en {len(targets)} objetivos')
           PY
       - name: Instalar Playwright
         run: |
@@ -76,6 +79,7 @@ jobs:
         run: |
           node scripts/future-experience-smoke.mjs
           node scripts/future-final-smoke.mjs
+          node scripts/unified-reader-v4-smoke.mjs
       - name: Generar capturas de auditoría visual
         if: success()
         env:
