@@ -88,6 +88,11 @@ function buildHomeAuditFixture(){
   writeFileSync(join(ROOT,'index-full-audit.html'),source+extras,'utf8');
 }
 
+function ignorableConsoleError(message){
+  return /favicon|ERR_FAILED|Failed to load resource/i.test(message) ||
+    (/\[Report Only\]/i.test(message) && /Refused to frame/i.test(message) && /frame-ancestors/i.test(message));
+}
+
 async function browserAudit(){
   buildHomeAuditFixture();
   const data=JSON.parse(read('resumenes.json'));
@@ -105,7 +110,7 @@ async function browserAudit(){
       await page.route('https://fonts.gstatic.com/**',r=>r.abort());
       const pageErrors=[];
       page.on('pageerror',e=>pageErrors.push(e.message));
-      page.on('console',m=>{if(m.type()==='error'&&!/favicon|ERR_FAILED|Failed to load resource/i.test(m.text()))pageErrors.push(m.text())});
+      page.on('console',m=>{if(m.type()==='error'&&!ignorableConsoleError(m.text()))pageErrors.push(m.text())});
       for(const route of publicRoutes){
         pageErrors.length=0;
         const response=await page.goto(`${BASE}${route}`,{waitUntil:'domcontentloaded',timeout:30000}).catch(e=>{fail(`${viewport.name} ${route}`,`navegación: ${e.message}`);return null});

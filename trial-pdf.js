@@ -1,5 +1,6 @@
 (() => {
-  const buttons = () => [...document.querySelectorAll('[data-trial-download]')];
+  const SELECTOR = '[data-trial-download],[data-rt-footer-download]';
+  const buttons = () => [...document.querySelectorAll(SELECTOR)];
   if (!buttons().length) return;
 
   const SOCIAL = 'resumenestrials.com   |   X: @resumenestrials   |   Telegram: @ResumenesTrials';
@@ -187,7 +188,8 @@
   }
 
   async function run(button) {
-    const id = String(button.dataset.trialDownload || '').trim();
+    const id = String(button.dataset.trialDownload || button.dataset.rtFooterDownload || '').trim();
+    if (!id) return;
     const original = button.innerHTML;
     button.disabled = true;
     button.classList.add('is-loading');
@@ -209,7 +211,7 @@
   }
 
   document.addEventListener('click', (event) => {
-    const button = event.target.closest('[data-trial-download]');
+    const button = event.target.closest(SELECTOR);
     if (!button) return;
     event.preventDefault();
     run(button);
