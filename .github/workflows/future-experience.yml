@@ -33,6 +33,7 @@ jobs:
           node --check scripts/future-experience-smoke.mjs
           node --check scripts/future-final-smoke.mjs
           node --check scripts/unified-reader-v4-smoke.mjs
+          node --check scripts/unified-reader-v4-production-smoke.mjs
           node --check scripts/future-visual-capture.mjs
           node --check scripts/future-production-smoke.mjs
           python3 -m py_compile aplicar_experiencia_futura.py
@@ -108,4 +109,6 @@ jobs:
           npm install --no-save playwright@1.55.0
           npx playwright install --with-deps chromium
       - name: Esperar despliegue y validar producción
-        run: node scripts/future-production-smoke.mjs
+        run: |
+          node scripts/future-production-smoke.mjs
+          node scripts/unified-reader-v4-production-smoke.mjs
