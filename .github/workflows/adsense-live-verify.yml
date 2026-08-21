@@ -1,0 +1,20 @@
+name: Verificar AdSense en producción
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  adsense-live:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Validar AdSense, ads.txt y privacidad en el dominio público
+        run: node scripts/adsense-production-smoke.mjs
