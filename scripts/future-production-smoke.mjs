@@ -32,6 +32,7 @@ async function noOverflow(page,label){
   const m=await page.evaluate(()=>({w:document.documentElement.clientWidth,sw:document.documentElement.scrollWidth,bw:document.body.scrollWidth}));
   assert(m.sw<=m.w+2&&m.bw<=m.w+2,`${label}: overflow ${JSON.stringify(m)}`);
 }
+async function waitV4(page){await page.waitForFunction(()=>!!document.getElementById('rt-unified-reader-v4'),{timeout:15000})}
 
 await waitForDeployment();
 const manifest=JSON.parse(await fetchText('/seo-manifest.json'));
@@ -54,7 +55,7 @@ try{
   const errors=[];page.on('pageerror',e=>errors.push(e.message));
   await page.goto(`${BASE}/?qa=${Date.now()}`,{waitUntil:'domcontentloaded',timeout:30000});
   await page.waitForSelector('body.rt-future-home',{timeout:15000});
-  await page.waitForSelector('#rt-unified-reader-v4',{timeout:15000});
+  await waitV4(page);
   await page.waitForSelector('.rt-orbit',{timeout:15000});
   await page.waitForSelector('.rt-explorer-stage',{timeout:15000});
   await page.waitForFunction(expected=>document.querySelectorAll('#indice .fila').length>=expected,expectedCount,{timeout:15000});
@@ -103,7 +104,7 @@ try{
   await page.setViewportSize({width:1440,height:1000});
   await page.goto(`${BASE}${entry.path}?qa=${Date.now()}`,{waitUntil:'domcontentloaded',timeout:30000});
   await page.waitForSelector('body.rt-future-trial',{timeout:15000});
-  await page.waitForSelector('#rt-unified-reader-v4',{timeout:15000});
+  await waitV4(page);
   await page.waitForSelector('.rt-reader-rail',{timeout:15000});
   await page.waitForFunction(()=>!document.querySelector('.rt-summary-deck')&&!document.querySelector('.rt-evidence-section[data-index]'),{timeout:15000});
   assert(await page.locator('.rt-summary-deck').count()===0,'Producción trial: persiste Resumen editorial');
@@ -130,7 +131,7 @@ try{
   if(shortHtml.includes('data-pdf-version="breve"')){
     await page.goto(`${BASE}/resumen.html?id=${trialId}&v=corto&qa=${Date.now()}`,{waitUntil:'domcontentloaded',timeout:30000});
     await page.waitForSelector('body.rt-future-legacy',{timeout:15000});
-    await page.waitForSelector('#rt-unified-reader-v4',{timeout:15000});
+    await waitV4(page);
     await page.waitForSelector('[data-pdf-version="breve"]',{state:'visible',timeout:15000});
     const shortType=await page.locator('article.corto p').first().evaluate(el=>parseFloat(getComputedStyle(el).fontSize));
     assert(shortType>=17,`Producción resumen breve: cuerpo pequeño (${shortType}px)`);
