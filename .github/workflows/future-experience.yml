@@ -30,6 +30,7 @@ jobs:
           node --check future-experience-final.js
           node --check future-experience-fix-v4.js
           node --check future-experience-fix-v4-compat.js
+          node --check future-experience-fix-v4-compat-base.js
           node --check legacy-unifier-v4.js
           node --check legacy-reader-design-v5.js
           node --check pdf-contact.js
@@ -38,6 +39,7 @@ jobs:
           node --check scripts/library-filter-smoke.mjs
           node --check scripts/future-final-smoke.mjs
           node --check scripts/unified-reader-v4-smoke.mjs
+          node --check scripts/reader-controls-v5-smoke.mjs
           node --check scripts/unified-reader-v4-production-smoke.mjs
           node --check scripts/future-visual-capture.mjs
           node --check scripts/future-production-smoke.mjs
@@ -105,6 +107,7 @@ jobs:
           node scripts/library-filter-smoke.mjs
           node scripts/future-final-smoke.mjs
           node scripts/unified-reader-v4-smoke.mjs
+          node scripts/reader-controls-v5-smoke.mjs
           node scripts/adsense-production-smoke.mjs
       - name: Generar capturas de auditoría visual
         if: success()
