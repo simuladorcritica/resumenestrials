@@ -99,7 +99,6 @@
       style.id = 'rt-final-polish-v3';
       style.textContent = POLISH_CSS;
     }
-    // Reanexarlo al final garantiza prioridad frente a estilos inyectados por scripts heredados.
     if (style.parentNode) style.parentNode.removeChild(style);
     document.head.appendChild(style);
   };
@@ -125,11 +124,11 @@
       if (user) {
         entry.href = '/cuenta.html';
         entry.setAttribute('aria-label', 'Abrir mi cuenta');
-        label.textContent = 'Mi cuenta';
+        if (label.textContent !== 'Mi cuenta') label.textContent = 'Mi cuenta';
       } else {
         entry.href = '/login.html';
         entry.setAttribute('aria-label', 'Entrar o crear una cuenta');
-        label.textContent = 'Entrar o crear cuenta';
+        if (label.textContent !== 'Entrar o crear cuenta') label.textContent = 'Entrar o crear cuenta';
       }
     } catch {
       // La navegación permanece utilizable aunque no pueda consultarse la sesión.
@@ -157,7 +156,8 @@
       if (methodology) methodology.remove();
       const primary = actions.querySelector('a[href="#biblioteca-clinica"]');
       if (primary) {
-        primary.textContent = 'Explora la biblioteca →';
+        const targetText = 'Explora la biblioteca →';
+        if (primary.textContent !== targetText) primary.textContent = targetText;
         primary.setAttribute('aria-label', 'Explorar la biblioteca clínica');
       }
     }
@@ -166,7 +166,7 @@
   const cleanTrial = () => {
     if (!document.body.classList.contains('rt-future-trial')) return;
     $$('.rt-summary-deck').forEach((node) => node.remove());
-    $$('.rt-evidence-section').forEach((section) => section.removeAttribute('data-index'));
+    $$('.rt-evidence-section[data-index]').forEach((section) => section.removeAttribute('data-index'));
     $$('.rt-reader-rail .rt-rail-card').forEach((card) => {
       const title = (card.querySelector('h3')?.textContent || '').trim().toLowerCase();
       if (title === 'hallazgo clave') card.remove();
@@ -215,7 +215,6 @@
     wireExplorerLinks();
     normalizePage();
     watchDynamicUi();
-    // Algunos módulos de portada se inyectan después del primer frame.
     [250, 700, 1400].forEach((delay) => setTimeout(() => {
       ensureAccountEntry();
       normalizePage();
