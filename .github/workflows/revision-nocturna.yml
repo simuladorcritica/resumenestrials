@@ -24,10 +24,10 @@ jobs:
     timeout-minutes: 45
     steps:
       - name: Descargar repositorio
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7.0.1
 
       - name: Preparar Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v7.0.0
         with:
           python-version: '3.12'
 
@@ -51,7 +51,7 @@ jobs:
         continue-on-error: true
 
       - name: Preparar Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7.0.0
         with:
           node-version: '20'
 
@@ -69,7 +69,7 @@ jobs:
 
       - name: Instalar Playwright Chromium
         run: |
-          npm install --no-save playwright@1.55.0
+          npm install --no-save playwright@1.62.1
           npx playwright install --with-deps chromium
 
       - name: Servir sitio local
@@ -209,7 +209,7 @@ jobs:
 
       - name: Guardar informes completos como artefacto
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7.0.1
         with:
           name: informe-revision-nocturna
           path: |
@@ -227,7 +227,7 @@ jobs:
 
       - name: Crear o actualizar Issue con el reporte vigente
         if: always()
-        uses: actions/github-script@v7
+        uses: actions/github-script@v9.0.0
         env:
           REPORT_STATUS: ${{ steps.reporte.outputs.status }}
         with:

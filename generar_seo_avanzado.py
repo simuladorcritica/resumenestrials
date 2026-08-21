@@ -204,13 +204,15 @@ def update_home(items: list[dict]) -> None:
                             'doc.text("resumenestrials.com" + rutaCanonical(r), ML, pageH - 31);')
 
     # jsPDF se carga únicamente cuando alguien solicita un PDF.
-    source = re.sub(r'\s*<script src="https://cdnjs\.cloudflare\.com/ajax/libs/jspdf/2\.5\.1/jspdf\.umd\.min\.js" defer></script>', '', source, count=1)
+    source = re.sub(r'\s*<script src="https://cdnjs\.cloudflare\.com/ajax/libs/jspdf/[^/]+/jspdf\.umd\.min\.js"[^>]*></script>', '', source, count=1)
     loader = '''  async function cargarJsPDF() {
     if (window.jspdf?.jsPDF) return window.jspdf;
     if (!window.__rtJsPdfPromise) {
       window.__rtJsPdfPromise = new Promise((resolve, reject) => {
         const s = document.createElement("script");
-        s.src = "https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js";
+        s.src = "https://cdnjs.cloudflare.com/ajax/libs/jspdf/4.2.1/jspdf.umd.min.js";
+        s.integrity = "sha384-qovJwSBbRDPP5cEjCp8S0UP66wrvnjaa60XMOGzTNanrThcrGfXfnZkvgY8N1KT3";
+        s.crossOrigin = "anonymous";
         s.async = true;
         s.onload = () => resolve(window.jspdf);
         s.onerror = () => reject(new Error("No se pudo cargar jsPDF"));

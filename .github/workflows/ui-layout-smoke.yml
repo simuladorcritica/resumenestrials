@@ -27,13 +27,13 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 8
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-node@v7.0.0
         with:
           node-version: '20'
       - name: Instalar Playwright
         run: |
-          npm install --no-save playwright@1.55.0
+          npm install --no-save playwright@1.62.1
           npx playwright install --with-deps chromium
       - name: Validar filtro de revistas y fila completa
         run: node scripts/home-controls-smoke.mjs

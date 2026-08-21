@@ -30,12 +30,10 @@ try{
   // Fuerza el mismo re-render interno sin volver visible el buscador local que se retiró de la interfaz.
   const search=page.locator('#q');
   await search.evaluate((el)=>{el.value='ARISE';el.dispatchEvent(new Event('input',{bubbles:true}))});
-  await page.waitForFunction(()=>document.querySelectorAll('#indice .fila').length===1,{timeout:10000});
-  await page.waitForTimeout(50);
+  await page.waitForFunction(()=>document.querySelectorAll('#indice .fila').length===1&&document.querySelectorAll('#indice .fila.rt-featured').length===1,{timeout:10000});
   assert(await page.locator('#indice .fila.rt-featured').count()===1,'Portada: el trial destacado se perdió tras filtrar');
   await search.evaluate((el)=>{el.value='';el.dispatchEvent(new Event('input',{bubbles:true}))});
-  await page.waitForFunction((expected)=>document.querySelectorAll('#indice .fila').length>=expected,data.length,{timeout:10000});
-  await page.waitForTimeout(50);
+  await page.waitForFunction((expected)=>document.querySelectorAll('#indice .fila').length>=expected&&document.querySelectorAll('#indice .fila.rt-featured').length===1,data.length,{timeout:10000});
   assert(await page.locator('#indice .fila.rt-featured').count()===1,'Portada: el trial destacado se perdió tras restaurar el índice');
 
   const year=page.locator('.grupo-anio .anio-num').first();

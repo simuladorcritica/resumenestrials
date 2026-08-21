@@ -1,5 +1,6 @@
 import { chromium } from 'playwright';
 import { readFileSync, writeFileSync } from 'node:fs';
+import { installTurnstileTestRoutes } from './turnstile-test-helpers.mjs';
 
 const BASE=(process.env.RT_BASE_URL||'https://resumenestrials.com').replace(/\/$/,'');
 if (process.env.RT_BASE_URL) {
@@ -19,10 +20,7 @@ function assert(condition,message){if(!condition)throw new Error(message)}
 const browser=await chromium.launch({headless:true});
 const page=await browser.newPage({viewport:{width:1440,height:1000},acceptDownloads:true});
 if (process.env.RT_BASE_URL) {
-  await page.route('https://challenges.cloudflare.com/**',route=>route.fulfill({
-    contentType:'application/javascript',
-    body:'window.turnstile={render:(el)=>{el.dataset.turnstileMock="ready";return "local-widget"},getResponse:()=>"local-test-token",reset:()=>{}};'
-  }));
+  await installTurnstileTestRoutes(page, BASE);
   await page.route('https://pagead2.googlesyndication.com/**',route=>route.fulfill({contentType:'application/javascript',body:''}));
 }
 page.setDefaultTimeout(15000);

@@ -23,10 +23,10 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 12
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7.0.1
         with:
           fetch-depth: 0
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7.0.0
         with:
           node-version: '20'
       - name: Validar sintaxis
@@ -36,7 +36,7 @@ jobs:
           python3 -m py_compile aplicar_experiencia_futura.py
       - name: Instalar Chromium
         run: |
-          npm install --no-save playwright@1.55.0
+          npm install --no-save playwright@1.62.1
           npx playwright install --with-deps chromium
       - name: Probar controles publicados con interacción física
         id: smoke

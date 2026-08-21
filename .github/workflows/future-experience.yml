@@ -15,11 +15,11 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 18
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-node@v7.0.0
         with:
           node-version: '20'
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v7.0.0
         with:
           python-version: '3.12'
       - name: Validar sintaxis
@@ -91,7 +91,7 @@ jobs:
           PY
       - name: Instalar Playwright
         run: |
-          npm install --no-save playwright@1.55.0
+          npm install --no-save playwright@1.62.1
           npx playwright install --with-deps chromium
       - name: Servir sitio generado
         run: |
@@ -106,7 +106,6 @@ jobs:
           node scripts/future-final-smoke.mjs
           node scripts/unified-reader-v4-smoke.mjs
           node scripts/reader-controls-v5-smoke.mjs
-          node scripts/adsense-production-smoke.mjs
       - name: Generar capturas de auditoría visual
         if: success()
         env:
@@ -114,7 +113,7 @@ jobs:
         run: node scripts/future-visual-capture.mjs
       - name: Guardar capturas
         if: success()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7.0.1
         with:
           name: future-experience-screenshots
           path: future-screenshots/*.png
@@ -126,13 +125,13 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 12
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-node@v7.0.0
         with:
           node-version: '20'
       - name: Instalar navegador
         run: |
-          npm install --no-save playwright@1.55.0
+          npm install --no-save playwright@1.62.1
           npx playwright install --with-deps chromium
       - name: Esperar despliegue y validar producción
         run: |

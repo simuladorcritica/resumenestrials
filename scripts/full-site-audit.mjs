@@ -1,6 +1,7 @@
 import { chromium } from 'playwright';
 import { existsSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { extname, join, normalize, dirname } from 'node:path';
+import { installTurnstileTestRoutes } from './turnstile-test-helpers.mjs';
 
 const ROOT=process.cwd();
 const BASE=(process.env.RT_BASE_URL||'http://127.0.0.1:8000').replace(/\/$/,'');
@@ -109,6 +110,7 @@ async function browserAudit(){
   try{
     for(const viewport of viewports){
       const page=await browser.newPage({viewport:{width:viewport.width,height:viewport.height}});
+      if(process.env.RT_BASE_URL)await installTurnstileTestRoutes(page,BASE);
       await page.route('https://fonts.googleapis.com/**',r=>r.abort());
       await page.route('https://fonts.gstatic.com/**',r=>r.abort());
       const pageErrors=[];
@@ -131,6 +133,7 @@ async function browserAudit(){
     }
 
     const page=await browser.newPage({viewport:{width:1440,height:900}});
+    if(process.env.RT_BASE_URL)await installTurnstileTestRoutes(page,BASE);
     await page.goto(`${BASE}/registro.html`,{waitUntil:'domcontentloaded'});
     const note=await page.locator('.mail-note').innerText().catch(()=> '');
     if(!/spam/i.test(note)||!/correo no deseado/i.test(note)||!/promociones/i.test(note))fail('registro navegador','el aviso de carpetas alternativas no está renderizado');

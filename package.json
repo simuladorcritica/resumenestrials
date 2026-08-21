@@ -4,11 +4,11 @@
   "type": "module",
   "scripts": {
     "build": "node scripts/build-site-runtime.mjs",
-    "validate": "node scripts/validate-data.mjs && node scripts/validate-editorial.mjs && node scripts/validate-inline-modules.mjs && node scripts/validate-newsletter.mjs && node scripts/validate-resumen-page.mjs && node scripts/validate-night-audit.mjs",
-    "test:browser": "node scripts/browser-smoke.mjs && node scripts/home-controls-smoke.mjs && node scripts/library-filter-smoke.mjs && node scripts/unified-reader-v4-smoke.mjs && node scripts/reader-controls-v5-smoke.mjs && node scripts/download-contract-smoke.mjs"
+    "validate": "node scripts/validate-data.mjs && node scripts/validate-editorial.mjs && node scripts/validate-inline-modules.mjs && node scripts/validate-newsletter.mjs && node scripts/validate-resumen-page.mjs && node scripts/validate-night-audit.mjs && node scripts/validate-sitemap.mjs && node scripts/validate-seo.mjs",
+    "test:browser": "node scripts/browser-smoke.mjs && node scripts/auth-safe-smoke.mjs && node scripts/home-controls-smoke.mjs && node scripts/future-experience-smoke.mjs && node scripts/library-filter-smoke.mjs && node scripts/future-final-smoke.mjs && node scripts/unified-reader-v4-smoke.mjs && node scripts/reader-controls-v5-smoke.mjs && node scripts/full-site-audit.mjs && node scripts/download-contract-smoke.mjs"
   },
   "devDependencies": {
-    "jspdf": "2.5.1",
-    "playwright": "1.55.0"
+    "jspdf": "4.2.1",
+    "playwright": "1.62.1"
   }
 }

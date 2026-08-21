@@ -6,6 +6,7 @@
   const SOCIAL = 'resumenestrials.com   |   X: @resumenestrials   |   Telegram: @ResumenesTrials';
   const EMAIL = 'Contacto: resumenestrials@outlook.com';
   let dataPromise = null;
+  let manifestPromise = null;
   let jsPdfPromise = null;
 
   const text = (value) => {
@@ -35,8 +36,8 @@
         return;
       }
       const script = document.createElement('script');
-      script.src = 'https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js';
-      script.integrity = 'sha384-JcnsjUPPylna1s1fvi1u12X5qjY5OL56iySh75FdtrwhO/SWXgMjoVqcKyIIWOLk';
+      script.src = 'https://cdnjs.cloudflare.com/ajax/libs/jspdf/4.2.1/jspdf.umd.min.js';
+      script.integrity = 'sha384-qovJwSBbRDPP5cEjCp8S0UP66wrvnjaa60XMOGzTNanrThcrGfXfnZkvgY8N1KT3';
       script.crossOrigin = 'anonymous';
       script.async = true;
       script.dataset.rtJspdf = '1';
@@ -53,6 +54,15 @@
         .then((r) => r.ok ? r.json() : Promise.reject(new Error(`HTTP ${r.status}`)));
     }
     return dataPromise;
+  }
+
+  function loadManifest() {
+    if (!manifestPromise) {
+      manifestPromise = fetch('/seo-manifest.json', { cache: 'no-store' })
+        .then((r) => r.ok ? r.json() : {})
+        .catch(() => ({}));
+    }
+    return manifestPromise;
   }
 
   function filename(record) {
@@ -82,7 +92,7 @@
     return out;
   }
 
-  async function makePdf(record) {
+  async function makePdf(record, canonicalPath) {
     const ns = await loadJsPDF();
     const doc = new ns.jsPDF({ unit: 'pt', format: 'a4' });
     const pageW = doc.internal.pageSize.getWidth();
@@ -170,7 +180,9 @@
     }
 
     const total = doc.getNumberOfPages();
-    const sourceRef = `resumenestrials.com/resumen.html?id=${record.id}`;
+    const sourcePath = canonicalPath || `/resumen.html?id=${record.id}`;
+    const sourceUrl = `https://resumenestrials.com${sourcePath}`;
+    const sourceRef = canonicalPath ? 'resumenestrials.com · resumen canónico' : `resumenestrials.com${sourcePath}`;
     for (let p = 1; p <= total; p++) {
       doc.setPage(p);
       doc.setDrawColor(224, 221, 213);
@@ -179,7 +191,11 @@
       doc.setFont('helvetica', 'normal');
       doc.setFontSize(7.5);
       doc.setTextColor(110, 115, 120);
-      doc.text(sourceRef, margin, pageH - 42);
+      if (canonicalPath && typeof doc.textWithLink === 'function') {
+        doc.textWithLink(sourceRef, margin, pageH - 42, { url: sourceUrl });
+      } else {
+        doc.text(sourceRef, margin, pageH - 42);
+      }
       doc.text(`Página ${p} de ${total}`, pageW - margin, pageH - 42, { align: 'right' });
       doc.setFont('helvetica', 'bold');
       doc.setFontSize(8.4);
@@ -201,10 +217,10 @@
     button.classList.add('is-loading');
     button.innerHTML = '<span>Generando PDF…</span>';
     try {
-      const data = await loadData();
+      const [data, manifest] = await Promise.all([loadData(), loadManifest()]);
       const record = Array.isArray(data) ? data.find((item) => String(item.id) === id) : null;
       if (!record) throw new Error(`No se encontró el trial ${id}`);
-      await makePdf(record);
+      await makePdf(record, manifest?.[id]?.path);
     } catch (error) {
       console.error('Descarga PDF:', error);
       const fallback = `/resumen.html?id=${encodeURIComponent(id)}`;

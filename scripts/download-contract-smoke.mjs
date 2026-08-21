@@ -62,9 +62,22 @@ async function download(page, selector, filename) {
   return target;
 }
 
+function pdfText(path) {
+  let text = '';
+  try {
+    text = execFileSync('pdftotext', ['-layout', path, '-'], { encoding: 'utf8', timeout: 15000 });
+  } catch (error) {
+    if (error?.code !== 'ENOENT') throw error;
+    const python = process.env.RT_PYTHON_BIN || (process.platform === 'win32' ? 'python' : 'python3');
+    text = execFileSync(python, ['scripts/extract-pdf-text.py', path], { encoding: 'utf8', timeout: 15000 });
+  }
+  return text.replace(/\s+/g, ' ');
+}
+
 function assertPdfContact(path) {
-  const text = execFileSync('pdftotext', ['-layout', path, '-'], { encoding: 'utf8', timeout: 15000 }).replace(/\s+/g, ' ');
+  const text = pdfText(path);
   for (const token of requiredContacts) assert(text.includes(token), `El PDF no contiene ${token}`);
+  return text;
 }
 
 async function shortDiagnostic(page, errors) {
@@ -111,7 +124,7 @@ page.on('console', (message) => {
 // misma librería/version desde node_modules para que una caída o lentitud del
 // CDN no convierta una prueba funcional en un falso negativo. Las fuentes web
 // son decorativas para este contrato y se abortan deliberadamente.
-await page.route('https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js', (route) =>
+await page.route('https://cdnjs.cloudflare.com/ajax/libs/jspdf/4.2.1/jspdf.umd.min.js', (route) =>
   route.fulfill({ status: 200, contentType: 'application/javascript; charset=utf-8', body: jsPdfBundle })
 );
 await page.route('https://fonts.googleapis.com/**', (route) => route.abort());
@@ -145,6 +158,8 @@ if (sample.corto) {
 }
 const canonicalPdf = await download(page, `[data-trial-download="${sample.id}"]`, 'canonico-completo.pdf');
 assertPdfContact(canonicalPdf);
+const canonicalPdfBytes = readFileSync(canonicalPdf);
+assert(canonicalPdfBytes.includes(Buffer.from(`https://resumenestrials.com${entry.path}`)), 'El enlace del PDF completo no apunta al trial canónico');
 stage('trial canónico PASS');
 
 stage('validando lector completo legacy');

@@ -39,7 +39,10 @@ DOUBLE_PUNCT_RE = re.compile(r"([,;:.!?])\1+")
 DANGEROUS_HTML_RE = re.compile(r"<(script|iframe|object|embed)\b|\bon\w+\s*=", re.I)
 CONTROL_RE = re.compile(r"[\x00-\x08\x0B\x0C\x0E-\x1F]")
 PERCENT_RE = re.compile(r"(?<!\w)\d+(?:[.,]\d+)?\s*%")
-EFFECT_RE = re.compile(r"\b(?:HR|RR|OR|IC\s*95\s*%)\b[^.;]{0,45}", re.I)
+EFFECT_RE = re.compile(
+    r"\b(?:HR|RR|OR(?:\s+ajustad[ao])?)\s*(?:de\s*)?(?:=|:)?\s*[-−]?\d+(?:[.,]\d+)?",
+    re.I,
+)
 
 TYPOS = {
     r"\btrail\b": "posible 'trail' cuando se quiso escribir 'trial'",
@@ -48,15 +51,20 @@ TYPOS = {
     r"\bnorepinefrina\b": "terminología no alineada con el estilo vigente ('noradrenalina')",
     r"\bsignificación\b": "terminología estadística no alineada con el estilo vigente ('significancia')",
     r"\bdesenlase\b": "posible error ortográfico: 'desenlase'",
-    r"\bpacientess?\b": "posible duplicación/error en 'paciente(s)'",
+    r"\bpacientess\b": "posible duplicación/error en 'paciente(s)'",
 }
 
 TEXT_FIELDS = ["titulo", "autor", "revista", "financiacion", "objetivo", "hallazgo", "cuerpo", "corto"]
 
 
 def visible(value):
-    raw = html.unescape(str(value or ""))
+    raw = str(value or "")
+    # Retirar primero las etiquetas evita que un &lt; clínico se convierta en
+    # el inicio aparente de una etiqueta y oculte texto hasta el siguiente >.
+    # Las etiquetas inline no deben introducir espacios antes de puntuación.
+    raw = re.sub(r"</?(?:strong|em)\b[^>]*>", "", raw, flags=re.I)
     raw = re.sub(r"<[^>]+>", " ", raw)
+    raw = html.unescape(raw)
     return re.sub(r"\s+", " ", raw).strip()
 
 
@@ -178,8 +186,15 @@ def audit_entry(e, A):
         if missing:
             A.add("REVISIÓN HUMANA", idn, "consistencia numérica", "porcentajes del hallazgo no se localizaron literalmente en el cuerpo largo", ", ".join(missing))
 
-        effects = [re.sub(r"\s+", " ", x).strip() for x in EFFECT_RE.findall(finding)]
-        missing_eff = [x for x in effects if x and x.casefold() not in body.casefold()]
+        effects = [re.sub(r"\s+", " ", x.group(0)).strip() for x in EFFECT_RE.finditer(finding)]
+        missing_eff = []
+        for effect in effects:
+            number = re.search(r"[-−]?\d+(?:[.,]\d+)?", effect)
+            if not number:
+                continue
+            variants = {number.group(0), number.group(0).replace(",", "."), number.group(0).replace(".", ",")}
+            if not any(value in body for value in variants):
+                missing_eff.append(effect)
         if missing_eff:
             A.add("REVISIÓN HUMANA", idn, "consistencia estadística", "medida de efecto del hallazgo no se localizó literalmente en el cuerpo largo", " | ".join(missing_eff))
 

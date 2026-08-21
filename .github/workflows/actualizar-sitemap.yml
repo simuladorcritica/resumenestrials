@@ -41,14 +41,14 @@ jobs:
 
     steps:
       - name: Descargar repositorio
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7.0.1
         with:
           ref: main
           fetch-depth: 0
           persist-credentials: true
 
       - name: Configurar Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v7.0.0
         with:
           python-version: "3.13"
 
@@ -94,7 +94,7 @@ jobs:
           home = Path('_includes/index-source.html').read_text(encoding='utf-8')
           if '<!-- RT-PRERENDER-START -->' not in home or home.count('class="fila" data-id=') < len(datos):
               raise SystemExit('La portada no quedó prerenderizada con todos los trials')
-          if 'cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer' in home:
+          if 'jspdf.umd.min.js" defer' in home:
               raise SystemExit('jsPDF sigue bloqueando la carga inicial')
 
           ux = Path('internal-medicine-ux.js').read_text(encoding='utf-8')
