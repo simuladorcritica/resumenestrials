@@ -60,6 +60,8 @@ try{
   assert(await page.locator('.rt-editorial-prelude').count()===0,'Producción: persiste segundo bloque Explora/Interpreta/Conserva');
   assert(await page.locator('.rt-step small').count()===0,'Producción: persiste numeración de pasos');
   assert(await page.locator('.rt-hero-actions a').count()===1,'Producción: el héroe conserva botones redundantes');
+  assert(await page.locator('.rt-main-nav a[href="/metodologia/"]').isVisible(),'Producción portada: falta Metodología superior');
+  assert(await page.locator('.rt-main-nav a[href="/equipo-editorial/"]').isVisible(),'Producción portada: falta Equipo editorial superior');
 
   const heroCta=page.locator('.rt-hero-cta[href="#biblioteca-clinica"]');
   await heroCta.click();
@@ -100,16 +102,24 @@ try{
   await page.goto(`${BASE}${entry.path}?qa=${Date.now()}`,{waitUntil:'domcontentloaded',timeout:30000});
   await page.waitForSelector('body.rt-future-trial',{timeout:15000});
   await page.waitForSelector('.rt-reader-rail',{timeout:15000});
+  await page.waitForFunction(()=>!document.querySelector('.rt-summary-deck')&&!document.querySelector('.rt-evidence-section[data-index]'),{timeout:15000});
   assert(await page.locator('.rt-summary-deck').count()===0,'Producción trial: persiste Resumen editorial');
   assert(await page.locator('.rt-reader-rail .rt-rail-card').filter({hasText:'Hallazgo clave'}).count()===0,'Producción trial: persiste Hallazgo clave');
   assert(await page.locator('.rt-evidence-section[data-index]').count()===0,'Producción trial: persiste numeración de secciones');
+  assert(!(await page.locator('.rt-main-nav a[href="/metodologia/"]').isVisible()),'Producción trial: Metodología se repite fuera de portada');
+  assert(!(await page.locator('.rt-main-nav a[href="/equipo-editorial/"]').isVisible()),'Producción trial: Equipo editorial se repite fuera de portada');
   assert(await page.locator('.rt-save-action').isVisible(),'Producción trial: guardar en biblioteca no visible');
   const type=await page.locator('.rt-evidence-section p').first().evaluate(el=>({size:parseFloat(getComputedStyle(el).fontSize),align:getComputedStyle(el).textAlign}));
   assert(type.size>=17,`Producción trial: cuerpo pequeño (${type.size}px)`);
   assert(type.align==='justify',`Producción trial: cuerpo no justificado (${type.align})`);
+  const sectionLook=await page.locator('.rt-evidence-section').first().evaluate(el=>({bg:getComputedStyle(el).backgroundImage,radius:getComputedStyle(el).borderRadius}));
+  assert(sectionLook.bg==='none'&&sectionLook.radius==='0px',`Producción trial: formato completo no coincide con breve (${sectionLook.bg}, ${sectionLook.radius})`);
   await noOverflow(page,'Producción trial desktop');
 
-  await page.setViewportSize({width:390,height:844});await page.waitForTimeout(200);await noOverflow(page,'Producción trial móvil');
+  await page.setViewportSize({width:390,height:844});await page.waitForTimeout(200);
+  const orderOk=await page.evaluate(()=>document.querySelector('article.articulo')?.nextElementSibling?.classList.contains('rt-reader-rail')===true);
+  assert(orderOk,'Producción trial móvil: herramientas interrumpen la lectura completa');
+  await noOverflow(page,'Producción trial móvil');
 
   const trialId=ids[0];
   const shortHtml=await fetchText(`/resumen.html?id=${trialId}&v=corto`);
@@ -119,8 +129,16 @@ try{
     await page.waitForSelector('[data-pdf-version="breve"]',{state:'visible',timeout:15000});
     const shortType=await page.locator('article.corto p').first().evaluate(el=>parseFloat(getComputedStyle(el).fontSize));
     assert(shortType>=17,`Producción resumen breve: cuerpo pequeño (${shortType}px)`);
+    assert(Math.abs(shortType-type.size)<=1,`Producción breve/completo: tipografías desalineadas (${shortType}px vs ${type.size}px)`);
     await noOverflow(page,'Producción resumen breve');
   }
+
+  await page.setViewportSize({width:1280,height:900});
+  await page.goto(`${BASE}/medicina-critica/?qa=${Date.now()}`,{waitUntil:'domcontentloaded',timeout:30000});
+  await page.waitForSelector('body.rt-future-hub',{timeout:15000});
+  const catIndex=await page.locator('.cat-card').first().evaluate(el=>getComputedStyle(el,'::before').content);
+  assert(catIndex==='none'||catIndex==='""',`Producción hub: persiste numeración decorativa (${catIndex})`);
+  await noOverflow(page,'Producción hub');
 
   const pdfContact=await fetchText('/pdf-contact.js');
   const trialPdf=await fetchText('/trial-pdf.js');
@@ -136,5 +154,5 @@ try{
   await noOverflow(page,'Producción login');
 
   assert(errors.length===0,`Producción: errores JavaScript: ${errors.join(' | ')}`);
-  console.log(`FUTURE PRODUCTION STRICT PASS · ${ids.length} trials · UX v3 · lector simplificado · ${entry.path}`);
+  console.log(`FUTURE PRODUCTION STRICT PASS · ${ids.length} trials · UX v3 · lector uniforme · ${entry.path}`);
 }finally{await browser.close()}
