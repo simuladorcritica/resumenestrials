@@ -6,6 +6,7 @@ ROOT = Path(__file__).resolve().parent
 STYLES = [
     '<link rel="stylesheet" href="/future-experience.css?v=1">',
     '<link rel="stylesheet" href="/future-experience-patch.css?v=1">',
+    '<link rel="stylesheet" href="/global-search.css?v=1">',
 ]
 ADSENSE_CLIENT = 'ca-pub-3132744538918477'
 ADSENSE_URL = f'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={ADSENSE_CLIENT}'
@@ -64,11 +65,13 @@ PRIVACY_REPLACEMENTS = [
 FINAL_SCRIPT_V1 = '<script src="/future-experience-final.js?v=1" defer></script>'
 FINAL_SCRIPT_V2 = '<script src="/future-experience-final.js?v=2" defer></script>'
 FINAL_SCRIPT_V3 = '<script src="/future-experience-final.js?v=3" defer></script>'
+GLOBAL_SEARCH = '<script src="/global-search.js?v=1" defer></script>'
 FIX_SCRIPT_V4 = '<script src="/future-experience-fix-v4.js?v=1" defer></script>'
 FIX_SCRIPT_V4_COMPAT = '<script src="/future-experience-fix-v4-compat.js?v=1" defer></script>'
 LEGACY_UNIFIER_V4 = '<script src="/legacy-unifier-v4.js?v=1" defer></script>'
 SCRIPTS = [
     '<script src="/future-experience.js?v=1" defer></script>',
+    GLOBAL_SEARCH,
     FINAL_SCRIPT_V3,
     FIX_SCRIPT_V4,
     FIX_SCRIPT_V4_COMPAT,

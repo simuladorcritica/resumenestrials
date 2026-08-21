@@ -8,6 +8,8 @@ on:
       - "future-experience.css"
       - "future-experience-patch.css"
       - "future-experience.js"
+      - "global-search.css"
+      - "global-search.js"
       - "future-experience-final.js"
       - "future-experience-fix-v4.js"
       - "future-experience-fix-v4-compat.js"
@@ -46,6 +48,7 @@ jobs:
         run: |
           python -m py_compile generar_seo.py generar_seo_clusters.py generar_seo_semantico.py generar_seo_avanzado.py restaurar_arquitectura.py actualizar_agregar_editorial.py aplicar_experiencia_futura.py generar_paginas_sociales.py
           node --check future-experience.js
+          node --check global-search.js
           node --check future-experience-final.js
           node --check future-experience-fix-v4.js
           node --check future-experience-fix-v4-compat.js
@@ -83,7 +86,9 @@ jobs:
               source = path.read_text(encoding='utf-8')
               assert '/future-experience.css?v=1' in source, f'{path}: falta CSS futuro'
               assert '/future-experience-patch.css?v=1' in source, f'{path}: falta patch CSS futuro'
+              assert '/global-search.css?v=1' in source, f'{path}: falta CSS del buscador global'
               assert '/future-experience.js?v=1' in source, f'{path}: falta JS futuro'
+              assert '/global-search.js?v=1' in source, f'{path}: falta JS del buscador global'
               assert '/future-experience-final.js?v=3' in source, f'{path}: falta ajuste final v3'
               assert '/future-experience-fix-v4.js?v=1' in source, f'{path}: falta unificación v4'
               assert '/future-experience-fix-v4-compat.js?v=1' in source, f'{path}: falta candado tipográfico v4'
@@ -97,7 +102,7 @@ jobs:
               checked += 1
           if checked < 50:
               raise SystemExit(f'Solo se verificaron {checked} páginas; se esperaban al menos 50')
-          print(f'PASS: experiencia futura v4 + AdSense verificados en {checked} páginas; ads.txt válido')
+          print(f'PASS: experiencia futura v4 + buscador global + AdSense verificados en {checked} páginas; ads.txt válido')
           PY
 
       - name: Stagear todas las salidas publicables
