@@ -20,6 +20,7 @@ await assertAsset('/future-experience-patch.css');
 await assertAsset('/future-experience.js');
 const finalAsset=await assertAsset('/future-experience-final.js');
 assert(finalAsset.includes('rt-final-polish-v3'),'Ajuste final: falta capa de legibilidad v3');
+await assertAsset('/future-experience-fix-v4.js');
 const trialPdf=await assertAsset('/trial-pdf.js');
 const legacyPdf=await assertAsset('/pdf-contact.js');
 for(const [label,source] of [['trial-pdf.js',trialPdf],['pdf-contact.js',legacyPdf]]){
@@ -35,6 +36,7 @@ try{
 
   await page.goto(`${BASE}/index.html`,{waitUntil:'domcontentloaded',timeout:25000});
   await page.waitForSelector('body.rt-future-home',{timeout:10000});
+  await page.waitForFunction(()=>!!document.getElementById('rt-unified-reader-v4'),{timeout:10000});
   await page.waitForSelector('.rt-orbit',{timeout:10000});
   await page.waitForSelector('.rt-explorer-stage',{timeout:10000});
   await page.waitForFunction(()=>document.querySelectorAll('.rt-hero-actions a').length===1&&!document.querySelector('.rt-step small'),{timeout:10000});
@@ -72,6 +74,7 @@ try{
   await page.setViewportSize({width:1440,height:1000});
   await page.goto(`${BASE}${trialPath}`,{waitUntil:'domcontentloaded',timeout:25000});
   await page.waitForSelector('body.rt-future-trial',{timeout:10000});
+  await page.waitForFunction(()=>!!document.getElementById('rt-unified-reader-v4'),{timeout:10000});
   await page.waitForSelector('.rt-reader-rail',{timeout:10000});
   await page.waitForFunction(()=>{
     const finding=[...document.querySelectorAll('.rt-reader-rail .rt-rail-card h3')].some(h=>h.textContent.trim().toLowerCase()==='hallazgo clave');
@@ -105,6 +108,7 @@ try{
   await page.setViewportSize({width:390,height:844});
   await page.waitForTimeout(150);
   assert(await page.locator('.rt-evidence-section').first().isVisible(),'Trial móvil: lectura clínica no visible');
+  const trialMobileType=await paragraph.evaluate(el=>({size:parseFloat(getComputedStyle(el).fontSize),align:getComputedStyle(el).textAlign}));
   const orderOk=await page.evaluate(()=>{
     const article=document.querySelector('article.articulo');
     return !!article?.nextElementSibling?.classList.contains('rt-reader-rail');
@@ -115,11 +119,12 @@ try{
   if(sample.corto){
     await page.goto(`${BASE}/resumen.html?id=${sample.id}&v=corto`,{waitUntil:'domcontentloaded',timeout:25000});
     await page.waitForSelector('body.rt-future-legacy',{timeout:10000});
+    await page.waitForFunction(()=>!!document.getElementById('rt-unified-reader-v4'),{timeout:10000});
     await page.waitForSelector('[data-pdf-version="breve"]',{state:'visible',timeout:12000});
     assert(await page.locator('article.corto').isVisible(),'Resumen breve: artículo no visible');
     const shortType=await page.locator('article.corto p').first().evaluate(el=>({size:parseFloat(getComputedStyle(el).fontSize),max:getComputedStyle(document.querySelector('.envoltorio')).maxWidth}));
     assert(shortType.size>=17,`Resumen breve: cuerpo demasiado pequeño (${shortType.size}px)`);
-    assert(Math.abs(shortType.size-trialType.size)<=1,`Resumen breve/completo: tipografías desalineadas (${shortType.size}px vs ${trialType.size}px)`);
+    assert(Math.abs(shortType.size-trialMobileType.size)<=1,`Resumen breve/completo móvil: tipografías desalineadas (${shortType.size}px vs ${trialMobileType.size}px)`);
     assert(shortType.max!=='820px','Resumen breve: conserva ancho distinto al resumen completo');
     await noOverflow(page,'Resumen breve móvil');
   }
