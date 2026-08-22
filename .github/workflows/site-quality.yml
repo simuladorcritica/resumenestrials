@@ -93,6 +93,15 @@ jobs:
           node --check scripts/validate-sitemap.mjs
           node --check scripts/validate-seo.mjs
           node --check scripts/verify-trial-body-freeze.mjs
+          node --check scripts/reader-buttons-production-smoke.mjs
+          node --check scripts/reader-runtime-contract.mjs
+          node --check scripts/reader-runtime-contract.test.mjs
+          node --check scripts/resend-qa-single-recipient.mjs
+          node --check scripts/resend-qa-single-recipient.test.mjs
+      - name: Validate post-deployment maintenance safeguards
+        run: |
+          node --test scripts/reader-runtime-contract.test.mjs
+          node --test scripts/resend-qa-single-recipient.test.mjs
       - name: Validate Supabase Edge Functions
         run: |
           deno check --frozen supabase/functions/notify-new-summaries/index.ts

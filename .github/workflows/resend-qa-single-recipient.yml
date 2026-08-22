@@ -1,0 +1,53 @@
+name: QA Resend - un solo destinatario
+
+on:
+  workflow_dispatch:
+    inputs:
+      confirmation:
+        description: Escribe exactamente SEND_ONE_QA_EMAIL para autorizar un único correo QA
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: resend-qa-single-recipient
+  cancel-in-progress: false
+
+jobs:
+  single-recipient:
+    name: Enviar exactamente un correo QA
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    environment: resend-qa
+    env:
+      RESEND_QA_MODE: single_recipient
+      RESEND_QA_CONFIRMATION: ${{ inputs.confirmation }}
+      RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+      RESEND_QA_RECIPIENT: ${{ secrets.RESEND_QA_RECIPIENT }}
+      GITHUB_RUN_ID: ${{ github.run_id }}
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v7.0.1
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v7.0.0
+        with:
+          node-version: '20'
+
+      - name: Probar salvaguardas sin enviar correo
+        run: node --test scripts/resend-qa-single-recipient.test.mjs
+
+      - name: Verificar configuración QA sin mostrar valores
+        shell: bash
+        run: |
+          set -euo pipefail
+          [ "$RESEND_QA_MODE" = "single_recipient" ] || { echo "Modo QA inválido." >&2; exit 1; }
+          [ "$RESEND_QA_CONFIRMATION" = "SEND_ONE_QA_EMAIL" ] || { echo "Falta la confirmación manual exacta." >&2; exit 1; }
+          [ -n "$RESEND_API_KEY" ] || { echo "Falta RESEND_API_KEY." >&2; exit 1; }
+          [ -n "$RESEND_QA_RECIPIENT" ] || { echo "Falta RESEND_QA_RECIPIENT en el entorno resend-qa." >&2; exit 1; }
+          echo "Configuración QA presente; los valores permanecen ocultos."
+
+      - name: Enviar un único correo QA
+        run: node scripts/resend-qa-single-recipient.mjs
