@@ -8,6 +8,14 @@ on:
   schedule:
     - cron: '15 */6 * * *'
   workflow_dispatch:
+    inputs:
+      confirmation:
+        description: Escribe SEND_ONE_QA_EMAIL sólo para ejecutar la prueba QA de un destinatario
+        required: false
+        default: ''
+        type: string
+
+run-name: ${{ inputs.confirmation == 'SEND_ONE_QA_EMAIL' && 'QA Resend - single_recipient' || github.workflow }}
 
 permissions:
   contents: read
@@ -15,6 +23,7 @@ permissions:
 
 jobs:
   data-validation:
+    if: ${{ github.event_name != 'workflow_dispatch' || inputs.confirmation != 'SEND_ONE_QA_EMAIL' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7.0.1
@@ -207,6 +216,7 @@ jobs:
         run: node scripts/validate-editorial.mjs
 
   download-contract-smoke:
+    if: ${{ github.event_name != 'workflow_dispatch' || inputs.confirmation != 'SEND_ONE_QA_EMAIL' }}
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
@@ -241,7 +251,7 @@ jobs:
         run: node scripts/download-contract-smoke.mjs
 
   production-health:
-    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main'
+    if: ${{ (github.event_name != 'workflow_dispatch' || inputs.confirmation != 'SEND_ONE_QA_EMAIL') && (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main') }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7.0.1
@@ -252,7 +262,7 @@ jobs:
         run: node scripts/production-health.mjs
 
   browser-smoke:
-    if: github.event_name == 'pull_request' || github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main'
+    if: ${{ (github.event_name != 'workflow_dispatch' || inputs.confirmation != 'SEND_ONE_QA_EMAIL') && (github.event_name == 'pull_request' || github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main') }}
     runs-on: ubuntu-latest
     timeout-minutes: 12
     steps:
@@ -274,3 +284,43 @@ jobs:
         run: |
           node scripts/browser-smoke.mjs
           node scripts/auth-safe-smoke.mjs
+
+  resend-qa-single-recipient:
+    name: Enviar exactamente un correo QA
+    if: ${{ github.event_name == 'workflow_dispatch' && inputs.confirmation == 'SEND_ONE_QA_EMAIL' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    environment: resend-qa
+    concurrency:
+      group: resend-qa-single-recipient
+      cancel-in-progress: false
+    env:
+      RESEND_QA_MODE: single_recipient
+      RESEND_QA_CONFIRMATION: ${{ inputs.confirmation }}
+      RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+      RESEND_QA_RECIPIENT: ${{ secrets.RESEND_QA_RECIPIENT }}
+      GITHUB_RUN_ID: ${{ github.run_id }}
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v7.0.1
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v7.0.0
+        with:
+          node-version: '20'
+
+      - name: Probar salvaguardas sin enviar correo
+        run: node --test scripts/resend-qa-single-recipient.test.mjs
+
+      - name: Verificar configuración QA sin mostrar valores
+        shell: bash
+        run: |
+          set -euo pipefail
+          [ "$RESEND_QA_MODE" = "single_recipient" ] || { echo "Modo QA inválido." >&2; exit 1; }
+          [ "$RESEND_QA_CONFIRMATION" = "SEND_ONE_QA_EMAIL" ] || { echo "Falta la confirmación manual exacta." >&2; exit 1; }
+          [ -n "$RESEND_API_KEY" ] || { echo "Falta RESEND_API_KEY." >&2; exit 1; }
+          [ -n "$RESEND_QA_RECIPIENT" ] || { echo "Falta RESEND_QA_RECIPIENT en el entorno resend-qa." >&2; exit 1; }
+          echo "Configuración QA presente; los valores permanecen ocultos."
+
+      - name: Enviar un único correo QA
+        run: node scripts/resend-qa-single-recipient.mjs

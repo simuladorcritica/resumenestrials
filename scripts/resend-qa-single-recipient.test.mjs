@@ -10,6 +10,7 @@ import {
 
 const scriptPath = new URL('./resend-qa-single-recipient.mjs', import.meta.url);
 const workflowPath = new URL('../.github/workflows/resend-qa-single-recipient.yml', import.meta.url);
+const launcherWorkflowPath = new URL('../.github/workflows/site-quality.yml', import.meta.url);
 const qaRecipient = 'qa-only@example.test';
 const apiKey = 're_test_key_not_real';
 
@@ -114,6 +115,27 @@ test('el workflow sólo admite activación manual y el entorno QA', () => {
   assert.match(workflow, /secrets\.RESEND_QA_RECIPIENT/);
   assert.match(workflow, /RESEND_QA_MODE:\s*single_recipient/);
   assert.doesNotMatch(workflow, /supabase|subscriber|notify-new-summaries|emails\/batch/i);
+});
+
+test('el lanzador premerge aísla QA de los trabajos normales', () => {
+  const workflow = readFileSync(launcherWorkflowPath, 'utf8');
+  assert.match(workflow, /^\s{2}workflow_dispatch:\s*\n\s{4}inputs:/m);
+  assert.match(workflow, /confirmation:\s*\n[\s\S]*?default:\s*''/);
+  assert.match(workflow, /resend-qa-single-recipient:\s*\n[\s\S]*?github\.event_name == 'workflow_dispatch' && inputs\.confirmation == 'SEND_ONE_QA_EMAIL'/);
+  assert.match(workflow, /RESEND_QA_MODE:\s*single_recipient/);
+  assert.match(workflow, /environment:\s*resend-qa/);
+  assert.match(workflow, /secrets\.RESEND_QA_RECIPIENT/);
+  assert.match(workflow, /Idempotency-Key|resend-qa-single-recipient\.mjs/);
+
+  const guardedJobs = ['data-validation', 'download-contract-smoke', 'production-health', 'browser-smoke'];
+  for (const job of guardedJobs) {
+    const escapedJob = job.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    assert.match(
+      workflow,
+      new RegExp(`^  ${escapedJob}:\\r?\\n    if:.*inputs\\.confirmation != 'SEND_ONE_QA_EMAIL'`, 'm'),
+      `${job} no queda excluido del envío QA`,
+    );
+  }
 });
 
 test('un rechazo remoto no expone el destinatario, la clave ni el cuerpo de respuesta', async () => {
