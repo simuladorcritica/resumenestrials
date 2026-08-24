@@ -150,6 +150,7 @@ jobs:
           python3 -m py_compile generar_seo_avanzado.py
           python3 -m py_compile restaurar_arquitectura.py
           python3 tools/test_auditoria_editorial_profunda.py
+          python3 tools/test_validar_resumenes.py
           python3 -m py_compile actualizar_agregar_editorial.py
           python3 -m py_compile generar_paginas_sociales.py
           python3 -m json.tool seo-clusters.json >/dev/null
