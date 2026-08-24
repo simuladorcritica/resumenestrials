@@ -15,11 +15,23 @@ function visible(value) {
 
 const before = readBase();
 const after = JSON.parse(readFileSync('resumenes.json', 'utf8'));
-if (before.length !== after.length) throw new Error(`Cambió el número de resúmenes: ${before.length} -> ${after.length}`);
+const beforeById = new Map();
+const afterById = new Map();
 
-for (let index = 0; index < before.length; index += 1) {
-  const oldItem = before[index];
-  const newItem = after[index];
+for (const item of before) {
+  const id = String(item?.id ?? '').trim();
+  if (!id || beforeById.has(id)) throw new Error(`La base clínica contiene un ID inválido o duplicado: ${id || '(vacío)'}`);
+  beforeById.set(id, item);
+}
+for (const item of after) {
+  const id = String(item?.id ?? '').trim();
+  if (!id || afterById.has(id)) throw new Error(`resumenes.json contiene un ID inválido o duplicado: ${id || '(vacío)'}`);
+  afterById.set(id, item);
+}
+
+for (const [id, oldItem] of beforeById) {
+  const newItem = afterById.get(id);
+  if (!newItem) throw new Error(`Se eliminó el resumen clínico existente con ID ${id}`);
   const keys = new Set([...Object.keys(oldItem), ...Object.keys(newItem)]);
   for (const key of keys) {
     const oldValue = oldItem[key];
@@ -32,4 +44,5 @@ for (let index = 0; index < before.length; index += 1) {
   }
 }
 
-console.log(`CLINICAL FREEZE PASS · ${after.length} resúmenes · contenido visible sin cambios`);
+const added = [...afterById.keys()].filter((id) => !beforeById.has(id));
+console.log(`CLINICAL FREEZE PASS · ${before.length} existentes sin cambios · ${added.length} altas nuevas`);

@@ -28,6 +28,12 @@ Con el sitio servido en `http://127.0.0.1:8000`, ejecutar `pnpm run test:browser
 
 Las pruebas positivas de registro, login y recuperación son locales y aisladas: interceptan Supabase y usan únicamente las credenciales públicas oficiales de prueba de Turnstile. No crean usuarios, envían correos ni acceden a datos reales. En Windows sin `pdftotext`, `RT_PYTHON_BIN` puede apuntar a un Python con `pypdf` para validar el texto de los PDF.
 
+## Automatización local de `resumenes.json`
+
+Windows puede vigilar exclusivamente el `resumenes.json` local, esperar a que OneDrive termine de escribirlo y abrir un PR solo cuando detecta altas nuevas seguras. El proceso compara contra el `main` remoto, bloquea eliminaciones, duplicados y cambios a artículos existentes, y nunca escribe ni fusiona directamente en `main`.
+
+La instalación, requisitos, estados y reportes están documentados en [`docs/RESUMENES_JSON_AUTOMATION.md`](docs/RESUMENES_JSON_AUTOMATION.md). La tarea programada no se instala automáticamente al clonar o actualizar el repositorio.
+
 ## Recuperación
 
 Antes de una estabilización amplia se debe guardar el SHA de `main` en una rama `recovery/*` o tag protegido y crear un bundle Git verificable. Nunca deben almacenarse secretos en el repositorio.
