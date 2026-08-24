@@ -107,10 +107,34 @@ jobs:
           node --check scripts/reader-runtime-contract.test.mjs
           node --check scripts/resend-qa-single-recipient.mjs
           node --check scripts/resend-qa-single-recipient.test.mjs
+          node --check scripts/resumenes-json-guard.mjs
+          node --check scripts/resumenes-json-guard.test.mjs
+          node --check scripts/resumenes-json-automation.mjs
+          node --check scripts/resumenes-json-automation.test.mjs
+          node --check scripts/clinical-additions.test.mjs
       - name: Validate post-deployment maintenance safeguards
         run: |
           node --test scripts/reader-runtime-contract.test.mjs
           node --test scripts/resend-qa-single-recipient.test.mjs
+      - name: Validate local resumenes.json automation
+        shell: pwsh
+        run: |
+          node --test scripts/resumenes-json-guard.test.mjs scripts/resumenes-json-automation.test.mjs scripts/clinical-additions.test.mjs
+          $parseErrors = @()
+          foreach ($script in @('scripts/watch-resumenes-json.ps1', 'scripts/install-resumenes-json-watcher.ps1')) {
+            $tokens = $null
+            $currentErrors = $null
+            [void][System.Management.Automation.Language.Parser]::ParseFile(
+              (Resolve-Path $script),
+              [ref]$tokens,
+              [ref]$currentErrors
+            )
+            $parseErrors += $currentErrors
+          }
+          if ($parseErrors.Count -gt 0) {
+            $parseErrors | ForEach-Object { Write-Error $_.Message }
+            exit 1
+          }
       - name: Validate Supabase Edge Functions
         run: |
           deno check --frozen supabase/functions/notify-new-summaries/index.ts
