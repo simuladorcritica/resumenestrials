@@ -64,6 +64,39 @@ EMOJI = re.compile(
     flags=re.UNICODE,
 )
 
+SIGNIFICACION_RE = re.compile(r"\bsignificación\b", re.I)
+SIGNIFICACION_SIN_TILDE_RE = re.compile(r"\bsignificacion\b", re.I)
+CONTEXTO_ESTADISTICO_RE = re.compile(
+    r"\bestad[ií]stic\w*\b|"
+    r"\bvalor\s+p\b|"
+    r"\bp\s*(?:=|<|>|≤|≥)\s*\d|"
+    r"\b(?:ic|intervalo\s+de\s+confianza)\s*(?:del\s*)?95\s*%|"
+    r"\b(?:hip[oó]tesis|alfa|alpha)\b",
+    re.I,
+)
+NOREPINEFRINA_RE = re.compile(r"\bnorepinefrina\b", re.I)
+EQUIVALENCIA_CATECOLAMINAS_INCORRECTA_RE = re.compile(
+    r"\b(?:norepinefrina|noradrenalina)\b\s*"
+    r"(?:\(\s*|=\s*|[,;:]?\s*(?:es\s+decir,?|tambi[eé]n\s+llamada?|es)\s+)"
+    r"(?:adrenalina|epinefrina)\b|"
+    r"\b(?:adrenalina|epinefrina)\b\s*"
+    r"(?:\(\s*|=\s*|[,;:]?\s*(?:es\s+decir,?|tambi[eé]n\s+llamada?|es)\s+)"
+    r"(?:norepinefrina|noradrenalina)\b",
+    re.I,
+)
+REFERENCIA_SUPLEMENTARIA_VALIDA_RE = re.compile(
+    r"\b(?:material|archivo|documento|tabla|figura|ap[eé]ndice|anexo)s?\s+"
+    r"suplementari[oa]s?\s+"
+    r"(?:n[.º°]\s*)?s?\d+[a-z]?"
+    r"(?:\s*(?:,|y|e|a|[-–])\s*s?\d+[a-z]?)*\b",
+    re.I,
+)
+REFERENCIA_DOCUMENTAL_RE = re.compile(
+    r"\b(?:tabla|figura|ap[eé]ndice|suplement\w*|anexo)s?\s*"
+    r"(?:s?\d+[a-z]?|_{2,}|x{2,})\b",
+    re.I,
+)
+
 # ----------------------------------------------------------------------------
 # Utilidades
 # ----------------------------------------------------------------------------
@@ -107,6 +140,62 @@ def es_lista_ordenada_valida(got, canon, opcionales):
     got_obligatorias = [norm(sec) for sec in got if norm(sec) not in opcionales_norm]
     canon_obligatorias = [norm(sec) for sec in canon if norm(sec) not in opcionales_norm]
     return got_obligatorias == canon_obligatorias
+
+def _se_superponen(a, b):
+    return a[0] < b[1] and b[0] < a[1]
+
+def _uso_estadistico_de_significacion(texto, coincidencia):
+    """Exige evidencia estadística cerca del término, no una lista de IDs."""
+    inicio = max(0, coincidencia.start() - 120)
+    fin = min(len(texto), coincidencia.end() + 120)
+    return bool(CONTEXTO_ESTADISTICO_RE.search(texto[inicio:fin]))
+
+def validar_estilo_lexico(campos_texto, H, idn):
+    """Separa variantes válidas, usos ambiguos y errores inequívocos."""
+    blob = strip_html(" ".join(str(v or "") for v in campos_texto.values()))
+    low = blob.lower()
+
+    if SIGNIFICACION_SIN_TILDE_RE.search(blob):
+        H.error(idn, '"significacion" debe escribirse con tilde: "significación"')
+
+    usos_significacion = list(SIGNIFICACION_RE.finditer(blob))
+    if usos_significacion:
+        ambiguos = [m for m in usos_significacion if not _uso_estadistico_de_significacion(blob, m)]
+        if ambiguos:
+            H.error(idn, 'uso ambiguo de "significación" sin contexto estadístico verificable')
+        else:
+            H.aviso(
+                idn,
+                '"significación" es una variante estadística válida; revisar solo si se desea uniformidad terminológica',
+            )
+
+    if EQUIVALENCIA_CATECOLAMINAS_INCORRECTA_RE.search(blob):
+        H.error(idn, 'equipara incorrectamente norepinefrina/noradrenalina con adrenalina/epinefrina')
+    elif NOREPINEFRINA_RE.search(blob):
+        H.aviso(
+            idn,
+            '"norepinefrina" es una denominación médica válida; revisar solo si se desea uniformidad con "noradrenalina"',
+        )
+
+    if "citescore" in low:
+        H.error(idn, 'menciona "CiteScore" (usar solo JIF de Clarivate/JCR)')
+    if EMOJI.search(blob):
+        H.error(idn, "contiene emoji o icono")
+    for c, s in campos_texto.items():
+        if re.search(r"\s—\s", str(s or "")):
+            H.aviso(idn, f'guion largo usado como conector en "{c}"')
+            break
+
+    referencias_validas = [m.span() for m in REFERENCIA_SUPLEMENTARIA_VALIDA_RE.finditer(blob)]
+    referencias_ambiguas = [
+        m for m in REFERENCIA_DOCUMENTAL_RE.finditer(blob)
+        if not any(_se_superponen(m.span(), span) for span in referencias_validas)
+    ]
+    if referencias_ambiguas:
+        H.error(
+            idn,
+            f'referencia documental incorrecta o ambigua: "{referencias_ambiguas[0].group(0)}"',
+        )
 
 # ----------------------------------------------------------------------------
 # Validación de una entrada
@@ -206,24 +295,7 @@ def validar_entrada(e, H, if_vistos):
 
     # --- Reglas de estilo y léxico sobre el texto visible ---
     campos_texto = {c: e.get(c, "") for c in ("objetivo", "hallazgo", "cuerpo", "corto")}
-    blob = " ".join(campos_texto.values())
-    low = blob.lower()
-
-    if re.search(r"\bsignificaci[oó]n\b", low):
-        H.error(idn, 'usa "significación" (debe ser "significancia")')
-    if "norepinefrina" in low:
-        H.error(idn, 'usa "norepinefrina" (debe ser "noradrenalina")')
-    if "citescore" in low:
-        H.error(idn, 'menciona "CiteScore" (usar solo JIF de Clarivate/JCR)')
-    if EMOJI.search(blob):
-        H.error(idn, "contiene emoji o icono")
-    for c, s in campos_texto.items():
-        if re.search(r"\s—\s", s):
-            H.aviso(idn, f'guion largo usado como conector en "{c}"')
-            break
-    mref = re.search(r"\b(tabla|figura|ap[eé]ndice|suplement\w*|anexo)\s*(s?\d|\d)", low)
-    if mref:
-        H.error(idn, f'referencia a la mecánica del documento: "{mref.group(0)}"')
+    validar_estilo_lexico(campos_texto, H, idn)
 
     # --- HTML: etiquetas permitidas y '<' sin escapar (rompe render/PDF) ---
     for c in ("cuerpo", "corto"):

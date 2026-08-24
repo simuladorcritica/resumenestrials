@@ -48,10 +48,13 @@ TYPOS = {
     r"\btrail\b": "posible 'trail' cuando se quiso escribir 'trial'",
     r"\baleatorisad[oa]s?\b": "posible error ortográfico: 'aleatorisado/a'",
     r"\brandomisad[oa]s?\b": "posible error ortográfico: 'randomisado/a'",
-    r"\bnorepinefrina\b": "terminología no alineada con el estilo vigente ('noradrenalina')",
-    r"\bsignificación\b": "terminología estadística no alineada con el estilo vigente ('significancia')",
     r"\bdesenlase\b": "posible error ortográfico: 'desenlase'",
     r"\bpacientess\b": "posible duplicación/error en 'paciente(s)'",
+}
+
+STYLE_VARIANTS = {
+    r"\bnorepinefrina\b": "variante médica válida; revisar solo si se busca uniformidad con 'noradrenalina'",
+    r"\bsignificación\b": "variante estadística válida en contexto; revisar solo si se busca uniformidad terminológica",
 }
 
 TEXT_FIELDS = ["titulo", "autor", "revista", "financiacion", "objetivo", "hallazgo", "cuerpo", "corto"]
@@ -145,6 +148,11 @@ def audit_entry(e, A):
         m = re.search(pattern, blob_low, re.I)
         if m:
             A.add("MEDIO", idn, "escritura", msg, m.group(0))
+
+    for pattern, msg in STYLE_VARIANTS.items():
+        m = re.search(pattern, blob_low, re.I)
+        if m:
+            A.add("BAJO", idn, "estilo", msg, m.group(0))
 
     for field in ("cuerpo", "corto"):
         source = str(e.get(field, "") or "")
