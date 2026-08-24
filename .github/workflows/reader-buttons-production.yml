@@ -5,9 +5,13 @@ on:
     branches: [main]
     paths:
       - "reader-controls-v9.js"
+      - "site-runtime.js"
       - "aplicar_experiencia_futura.py"
       - "trial-pdf.js"
+      - "scripts/build-site-runtime.mjs"
       - "scripts/reader-buttons-production-smoke.mjs"
+      - "scripts/reader-runtime-contract.mjs"
+      - "scripts/reader-runtime-contract.test.mjs"
       - ".github/workflows/reader-buttons-production.yml"
   workflow_dispatch:
 
@@ -33,6 +37,8 @@ jobs:
         run: |
           node --check reader-controls-v9.js
           node --check scripts/reader-buttons-production-smoke.mjs
+          node --check scripts/reader-runtime-contract.mjs
+          node --test scripts/reader-runtime-contract.test.mjs
           python3 -m py_compile aplicar_experiencia_futura.py
       - name: Instalar Chromium
         run: |

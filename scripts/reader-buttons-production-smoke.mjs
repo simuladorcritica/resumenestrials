@@ -1,5 +1,6 @@
 import { chromium } from 'playwright';
 import { readFileSync } from 'node:fs';
+import { inspectReaderRuntime } from './reader-runtime-contract.mjs';
 
 const BASE='https://resumenestrials.com';
 const data=JSON.parse(readFileSync('resumenes.json','utf8'));
@@ -25,15 +26,17 @@ async function waitDeployment(){
   for(let i=1;i<=36;i++){
     try{
       const html=await fetchText(trialPath);
-      const js=await fetchText('/reader-controls-v9.js');
-      const ready=html.includes('/reader-controls-v9.js?v=2')&&js.includes("min-height', '54px'")&&js.includes('__rtReaderControlsV9');
-      if(ready){console.log(`READER BUTTONS V9.2 DEPLOYMENT READY · intento ${i}`);return;}
-      last=`htmlV2=${html.includes('/reader-controls-v9.js?v=2')} min54=${js.includes("min-height', '54px'")} js=${js.includes('__rtReaderControlsV9')}`;
+      const reference=inspectReaderRuntime(html);
+      const js=reference.runtimePath?await fetchText(reference.runtimePath):'';
+      const result=inspectReaderRuntime(html,js);
+      if(result.ready){console.log(`READER BUTTONS BUNDLED RUNTIME READY · intento ${i}`);return;}
+      const c=result.checks;
+      last=`runtime=${c.bundledRuntimeReference} generated=${c.generatedBundle} reader=${c.readerSource&&c.readerGuard} touch=${c.minimumTouchHeight&&c.touchAction} obsolete-direct=${!c.noObsoleteDirectReference}`;
     }catch(error){last=error.message}
-    console.log(`Esperando despliegue de controles v9.2 (${i}/36) · ${last}`);
+    console.log(`Esperando runtime consolidado del lector (${i}/36) · ${last}`);
     await sleep(10000);
   }
-  throw new Error(`La capa de controles v9.2 no llegó a producción: ${last}`);
+  throw new Error(`El runtime consolidado del lector no llegó a producción: ${last}`);
 }
 
 async function physicalRelease(page,selector,waiter){
