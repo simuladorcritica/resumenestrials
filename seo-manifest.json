@@ -424,6 +424,11 @@
         "name": "Ventilación e insuficiencia respiratoria",
         "path": "/medicina-critica/ventilacion-respiratoria/",
         "url": "https://resumenestrials.com/medicina-critica/ventilacion-respiratoria/"
+      },
+      {
+        "name": "Neumología",
+        "path": "/medicina-interna/neumologia/",
+        "url": "https://resumenestrials.com/medicina-interna/neumologia/"
       }
     ],
     "images": [
@@ -470,6 +475,11 @@
     "seo_title": "ORIENTAL-MeVO trial: trombectomia endovascular en el ictus por oclusion de vaso mediano | Resúmenes Trials",
     "description": "ORIENTAL-MeVO: La independencia funcional a 90 dias paso del 46.6% al 58.6% (RR ajustado 1.24; IC 95% 1.07-1.44; P=0.004), con un numero necesario a tratar de…",
     "clusters": [
+      {
+        "name": "Neurocríticos",
+        "path": "/medicina-critica/neurocriticos/",
+        "url": "https://resumenestrials.com/medicina-critica/neurocriticos/"
+      },
       {
         "name": "Neurología",
         "path": "/medicina-interna/neurologia/",
@@ -868,7 +878,13 @@
     "title": "FIND-CKD: finerenona frente a placebo en la enfermedad renal crónica sin diabetes",
     "seo_title": "FIND-CKD trial: finerenona frente a placebo en la enfermedad renal crónica sin diabetes | Resúmenes Trials",
     "description": "FIND-CKD: La finerenona frenó la caída: la pendiente total del filtrado fue de -3.3 frente a -4.0 ml/min/1.73 m2 al año con placebo (diferencia 0.7; IC 95%…",
-    "clusters": [],
+    "clusters": [
+      {
+        "name": "Renal y metabolismo",
+        "path": "/medicina-interna/renal-metabolica/",
+        "url": "https://resumenestrials.com/medicina-interna/renal-metabolica/"
+      }
+    ],
     "images": [
       "https://resumenestrials.com/images/trials/find-ckd-finerenona-placebo-enfermedad-renal-cronica-diabetes-16x9.jpg",
       "https://resumenestrials.com/images/trials/find-ckd-finerenona-placebo-enfermedad-renal-cronica-diabetes-4x3.jpg",
@@ -972,6 +988,237 @@
       "question": "Determinar si cambiar a cabotegravir-rilpivirina inyectable mensual reduce el fracaso del régimen frente a continuar el tratamiento antirretroviral oral, en personas con VIH y dificultades de adherencia que ya habían logrado la supresión viral.",
       "answer": "El inyectable mensual fue superior: el fracaso del régimen a la semana 48 fue del 22.8% frente al 41.2% con el tratamiento oral (diferencia -18.4 puntos porcentuales; IC 98.4%, -32.4 a -4.3; p=0.002) , a expensas sobre todo de menos fracaso virológico.",
       "population": "La población fueron adultos con VIH y antecedente de dificultades de adherencia, definidas por una respuesta virológica pobre o pérdida del seguimiento clínico durante al menos 6 meses consecutivos en los 18 meses previos, sin coinfección por hepatitis B y sin mutaciones de resistencia clínicamente relevantes a rilpivirina ni a inhibidores de la integrasa. No se excluyó a nadie por su recuento de CD4, por consumo de alcohol o…"
+    }
+  },
+  "40": {
+    "slug": "alimentacion-oro-esofagica-intermitente-frente-a-sonda-nasogastrica-para-acelerar-la",
+    "path": "/trials/alimentacion-oro-esofagica-intermitente-frente-a-sonda-nasogastrica-para-acelerar-la/",
+    "url": "https://resumenestrials.com/trials/alimentacion-oro-esofagica-intermitente-frente-a-sonda-nasogastrica-para-acelerar-la/",
+    "title": "Alimentación oro-esofágica intermitente frente a sonda nasogástrica para acelerar la decanulación en la disfagia neurogénica postraqueostomía",
+    "seo_title": "Alimentación oro-esofágica intermitente frente a sonda nasogástrica para acelerar la decanulación en la disfagia neurogénica postraqueostomía | Resúmenes Trials",
+    "description": "Alimentación oro-esofágica intermitente frente a sonda nasogástrica para acelerar la decanulación en la disfagia neurogénica postraqueostomía: El tiempo hasta…",
+    "clusters": [
+      {
+        "name": "Neurocríticos",
+        "path": "/medicina-critica/neurocriticos/",
+        "url": "https://resumenestrials.com/medicina-critica/neurocriticos/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/alimentacion-oro-esofagica-intermitente-frente-a-sonda-nasogastrica-para-acelerar-la-16x9.jpg",
+      "https://resumenestrials.com/images/trials/alimentacion-oro-esofagica-intermitente-frente-a-sonda-nasogastrica-para-acelerar-la-4x3.jpg",
+      "https://resumenestrials.com/images/trials/alimentacion-oro-esofagica-intermitente-frente-a-sonda-nasogastrica-para-acelerar-la-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si la alimentación intermitente por sonda oroesofágica, frente a la sonda nasogástrica, acorta el tiempo hasta la decanulación en pacientes traqueostomizados con disfagia neurogénica manejados bajo un protocolo estandarizado de decanulación.",
+      "answer": "El tiempo hasta la decanulación fue significativamente más corto con la sonda oroesofágica intermitente que con la nasogástrica ( 22.2 frente a 26.3 días ; diferencia 4.17 días, p menor de 0.001), y más pacientes lograron la decanulación a los 30 días (65.7% frente a 47.1%).",
+      "population": "La población fueron adultos traqueostomizados con disfagia neurogénica confirmada por videoendoscopia de la deglución con una puntuación en la escala de penetración-aspiración mayor de 3; además debían estar clínicamente estables, con capacidad cognitiva conservada para cooperar, con motilidad gastrointestinal adecuada, definida como tolerancia a nutrición enteral a 150 mL por hora o más, y con el objetivo clínico de lograr la…"
+    }
+  },
+  "41": {
+    "slug": "posicion-en-sillon-fuera-de-la-cama-frente-a-posicion-semiincorporada-en-la-cama-para",
+    "path": "/trials/posicion-en-sillon-fuera-de-la-cama-frente-a-posicion-semiincorporada-en-la-cama-para/",
+    "url": "https://resumenestrials.com/trials/posicion-en-sillon-fuera-de-la-cama-frente-a-posicion-semiincorporada-en-la-cama-para/",
+    "title": "Posición en sillón fuera de la cama frente a posición semiincorporada en la cama para mejorar la oxigenación en pacientes de UCI con respiración espontánea",
+    "seo_title": "Posición en sillón fuera de la cama frente a posición semiincorporada en la cama para mejorar la oxigenación en pacientes de UCI con respiración espontánea | Resúmenes Trials",
+    "description": "Posición en sillón fuera de la cama frente a posición semiincorporada en la cama para mejorar la oxigenación en pacientes de UCI con respiración espontánea…",
+    "clusters": [],
+    "images": [
+      "https://resumenestrials.com/images/trials/posicion-en-sillon-fuera-de-la-cama-frente-a-posicion-semiincorporada-en-la-cama-para-16x9.jpg",
+      "https://resumenestrials.com/images/trials/posicion-en-sillon-fuera-de-la-cama-frente-a-posicion-semiincorporada-en-la-cama-para-4x3.jpg",
+      "https://resumenestrials.com/images/trials/posicion-en-sillon-fuera-de-la-cama-frente-a-posicion-semiincorporada-en-la-cama-para-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Comparar el efecto de la posición en sillón fuera de la cama frente a la posición semiincorporada en la cama sobre la oxigenación, medida por la relación PaO2/FiO2, en pacientes de cuidados intensivos con respiración espontánea bajo soporte respiratorio.",
+      "answer": "La relación PaO2/FiO2 aumentó 13 mmHg con la posición en sillón y disminuyó 13 mmHg con la posición en cama (interacción grupo-tiempo, p = 0.002), sin eventos adversos graves en ningún grupo, aunque los eventos leves que obligaron a interrumpir la sesión fueron más frecuentes con el sillón.",
+      "population": "La población fueron adultos con respiración espontánea ingresados en la unidad de cuidados intensivos, bajo ventilación mecánica invasiva en modalidad de presión soporte, ventilación no invasiva más de 12 horas al día, u oxígeno de alto flujo continuo, durante más de 24 horas. Se excluyeron los pacientes traqueostomizados y aquellos con contraindicación absoluta para sentarse en un sillón, como trombosis venosa profunda no…"
+    }
+  },
+  "42": {
+    "slug": "horizon-ic-realidad-virtual-especifica-uci-salud-mental-tras-enfermedad-critica",
+    "path": "/trials/horizon-ic-realidad-virtual-especifica-uci-salud-mental-tras-enfermedad-critica/",
+    "url": "https://resumenestrials.com/trials/horizon-ic-realidad-virtual-especifica-uci-salud-mental-tras-enfermedad-critica/",
+    "title": "HORIZON-IC: realidad virtual específica de la UCI para la salud mental tras la enfermedad crítica, ensayo internacional de tres brazos",
+    "seo_title": "HORIZON-IC trial: realidad virtual específica de la UCI para la salud mental tras la enfermedad crítica, ensayo internacional de tres brazos | Resúmenes Trials",
+    "description": "HORIZON-IC: La realidad virtual específica para UCI, aplicada de forma temprana o tardía, no redujo los síntomas de estrés postraumático ni mejoró la…",
+    "clusters": [],
+    "images": [
+      "https://resumenestrials.com/images/trials/horizon-ic-realidad-virtual-especifica-uci-salud-mental-tras-enfermedad-critica-16x9.jpg",
+      "https://resumenestrials.com/images/trials/horizon-ic-realidad-virtual-especifica-uci-salud-mental-tras-enfermedad-critica-4x3.jpg",
+      "https://resumenestrials.com/images/trials/horizon-ic-realidad-virtual-especifica-uci-salud-mental-tras-enfermedad-critica-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Evaluar si una intervención de realidad virtual diseñada específicamente para pacientes críticos, administrada durante el ingreso en UCI (brazo temprano) o después del alta (brazo tardío), reduce los síntomas de estrés postraumático a los 6 meses en comparación con la atención habitual, y explorar su efecto sobre la ansiedad, la depresión y la calidad de vida relacionada con la salud.",
+      "answer": "La realidad virtual específica para UCI, aplicada de forma temprana o tardía, no redujo los síntomas de estrés postraumático ni mejoró la ansiedad, la depresión o la calidad de vida a los 6 meses frente a la atención habitual, a pesar de una satisfacción alta de los pacientes con la experiencia.",
+      "population": "La población fueron adultos de 18 años o más, ingresados en la unidad de cuidados intensivos durante 72 horas o más, con ventilación mecánica de 24 horas o más, con dominio del neerlandés o del francés. Se excluyó a quienes tenían enfermedad psiquiátrica activa, aunque un antecedente de enfermedad mental no era motivo de exclusión, a quienes tenían un daño neurológico primario que motivó el ingreso a la unidad, deterioro…"
+    }
+  },
+  "43": {
+    "slug": "penetracion-intrapulmonar-de-ceftolozano-tazobactam-y-ceftazidima-avibactam-en-infusion",
+    "path": "/trials/penetracion-intrapulmonar-de-ceftolozano-tazobactam-y-ceftazidima-avibactam-en-infusion/",
+    "url": "https://resumenestrials.com/trials/penetracion-intrapulmonar-de-ceftolozano-tazobactam-y-ceftazidima-avibactam-en-infusion/",
+    "title": "Penetración intrapulmonar de ceftolozano/tazobactam y ceftazidima/avibactam en infusión continua en la neumonía nosocomial crítica",
+    "seo_title": "Penetración intrapulmonar de ceftolozano/tazobactam y ceftazidima/avibactam en infusión continua en la neumonía nosocomial crítica | Resúmenes Trials",
+    "description": "Penetración intrapulmonar de ceftolozano/tazobactam y ceftazidima/avibactam en infusión continua en la neumonía nosocomial crítica: Con infusión continua, la…",
+    "clusters": [
+      {
+        "name": "Ventilación e insuficiencia respiratoria",
+        "path": "/medicina-critica/ventilacion-respiratoria/",
+        "url": "https://resumenestrials.com/medicina-critica/ventilacion-respiratoria/"
+      },
+      {
+        "name": "Infecciones y antibióticos",
+        "path": "/medicina-critica/infecciones-antibioticos/",
+        "url": "https://resumenestrials.com/medicina-critica/infecciones-antibioticos/"
+      },
+      {
+        "name": "Enfermedades infecciosas",
+        "path": "/medicina-interna/infecciosas/",
+        "url": "https://resumenestrials.com/medicina-interna/infecciosas/"
+      },
+      {
+        "name": "Neumología",
+        "path": "/medicina-interna/neumologia/",
+        "url": "https://resumenestrials.com/medicina-interna/neumologia/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/penetracion-intrapulmonar-de-ceftolozano-tazobactam-y-ceftazidima-avibactam-en-infusion-16x9.jpg",
+      "https://resumenestrials.com/images/trials/penetracion-intrapulmonar-de-ceftolozano-tazobactam-y-ceftazidima-avibactam-en-infusion-4x3.jpg",
+      "https://resumenestrials.com/images/trials/penetracion-intrapulmonar-de-ceftolozano-tazobactam-y-ceftazidima-avibactam-en-infusion-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Comparar la penetración en el líquido de revestimiento epitelial (ELF) y la probabilidad de alcanzar los objetivos farmacocinéticos/farmacodinámicos de ceftolozano/tazobactam frente a ceftazidima/avibactam, ambos administrados en infusión continua, en pacientes críticos con neumonía nosocomial.",
+      "answer": "Con infusión continua, la penetración pulmonar fue significativamente mayor para ceftolozano (66%) que para ceftazidima (41%) (p = 0.011), y las dosis estándar de ambas combinaciones alcanzaron los objetivos farmacocinéticos/farmacodinámicos pulmonares, aunque con una probabilidad relevante de sobreexposición plasmática, sobre…",
+      "population": "En pacientes adultos críticos con neumonía nosocomial (adquirida en el hospital o asociada a ventilación mecánica), ¿cómo se comparan la penetración pulmonar (líquido de revestimiento epitelial, ELF) y la probabilidad de alcanzar los objetivos farmacocinéticos/farmacodinámicos (PK/PD) de ceftolozano/tazobactam frente a ceftazidima/avibactam, ambos administrados en infusión continua?"
+    }
+  },
+  "44": {
+    "slug": "microinhalo-gestion-automatizada-presion-neumotaponamiento-drenaje-secreciones-subgloticas",
+    "path": "/trials/microinhalo-gestion-automatizada-presion-neumotaponamiento-drenaje-secreciones-subgloticas/",
+    "url": "https://resumenestrials.com/trials/microinhalo-gestion-automatizada-presion-neumotaponamiento-drenaje-secreciones-subgloticas/",
+    "title": "MICROINHALO: gestión automatizada de la presión del neumotaponamiento y el drenaje de secreciones subglóticas para prevenir la neumonía en pacientes intubados",
+    "seo_title": "MICROINHALO trial: gestión automatizada de la presión del neumotaponamiento y el drenaje de secreciones subglóticas para prevenir la neumonía en pacientes intubados | Resúmenes Trials",
+    "description": "MICROINHALO: El manejo automático de la presión del neumotaponamiento y el drenaje subglótico no redujo la colonización traqueal bacteriana al día 3 (37%…",
+    "clusters": [
+      {
+        "name": "Ventilación e insuficiencia respiratoria",
+        "path": "/medicina-critica/ventilacion-respiratoria/",
+        "url": "https://resumenestrials.com/medicina-critica/ventilacion-respiratoria/"
+      },
+      {
+        "name": "Infecciones y antibióticos",
+        "path": "/medicina-critica/infecciones-antibioticos/",
+        "url": "https://resumenestrials.com/medicina-critica/infecciones-antibioticos/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/microinhalo-gestion-automatizada-presion-neumotaponamiento-drenaje-secreciones-subgloticas-16x9.jpg",
+      "https://resumenestrials.com/images/trials/microinhalo-gestion-automatizada-presion-neumotaponamiento-drenaje-secreciones-subgloticas-4x3.jpg",
+      "https://resumenestrials.com/images/trials/microinhalo-gestion-automatizada-presion-neumotaponamiento-drenaje-secreciones-subgloticas-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Evaluar si el manejo automático y personalizado de la presión del neumotaponamiento (Pcuff), basado en la medición de CO2 espirado, combinado con el drenaje automático de secreciones subglóticas, reduce la colonización traqueal bacteriana al tercer día en pacientes críticos con intubación orotraqueal, frente al manejo manual convencional.",
+      "answer": "El manejo automático de la presión del neumotaponamiento y el drenaje subglótico no redujo la colonización traqueal bacteriana al día 3 (37% frente a 41,5%; p = 0.52), su desenlace principal, aunque como hallazgo secundario, no cegado, se asoció con una menor incidencia de neumonía asociada a ventilación mecánica diagnosticada…",
+      "population": "En pacientes adultos críticos con intubación orotraqueal y ventilación mecánica invasiva de duración esperada superior a 48 horas, ¿reduce el manejo automático y personalizado de la presión del neumotaponamiento (Pcuff) combinado con el drenaje automático de secreciones subglóticas, frente al manejo manual convencional, la colonización traqueal bacteriana al tercer día de intubación?"
+    }
+  },
+  "45": {
+    "slug": "neuro-conda-sedacion-temprana-isoflurano-inhalado-pacientes-neurocriticos-monitorizacion-presion",
+    "path": "/trials/neuro-conda-sedacion-temprana-isoflurano-inhalado-pacientes-neurocriticos-monitorizacion-presion/",
+    "url": "https://resumenestrials.com/trials/neuro-conda-sedacion-temprana-isoflurano-inhalado-pacientes-neurocriticos-monitorizacion-presion/",
+    "title": "NEURO-CONDA: sedación temprana con isoflurano inhalado en pacientes neurocríticos con monitorización de la presión intracraneal",
+    "seo_title": "NEURO-CONDA trial: sedación temprana con isoflurano inhalado en pacientes neurocríticos con monitorización de la presión intracraneal | Resúmenes Trials",
+    "description": "NEURO-CONDA: La sedación con isoflurano fue eficaz en el 100% de los pacientes, igual que con propofol , y no comprometió la presión intracraneal ni la…",
+    "clusters": [
+      {
+        "name": "Neurocríticos",
+        "path": "/medicina-critica/neurocriticos/",
+        "url": "https://resumenestrials.com/medicina-critica/neurocriticos/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/neuro-conda-sedacion-temprana-isoflurano-inhalado-pacientes-neurocriticos-monitorizacion-presion-16x9.jpg",
+      "https://resumenestrials.com/images/trials/neuro-conda-sedacion-temprana-isoflurano-inhalado-pacientes-neurocriticos-monitorizacion-presion-4x3.jpg",
+      "https://resumenestrials.com/images/trials/neuro-conda-sedacion-temprana-isoflurano-inhalado-pacientes-neurocriticos-monitorizacion-presion-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Evaluar la eficacia y la seguridad de la sedación temprana con isoflurano inhalado, frente a propofol intravenoso, en pacientes neurocríticos con monitorización invasiva de la presión intracraneal y sin hipertensión intracraneal.",
+      "answer": "La sedación con isoflurano fue eficaz en el 100% de los pacientes, igual que con propofol , y no comprometió la presión intracraneal ni la presión de perfusión cerebral, con valores incluso más favorables de ambas a las 48-72 horas, en un ensayo piloto pequeño que no permite concluir superioridad clínica.",
+      "population": "En pacientes neurocríticos adultos con monitorización invasiva de la presión intracraneal (PIC) y sin hipertensión intracraneal, ¿es factible y segura la sedación temprana con isoflurano inhalado, en comparación con propofol intravenoso, sin comprometer la presión intracraneal ni la presión de perfusión cerebral?"
+    }
+  },
+  "46": {
+    "slug": "titulacion-de-la-presion-ensayo-piloto-aleatorizado",
+    "path": "/trials/titulacion-de-la-presion-ensayo-piloto-aleatorizado/",
+    "url": "https://resumenestrials.com/trials/titulacion-de-la-presion-ensayo-piloto-aleatorizado/",
+    "title": "Titulación de la presión venosa central guiada por Doppler de la vena renal en la sepsis: ensayo piloto aleatorizado",
+    "seo_title": "Titulación de la presión venosa central guiada por Doppler de la vena renal en la sepsis trial: ensayo piloto aleatorizado | Resúmenes Trials",
+    "description": "Titulación de la presión venosa central guiada por Doppler de la vena renal en la sepsis: El protocolo RVD-CVP se administró con fidelidad casi perfecta (100%…",
+    "clusters": [
+      {
+        "name": "Sepsis y shock",
+        "path": "/medicina-critica/sepsis-shock/",
+        "url": "https://resumenestrials.com/medicina-critica/sepsis-shock/"
+      },
+      {
+        "name": "Renal y ácido-base",
+        "path": "/medicina-critica/renal-acido-base/",
+        "url": "https://resumenestrials.com/medicina-critica/renal-acido-base/"
+      },
+      {
+        "name": "Renal y metabolismo",
+        "path": "/medicina-interna/renal-metabolica/",
+        "url": "https://resumenestrials.com/medicina-interna/renal-metabolica/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/titulacion-de-la-presion-ensayo-piloto-aleatorizado-16x9.jpg",
+      "https://resumenestrials.com/images/trials/titulacion-de-la-presion-ensayo-piloto-aleatorizado-4x3.jpg",
+      "https://resumenestrials.com/images/trials/titulacion-de-la-presion-ensayo-piloto-aleatorizado-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Evaluar la factibilidad y la seguridad de un protocolo de titulación de la presión venosa central guiado por Doppler de la vena renal (RVD-CVP) en pacientes con sepsis, y explorar señales preliminares sobre desenlaces renales y hemodinámicos frente a la atención habitual.",
+      "answer": "El protocolo RVD-CVP se administró con fidelidad casi perfecta (100% de administración completa) , y se asoció de forma exploratoria a un menor uso de terapia de reemplazo renal (9,5% frente a 23,4%), aunque un análisis de supervivencia sobre la incidencia de lesión renal aguda a 28 días mostró una tendencia no significativa en…",
+      "population": "En pacientes adultos con sepsis y monitorización de la presión venosa central (PVC), ¿es factible y segura la titulación de la PVC guiada por Doppler de la vena renal (protocolo RVD-CVP), y qué señales preliminares aporta sobre desenlaces renales y hemodinámicos frente a la atención habitual?"
+    }
+  },
+  "47": {
+    "slug": "eficacia-de-un-dispositivo-ensayo-autocontrolado",
+    "path": "/trials/eficacia-de-un-dispositivo-ensayo-autocontrolado/",
+    "url": "https://resumenestrials.com/trials/eficacia-de-un-dispositivo-ensayo-autocontrolado/",
+    "title": "Eficacia de un dispositivo de rehabilitación de miembro inferior basado en suspensión en la debilidad adquirida en la UCI: ensayo autocontrolado",
+    "seo_title": "Eficacia de un dispositivo de rehabilitación de miembro inferior basado en suspensión en la debilidad adquirida en la UCI trial: ensayo autocontrolado | Resúmenes Trials",
+    "description": "Eficacia de un dispositivo de rehabilitación de miembro inferior basado en suspensión en la debilidad adquirida en la UCI: A las dos semanas, el grosor…",
+    "clusters": [],
+    "images": [
+      "https://resumenestrials.com/images/trials/eficacia-de-un-dispositivo-ensayo-autocontrolado-16x9.jpg",
+      "https://resumenestrials.com/images/trials/eficacia-de-un-dispositivo-ensayo-autocontrolado-4x3.jpg",
+      "https://resumenestrials.com/images/trials/eficacia-de-un-dispositivo-ensayo-autocontrolado-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Evaluar la eficacia de un dispositivo robótico de rehabilitación de miembro inferior basado en suspensión (SS), añadido a la fisioterapia convencional, en la mejora del grosor muscular y la función del miembro inferior en pacientes con debilidad adquirida en la UCI (ICU-AW), comparando cada extremidad de intervención con la extremidad contralateral del mismo paciente como control.",
+      "answer": "A las dos semanas, el grosor muscular del miembro inferior fue significativamente mayor en la extremidad tratada con el dispositivo SS que en la extremidad control del mismo paciente (p < 0,01), con una reducción acumulada de solo el 0,2% frente al 6,3% en la extremidad control, junto con mejoras significativas en la puntuación…",
+      "population": "En pacientes críticos con debilidad adquirida en la UCI (ICU-acquired weakness, ICU-AW), ¿mejora la incorporación de un dispositivo robótico de rehabilitación de miembro inferior basado en suspensión (SS), añadido a la fisioterapia convencional, el grosor muscular y la función del miembro inferior, en comparación con la fisioterapia convencional aplicada al miembro contralateral del mismo paciente?"
+    }
+  },
+  "48": {
+    "slug": "impacto-de-la-broncoscopia-ensayo-clinico-aleatorizado",
+    "path": "/trials/impacto-de-la-broncoscopia-ensayo-clinico-aleatorizado/",
+    "url": "https://resumenestrials.com/trials/impacto-de-la-broncoscopia-ensayo-clinico-aleatorizado/",
+    "title": "Impacto de la broncoscopia en la seguridad de la traqueostomía percutánea: ensayo clínico aleatorizado",
+    "seo_title": "Impacto de la broncoscopia en la seguridad de la traqueostomía percutánea trial: ensayo clínico aleatorizado | Resúmenes Trials",
+    "description": "Impacto de la broncoscopia en la seguridad de la traqueostomía percutánea: Las complicaciones mayores de la PCT fueron idénticas con y sin guía broncoscópica…",
+    "clusters": [],
+    "images": [
+      "https://resumenestrials.com/images/trials/impacto-de-la-broncoscopia-ensayo-clinico-aleatorizado-16x9.jpg",
+      "https://resumenestrials.com/images/trials/impacto-de-la-broncoscopia-ensayo-clinico-aleatorizado-4x3.jpg",
+      "https://resumenestrials.com/images/trials/impacto-de-la-broncoscopia-ensayo-clinico-aleatorizado-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Evaluar si el uso de broncoscopio durante la traqueostomía percutánea dilatacional (PCT) mejora la seguridad del procedimiento, en comparación con su realización sin broncoscopio, en pacientes en ventilación mecánica.",
+      "answer": "Las complicaciones mayores de la PCT fueron idénticas con y sin guía broncoscópica (5,2% en ambos grupos; p = 0,8) , sin diferencias en mortalidad a 30 días ni en estancia hospitalaria, mientras que el broncoscopio prolongó el procedimiento en aproximadamente un 30% y se asoció a mayor hipertensión intraprocedimiento (38% frente…",
+      "population": "En pacientes en ventilación mecánica que requieren traqueostomía percutánea dilatacional (PCT), ¿mejora la guía broncoscópica la seguridad del procedimiento, en comparación con su realización sin broncoscopio, en términos de complicaciones periprocedimiento a las 24 horas?"
     }
   }
 }
