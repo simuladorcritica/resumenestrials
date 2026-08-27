@@ -100,7 +100,7 @@
     "category": "Medicina Interna",
     "path": "/medicina-interna/cardiovascular/",
     "url": "https://resumenestrials.com/medicina-interna/cardiovascular/",
-    "count": 11,
+    "count": 12,
     "trial_ids": [
       "15",
       "18",
@@ -112,7 +112,8 @@
       "33",
       "34",
       "36",
-      "37"
+      "37",
+      "66"
     ]
   },
   "infecciosas": {
@@ -120,12 +121,13 @@
     "category": "Medicina Interna",
     "path": "/medicina-interna/infecciosas/",
     "url": "https://resumenestrials.com/medicina-interna/infecciosas/",
-    "count": 4,
+    "count": 5,
     "trial_ids": [
       "31",
       "32",
       "38",
-      "43"
+      "43",
+      "49"
     ]
   },
   "renal-metabolica": {
@@ -155,10 +157,11 @@
     "category": "Medicina Interna",
     "path": "/medicina-interna/neumologia/",
     "url": "https://resumenestrials.com/medicina-interna/neumologia/",
-    "count": 2,
+    "count": 3,
     "trial_ids": [
       "17",
-      "43"
+      "43",
+      "49"
     ]
   }
 }

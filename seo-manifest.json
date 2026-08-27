@@ -1220,5 +1220,478 @@
       "answer": "Las complicaciones mayores de la PCT fueron idénticas con y sin guía broncoscópica (5,2% en ambos grupos; p = 0,8) , sin diferencias en mortalidad a 30 días ni en estancia hospitalaria, mientras que el broncoscopio prolongó el procedimiento en aproximadamente un 30% y se asoció a mayor hipertensión intraprocedimiento (38% frente…",
       "population": "En pacientes en ventilación mecánica que requieren traqueostomía percutánea dilatacional (PCT), ¿mejora la guía broncoscópica la seguridad del procedimiento, en comparación con su realización sin broncoscopio, en términos de complicaciones periprocedimiento a las 24 horas?"
     }
+  },
+  "49": {
+    "slug": "sonia-glucocorticoides-orales-dosis-bajas-atencion-estandar-neumonia-adquirida-comunidad",
+    "path": "/trials/sonia-glucocorticoides-orales-dosis-bajas-atencion-estandar-neumonia-adquirida-comunidad/",
+    "url": "https://resumenestrials.com/trials/sonia-glucocorticoides-orales-dosis-bajas-atencion-estandar-neumonia-adquirida-comunidad/",
+    "title": "SONIA: glucocorticoides orales en dosis bajas frente a atención estándar en la neumonía adquirida en la comunidad en hospitales de bajos recursos",
+    "seo_title": "SONIA trial: glucocorticoides orales en dosis bajas frente a atención estándar en la neumonía adquirida en la comunidad en hospitales de bajos recursos | Resúmenes Trials",
+    "description": "SONIA: La mortalidad a 30 días fue menor con glucocorticoides adyuvantes que con la atención estándar sola: 22.6% frente a 26.0% (razón de riesgos, 0.84; IC…",
+    "clusters": [
+      {
+        "name": "Enfermedades infecciosas",
+        "path": "/medicina-interna/infecciosas/",
+        "url": "https://resumenestrials.com/medicina-interna/infecciosas/"
+      },
+      {
+        "name": "Neumología",
+        "path": "/medicina-interna/neumologia/",
+        "url": "https://resumenestrials.com/medicina-interna/neumologia/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/sonia-glucocorticoides-orales-dosis-bajas-atencion-estandar-neumonia-adquirida-comunidad-16x9.jpg",
+      "https://resumenestrials.com/images/trials/sonia-glucocorticoides-orales-dosis-bajas-atencion-estandar-neumonia-adquirida-comunidad-4x3.jpg",
+      "https://resumenestrials.com/images/trials/sonia-glucocorticoides-orales-dosis-bajas-atencion-estandar-neumonia-adquirida-comunidad-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Evaluar si añadir glucocorticoides orales en dosis bajas a la atención estándar reduce la mortalidad a 30 días en adultos hospitalizados con neumonía adquirida en la comunidad en hospitales de bajos recursos sin acceso a cuidados intensivos.",
+      "answer": "La mortalidad a 30 días fue menor con glucocorticoides adyuvantes que con la atención estándar sola: 22.6% frente a 26.0% (razón de riesgos, 0.84; IC 95%, 0.73 a 0.97; p=0.02).",
+      "population": "El estudio buscó responder si, en adultos hospitalizados con neumonía adquirida en la comunidad en un entorno de bajos recursos, añadir glucocorticoides orales en dosis bajas a la atención estándar reducía la mortalidad, en comparación con la atención estándar sola. La población fueron pacientes adultos, de 18 años o más, ingresados en salas de medicina general de hospitales públicos de Kenia con diagnóstico clínico de…"
+    }
+  },
+  "50": {
+    "slug": "plasmar-plasma-convalesciente-no-mejora-estado-clinico-ni-reduce-mortalidad",
+    "path": "/trials/plasmar-plasma-convalesciente-no-mejora-estado-clinico-ni-reduce-mortalidad/",
+    "url": "https://resumenestrials.com/trials/plasmar-plasma-convalesciente-no-mejora-estado-clinico-ni-reduce-mortalidad/",
+    "title": "PlasmAr: el plasma convalesciente no mejora el estado clínico ni reduce la mortalidad en la neumonía grave por covid-19",
+    "seo_title": "PlasmAr trial: el plasma convalesciente no mejora el estado clínico ni reduce la mortalidad en la neumonía grave por covid-19 | Resúmenes Trials",
+    "description": "PlasmAr: El plasma convalesciente no mostró diferencia significativa frente al placebo en el estado clínico a los 30 días (razón de momios 0,83 ; IC 95%, 0,52…",
+    "clusters": [],
+    "images": [
+      "https://resumenestrials.com/images/trials/plasmar-plasma-convalesciente-no-mejora-estado-clinico-ni-reduce-mortalidad-16x9.jpg",
+      "https://resumenestrials.com/images/trials/plasmar-plasma-convalesciente-no-mejora-estado-clinico-ni-reduce-mortalidad-4x3.jpg",
+      "https://resumenestrials.com/images/trials/plasmar-plasma-convalesciente-no-mejora-estado-clinico-ni-reduce-mortalidad-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Evaluar si una infusión de plasma convalesciente, añadida al tratamiento estándar, mejora el estado clínico a los 30 días en adultos hospitalizados con neumonía grave por Covid-19, en comparación con placebo.",
+      "answer": "El plasma convalesciente no mostró diferencia significativa frente al placebo en el estado clínico a los 30 días (razón de momios 0,83 ; IC 95%, 0,52 a 1,35 ; P= 0,46 ), y la mortalidad fue prácticamente idéntica entre grupos ( 10,96% con plasma frente a 11,43% con placebo).",
+      "population": "El estudio se preguntó si, en adultos hospitalizados con neumonía grave por SARS-CoV-2, transfundir una dosis de plasma de pacientes recuperados de Covid-19 mejoraba el estado clínico a los 30 días frente a una infusión de solución salina. La población eran pacientes de 18 años o más, internados, con reacción en cadena de la polimerasa positiva para SARS-CoV-2, neumonía confirmada por imágenes y al menos un criterio de…"
+    }
+  },
+  "51": {
+    "slug": "sprint-control-intensivo-versus-estandar-presion-arterial-sistolica",
+    "path": "/trials/sprint-control-intensivo-versus-estandar-presion-arterial-sistolica/",
+    "url": "https://resumenestrials.com/trials/sprint-control-intensivo-versus-estandar-presion-arterial-sistolica/",
+    "title": "SPRINT: control intensivo versus estándar de la presión arterial sistólica",
+    "seo_title": "SPRINT trial: control intensivo versus estándar de la presión arterial sistólica | Resúmenes Trials",
+    "description": "SPRINT: El control intensivo de la presión sistólica redujo el desenlace cardiovascular combinado en un 25% (HR 0,75; IC95% 0,64 a 0,89; p 27% (HR 0,73; IC95%…",
+    "clusters": [],
+    "images": [
+      "https://resumenestrials.com/images/trials/sprint-control-intensivo-versus-estandar-presion-arterial-sistolica-16x9.jpg",
+      "https://resumenestrials.com/images/trials/sprint-control-intensivo-versus-estandar-presion-arterial-sistolica-4x3.jpg",
+      "https://resumenestrials.com/images/trials/sprint-control-intensivo-versus-estandar-presion-arterial-sistolica-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si, en adultos sin diabetes con riesgo cardiovascular aumentado, tratar hasta una presión arterial sistólica menor a 120 mmHg reduce los eventos cardiovasculares mayores y la muerte, en comparación con el objetivo estándar de menos de 140 mmHg.",
+      "answer": "El control intensivo de la presión sistólica redujo el desenlace cardiovascular combinado en un 25% (HR 0,75; IC95% 0,64 a 0,89; p 27% (HR 0,73; IC95% 0,60 a 0,90; p=0,003), por lo que el ensayo se detuvo antes de lo previsto, tras una mediana de seguimiento de 3,26 años , aunque también aumentaron algunos eventos adversos…",
+      "population": "SPRINT buscó responder si, en adultos de 50 años o más con presión sistólica elevada y riesgo cardiovascular aumentado pero sin diabetes, tratar hasta un objetivo de presión sistólica menor a 120 mmHg reduciría la aparición de eventos cardiovasculares mayores y la muerte, frente al objetivo convencional de menos de 140 mmHg. Para entrar al ensayo, los participantes debían tener una presión sistólica basal de entre 130 y 180…"
+    }
+  },
+  "52": {
+    "slug": "adrenal-hidrocortisona-shock-septico-no-reduce-mortalidad-90-dias",
+    "path": "/trials/adrenal-hidrocortisona-shock-septico-no-reduce-mortalidad-90-dias/",
+    "url": "https://resumenestrials.com/trials/adrenal-hidrocortisona-shock-septico-no-reduce-mortalidad-90-dias/",
+    "title": "ADRENAL: la hidrocortisona en el shock séptico no reduce la mortalidad a 90 días",
+    "seo_title": "ADRENAL trial: la hidrocortisona en el shock séptico no reduce la mortalidad a 90 días | Resúmenes Trials",
+    "description": "ADRENAL: La hidrocortisona no redujo la mortalidad a 90 días frente a placebo ( 27.9% frente a 28.8% ; OR 0.95; IC 95%, 0.82-1.10; P=0.50), aunque aceleró la…",
+    "clusters": [],
+    "images": [
+      "https://resumenestrials.com/images/trials/adrenal-hidrocortisona-shock-septico-no-reduce-mortalidad-90-dias-16x9.jpg",
+      "https://resumenestrials.com/images/trials/adrenal-hidrocortisona-shock-septico-no-reduce-mortalidad-90-dias-4x3.jpg",
+      "https://resumenestrials.com/images/trials/adrenal-hidrocortisona-shock-septico-no-reduce-mortalidad-90-dias-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si la hidrocortisona intravenosa en infusión continua reduce la mortalidad por cualquier causa a 90 días, en comparación con placebo, en pacientes con shock séptico bajo ventilación mecánica.",
+      "answer": "La hidrocortisona no redujo la mortalidad a 90 días frente a placebo ( 27.9% frente a 28.8% ; OR 0.95; IC 95%, 0.82-1.10; P=0.50), aunque aceleró la resolución del shock (mediana de 3 frente a 4 días ; HR 1.32; IC 95%, 1.23-1.41; P<0.001).",
+      "population": "ADRENAL, acrónimo de \"Adjunctive Corticosteroid Treatment in Critically Ill Patients with Septic Shock\", buscó responder si la hidrocortisona reduce la mortalidad en pacientes con shock séptico, una pregunta que llevaba décadas sin resolverse de forma concluyente pese a ensayos previos con resultados contradictorios. Incluyó adultos de 18 años o más, ingresados en unidades de cuidados intensivos, bajo ventilación mecánica, con…"
+    }
+  },
+  "53": {
+    "slug": "smart-cristaloides-balanceados-solucion-salina-adultos-criticamente-enfermos",
+    "path": "/trials/smart-cristaloides-balanceados-solucion-salina-adultos-criticamente-enfermos/",
+    "url": "https://resumenestrials.com/trials/smart-cristaloides-balanceados-solucion-salina-adultos-criticamente-enfermos/",
+    "title": "SMART: cristaloides balanceados frente a solución salina en adultos críticamente enfermos",
+    "seo_title": "SMART trial: cristaloides balanceados frente a solución salina en adultos críticamente enfermos | Resúmenes Trials",
+    "description": "SMART: El uso de cristaloides balanceados se asoció con una menor incidencia del criterio compuesto MAKE30 (muerte, nueva terapia de reemplazo renal o…",
+    "clusters": [],
+    "images": [
+      "https://resumenestrials.com/images/trials/smart-cristaloides-balanceados-solucion-salina-adultos-criticamente-enfermos-16x9.jpg",
+      "https://resumenestrials.com/images/trials/smart-cristaloides-balanceados-solucion-salina-adultos-criticamente-enfermos-4x3.jpg",
+      "https://resumenestrials.com/images/trials/smart-cristaloides-balanceados-solucion-salina-adultos-criticamente-enfermos-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si el uso de cristaloides balanceados, en comparación con solución salina al 0,9%, reduce la incidencia de eventos renales adversos mayores a 30 días en adultos ingresados en unidades de cuidados intensivos.",
+      "answer": "El uso de cristaloides balanceados se asoció con una menor incidencia del criterio compuesto MAKE30 (muerte, nueva terapia de reemplazo renal o disfunción renal persistente) que la solución salina, con 14,3% frente a 15,4% de eventos (odds ratio ajustado 0,90 ; IC 95% 0,82 a 0,99 ; p = 0,04 ).",
+      "population": "La población estudiada fueron adultos de 18 años o más ingresados en cinco unidades de cuidados intensivos de un centro académico estadounidense, sin restricción por diagnóstico de ingreso."
+    }
+  },
+  "54": {
+    "slug": "salt-ed-cristaloides-balanceados-solucion-salina-adultos-no-criticamente-enfermos",
+    "path": "/trials/salt-ed-cristaloides-balanceados-solucion-salina-adultos-no-criticamente-enfermos/",
+    "url": "https://resumenestrials.com/trials/salt-ed-cristaloides-balanceados-solucion-salina-adultos-no-criticamente-enfermos/",
+    "title": "SALT-ED: cristaloides balanceados frente a solución salina en adultos no críticamente enfermos",
+    "seo_title": "SALT-ED trial: cristaloides balanceados frente a solución salina en adultos no críticamente enfermos | Resúmenes Trials",
+    "description": "SALT-ED: Los cristaloides balanceados no aumentaron los días libres de hospital frente a la solución salina (mediana de 25 días en ambos grupos; odds ratio…",
+    "clusters": [],
+    "images": [
+      "https://resumenestrials.com/images/trials/salt-ed-cristaloides-balanceados-solucion-salina-adultos-no-criticamente-enfermos-16x9.jpg",
+      "https://resumenestrials.com/images/trials/salt-ed-cristaloides-balanceados-solucion-salina-adultos-no-criticamente-enfermos-4x3.jpg",
+      "https://resumenestrials.com/images/trials/salt-ed-cristaloides-balanceados-solucion-salina-adultos-no-criticamente-enfermos-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Comparar el efecto de los cristaloides balanceados frente a la solución salina sobre los días libres de hospital y sobre la incidencia de eventos adversos renales mayores en adultos no críticamente enfermos tratados con líquidos intravenosos en el servicio de urgencias.",
+      "answer": "Los cristaloides balanceados no aumentaron los días libres de hospital frente a la solución salina (mediana de 25 días en ambos grupos; odds ratio ajustado 0.98 , IC 95% 0.92 a 1.04; P=0.41), pero sí redujeron la incidencia de eventos adversos renales mayores a 30 días ( 4.7% frente a 5.6% ; odds ratio ajustado 0.82 , IC 95%…",
+      "population": "La población fueron adultos de 18 años o más, de raza blanca, negra u otra según fue registrada por el propio paciente o su representante en el expediente clínico, atendidos en el servicio de urgencias de un único hospital académico de Nashville, Estados Unidos."
+    }
+  },
+  "55": {
+    "slug": "plus-solucion-multielectrolitica-balanceada-solucion-salina-adultos-criticamente-enfermos",
+    "path": "/trials/plus-solucion-multielectrolitica-balanceada-solucion-salina-adultos-criticamente-enfermos/",
+    "url": "https://resumenestrials.com/trials/plus-solucion-multielectrolitica-balanceada-solucion-salina-adultos-criticamente-enfermos/",
+    "title": "PLUS: solución multielectrolítica balanceada frente a solución salina en adultos críticamente enfermos",
+    "seo_title": "PLUS trial: solución multielectrolítica balanceada frente a solución salina en adultos críticamente enfermos | Resúmenes Trials",
+    "description": "PLUS: La mortalidad a 90 días fue prácticamente idéntica con la solución balanceada y con el salino ( 21.8% frente a 22.0% ; diferencia absoluta -0.15 puntos…",
+    "clusters": [],
+    "images": [
+      "https://resumenestrials.com/images/trials/plus-solucion-multielectrolitica-balanceada-solucion-salina-adultos-criticamente-enfermos-16x9.jpg",
+      "https://resumenestrials.com/images/trials/plus-solucion-multielectrolitica-balanceada-solucion-salina-adultos-criticamente-enfermos-4x3.jpg",
+      "https://resumenestrials.com/images/trials/plus-solucion-multielectrolitica-balanceada-solucion-salina-adultos-criticamente-enfermos-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si el uso de una solución multielectrolítica balanceada (Plasma-Lyte 148) en lugar de solución salina al 0.9% para la reanimación y el mantenimiento hídrico de adultos críticamente enfermos en la unidad de cuidados intensivos reduce la mortalidad por cualquier causa a los 90 días o el riesgo de lesión renal aguda.",
+      "answer": "La mortalidad a 90 días fue prácticamente idéntica con la solución balanceada y con el salino ( 21.8% frente a 22.0% ; diferencia absoluta -0.15 puntos porcentuales , IC 95% -3.60 a 3.30; p=0.90), y tampoco hubo diferencias relevantes en la necesidad de terapia de reemplazo renal ( 12.7% frente a 12.9% ) ni en el aumento máximo…",
+      "population": "Los investigadores incluyeron adultos de 18 años o más ingresados en la unidad de cuidados intensivos en Australia y Nueva Zelanda, en quienes el clínico tratante consideraba necesaria la reanimación con líquidos y en quienes tanto la solución balanceada como el salino se juzgaban igualmente apropiados. El artículo no reporta datos de raza o etnia de los participantes."
+    }
+  },
+  "56": {
+    "slug": "box-objetivos-presion-arterial-media-tras-paro-cardiaco-pacientes-comatosos",
+    "path": "/trials/box-objetivos-presion-arterial-media-tras-paro-cardiaco-pacientes-comatosos/",
+    "url": "https://resumenestrials.com/trials/box-objetivos-presion-arterial-media-tras-paro-cardiaco-pacientes-comatosos/",
+    "title": "BOX: objetivos de presión arterial media tras un paro cardiaco en pacientes comatosos",
+    "seo_title": "BOX trial: objetivos de presión arterial media tras un paro cardiaco en pacientes comatosos | Resúmenes Trials",
+    "description": "BOX: El objetivo de presión arterial media alto (77 mmHg) no redujo la combinación de muerte o discapacidad neurológica grave frente al objetivo bajo (63…",
+    "clusters": [],
+    "images": [
+      "https://resumenestrials.com/images/trials/box-objetivos-presion-arterial-media-tras-paro-cardiaco-pacientes-comatosos-16x9.jpg",
+      "https://resumenestrials.com/images/trials/box-objetivos-presion-arterial-media-tras-paro-cardiaco-pacientes-comatosos-4x3.jpg",
+      "https://resumenestrials.com/images/trials/box-objetivos-presion-arterial-media-tras-paro-cardiaco-pacientes-comatosos-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si, en adultos comatosos reanimados tras un paro cardiaco extrahospitalario de presunta causa cardiaca, un objetivo de presión arterial media de 77 mmHg reduce la muerte o la discapacidad neurológica grave a 90 días en comparación con un objetivo de 63 mmHg.",
+      "answer": "El objetivo de presión arterial media alto (77 mmHg) no redujo la combinación de muerte o discapacidad neurológica grave frente al objetivo bajo (63 mmHg): el desenlace ocurrió en el 34% frente al 32% de los pacientes (cociente de riesgos instantáneos 1,08 ; IC 95%: 0,84 a 1,37; p = 0,56).",
+      "population": "Se incluyeron adultos de 18 años o más que permanecían en coma tras un paro cardiaco extrahospitalario de presunta causa cardiaca, con retorno sostenido de la circulación espontánea, reclutados en Dinamarca. El dato de raza o etnia no se reportó, porque el registro danés de paro cardiaco no recoge esa variable por normativa."
+    }
+  },
+  "57": {
+    "slug": "decode-ckd-dapagliflozina-reduce-masa-ventricular-izquierda-enfermedad-renal-cronica",
+    "path": "/trials/decode-ckd-dapagliflozina-reduce-masa-ventricular-izquierda-enfermedad-renal-cronica/",
+    "url": "https://resumenestrials.com/trials/decode-ckd-dapagliflozina-reduce-masa-ventricular-izquierda-enfermedad-renal-cronica/",
+    "title": "DECODE-CKD: la dapagliflozina reduce la masa ventricular izquierda en la enfermedad renal crónica",
+    "seo_title": "DECODE-CKD trial: la dapagliflozina reduce la masa ventricular izquierda en la enfermedad renal crónica | Resúmenes Trials",
+    "description": "DECODE-CKD: La dapagliflozina redujo el índice de masa ventricular izquierda frente a placebo (diferencia media estimada de −8.44 g/m² ; IC 95%, −11.83 a…",
+    "clusters": [],
+    "images": [
+      "https://resumenestrials.com/images/trials/decode-ckd-dapagliflozina-reduce-masa-ventricular-izquierda-enfermedad-renal-cronica-16x9.jpg",
+      "https://resumenestrials.com/images/trials/decode-ckd-dapagliflozina-reduce-masa-ventricular-izquierda-enfermedad-renal-cronica-4x3.jpg",
+      "https://resumenestrials.com/images/trials/decode-ckd-dapagliflozina-reduce-masa-ventricular-izquierda-enfermedad-renal-cronica-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si la dapagliflozina, frente a placebo, reduce el índice de masa ventricular izquierda a los 6 meses en personas con enfermedad renal crónica de causas diversas.",
+      "answer": "La dapagliflozina redujo el índice de masa ventricular izquierda frente a placebo (diferencia media estimada de −8.44 g/m² ; IC 95%, −11.83 a −5.06; P<0.001), un efecto consistente en los subgrupos analizados y sin exceso relevante de eventos adversos graves.",
+      "population": "La población del estudio fueron adultos con enfermedad renal crónica reclutados en Dinamarca a partir de una cohorte observacional y de registros nacionales daneses; la muestra fue mayoritariamente de raza blanca, sin un desglose numérico exacto en el artículo, reflejo de la composición demográfica del país. Podían participar quienes tuvieran una tasa de filtración glomerular estimada de entre 20 y 59 ml/minuto/1.73 m2, o de…"
+    }
+  },
+  "58": {
+    "slug": "figaro-dkd-finerenona-reduce-eventos-cardiovasculares-diabetes-tipo-2-enfermedad-renal",
+    "path": "/trials/figaro-dkd-finerenona-reduce-eventos-cardiovasculares-diabetes-tipo-2-enfermedad-renal/",
+    "url": "https://resumenestrials.com/trials/figaro-dkd-finerenona-reduce-eventos-cardiovasculares-diabetes-tipo-2-enfermedad-renal/",
+    "title": "FIGARO-DKD: la finerenona reduce los eventos cardiovasculares en la diabetes tipo 2 con enfermedad renal crónica",
+    "seo_title": "FIGARO-DKD trial: la finerenona reduce los eventos cardiovasculares en la diabetes tipo 2 con enfermedad renal crónica | Resúmenes Trials",
+    "description": "FIGARO-DKD: La finerenona redujo el desenlace cardiovascular compuesto frente a placebo ( 12.4% frente a 14.2% ; HR 0.87; IC 95%, 0.76-0.98; P=0.03), un…",
+    "clusters": [],
+    "images": [
+      "https://resumenestrials.com/images/trials/figaro-dkd-finerenona-reduce-eventos-cardiovasculares-diabetes-tipo-2-enfermedad-renal-16x9.jpg",
+      "https://resumenestrials.com/images/trials/figaro-dkd-finerenona-reduce-eventos-cardiovasculares-diabetes-tipo-2-enfermedad-renal-4x3.jpg",
+      "https://resumenestrials.com/images/trials/figaro-dkd-finerenona-reduce-eventos-cardiovasculares-diabetes-tipo-2-enfermedad-renal-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si la finerenona, en comparación con placebo, reduce el riesgo de eventos cardiovasculares mayores en pacientes con diabetes tipo 2 y enfermedad renal crónica en estadios 1 a 4 con albuminuria.",
+      "answer": "La finerenona redujo el desenlace cardiovascular compuesto frente a placebo ( 12.4% frente a 14.2% ; HR 0.87; IC 95%, 0.76-0.98; P=0.03), un beneficio impulsado sobre todo por menos hospitalizaciones por insuficiencia cardiaca (HR 0.71; IC 95%, 0.56-0.90), a costa de más hiperpotasemia (10.8% frente a 5.3%).",
+      "population": "La población fueron adultos con diabetes tipo 2 y enfermedad renal crónica reclutados en 48 países, de raza mayoritariamente blanca (71.8%), con un 19.8% de raza asiática, un 4.7% de otras razas y un 3.5% de raza negra, esta última con una representación reducida que limita la posibilidad de generalizar los hallazgos a esa población. Podían participar quienes tuvieran un cociente albúmina-creatinina en orina de entre 30 y…"
+    }
+  },
+  "59": {
+    "slug": "emperor-reduced-empagliflozina-reduce-hospitalizaciones-insuficiencia-cardiaca",
+    "path": "/trials/emperor-reduced-empagliflozina-reduce-hospitalizaciones-insuficiencia-cardiaca/",
+    "url": "https://resumenestrials.com/trials/emperor-reduced-empagliflozina-reduce-hospitalizaciones-insuficiencia-cardiaca/",
+    "title": "EMPEROR-Reduced: la empagliflozina reduce las hospitalizaciones por insuficiencia cardíaca",
+    "seo_title": "EMPEROR-Reduced trial: la empagliflozina reduce las hospitalizaciones por insuficiencia cardíaca | Resúmenes Trials",
+    "description": "EMPEROR-Reduced: La empagliflozina redujo el desenlace compuesto de muerte cardiovascular u hospitalización por insuficiencia cardíaca frente a placebo (…",
+    "clusters": [],
+    "images": [
+      "https://resumenestrials.com/images/trials/emperor-reduced-empagliflozina-reduce-hospitalizaciones-insuficiencia-cardiaca-16x9.jpg",
+      "https://resumenestrials.com/images/trials/emperor-reduced-empagliflozina-reduce-hospitalizaciones-insuficiencia-cardiaca-4x3.jpg",
+      "https://resumenestrials.com/images/trials/emperor-reduced-empagliflozina-reduce-hospitalizaciones-insuficiencia-cardiaca-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si la empagliflozina, añadida al tratamiento estándar, reduce el riesgo combinado de muerte cardiovascular u hospitalización por insuficiencia cardíaca, frente a placebo, en pacientes con insuficiencia cardíaca crónica y fracción de eyección del 40% o menos, con o sin diabetes.",
+      "answer": "La empagliflozina redujo el desenlace compuesto de muerte cardiovascular u hospitalización por insuficiencia cardíaca frente a placebo ( 19.4% frente a 24.7% ; HR 0.75; IC 95%, 0.65-0.86; P 10.0% frente a 10.8% ; HR 0.92; IC 95%, 0.75-1.12).",
+      "population": "La población reclutada fueron adultos con insuficiencia cardíaca crónica en clase funcional II, III o IV de la New York Heart Association y fracción de eyección del ventrículo izquierdo del 40% o menos, con o sin diabetes, procedentes de centros de Norteamérica, Latinoamérica, Europa y Asia; en cuanto a la raza, siete de cada diez pacientes se identificaron como blancos, cerca de uno de cada seis como asiáticos y una minoría…"
+    }
+  },
+  "60": {
+    "slug": "icu-rox-oxigenoterapia-conservadora-no-mejora-dias-libres-ventilador",
+    "path": "/trials/icu-rox-oxigenoterapia-conservadora-no-mejora-dias-libres-ventilador/",
+    "url": "https://resumenestrials.com/trials/icu-rox-oxigenoterapia-conservadora-no-mejora-dias-libres-ventilador/",
+    "title": "ICU-ROX: la oxigenoterapia conservadora no mejora los días libres de ventilador",
+    "seo_title": "ICU-ROX trial: la oxigenoterapia conservadora no mejora los días libres de ventilador | Resúmenes Trials",
+    "description": "ICU-ROX: La oxigenoterapia conservadora no mostró diferencia frente a la habitual en los días libres de ventilador (mediana de 21.3 frente a 22.1 días…",
+    "clusters": [],
+    "images": [
+      "https://resumenestrials.com/images/trials/icu-rox-oxigenoterapia-conservadora-no-mejora-dias-libres-ventilador-16x9.jpg",
+      "https://resumenestrials.com/images/trials/icu-rox-oxigenoterapia-conservadora-no-mejora-dias-libres-ventilador-4x3.jpg",
+      "https://resumenestrials.com/images/trials/icu-rox-oxigenoterapia-conservadora-no-mejora-dias-libres-ventilador-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si la oxigenoterapia conservadora aumenta el número de días libres de ventilador a los 28 días, en comparación con la oxigenoterapia habitual, en adultos que requieren ventilación mecánica en la unidad de cuidados intensivos.",
+      "answer": "La oxigenoterapia conservadora no mostró diferencia frente a la habitual en los días libres de ventilador (mediana de 21.3 frente a 22.1 días ; diferencia -0.3; IC 95%, -2.1 a 1.6; P=0.80), ni en la mortalidad a 180 días ( 35.7% frente a 34.5% ; OR 1.05; IC 95%, 0.81-1.37).",
+      "population": "La población fueron adultos de 18 años o más ingresados en unidades de cuidados intensivos de Australia y Nueva Zelanda con expectativa de requerir ventilación mecánica más allá del día siguiente al reclutamiento; la raza o etnia de los participantes no se reportó en el artículo."
+    }
+  },
+  "61": {
+    "slug": "declare-timi-58-dapagliflozina-no-reduce-eventos-cardiovasculares-mayores-pero-si-evita",
+    "path": "/trials/declare-timi-58-dapagliflozina-no-reduce-eventos-cardiovasculares-mayores-pero-si-evita/",
+    "url": "https://resumenestrials.com/trials/declare-timi-58-dapagliflozina-no-reduce-eventos-cardiovasculares-mayores-pero-si-evita/",
+    "title": "DECLARE-TIMI 58: la dapagliflozina no reduce los eventos cardiovasculares mayores, pero sí evita hospitalizaciones por insuficiencia cardiaca",
+    "seo_title": "DECLARE-TIMI 58 trial: la dapagliflozina no reduce los eventos cardiovasculares mayores, pero sí evita hospitalizaciones por insuficiencia cardiaca | Resúmenes Trials",
+    "description": "DECLARE-TIMI 58: Dapagliflozina fue no inferior a placebo en eventos cardiovasculares mayores ( 8.8% frente a 9.4% ; HR 0.93; IC 95%, 0.84-1.03; P=0.17), pero…",
+    "clusters": [],
+    "images": [
+      "https://resumenestrials.com/images/trials/declare-timi-58-dapagliflozina-no-reduce-eventos-cardiovasculares-mayores-pero-si-evita-16x9.jpg",
+      "https://resumenestrials.com/images/trials/declare-timi-58-dapagliflozina-no-reduce-eventos-cardiovasculares-mayores-pero-si-evita-4x3.jpg",
+      "https://resumenestrials.com/images/trials/declare-timi-58-dapagliflozina-no-reduce-eventos-cardiovasculares-mayores-pero-si-evita-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Evaluar la seguridad cardiovascular y la eficacia de la dapagliflozina, frente a placebo, sobre los eventos cardiovasculares mayores y sobre la combinación de muerte cardiovascular u hospitalización por insuficiencia cardiaca, en pacientes con diabetes tipo 2 que tenían o estaban en riesgo de enfermedad cardiovascular aterosclerótica.",
+      "answer": "Dapagliflozina fue no inferior a placebo en eventos cardiovasculares mayores ( 8.8% frente a 9.4% ; HR 0.93; IC 95%, 0.84-1.03; P=0.17), pero redujo la combinación de muerte cardiovascular u hospitalización por insuficiencia cardiaca ( 4.9% frente a 5.8% ; HR 0.83; IC 95%, 0.73-0.95; P=0.005), a expensas de menos…",
+      "population": "La población fueron adultos de 40 años o más con diabetes tipo 2, con hemoglobina glucosilada de entre 6.5% y 12.0% y función renal preservada, con aclaramiento de creatinina de 60 ml por minuto o más, que tenían enfermedad cardiovascular aterosclerótica establecida o bien múltiples factores de riesgo para desarrollarla. La mayoría de los participantes eran de raza blanca, cerca de 8 de cada 10, autoinformada por el propio…"
+    }
+  },
+  "62": {
+    "slug": "deliver-dapagliflozina-reduce-empeoramiento-insuficiencia-cardiaca-fraccion-eyeccion-mayor-40",
+    "path": "/trials/deliver-dapagliflozina-reduce-empeoramiento-insuficiencia-cardiaca-fraccion-eyeccion-mayor-40/",
+    "url": "https://resumenestrials.com/trials/deliver-dapagliflozina-reduce-empeoramiento-insuficiencia-cardiaca-fraccion-eyeccion-mayor-40/",
+    "title": "DELIVER: la dapagliflozina reduce el empeoramiento de la insuficiencia cardiaca con fracción de eyección mayor del 40%",
+    "seo_title": "DELIVER trial: la dapagliflozina reduce el empeoramiento de la insuficiencia cardiaca con fracción de eyección mayor del 40% | Resúmenes Trials",
+    "description": "DELIVER: Dapagliflozina redujo el desenlace combinado de empeoramiento de la insuficiencia cardiaca o muerte cardiovascular frente a placebo ( 16.4% frente a…",
+    "clusters": [],
+    "images": [
+      "https://resumenestrials.com/images/trials/deliver-dapagliflozina-reduce-empeoramiento-insuficiencia-cardiaca-fraccion-eyeccion-mayor-40-16x9.jpg",
+      "https://resumenestrials.com/images/trials/deliver-dapagliflozina-reduce-empeoramiento-insuficiencia-cardiaca-fraccion-eyeccion-mayor-40-4x3.jpg",
+      "https://resumenestrials.com/images/trials/deliver-dapagliflozina-reduce-empeoramiento-insuficiencia-cardiaca-fraccion-eyeccion-mayor-40-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si la dapagliflozina, añadida al tratamiento habitual, reduce el riesgo combinado de empeoramiento de la insuficiencia cardiaca o muerte cardiovascular en pacientes con insuficiencia cardiaca y fracción de eyección mayor del 40%, en comparación con placebo.",
+      "answer": "Dapagliflozina redujo el desenlace combinado de empeoramiento de la insuficiencia cardiaca o muerte cardiovascular frente a placebo ( 16.4% frente a 19.5% ; HR 0.82; IC 95%, 0.73-0.92; P<0.001), un beneficio impulsado sobre todo por menos hospitalizaciones por insuficiencia cardiaca.",
+      "population": "La población fueron adultos de 40 años o más con insuficiencia cardiaca crónica sintomática, en clase funcional II a IV de la New York Heart Association, con una fracción de eyección del ventrículo izquierdo mayor del 40%, evidencia de cardiopatía estructural y péptido natriurético elevado, con o sin diabetes tipo 2 asociada. La mayoría de los participantes eran de raza blanca, cerca de 7 de cada 10 según lo informado por los…"
+    }
+  },
+  "63": {
+    "slug": "everdac-diferir-cateter-arterial-shock-es-tan-seguro-como-colocarlo",
+    "path": "/trials/everdac-diferir-cateter-arterial-shock-es-tan-seguro-como-colocarlo/",
+    "url": "https://resumenestrials.com/trials/everdac-diferir-cateter-arterial-shock-es-tan-seguro-como-colocarlo/",
+    "title": "EVERDAC: diferir el catéter arterial en el shock es tan seguro como colocarlo de inmediato",
+    "seo_title": "EVERDAC trial: diferir el catéter arterial en el shock es tan seguro como colocarlo de inmediato | Resúmenes Trials",
+    "description": "EVERDAC: Diferir la cateterización arterial fue no inferior a la inserción temprana en la mortalidad a 28 días ( 34.3% frente a 36.9% ; diferencia de riesgo…",
+    "clusters": [],
+    "images": [
+      "https://resumenestrials.com/images/trials/everdac-diferir-cateter-arterial-shock-es-tan-seguro-como-colocarlo-16x9.jpg",
+      "https://resumenestrials.com/images/trials/everdac-diferir-cateter-arterial-shock-es-tan-seguro-como-colocarlo-4x3.jpg",
+      "https://resumenestrials.com/images/trials/everdac-diferir-cateter-arterial-shock-es-tan-seguro-como-colocarlo-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si diferir la inserción de un catéter arterial, sustituyéndola por monitorización no invasiva con manguito braquial automatizado, es no inferior a la inserción arterial temprana en cuanto a mortalidad por cualquier causa a 28 días en pacientes críticos con shock.",
+      "answer": "Diferir la cateterización arterial fue no inferior a la inserción temprana en la mortalidad a 28 días ( 34.3% frente a 36.9% ; diferencia de riesgo ajustada, -3.2 puntos porcentuales; IC 95%, -8.9 a 2.5; P=0.006 para no inferioridad), con muchos menos hematomas o hemorragias relacionados con el catéter ( 1.0% frente a 8.2%…",
+      "population": "La población fueron adultos mayores de 18 años ingresados en la unidad de cuidados intensivos con menos de 24 horas de evolución de un shock, definido por hipotensión persistente (presión sistólica menor de 90 mmHg o presión arterial media menor de 65 mmHg) durante más de 15 minutos, o por el inicio de vasopresores, junto con al menos un signo de hipoperfusión tisular. Todos los pacientes fueron reclutados en Francia, en nueve…"
+    }
+  },
+  "64": {
+    "slug": "recovery-dexametasona-reduce-mortalidad-covid-19-grave-pero-no-oxigeno",
+    "path": "/trials/recovery-dexametasona-reduce-mortalidad-covid-19-grave-pero-no-oxigeno/",
+    "url": "https://resumenestrials.com/trials/recovery-dexametasona-reduce-mortalidad-covid-19-grave-pero-no-oxigeno/",
+    "title": "RECOVERY: la dexametasona reduce la mortalidad en Covid-19 grave, pero no sin oxígeno",
+    "seo_title": "RECOVERY trial: la dexametasona reduce la mortalidad en Covid-19 grave, pero no sin oxígeno | Resúmenes Trials",
+    "description": "RECOVERY: La dexametasona redujo la mortalidad a 28 días frente al tratamiento habitual ( 22.9% frente a 25.7% ; razón de tasas ajustada por edad, 0.83; IC…",
+    "clusters": [],
+    "images": [
+      "https://resumenestrials.com/images/trials/recovery-dexametasona-reduce-mortalidad-covid-19-grave-pero-no-oxigeno-16x9.jpg",
+      "https://resumenestrials.com/images/trials/recovery-dexametasona-reduce-mortalidad-covid-19-grave-pero-no-oxigeno-4x3.jpg",
+      "https://resumenestrials.com/images/trials/recovery-dexametasona-reduce-mortalidad-covid-19-grave-pero-no-oxigeno-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Evaluar si la dexametasona oral o intravenosa, comparada con el tratamiento habitual, reduce la mortalidad por cualquier causa a 28 días en pacientes hospitalizados por Covid-19.",
+      "answer": "La dexametasona redujo la mortalidad a 28 días frente al tratamiento habitual ( 22.9% frente a 25.7% ; razón de tasas ajustada por edad, 0.83; IC 95%, 0.75-0.93; P 29.3% frente a 41.4% ) y sin beneficio demostrado en quienes no recibían soporte respiratorio.",
+      "population": "La población fueron pacientes adultos hospitalizados por Covid-19 sospechada clínicamente o confirmada por laboratorio en 176 hospitales del Servicio Nacional de Salud del Reino Unido; inicialmente se exigía al menos 18 años, límite que se eliminó a partir del 9 de mayo de 2020, y se permitió incluir a mujeres embarazadas o en lactancia. El 74% de los pacientes analizados era de raza blanca y el 18% pertenecía a un grupo…"
+    }
+  },
+  "65": {
+    "slug": "mends2-dexmedetomidina-no-supera-propofol-sedacion-pacientes-sepsis",
+    "path": "/trials/mends2-dexmedetomidina-no-supera-propofol-sedacion-pacientes-sepsis/",
+    "url": "https://resumenestrials.com/trials/mends2-dexmedetomidina-no-supera-propofol-sedacion-pacientes-sepsis/",
+    "title": "MENDS2: la dexmedetomidina no supera al propofol en la sedación de pacientes con sepsis",
+    "seo_title": "MENDS2 trial: la dexmedetomidina no supera al propofol en la sedación de pacientes con sepsis | Resúmenes Trials",
+    "description": "MENDS2: La dexmedetomidina no ofreció ventaja sobre el propofol en los días vivos sin delirio ni coma (mediana ajustada de 10.7 frente a 10.8 días ; razón de…",
+    "clusters": [],
+    "images": [
+      "https://resumenestrials.com/images/trials/mends2-dexmedetomidina-no-supera-propofol-sedacion-pacientes-sepsis-16x9.jpg",
+      "https://resumenestrials.com/images/trials/mends2-dexmedetomidina-no-supera-propofol-sedacion-pacientes-sepsis-4x3.jpg",
+      "https://resumenestrials.com/images/trials/mends2-dexmedetomidina-no-supera-propofol-sedacion-pacientes-sepsis-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si la sedación con dexmedetomidina, en comparación con propofol, aumenta el número de días vivos sin delirio ni coma durante los primeros 14 días de ventilación mecánica en adultos con sepsis tratados con estrategias de sedación ligera.",
+      "answer": "La dexmedetomidina no ofreció ventaja sobre el propofol en los días vivos sin delirio ni coma (mediana ajustada de 10.7 frente a 10.8 días ; razón de momios 0.96; IC 95%, 0.74-1.26; P=0.79), ni en la mortalidad a 90 días ( 38% frente a 39% ; HR 1.06; IC 95%, 0.74-1.52).",
+      "population": "Se incluyeron adultos ingresados de forma consecutiva en una unidad de cuidados intensivos médica o quirúrgica de Estados Unidos, con infección sospechada o confirmada, que requerían ventilación mecánica invasiva con sedación continua; la raza o grupo étnico fue documentado por el paciente o el médico tratante, con predominio de pacientes de raza blanca."
+    }
+  },
+  "66": {
+    "slug": "digit-hf-digitoxin-reduce-riesgo-combinado-muerte-u-hospitalizacion-insuficiencia-cardiaca",
+    "path": "/trials/digit-hf-digitoxin-reduce-riesgo-combinado-muerte-u-hospitalizacion-insuficiencia-cardiaca/",
+    "url": "https://resumenestrials.com/trials/digit-hf-digitoxin-reduce-riesgo-combinado-muerte-u-hospitalizacion-insuficiencia-cardiaca/",
+    "title": "DIGIT-HF: el digitoxin reduce el riesgo combinado de muerte u hospitalización por insuficiencia cardiaca",
+    "seo_title": "DIGIT-HF trial: el digitoxin reduce el riesgo combinado de muerte u hospitalización por insuficiencia cardiaca | Resúmenes Trials",
+    "description": "DIGIT-HF: El digitoxin redujo el riesgo combinado de muerte por cualquier causa u hospitalización por insuficiencia cardiaca frente a placebo ( 39.5% frente a…",
+    "clusters": [
+      {
+        "name": "Cardiología y prevención cardiovascular",
+        "path": "/medicina-interna/cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-interna/cardiovascular/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/digit-hf-digitoxin-reduce-riesgo-combinado-muerte-u-hospitalizacion-insuficiencia-cardiaca-16x9.jpg",
+      "https://resumenestrials.com/images/trials/digit-hf-digitoxin-reduce-riesgo-combinado-muerte-u-hospitalizacion-insuficiencia-cardiaca-4x3.jpg",
+      "https://resumenestrials.com/images/trials/digit-hf-digitoxin-reduce-riesgo-combinado-muerte-u-hospitalizacion-insuficiencia-cardiaca-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Evaluar si el digitoxin, añadido al tratamiento médico dirigido por guías, reduce el riesgo combinado de muerte por cualquier causa u hospitalización por insuficiencia cardiaca en pacientes con insuficiencia cardiaca crónica y fracción de eyección reducida, en comparación con placebo.",
+      "answer": "El digitoxin redujo el riesgo combinado de muerte por cualquier causa u hospitalización por insuficiencia cardiaca frente a placebo ( 39.5% frente a 44.1% ; HR 0.82; IC 95%, 0.69-0.98; P=0.03), sin diferencia significativa en la mortalidad aislada ( 27.2% frente a 29.5% ; HR 0.86; IC 95%, 0.69-1.07).",
+      "population": "Se incluyeron adultos con insuficiencia cardiaca crónica sintomática y fracción de eyección del ventrículo izquierdo del 40% o menos con clase funcional III o IV de la New York Heart Association, o del 30% o menos con clase funcional II, que ya recibían tratamiento basado en evidencia para insuficiencia cardiaca durante al menos 6 meses, reclutados en 65 centros de Alemania, Austria y Serbia. El artículo no reporta la raza o…"
+    }
+  },
+  "67": {
+    "slug": "box-fiebre-prolongar-prevencion-fiebre-tras-paro-cardiaco-no-cambia-pronostico",
+    "path": "/trials/box-fiebre-prolongar-prevencion-fiebre-tras-paro-cardiaco-no-cambia-pronostico/",
+    "url": "https://resumenestrials.com/trials/box-fiebre-prolongar-prevencion-fiebre-tras-paro-cardiaco-no-cambia-pronostico/",
+    "title": "BOX (fiebre): prolongar la prevención de fiebre tras un paro cardiaco no cambia el pronóstico",
+    "seo_title": "BOX (fiebre) trial: prolongar la prevención de fiebre tras un paro cardiaco no cambia el pronóstico | Resúmenes Trials",
+    "description": "BOX (fiebre): Prolongar la prevención de fiebre hasta 72 horas no redujo la muerte ni la discapacidad cerebral grave a los 90 días frente a 36 horas ( 33.6%…",
+    "clusters": [],
+    "images": [
+      "https://resumenestrials.com/images/trials/box-fiebre-prolongar-prevencion-fiebre-tras-paro-cardiaco-no-cambia-pronostico-16x9.jpg",
+      "https://resumenestrials.com/images/trials/box-fiebre-prolongar-prevencion-fiebre-tras-paro-cardiaco-no-cambia-pronostico-4x3.jpg",
+      "https://resumenestrials.com/images/trials/box-fiebre-prolongar-prevencion-fiebre-tras-paro-cardiaco-no-cambia-pronostico-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si prolongar el control activo de la fiebre mediante dispositivo hasta 72 horas, en comparación con 36 horas, reduce la muerte o la discapacidad cerebral grave a los 90 días en pacientes comatosos reanimados tras un paro cardiaco extrahospitalario de causa presuntamente cardiaca.",
+      "answer": "Prolongar la prevención de fiebre hasta 72 horas no redujo la muerte ni la discapacidad cerebral grave a los 90 días frente a 36 horas ( 33.6% frente a 32.3% ; HR 0.99; IC 95%, 0.77-1.26; P=0.70), aunque sí redujo la proporción de pacientes con temperatura mayor de 37.7 grados ( 38.1% frente a 50.1% ; RR 1.28; IC 95%…",
+      "population": "Los participantes fueron adultos que permanecían en coma al ingreso hospitalario tras la reanimación de un paro cardiaco extrahospitalario de causa presuntamente cardiaca, reclutados en dos centros daneses; el artículo no reporta datos de raza o etnia, en línea con la normativa danesa de protección de datos que restringe su recolección (No reportado por normativa)."
+    }
+  },
+  "68": {
+    "slug": "rose-bloqueo-neuromuscular-temprano-sdra-no-reduce-mortalidad",
+    "path": "/trials/rose-bloqueo-neuromuscular-temprano-sdra-no-reduce-mortalidad/",
+    "url": "https://resumenestrials.com/trials/rose-bloqueo-neuromuscular-temprano-sdra-no-reduce-mortalidad/",
+    "title": "ROSE: el bloqueo neuromuscular temprano en el SDRA no reduce la mortalidad",
+    "seo_title": "ROSE trial: el bloqueo neuromuscular temprano en el SDRA no reduce la mortalidad | Resúmenes Trials",
+    "description": "ROSE: El bloqueo neuromuscular temprano no redujo la mortalidad hospitalaria a los 90 días frente a la atención habitual ( 42.8% frente a 42.5% ; diferencia…",
+    "clusters": [],
+    "images": [
+      "https://resumenestrials.com/images/trials/rose-bloqueo-neuromuscular-temprano-sdra-no-reduce-mortalidad-16x9.jpg",
+      "https://resumenestrials.com/images/trials/rose-bloqueo-neuromuscular-temprano-sdra-no-reduce-mortalidad-4x3.jpg",
+      "https://resumenestrials.com/images/trials/rose-bloqueo-neuromuscular-temprano-sdra-no-reduce-mortalidad-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si la infusión temprana y continua de cisatracurio durante 48 horas, con sedación profunda concomitante, reduce la mortalidad hospitalaria a los 90 días en comparación con una estrategia habitual sin bloqueo neuromuscular sistemático y con sedación más ligera, en pacientes con síndrome de dificultad respiratoria aguda moderado a grave.",
+      "answer": "El bloqueo neuromuscular temprano no redujo la mortalidad hospitalaria a los 90 días frente a la atención habitual ( 42.8% frente a 42.5% ; diferencia, -0.3 puntos porcentuales; IC 95%, -6.4 a 5.9; P=0.93), y se asoció con más eventos cardiovasculares graves ( 14 frente a 4 eventos ; P=0.02).",
+      "population": "La población fueron adultos bajo ventilación mecánica invasiva, reclutados en 48 hospitales de Estados Unidos, con síndrome de dificultad respiratoria aguda moderado a grave, definido por una razón entre la presión parcial de oxígeno arterial y la fracción inspirada de oxígeno menor de 150 mmHg con una presión positiva al final de la espiración de al menos 8 cm de agua durante menos de 48 horas; el artículo reporta que el…"
+    }
+  },
+  "69": {
+    "slug": "clovers-restringir-fluidos-priorizar-vasopresores-no-cambia-mortalidad-hipotension-septica",
+    "path": "/trials/clovers-restringir-fluidos-priorizar-vasopresores-no-cambia-mortalidad-hipotension-septica/",
+    "url": "https://resumenestrials.com/trials/clovers-restringir-fluidos-priorizar-vasopresores-no-cambia-mortalidad-hipotension-septica/",
+    "title": "CLOVERS: restringir fluidos o priorizar vasopresores no cambia la mortalidad en la hipotensión séptica",
+    "seo_title": "CLOVERS trial: restringir fluidos o priorizar vasopresores no cambia la mortalidad en la hipotensión séptica | Resúmenes Trials",
+    "description": "CLOVERS: La estrategia restrictiva de fluidos con vasopresores tempranos no redujo la mortalidad a 90 días frente a la estrategia liberal ( 14.0% frente a…",
+    "clusters": [],
+    "images": [
+      "https://resumenestrials.com/images/trials/clovers-restringir-fluidos-priorizar-vasopresores-no-cambia-mortalidad-hipotension-septica-16x9.jpg",
+      "https://resumenestrials.com/images/trials/clovers-restringir-fluidos-priorizar-vasopresores-no-cambia-mortalidad-hipotension-septica-4x3.jpg",
+      "https://resumenestrials.com/images/trials/clovers-restringir-fluidos-priorizar-vasopresores-no-cambia-mortalidad-hipotension-septica-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si una estrategia restrictiva de fluidos con vasopresores tempranos reduce la mortalidad por cualquier causa antes del alta a domicilio a los 90 días, en comparación con una estrategia liberal de fluidos, en pacientes con hipotensión inducida por sepsis.",
+      "answer": "La estrategia restrictiva de fluidos con vasopresores tempranos no redujo la mortalidad a 90 días frente a la estrategia liberal ( 14.0% frente a 14.9% ; diferencia -0.9 puntos porcentuales; IC 95%, -4.4 a 2.6; P=0.61), pese a lograr una separación clara en el volumen de líquidos y el uso de vasopresores entre ambos grupos.",
+      "population": "La población fueron adultos de 18 años o más, con infección sospechada o confirmada e hipotensión inducida por sepsis, definida como presión arterial sistólica menor de 100 mmHg o presión arterial media menor de 65 mmHg tras recibir al menos 1 litro de cristaloide intravenoso, siempre que la hipotensión persistiera pese a haber recibido entre 1 y 3 litros de fluido y hubiera transcurrido menos de 4 horas desde que se cumplió…"
+    }
+  },
+  "70": {
+    "slug": "epanic-retrasar-nutricion-parenteral-octavo-dia-reduce-infecciones-acorta-estancia",
+    "path": "/trials/epanic-retrasar-nutricion-parenteral-octavo-dia-reduce-infecciones-acorta-estancia/",
+    "url": "https://resumenestrials.com/trials/epanic-retrasar-nutricion-parenteral-octavo-dia-reduce-infecciones-acorta-estancia/",
+    "title": "EPaNIC: retrasar la nutrición parenteral hasta el octavo día reduce las infecciones y acorta la estancia en cuidados intensivos",
+    "seo_title": "EPaNIC trial: retrasar la nutrición parenteral hasta el octavo día reduce las infecciones y acorta la estancia en cuidados intensivos | Resúmenes Trials",
+    "description": "EPaNIC: Retrasar la nutrición parenteral hasta el octavo día redujo la estancia en cuidados intensivos (mediana de 3 frente a 4 días ; HR 1.06; IC 95%…",
+    "clusters": [],
+    "images": [
+      "https://resumenestrials.com/images/trials/epanic-retrasar-nutricion-parenteral-octavo-dia-reduce-infecciones-acorta-estancia-16x9.jpg",
+      "https://resumenestrials.com/images/trials/epanic-retrasar-nutricion-parenteral-octavo-dia-reduce-infecciones-acorta-estancia-4x3.jpg",
+      "https://resumenestrials.com/images/trials/epanic-retrasar-nutricion-parenteral-octavo-dia-reduce-infecciones-acorta-estancia-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si iniciar la nutrición parenteral de forma tardía, a partir del octavo día de estancia en la unidad de cuidados intensivos, es clínicamente superior a iniciarla de forma temprana dentro de las primeras 48 horas, en adultos críticamente enfermos con riesgo nutricional que no cubren sus necesidades calóricas solo con nutrición enteral.",
+      "answer": "Retrasar la nutrición parenteral hasta el octavo día redujo la estancia en cuidados intensivos (mediana de 3 frente a 4 días ; HR 1.06; IC 95%, 1.00-1.13; P=0.04) y las infecciones adquiridas en la unidad ( 22.8% frente a 26.2% ; P=0.008), sin diferencias en la mortalidad.",
+      "population": "La población fueron adultos ingresados en siete unidades de cuidados intensivos de dos centros belgas, con riesgo nutricional significativo según el puntaje de tamizaje de riesgo nutricional, una escala de 1 a 7 en la que una puntuación de 3 o más indica riesgo nutricional relevante, y que no estaban crónicamente desnutridos, definido como un índice de masa corporal de al menos 17. La raza o el grupo étnico de los…"
+    }
+  },
+  "71": {
+    "slug": "exscel-exenatide-semanal-es-seguro-nivel-cardiovascular-pero-no-reduce",
+    "path": "/trials/exscel-exenatide-semanal-es-seguro-nivel-cardiovascular-pero-no-reduce/",
+    "url": "https://resumenestrials.com/trials/exscel-exenatide-semanal-es-seguro-nivel-cardiovascular-pero-no-reduce/",
+    "title": "EXSCEL: el exenatide semanal es seguro a nivel cardiovascular, pero no reduce los eventos mayores frente a placebo",
+    "seo_title": "EXSCEL trial: el exenatide semanal es seguro a nivel cardiovascular, pero no reduce los eventos mayores frente a placebo | Resúmenes Trials",
+    "description": "EXSCEL: El exenatide semanal fue no inferior a placebo en seguridad cardiovascular ( 11.4% frente a 12.2% de eventos; HR 0.91; IC 95%, 0.83-1.00; P<0.001 para…",
+    "clusters": [],
+    "images": [
+      "https://resumenestrials.com/images/trials/exscel-exenatide-semanal-es-seguro-nivel-cardiovascular-pero-no-reduce-16x9.jpg",
+      "https://resumenestrials.com/images/trials/exscel-exenatide-semanal-es-seguro-nivel-cardiovascular-pero-no-reduce-4x3.jpg",
+      "https://resumenestrials.com/images/trials/exscel-exenatide-semanal-es-seguro-nivel-cardiovascular-pero-no-reduce-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si añadir exenatide de liberación prolongada semanal al tratamiento habitual, frente a placebo, es seguro y superior para reducir los eventos cardiovasculares mayores en pacientes con diabetes tipo 2 con o sin enfermedad cardiovascular previa.",
+      "answer": "El exenatide semanal fue no inferior a placebo en seguridad cardiovascular ( 11.4% frente a 12.2% de eventos; HR 0.91; IC 95%, 0.83-1.00; P<0.001 para no inferioridad), pero no demostró ser superior en eficacia (P=0.06 para superioridad).",
+      "population": "EXSCEL, acrónimo de Exenatide Study of Cardiovascular Event Lowering, buscó determinar si el exenatide de liberación prolongada, administrado una vez por semana, es seguro y superior a placebo para reducir los eventos cardiovasculares mayores en personas con diabetes tipo 2. Incluyó adultos con hemoglobina glucosilada entre 6.5% y 10%, con o sin enfermedad cardiovascular previa, procedentes de 35 países; el diseño buscó que…"
+    }
+  },
+  "72": {
+    "slug": "empact-mi-empagliflozina-tras-infarto-agudo-no-reduce-insuficiencia-cardiaca-ni",
+    "path": "/trials/empact-mi-empagliflozina-tras-infarto-agudo-no-reduce-insuficiencia-cardiaca-ni/",
+    "url": "https://resumenestrials.com/trials/empact-mi-empagliflozina-tras-infarto-agudo-no-reduce-insuficiencia-cardiaca-ni/",
+    "title": "EMPACT-MI: la empagliflozina tras un infarto agudo no reduce la insuficiencia cardiaca ni la muerte",
+    "seo_title": "EMPACT-MI trial: la empagliflozina tras un infarto agudo no reduce la insuficiencia cardiaca ni la muerte | Resúmenes Trials",
+    "description": "EMPACT-MI: La empagliflozina no redujo de forma significativa el compuesto de hospitalización por insuficiencia cardiaca o muerte por cualquier causa frente a…",
+    "clusters": [],
+    "images": [
+      "https://resumenestrials.com/images/trials/empact-mi-empagliflozina-tras-infarto-agudo-no-reduce-insuficiencia-cardiaca-ni-16x9.jpg",
+      "https://resumenestrials.com/images/trials/empact-mi-empagliflozina-tras-infarto-agudo-no-reduce-insuficiencia-cardiaca-ni-4x3.jpg",
+      "https://resumenestrials.com/images/trials/empact-mi-empagliflozina-tras-infarto-agudo-no-reduce-insuficiencia-cardiaca-ni-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si la empagliflozina, iniciada dentro de los 14 días posteriores a un infarto agudo de miocardio en pacientes con riesgo de insuficiencia cardiaca, reduce la hospitalización por insuficiencia cardiaca o la muerte por cualquier causa frente a placebo.",
+      "answer": "La empagliflozina no redujo de forma significativa el compuesto de hospitalización por insuficiencia cardiaca o muerte por cualquier causa frente a placebo ( 8.2% frente a 9.1% ; HR 0.90; IC 95%, 0.76-1.06; P=0.21), aunque sí redujo por separado la hospitalización por insuficiencia cardiaca (3.6% frente a 4.7%; HR 0.77; IC 95%…",
+      "population": "EMPACT-MI buscó responder si la empagliflozina, un inhibidor del cotransportador sodio-glucosa tipo 2 con beneficio ya demostrado en insuficiencia cardiaca y enfermedad renal crónica, también protege a los pacientes en el periodo posterior a un infarto agudo de miocardio, un momento de alto riesgo de desarrollar insuficiencia cardiaca. Incluyó hombres y mujeres de 18 años o más, hospitalizados por infarto agudo de miocardio en…"
+    }
   }
 }
