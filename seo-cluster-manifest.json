@@ -4,13 +4,15 @@
     "category": "Medicina Crítica",
     "path": "/medicina-critica/sepsis-shock/",
     "url": "https://resumenestrials.com/medicina-critica/sepsis-shock/",
-    "count": 5,
+    "count": 7,
     "trial_ids": [
       "2",
       "9",
       "10",
       "20",
-      "46"
+      "46",
+      "52",
+      "65"
     ]
   },
   "ventilacion-respiratoria": {
@@ -18,7 +20,7 @@
     "category": "Medicina Crítica",
     "path": "/medicina-critica/ventilacion-respiratoria/",
     "url": "https://resumenestrials.com/medicina-critica/ventilacion-respiratoria/",
-    "count": 11,
+    "count": 14,
     "trial_ids": [
       "1",
       "3",
@@ -30,7 +32,23 @@
       "17",
       "25",
       "43",
-      "44"
+      "44",
+      "60",
+      "65",
+      "68"
+    ]
+  },
+  "sdra-ecmo": {
+    "name": "SDRA y ECMO",
+    "category": "Medicina Crítica",
+    "path": "/medicina-critica/sdra-ecmo/",
+    "url": "https://resumenestrials.com/medicina-critica/sdra-ecmo/",
+    "count": 4,
+    "trial_ids": [
+      "21",
+      "56",
+      "67",
+      "68"
     ]
   },
   "neurocriticos": {
@@ -38,11 +56,14 @@
     "category": "Medicina Crítica",
     "path": "/medicina-critica/neurocriticos/",
     "url": "https://resumenestrials.com/medicina-critica/neurocriticos/",
-    "count": 3,
+    "count": 6,
     "trial_ids": [
       "19",
       "40",
-      "45"
+      "45",
+      "56",
+      "67",
+      "68"
     ]
   },
   "renal-acido-base": {
@@ -50,13 +71,16 @@
     "category": "Medicina Crítica",
     "path": "/medicina-critica/renal-acido-base/",
     "url": "https://resumenestrials.com/medicina-critica/renal-acido-base/",
-    "count": 5,
+    "count": 8,
     "trial_ids": [
       "6",
       "9",
       "12",
       "21",
-      "46"
+      "46",
+      "52",
+      "53",
+      "55"
     ]
   },
   "hemodinamica-cardiovascular": {
@@ -64,10 +88,12 @@
     "category": "Medicina Crítica",
     "path": "/medicina-critica/hemodinamica-cardiovascular/",
     "url": "https://resumenestrials.com/medicina-critica/hemodinamica-cardiovascular/",
-    "count": 2,
+    "count": 4,
     "trial_ids": [
       "2",
-      "9"
+      "9",
+      "56",
+      "69"
     ]
   },
   "paro-resucitacion": {
@@ -75,11 +101,13 @@
     "category": "Medicina Crítica",
     "path": "/medicina-critica/paro-resucitacion/",
     "url": "https://resumenestrials.com/medicina-critica/paro-resucitacion/",
-    "count": 3,
+    "count": 5,
     "trial_ids": [
       "4",
       "23",
-      "24"
+      "24",
+      "56",
+      "67"
     ]
   },
   "infecciones-antibioticos": {
@@ -87,12 +115,13 @@
     "category": "Medicina Crítica",
     "path": "/medicina-critica/infecciones-antibioticos/",
     "url": "https://resumenestrials.com/medicina-critica/infecciones-antibioticos/",
-    "count": 4,
+    "count": 5,
     "trial_ids": [
       "7",
       "31",
       "43",
-      "44"
+      "44",
+      "70"
     ]
   },
   "cardiovascular": {
@@ -100,7 +129,7 @@
     "category": "Medicina Interna",
     "path": "/medicina-interna/cardiovascular/",
     "url": "https://resumenestrials.com/medicina-interna/cardiovascular/",
-    "count": 12,
+    "count": 19,
     "trial_ids": [
       "15",
       "18",
@@ -113,7 +142,14 @@
       "34",
       "36",
       "37",
-      "66"
+      "51",
+      "58",
+      "59",
+      "61",
+      "62",
+      "66",
+      "71",
+      "72"
     ]
   },
   "infecciosas": {
@@ -121,13 +157,15 @@
     "category": "Medicina Interna",
     "path": "/medicina-interna/infecciosas/",
     "url": "https://resumenestrials.com/medicina-interna/infecciosas/",
-    "count": 5,
+    "count": 7,
     "trial_ids": [
       "31",
       "32",
       "38",
       "43",
-      "49"
+      "49",
+      "50",
+      "64"
     ]
   },
   "renal-metabolica": {
@@ -135,10 +173,18 @@
     "category": "Medicina Interna",
     "path": "/medicina-interna/renal-metabolica/",
     "url": "https://resumenestrials.com/medicina-interna/renal-metabolica/",
-    "count": 2,
+    "count": 10,
     "trial_ids": [
       "35",
-      "46"
+      "46",
+      "51",
+      "54",
+      "57",
+      "58",
+      "59",
+      "61",
+      "71",
+      "72"
     ]
   },
   "neurologia": {
@@ -157,11 +203,13 @@
     "category": "Medicina Interna",
     "path": "/medicina-interna/neumologia/",
     "url": "https://resumenestrials.com/medicina-interna/neumologia/",
-    "count": 3,
+    "count": 5,
     "trial_ids": [
       "17",
       "43",
-      "49"
+      "49",
+      "50",
+      "64"
     ]
   }
 }

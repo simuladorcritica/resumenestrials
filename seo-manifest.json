@@ -531,6 +531,11 @@
     "description": "E-CRRT: La duración mediana del circuito no difirió: 72 frente a 71 horas (p=0.52). Tampoco cambiaron la mortalidad a 28 días (32.5% frente al 35%) ni los…",
     "clusters": [
       {
+        "name": "SDRA y ECMO",
+        "path": "/medicina-critica/sdra-ecmo/",
+        "url": "https://resumenestrials.com/medicina-critica/sdra-ecmo/"
+      },
+      {
         "name": "Renal y ácido-base",
         "path": "/medicina-critica/renal-acido-base/",
         "url": "https://resumenestrials.com/medicina-critica/renal-acido-base/"
@@ -1258,7 +1263,18 @@
     "title": "PlasmAr: el plasma convalesciente no mejora el estado clínico ni reduce la mortalidad en la neumonía grave por covid-19",
     "seo_title": "PlasmAr trial: el plasma convalesciente no mejora el estado clínico ni reduce la mortalidad en la neumonía grave por covid-19 | Resúmenes Trials",
     "description": "PlasmAr: El plasma convalesciente no mostró diferencia significativa frente al placebo en el estado clínico a los 30 días (razón de momios 0,83 ; IC 95%, 0,52…",
-    "clusters": [],
+    "clusters": [
+      {
+        "name": "Enfermedades infecciosas",
+        "path": "/medicina-interna/infecciosas/",
+        "url": "https://resumenestrials.com/medicina-interna/infecciosas/"
+      },
+      {
+        "name": "Neumología",
+        "path": "/medicina-interna/neumologia/",
+        "url": "https://resumenestrials.com/medicina-interna/neumologia/"
+      }
+    ],
     "images": [
       "https://resumenestrials.com/images/trials/plasmar-plasma-convalesciente-no-mejora-estado-clinico-ni-reduce-mortalidad-16x9.jpg",
       "https://resumenestrials.com/images/trials/plasmar-plasma-convalesciente-no-mejora-estado-clinico-ni-reduce-mortalidad-4x3.jpg",
@@ -1277,7 +1293,18 @@
     "title": "SPRINT: control intensivo versus estándar de la presión arterial sistólica",
     "seo_title": "SPRINT trial: control intensivo versus estándar de la presión arterial sistólica | Resúmenes Trials",
     "description": "SPRINT: El control intensivo de la presión sistólica redujo el desenlace cardiovascular combinado en un 25% (HR 0,75; IC95% 0,64 a 0,89; p 27% (HR 0,73; IC95%…",
-    "clusters": [],
+    "clusters": [
+      {
+        "name": "Cardiología y prevención cardiovascular",
+        "path": "/medicina-interna/cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-interna/cardiovascular/"
+      },
+      {
+        "name": "Renal y metabolismo",
+        "path": "/medicina-interna/renal-metabolica/",
+        "url": "https://resumenestrials.com/medicina-interna/renal-metabolica/"
+      }
+    ],
     "images": [
       "https://resumenestrials.com/images/trials/sprint-control-intensivo-versus-estandar-presion-arterial-sistolica-16x9.jpg",
       "https://resumenestrials.com/images/trials/sprint-control-intensivo-versus-estandar-presion-arterial-sistolica-4x3.jpg",
@@ -1296,7 +1323,18 @@
     "title": "ADRENAL: la hidrocortisona en el shock séptico no reduce la mortalidad a 90 días",
     "seo_title": "ADRENAL trial: la hidrocortisona en el shock séptico no reduce la mortalidad a 90 días | Resúmenes Trials",
     "description": "ADRENAL: La hidrocortisona no redujo la mortalidad a 90 días frente a placebo ( 27.9% frente a 28.8% ; OR 0.95; IC 95%, 0.82-1.10; P=0.50), aunque aceleró la…",
-    "clusters": [],
+    "clusters": [
+      {
+        "name": "Sepsis y shock",
+        "path": "/medicina-critica/sepsis-shock/",
+        "url": "https://resumenestrials.com/medicina-critica/sepsis-shock/"
+      },
+      {
+        "name": "Renal y ácido-base",
+        "path": "/medicina-critica/renal-acido-base/",
+        "url": "https://resumenestrials.com/medicina-critica/renal-acido-base/"
+      }
+    ],
     "images": [
       "https://resumenestrials.com/images/trials/adrenal-hidrocortisona-shock-septico-no-reduce-mortalidad-90-dias-16x9.jpg",
       "https://resumenestrials.com/images/trials/adrenal-hidrocortisona-shock-septico-no-reduce-mortalidad-90-dias-4x3.jpg",
@@ -1315,7 +1353,13 @@
     "title": "SMART: cristaloides balanceados frente a solución salina en adultos críticamente enfermos",
     "seo_title": "SMART trial: cristaloides balanceados frente a solución salina en adultos críticamente enfermos | Resúmenes Trials",
     "description": "SMART: El uso de cristaloides balanceados se asoció con una menor incidencia del criterio compuesto MAKE30 (muerte, nueva terapia de reemplazo renal o…",
-    "clusters": [],
+    "clusters": [
+      {
+        "name": "Renal y ácido-base",
+        "path": "/medicina-critica/renal-acido-base/",
+        "url": "https://resumenestrials.com/medicina-critica/renal-acido-base/"
+      }
+    ],
     "images": [
       "https://resumenestrials.com/images/trials/smart-cristaloides-balanceados-solucion-salina-adultos-criticamente-enfermos-16x9.jpg",
       "https://resumenestrials.com/images/trials/smart-cristaloides-balanceados-solucion-salina-adultos-criticamente-enfermos-4x3.jpg",
@@ -1334,7 +1378,13 @@
     "title": "SALT-ED: cristaloides balanceados frente a solución salina en adultos no críticamente enfermos",
     "seo_title": "SALT-ED trial: cristaloides balanceados frente a solución salina en adultos no críticamente enfermos | Resúmenes Trials",
     "description": "SALT-ED: Los cristaloides balanceados no aumentaron los días libres de hospital frente a la solución salina (mediana de 25 días en ambos grupos; odds ratio…",
-    "clusters": [],
+    "clusters": [
+      {
+        "name": "Renal y metabolismo",
+        "path": "/medicina-interna/renal-metabolica/",
+        "url": "https://resumenestrials.com/medicina-interna/renal-metabolica/"
+      }
+    ],
     "images": [
       "https://resumenestrials.com/images/trials/salt-ed-cristaloides-balanceados-solucion-salina-adultos-no-criticamente-enfermos-16x9.jpg",
       "https://resumenestrials.com/images/trials/salt-ed-cristaloides-balanceados-solucion-salina-adultos-no-criticamente-enfermos-4x3.jpg",
@@ -1353,7 +1403,13 @@
     "title": "PLUS: solución multielectrolítica balanceada frente a solución salina en adultos críticamente enfermos",
     "seo_title": "PLUS trial: solución multielectrolítica balanceada frente a solución salina en adultos críticamente enfermos | Resúmenes Trials",
     "description": "PLUS: La mortalidad a 90 días fue prácticamente idéntica con la solución balanceada y con el salino ( 21.8% frente a 22.0% ; diferencia absoluta -0.15 puntos…",
-    "clusters": [],
+    "clusters": [
+      {
+        "name": "Renal y ácido-base",
+        "path": "/medicina-critica/renal-acido-base/",
+        "url": "https://resumenestrials.com/medicina-critica/renal-acido-base/"
+      }
+    ],
     "images": [
       "https://resumenestrials.com/images/trials/plus-solucion-multielectrolitica-balanceada-solucion-salina-adultos-criticamente-enfermos-16x9.jpg",
       "https://resumenestrials.com/images/trials/plus-solucion-multielectrolitica-balanceada-solucion-salina-adultos-criticamente-enfermos-4x3.jpg",
@@ -1372,7 +1428,28 @@
     "title": "BOX: objetivos de presión arterial media tras un paro cardiaco en pacientes comatosos",
     "seo_title": "BOX trial: objetivos de presión arterial media tras un paro cardiaco en pacientes comatosos | Resúmenes Trials",
     "description": "BOX: El objetivo de presión arterial media alto (77 mmHg) no redujo la combinación de muerte o discapacidad neurológica grave frente al objetivo bajo (63…",
-    "clusters": [],
+    "clusters": [
+      {
+        "name": "SDRA y ECMO",
+        "path": "/medicina-critica/sdra-ecmo/",
+        "url": "https://resumenestrials.com/medicina-critica/sdra-ecmo/"
+      },
+      {
+        "name": "Neurocríticos",
+        "path": "/medicina-critica/neurocriticos/",
+        "url": "https://resumenestrials.com/medicina-critica/neurocriticos/"
+      },
+      {
+        "name": "Hemodinámica y cardiovascular",
+        "path": "/medicina-critica/hemodinamica-cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-critica/hemodinamica-cardiovascular/"
+      },
+      {
+        "name": "Paro cardiaco y resucitación",
+        "path": "/medicina-critica/paro-resucitacion/",
+        "url": "https://resumenestrials.com/medicina-critica/paro-resucitacion/"
+      }
+    ],
     "images": [
       "https://resumenestrials.com/images/trials/box-objetivos-presion-arterial-media-tras-paro-cardiaco-pacientes-comatosos-16x9.jpg",
       "https://resumenestrials.com/images/trials/box-objetivos-presion-arterial-media-tras-paro-cardiaco-pacientes-comatosos-4x3.jpg",
@@ -1391,7 +1468,13 @@
     "title": "DECODE-CKD: la dapagliflozina reduce la masa ventricular izquierda en la enfermedad renal crónica",
     "seo_title": "DECODE-CKD trial: la dapagliflozina reduce la masa ventricular izquierda en la enfermedad renal crónica | Resúmenes Trials",
     "description": "DECODE-CKD: La dapagliflozina redujo el índice de masa ventricular izquierda frente a placebo (diferencia media estimada de −8.44 g/m² ; IC 95%, −11.83 a…",
-    "clusters": [],
+    "clusters": [
+      {
+        "name": "Renal y metabolismo",
+        "path": "/medicina-interna/renal-metabolica/",
+        "url": "https://resumenestrials.com/medicina-interna/renal-metabolica/"
+      }
+    ],
     "images": [
       "https://resumenestrials.com/images/trials/decode-ckd-dapagliflozina-reduce-masa-ventricular-izquierda-enfermedad-renal-cronica-16x9.jpg",
       "https://resumenestrials.com/images/trials/decode-ckd-dapagliflozina-reduce-masa-ventricular-izquierda-enfermedad-renal-cronica-4x3.jpg",
@@ -1410,7 +1493,18 @@
     "title": "FIGARO-DKD: la finerenona reduce los eventos cardiovasculares en la diabetes tipo 2 con enfermedad renal crónica",
     "seo_title": "FIGARO-DKD trial: la finerenona reduce los eventos cardiovasculares en la diabetes tipo 2 con enfermedad renal crónica | Resúmenes Trials",
     "description": "FIGARO-DKD: La finerenona redujo el desenlace cardiovascular compuesto frente a placebo ( 12.4% frente a 14.2% ; HR 0.87; IC 95%, 0.76-0.98; P=0.03), un…",
-    "clusters": [],
+    "clusters": [
+      {
+        "name": "Cardiología y prevención cardiovascular",
+        "path": "/medicina-interna/cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-interna/cardiovascular/"
+      },
+      {
+        "name": "Renal y metabolismo",
+        "path": "/medicina-interna/renal-metabolica/",
+        "url": "https://resumenestrials.com/medicina-interna/renal-metabolica/"
+      }
+    ],
     "images": [
       "https://resumenestrials.com/images/trials/figaro-dkd-finerenona-reduce-eventos-cardiovasculares-diabetes-tipo-2-enfermedad-renal-16x9.jpg",
       "https://resumenestrials.com/images/trials/figaro-dkd-finerenona-reduce-eventos-cardiovasculares-diabetes-tipo-2-enfermedad-renal-4x3.jpg",
@@ -1429,7 +1523,18 @@
     "title": "EMPEROR-Reduced: la empagliflozina reduce las hospitalizaciones por insuficiencia cardíaca",
     "seo_title": "EMPEROR-Reduced trial: la empagliflozina reduce las hospitalizaciones por insuficiencia cardíaca | Resúmenes Trials",
     "description": "EMPEROR-Reduced: La empagliflozina redujo el desenlace compuesto de muerte cardiovascular u hospitalización por insuficiencia cardíaca frente a placebo (…",
-    "clusters": [],
+    "clusters": [
+      {
+        "name": "Cardiología y prevención cardiovascular",
+        "path": "/medicina-interna/cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-interna/cardiovascular/"
+      },
+      {
+        "name": "Renal y metabolismo",
+        "path": "/medicina-interna/renal-metabolica/",
+        "url": "https://resumenestrials.com/medicina-interna/renal-metabolica/"
+      }
+    ],
     "images": [
       "https://resumenestrials.com/images/trials/emperor-reduced-empagliflozina-reduce-hospitalizaciones-insuficiencia-cardiaca-16x9.jpg",
       "https://resumenestrials.com/images/trials/emperor-reduced-empagliflozina-reduce-hospitalizaciones-insuficiencia-cardiaca-4x3.jpg",
@@ -1448,7 +1553,13 @@
     "title": "ICU-ROX: la oxigenoterapia conservadora no mejora los días libres de ventilador",
     "seo_title": "ICU-ROX trial: la oxigenoterapia conservadora no mejora los días libres de ventilador | Resúmenes Trials",
     "description": "ICU-ROX: La oxigenoterapia conservadora no mostró diferencia frente a la habitual en los días libres de ventilador (mediana de 21.3 frente a 22.1 días…",
-    "clusters": [],
+    "clusters": [
+      {
+        "name": "Ventilación e insuficiencia respiratoria",
+        "path": "/medicina-critica/ventilacion-respiratoria/",
+        "url": "https://resumenestrials.com/medicina-critica/ventilacion-respiratoria/"
+      }
+    ],
     "images": [
       "https://resumenestrials.com/images/trials/icu-rox-oxigenoterapia-conservadora-no-mejora-dias-libres-ventilador-16x9.jpg",
       "https://resumenestrials.com/images/trials/icu-rox-oxigenoterapia-conservadora-no-mejora-dias-libres-ventilador-4x3.jpg",
@@ -1467,7 +1578,18 @@
     "title": "DECLARE-TIMI 58: la dapagliflozina no reduce los eventos cardiovasculares mayores, pero sí evita hospitalizaciones por insuficiencia cardiaca",
     "seo_title": "DECLARE-TIMI 58 trial: la dapagliflozina no reduce los eventos cardiovasculares mayores, pero sí evita hospitalizaciones por insuficiencia cardiaca | Resúmenes Trials",
     "description": "DECLARE-TIMI 58: Dapagliflozina fue no inferior a placebo en eventos cardiovasculares mayores ( 8.8% frente a 9.4% ; HR 0.93; IC 95%, 0.84-1.03; P=0.17), pero…",
-    "clusters": [],
+    "clusters": [
+      {
+        "name": "Cardiología y prevención cardiovascular",
+        "path": "/medicina-interna/cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-interna/cardiovascular/"
+      },
+      {
+        "name": "Renal y metabolismo",
+        "path": "/medicina-interna/renal-metabolica/",
+        "url": "https://resumenestrials.com/medicina-interna/renal-metabolica/"
+      }
+    ],
     "images": [
       "https://resumenestrials.com/images/trials/declare-timi-58-dapagliflozina-no-reduce-eventos-cardiovasculares-mayores-pero-si-evita-16x9.jpg",
       "https://resumenestrials.com/images/trials/declare-timi-58-dapagliflozina-no-reduce-eventos-cardiovasculares-mayores-pero-si-evita-4x3.jpg",
@@ -1486,7 +1608,13 @@
     "title": "DELIVER: la dapagliflozina reduce el empeoramiento de la insuficiencia cardiaca con fracción de eyección mayor del 40%",
     "seo_title": "DELIVER trial: la dapagliflozina reduce el empeoramiento de la insuficiencia cardiaca con fracción de eyección mayor del 40% | Resúmenes Trials",
     "description": "DELIVER: Dapagliflozina redujo el desenlace combinado de empeoramiento de la insuficiencia cardiaca o muerte cardiovascular frente a placebo ( 16.4% frente a…",
-    "clusters": [],
+    "clusters": [
+      {
+        "name": "Cardiología y prevención cardiovascular",
+        "path": "/medicina-interna/cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-interna/cardiovascular/"
+      }
+    ],
     "images": [
       "https://resumenestrials.com/images/trials/deliver-dapagliflozina-reduce-empeoramiento-insuficiencia-cardiaca-fraccion-eyeccion-mayor-40-16x9.jpg",
       "https://resumenestrials.com/images/trials/deliver-dapagliflozina-reduce-empeoramiento-insuficiencia-cardiaca-fraccion-eyeccion-mayor-40-4x3.jpg",
@@ -1524,7 +1652,18 @@
     "title": "RECOVERY: la dexametasona reduce la mortalidad en Covid-19 grave, pero no sin oxígeno",
     "seo_title": "RECOVERY trial: la dexametasona reduce la mortalidad en Covid-19 grave, pero no sin oxígeno | Resúmenes Trials",
     "description": "RECOVERY: La dexametasona redujo la mortalidad a 28 días frente al tratamiento habitual ( 22.9% frente a 25.7% ; razón de tasas ajustada por edad, 0.83; IC…",
-    "clusters": [],
+    "clusters": [
+      {
+        "name": "Enfermedades infecciosas",
+        "path": "/medicina-interna/infecciosas/",
+        "url": "https://resumenestrials.com/medicina-interna/infecciosas/"
+      },
+      {
+        "name": "Neumología",
+        "path": "/medicina-interna/neumologia/",
+        "url": "https://resumenestrials.com/medicina-interna/neumologia/"
+      }
+    ],
     "images": [
       "https://resumenestrials.com/images/trials/recovery-dexametasona-reduce-mortalidad-covid-19-grave-pero-no-oxigeno-16x9.jpg",
       "https://resumenestrials.com/images/trials/recovery-dexametasona-reduce-mortalidad-covid-19-grave-pero-no-oxigeno-4x3.jpg",
@@ -1543,7 +1682,18 @@
     "title": "MENDS2: la dexmedetomidina no supera al propofol en la sedación de pacientes con sepsis",
     "seo_title": "MENDS2 trial: la dexmedetomidina no supera al propofol en la sedación de pacientes con sepsis | Resúmenes Trials",
     "description": "MENDS2: La dexmedetomidina no ofreció ventaja sobre el propofol en los días vivos sin delirio ni coma (mediana ajustada de 10.7 frente a 10.8 días ; razón de…",
-    "clusters": [],
+    "clusters": [
+      {
+        "name": "Sepsis y shock",
+        "path": "/medicina-critica/sepsis-shock/",
+        "url": "https://resumenestrials.com/medicina-critica/sepsis-shock/"
+      },
+      {
+        "name": "Ventilación e insuficiencia respiratoria",
+        "path": "/medicina-critica/ventilacion-respiratoria/",
+        "url": "https://resumenestrials.com/medicina-critica/ventilacion-respiratoria/"
+      }
+    ],
     "images": [
       "https://resumenestrials.com/images/trials/mends2-dexmedetomidina-no-supera-propofol-sedacion-pacientes-sepsis-16x9.jpg",
       "https://resumenestrials.com/images/trials/mends2-dexmedetomidina-no-supera-propofol-sedacion-pacientes-sepsis-4x3.jpg",
@@ -1587,7 +1737,23 @@
     "title": "BOX (fiebre): prolongar la prevención de fiebre tras un paro cardiaco no cambia el pronóstico",
     "seo_title": "BOX (fiebre) trial: prolongar la prevención de fiebre tras un paro cardiaco no cambia el pronóstico | Resúmenes Trials",
     "description": "BOX (fiebre): Prolongar la prevención de fiebre hasta 72 horas no redujo la muerte ni la discapacidad cerebral grave a los 90 días frente a 36 horas ( 33.6%…",
-    "clusters": [],
+    "clusters": [
+      {
+        "name": "SDRA y ECMO",
+        "path": "/medicina-critica/sdra-ecmo/",
+        "url": "https://resumenestrials.com/medicina-critica/sdra-ecmo/"
+      },
+      {
+        "name": "Neurocríticos",
+        "path": "/medicina-critica/neurocriticos/",
+        "url": "https://resumenestrials.com/medicina-critica/neurocriticos/"
+      },
+      {
+        "name": "Paro cardiaco y resucitación",
+        "path": "/medicina-critica/paro-resucitacion/",
+        "url": "https://resumenestrials.com/medicina-critica/paro-resucitacion/"
+      }
+    ],
     "images": [
       "https://resumenestrials.com/images/trials/box-fiebre-prolongar-prevencion-fiebre-tras-paro-cardiaco-no-cambia-pronostico-16x9.jpg",
       "https://resumenestrials.com/images/trials/box-fiebre-prolongar-prevencion-fiebre-tras-paro-cardiaco-no-cambia-pronostico-4x3.jpg",
@@ -1606,7 +1772,23 @@
     "title": "ROSE: el bloqueo neuromuscular temprano en el SDRA no reduce la mortalidad",
     "seo_title": "ROSE trial: el bloqueo neuromuscular temprano en el SDRA no reduce la mortalidad | Resúmenes Trials",
     "description": "ROSE: El bloqueo neuromuscular temprano no redujo la mortalidad hospitalaria a los 90 días frente a la atención habitual ( 42.8% frente a 42.5% ; diferencia…",
-    "clusters": [],
+    "clusters": [
+      {
+        "name": "Ventilación e insuficiencia respiratoria",
+        "path": "/medicina-critica/ventilacion-respiratoria/",
+        "url": "https://resumenestrials.com/medicina-critica/ventilacion-respiratoria/"
+      },
+      {
+        "name": "SDRA y ECMO",
+        "path": "/medicina-critica/sdra-ecmo/",
+        "url": "https://resumenestrials.com/medicina-critica/sdra-ecmo/"
+      },
+      {
+        "name": "Neurocríticos",
+        "path": "/medicina-critica/neurocriticos/",
+        "url": "https://resumenestrials.com/medicina-critica/neurocriticos/"
+      }
+    ],
     "images": [
       "https://resumenestrials.com/images/trials/rose-bloqueo-neuromuscular-temprano-sdra-no-reduce-mortalidad-16x9.jpg",
       "https://resumenestrials.com/images/trials/rose-bloqueo-neuromuscular-temprano-sdra-no-reduce-mortalidad-4x3.jpg",
@@ -1625,7 +1807,13 @@
     "title": "CLOVERS: restringir fluidos o priorizar vasopresores no cambia la mortalidad en la hipotensión séptica",
     "seo_title": "CLOVERS trial: restringir fluidos o priorizar vasopresores no cambia la mortalidad en la hipotensión séptica | Resúmenes Trials",
     "description": "CLOVERS: La estrategia restrictiva de fluidos con vasopresores tempranos no redujo la mortalidad a 90 días frente a la estrategia liberal ( 14.0% frente a…",
-    "clusters": [],
+    "clusters": [
+      {
+        "name": "Hemodinámica y cardiovascular",
+        "path": "/medicina-critica/hemodinamica-cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-critica/hemodinamica-cardiovascular/"
+      }
+    ],
     "images": [
       "https://resumenestrials.com/images/trials/clovers-restringir-fluidos-priorizar-vasopresores-no-cambia-mortalidad-hipotension-septica-16x9.jpg",
       "https://resumenestrials.com/images/trials/clovers-restringir-fluidos-priorizar-vasopresores-no-cambia-mortalidad-hipotension-septica-4x3.jpg",
@@ -1644,7 +1832,13 @@
     "title": "EPaNIC: retrasar la nutrición parenteral hasta el octavo día reduce las infecciones y acorta la estancia en cuidados intensivos",
     "seo_title": "EPaNIC trial: retrasar la nutrición parenteral hasta el octavo día reduce las infecciones y acorta la estancia en cuidados intensivos | Resúmenes Trials",
     "description": "EPaNIC: Retrasar la nutrición parenteral hasta el octavo día redujo la estancia en cuidados intensivos (mediana de 3 frente a 4 días ; HR 1.06; IC 95%…",
-    "clusters": [],
+    "clusters": [
+      {
+        "name": "Infecciones y antibióticos",
+        "path": "/medicina-critica/infecciones-antibioticos/",
+        "url": "https://resumenestrials.com/medicina-critica/infecciones-antibioticos/"
+      }
+    ],
     "images": [
       "https://resumenestrials.com/images/trials/epanic-retrasar-nutricion-parenteral-octavo-dia-reduce-infecciones-acorta-estancia-16x9.jpg",
       "https://resumenestrials.com/images/trials/epanic-retrasar-nutricion-parenteral-octavo-dia-reduce-infecciones-acorta-estancia-4x3.jpg",
@@ -1663,7 +1857,18 @@
     "title": "EXSCEL: el exenatide semanal es seguro a nivel cardiovascular, pero no reduce los eventos mayores frente a placebo",
     "seo_title": "EXSCEL trial: el exenatide semanal es seguro a nivel cardiovascular, pero no reduce los eventos mayores frente a placebo | Resúmenes Trials",
     "description": "EXSCEL: El exenatide semanal fue no inferior a placebo en seguridad cardiovascular ( 11.4% frente a 12.2% de eventos; HR 0.91; IC 95%, 0.83-1.00; P<0.001 para…",
-    "clusters": [],
+    "clusters": [
+      {
+        "name": "Cardiología y prevención cardiovascular",
+        "path": "/medicina-interna/cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-interna/cardiovascular/"
+      },
+      {
+        "name": "Renal y metabolismo",
+        "path": "/medicina-interna/renal-metabolica/",
+        "url": "https://resumenestrials.com/medicina-interna/renal-metabolica/"
+      }
+    ],
     "images": [
       "https://resumenestrials.com/images/trials/exscel-exenatide-semanal-es-seguro-nivel-cardiovascular-pero-no-reduce-16x9.jpg",
       "https://resumenestrials.com/images/trials/exscel-exenatide-semanal-es-seguro-nivel-cardiovascular-pero-no-reduce-4x3.jpg",
@@ -1682,7 +1887,18 @@
     "title": "EMPACT-MI: la empagliflozina tras un infarto agudo no reduce la insuficiencia cardiaca ni la muerte",
     "seo_title": "EMPACT-MI trial: la empagliflozina tras un infarto agudo no reduce la insuficiencia cardiaca ni la muerte | Resúmenes Trials",
     "description": "EMPACT-MI: La empagliflozina no redujo de forma significativa el compuesto de hospitalización por insuficiencia cardiaca o muerte por cualquier causa frente a…",
-    "clusters": [],
+    "clusters": [
+      {
+        "name": "Cardiología y prevención cardiovascular",
+        "path": "/medicina-interna/cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-interna/cardiovascular/"
+      },
+      {
+        "name": "Renal y metabolismo",
+        "path": "/medicina-interna/renal-metabolica/",
+        "url": "https://resumenestrials.com/medicina-interna/renal-metabolica/"
+      }
+    ],
     "images": [
       "https://resumenestrials.com/images/trials/empact-mi-empagliflozina-tras-infarto-agudo-no-reduce-insuficiencia-cardiaca-ni-16x9.jpg",
       "https://resumenestrials.com/images/trials/empact-mi-empagliflozina-tras-infarto-agudo-no-reduce-insuficiencia-cardiaca-ni-4x3.jpg",
