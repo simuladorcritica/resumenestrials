@@ -1909,5 +1909,320 @@
       "answer": "La empagliflozina no redujo de forma significativa el compuesto de hospitalización por insuficiencia cardiaca o muerte por cualquier causa frente a placebo ( 8.2% frente a 9.1% ; HR 0.90; IC 95%, 0.76-1.06; P=0.21), aunque sí redujo por separado la hospitalización por insuficiencia cardiaca (3.6% frente a 4.7%; HR 0.77; IC 95%…",
       "population": "EMPACT-MI buscó responder si la empagliflozina, un inhibidor del cotransportador sodio-glucosa tipo 2 con beneficio ya demostrado en insuficiencia cardiaca y enfermedad renal crónica, también protege a los pacientes en el periodo posterior a un infarto agudo de miocardio, un momento de alto riesgo de desarrollar insuficiencia cardiaca. Incluyó hombres y mujeres de 18 años o más, hospitalizados por infarto agudo de miocardio en…"
     }
+  },
+  "73": {
+    "slug": "emperor-preserved-empagliflozina-insuficiencia-cardiaca-fraccion-eyeccion-preservada",
+    "path": "/trials/emperor-preserved-empagliflozina-insuficiencia-cardiaca-fraccion-eyeccion-preservada/",
+    "url": "https://resumenestrials.com/trials/emperor-preserved-empagliflozina-insuficiencia-cardiaca-fraccion-eyeccion-preservada/",
+    "title": "EMPEROR-Preserved: empagliflozina en la insuficiencia cardiaca con fracción de eyección preservada",
+    "seo_title": "EMPEROR-Preserved trial: empagliflozina en la insuficiencia cardiaca con fracción de eyección preservada | Resúmenes Trials",
+    "description": "EMPEROR-Preserved: La empagliflozina redujo el desenlace primario compuesto de muerte cardiovascular u hospitalización por insuficiencia cardiaca ( 13.8% vs…",
+    "clusters": [
+      {
+        "name": "Cardiología y prevención cardiovascular",
+        "path": "/medicina-interna/cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-interna/cardiovascular/"
+      },
+      {
+        "name": "Renal y metabolismo",
+        "path": "/medicina-interna/renal-metabolica/",
+        "url": "https://resumenestrials.com/medicina-interna/renal-metabolica/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/emperor-preserved-empagliflozina-insuficiencia-cardiaca-fraccion-eyeccion-preservada-16x9.jpg",
+      "https://resumenestrials.com/images/trials/emperor-preserved-empagliflozina-insuficiencia-cardiaca-fraccion-eyeccion-preservada-4x3.jpg",
+      "https://resumenestrials.com/images/trials/emperor-preserved-empagliflozina-insuficiencia-cardiaca-fraccion-eyeccion-preservada-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si la empagliflozina, añadida al tratamiento habitual, reduce el riesgo combinado de muerte cardiovascular u hospitalización por insuficiencia cardiaca en pacientes con insuficiencia cardiaca y fracción de eyección preservada.",
+      "answer": "La empagliflozina redujo el desenlace primario compuesto de muerte cardiovascular u hospitalización por insuficiencia cardiaca ( 13.8% vs 17.1%; razón de riesgo 0.79; IC 95%, 0.69 a 0.90; p<0.001; NNT 31 ), un beneficio impulsado sobre todo por menos hospitalizaciones, sin diferencia significativa en la muerte cardiovascular ni…",
+      "population": "Población. Adultos de 18 años o más con insuficiencia cardiaca crónica en clase funcional II a IV de la New York Heart Association y una fracción de eyección del ventrículo izquierdo mayor del 40%, con un nivel de NT-proBNP mayor de 300 pg/ml (o mayor de 900 pg/ml si tenían fibrilación auricular basal). La distribución racial fue de aproximadamente 76% blancos, 4% negros, 14% asiáticos y 6% de otra raza u origen no reportado…"
+    }
+  },
+  "74": {
+    "slug": "empa-kidney-empagliflozina-pacientes-enfermedad-renal-cronica",
+    "path": "/trials/empa-kidney-empagliflozina-pacientes-enfermedad-renal-cronica/",
+    "url": "https://resumenestrials.com/trials/empa-kidney-empagliflozina-pacientes-enfermedad-renal-cronica/",
+    "title": "EMPA-KIDNEY: empagliflozina en pacientes con enfermedad renal crónica",
+    "seo_title": "EMPA-KIDNEY trial: empagliflozina en pacientes con enfermedad renal crónica | Resúmenes Trials",
+    "description": "EMPA-KIDNEY: La empagliflozina redujo la progresión de la enfermedad renal o la muerte cardiovascular frente a placebo ( 13.1% vs 16.9%; razón de riesgo 0.72…",
+    "clusters": [
+      {
+        "name": "Renal y metabolismo",
+        "path": "/medicina-interna/renal-metabolica/",
+        "url": "https://resumenestrials.com/medicina-interna/renal-metabolica/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/empa-kidney-empagliflozina-pacientes-enfermedad-renal-cronica-16x9.jpg",
+      "https://resumenestrials.com/images/trials/empa-kidney-empagliflozina-pacientes-enfermedad-renal-cronica-4x3.jpg",
+      "https://resumenestrials.com/images/trials/empa-kidney-empagliflozina-pacientes-enfermedad-renal-cronica-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si la empagliflozina reduce el riesgo de progresión de la enfermedad renal o de muerte cardiovascular en un amplio espectro de pacientes con enfermedad renal crónica, con o sin diabetes.",
+      "answer": "La empagliflozina redujo la progresión de la enfermedad renal o la muerte cardiovascular frente a placebo ( 13.1% vs 16.9%; razón de riesgo 0.72; IC 95%, 0.64 a 0.82; p<0.001 ), un beneficio consistente con o sin diabetes y en todos los rangos de función renal, sin diferencia significativa en la mortalidad total.",
+      "population": "Población. Adultos con enfermedad renal crónica y una tasa de filtración glomerular estimada (eGFR) de al menos 20 pero menor de 45 ml/min/1.73 m2, sin importar el grado de albuminuria, o con un eGFR de al menos 45 pero menor de 90 ml/min/1.73 m2 junto con una razón albúmina-creatinina urinaria de al menos 200, reclutados en 241 centros de ocho países. Se incluyeron pacientes con y sin diabetes. Intervención. Empagliflozina…"
+    }
+  },
+  "75": {
+    "slug": "empa-reg-outcome-empagliflozina-progresion-enfermedad-renal-diabetes-tipo-2",
+    "path": "/trials/empa-reg-outcome-empagliflozina-progresion-enfermedad-renal-diabetes-tipo-2/",
+    "url": "https://resumenestrials.com/trials/empa-reg-outcome-empagliflozina-progresion-enfermedad-renal-diabetes-tipo-2/",
+    "title": "EMPA-REG OUTCOME: empagliflozina y progresión de la enfermedad renal en la diabetes tipo 2",
+    "seo_title": "EMPA-REG OUTCOME trial: empagliflozina y progresión de la enfermedad renal en la diabetes tipo 2 | Resúmenes Trials",
+    "description": "EMPA-REG OUTCOME: La empagliflozina redujo la nefropatía incidente o en progresión frente a placebo ( 12.7% vs 18.8%; razón de riesgo 0.61; IC 95%, 0.53 a…",
+    "clusters": [
+      {
+        "name": "Renal y metabolismo",
+        "path": "/medicina-interna/renal-metabolica/",
+        "url": "https://resumenestrials.com/medicina-interna/renal-metabolica/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/empa-reg-outcome-empagliflozina-progresion-enfermedad-renal-diabetes-tipo-2-16x9.jpg",
+      "https://resumenestrials.com/images/trials/empa-reg-outcome-empagliflozina-progresion-enfermedad-renal-diabetes-tipo-2-4x3.jpg",
+      "https://resumenestrials.com/images/trials/empa-reg-outcome-empagliflozina-progresion-enfermedad-renal-diabetes-tipo-2-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar el efecto a largo plazo de la empagliflozina sobre desenlaces renales en pacientes con diabetes tipo 2 y alto riesgo cardiovascular, como componente preespecificado del desenlace microvascular secundario del ensayo EMPA-REG OUTCOME.",
+      "answer": "La empagliflozina redujo la nefropatía incidente o en progresión frente a placebo ( 12.7% vs 18.8%; razón de riesgo 0.61; IC 95%, 0.53 a 0.70; p<0.001 ), con menos duplicación de creatinina y menos inicio de terapia de reemplazo renal, sin diferencia en la albuminuria incidente.",
+      "population": "Población. Adultos con diabetes tipo 2, enfermedad cardiovascular establecida y una tasa de filtración glomerular estimada (eGFR) de al menos 30 ml/min/1.73 m2, reclutados en 590 centros de 42 países para el ensayo EMPA-REG OUTCOME. Intervención. Empagliflozina, en dosis de 10 mg o 25 mg por vía oral una vez al día, añadida al tratamiento habitual. Comparador. Placebo una vez al día, añadido al tratamiento habitual. Desenlace…"
+    }
+  },
+  "76": {
+    "slug": "empa-reg-outcome-empagliflozina-desenlaces-cardiovasculares-mortalidad-diabetes-tipo-2",
+    "path": "/trials/empa-reg-outcome-empagliflozina-desenlaces-cardiovasculares-mortalidad-diabetes-tipo-2/",
+    "url": "https://resumenestrials.com/trials/empa-reg-outcome-empagliflozina-desenlaces-cardiovasculares-mortalidad-diabetes-tipo-2/",
+    "title": "EMPA-REG OUTCOME: empagliflozina, desenlaces cardiovasculares y mortalidad en la diabetes tipo 2",
+    "seo_title": "EMPA-REG OUTCOME trial: empagliflozina, desenlaces cardiovasculares y mortalidad en la diabetes tipo 2 | Resúmenes Trials",
+    "description": "EMPA-REG OUTCOME: La empagliflozina redujo el desenlace cardiovascular compuesto frente a placebo ( 10.5% vs 12.1%; razón de riesgo 0.86; IC 95%, 0.74 a 0.99…",
+    "clusters": [
+      {
+        "name": "Cardiología y prevención cardiovascular",
+        "path": "/medicina-interna/cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-interna/cardiovascular/"
+      },
+      {
+        "name": "Renal y metabolismo",
+        "path": "/medicina-interna/renal-metabolica/",
+        "url": "https://resumenestrials.com/medicina-interna/renal-metabolica/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/empa-reg-outcome-empagliflozina-desenlaces-cardiovasculares-mortalidad-diabetes-tipo-2-16x9.jpg",
+      "https://resumenestrials.com/images/trials/empa-reg-outcome-empagliflozina-desenlaces-cardiovasculares-mortalidad-diabetes-tipo-2-4x3.jpg",
+      "https://resumenestrials.com/images/trials/empa-reg-outcome-empagliflozina-desenlaces-cardiovasculares-mortalidad-diabetes-tipo-2-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar el efecto de la empagliflozina, añadida al tratamiento habitual, sobre la morbimortalidad cardiovascular en pacientes con diabetes tipo 2 y alto riesgo cardiovascular.",
+      "answer": "La empagliflozina redujo el desenlace cardiovascular compuesto frente a placebo ( 10.5% vs 12.1%; razón de riesgo 0.86; IC 95%, 0.74 a 0.99; p=0.04 para superioridad ), impulsado por menos muerte cardiovascular, menos hospitalización por insuficiencia cardiaca y menos mortalidad total, sin diferencia en infarto ni en accidente…",
+      "population": "Población. Adultos de 18 años o más con diabetes tipo 2, enfermedad cardiovascular establecida, índice de masa corporal de 45 o menos y eGFR de al menos 30 ml/min/1.73 m2, sin tratamiento hipoglucemiante reciente o con terapia estable, y hemoglobina glucosilada entre 7.0% y 9.0% o 10.0% según el caso, reclutados en 590 centros de 42 países. Intervención. Empagliflozina, 10 mg o 25 mg por vía oral una vez al día, añadida al…"
+    }
+  },
+  "77": {
+    "slug": "ecls-shock-soporte-vital-extracorporeo-shock-cardiogenico-infarto",
+    "path": "/trials/ecls-shock-soporte-vital-extracorporeo-shock-cardiogenico-infarto/",
+    "url": "https://resumenestrials.com/trials/ecls-shock-soporte-vital-extracorporeo-shock-cardiogenico-infarto/",
+    "title": "ECLS-SHOCK: soporte vital extracorpóreo en el shock cardiogénico por infarto",
+    "seo_title": "ECLS-SHOCK trial: soporte vital extracorpóreo en el shock cardiogénico por infarto | Resúmenes Trials",
+    "description": "ECLS-SHOCK: El ECLS no redujo la mortalidad a 30 días frente al tratamiento médico habitual ( 47.8% vs 49.0%; riesgo relativo 0.98; IC 95%, 0.80 a 1.19…",
+    "clusters": [
+      {
+        "name": "Cardiología y prevención cardiovascular",
+        "path": "/medicina-interna/cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-interna/cardiovascular/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/ecls-shock-soporte-vital-extracorporeo-shock-cardiogenico-infarto-16x9.jpg",
+      "https://resumenestrials.com/images/trials/ecls-shock-soporte-vital-extracorporeo-shock-cardiogenico-infarto-4x3.jpg",
+      "https://resumenestrials.com/images/trials/ecls-shock-soporte-vital-extracorporeo-shock-cardiogenico-infarto-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si el soporte vital extracorpóreo (ECLS) temprano y sistemático, añadido al tratamiento médico habitual, reduce la mortalidad a 30 días frente al tratamiento médico habitual solo, en pacientes con infarto de miocardio complicado por shock cardiogénico y revascularización temprana planeada.",
+      "answer": "El ECLS no redujo la mortalidad a 30 días frente al tratamiento médico habitual ( 47.8% vs 49.0%; riesgo relativo 0.98; IC 95%, 0.80 a 1.19; p=0.81 ), y aumentó el sangrado moderado o grave y las complicaciones vasculares periféricas que requirieron intervención.",
+      "population": "Población. Adultos de 18 a 80 años con infarto agudo de miocardio complicado por shock cardiogénico (definido por presión sistólica menor de 90 mmHg por más de 30 minutos o necesidad de catecolaminas para mantenerla por encima de ese umbral, lactato arterial mayor de 3 mmol/l, y signos de hipoperfusión orgánica) con revascularización temprana planeada, reclutados en 44 centros de Alemania y Eslovenia. Intervención…"
+    }
+  },
+  "78": {
+    "slug": "eolia-oxigenacion-membrana-extracorporea-sindrome-dificultad-respiratoria-aguda-grave",
+    "path": "/trials/eolia-oxigenacion-membrana-extracorporea-sindrome-dificultad-respiratoria-aguda-grave/",
+    "url": "https://resumenestrials.com/trials/eolia-oxigenacion-membrana-extracorporea-sindrome-dificultad-respiratoria-aguda-grave/",
+    "title": "EOLIA: oxigenación por membrana extracorpórea en el síndrome de dificultad respiratoria aguda grave",
+    "seo_title": "EOLIA trial: oxigenación por membrana extracorpórea en el síndrome de dificultad respiratoria aguda grave | Resúmenes Trials",
+    "description": "EOLIA: La mortalidad a 60 días no difirió significativamente entre ECMO temprano y tratamiento convencional ( 35% vs 46%; riesgo relativo 0.76; IC 95%, 0.55 a…",
+    "clusters": [
+      {
+        "name": "Ventilación e insuficiencia respiratoria",
+        "path": "/medicina-critica/ventilacion-respiratoria/",
+        "url": "https://resumenestrials.com/medicina-critica/ventilacion-respiratoria/"
+      },
+      {
+        "name": "SDRA y ECMO",
+        "path": "/medicina-critica/sdra-ecmo/",
+        "url": "https://resumenestrials.com/medicina-critica/sdra-ecmo/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/eolia-oxigenacion-membrana-extracorporea-sindrome-dificultad-respiratoria-aguda-grave-16x9.jpg",
+      "https://resumenestrials.com/images/trials/eolia-oxigenacion-membrana-extracorporea-sindrome-dificultad-respiratoria-aguda-grave-4x3.jpg",
+      "https://resumenestrials.com/images/trials/eolia-oxigenacion-membrana-extracorporea-sindrome-dificultad-respiratoria-aguda-grave-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si el inicio temprano de la oxigenación por membrana extracorpórea (ECMO) venovenosa reduce la mortalidad a 60 días frente al tratamiento convencional con ECMO de rescate, en pacientes con síndrome de dificultad respiratoria aguda muy grave.",
+      "answer": "La mortalidad a 60 días no difirió significativamente entre ECMO temprano y tratamiento convencional ( 35% vs 46%; riesgo relativo 0.76; IC 95%, 0.55 a 1.04; p=0.09 ), aunque el reclutamiento se detuvo antes de lo previsto por futilidad; el ECMO sí redujo significativamente el fracaso del tratamiento (muerte o necesidad de ECMO…",
+      "population": "Población. Adultos con síndrome de dificultad respiratoria aguda (SDRA) muy grave, definido por una relación PaO2:FiO2 menor de 50 mmHg por más de 3 horas, menor de 80 mmHg por más de 6 horas, o un pH arterial menor de 7.25 con PaCO2 de al menos 60 mmHg por más de 6 horas, con menos de 7 días de ventilación mecánica y a pesar de optimización del ventilador, reclutados en centros internacionales, la mayoría en Francia…"
+    }
+  },
+  "79": {
+    "slug": "florali-oxigeno-alto-flujo-insuficiencia-respiratoria-hipoxemica-aguda",
+    "path": "/trials/florali-oxigeno-alto-flujo-insuficiencia-respiratoria-hipoxemica-aguda/",
+    "url": "https://resumenestrials.com/trials/florali-oxigeno-alto-flujo-insuficiencia-respiratoria-hipoxemica-aguda/",
+    "title": "FLORALI: oxígeno de alto flujo en la insuficiencia respiratoria hipoxémica aguda",
+    "seo_title": "FLORALI trial: oxígeno de alto flujo en la insuficiencia respiratoria hipoxémica aguda | Resúmenes Trials",
+    "description": "FLORALI: Sin diferencia en la intubación entre las tres estrategias ( 38% alto flujo vs 47% oxígeno estándar vs 50% ventilación no invasiva; p=0.18 ), pero la…",
+    "clusters": [
+      {
+        "name": "Ventilación e insuficiencia respiratoria",
+        "path": "/medicina-critica/ventilacion-respiratoria/",
+        "url": "https://resumenestrials.com/medicina-critica/ventilacion-respiratoria/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/florali-oxigeno-alto-flujo-insuficiencia-respiratoria-hipoxemica-aguda-16x9.jpg",
+      "https://resumenestrials.com/images/trials/florali-oxigeno-alto-flujo-insuficiencia-respiratoria-hipoxemica-aguda-4x3.jpg",
+      "https://resumenestrials.com/images/trials/florali-oxigeno-alto-flujo-insuficiencia-respiratoria-hipoxemica-aguda-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si el oxígeno de alto flujo o la ventilación no invasiva, comparados con el oxígeno estándar, reducen la tasa de intubación en adultos con insuficiencia respiratoria hipoxémica aguda sin hipercapnia.",
+      "answer": "Sin diferencia en la intubación entre las tres estrategias ( 38% alto flujo vs 47% oxígeno estándar vs 50% ventilación no invasiva; p=0.18 ), pero la mortalidad a 90 días fue significativamente menor con alto flujo (razón de riesgo 2.01 frente a oxígeno estándar y 2.50 frente a ventilación no invasiva).",
+      "population": "Población. Adultos de 18 años o más con insuficiencia respiratoria hipoxémica aguda sin hipercapnia, ingresados en 23 unidades de cuidados intensivos de Francia y Bélgica. No reportado por normativa la raza o etnia de los participantes. Intervención. Oxígeno de alto flujo administrado por cánula nasal binasal de gran calibre (sistema Optiflow, Fisher and Paykel), con el gas calentado y humidificado mediante un humidificador…"
+    }
+  },
+  "80": {
+    "slug": "redecap-alto-flujo-capado-succion-decanulacion-traqueostomia",
+    "path": "/trials/redecap-alto-flujo-capado-succion-decanulacion-traqueostomia/",
+    "url": "https://resumenestrials.com/trials/redecap-alto-flujo-capado-succion-decanulacion-traqueostomia/",
+    "title": "REDECAP: alto flujo con capado o succión para la decanulación de la traqueostomía",
+    "seo_title": "REDECAP trial: alto flujo con capado o succión para la decanulación de la traqueostomía | Resúmenes Trials",
+    "description": "REDECAP: La decanulación fue el doble de rápida con el protocolo de succión que con el de capado ( mediana de 6 vs 13 días; diferencia absoluta de 7 días, IC…",
+    "clusters": [
+      {
+        "name": "Ventilación e insuficiencia respiratoria",
+        "path": "/medicina-critica/ventilacion-respiratoria/",
+        "url": "https://resumenestrials.com/medicina-critica/ventilacion-respiratoria/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/redecap-alto-flujo-capado-succion-decanulacion-traqueostomia-16x9.jpg",
+      "https://resumenestrials.com/images/trials/redecap-alto-flujo-capado-succion-decanulacion-traqueostomia-4x3.jpg",
+      "https://resumenestrials.com/images/trials/redecap-alto-flujo-capado-succion-decanulacion-traqueostomia-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si basar la decanulación de la traqueostomía en la frecuencia de aspiración de secreciones, con oxígeno de alto flujo continuo, acorta el tiempo hasta la decanulación frente a las pruebas de capado de 24 horas con alto flujo intermitente.",
+      "answer": "La decanulación fue el doble de rápida con el protocolo de succión que con el de capado ( mediana de 6 vs 13 días; diferencia absoluta de 7 días, IC 95%, 5 a 9; p<0.001 ), sin aumentar el fracaso de la decanulación.",
+      "population": "Población. Adultos críticos, conscientes, con una primera traqueostomía realizada durante su estancia en cuidados intensivos, elegibles tras completar el destete de la ventilación mecánica, en cinco unidades de cuidados intensivos de España. No reportado por normativa la raza o etnia de los participantes. Intervención. Decanulación guiada por la frecuencia de aspiración de secreciones: se decanulaba al paciente cuando había…"
+    }
+  },
+  "81": {
+    "slug": "aprocchss-hidrocortisona-mas-fludrocortisona-shock-septico",
+    "path": "/trials/aprocchss-hidrocortisona-mas-fludrocortisona-shock-septico/",
+    "url": "https://resumenestrials.com/trials/aprocchss-hidrocortisona-mas-fludrocortisona-shock-septico/",
+    "title": "APROCCHSS: hidrocortisona más fludrocortisona en el shock séptico",
+    "seo_title": "APROCCHSS trial: hidrocortisona más fludrocortisona en el shock séptico | Resúmenes Trials",
+    "description": "APROCCHSS: La mortalidad a 90 días fue menor con hidrocortisona más fludrocortisona que con placebo ( 43.0% vs 49.1%; razón de riesgo 0.88, IC 95%, 0.78 a…",
+    "clusters": [
+      {
+        "name": "Sepsis y shock",
+        "path": "/medicina-critica/sepsis-shock/",
+        "url": "https://resumenestrials.com/medicina-critica/sepsis-shock/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/aprocchss-hidrocortisona-mas-fludrocortisona-shock-septico-16x9.jpg",
+      "https://resumenestrials.com/images/trials/aprocchss-hidrocortisona-mas-fludrocortisona-shock-septico-4x3.jpg",
+      "https://resumenestrials.com/images/trials/aprocchss-hidrocortisona-mas-fludrocortisona-shock-septico-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si añadir hidrocortisona más fludrocortisona al tratamiento habitual reduce la mortalidad a 90 días en adultos con shock séptico.",
+      "answer": "La mortalidad a 90 días fue menor con hidrocortisona más fludrocortisona que con placebo ( 43.0% vs 49.1%; razón de riesgo 0.88, IC 95%, 0.78 a 0.99; p=0.03 ), con más días libres de vasopresores y de falla orgánica, a costa de más hiperglucemia.",
+      "population": "Población. Adultos en shock séptico indiscutible o probable de menos de 24 horas, con una infección documentada clínica o microbiológicamente, disfunción de al menos dos órganos según la escala SOFA durante al menos 6 horas, y que recibían vasopresores a dosis relevantes durante al menos 6 horas para mantener la presión arterial, ingresados en unidades de cuidados intensivos de Francia. No reportado por normativa la raza o…"
+    }
+  },
+  "82": {
+    "slug": "chest-hidroxietil-almidon-solucion-salina-reanimacion-liquidos-cuidados-intensivos",
+    "path": "/trials/chest-hidroxietil-almidon-solucion-salina-reanimacion-liquidos-cuidados-intensivos/",
+    "url": "https://resumenestrials.com/trials/chest-hidroxietil-almidon-solucion-salina-reanimacion-liquidos-cuidados-intensivos/",
+    "title": "CHEST: hidroxietil almidón o solución salina para la reanimación con líquidos en cuidados intensivos",
+    "seo_title": "CHEST trial: hidroxietil almidón o solución salina para la reanimación con líquidos en cuidados intensivos | Resúmenes Trials",
+    "description": "CHEST: No hubo diferencia significativa en la mortalidad a 90 días entre hidroxietil almidón y solución salina ( 18.0% vs 17.0%; riesgo relativo 1.06; IC 95%…",
+    "clusters": [
+      {
+        "name": "Renal y ácido-base",
+        "path": "/medicina-critica/renal-acido-base/",
+        "url": "https://resumenestrials.com/medicina-critica/renal-acido-base/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/chest-hidroxietil-almidon-solucion-salina-reanimacion-liquidos-cuidados-intensivos-16x9.jpg",
+      "https://resumenestrials.com/images/trials/chest-hidroxietil-almidon-solucion-salina-reanimacion-liquidos-cuidados-intensivos-4x3.jpg",
+      "https://resumenestrials.com/images/trials/chest-hidroxietil-almidon-solucion-salina-reanimacion-liquidos-cuidados-intensivos-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si la reanimación con hidroxietil almidón al 6% (130/0.4), comparada con solución salina, aumenta la mortalidad a 90 días en una población heterogénea de pacientes de cuidados intensivos.",
+      "answer": "No hubo diferencia significativa en la mortalidad a 90 días entre hidroxietil almidón y solución salina ( 18.0% vs 17.0%; riesgo relativo 1.06; IC 95%, 0.96 a 1.18; p=0.26 ), pero el almidón se asoció a más uso de terapia de reemplazo renal y más eventos adversos.",
+      "population": "Población. Adultos de 18 años o más ingresados en una unidad de cuidados intensivos que, según el criterio del clínico tratante, requerían reanimación con líquidos, definida como la administración de un bolo de líquido intravenoso adicional al de mantenimiento, con al menos un criterio fisiológico objetivo de hipovolemia, reclutados en 32 hospitales de Australia y Nueva Zelanda. Intervención. Hidroxietil almidón al 6% con peso…"
+    }
+  },
+  "83": {
+    "slug": "ttm2-hipotermia-normotermia-tras-paro-cardiaco-extrahospitalario",
+    "path": "/trials/ttm2-hipotermia-normotermia-tras-paro-cardiaco-extrahospitalario/",
+    "url": "https://resumenestrials.com/trials/ttm2-hipotermia-normotermia-tras-paro-cardiaco-extrahospitalario/",
+    "title": "TTM2: hipotermia o normotermia tras el paro cardiaco extrahospitalario",
+    "seo_title": "TTM2 trial: hipotermia o normotermia tras el paro cardiaco extrahospitalario | Resúmenes Trials",
+    "description": "TTM2: La hipotermia no redujo la mortalidad a 6 meses frente a la normotermia ( 50% vs 48%; riesgo relativo 1.04; IC 95%, 0.94 a 1.14; p=0.37 ) ni mejoró el…",
+    "clusters": [
+      {
+        "name": "Paro cardiaco y resucitación",
+        "path": "/medicina-critica/paro-resucitacion/",
+        "url": "https://resumenestrials.com/medicina-critica/paro-resucitacion/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/ttm2-hipotermia-normotermia-tras-paro-cardiaco-extrahospitalario-16x9.jpg",
+      "https://resumenestrials.com/images/trials/ttm2-hipotermia-normotermia-tras-paro-cardiaco-extrahospitalario-4x3.jpg",
+      "https://resumenestrials.com/images/trials/ttm2-hipotermia-normotermia-tras-paro-cardiaco-extrahospitalario-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si la hipotermia dirigida a 33°C, comparada con normotermia con tratamiento temprano de la fiebre, reduce la mortalidad a 6 meses en pacientes en coma tras un paro cardiaco extrahospitalario.",
+      "answer": "La hipotermia no redujo la mortalidad a 6 meses frente a la normotermia ( 50% vs 48%; riesgo relativo 1.04; IC 95%, 0.94 a 1.14; p=0.37 ) ni mejoró el resultado funcional, y se asoció a más arritmias con compromiso hemodinámico.",
+      "population": "Población. Adultos en coma tras un paro cardiaco extrahospitalario de causa presumiblemente cardiaca o desconocida, sin respuesta motora relevante ni verbal al dolor, con más de 20 minutos de circulación espontánea sostenida tras la reanimación, independientemente del ritmo inicial. Intervención. Hipotermia dirigida a 33°C durante 28 horas desde la aleatorización, seguida de recalentamiento controlado a razón de un tercio de…"
+    }
+  },
+  "84": {
+    "slug": "activ-6-furoato-fluticasona-inhalado-tratamiento-ambulatorio-covid-19",
+    "path": "/trials/activ-6-furoato-fluticasona-inhalado-tratamiento-ambulatorio-covid-19/",
+    "url": "https://resumenestrials.com/trials/activ-6-furoato-fluticasona-inhalado-tratamiento-ambulatorio-covid-19/",
+    "title": "ACTIV-6: furoato de fluticasona inhalado para el tratamiento ambulatorio de covid-19",
+    "seo_title": "ACTIV-6 trial: furoato de fluticasona inhalado para el tratamiento ambulatorio de covid-19 | Resúmenes Trials",
+    "description": "ACTIV-6: El furoato de fluticasona inhalado no acortó el tiempo hasta la recuperación frente a placebo ( razón de riesgos instantáneos 1.01; intervalo de…",
+    "clusters": [
+      {
+        "name": "Enfermedades infecciosas",
+        "path": "/medicina-interna/infecciosas/",
+        "url": "https://resumenestrials.com/medicina-interna/infecciosas/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/activ-6-furoato-fluticasona-inhalado-tratamiento-ambulatorio-covid-19-16x9.jpg",
+      "https://resumenestrials.com/images/trials/activ-6-furoato-fluticasona-inhalado-tratamiento-ambulatorio-covid-19-4x3.jpg",
+      "https://resumenestrials.com/images/trials/activ-6-furoato-fluticasona-inhalado-tratamiento-ambulatorio-covid-19-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si el furoato de fluticasona inhalado, comparado con placebo, acorta el tiempo hasta la recuperación sostenida en pacientes ambulatorios con covid-19 leve a moderado.",
+      "answer": "El furoato de fluticasona inhalado no acortó el tiempo hasta la recuperación frente a placebo ( razón de riesgos instantáneos 1.01; intervalo de credibilidad del 95%, 0.91 a 1.12; probabilidad posterior de beneficio 0.56 ), sin diferencias relevantes en hospitalización, muerte o eventos adversos.",
+      "population": "Población. Adultos ambulatorios de 30 años o más, con infección por SARS-CoV-2 confirmada en los 10 días previos y al menos dos síntomas de covid-19 de hasta 7 días de evolución, reclutados en 91 sitios de Estados Unidos. Intervención. Furoato de fluticasona inhalada a dosis de 200 μg una vez al día durante 14 días, autoadministrada con un inhalador de polvo seco enviado a domicilio. Comparador. Placebo inhalado idéntico, con…"
+    }
   }
 }
