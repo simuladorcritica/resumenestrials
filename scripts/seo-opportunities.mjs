@@ -2,6 +2,7 @@ import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 const input = process.env.GSC_DATA_FILE || 'seo-data/search-console.json';
 const config = JSON.parse(readFileSync('seo-config.json', 'utf8'));
 const manifest = JSON.parse(readFileSync('seo-manifest.json', 'utf8'));
+const clusters = JSON.parse(readFileSync('seo-cluster-manifest.json', 'utf8'));
 const data = JSON.parse(readFileSync('resumenes.json', 'utf8'));
 const gsc = existsSync(input) ? JSON.parse(readFileSync(input, 'utf8')) : { property: config.siteUrl, rows: [] };
 const rows = Array.isArray(gsc.rows) ? gsc.rows : [];
@@ -22,14 +23,20 @@ const aggregate = (windowDays, offset=0) => {
 const expectedCtr = (p) => { const entries=Object.entries(config.expectedCtr).map(([k,v])=>[+k,v]).sort((a,b)=>a[0]-b[0]); return (entries.find(([rank])=>p<=rank)||entries.at(-1))[1]; };
 const current=aggregate(28), previous=aggregate(28,28), weights=config.weights;
 const maxImp=Math.max(1,...[...current.values()].map(x=>x.impressions));
+const indexFiles=['_includes/index-source.html','medicina-critica/index.html','medicina-interna/index.html',
+  ...Object.values(clusters).map(x=>`${x.path.replace(/^\//,'')}index.html`),
+  ...Object.values(manifest).map(x=>`${x.path.replace(/^\//,'')}index.html`)];
+const corpus=indexFiles.filter(existsSync).map(file=>readFileSync(file,'utf8')).join('\n');
 const opportunities=[];
 for(const x of current.values()){
   const prev=previous.get(x.page)||{clicks:0,impressions:0,position:x.position}; const ctrGap=Math.max(0,expectedCtr(x.position)-x.ctr)/Math.max(expectedCtr(x.position),0.001);
   const decline=Math.max(0,(prev.clicks-x.clicks)/Math.max(prev.clicks,1)); const rank=x.position>=4&&x.position<=15?1:x.position<=30?.65:.15;
   const sameQuery=[...x.queries].filter(([,q])=>q.impressions>=5).some(([query])=>[...current.values()].filter(y=>y.page!==x.page&&y.queries.has(query)).length>0)?1:0;
-  const score=Math.round(Math.min(100,100*(weights.impressions*Math.log1p(x.impressions)/Math.log1p(maxImp)+weights.ranking*rank+weights.ctrGap*Math.min(1,ctrGap)+weights.decline*Math.min(1,decline)+weights.cannibalization*sameQuery)/Object.values(weights).reduce((a,b)=>a+b,0)));
+  const path=new URL(x.page).pathname; const incoming=(corpus.match(new RegExp(`href=["']${path.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')}`, 'g'))||[]).length;
+  const linkSignal=Math.min(1,incoming/5);
+  const score=Math.round(Math.min(100,100*(weights.impressions*Math.log1p(x.impressions)/Math.log1p(maxImp)+weights.ranking*rank+weights.ctrGap*Math.min(1,ctrGap)+weights.decline*Math.min(1,decline)+weights.internalLinks*linkSignal+weights.cannibalization*sameQuery)/Object.values(weights).reduce((a,b)=>a+b,0)));
   const types=[]; if(x.impressions>=20&&x.position>=4&&x.position<=15)types.push('A'); if(x.impressions>=20&&ctrGap>.25)types.push('B'); if(x.position>10&&x.position<=30)types.push('C'); if(sameQuery)types.push('E'); if(decline>.25)types.push('F');
-  opportunities.push({page:x.page,score,types,clicks:x.clicks,impressions:x.impressions,ctr:+x.ctr.toFixed(4),position:+x.position.toFixed(1),clickChange:x.clicks-prev.clicks});
+  opportunities.push({page:x.page,score,types,clicks:x.clicks,impressions:x.impressions,ctr:+x.ctr.toFixed(4),position:+x.position.toFixed(1),clickChange:x.clicks-prev.clicks,incomingInternalLinks:incoming});
 }
 opportunities.sort((a,b)=>b.score-a.score);
 const totals=(m)=>[...m.values()].reduce((a,x)=>({clicks:a.clicks+x.clicks,impressions:a.impressions+x.impressions}),{clicks:0,impressions:0});
