@@ -2224,5 +2224,718 @@
       "answer": "El furoato de fluticasona inhalado no acortó el tiempo hasta la recuperación frente a placebo ( razón de riesgos instantáneos 1.01; intervalo de credibilidad del 95%, 0.91 a 1.12; probabilidad posterior de beneficio 0.56 ), sin diferencias relevantes en hospitalización, muerte o eventos adversos.",
       "population": "Población. Adultos ambulatorios de 30 años o más, con infección por SARS-CoV-2 confirmada en los 10 días previos y al menos dos síntomas de covid-19 de hasta 7 días de evolución, reclutados en 91 sitios de Estados Unidos. Intervención. Furoato de fluticasona inhalada a dosis de 200 μg una vez al día durante 14 días, autoadministrada con un inhalador de polvo seco enviado a domicilio. Comparador. Placebo inhalado idéntico, con…"
     }
+  },
+  "85": {
+    "slug": "interact4-reduccion-intensiva-presion-arterial-ambulancia-accidente-cerebrovascular-hiperagudo",
+    "path": "/trials/interact4-reduccion-intensiva-presion-arterial-ambulancia-accidente-cerebrovascular-hiperagudo/",
+    "url": "https://resumenestrials.com/trials/interact4-reduccion-intensiva-presion-arterial-ambulancia-accidente-cerebrovascular-hiperagudo/",
+    "title": "INTERACT4: reducción intensiva de la presión arterial en ambulancia en el accidente cerebrovascular hiperagudo",
+    "seo_title": "INTERACT4 trial: reducción intensiva de la presión arterial en ambulancia en el accidente cerebrovascular hiperagudo | Resúmenes Trials",
+    "description": "INTERACT4: Sin diferencia en el desenlace funcional a los 90 días entre la reducción intensiva de la presión arterial en la ambulancia y el manejo habitual…",
+    "clusters": [
+      {
+        "name": "Neurología",
+        "path": "/medicina-interna/neurologia/",
+        "url": "https://resumenestrials.com/medicina-interna/neurologia/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/interact4-reduccion-intensiva-presion-arterial-ambulancia-accidente-cerebrovascular-hiperagudo-16x9.jpg",
+      "https://resumenestrials.com/images/trials/interact4-reduccion-intensiva-presion-arterial-ambulancia-accidente-cerebrovascular-hiperagudo-4x3.jpg",
+      "https://resumenestrials.com/images/trials/interact4-reduccion-intensiva-presion-arterial-ambulancia-accidente-cerebrovascular-hiperagudo-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si la reducción intensiva de la presión arterial sistólica, iniciada en la ambulancia dentro de las 2 horas tras el inicio de los síntomas, mejora el desenlace funcional a los 90 días en pacientes con sospecha de accidente cerebrovascular agudo, frente al manejo habitual iniciado al llegar al hospital.",
+      "answer": "Sin diferencia en el desenlace funcional a los 90 días entre la reducción intensiva de la presión arterial en la ambulancia y el manejo habitual (razón de momios común 1.00; IC 95%, 0.87 a 1.15), aunque el efecto exploratorio difirió según el tipo de ictus: posible beneficio en la hemorragia intracerebral y posible perjuicio en…",
+      "population": "Población. Adultos de 18 años o más con sospecha de accidente cerebrovascular agudo, valorados en la ambulancia dentro de las dos horas tras el inicio de los síntomas o desde que se les vio bien por última vez, con presión arterial sistólica elevada. El 99.0% de los pacientes eran de etnia han; todos procedían de 51 hospitales en China, en las regiones de Chengdu y Shanghai. Intervención. Tratamiento antihipertensivo…"
+    }
+  },
+  "86": {
+    "slug": "bproad-control-intensivo-presion-arterial-pacientes-diabetes-tipo-2",
+    "path": "/trials/bproad-control-intensivo-presion-arterial-pacientes-diabetes-tipo-2/",
+    "url": "https://resumenestrials.com/trials/bproad-control-intensivo-presion-arterial-pacientes-diabetes-tipo-2/",
+    "title": "BPROAD: control intensivo de la presión arterial en pacientes con diabetes tipo 2",
+    "seo_title": "BPROAD trial: control intensivo de la presión arterial en pacientes con diabetes tipo 2 | Resúmenes Trials",
+    "description": "BPROAD: El control intensivo de la presión arterial redujo el desenlace primario compuesto de ictus, infarto, insuficiencia cardiaca y muerte cardiovascular…",
+    "clusters": [
+      {
+        "name": "Cardiología y prevención cardiovascular",
+        "path": "/medicina-interna/cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-interna/cardiovascular/"
+      },
+      {
+        "name": "Renal y metabolismo",
+        "path": "/medicina-interna/renal-metabolica/",
+        "url": "https://resumenestrials.com/medicina-interna/renal-metabolica/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/bproad-control-intensivo-presion-arterial-pacientes-diabetes-tipo-2-16x9.jpg",
+      "https://resumenestrials.com/images/trials/bproad-control-intensivo-presion-arterial-pacientes-diabetes-tipo-2-4x3.jpg",
+      "https://resumenestrials.com/images/trials/bproad-control-intensivo-presion-arterial-pacientes-diabetes-tipo-2-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si un objetivo intensivo de presión arterial sistólica, menor de 120 mm Hg, reduce el riesgo de eventos cardiovasculares mayores frente a un objetivo estándar menor de 140 mm Hg, en pacientes con diabetes tipo 2 y riesgo cardiovascular aumentado.",
+      "answer": "El control intensivo de la presión arterial redujo el desenlace primario compuesto de ictus, infarto, insuficiencia cardiaca y muerte cardiovascular frente al control estándar (razón de riesgo 0.79; IC 95%, 0.69 a 0.90; p menor de 0.001), a costa de más hipotensión sintomática e hiperpotasemia.",
+      "population": "Población. Adultos de 50 años o más con diabetes tipo 2, presión arterial sistólica elevada (de 130 a 180 mm Hg si tomaban antihipertensivos, o de 140 mm Hg o más si no los tomaban) y riesgo cardiovascular aumentado, definido por antecedente de enfermedad cardiovascular clínica, enfermedad cardiovascular subclínica reciente, dos o más factores de riesgo cardiovascular, o enfermedad renal crónica con una tasa de filtración…"
+    }
+  },
+  "87": {
+    "slug": "lovit-vitamina-c-intravenosa-adultos-sepsis-unidad-cuidados-intensivos",
+    "path": "/trials/lovit-vitamina-c-intravenosa-adultos-sepsis-unidad-cuidados-intensivos/",
+    "url": "https://resumenestrials.com/trials/lovit-vitamina-c-intravenosa-adultos-sepsis-unidad-cuidados-intensivos/",
+    "title": "LOVIT: vitamina C intravenosa en adultos con sepsis en la unidad de cuidados intensivos",
+    "seo_title": "LOVIT trial: vitamina C intravenosa en adultos con sepsis en la unidad de cuidados intensivos | Resúmenes Trials",
+    "description": "LOVIT: La vitamina C intravenosa en dosis alta aumentó, en vez de reducir, el riesgo de muerte o disfunción orgánica persistente a los 28 días frente a…",
+    "clusters": [
+      {
+        "name": "Sepsis y shock",
+        "path": "/medicina-critica/sepsis-shock/",
+        "url": "https://resumenestrials.com/medicina-critica/sepsis-shock/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/lovit-vitamina-c-intravenosa-adultos-sepsis-unidad-cuidados-intensivos-16x9.jpg",
+      "https://resumenestrials.com/images/trials/lovit-vitamina-c-intravenosa-adultos-sepsis-unidad-cuidados-intensivos-4x3.jpg",
+      "https://resumenestrials.com/images/trials/lovit-vitamina-c-intravenosa-adultos-sepsis-unidad-cuidados-intensivos-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si la vitamina C intravenosa en dosis alta reduce el riesgo de muerte o disfunción orgánica persistente a los 28 días en adultos con sepsis que reciben tratamiento vasopresor en la unidad de cuidados intensivos, frente a placebo.",
+      "answer": "La vitamina C intravenosa en dosis alta aumentó, en vez de reducir, el riesgo de muerte o disfunción orgánica persistente a los 28 días frente a placebo (razón de riesgo 1.21; IC 95%, 1.04 a 1.40; p=0.01).",
+      "population": "Población. Adultos de 18 años o más con sepsis probada o sospechada como diagnóstico principal, que llevaban 24 horas o menos en la unidad de cuidados intensivos y recibían un vasopresor. Los pacientes procedían de 35 unidades de cuidados intensivos médico-quirúrgicas de adultos en Canadá, Francia y Nueva Zelanda; la raza o etnia no se reportó. Intervención. Vitamina C intravenosa en dosis de 50 mg por kilogramo de peso…"
+    }
+  },
+  "88": {
+    "slug": "hot-icu-objetivos-oxigenacion-bajos-altos-insuficiencia-respiratoria-hipoxemica-aguda",
+    "path": "/trials/hot-icu-objetivos-oxigenacion-bajos-altos-insuficiencia-respiratoria-hipoxemica-aguda/",
+    "url": "https://resumenestrials.com/trials/hot-icu-objetivos-oxigenacion-bajos-altos-insuficiencia-respiratoria-hipoxemica-aguda/",
+    "title": "HOT-ICU: objetivos de oxigenación bajos o altos en la insuficiencia respiratoria hipoxémica aguda",
+    "seo_title": "HOT-ICU trial: objetivos de oxigenación bajos o altos en la insuficiencia respiratoria hipoxémica aguda | Resúmenes Trials",
+    "description": "HOT-ICU: Sin diferencia en la mortalidad a 90 días entre el objetivo de oxigenación bajo y el alto ( 42.9% vs 42.4% ; razón de riesgo 1.02; IC 95%, 0.94 a…",
+    "clusters": [
+      {
+        "name": "Ventilación e insuficiencia respiratoria",
+        "path": "/medicina-critica/ventilacion-respiratoria/",
+        "url": "https://resumenestrials.com/medicina-critica/ventilacion-respiratoria/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/hot-icu-objetivos-oxigenacion-bajos-altos-insuficiencia-respiratoria-hipoxemica-aguda-16x9.jpg",
+      "https://resumenestrials.com/images/trials/hot-icu-objetivos-oxigenacion-bajos-altos-insuficiencia-respiratoria-hipoxemica-aguda-4x3.jpg",
+      "https://resumenestrials.com/images/trials/hot-icu-objetivos-oxigenacion-bajos-altos-insuficiencia-respiratoria-hipoxemica-aguda-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si un objetivo de oxigenación más bajo (PaO2 de 60 mmHg) reduce la mortalidad a 90 días, en comparación con un objetivo más alto (PaO2 de 90 mmHg), en adultos con insuficiencia respiratoria hipoxémica aguda ingresados en la unidad de cuidados intensivos.",
+      "answer": "Sin diferencia en la mortalidad a 90 días entre el objetivo de oxigenación bajo y el alto ( 42.9% vs 42.4% ; razón de riesgo 1.02; IC 95%, 0.94 a 1.11; p=0.64), ni en los eventos adversos graves.",
+      "population": "Población. Adultos de 18 años o más ingresados en la unidad de cuidados intensivos (UCI) por insuficiencia respiratoria hipoxémica aguda, que recibían al menos 10 litros de oxígeno por minuto en un sistema abierto o una fracción inspirada de oxígeno (FiO2) de al menos 0.50 en un sistema cerrado, con un catéter arterial ya colocado. El estudio se realizó en Dinamarca, Suiza, Finlandia, los Países Bajos, Noruega, el Reino Unido…"
+    }
+  },
+  "89": {
+    "slug": "crest-2-manejo-medico-intensivo-revascularizacion-carotidea-estenosis-carotidea-asintomatica",
+    "path": "/trials/crest-2-manejo-medico-intensivo-revascularizacion-carotidea-estenosis-carotidea-asintomatica/",
+    "url": "https://resumenestrials.com/trials/crest-2-manejo-medico-intensivo-revascularizacion-carotidea-estenosis-carotidea-asintomatica/",
+    "title": "CREST-2: manejo médico intensivo con o sin revascularización carotídea en la estenosis carotídea asintomática",
+    "seo_title": "CREST-2 trial: manejo médico intensivo con o sin revascularización carotídea en la estenosis carotídea asintomática | Resúmenes Trials",
+    "description": "CREST-2: En el ensayo de stent, añadir colocación de stent carotídeo redujo el compuesto de ictus perioperatorio o muerte, o ictus isquémico ipsilateral a 4…",
+    "clusters": [
+      {
+        "name": "Neurología",
+        "path": "/medicina-interna/neurologia/",
+        "url": "https://resumenestrials.com/medicina-interna/neurologia/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/crest-2-manejo-medico-intensivo-revascularizacion-carotidea-estenosis-carotidea-asintomatica-16x9.jpg",
+      "https://resumenestrials.com/images/trials/crest-2-manejo-medico-intensivo-revascularizacion-carotidea-estenosis-carotidea-asintomatica-4x3.jpg",
+      "https://resumenestrials.com/images/trials/crest-2-manejo-medico-intensivo-revascularizacion-carotidea-estenosis-carotidea-asintomatica-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si añadir revascularización carotídea, mediante colocación de stent o mediante endarterectomía, al manejo médico intensivo reduce el riesgo de ictus o muerte frente al manejo médico intensivo solo, en pacientes con estenosis carotídea asintomática de alto grado.",
+      "answer": "En el ensayo de stent, añadir colocación de stent carotídeo redujo el compuesto de ictus perioperatorio o muerte, o ictus isquémico ipsilateral a 4 años ( 2.8% vs 6.0% ; diferencia absoluta 3.2 puntos; p=0.02); en el ensayo de endarterectomía, añadir cirugía no mostró un beneficio significativo (3.7% vs 5.3%; p=0.24).",
+      "population": "Población. Adultos de 35 años o más con estenosis carotídea de alto grado (70% o más), sin ictus, ataque isquémico transitorio ni amaurosis fugaz en el territorio de la arteria carotídea en los 180 días previos a la aleatorización. Los participantes se reclutaron en 155 centros de Australia, Canadá, Israel, España y Estados Unidos; alrededor del 90% eran de raza blanca, cerca del 6% de raza negra y un 4% de otra raza, no…"
+    }
+  },
+  "90": {
+    "slug": "tame-hipercapnia-leve-normocapnia-tras-paro-cardiaco-extrahospitalario",
+    "path": "/trials/tame-hipercapnia-leve-normocapnia-tras-paro-cardiaco-extrahospitalario/",
+    "url": "https://resumenestrials.com/trials/tame-hipercapnia-leve-normocapnia-tras-paro-cardiaco-extrahospitalario/",
+    "title": "TAME: hipercapnia leve o normocapnia tras el paro cardiaco extrahospitalario",
+    "seo_title": "TAME trial: hipercapnia leve o normocapnia tras el paro cardiaco extrahospitalario | Resúmenes Trials",
+    "description": "TAME: Sin diferencia en el resultado neurológico favorable a 6 meses entre la hipercapnia leve y la normocapnia ( 43.5% vs 44.6% ; razón de riesgo 0.98; IC…",
+    "clusters": [
+      {
+        "name": "Ventilación e insuficiencia respiratoria",
+        "path": "/medicina-critica/ventilacion-respiratoria/",
+        "url": "https://resumenestrials.com/medicina-critica/ventilacion-respiratoria/"
+      },
+      {
+        "name": "Neurocríticos",
+        "path": "/medicina-critica/neurocriticos/",
+        "url": "https://resumenestrials.com/medicina-critica/neurocriticos/"
+      },
+      {
+        "name": "Paro cardiaco y resucitación",
+        "path": "/medicina-critica/paro-resucitacion/",
+        "url": "https://resumenestrials.com/medicina-critica/paro-resucitacion/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/tame-hipercapnia-leve-normocapnia-tras-paro-cardiaco-extrahospitalario-16x9.jpg",
+      "https://resumenestrials.com/images/trials/tame-hipercapnia-leve-normocapnia-tras-paro-cardiaco-extrahospitalario-4x3.jpg",
+      "https://resumenestrials.com/images/trials/tame-hipercapnia-leve-normocapnia-tras-paro-cardiaco-extrahospitalario-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si la hipercapnia leve dirigida, comparada con la normocapnia dirigida, mejora el resultado neurológico a 6 meses en adultos con coma tras la reanimación de un paro cardiaco extrahospitalario.",
+      "answer": "Sin diferencia en el resultado neurológico favorable a 6 meses entre la hipercapnia leve y la normocapnia ( 43.5% vs 44.6% ; razón de riesgo 0.98; IC 95%, 0.87 a 1.11; p=0.76), ni en la mortalidad ni en los eventos adversos.",
+      "population": "Población. Adultos hospitalizados en coma tras la reanimación de un paro cardiaco extrahospitalario de causa presuntamente cardiaca o desconocida, con retorno sostenido de la circulación espontánea (al menos 20 minutos sin compresiones torácicas). El ensayo reclutó pacientes en 63 UCI de 17 países; la raza o etnia de los participantes no fue reportada. Intervención. Hipercapnia leve dirigida, con un objetivo de presión…"
+    }
+  },
+  "91": {
+    "slug": "mr-clean-tratamiento-intraarterial-ictus-isquemico-agudo-oclusion-proximal",
+    "path": "/trials/mr-clean-tratamiento-intraarterial-ictus-isquemico-agudo-oclusion-proximal/",
+    "url": "https://resumenestrials.com/trials/mr-clean-tratamiento-intraarterial-ictus-isquemico-agudo-oclusion-proximal/",
+    "title": "MR CLEAN: tratamiento intraarterial en el ictus isquémico agudo por oclusión proximal",
+    "seo_title": "MR CLEAN trial: tratamiento intraarterial en el ictus isquémico agudo por oclusión proximal | Resúmenes Trials",
+    "description": "MR CLEAN: El tratamiento intraarterial dentro de las 6 horas mejoró la independencia funcional a los 90 días ( 32.6% frente a 19.1% ; razón de momios común…",
+    "clusters": [],
+    "images": [
+      "https://resumenestrials.com/images/trials/mr-clean-tratamiento-intraarterial-ictus-isquemico-agudo-oclusion-proximal-16x9.jpg",
+      "https://resumenestrials.com/images/trials/mr-clean-tratamiento-intraarterial-ictus-isquemico-agudo-oclusion-proximal-4x3.jpg",
+      "https://resumenestrials.com/images/trials/mr-clean-tratamiento-intraarterial-ictus-isquemico-agudo-oclusion-proximal-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si el tratamiento intraarterial (trombectomía mecánica, trombólisis intraarterial o ambas), añadido al cuidado habitual, mejora el desenlace funcional a los 90 días frente al cuidado habitual solo, en pacientes con ictus isquémico agudo por oclusión arterial intracraneal proximal de la circulación anterior tratable dentro de las 6 horas.",
+      "answer": "El tratamiento intraarterial dentro de las 6 horas mejoró la independencia funcional a los 90 días ( 32.6% frente a 19.1% ; razón de momios común ajustada 1.67; IC 95%, 1.21 a 2.30) sin aumentar la mortalidad ni la hemorragia intracraneal sintomática.",
+      "population": "Población. Adultos de 18 años o más, sin límite superior de edad, con ictus isquémico agudo causado por una oclusión intracraneal de la circulación anterior (arteria carótida interna distal, segmento M1 o M2 de la arteria cerebral media, o segmento A1 o A2 de la arteria cerebral anterior), confirmada mediante angiotomografía, angiorresonancia o angiografía por sustracción digital. La raza o etnia de los participantes no se…"
+    }
+  },
+  "92": {
+    "slug": "paradigm-hf-sacubitrilo-valsartan-enalapril-insuficiencia-cardiaca-fraccion-eyeccion-reducida",
+    "path": "/trials/paradigm-hf-sacubitrilo-valsartan-enalapril-insuficiencia-cardiaca-fraccion-eyeccion-reducida/",
+    "url": "https://resumenestrials.com/trials/paradigm-hf-sacubitrilo-valsartan-enalapril-insuficiencia-cardiaca-fraccion-eyeccion-reducida/",
+    "title": "PARADIGM-HF: sacubitrilo-valsartán frente a enalapril en la insuficiencia cardiaca con fracción de eyección reducida",
+    "seo_title": "PARADIGM-HF trial: sacubitrilo-valsartán frente a enalapril en la insuficiencia cardiaca con fracción de eyección reducida | Resúmenes Trials",
+    "description": "PARADIGM-HF: LCZ696 redujo la mortalidad cardiovascular u hospitalización por insuficiencia cardiaca frente a enalapril ( 21.8% frente a 26.5% ; razón de…",
+    "clusters": [
+      {
+        "name": "Cardiología y prevención cardiovascular",
+        "path": "/medicina-interna/cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-interna/cardiovascular/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/paradigm-hf-sacubitrilo-valsartan-enalapril-insuficiencia-cardiaca-fraccion-eyeccion-reducida-16x9.jpg",
+      "https://resumenestrials.com/images/trials/paradigm-hf-sacubitrilo-valsartan-enalapril-insuficiencia-cardiaca-fraccion-eyeccion-reducida-4x3.jpg",
+      "https://resumenestrials.com/images/trials/paradigm-hf-sacubitrilo-valsartan-enalapril-insuficiencia-cardiaca-fraccion-eyeccion-reducida-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si LCZ696 (sacubitrilo-valsartán), un inhibidor combinado del receptor de angiotensina y de la neprilisina, es superior a enalapril para reducir la muerte cardiovascular o la hospitalización por insuficiencia cardiaca en pacientes con insuficiencia cardiaca y fracción de eyección reducida.",
+      "answer": "LCZ696 redujo la mortalidad cardiovascular u hospitalización por insuficiencia cardiaca frente a enalapril ( 21.8% frente a 26.5% ; razón de riesgo 0.80; IC 95%, 0.73 a 0.87; p<0.001), con menor mortalidad total y menos hospitalizaciones, y el ensayo se detuvo antes de tiempo por beneficio abrumador.",
+      "population": "Población. Adultos de 18 años o más con insuficiencia cardiaca clase funcional II, III o IV de la New York Heart Association (NYHA) y una fracción de eyección del 40% o menos (criterio que se modificó a 35% o menos mediante enmienda del protocolo), con péptido natriurético tipo B (BNP) de al menos 150 pg/ml, o su fracción N-terminal (NT-proBNP) de al menos 600 pg/ml, o cifras menores si el paciente había sido hospitalizado por…"
+    }
+  },
+  "93": {
+    "slug": "aristotle-apixaban-warfarina-fibrilacion-auricular",
+    "path": "/trials/aristotle-apixaban-warfarina-fibrilacion-auricular/",
+    "url": "https://resumenestrials.com/trials/aristotle-apixaban-warfarina-fibrilacion-auricular/",
+    "title": "ARISTOTLE: apixabán frente a warfarina en la fibrilación auricular",
+    "seo_title": "ARISTOTLE trial: apixabán frente a warfarina en la fibrilación auricular | Resúmenes Trials",
+    "description": "ARISTOTLE: Apixabán redujo el ictus o la embolia sistémica frente a warfarina ( 1.27% frente a 1.60% por año ; razón de riesgo 0.79; IC 95%, 0.66 a 0.95…",
+    "clusters": [
+      {
+        "name": "Cardiología y prevención cardiovascular",
+        "path": "/medicina-interna/cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-interna/cardiovascular/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/aristotle-apixaban-warfarina-fibrilacion-auricular-16x9.jpg",
+      "https://resumenestrials.com/images/trials/aristotle-apixaban-warfarina-fibrilacion-auricular-4x3.jpg",
+      "https://resumenestrials.com/images/trials/aristotle-apixaban-warfarina-fibrilacion-auricular-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si apixabán es no inferior, y en un análisis jerárquico posterior superior, a warfarina para reducir el ictus o la embolia sistémica en pacientes con fibrilación auricular y al menos un factor de riesgo adicional de ictus, y comparar además el sangrado mayor y la mortalidad por cualquier causa entre ambos.",
+      "answer": "Apixabán redujo el ictus o la embolia sistémica frente a warfarina ( 1.27% frente a 1.60% por año ; razón de riesgo 0.79; IC 95%, 0.66 a 0.95; p=0.01 para superioridad), con menos sangrado mayor y menor mortalidad total.",
+      "population": "Población. Adultos con fibrilación auricular o flutter auricular al momento de la inclusión, o con al menos dos episodios documentados por electrocardiograma en los 12 meses previos, más al menos un factor de riesgo adicional de ictus: edad de 75 años o más, ictus o accidente isquémico transitorio o embolia sistémica previos, insuficiencia cardiaca sintomática en los últimos 3 meses o fracción de eyección del 40% o menos…"
+    }
+  },
+  "94": {
+    "slug": "premium-monoterapia-prasugrel-doble-antiagregacion-infarto-elevacion-st-tratado-angioplastia",
+    "path": "/trials/premium-monoterapia-prasugrel-doble-antiagregacion-infarto-elevacion-st-tratado-angioplastia/",
+    "url": "https://resumenestrials.com/trials/premium-monoterapia-prasugrel-doble-antiagregacion-infarto-elevacion-st-tratado-angioplastia/",
+    "title": "PREMIUM: monoterapia con prasugrel frente a doble antiagregación en el infarto con elevación del ST tratado con angioplastia primaria",
+    "seo_title": "PREMIUM trial: monoterapia con prasugrel frente a doble antiagregación en el infarto con elevación del ST tratado con angioplastia primaria | Resúmenes Trials",
+    "description": "PREMIUM: La monoterapia con prasugrel iniciada antes de la angioplastia primaria no demostró ser no inferior a la doble antiagregación a 12 meses ( 11.0%…",
+    "clusters": [
+      {
+        "name": "Cardiología y prevención cardiovascular",
+        "path": "/medicina-interna/cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-interna/cardiovascular/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/premium-monoterapia-prasugrel-doble-antiagregacion-infarto-elevacion-st-tratado-angioplastia-16x9.jpg",
+      "https://resumenestrials.com/images/trials/premium-monoterapia-prasugrel-doble-antiagregacion-infarto-elevacion-st-tratado-angioplastia-4x3.jpg",
+      "https://resumenestrials.com/images/trials/premium-monoterapia-prasugrel-doble-antiagregacion-infarto-elevacion-st-tratado-angioplastia-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si la monoterapia con prasugrel a dosis baja, iniciada antes de la angioplastia primaria y sin ácido acetilsalicílico de entrada, es no inferior a la doble antiagregación con ácido acetilsalicílico y prasugrel a dosis baja durante 12 meses, respecto a un compuesto de muerte por cualquier causa, ictus o infarto de miocardio, en pacientes con infarto con elevación del ST sometidos a angioplastia primaria.",
+      "answer": "La monoterapia con prasugrel iniciada antes de la angioplastia primaria no demostró ser no inferior a la doble antiagregación a 12 meses ( 11.0% frente a 8.5% de muerte, ictus o infarto; razón de riesgo 1.34; IC 95%, 1.02 a 1.75), aunque sí redujo el sangrado mayor.",
+      "population": "Población. Adultos de 18 años o más con infarto de miocardio con elevación del segmento ST, que se presentaban dentro de las 12 horas posteriores al inicio de los síntomas, eran sometidos a angioplastia primaria con implante planeado del stent Synergy, y eran candidatos a recibir 12 meses de doble antiagregación. La raza o etnia no se reportó; el ensayo se realizó íntegramente en Japón. Intervención. Monoterapia con prasugrel…"
+    }
+  },
+  "95": {
+    "slug": "canvas-program-canagliflozina-eventos-cardiovasculares-renales-diabetes-tipo-2",
+    "path": "/trials/canvas-program-canagliflozina-eventos-cardiovasculares-renales-diabetes-tipo-2/",
+    "url": "https://resumenestrials.com/trials/canvas-program-canagliflozina-eventos-cardiovasculares-renales-diabetes-tipo-2/",
+    "title": "CANVAS Program: canagliflozina y eventos cardiovasculares y renales en la diabetes tipo 2",
+    "seo_title": "CANVAS Program trial: canagliflozina y eventos cardiovasculares y renales en la diabetes tipo 2 | Resúmenes Trials",
+    "description": "CANVAS Program: La canagliflozina redujo el compuesto de muerte cardiovascular, infarto no fatal o ictus no fatal frente a placebo ( 26.9 frente a 31.5…",
+    "clusters": [
+      {
+        "name": "Cardiología y prevención cardiovascular",
+        "path": "/medicina-interna/cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-interna/cardiovascular/"
+      },
+      {
+        "name": "Renal y metabolismo",
+        "path": "/medicina-interna/renal-metabolica/",
+        "url": "https://resumenestrials.com/medicina-interna/renal-metabolica/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/canvas-program-canagliflozina-eventos-cardiovasculares-renales-diabetes-tipo-2-16x9.jpg",
+      "https://resumenestrials.com/images/trials/canvas-program-canagliflozina-eventos-cardiovasculares-renales-diabetes-tipo-2-4x3.jpg",
+      "https://resumenestrials.com/images/trials/canvas-program-canagliflozina-eventos-cardiovasculares-renales-diabetes-tipo-2-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Evaluar los efectos de la canagliflozina, un inhibidor del cotransportador de sodio-glucosa tipo 2, sobre los desenlaces cardiovasculares, renales y de seguridad en personas con diabetes tipo 2 y riesgo cardiovascular alto o enfermedad cardiovascular establecida.",
+      "answer": "La canagliflozina redujo el compuesto de muerte cardiovascular, infarto no fatal o ictus no fatal frente a placebo ( 26.9 frente a 31.5 eventos por 1000 pacientes-año ; razón de riesgo 0.86; IC 95%, 0.75 a 0.97), pero casi duplicó el riesgo de amputación.",
+      "population": "Población. Adultos con diabetes tipo 2 (hemoglobina glucosilada de 7.0% a 10.5%) y alto riesgo cardiovascular: de 30 años o más con antecedente de enfermedad cardiovascular aterosclerótica sintomática, o de 50 años o más con al menos dos factores de riesgo cardiovascular adicionales, como diabetes de al menos 10 años de evolución, presión sistólica mayor de 140 mmHg pese a tratamiento, tabaquismo activo, albuminuria o…"
+    }
+  },
+  "96": {
+    "slug": "credence-canagliflozina-enfermedad-renal-cronica-diabetes-tipo-2",
+    "path": "/trials/credence-canagliflozina-enfermedad-renal-cronica-diabetes-tipo-2/",
+    "url": "https://resumenestrials.com/trials/credence-canagliflozina-enfermedad-renal-cronica-diabetes-tipo-2/",
+    "title": "CREDENCE: canagliflozina en la enfermedad renal crónica por diabetes tipo 2",
+    "seo_title": "CREDENCE trial: canagliflozina en la enfermedad renal crónica por diabetes tipo 2 | Resúmenes Trials",
+    "description": "CREDENCE: La canagliflozina redujo el compuesto de enfermedad renal terminal, duplicación de la creatinina o muerte renal o cardiovascular frente a placebo (…",
+    "clusters": [
+      {
+        "name": "Renal y metabolismo",
+        "path": "/medicina-interna/renal-metabolica/",
+        "url": "https://resumenestrials.com/medicina-interna/renal-metabolica/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/credence-canagliflozina-enfermedad-renal-cronica-diabetes-tipo-2-16x9.jpg",
+      "https://resumenestrials.com/images/trials/credence-canagliflozina-enfermedad-renal-cronica-diabetes-tipo-2-4x3.jpg",
+      "https://resumenestrials.com/images/trials/credence-canagliflozina-enfermedad-renal-cronica-diabetes-tipo-2-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si la canagliflozina, un inhibidor del cotransportador de sodio-glucosa tipo 2, reduce el riesgo de enfermedad renal terminal, duplicación de la creatinina sérica, o muerte de causa renal o cardiovascular, en pacientes con diabetes tipo 2 y enfermedad renal crónica albuminúrica ya tratados con bloqueo del sistema renina-angiotensina.",
+      "answer": "La canagliflozina redujo el compuesto de enfermedad renal terminal, duplicación de la creatinina o muerte renal o cardiovascular frente a placebo ( 43.2 frente a 61.2 eventos por 1000 pacientes-año ; razón de riesgo 0.70; IC 95%, 0.59 a 0.82; p=0.00001), con un número necesario a tratar de 22 pacientes durante 2.5 años; el…",
+      "population": "Población. Adultos de 30 años o más con diabetes tipo 2 (hemoglobina glucosilada de 6.5% a 12.0%, o de 6.5% a 10.5% en Alemania), enfermedad renal crónica con una tasa de filtrado glomerular estimada de 30 a menos de 90 ml/min/1.73 m2 y albuminuria (razón de albúmina a creatinina en orina mayor de 300 y hasta 5000), tratados con una dosis estable de un inhibidor de la enzima convertidora de angiotensina o un antagonista del…"
+    }
+  },
+  "97": {
+    "slug": "reduce-it-etil-icosapento-hipertrigliceridemia-riesgo-cardiovascular",
+    "path": "/trials/reduce-it-etil-icosapento-hipertrigliceridemia-riesgo-cardiovascular/",
+    "url": "https://resumenestrials.com/trials/reduce-it-etil-icosapento-hipertrigliceridemia-riesgo-cardiovascular/",
+    "title": "REDUCE-IT: etil-icosapento en la hipertrigliceridemia con riesgo cardiovascular",
+    "seo_title": "REDUCE-IT trial: etil-icosapento en la hipertrigliceridemia con riesgo cardiovascular | Resúmenes Trials",
+    "description": "REDUCE-IT: El etil-icosapento redujo el compuesto de muerte cardiovascular, infarto no fatal, ictus no fatal, revascularización coronaria o angina inestable…",
+    "clusters": [
+      {
+        "name": "Cardiología y prevención cardiovascular",
+        "path": "/medicina-interna/cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-interna/cardiovascular/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/reduce-it-etil-icosapento-hipertrigliceridemia-riesgo-cardiovascular-16x9.jpg",
+      "https://resumenestrials.com/images/trials/reduce-it-etil-icosapento-hipertrigliceridemia-riesgo-cardiovascular-4x3.jpg",
+      "https://resumenestrials.com/images/trials/reduce-it-etil-icosapento-hipertrigliceridemia-riesgo-cardiovascular-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si el etil-icosapento, un éster etílico purificado de ácido eicosapentaenoico, reduce el riesgo de eventos isquémicos cardiovasculares frente a placebo en pacientes con hipertrigliceridemia persistente pese al tratamiento con estatinas.",
+      "answer": "El etil-icosapento redujo el compuesto de muerte cardiovascular, infarto no fatal, ictus no fatal, revascularización coronaria o angina inestable frente a placebo ( 17.2% frente a 22.0% ; razón de riesgo 0.75; IC 95%, 0.68 a 0.83; p<0.001), con un número necesario a tratar de 21.",
+      "population": "Población. Adultos de 45 años o más con enfermedad cardiovascular establecida (prevención secundaria) o de 50 años o más con diabetes mellitus y al menos un factor de riesgo cardiovascular adicional (prevención primaria, limitada al 30% de los pacientes inscritos), con un nivel de triglicéridos en ayuno de 135 a 499 mg/dl y un colesterol LDL de 41 a 100 mg/dl, tratados con una dosis estable de estatina durante al menos 4…"
+    }
+  },
+  "98": {
+    "slug": "prague-26-trombolisis-dirigida-cateter-tromboembolismo-pulmonar-riesgo-intermedio-alto",
+    "path": "/trials/prague-26-trombolisis-dirigida-cateter-tromboembolismo-pulmonar-riesgo-intermedio-alto/",
+    "url": "https://resumenestrials.com/trials/prague-26-trombolisis-dirigida-cateter-tromboembolismo-pulmonar-riesgo-intermedio-alto/",
+    "title": "PRAGUE-26: trombolisis dirigida por catéter en el tromboembolismo pulmonar de riesgo intermedio-alto",
+    "seo_title": "PRAGUE-26 trial: trombolisis dirigida por catéter en el tromboembolismo pulmonar de riesgo intermedio-alto | Resúmenes Trials",
+    "description": "PRAGUE-26: La trombolisis dirigida por catéter redujo el compuesto de muerte por cualquier causa, recurrencia del tromboembolismo pulmonar, o descompensación…",
+    "clusters": [
+      {
+        "name": "Neumología",
+        "path": "/medicina-interna/neumologia/",
+        "url": "https://resumenestrials.com/medicina-interna/neumologia/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/prague-26-trombolisis-dirigida-cateter-tromboembolismo-pulmonar-riesgo-intermedio-alto-16x9.jpg",
+      "https://resumenestrials.com/images/trials/prague-26-trombolisis-dirigida-cateter-tromboembolismo-pulmonar-riesgo-intermedio-alto-4x3.jpg",
+      "https://resumenestrials.com/images/trials/prague-26-trombolisis-dirigida-cateter-tromboembolismo-pulmonar-riesgo-intermedio-alto-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si la trombolisis dirigida por catéter, sumada a la anticoagulación, reduce el riesgo de muerte, recurrencia del tromboembolismo pulmonar, o descompensación o colapso cardiorrespiratorio a los 7 días, frente a la anticoagulación sola, en pacientes con tromboembolismo pulmonar agudo de riesgo intermedio-alto.",
+      "answer": "La trombolisis dirigida por catéter redujo el compuesto de muerte por cualquier causa, recurrencia del tromboembolismo pulmonar, o descompensación o colapso cardiorrespiratorio a los 7 días, frente a la anticoagulación sola ( 0.7% frente a 6.8% ; razón de riesgo 0.10; IC 95%, 0.02 a 0.44; p<0.001).",
+      "population": "Población. Adultos de 18 a 80 años con tromboembolismo pulmonar agudo proximal de riesgo intermedio-alto, definido por estabilidad hemodinámica, un índice de gravedad del tromboembolismo pulmonar simplificado (PESI) de al menos 1, y disfunción del ventrículo derecho junto con un nivel elevado de troponina cardiaca o péptido natriurético. Reclutados en 11 centros cardiovasculares de tercer nivel de la República Checa, con una…"
+    }
+  },
+  "99": {
+    "slug": "a-close-clopidogrel-monoterapia-doble-antiagregacion-prolongada-tras-stent-farmacoactivo",
+    "path": "/trials/a-close-clopidogrel-monoterapia-doble-antiagregacion-prolongada-tras-stent-farmacoactivo/",
+    "url": "https://resumenestrials.com/trials/a-close-clopidogrel-monoterapia-doble-antiagregacion-prolongada-tras-stent-farmacoactivo/",
+    "title": "A-CLOSE: clopidogrel en monoterapia frente a doble antiagregación prolongada tras stent farmacoactivo",
+    "seo_title": "A-CLOSE trial: clopidogrel en monoterapia frente a doble antiagregación prolongada tras stent farmacoactivo | Resúmenes Trials",
+    "description": "A-CLOSE: El clopidogrel en monoterapia fue no inferior a la doble antiagregación prolongada en el compuesto de eventos clínicos adversos netos ( 5.0% frente a…",
+    "clusters": [
+      {
+        "name": "Cardiología y prevención cardiovascular",
+        "path": "/medicina-interna/cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-interna/cardiovascular/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/a-close-clopidogrel-monoterapia-doble-antiagregacion-prolongada-tras-stent-farmacoactivo-16x9.jpg",
+      "https://resumenestrials.com/images/trials/a-close-clopidogrel-monoterapia-doble-antiagregacion-prolongada-tras-stent-farmacoactivo-4x3.jpg",
+      "https://resumenestrials.com/images/trials/a-close-clopidogrel-monoterapia-doble-antiagregacion-prolongada-tras-stent-farmacoactivo-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si el clopidogrel en monoterapia es no inferior a la doble antiagregación prolongada con clopidogrel y aspirina, con respecto a un compuesto de eventos clínicos adversos netos a los 24 meses, en pacientes de alto riesgo isquémico a los 12 meses de la implantación de un stent farmacoactivo.",
+      "answer": "El clopidogrel en monoterapia fue no inferior a la doble antiagregación prolongada en el compuesto de eventos clínicos adversos netos ( 5.0% frente a 5.1% ; diferencia de riesgo -0.1 puntos porcentuales; IC 90%, -1.3 a 1.2; p=0.001 para no inferioridad), aunque este resultado global oculta efectos divergentes: más del doble de…",
+      "population": "Población. Adultos mayores de 19 años a quienes se les había implantado un stent farmacoactivo 12 meses antes (ventana de 11 a 17 meses) y que presentaban al menos una característica clínica o de la lesión asociada a alto riesgo isquémico, como síndrome coronario agudo, diabetes tratada farmacológicamente, enfermedad renal crónica, insuficiencia cardiaca, ictus previo, enfermedad del tronco coronario izquierdo no protegido…"
+    }
+  },
+  "100": {
+    "slug": "dapa-ckd-dapagliflozina-enfermedad-renal-cronica",
+    "path": "/trials/dapa-ckd-dapagliflozina-enfermedad-renal-cronica/",
+    "url": "https://resumenestrials.com/trials/dapa-ckd-dapagliflozina-enfermedad-renal-cronica/",
+    "title": "DAPA-CKD: dapagliflozina en la enfermedad renal crónica",
+    "seo_title": "DAPA-CKD trial: dapagliflozina en la enfermedad renal crónica | Resúmenes Trials",
+    "description": "DAPA-CKD: La dapagliflozina redujo el compuesto de descenso sostenido del 50% o más en la tasa de filtrado glomerular, enfermedad renal terminal, o muerte de…",
+    "clusters": [
+      {
+        "name": "Renal y metabolismo",
+        "path": "/medicina-interna/renal-metabolica/",
+        "url": "https://resumenestrials.com/medicina-interna/renal-metabolica/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/dapa-ckd-dapagliflozina-enfermedad-renal-cronica-16x9.jpg",
+      "https://resumenestrials.com/images/trials/dapa-ckd-dapagliflozina-enfermedad-renal-cronica-4x3.jpg",
+      "https://resumenestrials.com/images/trials/dapa-ckd-dapagliflozina-enfermedad-renal-cronica-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si la dapagliflozina, un inhibidor del cotransportador de sodio-glucosa tipo 2, reduce el riesgo de un compuesto de deterioro renal grave o muerte de causa renal o cardiovascular, en pacientes con enfermedad renal crónica, con o sin diabetes tipo 2.",
+      "answer": "La dapagliflozina redujo el compuesto de descenso sostenido del 50% o más en la tasa de filtrado glomerular, enfermedad renal terminal, o muerte de causa renal o cardiovascular, frente a placebo ( 9.2% frente a 14.5% ; razón de riesgo 0.61; IC 95%, 0.51 a 0.72; p<0.001), con un número necesario a tratar de 19 según reporta el…",
+      "population": "Población. Adultos con o sin diabetes tipo 2, con una tasa de filtrado glomerular estimada de 25 a 75 ml/min/1.73 m2 y una razón de albúmina a creatinina en orina de 200 a 5000, tratados con una dosis estable de un inhibidor de la enzima convertidora de angiotensina o un antagonista del receptor de angiotensina durante al menos 4 semanas cuando fuera tolerado. Reclutados en 386 centros de 21 países. Intervención…"
+    }
+  },
+  "101": {
+    "slug": "dapa-hf-dapagliflozina-insuficiencia-cardiaca-fraccion-eyeccion-reducida",
+    "path": "/trials/dapa-hf-dapagliflozina-insuficiencia-cardiaca-fraccion-eyeccion-reducida/",
+    "url": "https://resumenestrials.com/trials/dapa-hf-dapagliflozina-insuficiencia-cardiaca-fraccion-eyeccion-reducida/",
+    "title": "DAPA-HF: dapagliflozina en la insuficiencia cardiaca con fracción de eyección reducida",
+    "seo_title": "DAPA-HF trial: dapagliflozina en la insuficiencia cardiaca con fracción de eyección reducida | Resúmenes Trials",
+    "description": "DAPA-HF: La dapagliflozina redujo el compuesto de empeoramiento de la insuficiencia cardiaca o muerte cardiovascular frente a placebo ( 16.3% frente a 21.2%…",
+    "clusters": [
+      {
+        "name": "Cardiología y prevención cardiovascular",
+        "path": "/medicina-interna/cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-interna/cardiovascular/"
+      },
+      {
+        "name": "Renal y metabolismo",
+        "path": "/medicina-interna/renal-metabolica/",
+        "url": "https://resumenestrials.com/medicina-interna/renal-metabolica/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/dapa-hf-dapagliflozina-insuficiencia-cardiaca-fraccion-eyeccion-reducida-16x9.jpg",
+      "https://resumenestrials.com/images/trials/dapa-hf-dapagliflozina-insuficiencia-cardiaca-fraccion-eyeccion-reducida-4x3.jpg",
+      "https://resumenestrials.com/images/trials/dapa-hf-dapagliflozina-insuficiencia-cardiaca-fraccion-eyeccion-reducida-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si la dapagliflozina, un inhibidor del cotransportador de sodio-glucosa tipo 2, reduce el riesgo de un compuesto de empeoramiento de la insuficiencia cardiaca o muerte cardiovascular, en pacientes con insuficiencia cardiaca y fracción de eyección reducida, con o sin diabetes tipo 2.",
+      "answer": "La dapagliflozina redujo el compuesto de empeoramiento de la insuficiencia cardiaca o muerte cardiovascular frente a placebo ( 16.3% frente a 21.2% ; razón de riesgo 0.74; IC 95%, 0.65 a 0.85; p<0.001), con un número necesario a tratar de 21 según reporta el propio artículo, con beneficio consistente independientemente de la…",
+      "population": "Población. Adultos de al menos 18 años con insuficiencia cardiaca en clase funcional II, III o IV de la New York Heart Association, fracción de eyección del 40% o menos, y un nivel elevado de péptido natriurético N-terminal pro-BNP, tratados con terapia estándar recomendada (inhibidor de la enzima convertidora de angiotensina, antagonista del receptor de angiotensina, o sacubitrilo-valsartán, más un betabloqueante). Reclutados…"
+    }
+  },
+  "102": {
+    "slug": "fourier-evolocumab-enfermedad-cardiovascular-aterosclerotica",
+    "path": "/trials/fourier-evolocumab-enfermedad-cardiovascular-aterosclerotica/",
+    "url": "https://resumenestrials.com/trials/fourier-evolocumab-enfermedad-cardiovascular-aterosclerotica/",
+    "title": "FOURIER: evolocumab en la enfermedad cardiovascular aterosclerótica",
+    "seo_title": "FOURIER trial: evolocumab en la enfermedad cardiovascular aterosclerótica | Resúmenes Trials",
+    "description": "FOURIER: El evolocumab redujo el compuesto de muerte cardiovascular, infarto, ictus, hospitalización por angina inestable, o revascularización coronaria…",
+    "clusters": [
+      {
+        "name": "Cardiología y prevención cardiovascular",
+        "path": "/medicina-interna/cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-interna/cardiovascular/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/fourier-evolocumab-enfermedad-cardiovascular-aterosclerotica-16x9.jpg",
+      "https://resumenestrials.com/images/trials/fourier-evolocumab-enfermedad-cardiovascular-aterosclerotica-4x3.jpg",
+      "https://resumenestrials.com/images/trials/fourier-evolocumab-enfermedad-cardiovascular-aterosclerotica-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si el evolocumab, un anticuerpo monoclonal inhibidor de PCSK9, reduce el riesgo de eventos cardiovasculares mayores en pacientes con enfermedad cardiovascular aterosclerótica y colesterol LDL elevado pese al tratamiento con estatinas.",
+      "answer": "El evolocumab redujo el compuesto de muerte cardiovascular, infarto, ictus, hospitalización por angina inestable, o revascularización coronaria, frente a placebo ( 9.8% frente a 11.3% ; razón de riesgo 0.85; IC 95%, 0.79 a 0.92; p<0.001), con un número necesario a tratar de 74 pacientes durante 2 años según reporta el propio…",
+      "population": "Población. Adultos de 40 a 85 años con enfermedad cardiovascular aterosclerótica clínicamente evidente (infarto de miocardio previo, ictus no hemorrágico, o enfermedad arterial periférica sintomática) y un nivel de colesterol LDL de 70 mg/dl o más (o colesterol no-HDL de 100 mg/dl o más), en tratamiento optimizado con estatinas, preferiblemente de alta intensidad. Reclutados en 1242 centros de 49 países. Intervención…"
+    }
+  },
+  "103": {
+    "slug": "improve-it-ezetimiba-anadida-estatinas-tras-sindrome-coronario-agudo",
+    "path": "/trials/improve-it-ezetimiba-anadida-estatinas-tras-sindrome-coronario-agudo/",
+    "url": "https://resumenestrials.com/trials/improve-it-ezetimiba-anadida-estatinas-tras-sindrome-coronario-agudo/",
+    "title": "IMPROVE-IT: ezetimiba añadida a estatinas tras un síndrome coronario agudo",
+    "seo_title": "IMPROVE-IT trial: ezetimiba añadida a estatinas tras un síndrome coronario agudo | Resúmenes Trials",
+    "description": "IMPROVE-IT: El desenlace primario compuesto mejoró con la combinación: 32.7% frente a 34.7% a los 7 años (hazard ratio, 0.936; IC 95%, 0.89 a 0.99; p=0.016)…",
+    "clusters": [
+      {
+        "name": "Cardiología y prevención cardiovascular",
+        "path": "/medicina-interna/cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-interna/cardiovascular/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/improve-it-ezetimiba-anadida-estatinas-tras-sindrome-coronario-agudo-16x9.jpg",
+      "https://resumenestrials.com/images/trials/improve-it-ezetimiba-anadida-estatinas-tras-sindrome-coronario-agudo-4x3.jpg",
+      "https://resumenestrials.com/images/trials/improve-it-ezetimiba-anadida-estatinas-tras-sindrome-coronario-agudo-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si añadir ezetimiba a la simvastatina, en pacientes estables tras un síndrome coronario agudo con un colesterol LDL ya dentro del rango recomendado por las guías, reduce más los eventos cardiovasculares que la simvastatina sola.",
+      "answer": "El desenlace primario compuesto mejoró con la combinación: 32.7% frente a 34.7% a los 7 años (hazard ratio, 0.936; IC 95%, 0.89 a 0.99; p=0.016) , impulsado por menos infartos y menos ictus isquémicos, sin diferencia en la mortalidad por cualquier causa ni en la mortalidad cardiovascular.",
+      "population": "La población fueron hombres y mujeres de 50 años o más, hospitalizados en los 10 días previos por un síndrome coronario agudo, ya fuera un infarto de miocardio con o sin elevación del segmento ST o una angina inestable de alto riesgo, y con un colesterol LDL de entre 50 y 100 mg/dl si ya recibían tratamiento hipolipemiante, o de entre 50 y 125 mg/dl si no lo recibían. El 84% se identificó como de raza blanca, según la…"
+    }
+  },
+  "104": {
+    "slug": "aspired-monitorizacion-electrocardiografica-ambulatoria-inmediata-sincope",
+    "path": "/trials/aspired-monitorizacion-electrocardiografica-ambulatoria-inmediata-sincope/",
+    "url": "https://resumenestrials.com/trials/aspired-monitorizacion-electrocardiografica-ambulatoria-inmediata-sincope/",
+    "title": "ASPIRED: monitorización electrocardiográfica ambulatoria inmediata en el síncope",
+    "seo_title": "ASPIRED trial: monitorización electrocardiográfica ambulatoria inmediata en el síncope | Resúmenes Trials",
+    "description": "ASPIRED: El número de episodios de síncope reportados por el paciente al año no mejoró con la monitorización: 1.37 frente a 1.58 episodios (razón de tasas de…",
+    "clusters": [],
+    "images": [
+      "https://resumenestrials.com/images/trials/aspired-monitorizacion-electrocardiografica-ambulatoria-inmediata-sincope-16x9.jpg",
+      "https://resumenestrials.com/images/trials/aspired-monitorizacion-electrocardiografica-ambulatoria-inmediata-sincope-4x3.jpg",
+      "https://resumenestrials.com/images/trials/aspired-monitorizacion-electrocardiografica-ambulatoria-inmediata-sincope-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si la monitorización electrocardiográfica ambulatoria de 14 días, iniciada de inmediato tras la evaluación en urgencias, reduce los episodios de síncope reportados por el paciente al año en personas con síncope sin explicación.",
+      "answer": "El número de episodios de síncope reportados por el paciente al año no mejoró con la monitorización: 1.37 frente a 1.58 episodios (razón de tasas de incidencia, 0.89; IC 95%, 0.68 a 1.18; p=0.42) .",
+      "population": "La población fueron adultos de 16 años o más que acudieron a un servicio de urgencias o a una unidad médica de agudos por un síncope que permanecía sin explicación tras la evaluación inicial. El 89.6% de los participantes se identificó como de raza blanca, el 5.1% como asiático o asiático británico, el 2.4% como negro o negro británico, y el resto como de raza mixta u otra, según el propio reporte del paciente."
+    }
+  },
+  "105": {
+    "slug": "pipeline-rehabilitacion-multidominio-pacientes-mayores-tras-infarto-miocardio",
+    "path": "/trials/pipeline-rehabilitacion-multidominio-pacientes-mayores-tras-infarto-miocardio/",
+    "url": "https://resumenestrials.com/trials/pipeline-rehabilitacion-multidominio-pacientes-mayores-tras-infarto-miocardio/",
+    "title": "PIpELINe: rehabilitación multidominio en pacientes mayores tras un infarto de miocardio",
+    "seo_title": "PIpELINe trial: rehabilitación multidominio en pacientes mayores tras un infarto de miocardio | Resúmenes Trials",
+    "description": "PIpELINe: El desenlace primario compuesto fue menor con la rehabilitación multidominio: 12.6% frente a 20.6% a 1 año (hazard ratio, 0.57; IC 95%, 0.36 a 0.89…",
+    "clusters": [],
+    "images": [
+      "https://resumenestrials.com/images/trials/pipeline-rehabilitacion-multidominio-pacientes-mayores-tras-infarto-miocardio-16x9.jpg",
+      "https://resumenestrials.com/images/trials/pipeline-rehabilitacion-multidominio-pacientes-mayores-tras-infarto-miocardio-4x3.jpg",
+      "https://resumenestrials.com/images/trials/pipeline-rehabilitacion-multidominio-pacientes-mayores-tras-infarto-miocardio-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si un programa de rehabilitación multidominio, que combina control de factores de riesgo cardiovascular, asesoría nutricional y ejercicio individualizado, reduce la muerte cardiovascular o la hospitalización cardiovascular no planeada a 1 año en pacientes de 65 años o más con deterioro físico un mes después de un infarto de miocardio, frente a la atención usual.",
+      "answer": "El desenlace primario compuesto fue menor con la rehabilitación multidominio: 12.6% frente a 20.6% a 1 año (hazard ratio, 0.57; IC 95%, 0.36 a 0.89; p=0.01) , impulsado sobre todo por menos hospitalizaciones cardiovasculares, sin diferencia significativa en la muerte cardiovascular por separado.",
+      "population": "La población fueron pacientes de 65 años o más, hospitalizados por un infarto de miocardio con o sin elevación del segmento ST, sometidos a revascularización coronaria exitosa, que un mes después del alta obtenían entre 4 y 9 puntos en la Short Physical Performance Battery, un rango que identifica un deterioro físico moderado; el artículo no reporta la raza o etnia de los participantes. Todos procedían de la región italiana de…"
+    }
+  },
+  "106": {
+    "slug": "step-1-semaglutida-semanal-adultos-sobrepeso-u-obesidad",
+    "path": "/trials/step-1-semaglutida-semanal-adultos-sobrepeso-u-obesidad/",
+    "url": "https://resumenestrials.com/trials/step-1-semaglutida-semanal-adultos-sobrepeso-u-obesidad/",
+    "title": "STEP 1: semaglutida semanal en adultos con sobrepeso u obesidad",
+    "seo_title": "STEP 1 trial: semaglutida semanal en adultos con sobrepeso u obesidad | Resúmenes Trials",
+    "description": "STEP 1: El peso corporal se redujo mucho más con semaglutida: -14.9% frente a -2.4% a la semana 68 (diferencia de tratamiento, -12.4 puntos porcentuales; IC…",
+    "clusters": [],
+    "images": [
+      "https://resumenestrials.com/images/trials/step-1-semaglutida-semanal-adultos-sobrepeso-u-obesidad-16x9.jpg",
+      "https://resumenestrials.com/images/trials/step-1-semaglutida-semanal-adultos-sobrepeso-u-obesidad-4x3.jpg",
+      "https://resumenestrials.com/images/trials/step-1-semaglutida-semanal-adultos-sobrepeso-u-obesidad-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si la semaglutida subcutánea semanal, a una dosis de 2.4 mg, junto con una intervención de estilo de vida, produce una mayor pérdida de peso a las 68 semanas que el placebo con la misma intervención de estilo de vida, en adultos con sobrepeso u obesidad sin diabetes.",
+      "answer": "El peso corporal se redujo mucho más con semaglutida: -14.9% frente a -2.4% a la semana 68 (diferencia de tratamiento, -12.4 puntos porcentuales; IC 95%, -13.4 a -11.5; p<0.001) , con más eventos gastrointestinales y discontinuaciones por esa causa en el grupo de semaglutida.",
+      "population": "La población fueron adultos de 18 años o más, sin diabetes, con un índice de masa corporal de 30 o más, o de 27 o más si tenían al menos una condición coexistente relacionada con el peso, como hipertensión, dislipidemia, apnea obstructiva del sueño o enfermedad cardiovascular, y con al menos un intento dietético previo fallido para perder peso, según su propio reporte. El 75.1% de los participantes se identificó como de raza…"
+    }
+  },
+  "107": {
+    "slug": "switch-swedeheart-prasugrel-ticagrelor-sindromes-coronarios-agudos",
+    "path": "/trials/switch-swedeheart-prasugrel-ticagrelor-sindromes-coronarios-agudos/",
+    "url": "https://resumenestrials.com/trials/switch-swedeheart-prasugrel-ticagrelor-sindromes-coronarios-agudos/",
+    "title": "SWITCH-SWEDEHEART: prasugrel frente a ticagrelor en síndromes coronarios agudos",
+    "seo_title": "SWITCH-SWEDEHEART trial: prasugrel frente a ticagrelor en síndromes coronarios agudos | Resúmenes Trials",
+    "description": "SWITCH-SWEDEHEART: El compuesto de muerte, infarto o ictus a 1 año no difirió entre políticas: 11.8% con ticagrelor frente a 11.1% con prasugrel (odds ratio…",
+    "clusters": [
+      {
+        "name": "Cardiología y prevención cardiovascular",
+        "path": "/medicina-interna/cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-interna/cardiovascular/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/switch-swedeheart-prasugrel-ticagrelor-sindromes-coronarios-agudos-16x9.jpg",
+      "https://resumenestrials.com/images/trials/switch-swedeheart-prasugrel-ticagrelor-sindromes-coronarios-agudos-4x3.jpg",
+      "https://resumenestrials.com/images/trials/switch-swedeheart-prasugrel-ticagrelor-sindromes-coronarios-agudos-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si una política regional de prasugrel como inhibidor P2Y12 por defecto, frente a una política de ticagrelor por defecto, reduce el compuesto de muerte, infarto de miocardio o ictus a 1 año en una población no seleccionada de pacientes con un síndrome coronario agudo sometidos a intervención coronaria percutánea.",
+      "answer": "El compuesto de muerte, infarto o ictus a 1 año no difirió entre políticas: 11.8% con ticagrelor frente a 11.1% con prasugrel (odds ratio ajustado, 0.90; IC 95%, 0.77 a 1.06; p=0.22) .",
+      "population": "La población fueron adultos de 18 años o más, incluidos sin selección previa (a diferencia de ensayos explicativos anteriores, se retuvo a quienes recibían anticoagulación oral o tenían un ictus previo), inscritos en el registro SWEDEHEART de Suecia por haber sido sometidos a una intervención coronaria percutánea durante la hospitalización índice por un síndrome coronario agudo; el artículo no reporta la raza o etnia de los…"
+    }
+  },
+  "108": {
+    "slug": "iprex-profilaxis-preexposicion-emtricitabina-tenofovir-prevencion-vih-hombres-tienen-sexo",
+    "path": "/trials/iprex-profilaxis-preexposicion-emtricitabina-tenofovir-prevencion-vih-hombres-tienen-sexo/",
+    "url": "https://resumenestrials.com/trials/iprex-profilaxis-preexposicion-emtricitabina-tenofovir-prevencion-vih-hombres-tienen-sexo/",
+    "title": "iPrEx: profilaxis preexposición con emtricitabina y tenofovir para la prevención del VIH en hombres que tienen sexo con hombres",
+    "seo_title": "iPrEx trial: profilaxis preexposición con emtricitabina y tenofovir para la prevención del VIH en hombres que tienen sexo con hombres | Resúmenes Trials",
+    "description": "iPrEx: La incidencia de VIH fue menor con FTC-TDF: 36 infecciones entre 1251 asignados a FTC-TDF frente a 64 entre 1248 asignados a placebo, una reducción del…",
+    "clusters": [],
+    "images": [
+      "https://resumenestrials.com/images/trials/iprex-profilaxis-preexposicion-emtricitabina-tenofovir-prevencion-vih-hombres-tienen-sexo-16x9.jpg",
+      "https://resumenestrials.com/images/trials/iprex-profilaxis-preexposicion-emtricitabina-tenofovir-prevencion-vih-hombres-tienen-sexo-4x3.jpg",
+      "https://resumenestrials.com/images/trials/iprex-profilaxis-preexposicion-emtricitabina-tenofovir-prevencion-vih-hombres-tienen-sexo-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Evaluar la seguridad y la eficacia de la profilaxis preexposición oral diaria con emtricitabina y tenofovir disoproxil fumarato (FTC-TDF), frente a placebo, para prevenir la adquisición del VIH en hombres y mujeres transgénero VIH-seronegativos que tienen sexo con hombres y presentan alto riesgo de infección.",
+      "answer": "La incidencia de VIH fue menor con FTC-TDF: 36 infecciones entre 1251 asignados a FTC-TDF frente a 64 entre 1248 asignados a placebo, una reducción del 44% en la incidencia (IC95%, 15 a 63; p=0.005) .",
+      "population": "La población fueron hombres cisgénero y mujeres transgénero VIH-seronegativos que tienen sexo con hombres, de 18 años o más, con evidencia de alto riesgo de adquisición del VIH en los 6 meses previos, definida como sexo anal con 4 o más parejas masculinas (o 6 o más según el sitio), diagnóstico de una infección de transmisión sexual, antecedente de sexo transaccional, o sexo anal sin condón con una pareja VIH positiva o de…"
+    }
+  },
+  "109": {
+    "slug": "hptn-052-inicio-temprano-tratamiento-antirretroviral-prevenir-transmision-vih-1-parejas",
+    "path": "/trials/hptn-052-inicio-temprano-tratamiento-antirretroviral-prevenir-transmision-vih-1-parejas/",
+    "url": "https://resumenestrials.com/trials/hptn-052-inicio-temprano-tratamiento-antirretroviral-prevenir-transmision-vih-1-parejas/",
+    "title": "HPTN 052: inicio temprano del tratamiento antirretroviral para prevenir la transmisión del VIH-1 en parejas serodiscordantes",
+    "seo_title": "HPTN 052 trial: inicio temprano del tratamiento antirretroviral para prevenir la transmisión del VIH-1 en parejas serodiscordantes | Resúmenes Trials",
+    "description": "HPTN 052: La transmisión del VIH-1 vinculada genéticamente a la pareja infectada fue mucho menor con el tratamiento temprano: 1 transmisión vinculada entre…",
+    "clusters": [],
+    "images": [
+      "https://resumenestrials.com/images/trials/hptn-052-inicio-temprano-tratamiento-antirretroviral-prevenir-transmision-vih-1-parejas-16x9.jpg",
+      "https://resumenestrials.com/images/trials/hptn-052-inicio-temprano-tratamiento-antirretroviral-prevenir-transmision-vih-1-parejas-4x3.jpg",
+      "https://resumenestrials.com/images/trials/hptn-052-inicio-temprano-tratamiento-antirretroviral-prevenir-transmision-vih-1-parejas-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si el inicio inmediato del tratamiento antirretroviral, en comparación con su inicio diferido, reduce la transmisión sexual del VIH-1 a la pareja no infectada y los eventos clínicos graves en la persona infectada, en parejas heterosexuales serodiscordantes con un recuento de CD4 de 350 a 550 células por milímetro cúbico en el miembro infectado.",
+      "answer": "La transmisión del VIH-1 vinculada genéticamente a la pareja infectada fue mucho menor con el tratamiento temprano: 1 transmisión vinculada entre 886 parejas asignadas a terapia temprana frente a 27 entre 877 asignadas a terapia diferida (hazard ratio, 0.04; IC95%, 0.01 a 0.27; p<0.001) .",
+      "population": "La población fueron parejas heterosexuales serodiscordantes para el VIH-1, con una relación estable de al menos 3 meses y al menos tres relaciones sexuales en ese periodo; el 97% de las parejas era heterosexual y el 94% estaba casada o convivía, con el miembro infectado siendo hombre en el 50% de los casos. El artículo no reporta la raza o el grupo étnico de los participantes; procedían de 13 centros en nueve países, con el…"
+    }
+  },
+  "110": {
+    "slug": "proseva-posicion-prona-prolongada-temprana-sindrome-dificultad-respiratoria-aguda-grave",
+    "path": "/trials/proseva-posicion-prona-prolongada-temprana-sindrome-dificultad-respiratoria-aguda-grave/",
+    "url": "https://resumenestrials.com/trials/proseva-posicion-prona-prolongada-temprana-sindrome-dificultad-respiratoria-aguda-grave/",
+    "title": "PROSEVA: posición prona prolongada y temprana en el síndrome de dificultad respiratoria aguda grave",
+    "seo_title": "PROSEVA trial: posición prona prolongada y temprana en el síndrome de dificultad respiratoria aguda grave | Resúmenes Trials",
+    "description": "PROSEVA: La mortalidad a los 28 días fue mucho menor con posición prona: 16.0% frente a 32.8% (hazard ratio, 0.39; IC95%, 0.25 a 0.63; p<0.001) , con un…",
+    "clusters": [
+      {
+        "name": "Ventilación e insuficiencia respiratoria",
+        "path": "/medicina-critica/ventilacion-respiratoria/",
+        "url": "https://resumenestrials.com/medicina-critica/ventilacion-respiratoria/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/proseva-posicion-prona-prolongada-temprana-sindrome-dificultad-respiratoria-aguda-grave-16x9.jpg",
+      "https://resumenestrials.com/images/trials/proseva-posicion-prona-prolongada-temprana-sindrome-dificultad-respiratoria-aguda-grave-4x3.jpg",
+      "https://resumenestrials.com/images/trials/proseva-posicion-prona-prolongada-temprana-sindrome-dificultad-respiratoria-aguda-grave-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Evaluar si la aplicación temprana de sesiones prolongadas de posición prona, en comparación con mantener a los pacientes en posición supina, reduce la mortalidad a los 28 días en pacientes con síndrome de dificultad respiratoria aguda grave que reciben ventilación mecánica.",
+      "answer": "La mortalidad a los 28 días fue mucho menor con posición prona: 16.0% frente a 32.8% (hazard ratio, 0.39; IC95%, 0.25 a 0.63; p<0.001) , con un beneficio que se mantuvo a los 90 días, sin diferencias significativas en las complicaciones, salvo menos paros cardiacos en el grupo de posición prona.",
+      "population": "La población fueron adultos con síndrome de dificultad respiratoria aguda grave, intubados y en ventilación mecánica por menos de 36 horas, con una relación entre la presión parcial de oxígeno arterial y la fracción inspirada de oxígeno (PaO2:FiO2) menor de 150 mm Hg, con una FiO2 de al menos 0.6, una presión positiva al final de la espiración (PEEP) de al menos 5 cm de agua, y un volumen corriente cercano a 6 ml por kilogramo…"
+    }
+  },
+  "111": {
+    "slug": "padn-hf-ph-denervacion-arteria-pulmonar-hipertension-pulmonar-asociada-insuficiencia-cardiaca",
+    "path": "/trials/padn-hf-ph-denervacion-arteria-pulmonar-hipertension-pulmonar-asociada-insuficiencia-cardiaca/",
+    "url": "https://resumenestrials.com/trials/padn-hf-ph-denervacion-arteria-pulmonar-hipertension-pulmonar-asociada-insuficiencia-cardiaca/",
+    "title": "PADN-HF-PH: denervación de la arteria pulmonar para la hipertensión pulmonar asociada a insuficiencia cardiaca",
+    "seo_title": "PADN-HF-PH trial: denervación de la arteria pulmonar para la hipertensión pulmonar asociada a insuficiencia cardiaca | Resúmenes Trials",
+    "description": "PADN-HF-PH: El empeoramiento clínico fue menos frecuente con la denervación de la arteria pulmonar: 25 de 134 pacientes (25.7% a 2 años) frente a 42 de 130…",
+    "clusters": [
+      {
+        "name": "Cardiología y prevención cardiovascular",
+        "path": "/medicina-interna/cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-interna/cardiovascular/"
+      },
+      {
+        "name": "Neumología",
+        "path": "/medicina-interna/neumologia/",
+        "url": "https://resumenestrials.com/medicina-interna/neumologia/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/padn-hf-ph-denervacion-arteria-pulmonar-hipertension-pulmonar-asociada-insuficiencia-cardiaca-16x9.jpg",
+      "https://resumenestrials.com/images/trials/padn-hf-ph-denervacion-arteria-pulmonar-hipertension-pulmonar-asociada-insuficiencia-cardiaca-4x3.jpg",
+      "https://resumenestrials.com/images/trials/padn-hf-ph-denervacion-arteria-pulmonar-hipertension-pulmonar-asociada-insuficiencia-cardiaca-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Evaluar si sumar la denervación de la arteria pulmonar por catéter al tratamiento médico dirigido por las guías reduce el empeoramiento clínico, frente al tratamiento médico solo, en pacientes con hipertensión pulmonar asociada a cardiopatía izquierda e insuficiencia cardiaca sintomática.",
+      "answer": "El empeoramiento clínico fue menos frecuente con la denervación de la arteria pulmonar: 25 de 134 pacientes (25.7% a 2 años) frente a 42 de 130 (51.5%), con un cociente de riesgos de 0.49 (IC95%, 0.30 a 0.82; p=0.006) .",
+      "population": "La población fueron adultos de 18 a 75 años con hipertensión pulmonar secundaria a cardiopatía izquierda e insuficiencia cardiaca sintomática, en clase funcional II a IVa de la New York Heart Association, es decir, con una limitación de la actividad física por síntomas que iba de leve a intensa, con cualquier fracción de eyección, que llevaban al menos 3 meses de insuficiencia cardiaca y al menos 1 mes con dosis máxima estable…"
+    }
+  },
+  "112": {
+    "slug": "nlst-cribado-cancer-pulmon-tomografia-computarizada-baja-dosis",
+    "path": "/trials/nlst-cribado-cancer-pulmon-tomografia-computarizada-baja-dosis/",
+    "url": "https://resumenestrials.com/trials/nlst-cribado-cancer-pulmon-tomografia-computarizada-baja-dosis/",
+    "title": "NLST: cribado de cáncer de pulmón con tomografía computarizada de baja dosis",
+    "seo_title": "NLST trial: cribado de cáncer de pulmón con tomografía computarizada de baja dosis | Resúmenes Trials",
+    "description": "NLST: La mortalidad por cáncer de pulmón fue menor con la tomografía de baja dosis: 247 frente a 309 muertes por 100,000 personas-año, una reducción relativa…",
+    "clusters": [],
+    "images": [
+      "https://resumenestrials.com/images/trials/nlst-cribado-cancer-pulmon-tomografia-computarizada-baja-dosis-16x9.jpg",
+      "https://resumenestrials.com/images/trials/nlst-cribado-cancer-pulmon-tomografia-computarizada-baja-dosis-4x3.jpg",
+      "https://resumenestrials.com/images/trials/nlst-cribado-cancer-pulmon-tomografia-computarizada-baja-dosis-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si el cribado anual con tomografía computarizada de baja dosis reduce la mortalidad por cáncer de pulmón, frente al cribado con radiografía de tórax, en personas con alto riesgo de la enfermedad por tabaquismo intenso.",
+      "answer": "La mortalidad por cáncer de pulmón fue menor con la tomografía de baja dosis: 247 frente a 309 muertes por 100,000 personas-año, una reducción relativa de 20.0% (IC95%, 6.8 a 26.7; p=0.004) .",
+      "population": "La población fueron personas de 55 a 74 años con alto riesgo de cáncer de pulmón, definido como un antecedente de tabaquismo de al menos 30 paquetes-año y, si eran exfumadores, haber dejado de fumar en los 15 años previos; se excluyó a quienes tenían un diagnóstico previo de cáncer de pulmón, se habían hecho una tomografía de tórax en los 18 meses anteriores, presentaban hemoptisis o habían perdido más de 6.8 kilogramos de…"
+    }
+  },
+  "113": {
+    "slug": "classic-restriccion-fluidos-intravenosos-pacientes-uci-shock-septico",
+    "path": "/trials/classic-restriccion-fluidos-intravenosos-pacientes-uci-shock-septico/",
+    "url": "https://resumenestrials.com/trials/classic-restriccion-fluidos-intravenosos-pacientes-uci-shock-septico/",
+    "title": "CLASSIC: restricción de fluidos intravenosos en pacientes de UCI con shock séptico",
+    "seo_title": "CLASSIC trial: restricción de fluidos intravenosos en pacientes de UCI con shock séptico | Resúmenes Trials",
+    "description": "CLASSIC: La mortalidad a los 90 días no fue diferente entre los grupos: 42.3% en el grupo de restricción de fluidos frente a 42.1% en el grupo estándar, una…",
+    "clusters": [
+      {
+        "name": "Sepsis y shock",
+        "path": "/medicina-critica/sepsis-shock/",
+        "url": "https://resumenestrials.com/medicina-critica/sepsis-shock/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/classic-restriccion-fluidos-intravenosos-pacientes-uci-shock-septico-16x9.jpg",
+      "https://resumenestrials.com/images/trials/classic-restriccion-fluidos-intravenosos-pacientes-uci-shock-septico-4x3.jpg",
+      "https://resumenestrials.com/images/trials/classic-restriccion-fluidos-intravenosos-pacientes-uci-shock-septico-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si restringir los fluidos intravenosos, frente al tratamiento estándar, reduce la mortalidad a los 90 días en pacientes adultos con shock séptico en la unidad de cuidados intensivos.",
+      "answer": "La mortalidad a los 90 días no fue diferente entre los grupos: 42.3% en el grupo de restricción de fluidos frente a 42.1% en el grupo estándar, una diferencia absoluta ajustada de 0.1 puntos porcentuales (IC95%, -4.7 a 4.9; p=0.96) .",
+      "population": "La población fueron adultos de 18 años o más, ingresados en la unidad de cuidados intensivos con shock séptico, definido como infección sospechada o confirmada, un nivel de lactato plasmático de 2 mmol por litro o más, el uso de un vasopresor o inotrópico en infusión continua, y haber recibido al menos 1 litro de fluidos intravenosos en las 24 horas previas al cribado, siempre que el inicio del shock hubiera ocurrido en las 12…"
+    }
   }
 }
