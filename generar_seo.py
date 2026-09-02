@@ -12,6 +12,7 @@ BASE_URL = "https://resumenestrials.com"
 DATA_PATH = ROOT / "resumenes.json"
 MANIFEST_PATH = ROOT / "seo-manifest.json"
 SITEMAP_PATH = ROOT / "sitemap.xml"
+FEED_PATH = ROOT / "feed.xml"
 TRIALS_DIR = ROOT / "trials"
 
 CATEGORY_PATHS = {
@@ -82,6 +83,11 @@ def url_trial(item: dict) -> str:
     return f"{BASE_URL}/trials/{slug_para_item(item)}/"
 
 
+def url_http(valor: object) -> str:
+    value = str(valor or "").strip()
+    return value if re.match(r"^https?://", value, re.I) else ""
+
+
 def ruta_trial(item: dict) -> str:
     return f"/trials/{slug_para_item(item)}/"
 
@@ -149,9 +155,12 @@ def jsonld_article(item: dict) -> str:
         article["about"] = about
     if temas:
         article["keywords"] = temas
-    if item.get("original"):
-        article["isBasedOn"] = item["original"]
-        article["citation"] = item["original"]
+    original_url = url_http(item.get("original"))
+    if original_url:
+        article["isBasedOn"] = original_url
+        article["citation"] = original_url
+    elif item.get("original"):
+        article["citation"] = texto_plano(item.get("original"))
 
     crumbs = [
         {"@type": "ListItem", "position": 1, "name": "Inicio", "item": f"{BASE_URL}/"},
@@ -216,8 +225,11 @@ def pagina_trial(item: dict, todos: list[dict]) -> str:
         )
 
     original = ""
-    if item.get("original"):
-        original = f'<div class="enlace-original"><strong>Artículo original</strong><br><a href="{html.escape(str(item["original"]))}" target="_blank" rel="noopener noreferrer">{html.escape(str(item["original"]))}</a></div>'
+    original_url = url_http(item.get("original"))
+    if original_url:
+        original = f'<div class="enlace-original"><strong>Artículo original</strong><br><a href="{html.escape(original_url)}" target="_blank" rel="noopener noreferrer">{html.escape(original_url)}</a></div>'
+    elif item.get("original"):
+        original = f'<div class="enlace-original"><strong>Referencia del artículo original</strong><br><span>{html.escape(texto_plano(item.get("original")))}</span></div>'
 
     publication = f'<div class="publicacion">Artículo original publicado: {html.escape(fecha)}</div>' if fecha else ""
 
@@ -230,6 +242,7 @@ def pagina_trial(item: dict, todos: list[dict]) -> str:
 <meta name="description" content="{html.escape(descripcion)}">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
 <link rel="canonical" href="{html.escape(canonical)}">
+<link rel="alternate" type="application/atom+xml" title="Resúmenes Trials" href="{BASE_URL}/feed.xml">
 <meta name="theme-color" content="#f7f6f2">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Resúmenes Trials">
@@ -301,6 +314,7 @@ def pagina_categoria(nombre: str, items: list[dict]) -> str:
 <title>{html.escape(nombre)}: ensayos clínicos | Resúmenes Trials</title>
 <meta name="description" content="{html.escape(desc)}"><meta name="robots" content="index,follow,max-image-preview:large">
 <link rel="canonical" href="{canonical}"><meta property="og:type" content="website"><meta property="og:title" content="{html.escape(nombre)} · Resúmenes Trials"><meta property="og:description" content="{html.escape(desc)}"><meta property="og:url" content="{canonical}"><meta property="og:image" content="{BASE_URL}/logo.png">
+<link rel="alternate" type="application/atom+xml" title="Resúmenes Trials" href="{BASE_URL}/feed.xml">
 <script type="application/ld+json">{json.dumps(schema, ensure_ascii=False, separators=(",", ":"))}</script>
 <link rel="icon" href="/favicon.png"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"><link rel="stylesheet" href="/trial.css?v=1"></head>
 <body><header class="topbar"><div class="topbar-in"><a class="marca" href="/"><img src="/logo.png" alt="Resúmenes Trials"></a><nav><a href="/medicina-critica/">Medicina Crítica</a><a href="/medicina-interna/">Medicina Interna</a></nav></div></header>
@@ -316,6 +330,47 @@ def generar_sitemap(items: list[dict], categorias_contenido: dict[str, list[dict
         lineas.extend(["  <url>", f"    <loc>{html.escape(url)}</loc>", "  </url>"])
     lineas.append("</urlset>")
     SITEMAP_PATH.write_text("\n".join(lineas) + "\n", encoding="utf-8")
+
+
+def fecha_editorial(item: dict) -> str:
+    """Return only an explicit site publication/update date, never the study date."""
+    for key in ("fecha_revision", "actualizado", "fecha_publicacion_resumen"):
+        value = str(item.get(key) or "").strip()
+        if re.fullmatch(r"\d{4}-\d{2}-\d{2}", value):
+            return value
+    return ""
+
+
+def generar_feed(items: list[dict]) -> None:
+    dated = [(fecha_editorial(item), item) for item in items]
+    dated = [(date, item) for date, item in dated if date]
+    dated.sort(key=lambda pair: (pair[0], str(pair[1].get("id") or "")), reverse=True)
+    updated = dated[0][0] if dated else "1970-01-01"
+    lines = [
+        '<?xml version="1.0" encoding="UTF-8"?>',
+        '<feed xmlns="http://www.w3.org/2005/Atom">',
+        '  <title>Resúmenes Trials</title>',
+        f'  <id>{BASE_URL}/</id>',
+        f'  <link href="{BASE_URL}/"/>',
+        f'  <link rel="self" type="application/atom+xml" href="{BASE_URL}/feed.xml"/>',
+        f'  <updated>{updated}T00:00:00Z</updated>',
+        '  <subtitle>Resúmenes críticos en español de ensayos clínicos.</subtitle>',
+    ]
+    for date, item in dated[:50]:
+        canonical = url_trial(item)
+        title = texto_plano(item.get("titulo"))
+        description = recortar(item.get("objetivo") or item.get("hallazgo") or "Resumen crítico en español.", 300)
+        lines.extend([
+            '  <entry>',
+            f'    <title>{html.escape(title)}</title>',
+            f'    <id>{html.escape(canonical)}</id>',
+            f'    <link href="{html.escape(canonical)}"/>',
+            f'    <updated>{date}T00:00:00Z</updated>',
+            f'    <summary>{html.escape(description)}</summary>',
+            '  </entry>',
+        ])
+    lines.append('</feed>')
+    FEED_PATH.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
 def validar(items: object) -> list[dict]:
@@ -379,7 +434,8 @@ def main() -> None:
 
     MANIFEST_PATH.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     generar_sitemap(items, categorias_contenido)
-    print(f"SEO generado: {len(items)} trials, {sum(bool(v) for v in categorias_contenido.values())} categorías y sitemap.xml.")
+    generar_feed(items)
+    print(f"SEO generado: {len(items)} trials, {sum(bool(v) for v in categorias_contenido.values())} categorías, sitemap.xml y feed.xml.")
 
 
 if __name__ == "__main__":

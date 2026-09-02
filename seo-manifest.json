@@ -1270,6 +1270,11 @@
         "url": "https://resumenestrials.com/medicina-interna/infecciosas/"
       },
       {
+        "name": "Hematología y oncología",
+        "path": "/medicina-interna/hematologia-oncologia/",
+        "url": "https://resumenestrials.com/medicina-interna/hematologia-oncologia/"
+      },
+      {
         "name": "Neumología",
         "path": "/medicina-interna/neumologia/",
         "url": "https://resumenestrials.com/medicina-interna/neumologia/"
@@ -2397,7 +2402,13 @@
     "title": "MR CLEAN: tratamiento intraarterial en el ictus isquémico agudo por oclusión proximal",
     "seo_title": "MR CLEAN trial: tratamiento intraarterial en el ictus isquémico agudo por oclusión proximal | Resúmenes Trials",
     "description": "MR CLEAN: El tratamiento intraarterial dentro de las 6 horas mejoró la independencia funcional a los 90 días ( 32.6% frente a 19.1% ; razón de momios común…",
-    "clusters": [],
+    "clusters": [
+      {
+        "name": "Neurología",
+        "path": "/medicina-interna/neurologia/",
+        "url": "https://resumenestrials.com/medicina-interna/neurologia/"
+      }
+    ],
     "images": [
       "https://resumenestrials.com/images/trials/mr-clean-tratamiento-intraarterial-ictus-isquemico-agudo-oclusion-proximal-16x9.jpg",
       "https://resumenestrials.com/images/trials/mr-clean-tratamiento-intraarterial-ictus-isquemico-agudo-oclusion-proximal-4x3.jpg",
@@ -2745,7 +2756,13 @@
     "title": "PIpELINe: rehabilitación multidominio en pacientes mayores tras un infarto de miocardio",
     "seo_title": "PIpELINe trial: rehabilitación multidominio en pacientes mayores tras un infarto de miocardio | Resúmenes Trials",
     "description": "PIpELINe: El desenlace primario compuesto fue menor con la rehabilitación multidominio: 12.6% frente a 20.6% a 1 año (hazard ratio, 0.57; IC 95%, 0.36 a 0.89…",
-    "clusters": [],
+    "clusters": [
+      {
+        "name": "Cardiología y prevención cardiovascular",
+        "path": "/medicina-interna/cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-interna/cardiovascular/"
+      }
+    ],
     "images": [
       "https://resumenestrials.com/images/trials/pipeline-rehabilitacion-multidominio-pacientes-mayores-tras-infarto-miocardio-16x9.jpg",
       "https://resumenestrials.com/images/trials/pipeline-rehabilitacion-multidominio-pacientes-mayores-tras-infarto-miocardio-4x3.jpg",
@@ -2764,7 +2781,13 @@
     "title": "STEP 1: semaglutida semanal en adultos con sobrepeso u obesidad",
     "seo_title": "STEP 1 trial: semaglutida semanal en adultos con sobrepeso u obesidad | Resúmenes Trials",
     "description": "STEP 1: El peso corporal se redujo mucho más con semaglutida: -14.9% frente a -2.4% a la semana 68 (diferencia de tratamiento, -12.4 puntos porcentuales; IC…",
-    "clusters": [],
+    "clusters": [
+      {
+        "name": "Renal y metabolismo",
+        "path": "/medicina-interna/renal-metabolica/",
+        "url": "https://resumenestrials.com/medicina-interna/renal-metabolica/"
+      }
+    ],
     "images": [
       "https://resumenestrials.com/images/trials/step-1-semaglutida-semanal-adultos-sobrepeso-u-obesidad-16x9.jpg",
       "https://resumenestrials.com/images/trials/step-1-semaglutida-semanal-adultos-sobrepeso-u-obesidad-4x3.jpg",
@@ -2901,7 +2924,13 @@
     "title": "NLST: cribado de cáncer de pulmón con tomografía computarizada de baja dosis",
     "seo_title": "NLST trial: cribado de cáncer de pulmón con tomografía computarizada de baja dosis | Resúmenes Trials",
     "description": "NLST: La mortalidad por cáncer de pulmón fue menor con la tomografía de baja dosis: 247 frente a 309 muertes por 100,000 personas-año, una reducción relativa…",
-    "clusters": [],
+    "clusters": [
+      {
+        "name": "Hematología y oncología",
+        "path": "/medicina-interna/hematologia-oncologia/",
+        "url": "https://resumenestrials.com/medicina-interna/hematologia-oncologia/"
+      }
+    ],
     "images": [
       "https://resumenestrials.com/images/trials/nlst-cribado-cancer-pulmon-tomografia-computarizada-baja-dosis-16x9.jpg",
       "https://resumenestrials.com/images/trials/nlst-cribado-cancer-pulmon-tomografia-computarizada-baja-dosis-4x3.jpg",

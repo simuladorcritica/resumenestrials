@@ -11,3 +11,5 @@ future-screenshots/
 informe_*.json
 *.log
 *.bundle
+reports/
+seo-data/

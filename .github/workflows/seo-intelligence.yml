@@ -1,0 +1,49 @@
+name: SEO intelligence
+
+on:
+  schedule:
+    - cron: '30 10 * * 1'
+    - cron: '45 10 1 * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-node@v7.0.0
+        with:
+          node-version: '20'
+      - uses: actions/setup-python@v7.0.0
+        with:
+          python-version: '3.12'
+      - name: Auditar infraestructura SEO
+        run: node scripts/seo-audit.mjs --output reports/seo-technical.json --fail-on-high
+      - name: Descargar datos agregados de Search Console
+        env:
+          GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$GSC_SERVICE_ACCOUNT_JSON" ]; then
+            python -m pip install --disable-pip-version-check google-api-python-client==2.179.0 google-auth==2.40.3
+            python scripts/search-console-fetch.py
+          else
+            echo "Search Console no conectado: falta GSC_SERVICE_ACCOUNT_JSON; se generará el reporte técnico sin métricas privadas."
+          fi
+      - name: Generar oportunidades y reportes
+        run: node scripts/seo-opportunities.mjs
+      - name: Publicar resumen visible
+        if: always()
+        run: |
+          cat reports/seo-weekly.md >> "$GITHUB_STEP_SUMMARY"
+          printf '\n## Auditoría técnica\n\n' >> "$GITHUB_STEP_SUMMARY"
+          node -e "const r=require('./reports/seo-technical.json'); console.log('P0='+r.severity.P0+' · P1='+r.severity.P1+' · P2='+r.severity.P2)" >> "$GITHUB_STEP_SUMMARY"
+      - name: Guardar reportes
+        if: always()
+        uses: actions/upload-artifact@v7.0.1
+        with:
+          name: seo-reports-${{ github.run_id }}
+          path: reports/
+          retention-days: 90

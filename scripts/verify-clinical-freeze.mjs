@@ -5,7 +5,7 @@ const base = process.env.CLINICAL_BASE_REF || 'origin/main';
 const clinicalFields = new Set(['titulo', 'autor', 'revista', 'objetivo', 'hallazgo', 'cuerpo', 'corto']);
 
 function readBase() {
-  const source = execFileSync('git', ['-c', 'safe.directory=*', 'show', `${base}:resumenes.json`], { encoding: 'utf8' });
+  const source = execFileSync('git', ['-c', 'safe.directory=*', 'show', `${base}:resumenes.json`], { encoding: 'utf8', maxBuffer: 16 * 1024 * 1024 });
   return JSON.parse(source);
 }
 
