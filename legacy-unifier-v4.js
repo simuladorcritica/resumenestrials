@@ -158,7 +158,13 @@
       tags = make('div','etiquetas');
       eyebrow.insertAdjacentElement('afterend', tags);
     }
-    const values = [row.especialidad_principal, ...(Array.isArray(row.temas) ? row.temas : [])].filter(Boolean).slice(0,4);
+    const clinical = globalThis.SpecialtyClassification?.classify(row)?.specialty;
+    const review = globalThis.SpecialtyClassification?.REVIEW;
+    const values = [
+      row.especialidad_principal,
+      clinical && clinical !== review ? clinical : '',
+      ...(Array.isArray(row.temas) ? row.temas : [])
+    ].filter(Boolean).filter((value, index, all) => all.indexOf(value) === index).slice(0,4);
     tags.replaceChildren(...values.map(value => make('span','badge',value)));
 
     let source = header.querySelector('.fuente-linea');

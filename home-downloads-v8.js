@@ -34,8 +34,13 @@
   }).observe(document.body, { childList: true, subtree: true });
 
   if (document.querySelector('script[src*="internal-medicine-ux.js"]')) return;
+  if (!document.querySelector('script[src*="specialty-classification.js"]')) {
+    const taxonomy = document.createElement('script');
+    taxonomy.src = '/specialty-classification.js?v=2';
+    document.head.appendChild(taxonomy);
+  }
   const script = document.createElement('script');
-  script.src = '/internal-medicine-ux.js?v=1';
+  script.src = '/internal-medicine-ux.js?v=2';
   script.defer = true;
   script.dataset.rtHomeDownloadsV8 = '1';
   script.addEventListener('load', () => normalizeButtons(), { once: true });

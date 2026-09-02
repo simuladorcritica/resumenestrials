@@ -46,7 +46,13 @@ SECCIONES_CORTO = [
     "Seguridad", "Conclusión", "Aplicación clínica",
 ]
 
-ESPECIALIDADES = {"Medicina Crítica", "Medicina Interna", ""}
+AREAS = {"Medicina Crítica", "Medicina Interna"}
+SUBESPECIALIDADES = {
+    "Cardiología", "Endocrinología", "Gastroenterología", "Geriatría", "Hematología",
+    "Infectología", "Medicina Física y Rehabilitación", "Nefrología",
+    "Neumología", "Neurología", "Reumatología",
+}
+ESPECIALIDADES = AREAS | SUBESPECIALIDADES | {""}
 TAGS_PERMITIDAS = {"h2", "p", "strong", "em"}
 
 # Factor de impacto de referencia (JCR Clarivate). Se comprueba consistencia
@@ -244,10 +250,10 @@ def validar_entrada(e, H, if_vistos):
         H.aviso(idn, "'registro' vacío (¿ensayo sin NCT?)")
 
     # --- Especialidad ---
-    if e.get("especialidad_principal") not in ESPECIALIDADES:
+    if e.get("especialidad_principal") not in AREAS:
         H.error(idn, f"especialidad_principal fuera de catálogo: {e.get('especialidad_principal')!r}")
     if e.get("especialidad_secundaria") not in ESPECIALIDADES:
-        H.aviso(idn, f"especialidad_secundaria fuera de catálogo: {e.get('especialidad_secundaria')!r}")
+        H.error(idn, f"especialidad_secundaria fuera de catálogo: {e.get('especialidad_secundaria')!r}")
 
     # --- DOI ---
     doi = str(e.get("doi", ""))

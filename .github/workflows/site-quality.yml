@@ -119,7 +119,7 @@ jobs:
       - name: Validate local resumenes.json automation
         shell: pwsh
         run: |
-          node --test scripts/resumenes-json-guard.test.mjs scripts/resumenes-json-automation.test.mjs scripts/clinical-additions.test.mjs
+          node --test scripts/resumenes-json-guard.test.mjs scripts/resumenes-json-automation.test.mjs scripts/clinical-additions.test.mjs scripts/specialty-classification.test.mjs
           $parseErrors = @()
           foreach ($script in @('scripts/watch-resumenes-json.ps1', 'scripts/install-resumenes-json-watcher.ps1')) {
             $tokens = $null
