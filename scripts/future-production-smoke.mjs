@@ -38,7 +38,10 @@ const manifest=JSON.parse(await fetchText('/seo-manifest.json'));
 const data=JSON.parse(await fetchText('/resumenes.json'));
 assert(Array.isArray(data)&&data.length>0,'Producción: resumenes.json está vacío o no es una lista');
 const expectedCount=data.length;
-const newest=[...data].sort((a,b)=>(b.fecha||'').localeCompare(a.fecha||''))[0];
+// Legacy bibliographic dates may be human-readable Spanish strings. Sort by
+// the explicit publication year first, then use ISO dates only as a tiebreaker.
+const iso=(value)=>/^\d{4}-\d{2}-\d{2}$/.test(String(value||''))?String(value):'';
+const newest=[...data].sort((a,b)=>(Number(b.anio)||0)-(Number(a.anio)||0)||iso(b.fecha).localeCompare(iso(a.fecha)))[0];
 const ids=Object.keys(manifest).sort((a,b)=>Number(a)-Number(b));
 const dataIds=new Set(data.map(item=>String(item.id)));
 const manifestIds=new Set(ids);

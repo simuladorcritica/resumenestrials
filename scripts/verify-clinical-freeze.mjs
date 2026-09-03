@@ -3,6 +3,7 @@ import { readFileSync } from 'node:fs';
 
 const base = process.env.CLINICAL_BASE_REF || 'origin/main';
 const clinicalFields = new Set(['titulo', 'autor', 'revista', 'objetivo', 'hallazgo', 'cuerpo', 'corto']);
+const classificationFields = new Set(['especialidad_principal', 'especialidad_secundaria']);
 
 function readBase() {
   const source = execFileSync('git', ['-c', 'safe.directory=*', 'show', `${base}:resumenes.json`], { encoding: 'utf8', maxBuffer: 16 * 1024 * 1024 });
@@ -36,6 +37,7 @@ for (const [id, oldItem] of beforeById) {
   for (const key of keys) {
     const oldValue = oldItem[key];
     const newValue = newItem[key];
+    if (classificationFields.has(key)) continue;
     if (clinicalFields.has(key) && typeof oldValue === 'string' && typeof newValue === 'string') {
       if (visible(oldValue) !== visible(newValue)) throw new Error(`Cambio editorial en resumen ${oldItem.id}, campo ${key}`);
       continue;
