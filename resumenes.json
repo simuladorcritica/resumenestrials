@@ -609,7 +609,7 @@
     "financiacion": "Financiado con fondos públicos y académicos: los Institutos Canadienses de Investigación en Salud, el Medical Research Future Fund de Australia, el Royal College of Surgeons de Irlanda y la Red Internacional de Investigación Clínica en Tromboembolismo Venoso. Los financiadores no participaron en el diseño, la conducción, el análisis ni la comunicación. El estudio es independiente de los fabricantes de ambos anticoagulantes, lo que lo libra del sesgo de patrocinio. En las declaraciones individuales, la autora correspondiente (Castellucci) refirió honorarios de Bayer (rivaroxabán) y de Bristol-Myers Squibb y Pfizer (apixabán), pagados a su institución, una relación equilibrada con los dos brazos comparados; la mayoría de los coautores no declaró conflictos.",
     "original": "https://www.nejm.org/doi/full/10.1056/NEJMoa2510703",
     "especialidad_principal": "Medicina Interna",
-    "especialidad_secundaria": "",
+    "especialidad_secundaria": "Cardiología",
     "temas": [
       "Anticoagulación",
       "Enfermedad tromboembólica venosa"
@@ -954,7 +954,7 @@
     "financiacion": "Proyecto HORIZON-IC financiado por BeterKeten y DSW, con becas de Stichting Theia (2020286) y Stichting SGS (2020355); los financiadores no participaron en el diseño, análisis o redacción",
     "original": "https://link.springer.com/article/10.1186/s13054-026-06186-4",
     "especialidad_principal": "Medicina Crítica",
-    "especialidad_secundaria": "Medicina Interna",
+    "especialidad_secundaria": "",
     "temas": [
       "Síndrome post-cuidados intensivos",
       "Realidad virtual"
@@ -1240,7 +1240,7 @@
     "financiacion": "Financiado por el Vanderbilt Institute for Clinical and Translational Research a través de un Clinical and Translational Science Award (UL1 TR000445) de los Institutos Nacionales de Salud (NIH) de Estados Unidos, con aportes adicionales del Instituto Nacional de Ciencias Médicas Generales del NIH, del Instituto Nacional del Corazón, los Pulmones y la Sangre del NIH, del Vanderbilt Center for Kidney Disease y del Departamento de Asuntos de los Veteranos. Se trata de financiamiento público e institucional, sin participación de ningún fabricante de cristaloides.",
     "original": "https://www.nejm.org/doi/full/10.1056/NEJMoa1711586",
     "especialidad_principal": "Medicina Interna",
-    "especialidad_secundaria": "",
+    "especialidad_secundaria": "Nefrología",
     "temas": [
       "Fluidoterapia intravenosa",
       "Cristaloides balanceados frente a solución salina",
@@ -1971,8 +1971,8 @@
     "doi": "10.1056/NEJMoa2209421",
     "financiacion": "Financiado por una beca del National Center for Advancing Translational Sciences (NCATS), un contrato con la Biomedical Advanced Research and Development Authority (BARDA), una beca de ciencia clínica y traslacional de NCATS al Vanderbilt University Medical Center, y una beca núcleo de esa misma institución. GSK donó el furoato de fluticasona inhalado utilizado en el ensayo, pero no participó en el financiamiento del estudio ni en el análisis de los datos.",
     "original": "https://www.nejm.org/doi/full/10.1056/NEJMoa2209421",
-    "especialidad_principal": "Enfermedades Infecciosas",
-    "especialidad_secundaria": "Medicina Interna",
+    "especialidad_principal": "Medicina Interna",
+    "especialidad_secundaria": "Infectología",
     "temas": [
       "Covid-19",
       "Corticoides inhalados"
@@ -2138,8 +2138,8 @@
     "doi": "10.1056/NEJMoa1411587",
     "financiacion": "Dutch Heart Foundation (financiación pública) y subvenciones sin restricciones de los fabricantes de dispositivos AngioCare Covidien/ev3, Medac/Lamepro y Penumbra, con interés comercial directo en los dispositivos de trombectomía y trombólisis evaluados.",
     "original": "https://www.nejm.org/doi/full/10.1056/NEJMoa1411587",
-    "especialidad_principal": "Neurología",
-    "especialidad_secundaria": "",
+    "especialidad_principal": "Medicina Interna",
+    "especialidad_secundaria": "Neurología",
     "temas": [
       "Ictus isquémico agudo",
       "Tratamiento endovascular"
@@ -2460,8 +2460,8 @@
     "doi": "10.1056/NEJMoa2502799",
     "financiacion": "Financiado por el Ministerio de Salud de Italia, mediante una beca de investigación (Ricerca Finalizzata 2018, GR 2018-12367114) otorgada a Gianluca Campo, Silvia Zagnoni y Giorgio Chiaranda; el resto de los autores no recibió apoyo de ninguna organización para este trabajo, y el financiador no tuvo ningún papel en el diseño, la recolección, el análisis, la interpretación de los datos ni en la redacción del manuscrito. Al evaluarse un programa conductual de rehabilitación y no un fármaco ni un dispositivo, no existe un fabricante comercial con interés económico en el resultado. Tanto la primera autora, Elisabetta Tonet, como el autor de correspondencia e investigador principal, Gianluca Campo, declaran no tener ningún conflicto de interés que reportar. Entre los coautores, Simone Biscaglia, miembro del comité de monitorización de datos y seguridad, sí declara vínculos económicos relevantes, con becas de investigación y honorarios de consultoría de varias empresas de dispositivos cardiovasculares, entre ellas Abbott Vascular, Siemens y Medis Medical Imaging Systems, pero esos vínculos están ligados a la conducción de otro ensayo (FIRE) y no guardan relación con el financiamiento ni con el objeto de este estudio.",
     "original": "https://www.nejm.org/doi/full/10.1056/NEJMoa2502799",
-    "especialidad_principal": "Geriatría",
-    "especialidad_secundaria": "Medicina Física y Rehabilitación",
+    "especialidad_principal": "Medicina Interna",
+    "especialidad_secundaria": "Geriatría",
     "temas": [
       "Rehabilitación cardiaca",
       "Infarto de miocardio"
@@ -2483,8 +2483,8 @@
     "doi": "10.1056/NEJMoa2032183",
     "financiacion": "Financiado por Novo Nordisk, la empresa fabricante de la semaglutida evaluada; el patrocinador diseñó el ensayo, supervisó su conducción, realizó el monitoreo de los centros, la recopilación y el análisis de los datos, y financió la asistencia de un redactor médico para el manuscrito. Tres coautores, Salvatore Calanna, Marie T.D. Tran y Niels Zeuthen, son empleados de Novo Nordisk, y Tran y Zeuthen además poseen acciones de la compañía. El autor de correspondencia, Robert Kushner, declara honorarios de asesoría de Novo Nordisk y de Weight Watchers. El primer autor, John Wilding, declara honorarios de asesoría, becas y honorarios de conferencia de Novo Nordisk, además de vínculos con otras farmacéuticas como AstraZeneca, Boehringer Ingelheim y Eli Lilly. La mayoría de los demás coautores también declara becas, honorarios de consultoría o de conferencias pagados por Novo Nordisk, entre ellos Batterham, Davies, Van Gaal, Lingvay, McGowan, Rosenstock, Wadden, Wharton y Yokote, junto con vínculos con otras compañías farmacéuticas.",
     "original": "https://www.nejm.org/doi/full/10.1056/NEJMoa2032183",
-    "especialidad_principal": "Endocrinología",
-    "especialidad_secundaria": "",
+    "especialidad_principal": "Medicina Interna",
+    "especialidad_secundaria": "Endocrinología",
     "temas": [
       "Obesidad",
       "Agonistas del receptor de GLP-1"
@@ -2529,8 +2529,8 @@
     "doi": "10.1056/NEJMoa1011205",
     "financiacion": "Financiado por la División de Sida (DAIDS) del Instituto Nacional de Alergias y Enfermedades Infecciosas de los Institutos Nacionales de Salud de Estados Unidos, mediante un acuerdo cooperativo, y por la Fundación Bill y Melinda Gates, que aportó cofinanciación pero no tuvo papel en el desarrollo del protocolo ni en el monitoreo de los centros. Gilead Sciences, la empresa fabricante de la emtricitabina y el tenofovir disoproxil fumarato (FTC-TDF) evaluados, donó los comprimidos de FTC-TDF y de placebo y financió el apoyo de viaje para reuniones de investigadores ajenos a la compañía; su papel en el desarrollo del protocolo se limitó a las secciones sobre el manejo de los fármacos del estudio, y ni Gilead ni sus empleados participaron en la recolección o el análisis de los datos ni en la preparación del manuscrito, aunque la agencia patrocinadora acordó darle a Gilead 30 días para comentar el manuscrito, sin obligación de aceptar sus sugerencias. En cuanto a conflictos de interés, el primer autor, Robert Grant, declara apoyo como asesor de Siemens, fabricante de un kit de genotipificación para VIH-1 no relacionado con el fármaco estudiado. Kenneth Mayer declara apoyo de investigación de Gilead, Merck y Bristol-Myers Squibb; Esper Kallás declara participación en un comité de monitoreo de datos y seguridad para Merck; Mauro Schechter declara honorarios de consultoría y subvenciones de Gilead; Albert Liu y Peter Anderson declaran donaciones de fármaco de estudio por parte de Gilead para otros proyectos de profilaxis preexposición; y James Rooney y Howard Jaffe son empleados de Gilead Sciences y poseen acciones de la compañía. Ningún otro autor declaró conflictos de interés relevantes para este artículo.",
     "original": "https://www.nejm.org/doi/full/10.1056/NEJMoa1011205",
-    "especialidad_principal": "Infectología",
-    "especialidad_secundaria": "VIH",
+    "especialidad_principal": "Medicina Interna",
+    "especialidad_secundaria": "Infectología",
     "temas": [
       "VIH",
       "Profilaxis preexposición"
@@ -2552,8 +2552,8 @@
     "doi": "10.1056/NEJMoa1105243",
     "financiacion": "Financiado por la Red de Ensayos de Prevención del VIH (HPTN) y por subvenciones del Instituto Nacional de Alergias y Enfermedades Infecciosas de los Institutos Nacionales de Salud de Estados Unidos. Los fármacos del estudio fueron donados por Abbott Laboratories, Boehringer Ingelheim, Bristol-Myers Squibb, Gilead Sciences, GlaxoSmithKline/ViiV Healthcare y Merck, es decir, por varios de los fabricantes de los distintos antirretrovirales usados en los diferentes esquemas del estudio, y no por una única compañía asociada a un producto exclusivo, ya que el ensayo evaluó una estrategia de momento de inicio del tratamiento y no un fármaco específico; estas compañías no participaron en el diseño ni en la gestión del estudio. El primer autor y autor de correspondencia, Myron Cohen, no declaró ningún conflicto de interés relevante. Entre los coautores, Mina Hosseinipour declara honorarios de conferencia de Abbott Virology; Susan Eshleman declara honorarios de consultoría de Roche Diagnostics y honorarios de conferencia, además de muestras o reactivos de laboratorio, de Abbott Diagnostics, Celera Diagnostics y Monogram Biosciences; Lisa Mills declara apoyo de investigación de GlaxoSmithKline; Guy de Bruyn declara apoyo de viaje de Sanofi Pasteur; Joseph Eron declara honorarios de consultoría y apoyo de investigación de Merck, Bristol-Myers Squibb, GlaxoSmithKline y ViiV Healthcare, honorarios de consultoría de Gilead Sciences y Tibotec, y honorarios de conferencia de Bristol-Myers Squibb y Roche; Joel Gallant declara honorarios de consultoría de un extenso listado de farmacéuticas, entre ellas Abbott, Bristol-Myers Squibb, Gilead Sciences, Merck, Tibotec, ViiV Healthcare, GlaxoSmithKline y Pfizer, además de apoyo de investigación y de viaje de Gilead Sciences; Diane Havlir declara haber recibido fármaco de estudio de Abbott; y Susan Swindells declara honorarios de consultoría de Gilead Sciences y Abbott Diagnostics y apoyo de investigación de Pfizer, GlaxoSmithKline y Bristol-Myers Squibb. Ningún otro autor declaró conflictos de interés relevantes.",
     "original": "https://www.nejm.org/doi/full/10.1056/NEJMoa1105243",
-    "especialidad_principal": "Infectología",
-    "especialidad_secundaria": "VIH",
+    "especialidad_principal": "Medicina Interna",
+    "especialidad_secundaria": "Infectología",
     "temas": [
       "VIH",
       "Tratamiento como prevención"
@@ -2622,8 +2622,8 @@
     "doi": "10.1056/NEJMoa1102873",
     "financiacion": "El ensayo lo financió íntegramente el Instituto Nacional del Cáncer de Estados Unidos (NCI), una agencia gubernamental sin intereses comerciales en el resultado, mediante subvenciones cooperativas para la red de imagenología del Colegio Americano de Radiología y contratos con cada uno de los centros del Estudio de Cribado Pulmonar. En cuanto a conflictos de interés, Jonathan Clapp declaró un interés financiero en Human Genome Sciences, una compañía sin relación con la tomografía computarizada ni con el cribado de cáncer de pulmón, y Constantine Gatsonis declaró honorarios de consultoría de Wilex, MELA Sciences y Endocyte, honorarios como conferencista de Bayer HealthCare, y el apoyo de la Sociedad Radiológica de Norteamérica para el desarrollo de presentaciones educativas. Ningún otro conflicto de interés relevante para este artículo fue declarado por el resto de los autores.",
     "original": "https://www.nejm.org/doi/full/10.1056/NEJMoa1102873",
-    "especialidad_principal": "Neumología",
-    "especialidad_secundaria": "Oncología",
+    "especialidad_principal": "Medicina Interna",
+    "especialidad_secundaria": "Neumología",
     "temas": [
       "Cáncer de pulmón",
       "Cribado",

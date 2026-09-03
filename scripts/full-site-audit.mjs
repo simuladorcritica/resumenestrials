@@ -88,7 +88,7 @@ function staticAudit(){
 
 function buildHomeAuditFixture(){
   const source=read('_includes/index-source.html');
-  const extras=`\n<script type="module" src="home-auth-ui.js?v=audit"></script>\n<script type="module" src="interactive-home.js?v=audit"></script>\n<script type="module" src="recommendations.js?v=audit"></script>\n<script type="module" src="runtime-consistency.js?v=audit"></script>\n<script type="module" src="internal-medicine-ux.js?v=audit"></script>\n<script type="module" src="home-visual-tuning.js?v=audit"></script>\n<script src="pdf-contact.js?v=audit" defer></script>\n<script src="home-control-layout.js?v=audit" defer></script>\n<script src="seo-hubs-home.js?v=audit" defer></script>\n`;
+  const extras=`\n<script type="module" src="home-auth-ui.js?v=audit"></script>\n<script type="module" src="interactive-home.js?v=audit"></script>\n<script type="module" src="recommendations.js?v=audit"></script>\n<script type="module" src="runtime-consistency.js?v=audit"></script>\n<script src="specialty-classification.js?v=audit"></script>\n<script type="module" src="internal-medicine-ux.js?v=audit"></script>\n<script type="module" src="home-visual-tuning.js?v=audit"></script>\n<script src="pdf-contact.js?v=audit" defer></script>\n<script src="home-control-layout.js?v=audit" defer></script>\n<script src="seo-hubs-home.js?v=audit" defer></script>\n`;
   writeFileSync(join(ROOT,'index-full-audit.html'),source+extras,'utf8');
 }
 

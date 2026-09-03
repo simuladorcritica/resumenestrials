@@ -6,7 +6,7 @@ const BASE=(process.env.RT_BASE_URL||'https://resumenestrials.com').replace(/\/$
 if (process.env.RT_BASE_URL) {
   const originalIndex=readFileSync('index.html','utf8');
   process.once('exit',()=>writeFileSync('index.html',originalIndex,'utf8'));
-  const homeModules='<script type="module" src="/home-auth-ui.js?v=8"></script><script type="module" src="/interactive-home.js?v=20260819.4"></script><script src="/library-filter-cleanup.js?v=1" defer></script><script type="module" src="/recommendations.js?v=2"></script><script type="module" src="/internal-medicine-ux.js?v=1"></script><script type="module" src="/home-visual-tuning.js?v=1"></script><script src="/pdf-contact.js?v=2" defer></script><script src="/home-control-layout.js?v=1" defer></script>';
+  const homeModules='<script type="module" src="/home-auth-ui.js?v=8"></script><script type="module" src="/interactive-home.js?v=20260819.4"></script><script src="/library-filter-cleanup.js?v=1" defer></script><script type="module" src="/recommendations.js?v=2"></script><script src="/specialty-classification.js?v=2"></script><script type="module" src="/internal-medicine-ux.js?v=2"></script><script type="module" src="/home-visual-tuning.js?v=1"></script><script src="/pdf-contact.js?v=2" defer></script><script src="/home-control-layout.js?v=1" defer></script>';
   writeFileSync('index.html',readFileSync('_includes/index-source.html','utf8').replace('</body>',`${homeModules}</body>`),'utf8');
 }
 const data=JSON.parse(readFileSync('resumenes.json','utf8'));

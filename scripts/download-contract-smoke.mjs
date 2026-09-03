@@ -98,7 +98,7 @@ async function shortDiagnostic(page, errors) {
 
 stage('preparando fixture de portada');
 const source = readFileSync('_includes/index-source.html', 'utf8');
-const fixture = `${source}\n<script type="module" src="internal-medicine-ux.js?v=1"></script>\n<script src="pdf-contact.js?v=2"></script>\n`;
+const fixture = `${source}\n<script src="specialty-classification.js?v=2"></script>\n<script type="module" src="internal-medicine-ux.js?v=2"></script>\n<script src="pdf-contact.js?v=2"></script>\n`;
 writeFileSync('index-smoke.html', fixture, 'utf8');
 
 stage('cargando datos y manifiesto');

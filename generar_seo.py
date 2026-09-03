@@ -82,6 +82,11 @@ def url_trial(item: dict) -> str:
     return f"{BASE_URL}/trials/{slug_para_item(item)}/"
 
 
+def url_http(valor: object) -> str:
+    value = str(valor or "").strip()
+    return value if re.match(r"^https?://", value, re.I) else ""
+
+
 def ruta_trial(item: dict) -> str:
     return f"/trials/{slug_para_item(item)}/"
 
@@ -149,9 +154,12 @@ def jsonld_article(item: dict) -> str:
         article["about"] = about
     if temas:
         article["keywords"] = temas
-    if item.get("original"):
-        article["isBasedOn"] = item["original"]
-        article["citation"] = item["original"]
+    original_url = url_http(item.get("original"))
+    if original_url:
+        article["isBasedOn"] = original_url
+        article["citation"] = original_url
+    elif item.get("original"):
+        article["citation"] = texto_plano(item.get("original"))
 
     crumbs = [
         {"@type": "ListItem", "position": 1, "name": "Inicio", "item": f"{BASE_URL}/"},
@@ -216,8 +224,11 @@ def pagina_trial(item: dict, todos: list[dict]) -> str:
         )
 
     original = ""
-    if item.get("original"):
-        original = f'<div class="enlace-original"><strong>Artículo original</strong><br><a href="{html.escape(str(item["original"]))}" target="_blank" rel="noopener noreferrer">{html.escape(str(item["original"]))}</a></div>'
+    original_url = url_http(item.get("original"))
+    if original_url:
+        original = f'<div class="enlace-original"><strong>Artículo original</strong><br><a href="{html.escape(original_url)}" target="_blank" rel="noopener noreferrer">{html.escape(original_url)}</a></div>'
+    elif item.get("original"):
+        original = f'<div class="enlace-original"><strong>Referencia del artículo original</strong><br><span>{html.escape(texto_plano(item.get("original")))}</span></div>'
 
     publication = f'<div class="publicacion">Artículo original publicado: {html.escape(fecha)}</div>' if fecha else ""
 

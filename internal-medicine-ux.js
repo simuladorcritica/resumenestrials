@@ -1,20 +1,5 @@
 const MI = 'Medicina Interna';
 
-const CURRENT_SUBSPECIALTIES = new Map([
-  ['10.1056/NEJMoa2601005', 'Cardiología'],
-  ['10.1056/NEJMoa2515043', 'Cardiología'],
-  ['10.1056/NEJMoa2516567', 'Neumología'],
-  ['10.1056/NEJMoa2514428', 'Cardiología'],
-  ['10.1056/NEJMoa2514120', 'Neurología'],
-  ['10.1056/NEJMoa2512918', 'Cardiología'],
-  ['10.1056/NEJMoa2510703', 'Hematología'],
-  ['10.1056/NEJMoa2513310', 'Cardiología'],
-  ['10.1056/NEJMoa2517213', 'Cardiología'],
-  ['10.1056/NEJMoa2600283', 'Cardiología'],
-  ['10.1056/NEJMoa2506905', 'Infectología'],
-  ['10.1056/NEJMoa2502457', 'Infectología']
-]);
-
 let data = [];
 let byId = new Map();
 let enhancing = false;
@@ -30,20 +15,8 @@ function belongsToInternalMedicine(record) {
 
 function inferSubspecialty(record) {
   if (!belongsToInternalMedicine(record)) return '';
-  const doi = String(record.doi || '').trim();
-  if (CURRENT_SUBSPECIALTIES.has(doi)) return CURRENT_SUBSPECIALTIES.get(doi);
-
-  const topics = normalize(Array.isArray(record.temas) ? record.temas.join(' ') : '');
-  if (/(reumat|artritis|lupus|vasculitis|espondilo)/.test(topics)) return 'Reumatología';
-  if (/(covid|infeccion|bacteriem|antibiot|antimicrob|tuberculosis|vih)/.test(topics)) return 'Infectología';
-  if (/(ictus|trombectom|neurolog|cerebrovascular|esclerosis|epilep)/.test(topics)) return 'Neurología';
-  if (/(embolia pulmonar|neumolog|asma|epoc|intersticial)/.test(topics)) return 'Neumología';
-  if (/(anticoagul|tromboemb|hematolog|anemia|plaquet|linfom|leucem)/.test(topics)) return 'Hematología';
-  if (/(renal|nefro|dialisis|glomerul|albuminuria)/.test(topics)) return 'Nefrología';
-  if (/(diabetes|endocr|tiroid|obesidad|metabol)/.test(topics)) return 'Endocrinología';
-  if (/(hepat|cirrosis|gastro|intestinal|pancrea)/.test(topics)) return 'Gastroenterología';
-  if (/(cardiolog|fibrilacion|infarto|lipid|hipertension|cardiovascular|coronari)/.test(topics)) return 'Cardiología';
-  return 'Medicina Interna General';
+  const result = globalThis.SpecialtyClassification?.classify(record);
+  return result?.specialty === globalThis.SpecialtyClassification?.REVIEW ? '' : (result?.specialty || '');
 }
 
 function injectStyles() {

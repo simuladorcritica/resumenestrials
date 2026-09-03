@@ -238,27 +238,13 @@
   </div>
 </div>
 <div id="contenido"></div>
+<script src="specialty-classification.js?v=2"></script>
 <script>
   const params = new URLSearchParams(window.location.search);
   const id = params.get("id");
   const cont = document.getElementById("contenido");
   const BASE_URL = "https://resumenestrials.com";
   const MI = "Medicina Interna";
-
-  const SUBESPECIALIDADES_MI = new Map([
-    ["10.1056/NEJMoa2601005", "Cardiología"],
-    ["10.1056/NEJMoa2515043", "Cardiología"],
-    ["10.1056/NEJMoa2516567", "Neumología"],
-    ["10.1056/NEJMoa2514428", "Cardiología"],
-    ["10.1056/NEJMoa2514120", "Neurología"],
-    ["10.1056/NEJMoa2512918", "Cardiología"],
-    ["10.1056/NEJMoa2510703", "Hematología"],
-    ["10.1056/NEJMoa2513310", "Cardiología"],
-    ["10.1056/NEJMoa2517213", "Cardiología"],
-    ["10.1056/NEJMoa2600283", "Cardiología"],
-    ["10.1056/NEJMoa2506905", "Infectología"],
-    ["10.1056/NEJMoa2502457", "Infectología"]
-  ]);
 
   function textoPlano(valor) {
     const div = document.createElement("div");
@@ -276,19 +262,8 @@
   }
   function subespecialidadMI(dato) {
     if (!perteneceMI(dato)) return "";
-    const doi = String(dato.doi || "").trim();
-    if (SUBESPECIALIDADES_MI.has(doi)) return SUBESPECIALIDADES_MI.get(doi);
-    const temas = normalizar(Array.isArray(dato.temas) ? dato.temas.join(" ") : "");
-    if (/(reumat|artritis|lupus|vasculitis|espondilo)/.test(temas)) return "Reumatología";
-    if (/(covid|infeccion|bacteriem|antibiot|antimicrob|tuberculosis|vih)/.test(temas)) return "Infectología";
-    if (/(ictus|trombectom|neurolog|cerebrovascular|esclerosis|epilep)/.test(temas)) return "Neurología";
-    if (/(embolia pulmonar|neumolog|asma|epoc|intersticial)/.test(temas)) return "Neumología";
-    if (/(anticoagul|tromboemb|hematolog|anemia|plaquet|linfom|leucem)/.test(temas)) return "Hematología";
-    if (/(renal|nefro|dialisis|glomerul|albuminuria)/.test(temas)) return "Nefrología";
-    if (/(diabetes|endocr|tiroid|obesidad|metabol)/.test(temas)) return "Endocrinología";
-    if (/(hepat|cirrosis|gastro|intestinal|pancrea)/.test(temas)) return "Gastroenterología";
-    if (/(cardiolog|fibrilacion|infarto|lipid|hipertension|cardiovascular|coronari)/.test(temas)) return "Cardiología";
-    return "Medicina Interna General";
+    const resultado=globalThis.SpecialtyClassification?.classify(dato);
+    return resultado?.specialty===globalThis.SpecialtyClassification?.REVIEW?"":(resultado?.specialty||"");
   }
   function recortar(texto,max=158) {
     const limpio=textoPlano(texto);
@@ -399,5 +374,5 @@
     document.querySelectorAll(".btn-pdf").forEach((b)=>b.addEventListener("click",()=>descargarPDF(dato,b.dataset.pdfVersion==="breve",b)));
   }).catch((err)=>{console.error("No se pudo cargar resumenes.json:",err);noEncontrado();});
 </script>
-<script src="/site-runtime.js?v=20260821" defer></script></body>
+<script src="/site-runtime.js?v=20260902" defer></script></body>
 </html>

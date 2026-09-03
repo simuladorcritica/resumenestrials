@@ -22,7 +22,7 @@ for (const [index, code] of scripts.entries()) {
 }
 
 const required = [
-  'SUBESPECIALIDADES_MI',
+  'SpecialtyClassification',
   'subespecialidadMI(dato)',
   'data-subspecialty=',
   'Descargar resumen completo PDF',
@@ -35,8 +35,8 @@ const required = [
 for (const fragment of required) {
   if (!html.includes(fragment)) fail(`Falta el fragmento requerido: ${fragment}`);
 }
-if (!html.includes('10.1056/NEJMoa2515043", "Cardiología"')) fail('TRIDENT no está clasificado como Cardiología.');
-else pass('TRIDENT clasificado como Cardiología.');
+if (!html.includes('src="specialty-classification.js')) fail('La página de resumen no carga la taxonomía clínica canónica.');
+else pass('La página de resumen carga la taxonomía clínica canónica.');
 
 if (/class="miga-esp"/.test(html)) fail('La especialidad todavía aparece junto a “Volver al índice”.');
 else pass('No se muestra Medicina Interna/Crítica junto a “Volver al índice”.');

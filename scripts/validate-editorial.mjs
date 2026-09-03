@@ -7,6 +7,7 @@ const ok = (message) => console.log(`EDITORIAL PASS: ${message}`);
 const homeAuth = read('home-auth-ui.js');
 const interactive = read('interactive-home.js');
 const internalMedicineUx = read('internal-medicine-ux.js');
+const specialtyClassification = read('specialty-classification.js');
 const homeVisualTuning = read('home-visual-tuning.js');
 const homeControlLayout = read('home-control-layout.js');
 const memberDesign = read('member-design-v3.js');
@@ -66,15 +67,12 @@ if (!process.exitCode) ok('Cuenta y auth.js comparten el mismo contrato de perfi
 
 if (!index.includes('internal-medicine-ux.js')) fail('index.html no carga la capa de subespecialidad y descargas.');
 else ok('Portada carga la capa de subespecialidad y descargas.');
+if (!index.includes('specialty-classification.js')) fail('index.html no carga la taxonomía clínica canónica.');
+else ok('Portada carga la taxonomía clínica canónica.');
 
 const uxFragments = [
   "const MI = 'Medicina Interna'",
-  'CURRENT_SUBSPECIALTIES',
-  "'Cardiología'",
-  "'Infectología'",
-  "'Neurología'",
-  "'Hematología'",
-  "'Neumología'",
+  'SpecialtyClassification',
   'rt-download-brief',
   'generateBriefPDF',
   "full.textContent = '⬇ Resumen completo'"
@@ -82,6 +80,14 @@ const uxFragments = [
 for (const fragment of uxFragments) {
   if (!internalMedicineUx.includes(fragment)) fail(`internal-medicine-ux.js incompleto: falta ${fragment}`);
 }
+for (const [specialty, source] of [
+  ['Cardiología', String.raw`Cardiolog\u00eda`], ['Infectología', String.raw`Infectolog\u00eda`],
+  ['Neurología', String.raw`Neurolog\u00eda`], ['Hematología', String.raw`Hematolog\u00eda`],
+  ['Neumología', String.raw`Neumolog\u00eda`]
+]) {
+  if (!specialtyClassification.includes(source)) fail(`Taxonomía clínica incompleta: falta ${specialty}`);
+}
+if (specialtyClassification.includes('Medicina Interna General')) fail('La taxonomía conserva la categoría fantasma Medicina Interna General.');
 
 if (!index.includes('home-visual-tuning.js')) fail('index.html no carga el sistema visual principal de portada.');
 else ok('Portada carga el sistema visual editorial 2026.');
