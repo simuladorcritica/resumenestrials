@@ -143,7 +143,7 @@
     "category": "Medicina Interna",
     "path": "/medicina-interna/cardiovascular/",
     "url": "https://resumenestrials.com/medicina-interna/cardiovascular/",
-    "count": 34,
+    "count": 35,
     "trial_ids": [
       "15",
       "18",
@@ -177,6 +177,7 @@
       "101",
       "102",
       "103",
+      "105",
       "107",
       "111"
     ]
@@ -198,12 +199,23 @@
       "84"
     ]
   },
+  "hematologia-oncologia": {
+    "name": "Hematología y oncología",
+    "category": "Medicina Interna",
+    "path": "/medicina-interna/hematologia-oncologia/",
+    "url": "https://resumenestrials.com/medicina-interna/hematologia-oncologia/",
+    "count": 2,
+    "trial_ids": [
+      "50",
+      "112"
+    ]
+  },
   "renal-metabolica": {
     "name": "Renal y metabolismo",
     "category": "Medicina Interna",
     "path": "/medicina-interna/renal-metabolica/",
     "url": "https://resumenestrials.com/medicina-interna/renal-metabolica/",
-    "count": 19,
+    "count": 20,
     "trial_ids": [
       "35",
       "46",
@@ -223,7 +235,8 @@
       "95",
       "96",
       "100",
-      "101"
+      "101",
+      "106"
     ]
   },
   "neurologia": {
@@ -231,12 +244,13 @@
     "category": "Medicina Interna",
     "path": "/medicina-interna/neurologia/",
     "url": "https://resumenestrials.com/medicina-interna/neurologia/",
-    "count": 4,
+    "count": 5,
     "trial_ids": [
       "16",
       "19",
       "85",
-      "89"
+      "89",
+      "91"
     ]
   },
   "neumologia": {
