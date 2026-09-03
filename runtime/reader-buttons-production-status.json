@@ -1,9 +1,9 @@
 {
   "service": "reader-buttons-production",
   "status": "PASS",
-  "checked_at": "2026-09-03T01:53:53.215495Z",
-  "source_sha": "64cd68f5ba93a1a9d5a27f90f99ed28c16d53750",
-  "run_id": "33705433296",
+  "checked_at": "2026-09-03T13:09:07.677938Z",
+  "source_sha": "c4a75167f7cf2c950f66f28458f5a235a9b10a2e",
+  "run_id": "33759327974",
   "run_attempt": "1",
   "site": "https://resumenestrials.com",
   "trial_id": 1,
