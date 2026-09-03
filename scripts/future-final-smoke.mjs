@@ -10,7 +10,10 @@ writeFileSync('index.html',home,'utf8');
 
 function assert(value,message){if(!value)throw new Error(message)}
 
-const newest=[...data].sort((a,b)=>(b.fecha||'').localeCompare(a.fecha||''))[0];
+// Legacy bibliographic dates may be human-readable Spanish strings. Sort by
+// the explicit publication year first, then use ISO dates only as a tiebreaker.
+const iso=(value)=>/^\d{4}-\d{2}-\d{2}$/.test(String(value||''))?String(value):'';
+const newest=[...data].sort((a,b)=>(Number(b.anio)||0)-(Number(a.anio)||0)||iso(b.fecha).localeCompare(iso(a.fecha)))[0];
 const browser=await chromium.launch({headless:true});
 try{
   const page=await browser.newPage({viewport:{width:1440,height:1000}});

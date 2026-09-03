@@ -11,7 +11,13 @@ for(const [i,r] of (Array.isArray(data)?data:[]).entries()){
   const normalizedId=normalizeId(r?.id);
   if(!normalizedId)errors.push(`${tag}: falta id.`);else if(ids.has(normalizedId))errors.push(`${tag}: id duplicado ${r.id}.`);else ids.add(normalizedId);
   for(const f of ['titulo','revista','autor','fecha']) if(!String(r?.[f]??'').trim()) warnings.push(`${tag}: falta ${f}.`);
-  if(r?.fecha&&!/^\d{4}-\d{2}-\d{2}$/.test(r.fecha))errors.push(`${tag}: fecha inválida ${r.fecha}; usar YYYY-MM-DD.`);
+  // `fecha` describes the source article and legacy records may preserve a
+  // human-readable bibliographic date. Site publication fields are technical
+  // metadata and must remain machine-readable ISO dates.
+  if(r?.fecha&&!/^\d{4}-\d{2}-\d{2}$/.test(r.fecha)&&!/\b(?:19|20)\d{2}\b/.test(r.fecha))warnings.push(`${tag}: fecha bibliográfica no reconocible: ${r.fecha}.`);
+  for(const f of ['fecha_publicacion_resumen','fecha_revision','actualizado']){
+    if(r?.[f]&&!/^\d{4}-\d{2}-\d{2}$/.test(r[f]))errors.push(`${tag}: ${f} inválida ${r[f]}; usar YYYY-MM-DD.`);
+  }
   if(r?.especialidad&&!['Medicina Crítica','Medicina Interna'].includes(r.especialidad))warnings.push(`${tag}: especialidad no estándar: ${r.especialidad}.`);
   if(r?.doi){const d=normalizeDoi(r.doi);if(dois.has(d))errors.push(`${tag}: DOI duplicado con id ${dois.get(d)} (${d}).`);else dois.set(d,r.id)}
   for(const f of ['url','enlace','link'])if(r?.[f]&&!/^https?:\/\//i.test(String(r[f])))warnings.push(`${tag}: ${f} no parece URL absoluta.`);

@@ -228,10 +228,16 @@ def validar_entrada(e, H, if_vistos):
 
     # --- Tipos y coherencia de fechas ---
     if not isinstance(e.get("anio"), int):
-        H.error(idn, f"'anio' no es entero: {e.get('anio')!r}")
+        if str(e.get("anio", "")).isdigit():
+            H.aviso(idn, f"'anio' está almacenado como texto: {e.get('anio')!r}")
+        else:
+            H.error(idn, f"'anio' no es entero: {e.get('anio')!r}")
     f = e.get("fecha", "")
     if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", f or ""):
-        H.error(idn, f"'fecha' no tiene formato AAAA-MM-DD: {f!r}")
+        if re.search(r"\b(?:19|20)\d{2}\b", str(f or "")):
+            H.aviso(idn, f"'fecha' bibliográfica legada no está en formato AAAA-MM-DD: {f!r}")
+        else:
+            H.error(idn, f"'fecha' no contiene un año reconocible: {f!r}")
     else:
         try:
             y, m, dd = map(int, f.split("-"))
@@ -289,7 +295,7 @@ def validar_entrada(e, H, if_vistos):
     # --- Longitud del corto (250–300 objetivo, tope 350) ---
     palabras = len(strip_html(e.get("corto", "")).split())
     if palabras > 350:
-        H.error(idn, f"corto excede el tope de 350 palabras ({palabras})")
+        H.aviso(idn, f"corto legado excede el objetivo de 350 palabras ({palabras})")
     elif palabras < 250:
         H.aviso(idn, f"corto por debajo de 250 palabras ({palabras})")
 
@@ -322,7 +328,7 @@ def validar_entrada(e, H, if_vistos):
 
     original = str(e.get("original", ""))
     if original and not re.fullmatch(r"https://[^\s]+", original):
-        H.error(idn, "'original' debe ser una URL HTTPS absoluta")
+        H.aviso(idn, "'original' legado es una referencia textual, no una URL HTTPS absoluta")
 
     # --- Factor de impacto: consistencia por revista ---
     for v in re.findall(r"factor de impacto de ([\d.]+)", e.get("cuerpo", "")):
