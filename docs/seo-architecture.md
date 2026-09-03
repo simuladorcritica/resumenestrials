@@ -22,9 +22,9 @@ El sitemap contiene únicamente portada, metodología, equipo editorial, áreas,
 
 ## Search Console y privacidad
 
-El workflow `seo-intelligence.yml` puede leer la propiedad de dominio `sc-domain:resumenestrials.com` con una cuenta de servicio de solo lectura. El JSON de credenciales debe guardarse exclusivamente como GitHub Secret `GSC_SERVICE_ACCOUNT_JSON`; no se imprime ni se versiona. La cuenta de servicio debe añadirse como usuario con lectura en Search Console. Sin el secreto, el workflow sigue produciendo el informe técnico y deja explícito que no hay métricas privadas.
+El workflow `seo-intelligence.yml` lee la propiedad de dominio `sc-domain:resumenestrials.com` mediante OAuth de usuario con el scope mínimo `https://www.googleapis.com/auth/webmasters.readonly`. El identificador de cliente, el secreto y el refresh token se guardan exclusivamente como GitHub Secrets; nunca se imprimen ni se versionan. La cuenta de servicio anterior sigue disponible como respaldo. Sin credenciales completas, el workflow produce el informe técnico y deja explícito que no hubo métricas privadas. La configuración paso a paso está en `docs/google-search-console-oauth.md`.
 
-La descarga agrega `date`, `query` y `page`, con clicks, impressions, CTR y position. Se conservan como artefactos privados del workflow. No se recogen datos médicos personales.
+La descarga agrega `date`, `query` y `page`, con clicks, impressions, CTR y position. El archivo detallado permanece en `seo-data/`, ignorado por Git y fuera de los artefactos; solo los reportes derivados se conservan como artefactos privados durante 30 días. No se recogen datos médicos personales.
 
 ## Opportunity Score
 
@@ -37,7 +37,7 @@ Genera `reports/seo-opportunities.json`, `reports/seo-weekly.md` (7d contra 7d) 
 - `actualizar-sitemap.yml`: regenera todas las salidas derivadas cuando cambia la fuente.
 - `site-quality.yml`: valida datos, páginas, schema, canonical, sitemap, feed, enlaces y preservación clínica en PR.
 - `revision-nocturna.yml`: revisión editorial/técnica diaria y issue visible.
-- `seo-intelligence.yml`: reporte semanal y mensual con artefactos de 90 días.
+- `seo-intelligence.yml`: reporte semanal y mensual con artefactos de 30 días.
 
 P0 bloquea por caída, canonical/sitemap masivo o duplicidad canónica. P1 bloquea por página faltante, schema inválido, enlace roto u orfandad. P2 informa duplicados o metadatos mejorables. P3 agrupa microoptimizaciones.
 
@@ -46,7 +46,7 @@ P0 bloquea por caída, canonical/sitemap masivo o duplicidad canónica. P1 bloqu
 1. Ejecutar los generadores en el orden de `docs/ARCHITECTURE.md`.
 2. Ejecutar `node scripts/seo-audit.mjs --output reports/seo-technical.json --fail-on-high`.
 3. Ejecutar `node scripts/validate-feed.mjs` y los validadores existentes.
-4. Si Search Console devuelve 403, comprobar que la cuenta de servicio está añadida a la propiedad exacta y que la Search Console API está habilitada en Google Cloud.
+4. Si Search Console devuelve 403, comprobar que la cuenta autorizada tiene acceso a la propiedad exacta y que la Search Console API está habilitada. Si aparece `invalid_grant`, repetir el bootstrap OAuth y sustituir los tres secretos juntos.
 5. Si aparece una página huérfana, corregir el generador/hub que debe enlazarla; no añadir un enlace oculto.
 6. Si cambia un slug ya publicado, documentar el mapa anterior→nuevo y crear primero un 301 en Cloudflare.
 

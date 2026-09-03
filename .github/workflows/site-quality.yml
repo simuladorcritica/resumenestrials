@@ -104,6 +104,7 @@ jobs:
           node --check scripts/validate-feed.mjs
           node --check scripts/seo-audit.mjs
           node --check scripts/seo-opportunities.mjs
+          node --check scripts/validate-legal-oauth.mjs
           node --check scripts/verify-trial-body-freeze.mjs
           node --check scripts/reader-buttons-production-smoke.mjs
           node --check scripts/reader-runtime-contract.mjs
@@ -147,6 +148,9 @@ jobs:
           python3 -m py_compile tools/validar_resumenes.py
           python3 -m py_compile tools/auditoria_editorial_profunda.py
           python3 -m py_compile scripts/extract-pdf-text.py
+          python3 -m py_compile scripts/search-console-fetch.py
+          python3 -m py_compile scripts/gsc-oauth-bootstrap.py
+          python3 scripts/search-console-auth.test.py
           python3 -m py_compile generar_seo.py
           python3 -m py_compile generar_seo_clusters.py
           python3 -m py_compile generar_seo_semantico.py
@@ -225,6 +229,8 @@ jobs:
         run: node scripts/validate-feed.mjs
       - name: Validate canonical and Open Graph metadata
         run: node scripts/validate-seo.mjs
+      - name: Validate legal pages and Search Console OAuth safeguards
+        run: node scripts/validate-legal-oauth.mjs
       - name: Validate crawlability, schema and internal links
         run: node scripts/seo-audit.mjs --output reports/seo-ci.json --fail-on-high
       - name: Validate generated runtime bundle

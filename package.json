@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "build": "node scripts/build-site-runtime.mjs",
-    "validate": "node scripts/validate-data.mjs && node scripts/validate-editorial.mjs && node scripts/validate-inline-modules.mjs && node scripts/validate-newsletter.mjs && node scripts/validate-resumen-page.mjs && node scripts/validate-night-audit.mjs && node scripts/validate-sitemap.mjs && node scripts/validate-feed.mjs && node scripts/validate-seo.mjs && node scripts/seo-audit.mjs --fail-on-high",
+    "validate": "node scripts/validate-data.mjs && node scripts/validate-editorial.mjs && node scripts/validate-inline-modules.mjs && node scripts/validate-newsletter.mjs && node scripts/validate-resumen-page.mjs && node scripts/validate-night-audit.mjs && node scripts/validate-sitemap.mjs && node scripts/validate-feed.mjs && node scripts/validate-seo.mjs && node scripts/validate-legal-oauth.mjs && node scripts/seo-audit.mjs --fail-on-high",
     "seo:report": "node scripts/seo-opportunities.mjs",
     "test:browser": "node scripts/browser-smoke.mjs && node scripts/auth-safe-smoke.mjs && node scripts/home-controls-smoke.mjs && node scripts/future-experience-smoke.mjs && node scripts/library-filter-smoke.mjs && node scripts/future-final-smoke.mjs && node scripts/unified-reader-v4-smoke.mjs && node scripts/reader-controls-v5-smoke.mjs && node scripts/full-site-audit.mjs && node scripts/download-contract-smoke.mjs",
     "test:resumenes-automation": "node --test scripts/resumenes-json-guard.test.mjs scripts/resumenes-json-automation.test.mjs scripts/clinical-additions.test.mjs scripts/specialty-classification.test.mjs",
