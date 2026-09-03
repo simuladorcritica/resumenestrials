@@ -35,7 +35,7 @@ function assertPrivacyUpdated(home, privacy) {
   assert(home.includes('Google AdSense'), 'Portada: el aviso de privacidad todavía no informa sobre Google AdSense');
   assert(!home.includes('no utiliza cookies de seguimiento o publicidad'), 'Portada: persiste la declaración antigua de que no hay cookies de publicidad');
   assert(privacy.includes('Google AdSense'), 'Aviso de privacidad: falta informar sobre Google AdSense');
-  assert(privacy.includes('Cookies, publicidad y navegación pública'), 'Aviso de privacidad: falta la sección actualizada de cookies y publicidad');
+  assert(privacy.includes('Cookies, almacenamiento local y publicidad'), 'Política de Privacidad: falta la sección actualizada de cookies y publicidad');
   assert(!privacy.includes('no utiliza cookies de publicidad'), 'Aviso de privacidad: persiste la declaración antigua de que no hay cookies de publicidad');
 }
 
@@ -46,11 +46,11 @@ async function waitForAdsenseDeployment() {
       const [home, adsTxt, privacy] = await Promise.all([
         fetchText('/'),
         fetchText('/ads.txt'),
-        fetchText('/privacidad.html'),
+        fetchText('/privacidad/'),
       ]);
       const count = home.split(ADSENSE_URL).length - 1;
       const adsOk = adsTxt.trim() === ADS_TXT_RECORD;
-      const privacyOk = home.includes('Google AdSense') && privacy.includes('Google AdSense') && privacy.includes('Cookies, publicidad y navegación pública');
+      const privacyOk = home.includes('Google AdSense') && privacy.includes('Google AdSense') && privacy.includes('Cookies, almacenamiento local y publicidad');
       if (count === 1 && adsOk && privacyOk) {
         assertAdsenseHtml('/', home);
         assertPrivacyUpdated(home, privacy);
@@ -74,7 +74,7 @@ const [dataText, manifestText, adsTxt, homeHtml, privacyHtml] = await Promise.al
   fetchText('/seo-manifest.json'),
   fetchText('/ads.txt'),
   fetchText('/'),
-  fetchText('/privacidad.html'),
+  fetchText('/privacidad/'),
 ]);
 assert(adsTxt.trim() === ADS_TXT_RECORD, `ads.txt incorrecto: ${adsTxt.trim()}`);
 assertPrivacyUpdated(homeHtml, privacyHtml);
@@ -99,7 +99,8 @@ const paths = [
   '/recuperar.html',
   '/cuenta.html',
   '/biblioteca.html',
-  '/privacidad.html',
+  '/privacidad/',
+  '/terminos/',
 ];
 if (sample.corto) paths.splice(3, 0, `/resumen.html?id=${sample.id}&v=corto`);
 

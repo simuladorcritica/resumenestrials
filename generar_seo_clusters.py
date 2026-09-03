@@ -348,7 +348,13 @@ def update_sitemap(items: list[dict], clusters: list[dict], active: dict[str, li
     for item in items:
         for cat in base.categorias(item):
             category_content[cat].append(item)
-    urls = [f"{base.BASE_URL}/", f"{base.BASE_URL}/metodologia/", f"{base.BASE_URL}/equipo-editorial/"]
+    urls = [
+        f"{base.BASE_URL}/",
+        f"{base.BASE_URL}/metodologia/",
+        f"{base.BASE_URL}/equipo-editorial/",
+        f"{base.BASE_URL}/privacidad/",
+        f"{base.BASE_URL}/terminos/",
+    ]
     urls.extend(f"{base.BASE_URL}/{base.CATEGORY_PATHS[name]}/" for name, values in category_content.items() if values)
     urls.extend(cluster_url(c) for c in clusters if active.get(c["slug"]))
     urls.extend(base.url_trial(item) for item in items)

@@ -322,7 +322,7 @@ def pagina_categoria(nombre: str, items: list[dict]) -> str:
 
 
 def generar_sitemap(items: list[dict], categorias_contenido: dict[str, list[dict]]) -> None:
-    urls = [f"{BASE_URL}/"]
+    urls = [f"{BASE_URL}/", f"{BASE_URL}/privacidad/", f"{BASE_URL}/terminos/"]
     urls.extend(f"{BASE_URL}/{CATEGORY_PATHS[n]}/" for n, xs in categorias_contenido.items() if xs)
     urls.extend(url_trial(item) for item in items)
     lineas = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']

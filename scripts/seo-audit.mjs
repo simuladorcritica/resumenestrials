@@ -14,6 +14,7 @@ const sitemapUrls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1
 
 const pages = [
   ['/', '_includes/index-source.html'], ['/metodologia/', 'metodologia/index.html'], ['/equipo-editorial/', 'equipo-editorial/index.html'],
+  ['/privacidad/', 'privacidad/index.html'], ['/terminos/', 'terminos/index.html'],
   ['/medicina-critica/', 'medicina-critica/index.html'], ['/medicina-interna/', 'medicina-interna/index.html'],
   ...Object.values(clusters).map((x) => [x.path, `${x.path.replace(/^\//, '')}index.html`]),
   ...Object.values(manifest).map((x) => [x.path, `${x.path.replace(/^\//, '')}index.html`]),

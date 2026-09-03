@@ -14,7 +14,7 @@ const memberDesign = read('member-design-v3.js');
 const trialCss = read('trial.css');
 const semanticCss = read('seo-semantic.css');
 const index = read('index.html');
-const privacy = read('privacidad.html');
+const privacy = read('privacidad/index.html');
 const account = read('cuenta.html');
 const auth = read('auth.js');
 const login = read('login.html');
@@ -137,9 +137,9 @@ for (const fragment of trialFragments) {
 if (!semanticCss.includes('.cluster-card:hover{background:var(--tinta);color:#fff}')) fail('seo-semantic.css no conserva el comportamiento editorial del atlas de clusters.');
 else ok('Trials, categorías y clusters comparten el atlas editorial clínico.');
 
-if (!privacy.includes('max-width:68ch') || !privacy.includes('text-align:left') || !privacy.includes('LEGAL / PRIVACIDAD')) {
-  fail('El aviso de privacidad no respeta la nueva medida de lectura editorial de pantalla.');
-} else ok('Aviso de privacidad con medida de lectura controlada y composición editorial propia.');
+if (!privacy.includes('pagina-institucional') || !privacy.includes('Fraunces') || !privacy.includes('Newsreader') || !privacy.includes('Política de Privacidad')) {
+  fail('La Política de Privacidad no respeta el sistema institucional del sitio.');
+} else ok('Política de Privacidad integrada en el sistema institucional existente.');
 
 if (process.exitCode) process.exit(process.exitCode);
 console.log('Editorial architecture PASS');
