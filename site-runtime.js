@@ -2149,7 +2149,7 @@
   if (document.querySelector('script[src*="internal-medicine-ux.js"]')) return;
   if (!document.querySelector('script[src*="specialty-classification.js"]')) {
     const taxonomy = document.createElement('script');
-    taxonomy.src = '/specialty-classification.js?v=1';
+    taxonomy.src = '/specialty-classification.js?v=2';
     document.head.appendChild(taxonomy);
   }
   const script = document.createElement('script');
