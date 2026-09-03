@@ -1,0 +1,12 @@
+{
+  "siteUrl": "sc-domain:resumenestrials.com",
+  "weights": {
+    "impressions": 25,
+    "ranking": 25,
+    "ctrGap": 20,
+    "decline": 15,
+    "internalLinks": 10,
+    "cannibalization": 5
+  },
+  "expectedCtr": { "1": 0.28, "2": 0.15, "3": 0.11, "5": 0.07, "10": 0.03, "20": 0.015, "30": 0.01 }
+}

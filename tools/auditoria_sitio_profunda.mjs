@@ -214,10 +214,10 @@ async function main() {
   }
   await basicA11y(page, 'index');
 
-  for (const route of ['privacidad.html', 'login.html', 'registro.html', 'recuperar.html']) {
+  for (const route of ['privacidad/', 'terminos/', 'login.html', 'registro.html', 'recuperar.html']) {
     await guardedGoto(page, `${BASE}/${route}`, route);
     await basicA11y(page, route);
-    if (route === 'privacidad.html') {
+    if (route === 'privacidad/') {
       const alignPrivacy = await page.locator('main p:not(.fecha)').first().evaluate((el) => getComputedStyle(el).textAlign).catch(() => '');
       if (alignPrivacy !== 'justify') add('MEDIO', route, 'UX/editorial', 'el texto principal del aviso de privacidad no está justificado', alignPrivacy);
     }

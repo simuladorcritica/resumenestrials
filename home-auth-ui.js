@@ -54,7 +54,7 @@ function integrarCuentaEnPortada() {
   const bloques = [...document.querySelectorAll(".pie-bloque")];
   const privacidad = bloques.find((b) => b.querySelector("h4")?.textContent.trim() === "Privacidad y contenido");
   const primerParrafo = privacidad?.querySelector("p");
-  if (primerParrafo) primerParrafo.innerHTML = 'La navegación pública no requiere una cuenta ni utiliza cookies de publicidad. Si decides crear una cuenta, recabamos los datos necesarios para identificar tu perfil, autenticar el acceso y administrar tus preferencias. Los avisos por correo sobre nuevos resúmenes son opcionales y dependen de tu consentimiento. Consulta el <a class="aviso-privacidad" href="privacidad.html">Aviso de privacidad</a> para conocer qué datos tratamos, sus finalidades y cómo ejercer tus derechos.';
+  if (primerParrafo) primerParrafo.innerHTML = 'La navegación pública no requiere una cuenta. Si decides crear una cuenta, recabamos los datos necesarios para identificar tu perfil, autenticar el acceso y administrar tus preferencias. Los avisos por correo sobre nuevos resúmenes son opcionales y dependen de tu elección. Consulta la <a class="aviso-privacidad" href="/privacidad/">Política de Privacidad</a> para conocer qué datos tratamos, sus finalidades y cómo ejercer tus opciones.';
 }
 
 async function sincronizarSesion() {

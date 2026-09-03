@@ -86,7 +86,7 @@ await check('/pdf-contact.js',(b)=>{
 });
 await check('/trial-pdf.js',(b)=>{assert(b.includes('data-trial-download'),'controlador PDF canónico inesperado')});
 
-for(const path of ['/medicina-critica/','/medicina-interna/','/metodologia/','/equipo-editorial/']){
+for(const path of ['/medicina-critica/','/medicina-interna/','/metodologia/','/equipo-editorial/','/privacidad/','/terminos/']){
   await check(path,(b)=>{assert(/Resúmenes Trials|Resumenes Trials/.test(b),'HTML editorial inesperado')});
 }
 for(const entry of Object.values(clusters)){
@@ -96,7 +96,7 @@ for(const entry of Object.values(clusters)){
 await check('/sitemap.xml',(b)=>{
   for(const entry of Object.values(manifest))assert(b.includes(entry.url),`sitemap sin ${entry.url}`);
   for(const entry of Object.values(clusters))assert(b.includes(`${CANONICAL_ORIGIN}${entry.path}`),`sitemap sin cluster ${entry.path}`);
-  for(const path of ['/medicina-critica/','/medicina-interna/','/metodologia/','/equipo-editorial/'])assert(b.includes(`${CANONICAL_ORIGIN}${path}`),`sitemap sin ${path}`);
+  for(const path of ['/medicina-critica/','/medicina-interna/','/metodologia/','/equipo-editorial/','/privacidad/','/terminos/'])assert(b.includes(`${CANONICAL_ORIGIN}${path}`),`sitemap sin ${path}`);
 });
 
 await check('/login.html',(b)=>{for(const x of ['turnstile-login','turnstile.js','auth.js'])assert(b.includes(x),`falta ${x}`)});

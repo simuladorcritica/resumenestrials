@@ -7,7 +7,7 @@ function updatePrivacyCopy(){
   if(p?.tagName==='P'){
     p.innerHTML='Resúmenes Trials permite crear una cuenta personal. Al registrarte tratamos los datos que proporcionas —como nombre, nombre de usuario y correo electrónico— para gestionar tu acceso, preferencias y, cuando lo autorizas, avisos de nuevos resúmenes. No utilizamos publicidad comportamental ni vendemos tus datos.';
     const p2=p.nextElementSibling;
-    if(p2?.tagName==='P')p2.innerHTML='La autenticación se gestiona mediante Supabase y la protección anti-bot mediante Cloudflare Turnstile. Puedes consultar finalidades, derechos y mecanismos de contacto en el <a href="privacidad.html">Aviso de privacidad</a>.';
+    if(p2?.tagName==='P')p2.innerHTML='La autenticación se gestiona mediante Supabase y la protección anti-bot mediante Cloudflare Turnstile. Puedes consultar finalidades, opciones y mecanismos de contacto en la <a href="/privacidad/">Política de Privacidad</a>.';
   }
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',updatePrivacyCopy);else updatePrivacyCopy();

@@ -29,7 +29,7 @@
     if (['/login.html','/registro.html','/recuperar.html','/cuenta.html','/biblioteca.html','/privacidad.html','/agregar.html'].some(p => path.endsWith(p))) document.body.classList.add('rt-future-account');
     if (path === '/medicina-critica/' || path === '/medicina-interna/' || path.endsWith('/medicina-critica/index.html') || path.endsWith('/medicina-interna/index.html')) document.body.classList.add('rt-future-hub');
     if ((path.startsWith('/medicina-critica/') || path.startsWith('/medicina-interna/')) && !document.body.classList.contains('rt-future-hub') && !document.body.classList.contains('rt-future-trial')) document.body.classList.add('rt-future-cluster');
-    if (path.startsWith('/metodologia/') || path.startsWith('/equipo-editorial/')) document.body.classList.add('rt-future-institutional');
+    if (['/metodologia/','/equipo-editorial/','/privacidad/','/terminos/'].some(p => path.startsWith(p))) document.body.classList.add('rt-future-institutional');
   }
 
   function navMarkup() {

@@ -69,7 +69,7 @@ function staticAudit(){
   const login=read('login.html');
   if(!auth.includes('getMfaLoginState')||!auth.includes('verifyMfaLoginCode')||!login.includes('mfa-form'))fail('2FA','el segundo factor no está integrado en el inicio de sesión');
 
-  const privacy=read('privacidad.html');
+  const privacy=read('privacidad/index.html');
   if(!/Resend/.test(privacy))fail('privacidad','no declara al proveedor real de envío de correos');
 
   const data=JSON.parse(read('resumenes.json'));
@@ -104,7 +104,7 @@ async function browserAudit(){
   const clusters=JSON.parse(read('seo-cluster-manifest.json'));
   const firstTrial=manifest[String(data[0].id)]?.path;
   const firstCluster=Object.values(clusters).find(x=>x?.path)?.path;
-  const publicRoutes=['/index-full-audit.html','/login.html','/registro.html','/recuperar.html','/privacidad.html','/metodologia/','/equipo-editorial/','/medicina-critica/','/medicina-interna/',firstCluster,firstTrial].filter(Boolean);
+  const publicRoutes=['/index-full-audit.html','/login.html','/registro.html','/recuperar.html','/privacidad/','/terminos/','/metodologia/','/equipo-editorial/','/medicina-critica/','/medicina-interna/',firstCluster,firstTrial].filter(Boolean);
   const viewports=[{name:'desktop',width:1440,height:1000},{name:'tablet',width:1024,height:900},{name:'mobile',width:390,height:844}];
   const browser=await chromium.launch({headless:true});
   try{

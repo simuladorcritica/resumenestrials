@@ -39,6 +39,8 @@ validatePage('medicina-critica/index.html', `${BASE}/medicina-critica/`);
 validatePage('medicina-interna/index.html', `${BASE}/medicina-interna/`);
 validatePage('metodologia/index.html', `${BASE}/metodologia/`);
 validatePage('equipo-editorial/index.html', `${BASE}/equipo-editorial/`);
+validatePage('privacidad/index.html', `${BASE}/privacidad/`);
+validatePage('terminos/index.html', `${BASE}/terminos/`);
 
 for (const entry of Object.values(clusters)) {
   validatePage(`${entry.path.slice(1)}index.html`, entry.url);
@@ -47,4 +49,4 @@ for (const entry of Object.values(manifest)) {
   validatePage(`${entry.path.slice(1)}index.html`, entry.url, entry.images || []);
 }
 
-console.log(`SEO PASS · canonical + Open Graph coherentes en ${Object.keys(manifest).length} trials, ${Object.keys(clusters).length} clusters y 5 hubs`);
+console.log(`SEO PASS · canonical + Open Graph coherentes en ${Object.keys(manifest).length} trials, ${Object.keys(clusters).length} clusters y 7 hubs`);

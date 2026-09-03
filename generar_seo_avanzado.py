@@ -245,6 +245,12 @@ def update_home(items: list[dict]) -> None:
             "sameAs": SOCIAL_URLS,
         })
     source = update_jsonld_block(source, home_jsonld)
+    if 'type="application/atom+xml"' not in source:
+        source = source.replace(
+            '</head>',
+            f'<link rel="alternate" type="application/atom+xml" title="Resúmenes Trials" href="{base.BASE_URL}/feed.xml"></head>',
+            1,
+        )
     HOME_SOURCE.write_text(source, encoding="utf-8")
 
 

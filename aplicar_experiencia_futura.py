@@ -24,7 +24,7 @@ ADSENSE_HOME_PRIVACY = (
     'almacenamiento local u otros identificadores para mostrar, medir y limitar anuncios, prevenir fraude y, según la configuración regional '
     'y el consentimiento aplicable, personalizar publicidad. Esto puede implicar el tratamiento de datos técnicos como la dirección IP, '
     'información del dispositivo o navegador e interacciones con anuncios. Las funciones de cuenta y el tratamiento de datos personales se '
-    'describen en el <a href="/privacidad.html">Aviso de privacidad</a>. Al escribirnos por correo o Telegram compartes los datos que decidas '
+    'describen en la <a href="/privacidad/">Política de Privacidad</a>. Al escribirnos por correo o Telegram compartes los datos que decidas '
     'incluir en tu mensaje; los usamos únicamente para responderte.</p>'
 )
 LEGACY_PROVIDER_NOTICE = (

@@ -1,0 +1,80 @@
+name: SEO intelligence
+
+on:
+  pull_request:
+    branches: [main, fix/specialty-classification]
+  schedule:
+    - cron: '30 10 * * 1'
+    - cron: '45 10 1 * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-node@v7.0.0
+        with:
+          node-version: '20'
+      - uses: actions/setup-python@v7.0.0
+        with:
+          python-version: '3.12'
+      - name: Auditar infraestructura SEO
+        run: node scripts/seo-audit.mjs --output reports/seo-technical.json --fail-on-high
+      - name: Detectar credenciales privadas de Search Console
+        id: gsc
+        shell: bash
+        env:
+          GSC_OAUTH_CLIENT_ID: ${{ secrets.GSC_OAUTH_CLIENT_ID }}
+          GSC_OAUTH_CLIENT_SECRET: ${{ secrets.GSC_OAUTH_CLIENT_SECRET }}
+          GSC_OAUTH_REFRESH_TOKEN: ${{ secrets.GSC_OAUTH_REFRESH_TOKEN }}
+          GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
+        run: |
+          oauth_count=0
+          [ -n "$GSC_OAUTH_CLIENT_ID" ] && oauth_count=$((oauth_count + 1))
+          [ -n "$GSC_OAUTH_CLIENT_SECRET" ] && oauth_count=$((oauth_count + 1))
+          [ -n "$GSC_OAUTH_REFRESH_TOKEN" ] && oauth_count=$((oauth_count + 1))
+          if [ "$oauth_count" -gt 0 ] && [ "$oauth_count" -lt 3 ]; then
+            echo "Configuración OAuth incompleta: deben existir los tres secretos GSC_OAUTH_*" >&2
+            exit 1
+          elif [ "$oauth_count" -eq 3 ]; then
+            echo "enabled=true" >> "$GITHUB_OUTPUT"
+            echo "provider=oauth-user" >> "$GITHUB_OUTPUT"
+          elif [ -n "$GSC_SERVICE_ACCOUNT_JSON" ]; then
+            echo "enabled=true" >> "$GITHUB_OUTPUT"
+            echo "provider=service-account" >> "$GITHUB_OUTPUT"
+          else
+            echo "enabled=false" >> "$GITHUB_OUTPUT"
+            echo "provider=none" >> "$GITHUB_OUTPUT"
+            echo "Search Console omitido: esta ejecución no recibió credenciales privadas."
+          fi
+      - name: Descargar datos agregados de Search Console
+        if: steps.gsc.outputs.enabled == 'true'
+        env:
+          GSC_OAUTH_CLIENT_ID: ${{ secrets.GSC_OAUTH_CLIENT_ID }}
+          GSC_OAUTH_CLIENT_SECRET: ${{ secrets.GSC_OAUTH_CLIENT_SECRET }}
+          GSC_OAUTH_REFRESH_TOKEN: ${{ secrets.GSC_OAUTH_REFRESH_TOKEN }}
+          GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
+          GSC_SITE_URL: sc-domain:resumenestrials.com
+        run: |
+          python -m pip install --disable-pip-version-check google-api-python-client==2.179.0 google-auth==2.40.3
+          python scripts/search-console-fetch.py
+      - name: Generar oportunidades y reportes
+        run: node scripts/seo-opportunities.mjs
+      - name: Publicar resumen visible
+        if: always()
+        run: |
+          if [ -f reports/seo-weekly.md ]; then cat reports/seo-weekly.md >> "$GITHUB_STEP_SUMMARY"; fi
+          printf '\n## Auditoría técnica\n\n' >> "$GITHUB_STEP_SUMMARY"
+          if [ -f reports/seo-technical.json ]; then node -e "const r=require('./reports/seo-technical.json'); console.log('P0='+r.severity.P0+' · P1='+r.severity.P1+' · P2='+r.severity.P2)" >> "$GITHUB_STEP_SUMMARY"; fi
+          printf '\nSearch Console: %s\n' '${{ steps.gsc.outputs.provider }}' >> "$GITHUB_STEP_SUMMARY"
+      - name: Guardar reportes
+        if: always()
+        uses: actions/upload-artifact@v7.0.1
+        with:
+          name: seo-reports-${{ github.run_id }}
+          path: reports/
+          retention-days: 30
