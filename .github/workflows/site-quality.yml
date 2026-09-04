@@ -104,6 +104,9 @@ jobs:
           node --check scripts/validate-feed.mjs
           node --check scripts/seo-audit.mjs
           node --check scripts/seo-opportunities.mjs
+          node --check scripts/send-private-gsc-report.mjs
+          node --check scripts/send-private-gsc-report.test.mjs
+          node --check scripts/gsc-privacy-regression.test.mjs
           node --check scripts/validate-legal-oauth.mjs
           node --check scripts/verify-trial-body-freeze.mjs
           node --check scripts/reader-buttons-production-smoke.mjs
@@ -120,6 +123,7 @@ jobs:
         run: |
           node --test scripts/reader-runtime-contract.test.mjs
           node --test scripts/resend-qa-single-recipient.test.mjs
+          node --test scripts/gsc-privacy-regression.test.mjs scripts/send-private-gsc-report.test.mjs
       - name: Validate local resumenes.json automation
         shell: pwsh
         run: |

@@ -24,7 +24,7 @@ El sitemap contiene únicamente portada, metodología, equipo editorial, áreas,
 
 El workflow `seo-intelligence.yml` lee la propiedad de dominio `sc-domain:resumenestrials.com` mediante OAuth de usuario con el scope mínimo `https://www.googleapis.com/auth/webmasters.readonly`. El identificador de cliente, el secreto y el refresh token se guardan exclusivamente como GitHub Secrets; nunca se imprimen ni se versionan. La cuenta de servicio anterior sigue disponible como respaldo. Sin credenciales completas, el workflow produce el informe técnico y deja explícito que no hubo métricas privadas. La configuración paso a paso está en `docs/google-search-console-oauth.md`.
 
-La descarga agrega `date`, `query` y `page`, con clicks, impressions, CTR y position. El archivo detallado permanece en `seo-data/`, ignorado por Git y fuera de los artefactos; solo los reportes derivados se conservan como artefactos privados durante 30 días. No se recogen datos médicos personales.
+La descarga agrega `date`, `query` y `page`, con clicks, impressions, CTR y position. En GitHub Actions, el archivo detallado y todos los reportes derivados permanecen únicamente en `$RUNNER_TEMP/gsc/`, nunca entran en logs, summaries, caches o artefactos, y se eliminan al finalizar el job. Si Resend está disponible, los informes se entregan exclusivamente a la dirección administrativa autorizada; de lo contrario permanecen efímeros. No se recogen datos médicos personales.
 
 ## Opportunity Score
 
@@ -37,7 +37,7 @@ Genera `reports/seo-opportunities.json`, `reports/seo-weekly.md` (7d contra 7d) 
 - `actualizar-sitemap.yml`: regenera todas las salidas derivadas cuando cambia la fuente.
 - `site-quality.yml`: valida datos, páginas, schema, canonical, sitemap, feed, enlaces y preservación clínica en PR.
 - `revision-nocturna.yml`: revisión editorial/técnica diaria y issue visible.
-- `seo-intelligence.yml`: reporte semanal y mensual con artefactos de 30 días.
+- `seo-intelligence.yml`: análisis semanal y mensual privado; publica solo estados y conserva como artefacto la auditoría estrictamente técnica.
 
 P0 bloquea por caída, canonical/sitemap masivo o duplicidad canónica. P1 bloquea por página faltante, schema inválido, enlace roto u orfandad. P2 informa duplicados o metadatos mejorables. P3 agrupa microoptimizaciones.
 

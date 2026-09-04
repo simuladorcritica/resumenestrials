@@ -4,15 +4,15 @@ const read = (path) => readFileSync(path, 'utf8');
 const assert = (condition, message) => { if (!condition) throw new Error(message); };
 const scope = 'https://www.googleapis.com/auth/webmasters.readonly';
 
-for (const [path, canonical, title] of [
-  ['privacidad/index.html', 'https://resumenestrials.com/privacidad/', 'Política de Privacidad'],
-  ['terminos/index.html', 'https://resumenestrials.com/terminos/', 'Términos y Condiciones de Uso'],
+for (const [path, canonical, title, date] of [
+  ['privacidad/index.html', 'https://resumenestrials.com/privacidad/', 'Política de Privacidad', '3 de septiembre de 2026'],
+  ['terminos/index.html', 'https://resumenestrials.com/terminos/', 'Términos y Condiciones de Uso', '2 de septiembre de 2026'],
 ]) {
   assert(existsSync(path), `Falta ${path}`);
   const source = read(path);
   assert(source.includes(`<link rel="canonical" href="${canonical}">`), `${path}: canonical incorrecto`);
   assert(source.includes(`<h1>${title}</h1>`), `${path}: H1 incorrecto`);
-  assert(source.includes('2 de septiembre de 2026'), `${path}: falta fecha visible`);
+  assert(source.includes(date), `${path}: falta fecha visible`);
   assert(!/\bTODO\b|localhost|example\.com|\bTU_[A-Z_]+\b/.test(source), `${path}: contiene marcadores`);
 }
 
@@ -34,7 +34,9 @@ for (const required of [
   'canibalización',
   'clusters',
   'revocar el acceso',
-  '30 días',
+  'directorio temporal del runner',
+  'no se incorporan al sitio público, a los logs, al resumen de la ejecución ni a artefactos descargables',
+  'exclusivamente a la dirección administrativa autorizada',
 ]) assert(privacyText.includes(required), `Política de Privacidad: falta ${required}`);
 
 const home = read('_includes/index-source.html');

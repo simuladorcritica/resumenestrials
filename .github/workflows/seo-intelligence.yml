@@ -52,6 +52,7 @@ jobs:
             echo "Search Console omitido: esta ejecución no recibió credenciales privadas."
           fi
       - name: Descargar datos agregados de Search Console
+        id: gsc_fetch
         if: steps.gsc.outputs.enabled == 'true'
         env:
           GSC_OAUTH_CLIENT_ID: ${{ secrets.GSC_OAUTH_CLIENT_ID }}
@@ -60,21 +61,63 @@ jobs:
           GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
           GSC_SITE_URL: sc-domain:resumenestrials.com
         run: |
+          mkdir -p "$RUNNER_TEMP/gsc"
           python -m pip install --disable-pip-version-check google-api-python-client==2.179.0 google-auth==2.40.3
-          python scripts/search-console-fetch.py
+          python scripts/search-console-fetch.py --output "$RUNNER_TEMP/gsc/search-console.json"
       - name: Generar oportunidades y reportes
+        id: opportunities
+        env:
+          GSC_DATA_FILE: ${{ runner.temp }}/gsc/search-console.json
+          GSC_REPORT_DIR: ${{ runner.temp }}/gsc/reports
         run: node scripts/seo-opportunities.mjs
+      - name: Enviar informe privado por Resend
+        id: private_report
+        if: steps.gsc.outputs.enabled == 'true' && github.event_name != 'pull_request'
+        continue-on-error: true
+        env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          GSC_PRIVATE_REPORT_RECIPIENT: resumenestrials@outlook.com
+          GSC_PRIVATE_REPORT_DIR: ${{ runner.temp }}/gsc/reports
+          GITHUB_RUN_ID: ${{ github.run_id }}
+        run: node scripts/send-private-gsc-report.mjs
       - name: Publicar resumen visible
         if: always()
+        shell: bash
         run: |
-          if [ -f reports/seo-weekly.md ]; then cat reports/seo-weekly.md >> "$GITHUB_STEP_SUMMARY"; fi
+          printf '## SEO intelligence\n\n' >> "$GITHUB_STEP_SUMMARY"
+          if [ '${{ steps.gsc.outputs.enabled }}' = 'true' ] && [ '${{ steps.gsc_fetch.outcome }}' = 'success' ]; then
+            printf 'Google Search Console: PASS\n' >> "$GITHUB_STEP_SUMMARY"
+            printf 'OAuth provider: %s\n' '${{ steps.gsc.outputs.provider }}' >> "$GITHUB_STEP_SUMMARY"
+            printf 'Property access: PASS\n' >> "$GITHUB_STEP_SUMMARY"
+          else
+            printf 'Google Search Console: SKIPPED\n' >> "$GITHUB_STEP_SUMMARY"
+            printf 'OAuth provider: none\n' >> "$GITHUB_STEP_SUMMARY"
+            printf 'Property access: SKIPPED\n' >> "$GITHUB_STEP_SUMMARY"
+          fi
+          if [ '${{ steps.opportunities.outcome }}' = 'success' ]; then
+            printf 'Opportunity Engine: PASS\n' >> "$GITHUB_STEP_SUMMARY"
+            printf 'Report generated privately: PASS\n' >> "$GITHUB_STEP_SUMMARY"
+          else
+            printf 'Opportunity Engine: FAIL\n' >> "$GITHUB_STEP_SUMMARY"
+            printf 'Report generated privately: FAIL\n' >> "$GITHUB_STEP_SUMMARY"
+          fi
           printf '\n## Auditoría técnica\n\n' >> "$GITHUB_STEP_SUMMARY"
           if [ -f reports/seo-technical.json ]; then node -e "const r=require('./reports/seo-technical.json'); console.log('P0='+r.severity.P0+' · P1='+r.severity.P1+' · P2='+r.severity.P2)" >> "$GITHUB_STEP_SUMMARY"; fi
-          printf '\nSearch Console: %s\n' '${{ steps.gsc.outputs.provider }}' >> "$GITHUB_STEP_SUMMARY"
-      - name: Guardar reportes
+      - name: Guardar auditoría SEO estrictamente técnica
         if: always()
         uses: actions/upload-artifact@v7.0.1
         with:
-          name: seo-reports-${{ github.run_id }}
-          path: reports/
+          name: seo-technical-${{ github.run_id }}
+          path: reports/seo-technical.json
+          if-no-files-found: error
           retention-days: 30
+      - name: Eliminar datos privados temporales
+        if: always()
+        shell: bash
+        run: |
+          private_root="${RUNNER_TEMP:?}/gsc"
+          if [ "$private_root" != "$RUNNER_TEMP/gsc" ]; then
+            echo "Ruta temporal privada inesperada." >&2
+            exit 1
+          fi
+          rm -rf -- "$private_root"
