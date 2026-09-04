@@ -4,7 +4,13 @@ param(
     [string]$RepositoryRoot = (Join-Path $PSScriptRoot '..'),
 
     [Parameter()]
+    [string]$SourceFile,
+
+    [Parameter()]
     [string]$NodePath = 'node',
+
+    [Parameter()]
+    [string]$PythonPath = 'python',
 
     [Parameter()]
     [ValidateRange(1, 30)]
@@ -34,7 +40,8 @@ $ErrorActionPreference = 'Stop'
 Set-StrictMode -Version Latest
 
 $repository = [System.IO.Path]::GetFullPath((Resolve-Path -LiteralPath $RepositoryRoot).Path)
-$target = [System.IO.Path]::GetFullPath((Join-Path $repository 'resumenes.json'))
+$sourceCandidate = if ($SourceFile) { $SourceFile } else { Join-Path $repository '..\resumenes.json' }
+$target = [System.IO.Path]::GetFullPath((Resolve-Path -LiteralPath $sourceCandidate).Path)
 $automation = [System.IO.Path]::GetFullPath((Join-Path $repository 'scripts\resumenes-json-automation.mjs'))
 
 if (-not (Test-Path -LiteralPath $target -PathType Leaf)) {
@@ -45,6 +52,7 @@ if (-not (Test-Path -LiteralPath $automation -PathType Leaf)) {
 }
 
 $resolvedNode = (Get-Command $NodePath -ErrorAction Stop).Source
+$resolvedPython = (Get-Command $PythonPath -ErrorAction Stop).Source
 $localStateBase = if ($env:LOCALAPPDATA) {
     $env:LOCALAPPDATA
 } else {
@@ -143,7 +151,7 @@ function Invoke-ResumenesAutomation {
     param([Parameter(Mandatory)][string]$StableSha256)
 
     Write-Host "Cambio estable confirmado en resumenes.json (SHA-256 $StableSha256)."
-    & $resolvedNode $automation --repo $repository --file $target --state-dir $stateRoot --report-dir $reportRoot
+    & $resolvedNode $automation --repo $repository --file $target --python-path $resolvedPython --state-dir $stateRoot --report-dir $reportRoot
     $automationExitCode = $LASTEXITCODE
 
     if ($automationExitCode -eq 0) {

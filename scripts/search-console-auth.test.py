@@ -6,6 +6,9 @@ import os
 import sys
 import types
 import unittest
+import json
+import tempfile
+from datetime import date
 from pathlib import Path
 from unittest.mock import patch
 
@@ -105,6 +108,28 @@ class CredentialSelectionTests(unittest.TestCase):
         self.assertIn("invalid_grant", message)
         self.assertIn("expiró o fue revocado", message)
         self.assertNotIn("test-refresh", message)
+
+    def test_inspection_targets_only_include_d14_through_d90_editorial_publications(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            inventory = [
+                {"id": 1, "fecha": "2026-08-01", "fecha_publicacion_resumen": "2026-08-21"},
+                {"id": 2, "fecha": "2026-01-01", "fecha_publicacion_resumen": "2026-08-31"},
+                {"id": 3, "fecha": "2026-08-01"},
+            ]
+            manifest = {
+                "1": {"url": "https://resumenestrials.com/trials/one/"},
+                "2": {"url": "https://resumenestrials.com/trials/two/"},
+                "3": {"url": "https://resumenestrials.com/trials/three/"},
+            }
+            (root / "resumenes.json").write_text(json.dumps(inventory), encoding="utf-8")
+            (root / "seo-manifest.json").write_text(json.dumps(manifest), encoding="utf-8")
+            targets = MODULE.inspection_targets(
+                str(root / "resumenes.json"),
+                str(root / "seo-manifest.json"),
+                today=date(2026, 9, 4),
+            )
+        self.assertEqual([target["id"] for target in targets], ["1"])
 
 
 if __name__ == "__main__":

@@ -15,13 +15,14 @@ import {
 import { homedir, tmpdir } from 'node:os';
 import { basename, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { isValidIsoDate } from './article-inventory.mjs';
 import { compareResumenesJson, sha256 } from './resumenes-json-guard.mjs';
 
 const EXPECTED_REPOSITORY = 'simuladorcritica/resumenestrials';
 const TARGET_FILE = 'resumenes.json';
 const BRANCH_PREFIX = 'auto/resumenes-json-';
 
-class AutomationError extends Error {
+export class AutomationError extends Error {
   constructor(code, message) {
     super(message);
     this.code = code;
@@ -140,11 +141,10 @@ function acquireLock(stateRoot, repoRoot) {
   };
 }
 
-function ensureExactTarget(repoRoot, targetPath) {
-  const expected = resolve(repoRoot, TARGET_FILE);
+function ensureSourceFile(targetPath) {
   const actual = resolve(targetPath);
-  if (actual.toLowerCase() !== expected.toLowerCase()) {
-    throw new AutomationError('UNEXPECTED_TARGET', `La automatización solo admite ${expected}.`);
+  if (basename(actual).toLowerCase() !== TARGET_FILE) {
+    throw new AutomationError('UNEXPECTED_TARGET', `La fuente debe llamarse exactamente ${TARGET_FILE}.`);
   }
   if (!existsSync(actual)) throw new AutomationError('TARGET_MISSING', `No existe ${actual}.`);
 }
@@ -196,9 +196,24 @@ function assertGitIdentity(repoRoot) {
 }
 
 function buildPullRequestBody({ comparison, mainSha, localSha }) {
-  const identifiers = comparison.newArticles.map((article) => (
-    `- ID ${article.id ?? '(sin ID)'} · DOI ${article.doi ?? '(sin DOI)'} · ${article.title ?? '(sin título)'}`
-  ));
+  const identifiers = (comparison.ingestionReport ?? comparison.newArticles).flatMap((article) => {
+    if (!article.canonical) {
+      return [`- ID ${article.id ?? '(sin ID)'} · DOI ${article.doi ?? '(sin DOI)'} · ${article.title ?? '(sin título)'}`];
+    }
+    return [
+      `- ID ${article.id} · ${article.title}`,
+      `  - DOI: ${article.doi}`,
+      `  - Clasificación: ${article.classification}`,
+      `  - URL canónica: ${article.canonical}`,
+      `  - Página estática: ${article.page ? 'PASS' : 'FAIL'}`,
+      `  - HTTP: ${article.http}`,
+      `  - Sitemap: ${article.sitemap ? 'PASS' : 'FAIL'}`,
+      `  - Schema Article/Breadcrumb: ${article.schema ? 'PASS' : 'FAIL'}`,
+      `  - Hub/enlace interno: ${article.hub ? 'PASS' : 'FAIL'}`,
+      `  - Feed: ${article.feed}`,
+      `  - QA de alta: ${article.qa ? 'PASS' : 'FAIL'}`,
+    ];
+  });
   return [
     '## Automatización local de resumenes.json',
     '',
@@ -207,6 +222,7 @@ function buildPullRequestBody({ comparison, mainSha, localSha }) {
     `- Artículos nuevos: ${comparison.counts.new}`,
     '- Archivos modificados por la automatización: `resumenes.json` exclusivamente.',
     '- Merge automático: desactivado.',
+    '- Generación y QA local aislados: PASS.',
     '',
     '### Identificadores detectados',
     '',
@@ -214,6 +230,84 @@ function buildPullRequestBody({ comparison, mainSha, localSha }) {
     '',
     'Los workflows existentes deben validar este PR antes de cualquier revisión humana o fusión.',
   ].join('\n');
+}
+
+export const INGESTION_PREFLIGHT_STEPS = Object.freeze([
+  ['Generación SEO', 'python', ['generar_seo.py']],
+  ['Generación semántica', 'python', ['generar_seo_semantico.py']],
+  ['Generación avanzada', 'python', ['generar_seo_avanzado.py']],
+  ['Restauración editorial', 'python', ['restaurar_arquitectura.py']],
+  ['Fechas editoriales', 'python', ['actualizar_agregar_editorial.py']],
+  ['Páginas sociales', 'python', ['generar_paginas_sociales.py']],
+  ['Validación de datos', 'node', ['scripts/validate-data.mjs']],
+  ['Cobertura dinámica', 'node', ['scripts/validate-article-indexability.mjs']],
+  ['Sitemap', 'node', ['scripts/validate-sitemap.mjs']],
+  ['Feed', 'node', ['scripts/validate-feed.mjs']],
+  ['SEO', 'node', ['scripts/validate-seo.mjs']],
+  ['Auditoría SEO', 'node', ['scripts/seo-audit.mjs', '--fail-on-high']],
+]);
+
+export function assertPreflightResults(results) {
+  const failed = results.find((result) => result.status !== 0);
+  if (failed) {
+    throw new AutomationError(
+      'INGESTION_PREFLIGHT_FAILED',
+      `La etapa ${failed.label} falló; no se creó rama ni PR.`,
+    );
+  }
+}
+
+function runIngestionPreflight(worktreePath, pythonPath) {
+  const results = INGESTION_PREFLIGHT_STEPS.map(([label, runtime, args]) => {
+    const command = runtime === 'python' ? pythonPath : process.execPath;
+    const result = run(command, args, { cwd: worktreePath, allowFailure: true, quiet: true });
+    return { label, status: result.status ?? 1 };
+  });
+  assertPreflightResults(results);
+}
+
+function buildIngestionReport(worktreePath, comparison) {
+  const data = JSON.parse(readFileSync(join(worktreePath, TARGET_FILE), 'utf8'));
+  const manifest = JSON.parse(readFileSync(join(worktreePath, 'seo-manifest.json'), 'utf8'));
+  const sitemap = readFileSync(join(worktreePath, 'sitemap.xml'), 'utf8');
+  const feed = readFileSync(join(worktreePath, 'feed.xml'), 'utf8');
+  const navigationFiles = [
+    join(worktreePath, '_includes', 'index-source.html'),
+    join(worktreePath, 'medicina-critica', 'index.html'),
+    join(worktreePath, 'medicina-interna', 'index.html'),
+  ].filter(existsSync).map((file) => readFileSync(file, 'utf8')).join('\n');
+
+  return comparison.newArticles.map((candidate) => {
+    const item = data[candidate.index];
+    const entry = manifest[String(item.id)];
+    const pagePath = entry ? join(worktreePath, entry.path.replace(/^\//, ''), 'index.html') : '';
+    const page = pagePath && existsSync(pagePath) ? readFileSync(pagePath, 'utf8') : '';
+    const editorialDate = ['fecha_publicacion_resumen', 'fecha_revision', 'actualizado']
+      .map((key) => item[key]).find(isValidIsoDate);
+    const schema = /["']@type["']\s*:\s*["']Article["']/.test(page)
+      && /["']@type["']\s*:\s*["']BreadcrumbList["']/.test(page);
+    const hub = Boolean(entry?.path && navigationFiles.includes(`href="${entry.path}"`));
+    const feedState = editorialDate
+      ? (feed.includes(`<id>${entry?.url}</id>`) ? 'PASS' : 'FAIL')
+      : 'NO APLICA (sin fecha editorial explícita)';
+    const checks = {
+      page: Boolean(page),
+      http: 'PENDIENTE HASTA EL DESPLIEGUE DE PAGES',
+      sitemap: Boolean(entry?.url && sitemap.includes(`<loc>${entry.url}</loc>`)),
+      schema,
+      hub,
+      feed: feedState,
+    };
+    return {
+      id: String(item.id),
+      title: String(item.titulo),
+      doi: String(item.doi),
+      classification: [item.especialidad_principal, item.especialidad_secundaria].filter(Boolean).join(' / '),
+      canonical: entry?.url ?? null,
+      ...checks,
+      qa: checks.page && checks.sitemap && checks.schema && checks.hub && feedState !== 'FAIL',
+    };
+  });
 }
 
 function cleanTemporaryWorktree(repoRoot, temporaryRoot, worktreePath, wasAdded) {
@@ -228,9 +322,10 @@ export function runAutomation(argv = process.argv.slice(2)) {
   const args = parseArgs(argv);
   const repoRoot = resolve(args.repo ?? process.cwd());
   const targetPath = resolve(args.file ?? join(repoRoot, TARGET_FILE));
+  const pythonPath = args.pythonPath ?? 'python';
   const stateRoot = resolve(args.stateDir ?? defaultStateRoot());
   const reportDirectory = resolve(args.reportDir ?? join(stateRoot, 'reports'));
-  ensureExactTarget(repoRoot, targetPath);
+  ensureSourceFile(targetPath);
 
   const releaseLock = acquireLock(stateRoot, repoRoot);
   let report = {
@@ -238,6 +333,7 @@ export function runAutomation(argv = process.argv.slice(2)) {
     status: 'blocked',
     repository: EXPECTED_REPOSITORY,
     target: TARGET_FILE,
+    sourcePath: targetPath,
     startedAt: new Date().toISOString(),
   };
 
@@ -246,7 +342,16 @@ export function runAutomation(argv = process.argv.slice(2)) {
     if (!isExpectedOrigin(remoteUrl)) {
       throw new AutomationError('UNEXPECTED_ORIGIN', `origin no corresponde a ${EXPECTED_REPOSITORY}.`);
     }
-    assertOnlyResumenesChanges(changedPaths(repoRoot));
+    const localChanges = changedPaths(repoRoot);
+    const repositoryTarget = resolve(repoRoot, TARGET_FILE);
+    if (targetPath.toLowerCase() === repositoryTarget.toLowerCase()) {
+      assertOnlyResumenesChanges(localChanges);
+    } else if (localChanges.length > 0) {
+      throw new AutomationError(
+        'UNRELATED_LOCAL_CHANGES',
+        'El repositorio debe estar limpio cuando la fuente maestra se encuentra fuera de él.',
+      );
+    }
 
     const localSnapshot = readFileSync(targetPath);
     const localSha = sha256(localSnapshot);
@@ -268,19 +373,15 @@ export function runAutomation(argv = process.argv.slice(2)) {
       report.reportPath = writeReport(reportDirectory, report);
       return { exitCode: 0, report };
     }
-    if (args.dryRun) {
-      report.status = 'dry_run_new_articles';
-      report.reportPath = writeReport(reportDirectory, report);
-      return { exitCode: 0, report };
+    if (!args.dryRun) {
+      assertGitHubCli(repoRoot);
+      assertGitIdentity(repoRoot);
     }
-
-    assertGitHubCli(repoRoot);
-    assertGitIdentity(repoRoot);
     if (sha256(readFileSync(targetPath)) !== localSha) {
       throw new AutomationError('LOCAL_FILE_CHANGED_DURING_RUN', `${TARGET_FILE} cambió durante la validación.`);
     }
 
-    const branch = buildBranchName(new Date(), localSha);
+    const branch = args.dryRun ? null : buildBranchName(new Date(), localSha);
     report.branch = branch;
     report.remoteBranchPushed = false;
     const temporaryRoot = mkdtempSync(join(tmpdir(), 'resumenestrials-json-'));
@@ -289,12 +390,21 @@ export function runAutomation(argv = process.argv.slice(2)) {
     try {
       git(['worktree', 'add', '--detach', worktreePath, 'origin/main'], { cwd: repoRoot });
       worktreeAdded = true;
-      git(['switch', '-c', branch], { cwd: worktreePath });
+      if (!args.dryRun) git(['switch', '-c', branch], { cwd: worktreePath });
       copyFileSync(targetPath, join(worktreePath, TARGET_FILE));
 
-      const validation = run(process.execPath, ['scripts/validate-data.mjs'], { cwd: worktreePath, allowFailure: true, quiet: true });
-      if (validation.status !== 0) {
-        throw new AutomationError('LOCAL_VALIDATION_FAILED', 'La validación de resumenes.json falló antes de crear el commit.');
+      runIngestionPreflight(worktreePath, pythonPath);
+      comparison.ingestionReport = buildIngestionReport(worktreePath, comparison);
+      report.ingestionReport = comparison.ingestionReport;
+      if (comparison.ingestionReport.some((article) => !article.qa)) {
+        throw new AutomationError('INGESTION_REPORT_FAILED', 'El reporte técnico de una nueva alta contiene verificaciones fallidas.');
+      }
+
+      if (args.dryRun) {
+        report.status = 'dry_run_new_articles';
+        report.completedAt = new Date().toISOString();
+        report.reportPath = writeReport(reportDirectory, report);
+        return { exitCode: 0, report };
       }
 
       git(['add', '--', TARGET_FILE], { cwd: worktreePath });

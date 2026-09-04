@@ -11,6 +11,30 @@ SCOPE = "https://www.googleapis.com/auth/webmasters.readonly"
 DEFAULT_SITE = "sc-domain:resumenestrials.com"
 
 
+def inspection_targets(inventory_path: str, manifest_path: str, today: date | None = None):
+    """Select recent published URLs for read-only inspection at D14 through D90."""
+    inventory_file = Path(inventory_path)
+    manifest_file = Path(manifest_path)
+    if not inventory_file.is_file() or not manifest_file.is_file():
+        return []
+    inventory = json.loads(inventory_file.read_text(encoding="utf-8"))
+    manifest = json.loads(manifest_file.read_text(encoding="utf-8"))
+    reference = today or date.today()
+    targets = []
+    for item in inventory:
+        raw_date = str(item.get("fecha_publicacion_resumen") or "").strip()
+        try:
+            publication_date = date.fromisoformat(raw_date)
+        except ValueError:
+            continue
+        age_days = (reference - publication_date).days
+        entry = manifest.get(str(item.get("id"))) or {}
+        url = str(entry.get("url") or "").strip()
+        if 14 <= age_days <= 90 and url.startswith("https://resumenestrials.com/trials/"):
+            targets.append({"id": str(item.get("id")), "url": url, "ageDays": age_days})
+    return sorted(targets, key=lambda item: (item["ageDays"], item["id"]))[:50]
+
+
 def credentials_from_environment():
     """Prefiere OAuth de usuario y conserva la cuenta de servicio como respaldo."""
     client_id = os.environ.get("GSC_OAUTH_CLIENT_ID", "").strip()
@@ -77,6 +101,8 @@ def main() -> None:
     parser.add_argument("--days", type=int, default=180)
     parser.add_argument("--output", default="seo-data/search-console.json")
     parser.add_argument("--site-url", default=os.environ.get("GSC_SITE_URL", DEFAULT_SITE))
+    parser.add_argument("--inventory", default="resumenes.json")
+    parser.add_argument("--manifest", default="seo-manifest.json")
     args = parser.parse_args()
     if args.days < 1:
         raise SystemExit("--days debe ser mayor que cero.")
@@ -94,6 +120,7 @@ def main() -> None:
     end = date.today() - timedelta(days=3)
     start = end - timedelta(days=args.days - 1)
     rows: list[dict] = []
+    inspections: list[dict] = []
     start_row = 0
 
     try:
@@ -128,6 +155,30 @@ def main() -> None:
             if len(batch) < 25000:
                 break
             start_row += len(batch)
+
+        for target in inspection_targets(args.inventory, args.manifest):
+            response = (
+                service.urlInspection()
+                .index()
+                .inspect(
+                    body={
+                        "inspectionUrl": target["url"],
+                        "siteUrl": args.site_url,
+                        "languageCode": "es-MX",
+                    }
+                )
+                .execute()
+            )
+            status = response.get("inspectionResult", {}).get("indexStatusResult", {})
+            inspections.append(
+                {
+                    **target,
+                    "verdict": status.get("verdict", "UNKNOWN"),
+                    "coverageState": status.get("coverageState"),
+                    "indexingState": status.get("indexingState"),
+                    "lastCrawlTime": status.get("lastCrawlTime"),
+                }
+            )
     except HttpError as exc:
         status = getattr(exc.resp, "status", "desconocido")
         raise SystemExit(
@@ -145,6 +196,7 @@ def main() -> None:
                 "endDate": str(end),
                 "credentialProvider": provider,
                 "rows": rows,
+                "inspections": inspections,
             },
             ensure_ascii=False,
             indent=2,

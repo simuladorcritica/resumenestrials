@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from pathlib import Path
+from datetime import date
 import html
 import json
 import re
@@ -77,11 +78,17 @@ def slugify(valor: object, limite: int = 92) -> str:
     return base.strip("-")
 
 
+def id_texto(valor: object) -> str:
+    if isinstance(valor, float) and valor.is_integer():
+        return str(int(valor))
+    return str(valor if valor is not None else "").strip()
+
+
 def slug_para_item(item: dict) -> str:
     manual = slugify(item.get("slug"), 110)
     if manual:
         return manual
-    trial_id = str(item.get("id", "")).strip()
+    trial_id = id_texto(item.get("id"))
     titulo = texto_plano(item.get("titulo"))
     if not titulo:
         return f"trial-{trial_id or 'sin-id'}"
@@ -153,7 +160,7 @@ def related(item: dict, todos: list[dict], limite: int = 4) -> list[dict]:
     temas = set(item.get("temas") or [])
 
     def score(other: dict) -> int:
-        if str(other.get("id")) == str(item.get("id")):
+        if id_texto(other.get("id")) == id_texto(item.get("id")):
             return -1
         other_esp = set(categorias(other))
         other_temas = set(other.get("temas") or [])
@@ -373,6 +380,10 @@ def fecha_editorial(item: dict) -> str:
     for key in ("fecha_revision", "actualizado", "fecha_publicacion_resumen"):
         value = str(item.get(key) or "").strip()
         if re.fullmatch(r"\d{4}-\d{2}-\d{2}", value):
+            try:
+                date.fromisoformat(value)
+            except ValueError:
+                continue
             return value
     return ""
 
@@ -420,7 +431,7 @@ def validar(items: object) -> list[dict]:
             raise ValueError("Cada resumen debe ser un objeto")
         if "id" not in item or not item.get("titulo"):
             raise ValueError("Cada resumen debe tener id y titulo")
-        ids.append(str(item["id"]))
+        ids.append(id_texto(item["id"]))
         doi = re.sub(r"^https?://(?:dx\.)?doi\.org/", "", texto_plano(item.get("doi")), flags=re.I).lower()
         if doi:
             dois.append(doi)
@@ -460,7 +471,7 @@ def main() -> None:
         out = TRIALS_DIR / slug
         out.mkdir(parents=True, exist_ok=True)
         (out / "index.html").write_text(pagina_trial(item, items), encoding="utf-8")
-        manifest[str(item["id"])] = {
+        manifest[id_texto(item["id"])] = {
             "slug": slug,
             "path": ruta_trial(item),
             "url": url_trial(item),

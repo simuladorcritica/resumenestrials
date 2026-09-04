@@ -13,9 +13,18 @@ function article(id, overrides = {}) {
     titulo: `Artículo clínico ${id}`,
     autor: 'Autor',
     revista: 'Revista',
+    anio: 2026,
     fecha: '2026-08-24',
+    registro: `NCT${String(id).padStart(8, '0')}`,
     doi: `10.1000/TEST.${id}`,
+    financiacion: 'Financiación declarada',
+    original: `https://example.test/article-${id}`,
+    especialidad_principal: 'Medicina Crítica',
+    especialidad_secundaria: '',
+    temas: ['Prueba'],
+    tipo_estudio: 'Ensayo clínico aleatorizado',
     objetivo: 'Objetivo sin cambios',
+    hallazgo: 'Hallazgo sin cambios',
     cuerpo: '<p>Contenido protegido</p>',
     corto: '<p>Resumen protegido</p>',
     ...overrides,
@@ -92,6 +101,32 @@ test('bloquea DOI duplicados después de normalizar URL, prefijo y mayúsculas',
   ]);
   assert.equal(result.status, 'blocked');
   assert.ok(result.errors.some((error) => error.code === 'LOCAL_DUPLICATE_DOI'));
+});
+
+test('bloquea referencias originales duplicadas contra todo el historial', () => {
+  const result = compare([article(1)], [article(1), article(2, { original: 'https://example.test/article-1/' })]);
+  assert.equal(result.status, 'blocked');
+  assert.ok(result.errors.some((error) => error.code === 'LOCAL_DUPLICATE_ORIGINAL'));
+});
+
+test('bloquea slugs y canonicals duplicados', () => {
+  const result = compare([article(1)], [
+    article(1),
+    article(2, { titulo: 'Título diferente', slug: 'articulo-clinico-1' }),
+  ]);
+  assert.equal(result.status, 'blocked');
+  assert.ok(result.errors.some((error) => error.code === 'LOCAL_DUPLICATE_SLUG'));
+  assert.ok(result.errors.some((error) => error.code === 'LOCAL_DUPLICATE_CANONICAL'));
+});
+
+test('bloquea nuevas altas sin DOI o sin campos obligatorios', () => {
+  const missingDoi = compare([article(1)], [article(1), article(2, { doi: '' })]);
+  assert.ok(missingDoi.errors.some((error) => error.code === 'NEW_ARTICLE_MISSING_DOI'));
+
+  const missingObjective = article(2);
+  delete missingObjective.objetivo;
+  const missingField = compare([article(1)], [article(1), missingObjective]);
+  assert.ok(missingField.errors.some((error) => error.code === 'NEW_ARTICLE_MISSING_FIELD' && error.field === 'objetivo'));
 });
 
 test('bloquea JSON inválido antes de comparar artículos', () => {

@@ -27,6 +27,12 @@ Los archivos generados se versionan para que GitHub Pages pueda servirlos sin un
 
 La secuencia debe ser idempotente: dos ejecuciones consecutivas tienen que producir las mismas salidas. `sitemap.xml` solo publica `lastmod` cuando existe una fecha editorial explícita (`fecha_revision`, `actualizado` o `fecha_publicacion_resumen`); la fecha de publicación del estudio no representa una modificación del sitio.
 
+`fecha_publicacion_resumen` es la fecha editorial explícita de publicación web para altas futuras. Es independiente de `fecha`, que conserva la fecha bibliográfica. No se completa retroactivamente ni se infiere a partir de la publicación científica. Cuando es una fecha ISO real, la alta entra automáticamente al feed Atom.
+
+## Vigilancia posterior a la publicación
+
+El workflow privado de Search Console separa `PUBLICADO`, `DISCOVERABLE`, `INDEXED` cuando URL Inspection puede confirmarlo, `WITH IMPRESSIONS` y `WITH CLICKS`. Usa ventanas D0, D7, D14 y D28; cero impresiones nunca se interpreta como prueba de no indexación. Los detalles se crean en `$RUNNER_TEMP/gsc/`, se incluyen únicamente en el correo administrativo privado de Resend y se eliminan al final.
+
 ## Servicios
 
 - GitHub Pages: alojamiento y dominio personalizado mediante `CNAME`.

@@ -5,7 +5,7 @@ import { pathToFileURL } from 'node:url';
 const RESEND_ENDPOINT = 'https://api.resend.com/emails';
 const REPORT_FROM = 'Resúmenes Trials SEO <novedades@resumenestrials.com>';
 const EMAIL_PATTERN = /^[^\s@,;]+@[^\s@,;]+\.[^\s@,;]+$/;
-const REPORT_FILES = ['seo-weekly.md', 'seo-monthly.md'];
+const REPORT_FILES = ['seo-weekly.md', 'seo-monthly.md', 'article-discovery.md'];
 
 function singleRecipient(value) {
   const recipient = String(value || '').trim();

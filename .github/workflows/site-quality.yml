@@ -119,6 +119,9 @@ jobs:
           node --check scripts/resend-qa-single-recipient.test.mjs
           node --check scripts/resumenes-json-guard.mjs
           node --check scripts/resumenes-json-guard.test.mjs
+          node --check scripts/article-ingestion-synthetic.test.mjs
+          node --check scripts/article-discovery-monitor.mjs
+          node --check scripts/article-discovery-monitor.test.mjs
           node --check scripts/resumenes-json-automation.mjs
           node --check scripts/resumenes-json-automation.test.mjs
           node --check scripts/clinical-additions.test.mjs
@@ -130,7 +133,7 @@ jobs:
       - name: Validate local resumenes.json automation
         shell: pwsh
         run: |
-          node --test scripts/article-inventory.test.mjs scripts/resumenes-json-guard.test.mjs scripts/resumenes-json-automation.test.mjs scripts/clinical-additions.test.mjs scripts/specialty-classification.test.mjs
+          node --test scripts/article-inventory.test.mjs scripts/resumenes-json-guard.test.mjs scripts/resumenes-json-automation.test.mjs scripts/article-ingestion-synthetic.test.mjs scripts/article-discovery-monitor.test.mjs scripts/clinical-additions.test.mjs scripts/specialty-classification.test.mjs
           $parseErrors = @()
           foreach ($script in @('scripts/watch-resumenes-json.ps1', 'scripts/install-resumenes-json-watcher.ps1')) {
             $tokens = $null

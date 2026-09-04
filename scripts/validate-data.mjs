@@ -1,5 +1,5 @@
 import fs from 'node:fs';
-import { auditArticleData } from './article-inventory.mjs';
+import { auditArticleData, isValidIsoDate } from './article-inventory.mjs';
 
 const file = 'resumenes.json';
 const data = JSON.parse(fs.readFileSync(file, 'utf8'));
@@ -12,7 +12,7 @@ const invalidYears = audit.records.filter((record) => {
 if (invalidYears.length) errors.push(`años inválidos: ${invalidYears.join(',')}`);
 for (const record of audit.records) {
   for (const field of ['fecha_publicacion_resumen', 'fecha_revision', 'actualizado']) {
-    if (record?.[field] && !/^\d{4}-\d{2}-\d{2}$/.test(String(record[field]))) {
+    if (record?.[field] && !isValidIsoDate(record[field])) {
       errors.push(`ID ${record.id}: ${field} debe usar YYYY-MM-DD`);
     }
   }

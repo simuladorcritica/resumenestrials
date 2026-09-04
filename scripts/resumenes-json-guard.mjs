@@ -1,6 +1,15 @@
 import { createHash } from 'node:crypto';
 import { readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
+import { normalizeOriginal, slugForRecord } from './article-inventory.mjs';
+
+export const REQUIRED_NEW_ARTICLE_FIELDS = Object.freeze([
+  'id', 'titulo', 'autor', 'revista', 'anio', 'fecha', 'registro', 'doi',
+  'financiacion', 'original', 'especialidad_principal', 'especialidad_secundaria',
+  'temas', 'tipo_estudio', 'objetivo', 'hallazgo', 'cuerpo', 'corto',
+]);
+
+const OPTIONAL_EMPTY_NEW_ARTICLE_FIELDS = new Set(['especialidad_secundaria']);
 
 function asText(value) {
   return Buffer.isBuffer(value) ? value.toString('utf8') : String(value ?? '');
@@ -38,6 +47,10 @@ export function normalizeTitle(value) {
     .replace(/[^\p{Letter}\p{Number}]+/gu, ' ')
     .trim()
     .replace(/\s+/g, ' ');
+}
+
+export function canonicalForArticle(article) {
+  return `https://resumenestrials.com/trials/${slugForRecord(article)}/`;
 }
 
 function canonicalize(value) {
@@ -78,7 +91,7 @@ function duplicateValues(items, normalizer, field) {
   const seen = new Map();
   const duplicates = [];
   for (let index = 0; index < items.length; index += 1) {
-    const normalized = normalizer(items[index]?.[field]);
+    const normalized = normalizer(field == null ? items[index] : items[index]?.[field]);
     if (!normalized) continue;
     if (seen.has(normalized)) {
       duplicates.push({ value: normalized, firstIndex: seen.get(normalized), duplicateIndex: index });
@@ -162,6 +175,25 @@ export function compareResumenesJson(mainSource, localSource) {
         duplicate,
       ));
     }
+    for (const duplicate of duplicateValues(items, normalizeOriginal, 'original')) {
+      report.errors.push(errorRecord(
+        `${scope}_DUPLICATE_ORIGINAL`,
+        `${scope.toLowerCase()} contiene una referencia original duplicada después de normalizarla.`,
+        duplicate,
+      ));
+    }
+    for (const duplicate of duplicateValues(items, slugForRecord, null)) {
+      report.errors.push(errorRecord(
+        `${scope}_DUPLICATE_SLUG`,
+        `${scope.toLowerCase()} genera el slug duplicado ${duplicate.value}.`,
+        duplicate,
+      ));
+      report.errors.push(errorRecord(
+        `${scope}_DUPLICATE_CANONICAL`,
+        `${scope.toLowerCase()} genera una URL canónica duplicada.`,
+        { ...duplicate, canonical: `https://resumenestrials.com/trials/${duplicate.value}/` },
+      ));
+    }
   }
 
   const localIndexes = {
@@ -240,6 +272,39 @@ export function compareResumenesJson(mainSource, localSource) {
     .filter(({ index }) => !matchedLocal.has(index))
     .map(({ article, index }) => ({ index, ...publicIdentity(article) }));
   report.counts.new = report.newArticles.length;
+
+  for (const candidate of report.newArticles) {
+    const article = localItems[candidate.index];
+    for (const field of REQUIRED_NEW_ARTICLE_FIELDS) {
+      if (!Object.hasOwn(article, field)) {
+        report.errors.push(errorRecord(
+          'NEW_ARTICLE_MISSING_FIELD',
+          `El artículo nuevo con ID ${candidate.id ?? '(sin ID)'} no contiene el campo obligatorio ${field}.`,
+          { index: candidate.index, id: candidate.id, field },
+        ));
+        continue;
+      }
+      const value = article[field];
+      const empty = value == null
+        || (typeof value === 'string' && !value.trim())
+        || (Array.isArray(value) && value.length === 0);
+      if (empty && !OPTIONAL_EMPTY_NEW_ARTICLE_FIELDS.has(field)) {
+        report.errors.push(errorRecord(
+          field === 'doi' ? 'NEW_ARTICLE_MISSING_DOI' : 'NEW_ARTICLE_EMPTY_FIELD',
+          `El artículo nuevo con ID ${candidate.id ?? '(sin ID)'} tiene vacío el campo obligatorio ${field}.`,
+          { index: candidate.index, id: candidate.id, field },
+        ));
+      }
+    }
+    const doi = normalizeDoi(article?.doi);
+    if (doi && !/^10\.\d{4,9}\/\S+$/i.test(doi)) {
+      report.errors.push(errorRecord(
+        'NEW_ARTICLE_INVALID_DOI',
+        `El artículo nuevo con ID ${candidate.id ?? '(sin ID)'} contiene un DOI no válido.`,
+        { index: candidate.index, id: candidate.id },
+      ));
+    }
+  }
 
   if (report.errors.length > 0) {
     report.status = 'blocked';
