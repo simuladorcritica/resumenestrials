@@ -1,5 +1,20 @@
 const BASE_URL = 'https://resumenestrials.com';
 
+export const INTERNAL_SPECIALTIES = Object.freeze([
+  'Cardiología', 'Cirugía', 'Endocrinología', 'Enfermedades Infecciosas',
+  'Gastroenterología', 'Geriatría', 'Hematología', 'Infectología',
+  'Medicina de Urgencias', 'Medicina Física y Rehabilitación', 'Nefrología',
+  'Neumología', 'Neurología', 'Oncología', 'Reumatología', 'VIH',
+]);
+
+export function belongsToCategory(record, category) {
+  if (category === 'todos') return true;
+  const primary = plainText(record?.especialidad_principal);
+  const secondary = plainText(record?.especialidad_secundaria);
+  if (primary === category || secondary === category) return true;
+  return category === 'Medicina Interna' && INTERNAL_SPECIALTIES.includes(primary);
+}
+
 export const REQUIRED_FIELDS = Object.freeze([
   'id', 'titulo', 'autor', 'revista', 'anio', 'fecha', 'registro', 'doi',
   'financiacion', 'original', 'especialidad_principal', 'especialidad_secundaria',

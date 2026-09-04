@@ -1796,11 +1796,16 @@
     return p.length === 3 ? `${p[2]}/${p[1]}/${p[0]}` : iso;
   };
 
-  // ¿El resumen pertenece a la especialidad seleccionada? (principal O secundaria)
-  const perteneceA = (r, esp) =>
-    esp === "todos" ||
-    r.especialidad_principal === esp ||
-    r.especialidad_secundaria === esp;
+  // RT-CATEGORY-MEMBERSHIP-START
+  const especialidadesInternas = new Set(["Cardiología","Cirugía","Endocrinología","Enfermedades Infecciosas","Gastroenterología","Geriatría","Hematología","Infectología","Medicina Física y Rehabilitación","Medicina de Urgencias","Nefrología","Neumología","Neurología","Oncología","Reumatología","VIH"]);
+  const perteneceA = (r, esp) => {
+    if (esp === "todos") return true;
+    const principal = String(r.especialidad_principal || "").trim();
+    const secundaria = String(r.especialidad_secundaria || "").trim();
+    if (principal === esp || secundaria === esp) return true;
+    return esp === "Medicina Interna" && especialidadesInternas.has(principal);
+  };
+  // RT-CATEGORY-MEMBERSHIP-END
 
   function badgesHTML(r) {
     const b = [];

@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { auditArticleData, compareCoverage, expectedEntry, slugForRecord } from './article-inventory.mjs';
+import { auditArticleData, belongsToCategory, compareCoverage, expectedEntry, slugForRecord } from './article-inventory.mjs';
 
 const record = (id, title, doi = `10.1000/${id}`) => ({
   id,
@@ -71,4 +71,12 @@ test('bloquea ID, DOI, slug, canonical y sitemap duplicados', () => {
 
 test('el slug no depende de una cifra fija', () => {
   assert.equal(slugForRecord(record(999, 'FUTURE-X: nueva evidencia clínica')), 'future-x-nueva-evidencia-clinica');
+});
+
+test('las especialidades principales específicas pertenecen al hub de Medicina Interna', () => {
+  const neurology = { ...record(3, 'NEURO: evidencia'), especialidad_principal: 'Neurología' };
+  const critical = { ...record(4, 'ICU: evidencia'), especialidad_principal: 'Medicina Crítica', especialidad_secundaria: 'Neurología' };
+  assert.equal(belongsToCategory(neurology, 'Medicina Interna'), true);
+  assert.equal(belongsToCategory(critical, 'Medicina Interna'), false);
+  assert.equal(belongsToCategory(critical, 'Medicina Crítica'), true);
 });

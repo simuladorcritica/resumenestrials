@@ -1,6 +1,7 @@
 import { chromium } from 'playwright';
 import { readFileSync, writeFileSync } from 'node:fs';
 import { installTurnstileTestRoutes } from './turnstile-test-helpers.mjs';
+import { belongsToCategory } from './article-inventory.mjs';
 
 const BASE=(process.env.RT_BASE_URL||'https://resumenestrials.com').replace(/\/$/,'');
 if (process.env.RT_BASE_URL) {
@@ -11,8 +12,8 @@ if (process.env.RT_BASE_URL) {
 }
 const data=JSON.parse(readFileSync('resumenes.json','utf8'));
 const manifest=JSON.parse(readFileSync('seo-manifest.json','utf8'));
-const expectedCrit=data.filter((r)=>r.especialidad_principal==='Medicina Crítica'||r.especialidad_secundaria==='Medicina Crítica').length;
-const expectedInt=data.filter((r)=>r.especialidad_principal==='Medicina Interna'||r.especialidad_secundaria==='Medicina Interna').length;
+const expectedCrit=data.filter((record)=>belongsToCategory(record,'Medicina Crítica')).length;
+const expectedInt=data.filter((record)=>belongsToCategory(record,'Medicina Interna')).length;
 const sample=data.find((r)=>r.corto)||data[0];
 const entry=manifest[String(sample.id)];
 
