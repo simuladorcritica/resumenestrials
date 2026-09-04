@@ -63,7 +63,9 @@
 
         const robots = document.querySelector('meta[name="robots"]');
         if (robots) {
-          const robotsValue = 'index,follow,max-image-preview:large';
+          // La URL con query conserva compatibilidad, pero la página estática
+          // /trials/... es la única versión indexable.
+          const robotsValue = 'noindex,follow,max-image-preview:large';
           if (robots.content !== robotsValue) robots.content = robotsValue;
         }
 

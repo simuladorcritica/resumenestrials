@@ -48,9 +48,10 @@ SECCIONES_CORTO = [
 
 AREAS = {"Medicina Crítica", "Medicina Interna"}
 SUBESPECIALIDADES = {
-    "Cardiología", "Endocrinología", "Gastroenterología", "Geriatría", "Hematología",
-    "Infectología", "Medicina Física y Rehabilitación", "Nefrología",
-    "Neumología", "Neurología", "Reumatología",
+    "Cardiología", "Cirugía", "Endocrinología", "Enfermedades Infecciosas",
+    "Gastroenterología", "Geriatría", "Hematología", "Infectología",
+    "Medicina de Urgencias", "Medicina Física y Rehabilitación", "Nefrología",
+    "Neumología", "Neurología", "Oncología", "Reumatología", "VIH",
 }
 ESPECIALIDADES = AREAS | SUBESPECIALIDADES | {""}
 TAGS_PERMITIDAS = {"h2", "p", "strong", "em"}
@@ -256,7 +257,7 @@ def validar_entrada(e, H, if_vistos):
         H.aviso(idn, "'registro' vacío (¿ensayo sin NCT?)")
 
     # --- Especialidad ---
-    if e.get("especialidad_principal") not in AREAS:
+    if e.get("especialidad_principal") not in ESPECIALIDADES - {""}:
         H.error(idn, f"especialidad_principal fuera de catálogo: {e.get('especialidad_principal')!r}")
     if e.get("especialidad_secundaria") not in ESPECIALIDADES:
         H.error(idn, f"especialidad_secundaria fuera de catálogo: {e.get('especialidad_secundaria')!r}")
@@ -364,7 +365,9 @@ def validar(data):
         validar_entrada(e, H, if_vistos)
     for rev, vs in if_vistos.items():
         if len(vs) > 1:
-            H.error("-", f"factor de impacto inconsistente para {rev}: {sorted(vs)}")
+            # Es metadato bibliográfico protegido: se señala para revisión, pero no
+            # debe bloquear la publicación ni inducir una reescritura automática.
+            H.aviso("-", f"factor de impacto inconsistente para {rev}: {sorted(vs)}")
     return H, if_vistos
 
 # ----------------------------------------------------------------------------

@@ -90,6 +90,9 @@ jobs:
           node --check scripts/auth-production-smoke.mjs
           node --check scripts/home-controls-smoke.mjs
           node --check scripts/validate-data.mjs
+          node --check scripts/article-inventory.mjs
+          node --check scripts/article-inventory.test.mjs
+          node --check scripts/validate-article-indexability.mjs
           node --check scripts/production-health.mjs
           node --check scripts/browser-smoke.mjs
           node --check scripts/auth-safe-smoke.mjs
@@ -127,7 +130,7 @@ jobs:
       - name: Validate local resumenes.json automation
         shell: pwsh
         run: |
-          node --test scripts/resumenes-json-guard.test.mjs scripts/resumenes-json-automation.test.mjs scripts/clinical-additions.test.mjs scripts/specialty-classification.test.mjs
+          node --test scripts/article-inventory.test.mjs scripts/resumenes-json-guard.test.mjs scripts/resumenes-json-automation.test.mjs scripts/clinical-additions.test.mjs scripts/specialty-classification.test.mjs
           $parseErrors = @()
           foreach ($script in @('scripts/watch-resumenes-json.ps1', 'scripts/install-resumenes-json-watcher.ps1')) {
             $tokens = $null
@@ -233,6 +236,8 @@ jobs:
         run: node scripts/validate-feed.mjs
       - name: Validate canonical and Open Graph metadata
         run: node scripts/validate-seo.mjs
+      - name: Validate dynamic article indexability coverage
+        run: node scripts/validate-article-indexability.mjs
       - name: Validate legal pages and Search Console OAuth safeguards
         run: node scripts/validate-legal-oauth.mjs
       - name: Validate crawlability, schema and internal links

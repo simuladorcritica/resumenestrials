@@ -13,6 +13,7 @@ import generar_seo as base
 ROOT = base.ROOT
 CONFIG = ROOT / "seo-clusters.json"
 CLUSTER_MANIFEST = ROOT / "seo-cluster-manifest.json"
+LEGACY_REDIRECTS = ROOT / "seo-legacy-redirects.json"
 METHODOLOGY_DIR = ROOT / "metodologia"
 EDITORIAL_DIR = ROOT / "equipo-editorial"
 
@@ -45,6 +46,26 @@ def load_clusters() -> list[dict]:
         c["min_items"] = max(1, int(c.get("min_items", 2)))
         c["keywords"] = [norm(x) for x in c.get("keywords", []) if plain(x)]
     return clusters
+
+
+def load_legacy_redirects() -> list[dict]:
+    redirects = json.loads(LEGACY_REDIRECTS.read_text(encoding="utf-8"))
+    if not isinstance(redirects, list):
+        raise ValueError("seo-legacy-redirects.json debe contener una lista")
+    seen = set()
+    for redirect in redirects:
+        source = str(redirect.get("from") or "").strip()
+        target = str(redirect.get("to") or "").strip()
+        if not re.fullmatch(r"/[a-z0-9-]+/[a-z0-9-]+/", source):
+            raise ValueError(f"Ruta legacy inválida: {source or '(vacía)'}")
+        if not re.fullmatch(r"/[a-z0-9-]+/", target) or source == target:
+            raise ValueError(f"Destino legacy inválido: {target or '(vacío)'}")
+        if source in seen:
+            raise ValueError(f"Redirect legacy duplicado: {source}")
+        seen.add(source)
+        redirect["from"] = source
+        redirect["to"] = target
+    return redirects
 
 
 def cluster_path(c: dict) -> str:
@@ -264,19 +285,27 @@ def cluster_page(c: dict, items: list[dict], clusters: list[dict], active: dict[
     return page_shell(f'{c["name"]}: ensayos clínicos | Resúmenes Trials', c.get("description") or "", cluster_url(c), body, collection_schema(c["name"], c.get("description") or "", cluster_url(c), ordered))
 
 
-def generate_cluster_pages(items: list[dict], clusters: list[dict], active: dict[str, list[dict]]) -> dict:
+def legacy_redirect_page(redirect: dict) -> str:
+    target_url = f"{base.BASE_URL}{redirect['to']}"
+    reason = plain(redirect.get("reason") or "Esta colección se integró en una sección vigente.")
+    return f'''<!DOCTYPE html><html lang="es-MX"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Colección trasladada | Resúmenes Trials</title><meta name="description" content="Esta colección temática se trasladó a su sección canónica vigente."><meta name="robots" content="noindex,follow"><link rel="canonical" href="{html.escape(target_url)}"><meta http-equiv="refresh" content="0; url={html.escape(target_url)}"><script>location.replace({json.dumps(target_url)});</script><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/trial.css?v=2"></head><body><main class="envoltorio pagina-institucional"><h1>Colección trasladada</h1><p>{html.escape(reason)}</p><p><a href="{html.escape(redirect['to'])}">Continuar a Medicina Interna</a></p></main></body></html>'''
+
+
+def generate_cluster_pages(items: list[dict], clusters: list[dict], active: dict[str, list[dict]], redirects: list[dict]) -> dict:
+    redirect_paths = {redirect["from"].strip("/") for redirect in redirects}
     for category, cat_path in base.CATEGORY_PATHS.items():
         root = ROOT / cat_path
         if root.exists():
             expected = {
-                c["slug"]
+                f"{cat_path}/{c['slug']}"
                 for c in clusters
                 if c["category"] == category and active.get(c["slug"])
             }
+            expected.update(path for path in redirect_paths if path.startswith(f"{cat_path}/"))
             stale = sorted(
                 child.name
                 for child in root.iterdir()
-                if child.is_dir() and child.name not in expected
+                if child.is_dir() and f"{cat_path}/{child.name}" not in expected
             )
             if stale:
                 raise RuntimeError(
@@ -292,6 +321,10 @@ def generate_cluster_pages(items: list[dict], clusters: list[dict], active: dict
         folder.mkdir(parents=True, exist_ok=True)
         (folder / "index.html").write_text(cluster_page(c, values, clusters, active), encoding="utf-8")
         manifest[c["slug"]] = {"name":c["name"],"category":c["category"],"path":cluster_path(c),"url":cluster_url(c),"count":len(values),"trial_ids":[str(x["id"]) for x in values]}
+    for redirect in redirects:
+        folder = ROOT / redirect["from"].strip("/")
+        folder.mkdir(parents=True, exist_ok=True)
+        (folder / "index.html").write_text(legacy_redirect_page(redirect), encoding="utf-8")
     return manifest
 
 
@@ -379,9 +412,10 @@ def update_sitemap(items: list[dict], clusters: list[dict], active: dict[str, li
 def main() -> None:
     items = base.validar(json.loads(base.DATA_PATH.read_text(encoding="utf-8")))
     clusters = load_clusters()
+    redirects = load_legacy_redirects()
     active, by_item = build_assignments(items, clusters)
     improve_trials(items, by_item)
-    cluster_manifest = generate_cluster_pages(items, clusters, active)
+    cluster_manifest = generate_cluster_pages(items, clusters, active, redirects)
     improve_categories(clusters, active)
     write_editorial_pages()
     update_manifest(items, by_item)
