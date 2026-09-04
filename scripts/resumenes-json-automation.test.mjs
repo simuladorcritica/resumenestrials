@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import {
   assertOnlyResumenesChanges,
+  assertPreflightResults,
   buildBranchName,
   isExpectedOrigin,
 } from './resumenes-json-automation.mjs';
@@ -38,7 +39,23 @@ test('el publicador usa worktree aislado, valida staging y nunca fusiona', () =>
   assert.doesNotMatch(automationSource, /'pr',\s*'merge'|git\(\['merge'|push[^\n]+origin[^\n]+main/);
 });
 
+test('la generación previa al PR bloquea cualquier etapa fallida', () => {
+  assert.doesNotThrow(() => assertPreflightResults([
+    { label: 'Generación', status: 0 },
+    { label: 'Sitemap', status: 0 },
+  ]));
+  assert.throws(
+    () => assertPreflightResults([{ label: 'Generación sintética', status: 1 }]),
+    (error) => error.code === 'INGESTION_PREFLIGHT_FAILED' && /no se creó rama ni PR/.test(error.message),
+  );
+  assert.match(automationSource, /validate-article-indexability\.mjs/);
+  assert.match(automationSource, /seo-audit\.mjs', '--fail-on-high'/);
+  assert.match(automationSource, /if \(args\.dryRun\)[\s\S]+dry_run_new_articles/);
+});
+
 test('el watcher filtra solo resumenes.json y estabiliza escrituras de OneDrive', () => {
+  assert.match(watcherSource, /\[string\]\$SourceFile/);
+  assert.match(watcherSource, /Join-Path \$repository '\.\.\\resumenes\.json'/);
   assert.match(watcherSource, /FileSystemWatcher\]\:\:new\([^\n]+, 'resumenes\.json'\)/);
   assert.match(watcherSource, /IncludeSubdirectories = \$false/);
   assert.match(watcherSource, /Get-FileSha256/);
@@ -53,5 +70,7 @@ test('el instalador registra una tarea local al iniciar sesión y no la ejecuta 
   assert.match(installerSource, /New-ScheduledTaskTrigger -AtLogOn/);
   assert.match(installerSource, /RunLevel Limited/);
   assert.match(installerSource, /El primer arranque guarda una línea base y no crea ramas ni PR/);
+  assert.match(installerSource, /-SourceFile `"\$target`"/);
+  assert.match(installerSource, /-PythonPath `"\$python`"/);
   assert.doesNotMatch(installerSource, /Start-ScheduledTask/);
 });

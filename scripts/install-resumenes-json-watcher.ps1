@@ -4,6 +4,15 @@ param(
     [string]$RepositoryRoot = (Join-Path $PSScriptRoot '..'),
 
     [Parameter()]
+    [string]$SourceFile,
+
+    [Parameter()]
+    [string]$NodePath = 'node',
+
+    [Parameter()]
+    [string]$PythonPath = 'python',
+
+    [Parameter()]
     [string]$TaskName = 'ResumenesTrials-ResumenesJson-Watcher',
 
     [Parameter()]
@@ -28,7 +37,8 @@ if ($Uninstall) {
 
 $repository = [System.IO.Path]::GetFullPath((Resolve-Path -LiteralPath $RepositoryRoot).Path)
 $watcher = [System.IO.Path]::GetFullPath((Join-Path $repository 'scripts\watch-resumenes-json.ps1'))
-$target = [System.IO.Path]::GetFullPath((Join-Path $repository 'resumenes.json'))
+$sourceCandidate = if ($SourceFile) { $SourceFile } else { Join-Path $repository '..\resumenes.json' }
+$target = [System.IO.Path]::GetFullPath((Resolve-Path -LiteralPath $sourceCandidate).Path)
 
 if (-not (Test-Path -LiteralPath $watcher -PathType Leaf)) {
     throw "No existe el watcher: $watcher"
@@ -37,14 +47,19 @@ if (-not (Test-Path -LiteralPath $target -PathType Leaf)) {
     throw "No existe el archivo vigilado: $target"
 }
 
-$node = (Get-Command node -ErrorAction Stop).Source
+$node = (Get-Command $NodePath -ErrorAction Stop).Source
+$python = (Get-Command $PythonPath -ErrorAction Stop).Source
+$null = & $python -c 'import PIL'
+if ($LASTEXITCODE -ne 0) {
+    throw 'Python debe disponer de Pillow para ejecutar la generación completa previa al PR.'
+}
 $null = Get-Command git -ErrorAction Stop
 $gh = Get-Command gh -ErrorAction SilentlyContinue
 if (-not $gh) {
     throw 'GitHub CLI (gh) es obligatorio para abrir el PR. Instálelo y ejecute gh auth login antes de registrar la tarea.'
 }
-& $gh.Source auth status --hostname github.com *> $null
-if ($LASTEXITCODE -ne 0) {
+$authCheck = Start-Process -FilePath $gh.Source -ArgumentList 'auth','status','--hostname','github.com' -WindowStyle Hidden -Wait -PassThru
+if ($authCheck.ExitCode -ne 0) {
     throw 'GitHub CLI no tiene una sesión válida para github.com. Ejecute gh auth login.'
 }
 
@@ -54,7 +69,7 @@ if (-not $shell) {
 }
 
 $arguments = '-NoProfile -NonInteractive -WindowStyle Hidden -ExecutionPolicy Bypass ' +
-    "-File `"$watcher`" -RepositoryRoot `"$repository`" -NodePath `"$node`""
+    "-File `"$watcher`" -RepositoryRoot `"$repository`" -SourceFile `"$target`" -NodePath `"$node`" -PythonPath `"$python`""
 $action = New-ScheduledTaskAction -Execute $shell -Argument $arguments -WorkingDirectory $repository
 $trigger = New-ScheduledTaskTrigger -AtLogOn -User $env:USERNAME
 $settings = New-ScheduledTaskSettingsSet `

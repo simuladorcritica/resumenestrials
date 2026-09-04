@@ -30,7 +30,7 @@ Las pruebas positivas de registro, login y recuperación son locales y aisladas:
 
 ## Automatización local de `resumenes.json`
 
-Windows puede vigilar exclusivamente el `resumenes.json` local, esperar a que OneDrive termine de escribirlo y abrir un PR solo cuando detecta altas nuevas seguras. El proceso compara contra el `main` remoto, bloquea eliminaciones, duplicados y cambios a artículos existentes, y nunca escribe ni fusiona directamente en `main`.
+Windows puede vigilar exclusivamente el `resumenes.json` maestro situado junto al repositorio, esperar a que OneDrive termine de escribirlo y abrir un PR solo cuando detecta altas nuevas seguras. El proceso compara contra el `main` remoto, bloquea eliminaciones, duplicados, campos obligatorios incompletos y cambios a artículos existentes; además, regenera y prueba las salidas en un worktree temporal. Nunca escribe ni fusiona directamente en `main`.
 
 La instalación, requisitos, estados y reportes están documentados en [`docs/RESUMENES_JSON_AUTOMATION.md`](docs/RESUMENES_JSON_AUTOMATION.md). La tarea programada no se instala automáticamente al clonar o actualizar el repositorio.
 

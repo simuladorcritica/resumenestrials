@@ -97,6 +97,16 @@ function ignorableConsoleError(message){
     (/google\.com/i.test(message) && /report-only Content Security Policy/i.test(message) && /frame-ancestors/i.test(message));
 }
 
+async function installAnonymousAuthTestRoute(page){
+  const module = `export function createClient(){return {auth:{async getUser(){return {data:{user:null},error:null}},async getSession(){return {data:{session:null},error:null}},onAuthStateChange(){return {data:{subscription:{unsubscribe(){}}},error:null}},mfa:{async getAuthenticatorAssuranceLevel(){return {data:{currentLevel:null,nextLevel:null},error:null}},async listFactors(){return {data:{totp:[]},error:null}}}}}}`;
+  await page.route('https://esm.sh/@supabase/supabase-js@2.112.3*',route=>route.fulfill({
+    status:200,
+    contentType:'application/javascript; charset=utf-8',
+    headers:{'Access-Control-Allow-Origin':'*'},
+    body:module,
+  }));
+}
+
 async function browserAudit(){
   buildHomeAuditFixture();
   const data=JSON.parse(read('resumenes.json'));
@@ -111,6 +121,7 @@ async function browserAudit(){
     for(const viewport of viewports){
       const page=await browser.newPage({viewport:{width:viewport.width,height:viewport.height}});
       if(process.env.RT_BASE_URL)await installTurnstileTestRoutes(page,BASE);
+      if(process.env.RT_BASE_URL)await installAnonymousAuthTestRoute(page);
       await page.route('https://fonts.googleapis.com/**',r=>r.abort());
       await page.route('https://fonts.gstatic.com/**',r=>r.abort());
       await page.route('https://pagead2.googlesyndication.com/**',r=>r.fulfill({status:200,contentType:'application/javascript',body:''}));
@@ -135,16 +146,17 @@ async function browserAudit(){
 
     const page=await browser.newPage({viewport:{width:1440,height:900}});
     if(process.env.RT_BASE_URL)await installTurnstileTestRoutes(page,BASE);
+    if(process.env.RT_BASE_URL)await installAnonymousAuthTestRoute(page);
     await page.goto(`${BASE}/registro.html`,{waitUntil:'domcontentloaded'});
     const note=await page.locator('.mail-note').innerText().catch(()=> '');
     if(!/spam/i.test(note)||!/correo no deseado/i.test(note)||!/promociones/i.test(note))fail('registro navegador','el aviso de carpetas alternativas no está renderizado');
 
     await page.goto(`${BASE}/biblioteca.html`,{waitUntil:'domcontentloaded'});
-    await page.waitForTimeout(700);
+    await page.waitForURL(/login\.html/, { timeout: 5000 }).catch(() => {});
     if(!/login\.html/.test(page.url()))fail('biblioteca','usuario no autenticado no fue enviado a login');
 
     await page.goto(`${BASE}/cuenta.html`,{waitUntil:'domcontentloaded'});
-    await page.waitForTimeout(700);
+    await page.waitForURL(/login\.html/, { timeout: 5000 }).catch(() => {});
     if(!/login\.html/.test(page.url()))fail('cuenta','usuario no autenticado no fue enviado a login');
     await page.close();
   }finally{await browser.close()}

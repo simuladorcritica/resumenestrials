@@ -22,6 +22,11 @@ const browser=await chromium.launch({headless:true});
 const page=await browser.newPage({viewport:{width:1440,height:1000},acceptDownloads:true});
 if (process.env.RT_BASE_URL) {
   await installTurnstileTestRoutes(page, BASE);
+  const anonymousAuthModule=`export function createClient(){return {auth:{async getUser(){return {data:{user:null},error:null}},async getSession(){return {data:{session:null},error:null}},onAuthStateChange(){return {data:{subscription:{unsubscribe(){}}},error:null}},mfa:{async getAuthenticatorAssuranceLevel(){return {data:{currentLevel:null,nextLevel:null},error:null}},async listFactors(){return {data:{totp:[]},error:null}}}}}}`;
+  await page.route('https://esm.sh/@supabase/supabase-js@2.112.3*',route=>route.fulfill({status:200,contentType:'application/javascript; charset=utf-8',headers:{'Access-Control-Allow-Origin':'*'},body:anonymousAuthModule}));
+  await page.route('https://fonts.googleapis.com/**',route=>route.fulfill({status:200,contentType:'text/css',body:''}));
+  await page.route('https://fonts.gstatic.com/**',route=>route.fulfill({status:204,body:''}));
+  await page.route('https://cdnjs.cloudflare.com/ajax/libs/jspdf/**',route=>route.fulfill({status:200,contentType:'application/javascript',path:'node_modules/jspdf/dist/jspdf.umd.min.js'}));
   await page.route('https://pagead2.googlesyndication.com/**',route=>route.fulfill({contentType:'application/javascript',body:''}));
 }
 page.setDefaultTimeout(15000);
@@ -31,7 +36,7 @@ page.on('pageerror',(e)=>errors.push(`pageerror: ${e.message}`));
 page.on('console',(m)=>{
   const text=m.text();
   const harmless=/%c%d font-size:0;color:transparent NaN/.test(text)||/favicon/i.test(text)||/Failed to load resource.*429/i.test(text);
-  if(m.type()==='error'&&!harmless)errors.push(`console: ${text}`);
+  if(m.type()==='error'&&!harmless)errors.push(`console: ${text}${m.location().url?` · ${m.location().url}`:''}`);
 });
 async function visit(path,fn){
   console.log('VISIT',path);

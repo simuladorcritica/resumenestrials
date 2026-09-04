@@ -69,7 +69,11 @@ export function slugForRecord(record) {
 }
 
 export function normalizeDoi(value) {
-  return plainText(value).toLowerCase().replace(/^https?:\/\/(?:dx\.)?doi\.org\//, '');
+  return plainText(value).toLowerCase()
+    .replace(/^urn:doi:\s*/i, '')
+    .replace(/^doi\s*:\s*/i, '')
+    .replace(/^https?:\/\/(?:www\.)?(?:dx\.)?doi\.org\//i, '')
+    .replace(/\s+/g, '');
 }
 
 export function normalizeTitle(value) {
@@ -79,6 +83,13 @@ export function normalizeTitle(value) {
 
 export function normalizeOriginal(value) {
   return plainText(value).toLowerCase().replace(/\/$/, '');
+}
+
+export function isValidIsoDate(value) {
+  const text = String(value ?? '').trim();
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(text)) return false;
+  const parsed = new Date(`${text}T00:00:00Z`);
+  return !Number.isNaN(parsed.valueOf()) && parsed.toISOString().slice(0, 10) === text;
 }
 
 function duplicates(records, keyOf) {
@@ -118,7 +129,7 @@ export function auditArticleData(data) {
     }
     if (!Number.isInteger(Number(record.id)) || Number(record.id) < 1) invalidIds.push(label);
     const date = String(record.fecha ?? '').trim();
-    if (date && !/^\d{4}-\d{2}-\d{2}$/.test(date)) {
+    if (date && !isValidIsoDate(date)) {
       if (/\b(?:19|20)\d{2}\b/.test(date)) nonIsoBibliographicDates.push(label);
       else invalidDates.push(label);
     }

@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { auditArticleData, belongsToCategory, compareCoverage, expectedEntry, slugForRecord } from './article-inventory.mjs';
+import { auditArticleData, belongsToCategory, compareCoverage, expectedEntry, isValidIsoDate, slugForRecord } from './article-inventory.mjs';
 
 const record = (id, title, doi = `10.1000/${id}`) => ({
   id,
@@ -71,6 +71,12 @@ test('bloquea ID, DOI, slug, canonical y sitemap duplicados', () => {
 
 test('el slug no depende de una cifra fija', () => {
   assert.equal(slugForRecord(record(999, 'FUTURE-X: nueva evidencia clínica')), 'future-x-nueva-evidencia-clinica');
+});
+
+test('las fechas editoriales deben ser ISO y calendariamente válidas', () => {
+  assert.equal(isValidIsoDate('2026-09-04'), true);
+  assert.equal(isValidIsoDate('2026-02-30'), false);
+  assert.equal(isValidIsoDate('4 de septiembre de 2026'), false);
 });
 
 test('las especialidades principales específicas pertenecen al hub de Medicina Interna', () => {

@@ -63,13 +63,19 @@ jobs:
         run: |
           mkdir -p "$RUNNER_TEMP/gsc"
           python -m pip install --disable-pip-version-check google-api-python-client==2.179.0 google-auth==2.40.3
-          python scripts/search-console-fetch.py --output "$RUNNER_TEMP/gsc/search-console.json"
+          python scripts/search-console-fetch.py --output "$RUNNER_TEMP/gsc/search-console.json" --inventory resumenes.json --manifest seo-manifest.json
       - name: Generar oportunidades y reportes
         id: opportunities
         env:
           GSC_DATA_FILE: ${{ runner.temp }}/gsc/search-console.json
           GSC_REPORT_DIR: ${{ runner.temp }}/gsc/reports
         run: node scripts/seo-opportunities.mjs
+      - name: Vigilar descubrimiento de nuevas altas
+        id: discovery
+        env:
+          GSC_DATA_FILE: ${{ runner.temp }}/gsc/search-console.json
+          GSC_REPORT_DIR: ${{ runner.temp }}/gsc/reports
+        run: node scripts/article-discovery-monitor.mjs
       - name: Enviar informe privado por Resend
         id: private_report
         if: steps.gsc.outputs.enabled == 'true' && github.event_name != 'pull_request'
@@ -100,6 +106,11 @@ jobs:
           else
             printf 'Opportunity Engine: FAIL\n' >> "$GITHUB_STEP_SUMMARY"
             printf 'Report generated privately: FAIL\n' >> "$GITHUB_STEP_SUMMARY"
+          fi
+          if [ '${{ steps.discovery.outcome }}' = 'success' ]; then
+            printf 'Post-publication monitoring: PASS\n' >> "$GITHUB_STEP_SUMMARY"
+          else
+            printf 'Post-publication monitoring: FAIL\n' >> "$GITHUB_STEP_SUMMARY"
           fi
           printf '\n## Auditoría técnica\n\n' >> "$GITHUB_STEP_SUMMARY"
           if [ -f reports/seo-technical.json ]; then node -e "const r=require('./reports/seo-technical.json'); console.log('P0='+r.severity.P0+' · P1='+r.severity.P1+' · P2='+r.severity.P2)" >> "$GITHUB_STEP_SUMMARY"; fi

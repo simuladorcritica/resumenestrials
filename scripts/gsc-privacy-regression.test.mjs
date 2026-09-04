@@ -6,6 +6,7 @@ const workflowPath = '.github/workflows/seo-intelligence.yml';
 const workflow = readFileSync(workflowPath, 'utf8');
 const fetcher = readFileSync('scripts/search-console-fetch.py', 'utf8');
 const opportunities = readFileSync('scripts/seo-opportunities.mjs', 'utf8');
+const discovery = readFileSync('scripts/article-discovery-monitor.mjs', 'utf8');
 const ignore = readFileSync('.gitignore', 'utf8').split(/\r?\n/);
 
 function uploadPaths(source) {
@@ -48,6 +49,7 @@ test('el workflow mantiene Search Console en el almacenamiento temporal del runn
   assert.match(workflow, /search-console-fetch\.py --output "\$RUNNER_TEMP\/gsc\/search-console\.json"/);
   assert.match(workflow, /GSC_DATA_FILE:\s*\$\{\{ runner\.temp \}\}\/gsc\/search-console\.json/);
   assert.match(workflow, /GSC_REPORT_DIR:\s*\$\{\{ runner\.temp \}\}\/gsc\/reports/);
+  assert.match(workflow, /article-discovery-monitor\.mjs/);
   assert.match(workflow, /rm -rf -- "\$private_root"/);
 });
 
@@ -71,15 +73,18 @@ test('el summary solo escribe estados y auditoría técnica', () => {
     'Property access: PASS',
     'Opportunity Engine: PASS',
     'Report generated privately: PASS',
+    'Post-publication monitoring: PASS',
   ]) assert.ok(workflow.includes(status), `Falta el estado público permitido: ${status}`);
 });
 
 test('los logs de los procesadores no contienen métricas ni identificadores GSC', () => {
   const pythonPrints = [...fetcher.matchAll(/print\(([^\n]*)\)/g)].map((match) => match[1]);
   const jsLogs = [...opportunities.matchAll(/console\.log\(([^\n]*)\)/g)].map((match) => match[1]);
+  const discoveryLogs = [...discovery.matchAll(/(?:console\.log|logger)\(([^\n]*)\)/g)].map((match) => match[1]);
   const privateLogPattern = /len\(rows\)|rows\.length|opportunities\.length|\b(?:query|clicks|impressions|ctr|position|site_url)\b|\$\{(?:start|end|provider)/i;
   assert.equal(pythonPrints.some((line) => privateLogPattern.test(line)), false);
   assert.equal(jsLogs.some((line) => privateLogPattern.test(line)), false);
+  assert.equal(discoveryLogs.some((line) => privateLogPattern.test(line)), false);
 });
 
 test('los nombres habituales de datasets GSC permanecen ignorados por Git', () => {

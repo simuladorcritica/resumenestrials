@@ -38,6 +38,8 @@ Copia los valores del archivo temporal a **Settings → Secrets and variables �
 ## 4. Comportamiento seguro del workflow
 
 - Sin credenciales, una PR genera los reportes técnicos y muestra que Search Console fue omitido.
+- La vigilancia de nuevas altas usa Search Analytics y, desde D14 hasta D90, URL Inspection en modo de solo lectura. No usa Google Indexing API ni solicita indexación.
+- Los estados se mantienen separados: publicación técnica, descubribilidad, indexación confirmada cuando la API lo permite, impresiones y clics.
 - Si existe solo una parte de la terna OAuth, la ejecución falla con un mensaje de configuración incompleta.
 - Con OAuth completo, `scripts/search-console-fetch.py` renueva un access token efímero y consulta Search Analytics.
 - El parámetro `--days` permite ventanas de 7, 28 o 90 días cuando se necesiten; la descarga programada amplia permite calcular comparaciones semanales y mensuales sin nuevas autorizaciones.

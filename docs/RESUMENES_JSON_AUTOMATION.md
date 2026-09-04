@@ -2,7 +2,7 @@
 
 ## Alcance
 
-Esta automatización vigila únicamente el archivo `resumenes.json` situado en la raíz de este repositorio. No observa otras carpetas ni reacciona a cambios en otros archivos.
+Esta automatización vigila únicamente el archivo maestro `resumenes.json` situado, por defecto, un nivel por encima del repositorio. En la instalación actual corresponde a `C:\Users\rotce\OneDrive\Escritorio\PAGINA ECA\resumenes.json`. La ruta puede indicarse explícitamente con `-SourceFile`; no observa otras carpetas ni reacciona a otros nombres de archivo.
 
 Cuando el SHA-256 cambia, el proceso:
 
@@ -14,8 +14,10 @@ Cuando el SHA-256 cambia, el proceso:
 6. bloquea eliminaciones, colisiones de identidad y cualquier cambio semántico en un artículo que ya existe en `main`;
 7. ignora diferencias de sangría, saltos de línea, orden de claves y orden del arreglo;
 8. termina sin crear Git cuando no hay artículos nuevos;
-9. si solo hay altas nuevas, prepara un worktree temporal desde `origin/main`, copia exclusivamente `resumenes.json`, valida el staging, crea una rama `auto/resumenes-json-*`, hace push y abre un PR;
-10. deja el merge completamente en manos de una revisión posterior.
+9. si solo hay altas nuevas, prepara un worktree temporal desde `origin/main`, copia exclusivamente `resumenes.json`, regenera páginas, sitemap, schema, hubs y feed, y ejecuta el QA técnico antes de publicar nada;
+10. incluye en el PR un reporte por alta con ID, título, DOI, clasificación, canonical, página local, sitemap, schema, hub, feed y QA;
+11. valida el staging, crea una rama `auto/resumenes-json-*`, hace push y abre un PR;
+12. deja el merge completamente en manos de una revisión posterior.
 
 La automatización nunca ejecuta `git merge`, nunca hace push a `main` y nunca incluye otro archivo en su commit.
 
@@ -33,7 +35,7 @@ No se guardan tokens ni credenciales en archivos del proyecto. Git y GitHub CLI 
 Desde la raíz del repositorio:
 
 ```powershell
-node scripts/resumenes-json-automation.mjs --repo . --file .\resumenes.json --dry-run
+node scripts/resumenes-json-automation.mjs --repo . --file ..\resumenes.json --dry-run
 ```
 
 El modo `--dry-run` sí consulta `main` y genera un reporte, pero termina antes de comprobar GitHub CLI, crear el worktree, hacer commit, push o abrir el PR.
@@ -41,13 +43,13 @@ El modo `--dry-run` sí consulta `main` y genera un reporte, pero termina antes 
 ## Ejecución interactiva del watcher
 
 ```powershell
-powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\watch-resumenes-json.ps1
+powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\watch-resumenes-json.ps1 -SourceFile ..\resumenes.json
 ```
 
 En el primer arranque se guarda el SHA-256 actual como línea base y no se procesa el archivo. Esto evita que instalar el watcher publique cambios locales preexistentes. Para solicitar explícitamente que el primer arranque procese el estado actual:
 
 ```powershell
-powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\watch-resumenes-json.ps1 -ProcessCurrent
+powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\watch-resumenes-json.ps1 -SourceFile ..\resumenes.json -ProcessCurrent
 ```
 
 ## Inicio automático de sesión
@@ -55,7 +57,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\watch-resumenes-js
 La tarea programada es opcional y solo se registra al ejecutar expresamente:
 
 ```powershell
-powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\install-resumenes-json-watcher.ps1
+powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\install-resumenes-json-watcher.ps1 -SourceFile ..\resumenes.json
 ```
 
 El instalador comprueba `node`, `git` y la sesión de GitHub CLI. Registra una tarea limitada al usuario actual y no inicia el watcher durante la instalación. Se activará en el siguiente inicio de sesión.
@@ -87,6 +89,10 @@ Un bloqueo de seguridad termina con código `2` y produce un reporte sin copiar 
 - JSON inválido o raíz distinta de un arreglo.
 - ID duplicado.
 - DOI duplicado después de retirar prefijos `doi:` o `https://doi.org/`, normalizar mayúsculas y espacios.
+- Slug o canonical duplicado.
+- URL original duplicada.
+- Alta nueva sin DOI o sin alguno de los campos obligatorios.
+- Fallo de generación, schema, hub, feed, sitemap o QA previo al PR.
 - Eliminación de un artículo presente en `main`.
 - Cambio semántico de cualquier campo de un artículo existente.
 - Identidad ambigua o colisión entre ID, DOI y título.
