@@ -3,7 +3,7 @@ import json
 import html
 import re
 
-from generar_seo import ruta_trial, url_trial, slug_para_item
+from generar_seo import id_texto, ruta_trial, url_trial, slug_para_item
 
 ROOT = Path(__file__).resolve().parent
 OUT = ROOT / "resumen"
@@ -27,7 +27,7 @@ def recortar(valor, limite=190):
 
 
 def pagina(item, corta=False):
-    trial_id = str(item["id"])
+    trial_id = id_texto(item["id"])
     titulo_base = texto_plano(item.get("titulo")) or f"Resumen {trial_id}"
     titulo = titulo_base + (" · resumen breve" if corta else "") + " · Resúmenes Trials"
     descripcion = recortar(
@@ -81,7 +81,7 @@ def main():
 
     OUT.mkdir(exist_ok=True)
     expected = {
-        f'{item["id"]}{suffix}.html'
+        f'{id_texto(item["id"])}{suffix}.html'
         for item in datos
         if "id" in item
         for suffix in (["", "-corto"] if item.get("corto") else [""])
@@ -97,10 +97,11 @@ def main():
     for item in datos:
         if "id" not in item:
             continue
-        (OUT / f'{item["id"]}.html').write_text(pagina(item, corta=False), encoding="utf-8")
+        trial_id = id_texto(item["id"])
+        (OUT / f'{trial_id}.html').write_text(pagina(item, corta=False), encoding="utf-8")
         generadas += 1
         if item.get("corto"):
-            (OUT / f'{item["id"]}-corto.html').write_text(pagina(item, corta=True), encoding="utf-8")
+            (OUT / f'{trial_id}-corto.html').write_text(pagina(item, corta=True), encoding="utf-8")
             generadas += 1
 
     print(f"Generadas {generadas} páginas sociales a partir de {len(datos)} resúmenes.")
