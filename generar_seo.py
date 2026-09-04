@@ -20,6 +20,28 @@ CATEGORY_PATHS = {
     "Medicina Interna": "medicina-interna",
 }
 
+# Las altas recientes pueden registrar una especialidad clínica como etiqueta
+# principal. Todas ellas siguen perteneciendo al hub amplio de Medicina Interna;
+# el inventario no debe quedar huérfano por depender de solo dos literales.
+INTERNAL_SPECIALTIES = {
+    "Cardiología",
+    "Cirugía",
+    "Endocrinología",
+    "Enfermedades Infecciosas",
+    "Gastroenterología",
+    "Geriatría",
+    "Hematología",
+    "Infectología",
+    "Medicina de Urgencias",
+    "Medicina Física y Rehabilitación",
+    "Nefrología",
+    "Neumología",
+    "Neurología",
+    "Oncología",
+    "Reumatología",
+    "VIH",
+}
+
 STOPWORDS = {
     "a", "al", "ante", "bajo", "con", "contra", "de", "del", "desde", "durante",
     "e", "el", "en", "entre", "frente", "hacia", "hasta", "la", "las", "los", "o",
@@ -93,8 +115,22 @@ def ruta_trial(item: dict) -> str:
 
 
 def categorias(item: dict) -> list[str]:
-    valores = [item.get("especialidad_principal"), item.get("especialidad_secundaria")]
-    return [v for i, v in enumerate(valores) if v in CATEGORY_PATHS and v not in valores[:i]]
+    principal = texto_plano(item.get("especialidad_principal"))
+    secundaria = texto_plano(item.get("especialidad_secundaria"))
+    valores: list[str] = []
+
+    if principal in CATEGORY_PATHS:
+        valores.append(principal)
+    elif principal in INTERNAL_SPECIALTIES:
+        valores.append("Medicina Interna")
+
+    # Una segunda área explícita conserva la navegación cruzada existente.
+    if secundaria in CATEGORY_PATHS and secundaria not in valores:
+        valores.append(secundaria)
+    elif not valores and secundaria in INTERNAL_SPECIALTIES:
+        valores.append("Medicina Interna")
+
+    return valores
 
 
 def fecha_humana(iso: object) -> str:
@@ -377,6 +413,7 @@ def validar(items: object) -> list[dict]:
     if not isinstance(items, list):
         raise ValueError("resumenes.json debe contener una lista")
     ids = []
+    dois = []
     slugs = []
     for item in items:
         if not isinstance(item, dict):
@@ -384,9 +421,14 @@ def validar(items: object) -> list[dict]:
         if "id" not in item or not item.get("titulo"):
             raise ValueError("Cada resumen debe tener id y titulo")
         ids.append(str(item["id"]))
+        doi = re.sub(r"^https?://(?:dx\.)?doi\.org/", "", texto_plano(item.get("doi")), flags=re.I).lower()
+        if doi:
+            dois.append(doi)
         slugs.append(slug_para_item(item))
     if len(ids) != len(set(ids)):
         raise ValueError("Hay IDs duplicados en resumenes.json")
+    if len(dois) != len(set(dois)):
+        raise ValueError("Hay DOI duplicados en resumenes.json")
     if len(slugs) != len(set(slugs)):
         raise ValueError("Hay slugs SEO duplicados; usa el campo 'slug' para resolverlos")
     return items

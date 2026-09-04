@@ -1,28 +1,34 @@
 import fs from 'node:fs';
-import { normalizeDoi, normalizeId } from './resumenes-json-guard.mjs';
+import { auditArticleData } from './article-inventory.mjs';
 
-const file='resumenes.json';
-const data=JSON.parse(fs.readFileSync(file,'utf8'));
-const errors=[];const warnings=[];
-if(!Array.isArray(data)) errors.push('resumenes.json debe contener un arreglo.');
-const ids=new Set(),dois=new Map();
-for(const [i,r] of (Array.isArray(data)?data:[]).entries()){
-  const tag=`registro ${i+1}${r?.id!=null?` (id ${r.id})`:''}`;
-  const normalizedId=normalizeId(r?.id);
-  if(!normalizedId)errors.push(`${tag}: falta id.`);else if(ids.has(normalizedId))errors.push(`${tag}: id duplicado ${r.id}.`);else ids.add(normalizedId);
-  for(const f of ['titulo','revista','autor','fecha']) if(!String(r?.[f]??'').trim()) warnings.push(`${tag}: falta ${f}.`);
-  // `fecha` describes the source article and legacy records may preserve a
-  // human-readable bibliographic date. Site publication fields are technical
-  // metadata and must remain machine-readable ISO dates.
-  if(r?.fecha&&!/^\d{4}-\d{2}-\d{2}$/.test(r.fecha)&&!/\b(?:19|20)\d{2}\b/.test(r.fecha))warnings.push(`${tag}: fecha bibliográfica no reconocible: ${r.fecha}.`);
-  for(const f of ['fecha_publicacion_resumen','fecha_revision','actualizado']){
-    if(r?.[f]&&!/^\d{4}-\d{2}-\d{2}$/.test(r[f]))errors.push(`${tag}: ${f} inválida ${r[f]}; usar YYYY-MM-DD.`);
+const file = 'resumenes.json';
+const data = JSON.parse(fs.readFileSync(file, 'utf8'));
+const audit = auditArticleData(data);
+const errors = [...audit.errors];
+const invalidYears = audit.records.filter((record) => {
+  const year = Number(record?.anio);
+  return !Number.isInteger(year) || year < 1900 || year > 2100;
+}).map((record) => record.id);
+if (invalidYears.length) errors.push(`años inválidos: ${invalidYears.join(',')}`);
+for (const record of audit.records) {
+  for (const field of ['fecha_publicacion_resumen', 'fecha_revision', 'actualizado']) {
+    if (record?.[field] && !/^\d{4}-\d{2}-\d{2}$/.test(String(record[field]))) {
+      errors.push(`ID ${record.id}: ${field} debe usar YYYY-MM-DD`);
+    }
   }
-  if(r?.especialidad&&!['Medicina Crítica','Medicina Interna'].includes(r.especialidad))warnings.push(`${tag}: especialidad no estándar: ${r.especialidad}.`);
-  if(r?.doi){const d=normalizeDoi(r.doi);if(dois.has(d))errors.push(`${tag}: DOI duplicado con id ${dois.get(d)} (${d}).`);else dois.set(d,r.id)}
-  for(const f of ['url','enlace','link'])if(r?.[f]&&!/^https?:\/\//i.test(String(r[f])))warnings.push(`${tag}: ${f} no parece URL absoluta.`);
 }
-console.log(`Validación: ${data.length} resúmenes, ${errors.length} errores, ${warnings.length} advertencias.`);
-for(const w of warnings)console.warn('WARN',w);
-for(const e of errors)console.error('ERROR',e);
-if(errors.length)process.exit(1);
+
+const warnings = [];
+if (audit.emptyValues) warnings.push(`${audit.emptyValues} valores vacíos presentes (incluye campos opcionales)`);
+if (audit.nonIsoBibliographicDates.length) {
+  warnings.push(`${audit.nonIsoBibliographicDates.length} fechas bibliográficas legibles conservadas en formato editorial no ISO`);
+}
+if (audit.nonUrlOriginals.length) {
+  warnings.push(`${audit.nonUrlOriginals.length} referencias originales son texto bibliográfico, no URL HTTPS`);
+}
+
+console.log(`Validación: ${audit.records.length} resúmenes, ${errors.length} errores, ${warnings.length} advertencias.`);
+console.log(`Inventario: IDs duplicados=${audit.duplicateIds.length}, DOI duplicados=${audit.duplicateDois.length}, originales duplicados=${audit.duplicateOriginals.length}, títulos duplicados=${audit.duplicateTitles.length}, slugs duplicados=${audit.duplicateSlugs.length}.`);
+for (const warning of warnings) console.warn('WARN', warning);
+for (const error of errors) console.error('ERROR', error);
+if (errors.length) process.exitCode = 1;

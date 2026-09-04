@@ -3,9 +3,10 @@
 
   const AREAS = Object.freeze(['Medicina Crítica', 'Medicina Interna']);
   const SPECIALTIES = Object.freeze([
-    'Cardiolog\u00eda', 'Endocrinolog\u00eda', 'Gastroenterolog\u00eda', 'Geriatr\u00eda', 'Hematolog\u00eda',
-    'Infectolog\u00eda', 'Medicina F\u00edsica y Rehabilitaci\u00f3n', 'Nefrolog\u00eda',
-    'Neumolog\u00eda', 'Neurolog\u00eda', 'Reumatolog\u00eda'
+    'Cardiolog\u00eda', 'Cirug\u00eda', 'Endocrinolog\u00eda', 'Enfermedades Infecciosas',
+    'Gastroenterolog\u00eda', 'Geriatr\u00eda', 'Hematolog\u00eda', 'Infectolog\u00eda',
+    'Medicina de Urgencias', 'Medicina F\u00edsica y Rehabilitaci\u00f3n', 'Nefrolog\u00eda',
+    'Neumolog\u00eda', 'Neurolog\u00eda', 'Oncolog\u00eda', 'Reumatolog\u00eda', 'VIH'
   ]);
   const REVIEW = 'REVISAR_ESPECIALIDAD';
 
@@ -14,6 +15,10 @@
     .replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
 
   const match = (text, patterns) => patterns.some((pattern) => pattern.test(text));
+  const CANONICAL_SPECIALTY = Object.freeze({
+    'Enfermedades Infecciosas': 'Infectolog\u00eda',
+    VIH: 'Infectolog\u00eda'
+  });
 
   // Disease and clinical setting rules intentionally precede drug/mechanism terms.
   // A rule needs a recognizable disease/context phrase; isolated terms such as
@@ -29,13 +34,16 @@
       /\b(?:oclusion|estenosis) carotidea\b/, /\bneuro(?:log|critic)/,
       /\b(?:epilepsia|esclerosis multiple)\b/
     ]],
+    ['Medicina de Urgencias', [
+      /\b(?:servicio|departamento) de urgencias\b/, /\bpacientes de urgencias\b/
+    ]],
     ['Cardiolog\u00eda', [
       /\b(?:stemi|nstemi|sindrome coronario agudo)\b/, /\binfarto (?:agudo )?(?:de miocardio|miocardico)\b/,
       /\b(?:intervencion coronaria percutanea|angioplastia|revascularizacion coronaria|stent)\b/,
       /\b(?:fibrilacion auricular|arritmia|monitorizacion electrocardiografica|sincope)\b/,
       /\benfermedad tromboembolica venosa\b/,
       /\binsuficiencia cardia?ca\b/, /\b(?:valvulopatia|tavi|ablacion cardiaca)\b/,
-      /\b(?:enfermedad cardiovascular aterosclerotica|prevencion cardiovascular|lipidos|hipertension arterial|presion arterial)\b/,
+      /\b(?:enfermedad cardiovascular aterosclerotica|prevencion cardiovascular|alto riesgo cardiovascular|lipidos|dislipidemia|colesterol ldl|hipertension arterial|presion arterial)\b/,
       /\bshock cardiogenico\b/
     ]],
     ['Nefrolog\u00eda', [
@@ -67,13 +75,27 @@
   function classify(record) {
     const primary = record?.especialidad_principal;
     const secondary = record?.especialidad_secundaria || '';
-    if (!AREAS.includes(primary) || (secondary && !AREAS.includes(secondary) && !SPECIALTIES.includes(secondary))) {
+    if ((!AREAS.includes(primary) && !SPECIALTIES.includes(primary))
+      || (secondary && !AREAS.includes(secondary) && !SPECIALTIES.includes(secondary))) {
       return { specialty: REVIEW, confidence: 'none', reason: 'Etiqueta fuera de la taxonomía canónica' };
     }
-    if (primary !== 'Medicina Interna' && secondary !== 'Medicina Interna') return { specialty: '', confidence: 'not-applicable', reason: '' };
+
+    // Un ensayo cuyo contexto principal es Medicina Crítica ya está resuelto
+    // clínicamente por área; no se fuerza una subespecialidad por palabras clave.
+    if (primary === 'Medicina Crítica') {
+      return { specialty: '', confidence: 'not-applicable', reason: 'Contexto principal de Medicina Crítica' };
+    }
+
+    if (SPECIALTIES.includes(primary)) {
+      return { specialty: CANONICAL_SPECIALTY[primary] || primary, confidence: 'high', reason: 'Especialidad principal explícita y canónica' };
+    }
 
     if (secondary && SPECIALTIES.includes(secondary)) {
-      return { specialty: secondary, confidence: 'high', reason: 'Subespecialidad clínica explícita y canónica' };
+      return { specialty: CANONICAL_SPECIALTY[secondary] || secondary, confidence: 'high', reason: 'Subespecialidad clínica explícita y canónica' };
+    }
+
+    if (/\b(?:servicio|departamento) de urgencias\b/.test(normalize(record?.objetivo))) {
+      return { specialty: 'Medicina de Urgencias', confidence: 'medium', reason: 'Ámbito asistencial explícito: servicio de urgencias' };
     }
 
     const fields = [

@@ -81,14 +81,6 @@
   },
   {
     "category": "Medicina Interna",
-    "slug": "hematologia-oncologia",
-    "name": "Hematología y oncología",
-    "description": "Ensayos de hematología, mieloma, linfoma, leucemia, cáncer y terapias antineoplásicas relevantes para medicina interna.",
-    "keywords": ["mieloma", "linfoma", "leucemia", "cancer", "cáncer", "oncolog", "hematolog", "quimioter", "inmunoter"],
-    "min_items": 2
-  },
-  {
-    "category": "Medicina Interna",
     "slug": "renal-metabolica",
     "name": "Renal y metabolismo",
     "description": "Ensayos sobre enfermedad renal, diabetes, obesidad, metabolismo y prevención de complicaciones cardiorrenales.",

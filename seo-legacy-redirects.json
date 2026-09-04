@@ -1,0 +1,7 @@
+[
+  {
+    "from": "/medicina-interna/hematologia-oncologia/",
+    "to": "/medicina-interna/",
+    "reason": "Cluster histórico retirado: su activación dependía de una coincidencia temática falsa y el artículo oncológico restante permanece accesible desde el hub vigente de Medicina Interna."
+  }
+]

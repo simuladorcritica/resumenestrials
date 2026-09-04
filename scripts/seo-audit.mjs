@@ -27,6 +27,16 @@ const add = (severity, code, file, message) => findings.push({ severity, code, f
 const one = (source, regex) => (source.match(regex) || [])[1]?.trim() || '';
 const remember = (map, value, file) => { if (value) map.set(value, [...(map.get(value) || []), file]); };
 
+const dataIds = data.map((item) => String(item?.id ?? ''));
+const manifestIds = Object.keys(manifest);
+for (const id of dataIds) {
+  if (!id || !manifest[id]) add('P0', 'manifest-missing', 'seo-manifest.json', `Falta el resumen ${id || '(sin ID)'} en el manifiesto`);
+}
+for (const id of manifestIds) {
+  if (!dataIds.includes(id)) add('P0', 'manifest-extra', 'seo-manifest.json', `El manifiesto contiene el ID inexistente ${id}`);
+}
+if (new Set(dataIds).size !== dataIds.length) add('P0', 'duplicate-id', 'resumenes.json', 'El inventario contiene IDs duplicados');
+
 for (const [route, file] of pages) {
   if (!existsSync(join(ROOT, file))) { add('P0', 'missing-page', file, `Falta la página indexable ${route}`); continue; }
   const source = readFileSync(join(ROOT, file), 'utf8');
