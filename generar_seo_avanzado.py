@@ -196,6 +196,31 @@ def update_home(items: list[dict]) -> None:
     else:
         source = source.replace('  let filtroEsp = "todos";\n', '  let filtroEsp = "todos";\n' + route_js, 1)
 
+    category_js = (
+        '  // RT-CATEGORY-MEMBERSHIP-START\n'
+        '  const especialidadesInternas = new Set('
+        + json.dumps(sorted(base.INTERNAL_SPECIALTIES), ensure_ascii=False, separators=(",", ":"))
+        + ');\n'
+        '  const perteneceA = (r, esp) => {\n'
+        '    if (esp === "todos") return true;\n'
+        '    const principal = String(r.especialidad_principal || "").trim();\n'
+        '    const secundaria = String(r.especialidad_secundaria || "").trim();\n'
+        '    if (principal === esp || secundaria === esp) return true;\n'
+        '    return esp === "Medicina Interna" && especialidadesInternas.has(principal);\n'
+        '  };\n'
+        '  // RT-CATEGORY-MEMBERSHIP-END\n'
+    )
+    if '// RT-CATEGORY-MEMBERSHIP-START' in source:
+        source = re.sub(
+            r'  // RT-CATEGORY-MEMBERSHIP-START.*?  // RT-CATEGORY-MEMBERSHIP-END\n',
+            category_js, source, count=1, flags=re.S,
+        )
+    else:
+        source = re.sub(
+            r'  // ¿El resumen pertenece a la especialidad seleccionada\?.*?r\.especialidad_secundaria === esp;\n',
+            category_js, source, count=1, flags=re.S,
+        )
+
     source = source.replace('<li class="fila">\n        <a class="cabeza" href="resumen.html?id=${r.id}">',
                             '<li class="fila" data-id="${r.id}">\n        <a class="cabeza" href="${rutaCanonical(r)}">')
     source = source.replace('<a class="abrir" href="resumen.html?id=${r.id}">Resumen completo →</a>',

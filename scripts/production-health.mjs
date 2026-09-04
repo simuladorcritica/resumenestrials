@@ -1,4 +1,5 @@
 import { readFileSync } from 'node:fs';
+import { belongsToCategory } from './article-inventory.mjs';
 
 const BASE=(process.env.RT_BASE_URL||'https://resumenestrials.com').replace(/\/$/,'');
 const CANONICAL_ORIGIN='https://resumenestrials.com';
@@ -9,8 +10,8 @@ const expected=JSON.parse(readFileSync('resumenes.json','utf8'));
 const manifest=JSON.parse(readFileSync('seo-manifest.json','utf8'));
 const clusters=JSON.parse(readFileSync('seo-cluster-manifest.json','utf8'));
 const expectedIds=new Set(expected.map((r)=>String(r.id)));
-const expectedCrit=expected.filter((r)=>r.especialidad_principal==='Medicina Crítica'||r.especialidad_secundaria==='Medicina Crítica').length;
-const expectedInt=expected.filter((r)=>r.especialidad_principal==='Medicina Interna'||r.especialidad_secundaria==='Medicina Interna').length;
+const expectedCrit=expected.filter((record)=>belongsToCategory(record,'Medicina Crítica')).length;
+const expectedInt=expected.filter((record)=>belongsToCategory(record,'Medicina Interna')).length;
 const sample=expected.find((r)=>r.corto)||expected[0];
 const sampleEntry=manifest[String(sample?.id)];
 const cacheBust=`rtcheck=${Date.now()}`;
