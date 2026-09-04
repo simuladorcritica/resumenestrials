@@ -102,7 +102,7 @@ def build_assignments(items: list[dict], clusters: list[dict]):
     raw_by_item = {}
     for item in items:
         found = classify(item, clusters)
-        raw_by_item[str(item["id"])] = found
+        raw_by_item[base.id_texto(item["id"])] = found
         for c in found:
             all_by_cluster[c["slug"]].append(item)
     active = {
@@ -197,12 +197,12 @@ def update_jsonld(source: str, item: dict, item_clusters: list[dict]) -> str:
 def related(item: dict, items: list[dict], by_item: dict[str, list[dict]], limit: int = 4) -> list[dict]:
     cats = set(base.categorias(item))
     topics = {norm(t) for t in (item.get("temas") or [])}
-    clusters = {c["slug"] for c in by_item.get(str(item["id"]), [])}
+    clusters = {c["slug"] for c in by_item.get(base.id_texto(item["id"]), [])}
     scored = []
     for other in items:
-        if str(other.get("id")) == str(item.get("id")):
+        if base.id_texto(other.get("id")) == base.id_texto(item.get("id")):
             continue
-        score = 4 * len(clusters & {c["slug"] for c in by_item.get(str(other.get("id")), [])})
+        score = 4 * len(clusters & {c["slug"] for c in by_item.get(base.id_texto(other.get("id")), [])})
         score += 2 * len(topics & {norm(t) for t in (other.get("temas") or [])})
         score += len(cats & set(base.categorias(other)))
         if score:
@@ -215,7 +215,7 @@ def related_section(item: dict, items: list[dict], by_item: dict[str, list[dict]
     cards = []
     for other in related(item, items, by_item):
         badges = "".join(base.badge(c) for c in base.categorias(other))
-        clusters = by_item.get(str(other.get("id")), [])
+        clusters = by_item.get(base.id_texto(other.get("id")), [])
         cluster = f'<span class="tema">{html.escape(clusters[0]["name"])}</span>' if clusters else ""
         cards.append(f'<article class="rel-item"><a href="{html.escape(base.ruta_trial(other))}">{badges}{cluster}<h3>{html.escape(plain(other.get("titulo")))}</h3><p>{html.escape(plain(other.get("revista")))} · {html.escape(str(other.get("anio") or ""))}</p></a></article>')
     if not cards:
@@ -240,7 +240,7 @@ def improve_trials(items: list[dict], by_item: dict[str, list[dict]]) -> None:
     for item in items:
         path = base.TRIALS_DIR / base.slug_para_item(item) / "index.html"
         source = path.read_text(encoding="utf-8")
-        clusters = by_item.get(str(item["id"]), [])
+        clusters = by_item.get(base.id_texto(item["id"]), [])
         source = re.sub(r'<title>.*?</title>', f'<title>{html.escape(seo_title(item))}</title>', source, count=1, flags=re.S)
         source = re.sub(r'<meta name="description" content=".*?">', f'<meta name="description" content="{html.escape(seo_description(item))}">', source, count=1, flags=re.S)
         source = add_semantic_css(expand_topbar(source))
@@ -320,7 +320,7 @@ def generate_cluster_pages(items: list[dict], clusters: list[dict], active: dict
         folder = ROOT / base.CATEGORY_PATHS[c["category"]] / c["slug"]
         folder.mkdir(parents=True, exist_ok=True)
         (folder / "index.html").write_text(cluster_page(c, values, clusters, active), encoding="utf-8")
-        manifest[c["slug"]] = {"name":c["name"],"category":c["category"],"path":cluster_path(c),"url":cluster_url(c),"count":len(values),"trial_ids":[str(x["id"]) for x in values]}
+        manifest[c["slug"]] = {"name":c["name"],"category":c["category"],"path":cluster_path(c),"url":cluster_url(c),"count":len(values),"trial_ids":[base.id_texto(x["id"]) for x in values]}
     for redirect in redirects:
         folder = ROOT / redirect["from"].strip("/")
         folder.mkdir(parents=True, exist_ok=True)
@@ -369,10 +369,11 @@ def write_editorial_pages() -> None:
 def update_manifest(items: list[dict], by_item: dict[str, list[dict]]) -> None:
     manifest = json.loads(base.MANIFEST_PATH.read_text(encoding="utf-8"))
     for item in items:
-        entry = manifest[str(item["id"])]
+        item_id = base.id_texto(item["id"])
+        entry = manifest[item_id]
         entry["seo_title"] = seo_title(item)
         entry["description"] = seo_description(item)
-        entry["clusters"] = [{"name":c["name"],"path":cluster_path(c),"url":cluster_url(c)} for c in by_item.get(str(item["id"]), [])]
+        entry["clusters"] = [{"name":c["name"],"path":cluster_path(c),"url":cluster_url(c)} for c in by_item.get(item_id, [])]
     base.MANIFEST_PATH.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 

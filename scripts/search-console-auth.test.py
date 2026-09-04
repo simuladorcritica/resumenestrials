@@ -113,7 +113,7 @@ class CredentialSelectionTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
             inventory = [
-                {"id": 1, "fecha": "2026-08-01", "fecha_publicacion_resumen": "2026-08-21"},
+                {"id": 1.0, "fecha": "2026-08-01", "fecha_publicacion_resumen": "2026-08-21"},
                 {"id": 2, "fecha": "2026-01-01", "fecha_publicacion_resumen": "2026-08-31"},
                 {"id": 3, "fecha": "2026-08-01"},
             ]

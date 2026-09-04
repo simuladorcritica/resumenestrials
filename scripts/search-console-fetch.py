@@ -11,6 +11,12 @@ SCOPE = "https://www.googleapis.com/auth/webmasters.readonly"
 DEFAULT_SITE = "sc-domain:resumenestrials.com"
 
 
+def id_text(value):
+    if isinstance(value, float) and value.is_integer():
+        return str(int(value))
+    return str(value if value is not None else "").strip()
+
+
 def inspection_targets(inventory_path: str, manifest_path: str, today: date | None = None):
     """Select recent published URLs for read-only inspection at D14 through D90."""
     inventory_file = Path(inventory_path)
@@ -28,10 +34,11 @@ def inspection_targets(inventory_path: str, manifest_path: str, today: date | No
         except ValueError:
             continue
         age_days = (reference - publication_date).days
-        entry = manifest.get(str(item.get("id"))) or {}
+        normalized_id = id_text(item.get("id"))
+        entry = manifest.get(normalized_id) or {}
         url = str(entry.get("url") or "").strip()
         if 14 <= age_days <= 90 and url.startswith("https://resumenestrials.com/trials/"):
-            targets.append({"id": str(item.get("id")), "url": url, "ageDays": age_days})
+            targets.append({"id": normalized_id, "url": url, "ageDays": age_days})
     return sorted(targets, key=lambda item: (item["ageDays"], item["id"]))[:50]
 
 

@@ -27,6 +27,10 @@ def esc(value: object) -> str:
     return html.escape(str(value or ""), quote=True)
 
 
+def item_id(item: dict) -> str:
+    return base.id_texto(item.get("id"))
+
+
 def cut(value: object, limit: int) -> str:
     text = plain(value)
     if len(text) <= limit:
@@ -108,15 +112,15 @@ def home_row(item: dict) -> str:
     date_text = f" · {human_date(item.get('fecha'))}" if item.get("fecha") else ""
     doi = f" · {esc(item.get('doi'))}" if item.get("doi") else ""
     short = (
-        f'<a class="abrir abrir-breve" href="resumen.html?id={esc(item.get("id"))}&amp;v=corto">Resumen breve →</a>'
+        f'<a class="abrir abrir-breve" href="resumen.html?id={esc(item_id(item))}&amp;v=corto">Resumen breve →</a>'
         if item.get("corto") else ""
     )
-    return f'''<li class="fila" data-id="{esc(item.get('id'))}">
+    return f'''<li class="fila" data-id="{esc(item_id(item))}">
 <a class="cabeza" href="{esc(base.ruta_trial(item))}">
 <span class="fila-cuerpo">{home_badges(item)}<h3>{esc(plain(item.get('titulo')))}</h3>
 <span class="fuente">{esc(plain(item.get('autor')))} · {esc(plain(item.get('revista')))}{date_text}{doi}</span></span>
 <span class="fila-flecha">→</span></a>
-<div class="fila-pdf"><button type="button" class="btn-pdf" data-id="{esc(item.get('id'))}" aria-label="Descargar el resumen completo en PDF">⬇ Descargar resumen en PDF</button></div>
+<div class="fila-pdf"><button type="button" class="btn-pdf" data-id="{esc(item_id(item))}" aria-label="Descargar el resumen completo en PDF">⬇ Descargar resumen en PDF</button></div>
 <div class="adelanto"><div class="adelanto-interior"><div class="adelanto-caja">
 <div class="obj">{item.get('objetivo') or ''}</div><div class="hallazgo">{item.get('hallazgo') or ''}</div>
 <div class="abrir-links"><a class="abrir" href="{esc(base.ruta_trial(item))}">Resumen completo →</a>{short}</div>
@@ -184,7 +188,7 @@ def update_home(items: list[dict]) -> None:
     else:
         source = source.replace('<div class="indice" id="indice"></div>', f'<div class="indice" id="indice">{start}{prerender}{end}</div>', 1)
 
-    routes = {str(x["id"]): base.ruta_trial(x) for x in items}
+    routes = {base.id_texto(x["id"]): base.ruta_trial(x) for x in items}
     route_js = (
         '  // RT-SEO-ROUTES-START\n'
         '  const seoRutas = ' + json.dumps(routes, ensure_ascii=False, separators=(",", ":")) + ';\n'
@@ -358,7 +362,7 @@ def make_image(item: dict, width: int, height: int, suffix: str) -> str:
     draw = ImageDraw.Draw(image)
 
     # Geometría original determinista: no usa figuras, logos ni material del artículo.
-    digest = hashlib.sha256(str(item.get("id")).encode()).digest()
+    digest = hashlib.sha256(item_id(item).encode()).digest()
     for i in range(5):
         x = int((digest[i] / 255) * width * 0.75 + width * 0.1)
         y = int((digest[i + 5] / 255) * height * 0.55 + height * 0.2)
@@ -409,8 +413,8 @@ def image_urls(item: dict) -> list[str]:
 
 def trial_intent_block(item: dict) -> str:
     answer = first_sentence(item.get("hallazgo"), 330)
-    return f'''<!-- RT-INTENT-START --><section class="respuesta-clinica" aria-labelledby="respuesta-clinica-{esc(item.get('id'))}">
-<p class="eyebrow">Lectura rápida</p><h2 id="respuesta-clinica-{esc(item.get('id'))}">Respuesta clínica rápida</h2>
+    return f'''<!-- RT-INTENT-START --><section class="respuesta-clinica" aria-labelledby="respuesta-clinica-{esc(item_id(item))}">
+<p class="eyebrow">Lectura rápida</p><h2 id="respuesta-clinica-{esc(item_id(item))}">Respuesta clínica rápida</h2>
 <div class="respuesta-grid">
 <div><h3>Pregunta clínica</h3><p>{item.get('objetivo') or ''}</p></div>
 <div><h3>Resultado principal</h3><p>{item.get('hallazgo') or ''}</p></div>
@@ -547,7 +551,7 @@ def update_clusters(items: list[dict]) -> None:
     if not CLUSTER_MANIFEST.exists():
         return
     manifest = json.loads(CLUSTER_MANIFEST.read_text(encoding="utf-8"))
-    by_id = {str(x["id"]): x for x in items}
+    by_id = {base.id_texto(x["id"]): x for x in items}
     for slug, entry in manifest.items():
         values = [by_id[x] for x in entry.get("trial_ids", []) if x in by_id]
         path = ROOT / str(entry["path"]).lstrip("/") / "index.html"
@@ -590,7 +594,7 @@ def update_manifest(items: list[dict], extras: dict[str, dict]) -> None:
         return
     manifest = json.loads(SEO_MANIFEST.read_text(encoding="utf-8"))
     for item in items:
-        key = str(item["id"])
+        key = item_id(item)
         if key not in manifest:
             continue
         manifest[key].update(extras.get(key, {}))
@@ -613,7 +617,7 @@ def main() -> None:
     update_interactive_home()
     extras = {}
     for item in items:
-        extras[str(item["id"])] = update_trial(item)
+        extras[item_id(item)] = update_trial(item)
     update_clusters(items)
     update_organization_pages()
     update_manifest(items, extras)

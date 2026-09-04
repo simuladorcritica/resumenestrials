@@ -18,7 +18,7 @@ DOWNLOAD_ICON = '''<svg class="trial-action-icon" viewBox="0 0 24 24" fill="none
 
 
 def acciones_trial(item: dict) -> str:
-    trial_id = html.escape(str(item.get("id", "")))
+    trial_id = html.escape(base.id_texto(item.get("id")))
     breve = ""
     if item.get("corto"):
         breve = (
@@ -170,7 +170,7 @@ def adaptar_descargas_portada() -> None:
 
 def validar_arquitectura(items: list[dict]) -> None:
     manifest = json.loads(SEO_MANIFEST.read_text(encoding="utf-8"))
-    by_id = {str(item.get("id")): item for item in items}
+    by_id = {base.id_texto(item.get("id")): item for item in items}
     errors: list[str] = []
 
     if not TRIAL_PDF.is_file():
