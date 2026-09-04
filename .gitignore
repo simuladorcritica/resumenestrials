@@ -13,4 +13,6 @@ informe_*.json
 *.bundle
 reports/
 seo-data/
+gsc-data/
+search-console*.json
 .secrets/

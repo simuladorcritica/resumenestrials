@@ -42,7 +42,7 @@ Copia los valores del archivo temporal a **Settings → Secrets and variables �
 - Con OAuth completo, `scripts/search-console-fetch.py` renueva un access token efímero y consulta Search Analytics.
 - El parámetro `--days` permite ventanas de 7, 28 o 90 días cuando se necesiten; la descarga programada amplia permite calcular comparaciones semanales y mensuales sin nuevas autorizaciones.
 - Si Google devuelve una revocación, caducidad o `invalid_grant`, la ejecución falla sin imprimir tokens y pide repetir el bootstrap.
-- `seo-data/search-console.json` contiene las consultas detalladas, está ignorado por Git y no se sube como artefacto. Los reportes derivados se retienen 30 días.
+- En desarrollo local, `seo-data/search-console.json` está ignorado por Git. En GitHub Actions, el dataset y los reportes derivados se escriben únicamente en `$RUNNER_TEMP/gsc/`, se excluyen de logs, summaries, caches y artefactos, y se eliminan al finalizar el job. Si Resend está disponible, el informe detallado se entrega solo a `resumenestrials@outlook.com`; si no, permanece efímero.
 
 ## 5. Revocar o rotar
 

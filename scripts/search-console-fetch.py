@@ -152,7 +152,9 @@ def main() -> None:
         + "\n",
         encoding="utf-8",
     )
-    print(f"GSC PASS · {len(rows)} filas agregadas · {start} a {end} · {provider}")
+    print("GSC authentication: PASS")
+    print("Property access: PASS")
+    print("GSC data processing: PASS")
 
 
 if __name__ == "__main__":

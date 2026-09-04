@@ -1,9 +1,10 @@
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
+import { join } from 'node:path';
 const input = process.env.GSC_DATA_FILE || 'seo-data/search-console.json';
+const outputDir = process.env.GSC_REPORT_DIR || 'reports';
 const config = JSON.parse(readFileSync('seo-config.json', 'utf8'));
 const manifest = JSON.parse(readFileSync('seo-manifest.json', 'utf8'));
 const clusters = JSON.parse(readFileSync('seo-cluster-manifest.json', 'utf8'));
-const data = JSON.parse(readFileSync('resumenes.json', 'utf8'));
 const gsc = existsSync(input) ? JSON.parse(readFileSync(input, 'utf8')) : { property: config.siteUrl, rows: [] };
 const rows = Array.isArray(gsc.rows) ? gsc.rows : [];
 const now = rows.length ? [...rows].map((x) => x.date).sort().at(-1) : new Date().toISOString().slice(0,10);
@@ -41,6 +42,7 @@ for(const x of current.values()){
 opportunities.sort((a,b)=>b.score-a.score);
 const totals=(m)=>[...m.values()].reduce((a,x)=>({clicks:a.clicks+x.clicks,impressions:a.impressions+x.impressions}),{clicks:0,impressions:0});
 const render=(label,cur,prev)=>`# SEO ${label} REPORT\n\nPeriodo terminado: ${now}\n\n| Métrica | Actual | Anterior | Cambio |\n|---|---:|---:|---:|\n| Clicks | ${cur.clicks} | ${prev.clicks} | ${cur.clicks-prev.clicks} |\n| Impressions | ${cur.impressions} | ${prev.impressions} | ${cur.impressions-prev.impressions} |\n\n## Top 10 SEO Opportunity Score\n\n${opportunities.slice(0,10).map(x=>`- ${x.score}/100 · tipos ${x.types.join(',')||'—'} · ${x.page} · ${x.clicks} clicks · ${x.impressions} impressions · posición ${x.position}`).join('\n')||'Sin datos de Search Console disponibles.'}\n`;
-mkdirSync('reports',{recursive:true}); writeFileSync('reports/seo-opportunities.json',JSON.stringify({generatedAt:new Date().toISOString(),property:gsc.property,formula:'ponderación configurable de impresiones, rango, brecha CTR, caída, enlaces internos y canibalización',opportunities},null,2)+'\n');
-writeFileSync('reports/seo-weekly.md',render('WEEKLY',totals(aggregate(7)),totals(aggregate(7,7)))); writeFileSync('reports/seo-monthly.md',render('MONTHLY',totals(current),totals(previous)));
-console.log(`SEO OPPORTUNITIES PASS · ${rows.length} filas GSC · ${opportunities.length} URLs · datos clínicos intactos (${data.length} resúmenes)`);
+mkdirSync(outputDir,{recursive:true}); writeFileSync(join(outputDir,'seo-opportunities.json'),JSON.stringify({generatedAt:new Date().toISOString(),property:gsc.property,formula:'ponderación configurable de impresiones, rango, brecha CTR, caída, enlaces internos y canibalización',opportunities},null,2)+'\n');
+writeFileSync(join(outputDir,'seo-weekly.md'),render('WEEKLY',totals(aggregate(7)),totals(aggregate(7,7)))); writeFileSync(join(outputDir,'seo-monthly.md'),render('MONTHLY',totals(current),totals(previous)));
+console.log('Opportunity Engine: PASS');
+console.log('Private report generated: PASS');
