@@ -38,13 +38,14 @@ Copia los valores del archivo temporal a **Settings → Secrets and variables �
 ## 4. Comportamiento seguro del workflow
 
 - Sin credenciales, una PR genera los reportes técnicos y muestra que Search Console fue omitido.
-- La vigilancia de nuevas altas usa Search Analytics y, desde D14 hasta D90, URL Inspection en modo de solo lectura. No usa Google Indexing API ni solicita indexación.
+- La vigilancia recalcula el total desde `resumenes.json`, compara el snapshot técnico anterior y sigue nuevas altas por ID, DOI y canonical. Usa Search Analytics y, desde D14 hasta D90, URL Inspection en modo de solo lectura. No usa Google Indexing API ni solicita indexación.
+- Las cohortes son `D0_6`, `D7_13`, `D14_27`, `D28_59`, `D60_89`, `D90_PLUS` y `LEGACY`. D0–13 no participa en el motor de oportunidades y D14–27 solo genera análisis preliminar.
 - Los estados se mantienen separados: publicación técnica, descubribilidad, indexación confirmada cuando la API lo permite, impresiones y clics.
 - Si existe solo una parte de la terna OAuth, la ejecución falla con un mensaje de configuración incompleta.
 - Con OAuth completo, `scripts/search-console-fetch.py` renueva un access token efímero y consulta Search Analytics.
-- El parámetro `--days` permite ventanas de 7, 28 o 90 días cuando se necesiten; la descarga programada amplia permite calcular comparaciones semanales y mensuales sin nuevas autorizaciones.
+- La descarga programada de 180 días permite construir informes privados de 7, 28 y 90 días sin nuevas autorizaciones. Los informes separan crecimiento del inventario de clicks e impresiones por artículo elegible.
 - Si Google devuelve una revocación, caducidad o `invalid_grant`, la ejecución falla sin imprimir tokens y pide repetir el bootstrap.
-- En desarrollo local, `seo-data/search-console.json` está ignorado por Git. En GitHub Actions, el dataset y los reportes derivados se escriben únicamente en `$RUNNER_TEMP/gsc/`, se excluyen de logs, summaries, caches y artefactos, y se eliminan al finalizar el job. Si Resend está disponible, el informe detallado se entrega solo a `resumenestrials@outlook.com`; si no, permanece efímero.
+- En desarrollo local, `seo-data/search-console.json` está ignorado por Git. En GitHub Actions, el dataset y los reportes derivados se escriben únicamente en `$RUNNER_TEMP/gsc/`, se excluyen de logs, summaries, caches y artefactos, y se eliminan al finalizar el job. Solo el snapshot técnico del inventario —sin métricas GSC— se conserva en un cache privado para calcular deltas y transiciones. Si Resend está disponible, el informe detallado se entrega solo a `resumenestrials@outlook.com`; si no, permanece efímero.
 
 ## 5. Revocar o rotar
 

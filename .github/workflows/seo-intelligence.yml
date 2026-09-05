@@ -11,6 +11,10 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: seo-intelligence-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   report:
     runs-on: ubuntu-latest
@@ -22,6 +26,14 @@ jobs:
       - uses: actions/setup-python@v7.0.0
         with:
           python-version: '3.12'
+      - name: Restaurar estado privado de inventario
+        if: github.event_name != 'pull_request'
+        uses: actions/cache/restore@v4
+        with:
+          path: ${{ runner.temp }}/seo-observation-state
+          key: seo-observation-state-main-${{ github.run_id }}
+          restore-keys: |
+            seo-observation-state-main-
       - name: Auditar infraestructura SEO
         run: node scripts/seo-audit.mjs --output reports/seo-technical.json --fail-on-high
       - name: Detectar credenciales privadas de Search Console
@@ -64,18 +76,20 @@ jobs:
           mkdir -p "$RUNNER_TEMP/gsc"
           python -m pip install --disable-pip-version-check google-api-python-client==2.179.0 google-auth==2.40.3
           python scripts/search-console-fetch.py --output "$RUNNER_TEMP/gsc/search-console.json" --inventory resumenes.json --manifest seo-manifest.json
-      - name: Generar oportunidades y reportes
-        id: opportunities
-        env:
-          GSC_DATA_FILE: ${{ runner.temp }}/gsc/search-console.json
-          GSC_REPORT_DIR: ${{ runner.temp }}/gsc/reports
-        run: node scripts/seo-opportunities.mjs
       - name: Vigilar descubrimiento de nuevas altas
         id: discovery
         env:
           GSC_DATA_FILE: ${{ runner.temp }}/gsc/search-console.json
           GSC_REPORT_DIR: ${{ runner.temp }}/gsc/reports
+          SEO_OBSERVATION_STATE_FILE: ${{ runner.temp }}/seo-observation-state/inventory.json
         run: node scripts/article-discovery-monitor.mjs
+      - name: Generar oportunidades y reportes
+        id: opportunities
+        env:
+          GSC_DATA_FILE: ${{ runner.temp }}/gsc/search-console.json
+          GSC_REPORT_DIR: ${{ runner.temp }}/gsc/reports
+          SEO_OBSERVATION_FILE: ${{ runner.temp }}/gsc/reports/article-discovery.json
+        run: node scripts/seo-opportunities.mjs
       - name: Enviar informe privado por Resend
         id: private_report
         if: steps.gsc.outputs.enabled == 'true' && github.event_name != 'pull_request'
@@ -86,6 +100,12 @@ jobs:
           GSC_PRIVATE_REPORT_DIR: ${{ runner.temp }}/gsc/reports
           GITHUB_RUN_ID: ${{ github.run_id }}
         run: node scripts/send-private-gsc-report.mjs
+      - name: Guardar estado privado de inventario
+        if: github.event_name != 'pull_request' && steps.discovery.outcome == 'success' && steps.opportunities.outcome == 'success'
+        uses: actions/cache/save@v4
+        with:
+          path: ${{ runner.temp }}/seo-observation-state
+          key: seo-observation-state-main-${{ github.run_id }}
       - name: Publicar resumen visible
         if: always()
         shell: bash

@@ -31,7 +31,9 @@ La secuencia debe ser idempotente: dos ejecuciones consecutivas tienen que produ
 
 ## Vigilancia posterior a la publicación
 
-El workflow privado de Search Console separa `PUBLICADO`, `DISCOVERABLE`, `INDEXED` cuando URL Inspection puede confirmarlo, `WITH IMPRESSIONS` y `WITH CLICKS`. Usa ventanas D0, D7, D14 y D28; cero impresiones nunca se interpreta como prueba de no indexación. Los detalles se crean en `$RUNNER_TEMP/gsc/`, se incluyen únicamente en el correo administrativo privado de Resend y se eliminan al final.
+El workflow privado de Search Console vuelve a calcular el inventario en cada ejecución y conserva únicamente un snapshot técnico privado, sin métricas GSC, mediante GitHub Actions Cache. Así detecta altas, eliminaciones y modificaciones por ID, DOI y canonical, mantiene la primera fecha de detección y mueve automáticamente cada alta entre `D0_6`, `D7_13`, `D14_27`, `D28_59`, `D60_89` y `D90_PLUS`. Los artículos sin fecha editorial fiable permanecen en `LEGACY` y nunca reciben una fecha inventada.
+
+La observación separa `PUBLISHED`, `DISCOVERABLE`, `INDEXED` solo cuando URL Inspection puede confirmarlo, `WITH_IMPRESSIONS` y `WITH_CLICKS`. D0–13 se limita a controles técnicos, D14–27 es preliminar y las oportunidades reales requieren D28+ o un artículo `LEGACY` con volumen suficiente. Los informes comparan denominadores elegibles propios de cada periodo y agrupan tendencias por cohorte de edad, semana y mes de publicación; el crecimiento mensual del inventario se presenta separado del rendimiento por artículo elegible. Cero impresiones nunca se interpreta como prueba de no indexación. Los datos GSC y reportes detallados se crean en `$RUNNER_TEMP/gsc/`, se incluyen únicamente en el correo administrativo privado de Resend y se eliminan al final; el cache de inventario no contiene clicks, impresiones, queries, CTR ni posición.
 
 ## Servicios
 

@@ -34,6 +34,8 @@ Windows puede vigilar exclusivamente el `resumenes.json` maestro situado junto a
 
 La instalación, requisitos, estados y reportes están documentados en [`docs/RESUMENES_JSON_AUTOMATION.md`](docs/RESUMENES_JSON_AUTOMATION.md). La tarea programada no se instala automáticamente al clonar o actualizar el repositorio.
 
+La observación SEO posterior usa el inventario vigente, nunca una cifra fija. El informe privado calcula deltas entre ejecuciones, cohortes por edad editorial, ventanas de 7/28/90 días y rendimiento por artículo elegible. Los históricos sin fecha editorial permanecen como `LEGACY`; los datos detallados de Search Console no salen del almacenamiento temporal ni del correo administrativo autorizado.
+
 ## Recuperación
 
 Antes de una estabilización amplia se debe guardar el SHA de `main` en una rama `recovery/*` o tag protegido y crear un bundle Git verificable. Nunca deben almacenarse secretos en el repositorio.
