@@ -1,16 +1,16 @@
 {
   "service": "reader-buttons-production",
-  "status": "FAIL",
-  "checked_at": "2026-09-06T19:44:48.867901Z",
-  "source_sha": "320dd7485d846f7f861584c396af9bc020689dd2",
-  "run_id": "34055804635",
+  "status": "PASS",
+  "checked_at": "2026-09-06T19:53:58.159784Z",
+  "source_sha": "e58eb2cd7dac320bf771b33af449fa0273982d0c",
+  "run_id": "34056275468",
   "run_attempt": "1",
   "site": "https://resumenestrials.com",
   "trial_id": 1,
   "checks": {
-    "volver_al_indice_pointer": false,
-    "ver_resumen_breve_pointer": false,
-    "descargar_pdf_real": false,
-    "mobile_pointer": false
+    "volver_al_indice_pointer": true,
+    "ver_resumen_breve_pointer": true,
+    "descargar_pdf_real": true,
+    "mobile_pointer": true
   }
 }
