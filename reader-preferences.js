@@ -12,7 +12,9 @@
 
   function applyTheme(tema, opts) {
     opts = opts || {};
-    document.body.classList.toggle('rt-future', tema === 'oscuro');
+    // 'rt-future' NUNCA se toca aquí: es una clase estructural permanente
+    // (ver future-experience.js). El interruptor real es 'rt-tema-claro'.
+    document.body.classList.toggle('rt-tema-claro', tema === 'claro');
     if (opts.persist !== false) {
       try { localStorage.setItem(TEMA_KEY, tema); } catch {}
     }
@@ -30,13 +32,13 @@
     btn.type = 'button';
     btn.className = 'rt-pref-btn rt-tema-btn';
     const paint = () => {
-      const oscuro = document.body.classList.contains('rt-future');
+      const oscuro = !document.body.classList.contains('rt-tema-claro');
       btn.setAttribute('aria-pressed', String(oscuro));
       btn.setAttribute('aria-label', oscuro ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro');
       btn.innerHTML = (oscuro ? iconLuna() : iconSol()) + '<span>' + (oscuro ? 'Oscuro' : 'Claro') + '</span>';
     };
     btn.addEventListener('click', () => {
-      const next = document.body.classList.contains('rt-future') ? 'claro' : 'oscuro';
+      const next = document.body.classList.contains('rt-tema-claro') ? 'oscuro' : 'claro';
       applyTheme(next);
       paint();
     });
