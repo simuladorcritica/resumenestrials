@@ -50,6 +50,9 @@ test('el workflow mantiene Search Console en el almacenamiento temporal del runn
   assert.match(workflow, /GSC_DATA_FILE:\s*\$\{\{ runner\.temp \}\}\/gsc\/search-console\.json/);
   assert.match(workflow, /GSC_REPORT_DIR:\s*\$\{\{ runner\.temp \}\}\/gsc\/reports/);
   assert.match(workflow, /article-discovery-monitor\.mjs/);
+  assert.match(workflow, /path:\s*\$\{\{ runner\.temp \}\}\/seo-observation-state/);
+  assert.match(workflow, /SEO_OBSERVATION_STATE_FILE:\s*\$\{\{ runner\.temp \}\}\/seo-observation-state\/inventory\.json/);
+  assert.doesNotMatch(workflow, /actions\/cache\/(?:restore|save)@[\s\S]{0,250}path:\s*\$\{\{ runner\.temp \}\}\/gsc/);
   assert.match(workflow, /rm -rf -- "\$private_root"/);
 });
 
@@ -79,7 +82,7 @@ test('el summary solo escribe estados y auditoría técnica', () => {
 
 test('los logs de los procesadores no contienen métricas ni identificadores GSC', () => {
   const pythonPrints = [...fetcher.matchAll(/print\(([^\n]*)\)/g)].map((match) => match[1]);
-  const jsLogs = [...opportunities.matchAll(/console\.log\(([^\n]*)\)/g)].map((match) => match[1]);
+  const jsLogs = [...opportunities.matchAll(/(?:console\.log|logger)\(([^\n]*)\)/g)].map((match) => match[1]);
   const discoveryLogs = [...discovery.matchAll(/(?:console\.log|logger)\(([^\n]*)\)/g)].map((match) => match[1]);
   const privateLogPattern = /len\(rows\)|rows\.length|opportunities\.length|\b(?:query|clicks|impressions|ctr|position|site_url)\b|\$\{(?:start|end|provider)/i;
   assert.equal(pythonPrints.some((line) => privateLogPattern.test(line)), false);
