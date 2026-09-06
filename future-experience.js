@@ -44,13 +44,20 @@
     if ((path.startsWith('/medicina-critica/') || path.startsWith('/medicina-interna/')) && !document.body.classList.contains('rt-future-hub') && !document.body.classList.contains('rt-future-trial')) document.body.classList.add('rt-future-cluster');
     if (['/metodologia/','/equipo-editorial/','/privacidad/','/terminos/'].some(p => path.startsWith(p))) document.body.classList.add('rt-future-institutional');
 
-    // El tema claro/oscuro real solo aplica a las rutas ya cubiertas por
-    // theme-light.css (home, trial, legacy, hub, cluster). Las rutas de
-    // cuenta e institucionales se quedan fijas en oscuro (sin regresión).
+    // `.rt-future` es la clase estructural histórica: cientos de reglas en
+    // future-experience.css y en los scripts de la cadena (p.ej. el bloque
+    // que oculta "Metodología"/"Equipo editorial" del nav fuera de portada)
+    // dependen de que esté SIEMPRE presente una vez que el JS corre — no es
+    // solo "tema oscuro", también controla estructura/layout. Por eso el
+    // toggle de tema NO quita `.rt-future`: agrega una clase adicional,
+    // `rt-tema-claro`, que theme-light.css usa como gatillo de sus overrides
+    // (`.rt-tema-claro <selector>` en vez de `:not(.rt-future) <selector>`,
+    // misma especificidad, mismo efecto de "siempre gana").
+    document.body.classList.add('rt-future');
     const temaDisponible = !document.body.classList.contains('rt-future-account')
       && !document.body.classList.contains('rt-future-institutional');
     window.__rtTemaDisponible = temaDisponible;
-    if (!temaDisponible || resolveTheme() === 'oscuro') document.body.classList.add('rt-future');
+    if (temaDisponible && resolveTheme() === 'claro') document.body.classList.add('rt-tema-claro');
   }
 
   function navMarkup() {

@@ -1,21 +1,27 @@
 /* Resúmenes Trials · Fase 4 — controles de preferencia (tema y modo lectura)
-   Se carga junto con theme-light.css, después de future-experience*.css. */
+   Se carga junto con theme-light.css, después de future-experience*.css.
+
+   Hotfix post-publicación: ".rt-future" está SIEMPRE presente en el body una vez que el JS
+   corre (ver future-experience.js) — no es exclusivo del tema oscuro. Por eso el estilo sin
+   calificar de abajo es el oscuro (el caso permanente), y ".rt-tema-claro" es el que sobreescribe
+   para el tema claro — al revés de como estaba antes, que asumía que "rt-future ausente" era
+   el caso normal del tema claro y nunca aplicaba. */
 
 .rt-pref-controls{display:flex;align-items:center;gap:6px;margin-right:6px}
 .rt-pref-btn{
   display:inline-flex;align-items:center;gap:6px;min-height:36px;
-  padding:7px 11px;border-radius:8px;border:1px solid var(--linea);
-  background:transparent;color:var(--tinta-2);
+  padding:7px 11px;border-radius:8px;border:1px solid var(--rt-line-strong);
+  background:transparent;color:var(--rt-muted);
   font:600 10.5px 'IBM Plex Mono',monospace;letter-spacing:.04em;
   cursor:pointer;white-space:nowrap;transition:color .15s ease,border-color .15s ease,background .15s ease;
 }
-.rt-pref-btn:hover{color:var(--teal-hondo);border-color:var(--teal)}
-.rt-pref-btn:focus-visible{outline:2px solid var(--teal-hondo);outline-offset:2px}
-body.rt-future .rt-pref-btn{border-color:var(--rt-line-strong);color:var(--rt-muted)}
-body.rt-future .rt-pref-btn:hover{color:var(--rt-teal);border-color:var(--rt-teal)}
-body.rt-future .rt-pref-btn:focus-visible{outline-color:var(--rt-teal)}
-.rt-lectura-btn[aria-pressed="true"]{color:var(--teal-hondo);border-color:var(--teal);background:rgba(28,138,138,.07)}
-body.rt-future .rt-lectura-btn[aria-pressed="true"]{color:var(--rt-teal);border-color:var(--rt-teal);background:rgba(36,200,180,.09)}
+.rt-pref-btn:hover{color:var(--rt-teal);border-color:var(--rt-teal)}
+.rt-pref-btn:focus-visible{outline:2px solid var(--rt-teal);outline-offset:2px}
+.rt-tema-claro .rt-pref-btn{border-color:var(--linea);color:var(--tinta-2)}
+.rt-tema-claro .rt-pref-btn:hover{color:var(--teal-hondo);border-color:var(--teal)}
+.rt-tema-claro .rt-pref-btn:focus-visible{outline-color:var(--teal-hondo)}
+.rt-lectura-btn[aria-pressed="true"]{color:var(--rt-teal);border-color:var(--rt-teal);background:rgba(36,200,180,.09)}
+.rt-tema-claro .rt-lectura-btn[aria-pressed="true"]{color:var(--teal-hondo);border-color:var(--teal);background:rgba(28,138,138,.07)}
 
 @media (max-width:1040px){
   .rt-pref-btn span{display:none}
