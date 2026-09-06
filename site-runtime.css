@@ -236,7 +236,10 @@ body.rt-future-home .rt-advanced select:hover,body.rt-future-home .rt-advanced s
 .rt-tema-claro.rt-future-trial .articulo{color:var(--tinta-2)!important}
 .rt-tema-claro.rt-future-trial .rt-evidence-section h2{color:var(--teal-hondo)!important}
 .rt-tema-claro.rt-future-trial .rt-evidence-section p{color:var(--tinta-2)!important}
-.rt-tema-claro.rt-future-trial .rt-evidence-section strong{color:var(--tinta)!important;background:linear-gradient(transparent 72%,rgba(200,137,42,.18) 0)!important}
+/* Sin fondo: future-experience-final.js ya resuelve esto globalmente (fondo none +
+   subrayado limpio) para cualquier tema; el override claro solo ajusta el color de tinta
+   y el color del subrayado para que se vea bien sobre fondo claro. */
+.rt-tema-claro.rt-future-trial .rt-evidence-section strong{color:var(--tinta)!important;text-decoration-color:rgba(200,137,42,.6)!important}
 .rt-tema-claro.rt-future-trial .enlace-original,.rt-tema-claro.rt-future-trial .relacionados,.rt-tema-claro.rt-future-trial .pie-nav,.rt-tema-claro.rt-future-trial .art-footer{
   color:var(--tinta-2)!important;border-color:var(--linea)!important
 }
