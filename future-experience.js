@@ -21,8 +21,21 @@
   const slug = (value) => plain(value).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'').slice(0,70);
   const path = location.pathname.toLowerCase();
 
+  // Fase 4: tema claro/oscuro real (persistente + preferencia del sistema).
+  // resolveTheme() no toca el DOM; solo decide qué clase corresponde antes
+  // de que pageClass() la aplique, para no arriesgar el resto de la cadena.
+  const TEMA_KEY = 'rt-tema';
+  function resolveTheme() {
+    let saved = null;
+    try { saved = localStorage.getItem(TEMA_KEY); } catch {}
+    if (saved === 'claro' || saved === 'oscuro') return saved;
+    try {
+      return matchMedia('(prefers-color-scheme: dark)').matches ? 'oscuro' : 'claro';
+    } catch { return 'claro'; }
+  }
+  window.__rtTema = { key: TEMA_KEY, resolve: resolveTheme };
+
   function pageClass() {
-    document.body.classList.add('rt-future');
     if (path === '/' || path.endsWith('/index.html') && !path.includes('/trials/') && path.split('/').filter(Boolean).length === 1) document.body.classList.add('rt-future-home');
     if (path.includes('/trials/')) document.body.classList.add('rt-future-trial');
     if (path.endsWith('/resumen.html')) document.body.classList.add('rt-future-legacy');
@@ -30,6 +43,14 @@
     if (path === '/medicina-critica/' || path === '/medicina-interna/' || path.endsWith('/medicina-critica/index.html') || path.endsWith('/medicina-interna/index.html')) document.body.classList.add('rt-future-hub');
     if ((path.startsWith('/medicina-critica/') || path.startsWith('/medicina-interna/')) && !document.body.classList.contains('rt-future-hub') && !document.body.classList.contains('rt-future-trial')) document.body.classList.add('rt-future-cluster');
     if (['/metodologia/','/equipo-editorial/','/privacidad/','/terminos/'].some(p => path.startsWith(p))) document.body.classList.add('rt-future-institutional');
+
+    // El tema claro/oscuro real solo aplica a las rutas ya cubiertas por
+    // theme-light.css (home, trial, legacy, hub, cluster). Las rutas de
+    // cuenta e institucionales se quedan fijas en oscuro (sin regresión).
+    const temaDisponible = !document.body.classList.contains('rt-future-account')
+      && !document.body.classList.contains('rt-future-institutional');
+    window.__rtTemaDisponible = temaDisponible;
+    if (!temaDisponible || resolveTheme() === 'oscuro') document.body.classList.add('rt-future');
   }
 
   function navMarkup() {

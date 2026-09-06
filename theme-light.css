@@ -1,0 +1,141 @@
+/* Resúmenes Trials · Fase 4 — variante clara de la capa "Future"
+   Se carga DESPUÉS de future-experience.css, future-experience-patch.css y global-search.css.
+   Todo aquí va bajo ":not(.rt-future)" para que solo aplique cuando el tema resuelto es "claro"
+   (ver future-experience.js: resolveTheme()). No se toca future-experience.css directamente:
+   este archivo es un anexo aislado para no arriesgar las ~140 reglas ya existentes.
+
+   Alcance de esta fase: portada (rt-future-home), trial (rt-future-trial), resumen legacy
+   (rt-future-legacy) y hubs/clusters (rt-future-hub / rt-future-cluster), más los componentes
+   compartidos (topbar, buscador de cabecera, rail de lectura, ficha resumen editorial).
+   rt-future-account (login/registro/recuperar/cuenta/biblioteca/privacidad/agregar) y
+   rt-future-institutional (metodología/equipo editorial) NO están cubiertos todavía: esas
+   rutas se mantienen siempre oscuras (ver future-experience.js) para no dejar una mezcla rota
+   sin verificación visual. Quedan documentadas como pendiente en el changelog. */
+
+/* ---------- Topbar y navegación compartida ---------- */
+:not(.rt-future) .topbar{background:rgba(247,246,242,.92)!important}
+:not(.rt-future) .rt-brand-name{color:var(--tinta)!important}
+:not(.rt-future) .rt-main-nav a,:not(.rt-future) .topbar nav a{color:var(--tinta-2)!important}
+:not(.rt-future) .rt-main-nav a:hover,:not(.rt-future) .rt-main-nav a[aria-current="page"],:not(.rt-future) .topbar nav a:hover{
+  color:var(--teal-hondo)!important;background:rgba(28,138,138,.08)!important
+}
+:not(.rt-future) .rt-nav-search{background:rgba(18,35,59,.05)!important;color:var(--tinta-2)!important;border-color:var(--linea)!important}
+:not(.rt-future) .rt-nav-search svg{color:var(--teal-hondo)!important}
+:not(.rt-future) .rt-nav-search kbd{background:rgba(28,138,138,.10)!important;color:var(--teal-hondo)!important}
+:not(.rt-future) .rt-future .top-links>a:not(.auth-entry){color:var(--teal-hondo)!important}
+:not(.rt-future) .top-links>a:not(.auth-entry):hover{color:var(--tinta)!important}
+:not(.rt-future) .rt-hero-cta.secondary{color:var(--tinta-2)!important;border-color:var(--linea)!important}
+:not(.rt-future) .rt-save-action{color:var(--tinta-2)!important;border-color:var(--linea)!important}
+:not(.rt-future) .rt-save-action[aria-pressed="true"]{color:var(--teal-hondo)!important;border-color:var(--teal)!important;background:rgba(28,138,138,.07)!important}
+
+/* ---------- Portada (rt-future-home) ---------- */
+:not(.rt-future) .rt-future-home header.sitio{background:linear-gradient(115deg,rgba(18,35,59,.035),transparent)!important}
+:not(.rt-future) .rt-future-home h1.titulo{color:var(--tinta)!important}
+:not(.rt-future) .rt-future-home .bajada{color:var(--tinta-2)!important}
+:not(.rt-future) .rt-future-home .bajada .lead{color:var(--tinta)!important}
+:not(.rt-future) .rt-future-home .bajada-cols{color:var(--tinta-2)!important}
+:not(.rt-future) .rt-future-home .rt-hero-eyebrow{color:var(--teal-hondo)!important}
+:not(.rt-future) .rt-future-home .meta-dato{background:linear-gradient(180deg,var(--papel-2),var(--papel))!important;box-shadow:none!important}
+:not(.rt-future) .rt-future-home .meta-num{color:var(--tinta)!important}
+:not(.rt-future) .rt-future-home .meta-eti{color:var(--tinta-2)!important}
+/* .seo-hubs-home y .fila.rt-featured se dejan tal cual: son barras/tarjetas con fondo propio
+   (siempre oscuro) y texto claro sobre ese fondo propio, correctas en cualquier tema. */
+
+/* ---------- Trial (rt-future-trial) ---------- */
+:not(.rt-future) .rt-future-trial .art-head::before{color:var(--teal-hondo)!important}
+:not(.rt-future) .rt-future-trial .art-head::after{background:radial-gradient(circle,rgba(28,138,138,.10),transparent 60%)!important;box-shadow:none!important}
+:not(.rt-future) .rt-future-trial .art-head h1{color:var(--tinta)!important}
+:not(.rt-future) .rt-future-trial .migas{color:var(--tinta-2)!important}
+:not(.rt-future) .rt-future-trial .migas a{color:var(--teal-hondo)!important}
+:not(.rt-future) .rt-future-trial .migas span{color:var(--tinta-2)!important}
+:not(.rt-future) .rt-future-trial .badge,:not(.rt-future) .rt-future-trial .tema{color:var(--teal-hondo)!important}
+:not(.rt-future) .rt-future-trial .fuente,:not(.rt-future) .rt-future-trial .publicacion{color:var(--tinta-2)!important}
+:not(.rt-future) .rt-future-trial .trial-action-brief{color:var(--ambar-texto)!important;background:rgba(200,137,42,.06)!important}
+:not(.rt-future) .rt-future-trial .articulo{color:var(--tinta-2)!important}
+:not(.rt-future) .rt-future-trial .rt-evidence-section h2{color:var(--teal-hondo)!important}
+:not(.rt-future) .rt-future-trial .rt-evidence-section p{color:var(--tinta-2)!important}
+:not(.rt-future) .rt-future-trial .rt-evidence-section strong{color:var(--tinta)!important;background:linear-gradient(transparent 72%,rgba(200,137,42,.18) 0)!important}
+:not(.rt-future) .rt-future-trial .enlace-original,:not(.rt-future) .rt-future-trial .relacionados,:not(.rt-future) .rt-future-trial .pie-nav,:not(.rt-future) .rt-future-trial .art-footer{
+  color:var(--tinta-2)!important;border-color:var(--linea)!important
+}
+:not(.rt-future) .rt-future-trial .enlace-original{background:rgba(28,138,138,.035)!important}
+:not(.rt-future) .rt-future-trial .enlace-original a{color:var(--teal-hondo)!important}
+:not(.rt-future) .rt-future-trial .relacionados h2{color:var(--tinta)!important}
+:not(.rt-future) .rt-future-trial .rel-item{border-color:var(--linea)!important}
+:not(.rt-future) .rt-future-trial .rel-item h3{color:var(--tinta)!important}
+
+/* ---------- Rail de lectura (compartido trial + legacy) ---------- */
+:not(.rt-future) .rt-rail-card{background:var(--papel-2)!important;box-shadow:0 10px 30px rgba(18,35,59,.06)!important}
+:not(.rt-future) .rt-rail-card h3{color:var(--tinta-2)!important}
+:not(.rt-future) .rt-progress-ring::after{background:var(--papel)!important}
+:not(.rt-future) .rt-progress-copy{color:var(--tinta-2)!important}
+:not(.rt-future) .rt-progress-line{background:var(--linea)!important}
+:not(.rt-future) .rt-progress-track{background:var(--linea)!important}
+:not(.rt-future) .rt-rail-nav a{color:var(--tinta-2)!important;border-left-color:var(--linea)!important}
+:not(.rt-future) .rt-rail-nav a.is-active,:not(.rt-future) .rt-rail-nav a.active{color:var(--teal-hondo)!important}
+:not(.rt-future) .rt-rail-finding{color:var(--tinta-2)!important}
+:not(.rt-future) .rt-rail-finding strong{color:var(--teal-hondo)!important}
+:not(.rt-future) .rt-rail-source{color:var(--teal-hondo)!important}
+
+/* ---------- Ficha "Resumen editorial" (rt-summary-deck, solo trial) ---------- */
+:not(.rt-future) .rt-summary-card{background:var(--papel-2)!important;box-shadow:none!important}
+:not(.rt-future) .rt-summary-card small{color:var(--teal-hondo)!important}
+:not(.rt-future) .rt-summary-card p{color:var(--tinta-2)!important}
+:not(.rt-future) .rt-summary-card strong{color:var(--tinta)!important}
+:not(.rt-future) .rt-summary-title{color:var(--tinta)!important}
+
+/* ---------- Secciones del cuerpo del artículo (rt-evidence-section) ---------- */
+:not(.rt-future) .rt-evidence-section{background:var(--papel-2)!important;border-color:var(--linea)!important}
+:not(.rt-future) .rt-evidence-section::before{color:var(--teal-hondo)!important}
+
+/* ---------- Hubs y clusters (medicina-critica/, medicina-interna/) ---------- */
+:not(.rt-future) .rt-future-hub .categoria,:not(.rt-future) .rt-future-cluster .categoria{color:var(--tinta-2)!important}
+:not(.rt-future) .rt-future-hub .migas,:not(.rt-future) .rt-future-cluster .migas{border-color:var(--linea)!important;color:var(--tinta-2)!important}
+:not(.rt-future) .rt-future-hub .cat-head::before,:not(.rt-future) .rt-future-cluster .cat-head::before{color:var(--teal-hondo)!important}
+:not(.rt-future) .rt-future-hub .cat-head::after,:not(.rt-future) .rt-future-cluster .cat-head::after{color:rgba(28,138,138,.06)!important}
+:not(.rt-future) .rt-future-hub .cat-head h1,:not(.rt-future) .rt-future-cluster .cat-head h1{color:var(--tinta)!important}
+:not(.rt-future) .rt-future-hub .cat-head>p:not(.eyebrow),:not(.rt-future) .rt-future-cluster .cat-head>p:not(.eyebrow){
+  color:var(--tinta-2)!important;border-color:var(--linea)!important
+}
+:not(.rt-future) .rt-future-hub .cat-head strong,:not(.rt-future) .rt-future-cluster .cat-head strong{color:var(--teal-hondo)!important}
+:not(.rt-future) .rt-future-hub .cluster-section,:not(.rt-future) .rt-future-cluster .cluster-section{border-color:var(--linea)!important}
+:not(.rt-future) .rt-future-hub .cluster-card,:not(.rt-future) .rt-future-cluster .cluster-card{background:var(--papel-2)!important;color:var(--tinta)!important}
+:not(.rt-future) .rt-future-hub .cluster-card:hover,:not(.rt-future) .rt-future-cluster .cluster-card:hover{
+  background:linear-gradient(180deg,#fff,var(--papel-2))!important;border-color:rgba(28,138,138,.45)!important
+}
+:not(.rt-future) .rt-future-hub .cluster-card h2,:not(.rt-future) .rt-future-cluster .cluster-card h2{color:var(--tinta)!important}
+:not(.rt-future) .rt-future-hub .cluster-card p,:not(.rt-future) .rt-future-cluster .cluster-card p{color:var(--tinta-2)!important}
+:not(.rt-future) .rt-future-hub .cluster-card span,:not(.rt-future) .rt-future-cluster .cluster-card span{color:var(--teal-hondo)!important}
+:not(.rt-future) .rt-future-hub .cat-card,:not(.rt-future) .rt-future-cluster .cat-card{background:var(--papel-2)!important}
+:not(.rt-future) .rt-future-hub .cat-card::before,:not(.rt-future) .rt-future-cluster .cat-card::before{color:var(--teal-hondo)!important}
+:not(.rt-future) .rt-future-hub .cat-card h2,:not(.rt-future) .rt-future-cluster .cat-card h2{color:var(--tinta)!important}
+:not(.rt-future) .rt-future-hub .cat-card>a>p:last-child,:not(.rt-future) .rt-future-cluster .cat-card>a>p:last-child,
+:not(.rt-future) .rt-future-hub .cat-meta,:not(.rt-future) .rt-future-cluster .cat-meta{color:var(--tinta-2)!important}
+
+/* ---------- Resumen legacy (resumen.html, rt-future-legacy) ---------- */
+:not(.rt-future).rt-future-legacy,html:not(.rt-future) body.rt-future-legacy{
+  background:var(--papel)!important;color:var(--tinta-2)!important
+}
+:not(.rt-future) .rt-future-legacy .topbar{background:rgba(247,246,242,.92)!important;border-color:var(--linea)!important}
+:not(.rt-future) .rt-future-legacy header.art{border-color:var(--linea)!important}
+:not(.rt-future) .rt-future-legacy h1,:not(.rt-future) body.rt-future-legacy header.art h1{color:var(--tinta)!important}
+:not(.rt-future) .rt-future-legacy .fuente-linea,:not(.rt-future) .rt-future-legacy .aviso{color:var(--tinta-2)!important}
+:not(.rt-future) .rt-future-legacy .badge{color:var(--teal-hondo)!important}
+:not(.rt-future) .rt-future-legacy article,:not(.rt-future) .rt-future-legacy article.corto{color:var(--tinta-2)!important}
+:not(.rt-future) .rt-future-legacy article h2{color:var(--teal-hondo)!important}
+:not(.rt-future) .rt-future-legacy article p{color:var(--tinta-2)!important}
+:not(.rt-future) .rt-future-legacy article strong{color:var(--tinta)!important}
+:not(.rt-future) .rt-future-legacy .btn-pdf{color:var(--teal-hondo)!important;border-color:var(--teal)!important}
+:not(.rt-future) .rt-future-legacy .version-nav,:not(.rt-future) .rt-future-legacy .enlace-original{
+  border-color:var(--linea)!important;color:var(--tinta-2)!important
+}
+:not(.rt-future) .rt-future-legacy .cambio-version,:not(.rt-future) .rt-future-legacy .enlace-original a{color:var(--teal-hondo)!important}
+:not(.rt-future) body.rt-future-legacy .fuente-linea{color:var(--tinta-2)!important}
+:not(.rt-future) body.rt-future-legacy article,:not(.rt-future) body.rt-future-legacy article.corto{color:var(--tinta-2)!important}
+:not(.rt-future) body.rt-future-legacy article h2{color:var(--teal-hondo)!important}
+:not(.rt-future) body.rt-future-legacy article p,:not(.rt-future) body.rt-future-legacy article li{color:var(--tinta-2)!important}
+:not(.rt-future) body.rt-future-legacy article strong{color:var(--tinta)!important;background:none!important}
+
+/* Nota de alcance: rt-future-account (acceso/cuenta/biblioteca/privacidad/agregar) y
+   rt-future-institutional (metodología/equipo editorial) no tienen variante clara todavía.
+   future-experience.js las mantiene siempre en tema oscuro para no mostrar una mezcla rota. */

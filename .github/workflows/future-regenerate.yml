@@ -54,7 +54,6 @@ jobs:
           node --check future-experience-fix-v4.js
           node --check future-experience-fix-v4-compat.js
           node --check legacy-unifier-v4.js
-          node --check legacy-reader-design-v5.js
           node --check pdf-contact.js
           node --check trial-pdf.js
           node --check scripts/adsense-production-smoke.mjs

@@ -5,7 +5,7 @@
   --rt-ink:#eef4f3;--rt-muted:#9bb0ba;--rt-dim:#6f8793;--rt-teal:#24c8b4;--rt-teal-2:#0d988e;
   --rt-teal-soft:rgba(36,200,180,.12);--rt-amber:#e2a23a;--rt-ivory:#f4f0e6;
   --rt-line:rgba(139,184,194,.19);--rt-line-strong:rgba(139,184,194,.34);
-  --rt-glow:0 0 34px rgba(36,200,180,.12);--rt-radius:14px;--rt-font:'Inter',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --rt-glow:0 0 34px rgba(36,200,180,.12);--rt-radius:14px;--rt-font:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
   --rt-editorial:'Fraunces',Georgia,serif;--rt-mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,monospace;
   --tinta:#12233b;--tinta-2:#38506e;--teal:#1c8a8a;--teal-hondo:#0f5f5f;--papel:#f7f6f2;--papel-2:#efece4;--linea:#ddd8cc;--ambar:#c8892a;
 }
