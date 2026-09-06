@@ -1,8 +1,10 @@
 html{background:#f7f6f2}
-body{transition:opacity .12s ease}
-body:not(.rt-future){opacity:0;animation:rt-legacy-failsafe .01s linear 2500ms forwards}
-body.rt-future{opacity:1;animation:none}
-@keyframes rt-legacy-failsafe{to{opacity:1}}
+/* Fase 1 (fiabilidad, 2026-09-06): se elimina el bloqueo opacity:0 + failsafe de 2500ms.
+   Antes: si future-experience.js no llegaba a ejecutar (adblock, red lenta, JS roto/deshabilitado),
+   el body quedaba invisible hasta 2.5s (o de forma indefinida si la animacion no corria).
+   Ahora: el body es visible desde el primer render con el tema base (claro); .rt-future solo
+   mejora progresivamente a tema oscuro cuando el JS logra ejecutar. Sin pantalla en blanco. */
+body{opacity:1}
 .rt-future-trial .rt-reader-rail{grid-row:4 / span 8!important}
 .rt-pointer-glow{position:fixed;left:0;top:0;z-index:-1;width:420px;height:420px;border-radius:50%;pointer-events:none;transform:translate3d(-1000px,-1000px,0) translate(-50%,-50%);background:radial-gradient(circle,rgba(36,200,180,.065),rgba(36,200,180,.018) 36%,transparent 69%);filter:blur(6px);will-change:transform}
 .rt-future-institutional .pagina-institucional{min-width:0!important}.rt-future-institutional .cat-head{min-width:0!important;overflow:hidden!important}.rt-future-institutional .cat-head::after{right:0!important;max-width:100%!important}.rt-future-institutional .prose,.rt-future-institutional .confianza{min-width:0!important;max-width:100%!important}
