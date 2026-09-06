@@ -142,10 +142,12 @@ const seoHelper = document.createElement('script');
 seoHelper.defer = true;
 if (/\/resumen\.html$/i.test(location.pathname)) {
   seoHelper.src = '/legacy-seo.js?v=1';
-  const designHelper = document.createElement('script');
-  designHelper.defer = true;
-  designHelper.src = '/legacy-reader-design-v5.js?v=1';
-  document.head.appendChild(designHelper);
+  // Fase 5: se retira la inyección de legacy-reader-design-v5.js. Redefinía
+  // --tinta/--papel/etc. con !important directamente sobre variables CSS,
+  // lo cual gana el cascade sin importar el orden y corrompía en silencio
+  // los tokens consolidados en Fase 2 y el toggle de tema de Fase 4 en esta
+  // página. legacy-seo.js se conserva: solo lee tokens vía var(), no los
+  // redefine.
 } else if (/\/(?:index\.html)?$/i.test(location.pathname)) {
   seoHelper.src = '/seo-routing.js?v=1';
 }

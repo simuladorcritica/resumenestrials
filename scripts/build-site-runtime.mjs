@@ -11,12 +11,16 @@ const jsSources = [
   'reader-ui-v8.js',
   'home-downloads-v8.js',
   'reader-controls-v9.js',
+  'reader-preferences.js',
 ];
 
 const cssSources = [
   'future-experience.css',
   'future-experience-patch.css',
   'global-search.css',
+  'theme-light.css',
+  'reader-mode.css',
+  'print.css',
 ];
 
 function bundle(sources, target, comment) {

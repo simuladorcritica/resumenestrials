@@ -1,0 +1,47 @@
+/* Resúmenes Trials · Fase 4 — controles de preferencia (tema y modo lectura)
+   Se carga junto con theme-light.css, después de future-experience*.css. */
+
+.rt-pref-controls{display:flex;align-items:center;gap:6px;margin-right:6px}
+.rt-pref-btn{
+  display:inline-flex;align-items:center;gap:6px;min-height:36px;
+  padding:7px 11px;border-radius:8px;border:1px solid var(--linea);
+  background:transparent;color:var(--tinta-2);
+  font:600 10.5px 'IBM Plex Mono',monospace;letter-spacing:.04em;
+  cursor:pointer;white-space:nowrap;transition:color .15s ease,border-color .15s ease,background .15s ease;
+}
+.rt-pref-btn:hover{color:var(--teal-hondo);border-color:var(--teal)}
+.rt-pref-btn:focus-visible{outline:2px solid var(--teal-hondo);outline-offset:2px}
+body.rt-future .rt-pref-btn{border-color:var(--rt-line-strong);color:var(--rt-muted)}
+body.rt-future .rt-pref-btn:hover{color:var(--rt-teal);border-color:var(--rt-teal)}
+body.rt-future .rt-pref-btn:focus-visible{outline-color:var(--rt-teal)}
+.rt-lectura-btn[aria-pressed="true"]{color:var(--teal-hondo);border-color:var(--teal);background:rgba(28,138,138,.07)}
+body.rt-future .rt-lectura-btn[aria-pressed="true"]{color:var(--rt-teal);border-color:var(--rt-teal);background:rgba(36,200,180,.09)}
+
+@media (max-width:1040px){
+  .rt-pref-btn span{display:none}
+  .rt-pref-btn{padding:8px;min-width:36px;justify-content:center}
+}
+
+/* ---------- Modo lectura: oculta el rail y la ficha, centra el artículo ---------- */
+body.rt-modo-lectura .rt-reader-rail,
+body.rt-modo-lectura .rt-summary-deck{display:none!important}
+
+body.rt-future-trial.rt-modo-lectura main.envoltorio{grid-template-columns:minmax(0,1fr)!important}
+body.rt-future-legacy.rt-modo-lectura #contenido>.envoltorio{grid-template-columns:minmax(0,1fr)!important}
+
+body.rt-modo-lectura .articulo,
+body.rt-modo-lectura article.articulo{max-width:74ch!important;margin-inline:auto!important}
+
+body.rt-modo-lectura .rt-evidence-section{
+  background:transparent!important;border:0!important;border-radius:0!important;
+  padding:0 0 8px!important;box-shadow:none!important
+}
+body.rt-modo-lectura .rt-evidence-section::before{display:none}
+
+/* En modo lectura el resto de la cabecera (migas, acciones, título) se mantiene:
+   solo se retira lo que compite visualmente con el texto (rail lateral y la ficha
+   editorial), tal como pide el prompt ("oculte sidebars y cromo"). */
+
+@media (prefers-reduced-motion: reduce){
+  .rt-pref-btn{transition:none!important}
+}

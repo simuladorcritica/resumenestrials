@@ -1,0 +1,57 @@
+/* Resúmenes Trials · Fase 5 — impresión unificada.
+   Antes: @media print solo existía en resumen.html, y ni ahí neutralizaba de verdad
+   la capa oscura "Future" (sus reglas !important seguían ganando también al imprimir).
+   Este archivo se carga en las mismas ~61 páginas que future-experience.css y se aplica
+   SOLO dentro de @media print, así que no afecta nada en pantalla. Usa "html body.X" para
+   igualar o superar la especificidad de las reglas oscuras que también usan !important. */
+
+@media print{
+  html,html body,
+  html body.rt-future,html body.rt-future-trial,html body.rt-future-legacy,
+  html body.rt-future-hub,html body.rt-future-cluster,
+  html body.rt-future-account,html body.rt-future-institutional{
+    background:#fff!important;color:#000!important;
+  }
+
+  /* Quita fondos, brillos y decoraciones pensadas para pantalla oscura */
+  html body.rt-future::before,html body.rt-future::after,
+  html body.rt-future-trial .art-head::after,
+  html body.rt-future-home header.sitio::before,
+  html body.rt-future-home header.sitio,
+  .rt-pointer-glow,.rt-orbit,.rt-orbit-rings,.rt-orbit-core,.rt-orbit-label{
+    display:none!important;content:none!important;background:none!important;box-shadow:none!important;
+  }
+
+  /* Cromo que no aporta nada en papel */
+  html body .topbar,html body .rt-nav-actions,html body .top-links,html body .rt-pref-controls,
+  html body .rt-reader-rail,html body .rt-summary-deck,html body .trial-actions,
+  html body .acciones-art,html body .btn-pdf,html body .trial-action-brief,
+  html body .pie-nav,html body footer.art,html body footer.sitio,html body .seo-hubs-home,
+  html body .rt-save-action,html body .version-nav,html body ins.adsbygoogle,
+  html body .filtros,html body .buscador,html body .rt-hero-actions{
+    display:none!important;
+  }
+
+  /* Cuerpo del articulo: negro sobre blanco, sin columnas ni recuadros de color */
+  html body .articulo,html body .rt-evidence-section,html body .breve-cuerpo,
+  html body article,html body article.corto{
+    background:#fff!important;color:#000!important;border:0!important;box-shadow:none!important;
+    max-width:none!important;width:100%!important;margin:0!important;padding:0!important;columns:1!important;
+  }
+  html body .articulo h2,html body .breve-cuerpo h2,html body article h2,html body .rt-evidence-section h2{
+    color:#000!important;background:none!important;border-color:#000!important;
+  }
+  html body .articulo strong,html body .breve-cuerpo strong,html body article strong,
+  html body .rt-evidence-section strong{color:#000!important;background:none!important}
+  html body .articulo p,html body .breve-cuerpo p,html body article p,html body .rt-evidence-section p{
+    color:#000!important;max-width:none!important;margin:0 0 12px!important
+  }
+  html body a{color:#000!important;text-decoration:underline}
+  html body .art-head::before,html body .cat-head::before,html body .cat-head::after,
+  html body .migas,html body .migas a,html body .fuente,html body .publicacion{color:#000!important}
+
+  /* El grid de 2 columnas (rail incluido) no aplica en papel: una sola columna */
+  html body main.envoltorio,html body #contenido>.envoltorio{display:block!important}
+
+  @page{margin:2cm}
+}
