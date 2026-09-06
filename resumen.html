@@ -139,19 +139,22 @@
   .cambio-version { color:var(--teal-hondo); text-decoration:none; }
   .cambio-version:hover { color:var(--teal); }
 
-  article { padding:20px 0; columns:2; column-gap:clamp(36px,4vw,64px); }
+  /* Rediseno editorial: columna de lectura unica (antes columns:2 en pantalla ancha,
+     dificil de seguir en textos clinicos largos); mismo contenido, mismo HTML, solo
+     ancho de linea controlado y alineacion a la izquierda en pantalla (el justificado
+     con guiones automaticos se conserva unicamente para impresion, ver @media print). */
+  article { padding:20px 0; max-width:74ch; }
   article h2 {
     font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.18em;
     text-transform:uppercase; color:var(--teal-hondo); font-weight:500;
-    margin:32px 0 10px; break-inside:avoid; break-after:avoid-column;
+    margin:32px 0 10px;
   }
   article h2:first-child { margin-top:0; }
-  article p { margin-bottom:16px; text-align:justify; hyphens:auto; -webkit-hyphens:auto; }
+  article p { margin-bottom:16px; text-align:left; hyphens:none; }
   article strong { color:var(--tinta); font-weight:600; }
   body.modo-corto .envoltorio { max-width:820px; }
   body.modo-corto .topbar-in { max-width:820px; }
-  article.corto { columns:1; }
-  article.corto p { text-align:justify; hyphens:auto; -webkit-hyphens:auto; }
+  article.corto p { text-align:left; hyphens:none; }
 
   .enlace-original {
     margin:8px 0 40px; padding:20px 24px;
@@ -210,7 +213,8 @@
   @media print {
     .topbar,.top-links,.migas,.version-nav,.pie-nav,.relacionados,.acciones-art,.btn-pdf,footer.art { display:none!important; }
     body { background:#fff; color:#000; font-size:12pt; }
-    article,article.corto { columns:1!important; }
+    article,article.corto { max-width:none!important; }
+    article p { text-align:justify; hyphens:auto; -webkit-hyphens:auto; }
     .no-copiar,.no-copiar * { -webkit-user-select:auto!important; user-select:auto!important; }
     a { color:#000; }
   }
@@ -373,5 +377,5 @@
     document.querySelectorAll(".btn-pdf").forEach((b)=>b.addEventListener("click",()=>descargarPDF(dato,b.dataset.pdfVersion==="breve",b)));
   }).catch((err)=>{console.error("No se pudo cargar resumenes.json:",err);noEncontrado();});
 </script>
-<script src="/site-runtime.js?v=20260902" defer></script><script src="/site-runtime.js?v=20260821" defer></script></body>
+<script src="/site-runtime.js?v=20260821" defer></script></body>
 </html>

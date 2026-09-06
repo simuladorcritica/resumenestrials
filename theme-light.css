@@ -24,6 +24,14 @@
    rutas se mantienen siempre oscuras (ver future-experience.js) para no dejar una mezcla rota
    sin verificación visual. Quedan documentadas como pendiente en el changelog. */
 
+/* Fondo base del <body>: future-experience.css fuerza background/color oscuros en
+   "body.rt-future" con !important de forma incondicional (necesario porque .rt-future
+   es permanente). Nunca existia el contrario para tema claro; en paginas sin un
+   contenedor opaco propio que tape el body (p. ej. resumen.html) esto dejaba visible
+   un fondo oscuro incluso con "claro" activo. Selector con 2 clases: gana por
+   especificidad sobre la regla original sin depender del orden de carga. */
+body.rt-future.rt-tema-claro{background:var(--papel)!important;color:var(--tinta)!important}
+
 /* ---------- Topbar y navegación compartida ---------- */
 .rt-tema-claro .topbar{background:rgba(247,246,242,.92)!important}
 .rt-tema-claro .rt-brand-name{color:var(--tinta)!important}
