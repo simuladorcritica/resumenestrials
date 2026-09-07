@@ -3,6 +3,16 @@ import { getLibraryState, toggleFavorite, markRead, touchLastVisit } from './lib
 import { RT_WEB_VERSION } from './app-version.js';
 
 const esc = (s) => String(s ?? '').replace(/[&<>'"]/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
+// r.fecha suele ser ISO (AAAA-MM-DD), pero 11 registros historicos usan texto en
+// espanol ("27 de agosto de 2022", con eventuales fechas de actualizacion entre
+// parentesis). slice(0,4) asumia siempre ISO y devolvia fragmentos como "27 d"
+// para esos casos, lo que ademas de ensuciar el selector de anios los excluia
+// por error al filtrar por anio. Se toma el primer bloque de 4 digitos, que en
+// ambos formatos es siempre el anio.
+function extraerAnio(fecha) {
+  const m = String(fecha || '').match(/\d{4}/);
+  return m ? m[0] : '';
+}
 let data = [];
 let byId = new Map();
 let state = { signedIn:false, favorites:[], read:[], preferences:{} };
@@ -58,7 +68,7 @@ function journalOptions() {
 }
 
 function yearOptions() {
-  return [...new Set(data.map((r) => (r.fecha || '').slice(0,4)).filter(Boolean))].sort().reverse();
+  return [...new Set(data.map((r) => extraerAnio(r.fecha)).filter(Boolean))].sort().reverse();
 }
 
 function addAdvanced() {
@@ -139,7 +149,7 @@ function applyPersonalFilters() {
   document.querySelectorAll('.fila').forEach((row) => {
     const id = articleId(row), r = byId.get(String(id));
     if (!r) return;
-    const y = (r.fecha || '').slice(0,4);
+    const y = extraerAnio(r.fecha);
     const okYear = !advanced.year || y === advanced.year;
     const okJournal = !advanced.journal || r.revista === advanced.journal;
     const okStatus = advanced.status === 'all' || (advanced.status === 'unread' && !state.read.includes(String(id))) || (advanced.status === 'favorites' && state.favorites.includes(String(id)));
