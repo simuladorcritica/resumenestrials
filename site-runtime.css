@@ -160,26 +160,18 @@ body.rt-future::after{
    caeria en la primera celda de una fila nueva en vez de ocupar todo el ancho. */
 .rt-future-home .meta-nota{grid-column:1/-1;margin-top:12px!important;text-align:left!important}
 
-/* Hero de portada a todo el ancho. Limitado por DOS reglas, no una:
-   ".rt-future .envoltorio{max-width:1540px}" (future-experience.css, especificidad 0,2,0)
-   y ademas "body.rt-future-home header.sitio .envoltorio{max-width:1380px!important}"
-   inyectada en runtime por future-experience-final.js (especificidad 0,3,2, por el
-   elemento "body" extra). Para vencer siempre a esta ultima sin depender del orden de
-   insercion en el DOM hace falta igualar/superar sus 2 elementos + 3 clases; se usa
-   "html body..." (0,3,3). Ver tambien el mismo patron en theme-light.css (tarea 50). */
-html body.rt-future-home header.sitio .envoltorio{max-width:none!important}
-
-/* La causa real de que el hero se viera "pegado a la izquierda" no era solo el
-   max-width de .envoltorio (ya corregido arriba): home-visual-tuning.js define
-   'header.sitio{grid-template-columns:minmax(0,1.42fr) minmax(270px,.58fr)!important}'
-   SIN prefijo .rt-future-home, reservando una segunda columna de ~.58fr (270-345px)
-   que en la practica queda vacia -- enhanceHome() en future-experience.js mete tanto
-   la copia (rt-hero-copy) como la ilustracion (rt-hero-visual/futureOrb()) DENTRO de
-   .envoltorio via wrap.replaceChildren(copy, futureOrb()), asi que header.sitio
-   siempre tiene un unico hijo (.envoltorio). Esa segunda columna de header.sitio
-   nunca la ocupa nada: es espacio muerto que le resta ~30% del ancho disponible
-   al hero completo. Se fuerza una sola columna a ancho completo. */
-.rt-future-home header.sitio{grid-template-columns:minmax(0,1fr)!important}
+/* Hero de portada mas ancho en monitores grandes, sin tocar la geometria que ya
+   pasa scripts/future-experience-smoke.mjs (exige header.sitio .envoltorio centrado
+   en un viewport de 1440px: boundingBox().x>20 y x+width<1420). future-experience-final.js
+   fija en runtime "body.rt-future-home header.sitio .envoltorio{max-width:1380px!important}"
+   (especificidad 0,3,2). En vez de quitar el limite (max-width:none), que en 1440px
+   deja el hero pegado al borde izquierdo sin margen y rompe esa prueba, se usa un
+   clamp que da EXACTAMENTE 1380px hasta ~1683px de viewport (82vw<1380px por debajo
+   de ese ancho, por lo que clamp devuelve el minimo = 1380, igual que antes) y crece
+   despues hasta un techo de 1800px en monitores anchos (1920px, 2560px), donde hoy
+   se ve angosto. Necesita "html body..." (0,3,3) para vencer siempre a la regla de
+   future-experience-final.js sin depender del orden de insercion en el DOM. */
+html body.rt-future-home header.sitio .envoltorio{max-width:clamp(1380px,82vw,1800px)!important}
 
 /* "Tu progreso": el anillo comparte fila flex con el texto (.rt-progress-row{display:flex}).
    Sin flex-shrink:0 el contenedor flex comprime el ancho (no el alto) del anillo cuando el
