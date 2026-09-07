@@ -27,7 +27,9 @@
     html[data-rt-member-design="v4"] .btn:hover,html[data-rt-member-design="v4"] button.primary:hover,html[data-rt-member-design="v4"] button#enviar:hover,html[data-rt-member-design="v4"] button#guardar:hover{background:#0d5f61!important;border-color:#0d5f61!important}
     html[data-rt-member-design="v4"] .btn.sec{background:transparent!important;color:#0d5f61!important;border:1px solid rgba(13,95,97,.45)!important}
     html[data-rt-member-design="v4"] .estado{font:500 9.5px/1.55 'IBM Plex Mono',monospace!important;letter-spacing:.025em!important}
-    html[data-rt-member-design="v4"] .shell{border-bottom:0!important;min-height:calc(100vh - 90px)!important}
+    /* Fix: .rt-future-account{...} en future-experience.css deja en .shell un borde de 1px en 3 lados con --rt-line (un color pensado para lineas sobre fondo oscuro, casi invisible/lavado aqui), esquinas redondeadas de 18px y una sombra pesada de 90px de difuminado. Ese tratamiento de "tarjeta flotante" es del tema oscuro heredado: la pagina de acceso real (aqui, en claro) usa un diseno plano de lineas finas sin tarjetas ni sombras (ver .story con su unico borde derecho), asi que la esquina redondeada y la sombra se veian como un elemento fuera de lugar, inconsistente con el resto de la pagina. Se neutralizan aqui. */
+    html[data-rt-member-design="v4"] .shell{border-bottom:0!important;min-height:calc(100vh - 90px)!important;border-top:0!important;border-left:0!important;border-right:0!important;border-radius:0!important;box-shadow:none!important}
+
 
     html[data-rt-member-design="v4"] body.rt-member-login .shell,html[data-rt-member-design="v4"] body.rt-member-registro .shell{grid-template-columns:minmax(360px,.95fr) minmax(460px,1.05fr)!important;gap:0!important}
     html[data-rt-member-design="v4"] .story,html[data-rt-member-design="v4"] .value{position:relative;border-right:1px solid rgba(16,37,61,.38)!important;padding:clamp(72px,9vh,112px) clamp(38px,5vw,72px) 72px 0!important;overflow:hidden}

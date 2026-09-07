@@ -13,6 +13,24 @@ function extraerAnio(fecha) {
   const m = String(fecha || '').match(/\d{4}/);
   return m ? m[0] : '';
 }
+
+// resumenes.json guarda el nombre de la revista tal como aparece en la cita
+// original de cada articulo, asi que la misma revista termina con varias
+// grafias distintas segun la fuente (105 "NEJM", 13 "New England Journal of
+// Medicine", 11 "The New England Journal of Medicine": las 3 son la misma
+// publicacion). Sin normalizar, el selector "Filtrar por revista" mostraba 4
+// entradas para lo que son en realidad 2 revistas. No se modifica
+// resumenes.json (dato de origen, fuera de alcance): la normalizacion vive
+// aqui y se aplica tanto a la lista de opciones como al filtro real, para
+// que elegir "NEJM" siga encontrando los 3 formatos. "NEJM Evidence" es una
+// revista hermana pero distinta y no se fusiona con "NEJM".
+const RT_ALIAS_REVISTA = {
+  'New England Journal of Medicine': 'NEJM',
+  'The New England Journal of Medicine': 'NEJM',
+};
+function normalizarRevista(nombre) {
+  return RT_ALIAS_REVISTA[nombre] || nombre;
+}
 let data = [];
 let byId = new Map();
 let state = { signedIn:false, favorites:[], read:[], preferences:{} };
@@ -64,7 +82,7 @@ function articleId(row) {
 }
 
 function journalOptions() {
-  return [...new Set(data.map((r) => r.revista).filter(Boolean))].sort((a,b) => a.localeCompare(b,'es'));
+  return [...new Set(data.map((r) => normalizarRevista(r.revista)).filter(Boolean))].sort((a,b) => a.localeCompare(b,'es'));
 }
 
 function yearOptions() {
@@ -151,7 +169,7 @@ function applyPersonalFilters() {
     if (!r) return;
     const y = extraerAnio(r.fecha);
     const okYear = !advanced.year || y === advanced.year;
-    const okJournal = !advanced.journal || r.revista === advanced.journal;
+    const okJournal = !advanced.journal || normalizarRevista(r.revista) === advanced.journal;
     const okStatus = advanced.status === 'all' || (advanced.status === 'unread' && !state.read.includes(String(id))) || (advanced.status === 'favorites' && state.favorites.includes(String(id)));
     row.dataset.rtPersonalVisible = String(okYear && okJournal && okStatus);
     if (!(okYear && okJournal && okStatus)) row.style.display = 'none';

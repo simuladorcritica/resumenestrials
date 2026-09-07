@@ -12,6 +12,12 @@ home=home.replace('</head>',polish+'</head>').replace('</body>',runtime+'</body>
 writeFileSync('index.html',home,'utf8');
 
 function assert(value,message){if(!value)throw new Error(message)}
+// Misma normalizacion que interactive-home.js: varias grafias de la misma revista
+// (NEJM / New England Journal of Medicine / The New England Journal of Medicine)
+// se tratan como una sola entrada en el selector; 'NEJM Evidence' es una revista
+// hermana distinta y no se fusiona.
+const RT_ALIAS_REVISTA={'New England Journal of Medicine':'NEJM','The New England Journal of Medicine':'NEJM'};
+const normalizarRevista=(nombre)=>RT_ALIAS_REVISTA[nombre]||nombre;
 const browser=await chromium.launch({headless:true});
 try{
   const page=await browser.newPage({viewport:{width:1440,height:1000}});
@@ -72,13 +78,13 @@ try{
   await page.selectOption('#rt-year','');
 
   const journalCounts=new Map();
-  for(const row of data){if(row.revista)journalCounts.set(row.revista,(journalCounts.get(row.revista)||0)+1)}
+  for(const row of data){if(row.revista){const j=normalizarRevista(row.revista);journalCounts.set(j,(journalCounts.get(j)||0)+1)}}
   const targetJournal=[...journalCounts].sort((a,b)=>b[1]-a[1]).find(([,n])=>n>0&&n<data.length)?.[0];
   assert(targetJournal,'Filtros: no hay una revista útil para probar');
   await page.selectOption('#rt-journal',{label:targetJournal});
   await page.waitForTimeout(120);
   const journalVisible=await page.locator('.fila:visible').evaluateAll(rows=>rows.map(r=>r.dataset.id));
-  const journalExpected=new Set(data.filter(r=>r.revista===targetJournal).map(r=>String(r.id)));
+  const journalExpected=new Set(data.filter(r=>normalizarRevista(r.revista)===targetJournal).map(r=>String(r.id)));
   assert(journalVisible.length===journalExpected.size&&journalVisible.every(id=>journalExpected.has(id)),`Filtros: la revista ${targetJournal} no filtra correctamente`);
   await page.selectOption('#rt-journal','');
 
