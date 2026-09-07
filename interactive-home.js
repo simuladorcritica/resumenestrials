@@ -159,8 +159,15 @@ function applyPersonalFilters() {
   });
   document.querySelectorAll('.grupo-anio').forEach((g) => {
     const visible = [...g.querySelectorAll('.fila')].some((r) => getComputedStyle(r).display !== 'none');
-    if (!visible) g.style.display = 'none';
-    else if (g.style.display === 'none') g.style.display = '';
+    // El bundle inyecta `.grupo-anio{display:grid!important}` (future-experience.css) y
+    // ademas home-visual-tuning.js repite la misma regla !important sin el prefijo
+    // .rt-future-home. Un display:none puesto por JS via .style.display nunca puede
+    // ganarle a una regla de hoja de estilo marcada !important, asi que el grupo se
+    // quedaba visible (con su rotulo de año) aunque los ensayos del año ya estuvieran
+    // ocultos por el filtro, dejando un bloque en blanco por cada año sin resultados.
+    // Se usa una clase con mayor especificidad (ver future-experience.css) en vez de
+    // depender de estilo inline.
+    g.classList.toggle('rt-grupo-vacio', !visible);
   });
 }
 

@@ -166,3 +166,13 @@ Probando a fondo el buscador y los filtros de `index.html` (no solo su aspecto) 
 Por la restricción explícita de no tocar `resumenes.json`, se corrigió únicamente la extracción en `interactive-home.js`: en vez de asumir posición fija, se toma el primer bloque de 4 dígitos de la cadena (`/\d{4}/`), que es el año tanto en formato ISO como en el texto en español. Publicado (commit `ec827bd`), CI verde, verificado en vivo: el selector ya solo lista años reales y BOX/LOVIT aparecen correctamente al filtrar por 2022.
 
 Esto confirma el valor de probar la *funcionalidad* de cada pieza (no solo su aspecto) antes de dar por buena una página ya "rediseñada" por scripts anteriores.
+
+## Fix: grupos de año vacíos quedaban visibles al filtrar (bloques en blanco en el índice)
+
+**Síntoma:** al filtrar el índice de la portada por año (selector "Todos los años" → un año concreto), los años sin resultados no desaparecían del todo: el rótulo del año y el bloque contenedor seguían ocupando ~150-160px de espacio en blanco cada uno, en vez de colapsarse. Con 17 años en el selector y solo 1-2 con resultados tras filtrar, esto producía varias pantallas de espacio vacío entre los resultados reales.
+
+**Causa raíz:** `interactive-home.js` (`applyPersonalFilters()`) oculta cada `.grupo-anio` sin filas visibles asignando `g.style.display = 'none'` (estilo inline). Pero tanto `future-experience.css` (`.rt-future-home .grupo-anio{display:grid!important;...}`) como `home-visual-tuning.js` (que inyecta la misma regla `.grupo-anio{display:grid!important;...}` sin el prefijo `.rt-future-home`) marcan esa propiedad como `!important`. Una regla de hoja de estilos `!important` siempre gana sobre un estilo inline no-`!important`, así que el `display:none` puesto por JS nunca llegaba a aplicarse: el grupo permanecía com `display:grid` pese a que todas sus filas internas sí estaban correctamente ocultas.
+
+**Fix:** en `interactive-home.js`, el grupo vacío ahora se marca con `g.classList.toggle('rt-grupo-vacio', !visible)` en vez de tocar `style.display`. En `future-experience.css` se añadió `.rt-future-home .grupo-anio.rt-grupo-vacio{display:none!important}`, cuya especificidad (3 clases) supera tanto a la regla de 2 clases de `future-experience.css` como a la de 1 clase de `home-visual-tuning.js`, independientemente del orden de carga.
+
+**Verificación:** en `resumenestrials.com`, filtrar por año 2022 antes del fix dejaba ~16 bloques vacíos (uno por cada año sin resultados) intercalados con los 8 ensayos reales de 2022. Tras el fix y con `node scripts/build-site-runtime.mjs` regenerado, solo el bloque de 2022 permanece visible.
