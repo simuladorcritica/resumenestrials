@@ -64,14 +64,15 @@ try{
   assert(await page.locator('.seo-hubs-home').count()===0,'Producción: persisten botones inferiores duplicados');
   assert(await page.locator('.rt-editorial-prelude').count()===0,'Producción: persiste segundo bloque Explora/Interpreta/Conserva');
   assert(await page.locator('.rt-step small').count()===0,'Producción: persiste numeración de pasos');
-  assert(await page.locator('.rt-hero-actions a').count()===1,'Producción: el héroe conserva botones redundantes');
+  assert(await page.locator('.rt-hero-actions').count()===0,'Producción: el recuadro de CTA del héroe debe estar eliminado (a pedido explícito del usuario)');
   assert(await page.locator('.rt-main-nav a[href="/metodologia/"]').isVisible(),'Producción portada: falta Metodología superior');
   assert(await page.locator('.rt-main-nav a[href="/equipo-editorial/"]').isVisible(),'Producción portada: falta Equipo editorial superior');
 
-  const heroCta=page.locator('.rt-hero-cta[href="#biblioteca-clinica"]');
-  await heroCta.click();
+  assert(!!(await page.locator('#biblioteca-clinica').count()),'Producción: el ancla del explorador debe seguir existiendo aunque se quitó el botón del héroe');
+  const exploreNav=page.locator('.rt-main-nav a[href="/"]');
+  await exploreNav.click();
   await page.waitForTimeout(400);
-  assert(await page.evaluate(()=>scrollY>100),'Producción: CTA Explora no desplaza a la biblioteca');
+  assert(await page.evaluate(()=>scrollY>100),'Producción: el enlace "Explorar" de la navegación no desplaza a la biblioteca');
   await page.evaluate(()=>scrollTo(0,0));
 
   const search=page.locator('.rt-global-search-input');

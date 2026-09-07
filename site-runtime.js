@@ -844,16 +844,7 @@
     $$('.seo-hubs-home,.rt-editorial-prelude').forEach((node) => node.remove());
     $$('.rt-step small,.rt-prelude-number').forEach((node) => node.remove());
     const actions = $('.rt-hero-actions');
-    if (actions) {
-      const methodology = actions.querySelector('a[href*="/metodologia"]');
-      if (methodology) methodology.remove();
-      const primary = actions.querySelector('a[href="#biblioteca-clinica"]');
-      if (primary) {
-        const targetText = 'Explora la biblioteca →';
-        if (primary.textContent !== targetText) primary.textContent = targetText;
-        primary.setAttribute('aria-label', 'Explorar la biblioteca clínica');
-      }
-    }
+    if (actions) actions.remove();
   };
 
   const cleanTrial = () => {
@@ -1097,6 +1088,18 @@
     body.rt-future-hub .tema,body.rt-future-cluster .tema,body.rt-future-institutional .tema{
       font-size:12px!important;line-height:1.4!important;padding:5px 10px!important
     }
+    /* Contraste en modo oscuro: .tema hereda color:var(--teal-hondo) de trial.css
+       (un teal oscuro pensado para fondo claro), invisible sobre el fondo navy de
+       hub/cluster en modo oscuro. En modo claro (.rt-tema-claro) ya se ve bien con
+       ese mismo valor sobre fondo claro, asi que este fix se excluye explicitamente
+       de .rt-tema-claro para no romper lo que ya funciona. */
+    body.rt-future-hub:not(.rt-tema-claro) .tema,body.rt-future-cluster:not(.rt-tema-claro) .tema,body.rt-future-institutional:not(.rt-tema-claro) .tema{
+      color:#78cfc6!important;background:rgba(36,200,180,.07)!important;border-color:rgba(36,200,180,.24)!important
+    }
+    /* Maximo 2 etiquetas por tarjeta en listados de hub/cluster: el HTML estatico
+       incluye todos los "temas" del trial sin limite; se ocultan a partir de la 3a
+       en vez de regenerar el HTML (evita tocar generar_seo_clusters.py/resumenes.json). */
+    .cat-card .badges .tema:nth-child(n+3){display:none!important}
 
     @media(max-width:1500px){
       body.rt-future .topbar-in{

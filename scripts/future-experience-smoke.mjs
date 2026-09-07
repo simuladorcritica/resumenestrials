@@ -44,7 +44,7 @@ try{
   await page.waitForFunction(()=>!!document.getElementById('rt-unified-reader-v4'),{timeout:10000});
   await page.waitForSelector('.rt-orbit',{timeout:10000});
   await page.waitForSelector('.rt-explorer-stage',{timeout:10000});
-  await page.waitForFunction(()=>document.querySelectorAll('.rt-hero-actions a').length===1&&!document.querySelector('.rt-step small'),{timeout:10000});
+  await page.waitForFunction(()=>document.querySelectorAll('.rt-hero-actions a').length===0&&!document.querySelector('.rt-step small'),{timeout:10000});
   assert(await page.locator('.fila').count()>=data.length,`Portada: se esperaban al menos ${data.length} filas`);
   assert(await page.locator('.fila.rt-featured').count()===1,'Portada: falta trial destacado');
   assert(await page.locator('.rt-nav-search').isVisible(),'Portada: buscador global no visible');
@@ -53,7 +53,7 @@ try{
   assert(await page.locator('.seo-hubs-home').count()===0,'Portada: quedan botones inferiores duplicados de metodología/equipo');
   assert(await page.locator('.rt-editorial-prelude').count()===0,'Portada: Explora/Interpreta/Conserva aparece duplicado');
   assert(await page.locator('.rt-step small').count()===0,'Portada: persiste numeración 01/02/03');
-  assert(await page.locator('.rt-hero-actions a').count()===1,'Portada: debe conservarse un único CTA superior en el héroe');
+  assert(await page.locator('.rt-hero-actions').count()===0,'Portada: el recuadro de CTA del héroe debe estar eliminado (a pedido explícito del usuario)');
   assert(await page.locator('.rt-main-nav a[href="/metodologia/"]').isVisible(),'Portada: Metodología superior debe conservarse');
   assert(await page.locator('.rt-main-nav a[href="/equipo-editorial/"]').isVisible(),'Portada: Equipo editorial superior debe conservarse');
 
@@ -75,12 +75,14 @@ try{
 
   const heroBox=await page.locator('header.sitio .envoltorio').boundingBox();
   assert(heroBox && heroBox.x>20 && heroBox.x+heroBox.width<1420,'Portada: el héroe no quedó centrado dentro del viewport');
-  const cta=page.locator('.rt-hero-cta[href="#biblioteca-clinica"]');
+  assert(await page.locator('.rt-hero-actions').count()===0,'Portada: el recuadro de CTA del héroe debe estar eliminado (a pedido explícito del usuario)');
+  assert(!!(await page.locator('#biblioteca-clinica').count()),'Portada: el ancla del explorador debe seguir existiendo aunque se quitó el botón del héroe');
+  const exploreNav=page.locator('.rt-main-nav a[href="/"]');
   const yBefore=await page.evaluate(()=>scrollY);
-  await cta.click();
+  await exploreNav.click();
   await page.waitForTimeout(450);
   const yAfter=await page.evaluate(()=>scrollY);
-  assert(yAfter>yBefore+100,'Portada: el botón Explora la biblioteca no desplaza al explorador');
+  assert(yAfter>yBefore+100,'Portada: el enlace "Explorar" de la navegación superior no desplaza al explorador (sin el botón del héroe, este es el único disparador que queda)');
   await page.evaluate(()=>scrollTo(0,0));
   await noOverflow(page,'Portada desktop');
 

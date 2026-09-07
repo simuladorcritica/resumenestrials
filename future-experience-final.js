@@ -160,16 +160,7 @@
     $$('.seo-hubs-home,.rt-editorial-prelude').forEach((node) => node.remove());
     $$('.rt-step small,.rt-prelude-number').forEach((node) => node.remove());
     const actions = $('.rt-hero-actions');
-    if (actions) {
-      const methodology = actions.querySelector('a[href*="/metodologia"]');
-      if (methodology) methodology.remove();
-      const primary = actions.querySelector('a[href="#biblioteca-clinica"]');
-      if (primary) {
-        const targetText = 'Explora la biblioteca →';
-        if (primary.textContent !== targetText) primary.textContent = targetText;
-        primary.setAttribute('aria-label', 'Explorar la biblioteca clínica');
-      }
-    }
+    if (actions) actions.remove();
   };
 
   const cleanTrial = () => {
