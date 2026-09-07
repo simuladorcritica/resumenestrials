@@ -160,10 +160,14 @@ body.rt-future::after{
    caeria en la primera celda de una fila nueva en vez de ocupar todo el ancho. */
 .rt-future-home .meta-nota{grid-column:1/-1;margin-top:12px!important;text-align:left!important}
 
-/* Hero de portada a todo el ancho (antes limitado por .rt-future .envoltorio{max-width:1540px}).
-   Se sube la especificidad con el selector ya existente de la cabecera del home en vez de tocar
-   la regla global, para no afectar el resto de paginas que comparten .envoltorio. */
-.rt-future-home header.sitio .envoltorio{max-width:none!important}
+/* Hero de portada a todo el ancho. Limitado por DOS reglas, no una:
+   ".rt-future .envoltorio{max-width:1540px}" (future-experience.css, especificidad 0,2,0)
+   y ademas "body.rt-future-home header.sitio .envoltorio{max-width:1380px!important}"
+   inyectada en runtime por future-experience-final.js (especificidad 0,3,2, por el
+   elemento "body" extra). Para vencer siempre a esta ultima sin depender del orden de
+   insercion en el DOM hace falta igualar/superar sus 2 elementos + 3 clases; se usa
+   "html body..." (0,3,3). Ver tambien el mismo patron en theme-light.css (tarea 50). */
+html body.rt-future-home header.sitio .envoltorio{max-width:none!important}
 
 /* "Tu progreso": el anillo comparte fila flex con el texto (.rt-progress-row{display:flex}).
    Sin flex-shrink:0 el contenedor flex comprime el ancho (no el alto) del anillo cuando el
