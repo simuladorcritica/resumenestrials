@@ -175,6 +175,39 @@ html body.rt-tema-claro.rt-future-legacy article p,html body.rt-tema-claro.rt-fu
 html body.rt-tema-claro.rt-future-legacy article p,html body.rt-tema-claro.rt-future-legacy article li,html body.rt-tema-claro.rt-future-legacy article.corto p,html body.rt-tema-claro.rt-future-legacy article.corto li{color:var(--tinta-2)!important}
 .rt-tema-claro.rt-future-legacy article strong{color:var(--tinta)!important;background:none!important}
 
+/* "Evidencia relacionada" del resumen breve (resumen.html?v=corto): DOS scripts pisan
+   estos mismos elementos con colores fijos para tema oscuro y sin contraparte clara:
+   reader-endmatter-v7.js ('.relacionados' sin atributo -- especificidad (0,4,3) en
+   '.rel-item h3', contando tambien '.relacionados' y '.rel-item' como clases, que la
+   primera vez se me habian pasado por alto) y reader-ui-v8.js
+   ('.relacionados[data-rt-brief-related] .rel-item h3', (0,6,3): el selector de
+   atributo cuenta como una clase mas, y ambos scripts SI llegan a poner
+   data-rt-brief-related en el DOM ('v7' o 'v8' segun cual corra), asi que
+   reader-ui-v8 es quien realmente gana hoy). Un primer intento de arreglo aqui
+   (sin el atributo) quedaba en un EMPATE exacto de especificidad con reader-ui-v8
+   -- (0,6,3) contando bien '.relacionados' y '.rel-item' -- y el empate lo gana
+   reader-ui-v8 por insertarse despues en el <head>. A diferencia del resumen
+   completo (.rt-future-trial .rel-item), cuyo texto SI ya se corrige mas arriba en
+   este archivo, esta variante nunca tuvo contraparte clara: los grises casi blancos
+   (#eef2ef, #dce6e5, #91a6af) quedaban casi invisibles sobre el fondo crema. Se
+   repite aqui el mismo selector de reader-ui-v8 (incluido el atributo) mas la clase
+   '.rt-legacy-normalized' (que legacy-unifier-v4.js ya pone siempre en resumen.html),
+   con lo que la especificidad sube a (0,7,3) -- por encima de los dos, sin depender
+   del orden de insercion. Verificado en vivo con Playwright antes de publicar
+   (color computado de antes/despues, no solo lectura de la hoja de estilos). Se
+   replican los mismos tokens que ya usa la version completa (--tinta, --tinta-2,
+   --linea) para que ambos formatos se vean iguales en claro. */
+html body.rt-tema-claro.rt-future.rt-future-legacy.rt-legacy-normalized.modo-corto .relacionados[data-rt-brief-related]{border-top-color:var(--linea)!important}
+html body.rt-tema-claro.rt-future.rt-future-legacy.rt-legacy-normalized.modo-corto .relacionados[data-rt-brief-related]>h2{color:var(--tinta)!important}
+html body.rt-tema-claro.rt-future.rt-future-legacy.rt-legacy-normalized.modo-corto .relacionados[data-rt-brief-related] .rel-item{border-color:var(--linea)!important}
+html body.rt-tema-claro.rt-future.rt-future-legacy.rt-legacy-normalized.modo-corto .relacionados[data-rt-brief-related] .rel-item h3,
+html body.rt-tema-claro.rt-future.rt-future-legacy.rt-legacy-normalized.modo-corto .relacionados[data-rt-brief-related] .rel-item .rel-tit{color:var(--tinta)!important}
+html body.rt-tema-claro.rt-future.rt-future-legacy.rt-legacy-normalized.modo-corto .relacionados[data-rt-brief-related] .rel-item p,
+html body.rt-tema-claro.rt-future.rt-future-legacy.rt-legacy-normalized.modo-corto .relacionados[data-rt-brief-related] .rel-item .rel-fuente{color:var(--tinta-2)!important}
+html body.rt-tema-claro.rt-future.rt-future-legacy.rt-legacy-normalized.modo-corto .relacionados[data-rt-brief-related] .rel-item:hover{border-color:var(--teal)!important;background:var(--papel-2)!important}
+html body.rt-tema-claro.rt-future.rt-future-legacy.rt-legacy-normalized.modo-corto .relacionados[data-rt-brief-related] .rel-item:hover h3,
+html body.rt-tema-claro.rt-future.rt-future-legacy.rt-legacy-normalized.modo-corto .relacionados[data-rt-brief-related] .rel-item:hover .rel-tit{color:var(--teal-hondo)!important}
+
 /* Nota de alcance: rt-future-account (acceso/cuenta/biblioteca/privacidad/agregar) y
    rt-future-institutional (metodología/equipo editorial) no tienen variante clara todavía.
    future-experience.js las mantiene siempre en tema oscuro para no mostrar una mezcla rota. */

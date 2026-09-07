@@ -60,7 +60,10 @@
     html body.rt-future.rt-future-trial .rel-item a{min-width:0!important}
     html body.rt-future.rt-future-trial .rel-item h3{overflow:visible!important;overflow-wrap:break-word!important;word-break:normal!important;hyphens:none!important}
     html body.rt-future.rt-future-trial .rel-item .badge,
-    html body.rt-future.rt-future-trial .rel-item .tema{max-width:100%!important;white-space:normal!important;overflow-wrap:break-word!important;word-break:normal!important}
+    html body.rt-future.rt-future-trial .rel-item .tema{
+      display:inline-flex!important;max-width:100%!important;margin:0 6px 6px 0!important;white-space:normal!important;
+      overflow-wrap:break-word!important;word-break:normal!important;line-height:1.35!important
+    }
 
     html body.rt-future.rt-future-legacy.modo-corto .relacionados[data-rt-brief-related]{
       grid-column:1/-1!important;align-self:start!important;min-width:0!important;width:100%!important;max-width:none!important;margin:42px 0 0!important;
