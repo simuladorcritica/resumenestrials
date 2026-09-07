@@ -19,10 +19,14 @@
    Alcance de esta fase: portada (rt-future-home), trial (rt-future-trial), resumen legacy
    (rt-future-legacy) y hubs/clusters (rt-future-hub / rt-future-cluster), más los componentes
    compartidos (topbar, buscador de cabecera, rail de lectura, ficha resumen editorial).
-   rt-future-account (login/registro/recuperar/cuenta/biblioteca/privacidad/agregar) y
-   rt-future-institutional (metodología/equipo editorial) NO están cubiertos todavía: esas
-   rutas se mantienen siempre oscuras (ver future-experience.js) para no dejar una mezcla rota
-   sin verificación visual. Quedan documentadas como pendiente en el changelog. */
+   rt-future-account (login/registro/recuperar/cuenta/biblioteca) tiene desde entonces su
+   propio rediseño claro independiente (member-design-v3.js, atributo
+   html[data-rt-member-design="v4"]), que sobreescribe la mayoria de propiedades de
+   .rt-future-account con selectores de mayor especificidad; ver el fix de contraste
+   "paneles fantasma" en el changelog para el detalle de que colores quedaron sin
+   sobreescribir y como se corrigieron. privacidad.html, agregar.html y
+   rt-future-institutional (metodología/equipo editorial) NO tienen ese rediseño claro y
+   se mantienen siempre oscuros (ver future-experience.js) intencionalmente. */
 
 /* Fondo base del <body>: future-experience.css fuerza background/color oscuros en
    "body.rt-future" con !important de forma incondicional (necesario porque .rt-future
@@ -208,6 +212,7 @@ html body.rt-tema-claro.rt-future.rt-future-legacy.rt-legacy-normalized.modo-cor
 html body.rt-tema-claro.rt-future.rt-future-legacy.rt-legacy-normalized.modo-corto .relacionados[data-rt-brief-related] .rel-item:hover h3,
 html body.rt-tema-claro.rt-future.rt-future-legacy.rt-legacy-normalized.modo-corto .relacionados[data-rt-brief-related] .rel-item:hover .rel-tit{color:var(--teal-hondo)!important}
 
-/* Nota de alcance: rt-future-account (acceso/cuenta/biblioteca/privacidad/agregar) y
-   rt-future-institutional (metodología/equipo editorial) no tienen variante clara todavía.
-   future-experience.js las mantiene siempre en tema oscuro para no mostrar una mezcla rota. */
+/* Nota de alcance: rt-future-account (acceso/cuenta/biblioteca) usa el rediseño claro
+   independiente de member-design-v3.js, no este archivo (ver nota arriba). privacidad.html,
+   agregar.html y rt-future-institutional (metodología/equipo editorial) no tienen variante
+   clara todavía: future-experience.js las mantiene siempre en tema oscuro intencionalmente. */
