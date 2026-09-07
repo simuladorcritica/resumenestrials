@@ -16,7 +16,7 @@ function assert(value,message){if(!value)throw new Error(message)}
 // (NEJM / New England Journal of Medicine / The New England Journal of Medicine)
 // se tratan como una sola entrada en el selector; 'NEJM Evidence' es una revista
 // hermana distinta y no se fusiona.
-const RT_ALIAS_REVISTA={'New England Journal of Medicine':'NEJM','The New England Journal of Medicine':'NEJM'};
+const RT_ALIAS_REVISTA={'New England Journal of Medicine':'NEJM','The New England Journal of Medicine':'NEJM','NEJM Evidence':'NEJM'};
 const normalizarRevista=(nombre)=>RT_ALIAS_REVISTA[nombre]||nombre;
 const browser=await chromium.launch({headless:true});
 try{

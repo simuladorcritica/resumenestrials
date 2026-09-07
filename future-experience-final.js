@@ -45,7 +45,7 @@
     body.rt-future-home .fila-cuerpo .fuente{font-size:11.5px!important;line-height:1.55!important}
     body.rt-future-home .badge{font-size:10.5px!important;line-height:1.45!important}
     body.rt-future-home .btn-pdf{font-size:11.5px!important;line-height:1.25!important;min-height:38px!important;padding:9px 13px!important}
-    body.rt-future-home .fila.rt-featured::before{font-size:10px!important}
+    body.rt-future-home .fila.rt-featured::before{font-size:13px!important}
 
     body.rt-future-trial .migas{font-size:11.5px!important;line-height:1.45!important}
     body.rt-future-trial .art-head::before{font-size:10.5px!important;line-height:1.3!important}

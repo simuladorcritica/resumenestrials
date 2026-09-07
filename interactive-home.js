@@ -22,11 +22,13 @@ function extraerAnio(fecha) {
 // entradas para lo que son en realidad 2 revistas. No se modifica
 // resumenes.json (dato de origen, fuera de alcance): la normalizacion vive
 // aqui y se aplica tanto a la lista de opciones como al filtro real, para
-// que elegir "NEJM" siga encontrando los 3 formatos. "NEJM Evidence" es una
-// revista hermana pero distinta y no se fusiona con "NEJM".
+// que elegir "NEJM" siga encontrando cualquiera de las 4 grafias, incluida
+// "NEJM Evidence" (a pedido explicito del editor del sitio, se trata como
+// la misma entrada de filtro que "NEJM").
 const RT_ALIAS_REVISTA = {
   'New England Journal of Medicine': 'NEJM',
   'The New England Journal of Medicine': 'NEJM',
+  'NEJM Evidence': 'NEJM',
 };
 function normalizarRevista(nombre) {
   return RT_ALIAS_REVISTA[nombre] || nombre;

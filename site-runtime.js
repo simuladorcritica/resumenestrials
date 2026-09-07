@@ -729,7 +729,7 @@
     body.rt-future-home .fila-cuerpo .fuente{font-size:11.5px!important;line-height:1.55!important}
     body.rt-future-home .badge{font-size:10.5px!important;line-height:1.45!important}
     body.rt-future-home .btn-pdf{font-size:11.5px!important;line-height:1.25!important;min-height:38px!important;padding:9px 13px!important}
-    body.rt-future-home .fila.rt-featured::before{font-size:10px!important}
+    body.rt-future-home .fila.rt-featured::before{font-size:13px!important}
 
     body.rt-future-trial .migas{font-size:11.5px!important;line-height:1.45!important}
     body.rt-future-trial .art-head::before{font-size:10.5px!important;line-height:1.3!important}
@@ -938,23 +938,45 @@
 
     /* Navegación: sin colisiones aun con texto grande */
     body.rt-future .topbar-in{
-      max-width:1600px!important;width:100%!important;
-      grid-template-columns:minmax(220px,auto) minmax(360px,1fr) minmax(500px,auto)!important;
-      gap:18px 28px!important;padding:12px clamp(22px,3.6vw,58px)!important;
+      max-width:1780px!important;width:100%!important;
+      grid-template-columns:minmax(200px,auto) minmax(700px,1fr) minmax(600px,auto)!important;
+      gap:16px 22px!important;padding:14px clamp(18px,3vw,48px)!important;
     }
     body.rt-future .rt-brand-name{font-size:15px!important;line-height:1.2!important;letter-spacing:.13em!important}
     body.rt-future .rt-main-nav{min-width:0!important;gap:5px!important;flex-wrap:nowrap!important}
     body.rt-future .rt-main-nav a,body.rt-future .topbar nav a{
       font-size:16px!important;line-height:1.25!important;padding:10px 11px!important
     }
+
+    /* Barra de acciones: buscador protagonista + grupos separados visualmente,
+       en vez de todo amontonado en una sola fila apretada. */
     body.rt-future .rt-nav-actions{
-      min-width:0!important;display:grid!important;grid-template-columns:minmax(250px,330px) auto!important;
-      gap:10px!important;align-items:center!important
+      min-width:0!important;display:flex!important;flex-wrap:nowrap!important;
+      align-items:center!important;justify-content:flex-end!important;gap:16px!important
     }
-    body.rt-future .rt-nav-search{min-width:0!important;max-width:none!important;width:100%!important;font-size:15px!important;line-height:1.3!important}
-    body.rt-future .rt-nav-search kbd{font-size:11px!important}
+    body.rt-future .rt-nav-search{
+      order:1!important;flex:1 1 auto!important;min-width:220px!important;max-width:460px!important;
+      width:auto!important;min-height:48px!important;padding:12px 18px!important;
+      font-size:15.5px!important;line-height:1.3!important;letter-spacing:.01em!important;
+      border-radius:13px!important;border:1px solid rgba(36,200,180,.34)!important;
+      background:rgba(36,200,180,.06)!important;box-shadow:0 1px 0 rgba(255,255,255,.02) inset!important;
+    }
+    body.rt-future .rt-nav-search:hover{border-color:rgba(36,200,180,.55)!important;background:rgba(36,200,180,.09)!important}
+    body.rt-future .rt-nav-search svg{width:18px!important;height:18px!important}
+    body.rt-future .rt-nav-search span{font-size:15.5px!important}
+    body.rt-future .rt-nav-search kbd{font-size:11px!important;padding:3px 7px!important}
+    body.rt-future .rt-pref-controls{
+      order:2!important;flex:0 0 auto!important;margin:0!important;gap:8px!important;
+      padding-left:16px!important;border-left:1px solid var(--rt-line)!important;
+    }
+    body.rt-future .rt-pref-btn{font-size:12.5px!important;padding:9px 13px!important;min-height:42px!important}
+    body.rt-future .top-links{
+      order:3!important;flex:0 0 auto!important;gap:10px!important;
+      padding-left:16px!important;border-left:1px solid var(--rt-line)!important;
+    }
     body.rt-future .top-links .auth-entry-main{font-size:15px!important;line-height:1.25!important}
-    body.rt-future .rt-nav-account,body.rt-future .top-links .auth-entry{min-height:44px!important;padding:10px 14px!important}
+    body.rt-future .rt-nav-account,body.rt-future .top-links .auth-entry{min-height:46px!important;padding:11px 17px!important}
+    body.rt-future .top-links>a:not(.auth-entry){width:40px!important;height:40px!important}
 
     /* Portada y controles: se elimina microtipografía */
     body.rt-future-home .rt-hero-eyebrow{font-size:14px!important;line-height:1.45!important;letter-spacing:.11em!important}
@@ -1069,6 +1091,13 @@
     body.rt-future-legacy .relacionados h2{font-size:20px!important}
     body.rt-future-legacy .rel-item .rel-fuente,body.rt-future-legacy .volver,body.rt-future-legacy footer.art{font-size:15px!important;line-height:1.55!important}
 
+    /* Hubs y clusters (listados por especialidad/subespecialidad): las tarjetas
+       solo usan .tema para las etiquetas de tema, sin ninguna regla de tamaño
+       propia mas alla de la base global de 9px de trial.css — se sube aqui. */
+    body.rt-future-hub .tema,body.rt-future-cluster .tema,body.rt-future-institutional .tema{
+      font-size:12px!important;line-height:1.4!important;padding:5px 10px!important
+    }
+
     @media(max-width:1500px){
       body.rt-future .topbar-in{
         grid-template-columns:auto minmax(0,1fr)!important;
@@ -1076,13 +1105,15 @@
       }
       body.rt-future .rt-brand{grid-area:brand!important}
       body.rt-future .rt-main-nav{grid-area:nav!important;justify-content:flex-start!important;border-top:1px solid var(--rt-line)!important;padding-top:6px!important}
-      body.rt-future .rt-nav-actions{grid-area:actions!important;justify-self:end!important;max-width:620px!important;width:100%!important}
+      body.rt-future .rt-nav-actions{grid-area:actions!important;justify-self:end!important;max-width:680px!important;width:100%!important}
+      body.rt-future .rt-nav-search{max-width:340px!important}
     }
     @media(max-width:980px){
       body.rt-future .topbar-in{grid-template-columns:1fr!important;grid-template-areas:"brand" "nav" "actions"!important;gap:8px!important}
       body.rt-future .rt-brand{justify-self:start!important}
       body.rt-future .rt-main-nav{width:100%!important;overflow-x:auto!important;justify-content:flex-start!important;scrollbar-width:thin!important}
-      body.rt-future .rt-nav-actions{justify-self:stretch!important;max-width:none!important;grid-template-columns:minmax(0,1fr) auto!important}
+      body.rt-future .rt-nav-actions{justify-self:stretch!important;max-width:none!important;flex-wrap:wrap!important;row-gap:10px!important}
+      body.rt-future .rt-nav-search{flex:1 1 260px!important;max-width:none!important}
       body.rt-future-legacy #contenido>.envoltorio{grid-template-columns:1fr!important}
       body.rt-future-legacy .rt-reader-rail{grid-column:1!important;grid-row:auto!important;position:relative!important;top:auto!important;margin:12px 0 30px!important}
       body.rt-future-legacy header.art,body.rt-future-legacy.modo-corto header.art{grid-template-columns:1fr!important}
@@ -1092,8 +1123,12 @@
       body.rt-future{font-size:17px!important}
       body.rt-future .rt-brand-name{font-size:13px!important}
       body.rt-future .rt-main-nav a{font-size:15px!important}
-      body.rt-future .rt-nav-search{font-size:14px!important}
+      body.rt-future .rt-nav-search{font-size:14px!important;flex:1 1 100%!important;order:1!important}
+      body.rt-future .rt-nav-search span{font-size:14px!important}
       body.rt-future .top-links .auth-entry-main{font-size:14px!important}
+      body.rt-future .rt-pref-controls,body.rt-future .top-links{border-left:0!important;padding-left:0!important}
+      body.rt-future .rt-pref-controls{order:2!important}
+      body.rt-future .top-links{order:3!important;margin-left:auto!important}
       body.rt-future-home .bajada-cols{font-size:18px!important}
       body.rt-future-home .rt-explorer-head p{font-size:18px!important}
       body.rt-future-trial .rt-evidence-section h2,body.rt-future-legacy article h2,body.rt-future-legacy article.corto h2{font-size:28px!important}
