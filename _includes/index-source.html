@@ -106,6 +106,12 @@
     letter-spacing: 0.14em; text-transform: uppercase;
     color: var(--tinta-2); margin-top: 8px;
   }
+  .meta-nota {
+    flex-basis: 100%; width: 100%;
+    margin: 6px 0 0; font-family: 'IBM Plex Mono', monospace; font-size: 11px;
+    letter-spacing: 0.02em; text-transform: none; color: var(--tinta-2);
+    text-align: center; opacity: .85;
+  }
 
   /* ---- Cabecera del índice: filtros + buscador ---- */
   .indice-cabecera {
@@ -347,6 +353,7 @@
         <span class="meta-num" id="conteo-int">84</span>
         <span class="meta-eti">Medicina Interna</span>
       </div>
+      <p class="meta-nota">Los totales por especialidad no suman el total general porque algunos ensayos cruzan ambas áreas (p. ej. cardiología crítica) y se cuentan en las dos.</p>
     </div>
   </div>
 </header>

@@ -90,10 +90,22 @@ body.rt-future.rt-tema-claro{background:var(--papel)!important;color:var(--tinta
 /* ---------- Rail de lectura (compartido trial + legacy) ---------- */
 .rt-tema-claro .rt-rail-card{background:var(--papel-2)!important;box-shadow:0 10px 30px rgba(18,35,59,.06)!important}
 .rt-tema-claro .rt-rail-card h3{color:var(--tinta-2)!important}
+.rt-tema-claro .rt-progress-ring{background:conic-gradient(var(--teal-hondo) calc(var(--p)*1%),var(--linea) 0)!important}
 .rt-tema-claro .rt-progress-ring::after{background:var(--papel)!important}
+.rt-tema-claro .rt-progress-ring strong,.rt-tema-claro .rt-progress-value{color:var(--tinta)!important}
 .rt-tema-claro .rt-progress-copy{color:var(--tinta-2)!important}
 .rt-tema-claro .rt-progress-line{background:var(--linea)!important}
 .rt-tema-claro .rt-progress-track{background:var(--linea)!important}
+/* future-experience-fix-v4-compat.js inyecta 'html body.rt-future.rt-future-legacy
+   .rt-progress-ring/.rt-progress-value/.rt-progress-track{...!important}' con
+   especificidad (0,3,2)/(0,4,2)/(0,3,2) -- mayor que las reglas .rt-tema-claro de
+   arriba (0,2,0). En resumen.html (legacy) esas reglas ganaban y el anillo se
+   quedaba en su color oscuro fijo pese al tema claro. Se repiten aqui con mayor
+   especificidad (html body + las 4 clases reales del body en esa pagina) para
+   vencerlas siempre, sin depender del orden de insercion en el DOM. */
+html body.rt-tema-claro.rt-future.rt-future-legacy .rt-progress-ring{background:conic-gradient(var(--teal-hondo) calc(var(--p)*1%),var(--linea) 0)!important}
+html body.rt-tema-claro.rt-future.rt-future-legacy .rt-progress-ring .rt-progress-value{color:var(--tinta)!important}
+html body.rt-tema-claro.rt-future.rt-future-legacy .rt-progress-track{background:var(--linea)!important}
 .rt-tema-claro .rt-rail-nav a{color:var(--tinta-2)!important;border-left-color:var(--linea)!important}
 .rt-tema-claro .rt-rail-nav a.is-active,.rt-tema-claro .rt-rail-nav a.active{color:var(--teal-hondo)!important}
 .rt-tema-claro .rt-rail-finding{color:var(--tinta-2)!important}
@@ -146,7 +158,11 @@ body.rt-future.rt-tema-claro{background:var(--papel)!important;color:var(--tinta
 .rt-tema-claro.rt-future-legacy .badge{color:var(--teal-hondo)!important}
 .rt-tema-claro.rt-future-legacy article,.rt-tema-claro.rt-future-legacy article.corto{color:var(--tinta-2)!important}
 .rt-tema-claro.rt-future-legacy article h2{color:var(--teal-hondo)!important}
-.rt-tema-claro.rt-future-legacy article p{color:var(--tinta-2)!important}
+html body.rt-tema-claro.rt-future-legacy article p,html body.rt-tema-claro.rt-future-legacy article li,html body.rt-tema-claro.rt-future-legacy article.corto p,html body.rt-tema-claro.rt-future-legacy article.corto li{color:var(--tinta-2)!important}
+/* especificidad elevada (html body ...) para vencer la regla de legacy-unifier-v4.js
+   'body.rt-future-legacy article.corto p' (0,2,3), que de lo contrario gana por ser
+   mas especifica que '.rt-tema-claro.rt-future-legacy article p' (0,2,2) pese a inyectarse
+   despues en el DOM. Ver CHANGELOG_diseno.md. */
 .rt-tema-claro.rt-future-legacy article strong{color:var(--tinta)!important}
 .rt-tema-claro.rt-future-legacy .btn-pdf{color:var(--teal-hondo)!important;border-color:var(--teal)!important}
 .rt-tema-claro.rt-future-legacy .version-nav,.rt-tema-claro.rt-future-legacy .enlace-original{
@@ -156,7 +172,7 @@ body.rt-future.rt-tema-claro{background:var(--papel)!important;color:var(--tinta
 .rt-tema-claro.rt-future-legacy .fuente-linea{color:var(--tinta-2)!important}
 .rt-tema-claro.rt-future-legacy article,.rt-tema-claro.rt-future-legacy article.corto{color:var(--tinta-2)!important}
 .rt-tema-claro.rt-future-legacy article h2{color:var(--teal-hondo)!important}
-.rt-tema-claro.rt-future-legacy article p,.rt-tema-claro.rt-future-legacy article li{color:var(--tinta-2)!important}
+html body.rt-tema-claro.rt-future-legacy article p,html body.rt-tema-claro.rt-future-legacy article li,html body.rt-tema-claro.rt-future-legacy article.corto p,html body.rt-tema-claro.rt-future-legacy article.corto li{color:var(--tinta-2)!important}
 .rt-tema-claro.rt-future-legacy article strong{color:var(--tinta)!important;background:none!important}
 
 /* Nota de alcance: rt-future-account (acceso/cuenta/biblioteca/privacidad/agregar) y

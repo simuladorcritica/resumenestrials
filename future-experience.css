@@ -151,3 +151,19 @@ body.rt-future::after{
    (future-experience.css, 2 clases) como a ".grupo-anio" sin prefijo
    (home-visual-tuning.js, 1 clase), ambas marcadas !important. */
 .rt-future-home .grupo-anio.rt-grupo-vacio{display:none!important}
+
+
+/* Nota de especialidades cruzadas dentro de .barra-meta (ver _includes/index-source.html).
+   .rt-future-home .barra-meta usa CSS grid de 3 columnas; sin grid-column:1/-1 la nota
+   caeria en la primera celda de una fila nueva en vez de ocupar todo el ancho. */
+.rt-future-home .meta-nota{grid-column:1/-1;margin-top:12px!important;text-align:left!important}
+
+/* Hero de portada a todo el ancho (antes limitado por .rt-future .envoltorio{max-width:1540px}).
+   Se sube la especificidad con el selector ya existente de la cabecera del home en vez de tocar
+   la regla global, para no afectar el resto de paginas que comparten .envoltorio. */
+.rt-future-home header.sitio .envoltorio{max-width:none!important}
+
+/* "Tu progreso": el anillo comparte fila flex con el texto (.rt-progress-row{display:flex}).
+   Sin flex-shrink:0 el contenedor flex comprime el ancho (no el alto) del anillo cuando el
+   rail es angosto, deformandolo en ovalo. Ver .rt-progress-ring mas arriba. */
+.rt-progress-ring{flex-shrink:0!important;flex-grow:0!important;min-width:58px!important;min-height:58px!important}
