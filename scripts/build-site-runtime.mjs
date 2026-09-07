@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 
 const jsSources = [
+  'topbar-offset-fix.js',
   'future-experience.js',
   'global-search.js',
   'future-experience-final.js',
