@@ -178,7 +178,8 @@
        hub/cluster en modo oscuro. En modo claro (.rt-tema-claro) ya se ve bien con
        ese mismo valor sobre fondo claro, asi que este fix se excluye explicitamente
        de .rt-tema-claro para no romper lo que ya funciona. */
-    body.rt-future-hub:not(.rt-tema-claro) .tema,body.rt-future-cluster:not(.rt-tema-claro) .tema,body.rt-future-institutional:not(.rt-tema-claro) .tema{
+    body.rt-future-hub:not(.rt-tema-claro) .tema,body.rt-future-cluster:not(.rt-tema-claro) .tema,body.rt-future-institutional:not(.rt-tema-claro) .tema,
+    body.rt-future-hub:not(.rt-tema-claro) .cat-card .badge,body.rt-future-cluster:not(.rt-tema-claro) .cat-card .badge{
       color:#78cfc6!important;background:rgba(36,200,180,.07)!important;border-color:rgba(36,200,180,.24)!important
     }
     /* Maximo 2 etiquetas por tarjeta en listados de hub/cluster: el HTML estatico

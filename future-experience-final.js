@@ -176,6 +176,73 @@
     if (article && rail && article.nextElementSibling !== rail) article.insertAdjacentElement('afterend', rail);
   };
 
+  // Etiquetas de especialidad/subespecialidad: reemplaza los temas/etiquetas
+  // heredados del HTML estático (genéricos, diagnósticos sueltos, hasta 4 por
+  // tarjeta) por SOLO la especialidad principal (Medicina Crítica o Medicina
+  // Interna) y, si es Medicina Interna, la subespecialidad clínica específica
+  // (Neumología, Cardiología, etc.) — a pedido explícito del usuario. Se aplica
+  // tanto en la cabecera de cada trial como en las tarjetas .cat-card de los
+  // listados de hub/cluster, usando /specialty-badges.json (mapa ruta→{main,sub}
+  // generado por generar_specialty_badges.py a partir de resumenes.json, sin
+  // modificarlo).
+  const specialtyState = { map: null, promise: null };
+  const escSpecialty = (value) => String(value || '').replace(/[&<>"']/g, (c) => ({
+    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
+  }[c]));
+  const loadSpecialtyBadges = () => {
+    if (specialtyState.map) return Promise.resolve(specialtyState.map);
+    if (!specialtyState.promise) {
+      specialtyState.promise = fetch('/specialty-badges.json', { cache: 'force-cache' })
+        .then((response) => (response.ok ? response.json() : {}))
+        .then((map) => { specialtyState.map = map; return map; })
+        .catch(() => ({}));
+    }
+    return specialtyState.promise;
+  };
+  const specialtyBadgeMarkup = (entry) => {
+    if (!entry || !entry.main) return '';
+    const clase = entry.main === 'Medicina Crítica' ? 'critica' : 'interna';
+    let markup = `<span class="badge ${clase}">${escSpecialty(entry.main)}</span>`;
+    if (entry.sub) markup += `<span class="tema">${escSpecialty(entry.sub)}</span>`;
+    return markup;
+  };
+  const pathOnly = (href) => {
+    try { return new URL(href, location.origin).pathname; } catch { return ''; }
+  };
+  const applyTrialSpecialtyBadge = (map) => {
+    if (!document.body.classList.contains('rt-future-trial')) return;
+    const box = $('.art-head .badges');
+    if (!box || box.dataset.rtSpecialtyApplied === '1') return;
+    const entry = map[location.pathname];
+    if (!entry) return;
+    box.innerHTML = specialtyBadgeMarkup(entry);
+    box.dataset.rtSpecialtyApplied = '1';
+  };
+  const applyCardSpecialtyBadges = (map) => {
+    if (!document.body.classList.contains('rt-future-hub') && !document.body.classList.contains('rt-future-cluster')) return;
+    $$('.cat-card').forEach((card) => {
+      const box = $('.badges', card);
+      const link = $('a[href]', card);
+      if (!box || !link || box.dataset.rtSpecialtyApplied === '1') return;
+      const entry = map[pathOnly(link.getAttribute('href') || '')];
+      if (!entry) return;
+      box.innerHTML = specialtyBadgeMarkup(entry);
+      box.dataset.rtSpecialtyApplied = '1';
+    });
+  };
+  const applySpecialtyBadges = () => {
+    const relevant = document.body.classList.contains('rt-future-trial')
+      || document.body.classList.contains('rt-future-hub')
+      || document.body.classList.contains('rt-future-cluster');
+    if (!relevant) return;
+    if (specialtyState.map) {
+      applyTrialSpecialtyBadge(specialtyState.map);
+      applyCardSpecialtyBadges(specialtyState.map);
+    } else {
+      loadSpecialtyBadges().then(() => normalizePage());
+    }
+  };
+
   const wireExplorerLinks = () => {
     if (document.documentElement.dataset.rtExplorerWired === '1') return;
     document.documentElement.dataset.rtExplorerWired = '1';
@@ -195,6 +262,7 @@
     cleanHome();
     cleanTrial();
     ensureFeaturedTrial();
+    applySpecialtyBadges();
   };
 
   const watchDynamicUi = () => {
