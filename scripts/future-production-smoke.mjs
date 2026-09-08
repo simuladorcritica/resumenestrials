@@ -77,7 +77,11 @@ try{
 
   const search=page.locator('.rt-global-search-input');
   await search.waitFor({state:'visible',timeout:15000});
-  assert(!(await page.locator('#q').isVisible()),'Producción: el buscador redundante del índice sigue visible');
+  // A pedido explícito del usuario: el buscador de texto del índice (#q)
+  // ya no es redundante -- es ahora el único control de esa fila, grande
+  // y a todo el ancho (ver future-experience-fix-v4.js).
+  assert(await page.locator('#q').isVisible(),'Producción: el buscador grande del índice no es visible');
+  assert(!(await page.locator('#rt-advanced').count()),'Producción: los selectores de año/revista no debieron sobrevivir');
   const searchSample=data.find(item=>/^SOHO\b/i.test(item.titulo))||newest;
   const uniqueSearch=String(searchSample.titulo||'').trim().split(/\s+/)[0];
   const expectedSearchPath=manifest[String(searchSample.id)]?.path;
@@ -104,7 +108,7 @@ try{
 
   await page.setViewportSize({width:390,height:844});await page.waitForTimeout(200);await noOverflow(page,'Producción portada móvil');
   assert(await page.locator('.rt-global-search-input').isVisible(),'Producción móvil: búsqueda clínica global no visible');
-  assert(!(await page.locator('#q').isVisible()),'Producción móvil: el buscador redundante del índice sigue visible');
+  assert(await page.locator('#q').isVisible(),'Producción móvil: el buscador grande del índice no es visible');
   assert(await account.isVisible(),'Producción móvil: CTA de cuenta no visible');
   assert(await page.locator('#indice .fila.rt-featured').count()===1,'Producción móvil: falta trial destacado');
 
