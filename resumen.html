@@ -276,7 +276,8 @@
   }
   const esc=(s)=>String(s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
   function sanitizarHTML(valor){const t=document.createElement("template");t.innerHTML=String(valor||"");t.content.querySelectorAll("*").forEach((n)=>{if(!["H2","P","STRONG","EM"].includes(n.tagName))n.replaceWith(document.createTextNode(n.textContent||""));else[...n.attributes].forEach((a)=>n.removeAttribute(a.name));});return t.innerHTML;}
-  function urlSegura(valor){try{const u=new URL(String(valor||""),BASE_URL);return u.protocol==="https:"?u.href:"";}catch{return"";}}
+  let compararFechas = () => 0;
+  function urlSegura(valor){try{const texto=String(valor||"").trim();if(!/^https:\/\//i.test(texto))return"";const u=new URL(texto);return u.protocol==="https:"?u.href:"";}catch{return"";}}
   const fmtFecha=(iso)=>{if(!iso)return"";const p=String(iso).split("-");return p.length===3?`${p[2]}/${p[1]}/${p[0]}`:iso;};
   const claseEsp=(e)=>e==="Medicina Crítica"?"critica":"interna";
 
@@ -324,12 +325,13 @@
   function relacionadosHTML(dato,todos) {
     const espActual=[dato.especialidad_principal,dato.especialidad_secundaria].filter(Boolean),temasActual=new Set(Array.isArray(dato.temas)?dato.temas:[]);
     const puntuar=(r)=>{const espR=[r.especialidad_principal,r.especialidad_secundaria].filter(Boolean);const espComun=espR.filter((e)=>espActual.includes(e)).length;const temasComun=(Array.isArray(r.temas)?r.temas:[]).filter((t)=>temasActual.has(t)).length;return temasComun*2+espComun;};
-    const candidatos=todos.filter((r)=>String(r.id)!==String(dato.id)).map((r)=>({r,s:puntuar(r)})).filter((x)=>x.s>0).sort((a,b)=>(b.s-a.s)||(String(b.r.fecha||"").localeCompare(String(a.r.fecha||"")))).slice(0,4).map((x)=>x.r);
+    const candidatos=todos.filter((r)=>String(r.id)!==String(dato.id)).map((r)=>({r,s:puntuar(r)})).filter((x)=>x.s>0).sort((a,b)=>(b.s-a.s)||compararFechas(a.r,b.r)).slice(0,4).map((x)=>x.r);
     if(!candidatos.length)return"";
     const items=candidatos.map((r)=>`<div class="rel-item"><a href="resumen.html?id=${encodeURIComponent(r.id)}">${badgesHTML(r)}<div class="rel-tit">${esc(r.titulo)}</div><div class="rel-fuente">${esc(r.autor)} · ${esc(r.revista)}${r.fecha?" · "+fmtFecha(r.fecha):""}</div></a></div>`).join("");
     return `<section class="relacionados"><h2>Evidencia relacionada</h2><div class="rel-grid">${items}</div></section>`;
   }
 
+  function errorCarga(){noEncontrado();document.title="Error de carga · Resumenes Trials";fijarMeta('#meta-description','content','No se pudo cargar el resumen en este momento.');cont.innerHTML='<div class="envoltorio"><p class="aviso">No se pudo cargar el resumen en este momento. <a href="" style="color:var(--teal-hondo)">Reintentar</a> o <a href="index.html" style="color:var(--teal-hondo)">volver al índice</a>.</p></div>';}
   function noEncontrado(){document.title="Resumen no encontrado · Resumenes Trials";fijarMeta('#meta-description','content','El resumen solicitado no está disponible en Resumenes Trials.');fijarMeta('#meta-robots','content','noindex,follow');const c=document.querySelector('link[rel="canonical"]');if(c)c.remove();cont.innerHTML=`<div class="envoltorio"><p class="aviso">No se encontró ese resumen. <a href="index.html" style="color:var(--teal-hondo)">Volver al índice</a> para ver los disponibles.</p></div>`;}
 
   function nombreArchivoPDF(dato,esCorto){const base=(textoPlano(dato.titulo).split(":")[0]||"resumen").trim();const seguro=base.normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^\w\-]+/g,"_").slice(0,40)||"resumen";return `Resumen_${seguro}${esCorto?"_breve":""}.pdf`;}
@@ -365,7 +367,7 @@
   document.addEventListener("contextmenu",(e)=>{if(dentroNoCopiar(e.target))e.preventDefault();},true);
   document.addEventListener("dragstart",(e)=>{if(dentroNoCopiar(e.target))e.preventDefault();},true);
 
-  Promise.all([fetch("resumenes.json",{cache:"no-store"}),fetch("seo-manifest.json",{cache:"no-store"})]).then(async([dataResponse,manifestResponse])=>{if(!dataResponse.ok)throw new Error("HTTP "+dataResponse.status);const data=await dataResponse.json();const manifest=manifestResponse.ok?await manifestResponse.json():{};return{data,manifest};}).then(({data,manifest})=>{
+  Promise.all([import("/trial-data.js").then(async m=>{compararFechas=m.compareTrialDates;return m.loadTrials();}),fetch("seo-manifest.json",{cache:"no-store"})]).then(async([data,manifestResponse])=>{const manifest=manifestResponse.ok?await manifestResponse.json():{};return{data,manifest};}).then(({data,manifest})=>{
     const todos=Array.isArray(data)?data:[],dato=todos.find((x)=>String(x.id)===String(id));if(!dato){noEncontrado();return;}
     const esCorto=params.get("v")==="corto"&&!!dato.corto,cuerpoHTML=sanitizarHTML(esCorto?dato.corto:dato.cuerpo),originalSeguro=urlSegura(dato.original);document.body.classList.toggle("modo-corto",esCorto);
     let versionNav="",versionNavPie="";
@@ -375,7 +377,7 @@
     const descargas=botonesDescargaHTML(dato);
     cont.innerHTML=`<div class="envoltorio">${migasHTML()}<header class="art">${badgesHTML(dato)}<h1>${esc(dato.titulo)}</h1><div class="fuente-linea" style="margin-top:16px">${esc(fuenteLinea)}</div><div class="acciones-art">${descargas}</div>${versionNav?`<div class="version-nav">${versionNav}</div>`:""}</header><article class="no-copiar ${esCorto?"corto":""}">${cuerpoHTML}</article>${originalSeguro?`<div class="enlace-original">Artículo original: <a href="${esc(originalSeguro)}" target="_blank" rel="noopener noreferrer">${esc(originalSeguro)}</a></div>`:""}<div class="acciones-art" style="margin:8px 0 4px">${descargas}</div>${esCorto?"":relacionadosHTML(dato,todos)}<nav class="pie-nav"><a class="volver" href="index.html">← Volver al índice</a>${versionNavPie}</nav><footer class="art">Escribimos este resumen crítico pensando en médicos y profesionales de la salud. Léelo como una guía de lectura, nunca como un reemplazo del artículo original ni de tu propio juicio clínico.</footer></div>`;
     document.querySelectorAll(".btn-pdf").forEach((b)=>b.addEventListener("click",()=>descargarPDF(dato,b.dataset.pdfVersion==="breve",b)));
-  }).catch((err)=>{console.error("No se pudo cargar resumenes.json:",err);noEncontrado();});
+  }).catch((err)=>{console.error("No se pudo cargar resumenes.json:",err);errorCarga();});
 </script>
 <script src="/site-runtime.js?v=20260821" defer></script></body>
 </html>
