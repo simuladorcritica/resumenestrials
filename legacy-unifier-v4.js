@@ -100,8 +100,7 @@
 
   const record = () => {
     if (!recordPromise) {
-      recordPromise = fetch('/resumenes.json', { cache: 'no-store' })
-        .then(r => r.ok ? r.json() : [])
+      recordPromise = import('/trial-data.js').then(m => m.loadTrials())
         .then(rows => Array.isArray(rows) ? rows.find(x => String(x.id) === String(id)) || null : null)
         .catch(() => null);
     }

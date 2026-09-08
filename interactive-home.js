@@ -68,9 +68,7 @@ function injectStyle() {
 }
 
 async function loadData() {
-  const r = await fetch('resumenes.json', { cache:'no-store' });
-  if (!r.ok) throw new Error('No se pudo cargar resumenes.json');
-  data = await r.json();
+  data = await import('/trial-data.js').then(m => m.loadTrials());
   byId = new Map(data.map((x) => [String(x.id), x]));
 }
 

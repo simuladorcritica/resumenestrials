@@ -25,9 +25,7 @@ async function init(){
     if(!anchor)return;
     const p=state.preferences||{};
     if(!p.area&&!(Array.isArray(p.interests)&&p.interests.length))return;
-    const response=await fetch('resumenes.json',{cache:'no-store'});
-    if(!response.ok)return;
-    const data=await response.json();
+    const data=await import('/trial-data.js').then(m=>m.loadTrials());
     const ranked=data.map((r,i)=>({r,s:score(r,state,i)})).sort((a,b)=>b.s-a.s).slice(0,3).map(x=>x.r);
     if(!ranked.length)return;
     const section=document.createElement('section');
