@@ -13,8 +13,8 @@
         button.style.setProperty('font-family', "'IBM Plex Mono', monospace", 'important');
         button.style.setProperty('font-size', '10.5px', 'important');
         button.style.setProperty('font-weight', '600', 'important');
-        button.style.setProperty('line-height', '1.28', 'important');
-        button.style.setProperty('letter-spacing', '.045em', 'important');
+        button.style.setProperty('line-height', '1.28');
+        button.style.setProperty('letter-spacing', '.045em');
         button.style.setProperty('box-sizing', 'border-box', 'important');
         button.style.setProperty('min-height', '48px', 'important');
         button.style.setProperty('padding', '10px 14px', 'important');

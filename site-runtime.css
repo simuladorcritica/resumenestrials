@@ -208,6 +208,9 @@ html body.rt-future-home header.sitio .envoltorio{max-width:clamp(1380px,82vw,18
   .rt-future-trial .trial-actions .trial-action,.rt-future-trial .trial-actions .rt-save-action{min-width:0!important;max-width:100%!important;white-space:normal!important;overflow-wrap:anywhere}
 }
 
+/* CORRECCIÓN TÉCNICA / ACCESIBILIDAD: contraste de enlaces sobre el footer oscuro. */
+html body.rt-future footer.sitio .contacto-eti{color:#bdc9d0!important}
+
 /* source: future-experience-patch.css */
 html{background:#f7f6f2}
 /* Fase 1 (fiabilidad, 2026-09-06): se elimina el bloqueo opacity:0 + failsafe de 2500ms.
