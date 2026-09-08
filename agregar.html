@@ -275,7 +275,7 @@
   function objeto(){
     const temas = v("temas").split(",").map(t => t.trim()).filter(Boolean);
     return {
-      ...existentes.find(x => String(x.id) === v("id")),
+      ...existentes.find(x => x.id === Number(v("id"))),
       id: Number(v("id")) || 0,
       titulo: v("titulo"),
       autor: v("autor"),
@@ -300,19 +300,19 @@
     const o = objeto();
     const lineaIdx = [o.autor, o.revista, o.registro, o.doi].filter(Boolean).join(" · ");
     const esps = [o.especialidad_principal, o.especialidad_secundaria].filter(Boolean)
-      .map(e => '<span style="font-family:\'IBM Plex Mono\',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border:1px solid var(--linea);border-radius:2px;margin-right:6px;color:var(--teal-hondo)">' + e + '</span>').join("");
+      .map(e => '<span style="font-family:\'IBM Plex Mono\',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border:1px solid var(--linea);border-radius:2px;margin-right:6px;color:var(--teal-hondo)">' + esc(e) + '</span>').join("");
     $("pvCard").innerHTML =
       (esps ? '<div style="margin-bottom:10px">' + esps + '</div>' : '') +
-      '<div class="pv-tit">' + (o.titulo || "(título)") + '</div>' +
-      '<div class="pv-fuente">' + (lineaIdx || "autor · revista · NCT · DOI") + '</div>' +
+      '<div class="pv-tit">' + esc(o.titulo || "(título)") + '</div>' +
+      '<div class="pv-fuente">' + esc(lineaIdx || "autor · revista · NCT · DOI") + '</div>' +
       '<div class="pv-caja">' +
         '<div class="pv-obj">' + (o.objetivo || "<span style='color:#999'>(objetivo)</span>") + '</div>' +
         '<div class="pv-hall">' + (o.hallazgo || "(hallazgo)") + '</div>' +
       '</div>';
     const fuente = [o.autor, o.anio ? o.revista + " " + o.anio : o.revista, o.registro, o.financiacion].filter(Boolean).join(" · ");
     $("pvArt").innerHTML =
-      '<div class="pv-fuente">' + (fuente || "—") + '</div>' +
-      '<div class="pv-h1">' + (o.titulo || "(título)") + '</div>' +
+      '<div class="pv-fuente">' + esc(fuente || "—") + '</div>' +
+      '<div class="pv-h1">' + esc(o.titulo || "(título)") + '</div>' +
       '<div class="pv-cuerpo">' + (o.cuerpo || "<p style=\'color:#999\'>(sin contenido todavía)</p>") + '</div>' +
       (o.original ? '<div class="pv-enlace">Artículo original: consultar en la revista →</div>' : "");
   }
@@ -371,9 +371,12 @@
   });
 
   // ---- cargar existentes ----
-  function setExistentes(arr){
+  function setExistentes(arr, explicita = false){
     if (!Array.isArray(arr) || arr.some(x => !x || typeof x !== "object" || Array.isArray(x) || !Number.isSafeInteger(x.id) || x.id < 1) || new Set(arr.map(x => x.id)).size !== arr.length) {
       throw new Error("Se requiere una lista de resúmenes con IDs enteros positivos y únicos.");
+    }
+    if (!arr.length && (!explicita || existentes.length)) {
+      throw new Error("Una biblioteca vacía solo se admite explícitamente para la primera alta.");
     }
     existentes = arr;
     bibliotecaCargada = true;
@@ -398,13 +401,13 @@
   $("archivo").addEventListener("change", (e) => {
     const f = e.target.files[0]; if (!f) return;
     const rd = new FileReader();
-    rd.onload = () => { try { setExistentes(JSON.parse(rd.result)); estado("Archivo cargado.", "ok"); }
-                        catch { estado("Ese archivo no es una lista JSON válida con IDs enteros positivos y únicos.", "err"); } };
+    rd.onload = () => { try { setExistentes(JSON.parse(rd.result), true); estado("Archivo cargado.", "ok"); }
+                        catch (error) { estado(error instanceof SyntaxError ? "Ese archivo no es JSON válido." : error.message, "err"); } };
     rd.readAsText(f);
   });
   $("pegarBtn").addEventListener("click", () => {
-    try { setExistentes(JSON.parse($("pegarTxt").value)); estado("Contenido cargado.", "ok"); }
-    catch { estado("El texto pegado no es una lista JSON válida con IDs enteros positivos y únicos.", "err"); }
+    try { setExistentes(JSON.parse($("pegarTxt").value), true); estado("Contenido cargado.", "ok"); }
+    catch (error) { estado(error instanceof SyntaxError ? "El texto pegado no es JSON válido." : error.message, "err"); }
   });
 
   preview();
