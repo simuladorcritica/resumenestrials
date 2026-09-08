@@ -71,6 +71,7 @@ jobs:
           NODE
       - name: Validate JavaScript syntax
         run: |
+          node --test scripts/trial-data.test.mjs
           node --check interactive-home.js
           node --check agregar-editorial-dates.js
           node --check recommendations.js

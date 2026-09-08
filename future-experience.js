@@ -244,9 +244,7 @@
   async function loadTrialRecord(id) {
     if (!id) return null;
     try {
-      const response = await fetch('/resumenes.json',{cache:'no-store'});
-      if (!response.ok) return null;
-      const rows = await response.json();
+      const rows = await import('/trial-data.js').then(m => m.loadTrials());
       return rows.find(item => String(item.id) === String(id)) || null;
     } catch { return null; }
   }

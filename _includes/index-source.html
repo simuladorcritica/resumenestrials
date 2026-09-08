@@ -2137,12 +2137,12 @@
     if (r) descargarPDF(r, b);
   });
 
-  fetch("resumenes.json", { cache: "no-store" })
-    .then((r) => { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
-    .then((data) => {
-      resumenes = Array.isArray(data) ? data : [];
+  import("/trial-data.js")
+    .then(async ({loadTrials, compareTrialDates}) => ({data: await loadTrials(), compareTrialDates}))
+    .then(({data, compareTrialDates}) => {
+      resumenes = data.map(row => ({...row}));
       // Orden global por fecha de publicación, del más reciente al más antiguo
-      resumenes.sort((a, b) => (b.fecha || "").localeCompare(a.fecha || ""));
+      resumenes.sort(compareTrialDates);
       // Índice de texto buscable (incluye especialidad y temas)
       resumenes.forEach((r) => {
         r._buscable = norm([

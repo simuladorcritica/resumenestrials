@@ -46,12 +46,11 @@
     if (state.rows && state.manifest) return;
     if (state.loading) return state.loading;
     state.loading = Promise.all([
-      fetch('/resumenes.json', { cache: 'force-cache' }),
+      import('/trial-data.js').then(async m => { state.compareDates = m.compareTrialDates; return m.loadTrials(); }),
       fetch('/seo-manifest.json', { cache: 'force-cache' })
-    ]).then(async ([dataResponse, manifestResponse]) => {
-      if (!dataResponse.ok) throw new Error(`resumenes.json HTTP ${dataResponse.status}`);
+    ]).then(async ([data, manifestResponse]) => {
       if (!manifestResponse.ok) throw new Error(`seo-manifest.json HTTP ${manifestResponse.status}`);
-      const [data, manifest] = await Promise.all([dataResponse.json(), manifestResponse.json()]);
+      const manifest = await manifestResponse.json();
       state.manifest = manifest;
       state.rows = data.map((row) => {
         const topics = Array.isArray(row.temas) ? row.temas.join(' ') : '';
@@ -141,7 +140,7 @@
       const matches = state.rows
         .map((entry) => ({ entry, score: score(entry, tokens, query) }))
         .filter((item) => item.score >= 0)
-        .sort((a, b) => b.score - a.score || String(b.entry.row.fecha || '').localeCompare(String(a.entry.row.fecha || '')))
+        .sort((a, b) => b.score - a.score || state.compareDates(a.entry.row, b.entry.row))
         .slice(0, 8);
 
       if (!matches.length) {
@@ -149,7 +148,7 @@
         return;
       }
 
-      panel.innerHTML = `<div class="rt-global-search-meta">${matches.length} ${matches.length === 1 ? 'resultado' : 'resultados'} principales</div><div class="rt-global-search-list" role="listbox">${matches.map(({ entry }, index) => {
+      panel.innerHTML = `<div class="rt-global-search-meta">${matches.length} ${matches.length === 1 ? 'resultado principal' : 'resultados principales'}</div><div class="rt-global-search-list" role="listbox">${matches.map(({ entry }, index) => {
         const row = entry.row;
         const topics = Array.isArray(row.temas) ? row.temas.slice(0, 2).join(' · ') : '';
         const meta = [row.revista, row.anio, topics].filter(Boolean).join(' · ');
@@ -164,6 +163,7 @@
 
   function install(button) {
     if (!button || button.dataset.rtGlobalSearch === '1') return;
+    ensurePanel();
     const form = document.createElement('form');
     form.className = `${button.className} rt-global-search-form`;
     form.dataset.rtGlobalSearch = '1';

@@ -50,8 +50,7 @@
 
   function loadData() {
     if (!dataPromise) {
-      dataPromise = fetch('/resumenes.json', { cache: 'no-store' })
-        .then((r) => r.ok ? r.json() : Promise.reject(new Error(`HTTP ${r.status}`)));
+      dataPromise = import('/trial-data.js').then(m => m.loadTrials());
     }
     return dataPromise;
   }

@@ -23,9 +23,8 @@ try{
   if(state.mfaRequired)location.replace('login.html?mfa=1&next=biblioteca.html');
   else if(!state.signedIn)location.replace('login.html');
   else{
-    const r=await fetch('resumenes.json',{cache:'no-store'});
-    if(!r.ok)throw new Error(`HTTP ${r.status}`);
-    all=(await r.json()).sort((a,b)=>(b.fecha||'').localeCompare(a.fecha||''));
+    const {loadTrials,compareTrialDates}=await import('./trial-data.js');
+    all=(await loadTrials()).slice().sort(compareTrialDates);
     render();q.oninput=render;area.onchange=render
   }
 }catch(e){console.error(e);list.innerHTML='<div class="empty">No pudimos cargar tu biblioteca. Recarga la página.</div>'}

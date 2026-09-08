@@ -285,9 +285,7 @@ async function downloadBriefPDF(record, button) {
 async function init() {
   injectStyles();
   try {
-    const response = await fetch('resumenes.json', { cache: 'no-store' });
-    if (!response.ok) throw new Error(`HTTP ${response.status}`);
-    data = await response.json();
+    data = await import('/trial-data.js').then(m => m.loadTrials());
     byId = new Map(data.map((record) => [String(record.id), record]));
     enhanceRows();
     const index = document.getElementById('indice');
