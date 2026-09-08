@@ -9,20 +9,26 @@
     const header = document.querySelector('.indice-cabecera');
     if (!header) return false;
 
-    header.querySelector('.filtros')?.remove();
-    header.querySelector('.buscador')?.remove();
-    header.querySelector('#rt-status')?.remove();
-
+    // A pedido explicito del usuario: se quitan los selectores de anio y
+    // revista (antes en #rt-advanced) y se deja el buscador de texto como
+    // unico control, ampliado visualmente por future-experience-fix-v4.js.
+    //
+    // #rt-advanced lo construye addAdvanced() (interactive-home.js) recien
+    // cuando termina el fetch de resumenes.json, mucho despues de que
+    // .buscador ya esta en el DOM (es markup estatico presente desde el
+    // primer pintado). Por eso no basta con que exista .buscador para dar
+    // por terminada la limpieza: hay que esperar a que #rt-advanced (con
+    // #rt-year y #rt-journal ya armados) aparezca, recien ahi quitarlo, y
+    // solo entonces desconectar el observer — si se desconecta antes,
+    // #rt-advanced quedaria visible para siempre al insertarse mas tarde.
+    const buscador = header.querySelector('.buscador');
     const advanced = header.querySelector('#rt-advanced');
-    const year = header.querySelector('#rt-year');
-    const journal = header.querySelector('#rt-journal');
-    if (!advanced || !year || !journal) return false;
+    const year = advanced?.querySelector('#rt-year');
+    const journal = advanced?.querySelector('#rt-journal');
+    if (!buscador || !advanced || !year || !journal) return false;
 
-    advanced.setAttribute('role', 'group');
-    advanced.setAttribute('aria-label', 'Filtrar la biblioteca por año y revista');
-    advanced.querySelectorAll('select').forEach((select) => {
-      if (select !== year && select !== journal) select.remove();
-    });
+    header.querySelector('.filtros')?.remove();
+    advanced.remove();
     header.dataset.rtSimpleFilters = '1';
     return true;
   }

@@ -49,7 +49,10 @@ try{
   assert(await page.locator('.fila.rt-featured').count()===1,'Portada: falta trial destacado');
   assert(await page.locator('.rt-nav-search').isVisible(),'Portada: buscador global no visible');
   assert(await page.locator('.rt-global-search-input').isVisible(),'Portada: el buscador superior no es un campo funcional');
-  assert(!(await page.locator('#q').isVisible()),'Portada: el buscador redundante del renglón sigue visible');
+  // A pedido explícito del usuario: el buscador de texto del índice (#q)
+  // ya no es redundante -- es ahora el único control de esa fila, grande
+  // y a todo el ancho (ver future-experience-fix-v4.js).
+  assert(await page.locator('#q').isVisible(),'Portada: el buscador grande del índice no es visible');
   assert(await page.locator('.seo-hubs-home').count()===0,'Portada: quedan botones inferiores duplicados de metodología/equipo');
   assert(await page.locator('.rt-editorial-prelude').count()===0,'Portada: Explora/Interpreta/Conserva aparece duplicado');
   assert(await page.locator('.rt-step small').count()===0,'Portada: persiste numeración 01/02/03');
@@ -90,7 +93,7 @@ try{
   await page.waitForTimeout(150);
   assert(await page.locator('.rt-orbit').isVisible(),'Portada móvil: experiencia visual no visible');
   assert(await page.locator('.rt-global-search-input').isVisible(),'Portada móvil: el buscador global no está disponible');
-  assert(!(await page.locator('#q').isVisible()),'Portada móvil: el buscador redundante sigue visible');
+  assert(await page.locator('#q').isVisible(),'Portada móvil: el buscador grande del índice no es visible');
   await noOverflow(page,'Portada móvil');
 
   const sample=data.find(x=>x.corto)||data[0];

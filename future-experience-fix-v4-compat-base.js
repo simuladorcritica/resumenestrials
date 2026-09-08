@@ -24,7 +24,7 @@
     html body.rt-future.rt-future-home .filtro{font-size:15px!important;line-height:1.35!important}
     html body.rt-future.rt-future-home .filtro .n{font-size:14px!important}
     html body.rt-future.rt-future-home .rt-advanced select{font-size:16px!important}
-    html body.rt-future.rt-future-home .buscador-input{font-size:17px!important}
+    html body.rt-future.rt-future-home .buscador-input{font-size:21px!important}
     html body.rt-future.rt-future-home .conteo-busqueda{font-size:14px!important}
     html body.rt-future.rt-future-home .fila-cuerpo .fuente{font-size:15px!important;line-height:1.6!important}
     html body.rt-future.rt-future-home .badge{font-size:13px!important}

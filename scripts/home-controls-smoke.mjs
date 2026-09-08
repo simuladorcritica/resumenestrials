@@ -5,6 +5,14 @@ function assert(value, message) {
   if (!value) throw new Error(message);
 }
 
+// A pedido explícito del usuario se quitaron los selectores de año/revista
+// (#rt-year/#rt-journal/.filtros) del índice de la portada: el buscador de
+// texto (.buscador) es ahora el único control de esa fila, a todo el ancho
+// (ver library-filter-cleanup.js y future-experience-fix-v4.js). Esta prueba
+// ya no verifica el ancho de selectores que no existen; en su lugar verifica
+// que home-control-layout.js (que sigue controlando el padding del
+// envoltorio y el comportamiento de .indice-cabecera a ≥1360px) no reintroduce
+// desbordes ni angosta el único control que queda.
 const browser = await chromium.launch({ headless: true });
 try {
   const page = await browser.newPage({ viewport: { width: 1424, height: 500 } });
@@ -14,58 +22,37 @@ try {
     body{background:var(--papel)}
     .envoltorio{max-width:1500px;margin:0 auto;padding:0 clamp(32px,6vw,96px)}
     .indice-cabecera{display:flex;align-items:center;justify-content:space-between;gap:14px 20px;flex-wrap:wrap;margin:56px 0 6px;padding-bottom:4px}
-    .filtros{display:inline-flex;gap:8px;flex-wrap:wrap}
-    .filtro{font-family:monospace;font-size:14px;line-height:1.2;letter-spacing:.065em;text-transform:uppercase;color:var(--tinta-2);background:transparent;border:1px solid var(--linea);border-radius:3px;min-height:44px;padding:11px 18px;font-weight:500}
-    .filtro .n{font-size:12px;margin-left:7px;opacity:.78}
-    .rt-advanced{display:inline-flex;gap:8px;align-items:center;flex-wrap:wrap;margin:0}
-    .rt-advanced select{appearance:auto;font:500 13px/1.2 monospace;letter-spacing:.035em;color:var(--tinta-2);background:transparent;border:1px solid var(--linea);border-radius:3px;padding:10px 14px;min-height:44px;cursor:pointer}
-    .buscador{display:flex;align-items:center;gap:10px;background:var(--papel-2);border:1px solid var(--linea);border-radius:3px;padding:10px 15px;min-width:min(320px,100%);min-height:44px}
-    .buscador input{border:0;background:transparent;width:100%;font:14px monospace}
+    .buscador{display:flex;align-items:center;gap:10px;background:var(--papel-2);border:1px solid var(--linea);border-radius:12px;padding:20px 26px;width:100%;min-height:64px}
+    .buscador input{border:0;background:transparent;width:100%;font:18px monospace}
   </style></head><body><main class="envoltorio"><div class="indice-cabecera">
-    <div class="filtros">
-      <button class="filtro">Todos <span class="n">38</span></button>
-      <button class="filtro">Medicina Crítica <span class="n">23</span></button>
-      <button class="filtro">Medicina Interna <span class="n">18</span></button>
-    </div>
-    <div class="rt-advanced">
-      <select id="rt-year"><option>Todos los años</option></select>
-      <select id="rt-journal"><option>Todas las revistas</option><option>Intensive Care Medicine</option></select>
-    </div>
-    <label class="buscador"><input value="" placeholder="Buscar trial, fármaco"></label>
+    <label class="buscador"><input value="" placeholder="Buscar trial, fármaco, tema, autor…"></label>
   </div></main></body></html>`);
   await page.addScriptTag({ path: resolve('home-control-layout.js') });
   await page.waitForTimeout(100);
 
   const metrics = await page.evaluate(() => {
+    const envoltorio = document.querySelector('.envoltorio');
     const header = document.querySelector('.indice-cabecera');
-    const journal = document.querySelector('#rt-journal');
-    const year = document.querySelector('#rt-year');
     const search = document.querySelector('.buscador');
-    const filters = [...document.querySelectorAll('.filtro')];
-    const style = getComputedStyle(journal);
-    const canvas = document.createElement('canvas');
-    const ctx = canvas.getContext('2d');
-    ctx.font = `${style.fontWeight} ${style.fontSize} ${style.fontFamily}`;
-    const labelWidth = ctx.measureText(journal.selectedOptions[0].textContent).width;
+    const envStyle = getComputedStyle(envoltorio);
     return {
       headerClient: header.clientWidth,
       headerScroll: header.scrollWidth,
-      journalWidth: journal.getBoundingClientRect().width,
-      yearWidth: year.getBoundingClientRect().width,
+      headerWidth: header.getBoundingClientRect().width,
       searchWidth: search.getBoundingClientRect().width,
-      labelWidth,
-      journalPadding: parseFloat(style.paddingLeft) + parseFloat(style.paddingRight),
-      filterHeights: filters.map((x) => x.getBoundingClientRect().height)
+      envPaddingLeft: parseFloat(envStyle.paddingLeft),
+      envPaddingRight: parseFloat(envStyle.paddingRight),
+      noYear: !document.querySelector('#rt-year'),
+      noJournal: !document.querySelector('#rt-journal'),
+      noFiltros: !document.querySelector('.filtros'),
     };
   });
 
   assert(metrics.headerScroll <= metrics.headerClient + 1, `Los controles desbordan la fila: ${JSON.stringify(metrics)}`);
-  assert(metrics.journalWidth >= 245, `El filtro de revistas sigue demasiado estrecho: ${metrics.journalWidth}px`);
-  assert(metrics.labelWidth + metrics.journalPadding + 34 < metrics.journalWidth, `“Todas las revistas” aún puede recortarse: ${JSON.stringify(metrics)}`);
-  assert(metrics.yearWidth >= 165, `Se redujo el filtro de años: ${metrics.yearWidth}px`);
-  assert(metrics.searchWidth >= 220, `Se redujo el buscador: ${metrics.searchWidth}px`);
-  assert(metrics.filterHeights.every((h) => h >= 43), `Se redujo la altura de filtros: ${metrics.filterHeights.join(',')}`);
-  console.log(`HOME CONTROLS PASS · journal=${Math.round(metrics.journalWidth)}px · row=${metrics.headerClient}px`);
+  assert(metrics.envPaddingLeft >= 48 && metrics.envPaddingRight >= 48, `El envoltorio perdió el padding ampliado a ≥1360px: ${JSON.stringify(metrics)}`);
+  assert(metrics.searchWidth / metrics.headerWidth > 0.95, `El buscador ya no ocupa todo el ancho de la cabecera: ${JSON.stringify(metrics)}`);
+  assert(metrics.noYear && metrics.noJournal && metrics.noFiltros, 'No deben existir #rt-year/#rt-journal/.filtros en el índice');
+  console.log(`HOME CONTROLS PASS · buscador=${Math.round(metrics.searchWidth)}px de ${Math.round(metrics.headerWidth)}px · sin año/revista`);
 } finally {
   await browser.close();
 }

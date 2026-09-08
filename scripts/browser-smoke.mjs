@@ -67,7 +67,7 @@ async function validateTurnstile(containerId){
 
 await visit('/',async()=>{
   await page.waitForSelector('#indice .fila',{timeout:20000});
-  await page.waitForSelector('#rt-advanced',{timeout:10000});
+  await page.waitForSelector('.indice-cabecera .buscador',{state:'visible',timeout:10000});
   assert(await page.locator('#indice .fila').count()>=data.length,`portada solo renderiza ${await page.locator('#indice .fila').count()}/${data.length} trials`);
   assert((await page.locator('#conteo').innerText()).trim()===String(data.length),'contador total incorrecto');
   assert((await page.locator('#conteo-crit').innerText()).trim()===String(expectedCrit),'contador Medicina Crítica incorrecto');
@@ -77,7 +77,11 @@ await visit('/',async()=>{
   const legacyOk=legacyCreate===1&&legacyLogin===1;
   assert(editorial===1||legacyOk,`Cabecera de cuenta incorrecta: editorial=${editorial}, crear=${legacyCreate}, entrar=${legacyLogin}`);
   assert(editorial<=1,`Módulo editorial de cuenta duplicado: ${editorial}`);
-  assert(!(await page.locator('#q').isVisible()),'el buscador local redundante volvió a ser visible');
+  // A pedido explícito del usuario: se quitaron los selectores de año/revista
+  // y el buscador de texto (#q / .buscador-input) es ahora el único control,
+  // grande y a todo el ancho de la cabecera (ver future-experience-fix-v4.js).
+  assert(await page.locator('#q').isVisible(),'el buscador grande de la portada no es visible');
+  assert(!(await page.locator('#rt-advanced').count()),'los selectores de año/revista no debieron sobrevivir');
   const search=page.locator('.rt-global-search-input');
   await search.waitFor({state:'visible'});
   await search.fill('SOHO');
@@ -124,8 +128,8 @@ await page.setViewportSize({width:390,height:844});
 await visit('/',async()=>{
   await page.waitForSelector('#indice .fila',{timeout:20000});
   assert((await page.locator('#conteo').innerText()).trim()===String(data.length),'contador móvil incorrecto');
-  assert(!(await page.locator('#q').isVisible()),'el buscador local redundante volvió a ser visible en móvil');
-  assert(await page.locator('#rt-year').isVisible()&&await page.locator('#rt-journal').isVisible(),'los filtros año/revista no son visibles en móvil');
+  assert(await page.locator('#q').isVisible(),'el buscador grande de la portada no es visible en móvil');
+  assert(!(await page.locator('#rt-advanced').count()),'los selectores de año/revista no debieron sobrevivir en móvil');
   await noHorizontalOverflow('portada móvil');
 });
 await visit(entry.path,async()=>{
