@@ -1088,8 +1088,10 @@
     }
     body.rt-future-legacy .topbar-in,body.rt-future-legacy.modo-corto .topbar-in{max-width:1600px!important}
     body.rt-future-legacy #contenido>.envoltorio{
+      overflow-wrap:anywhere;
       display:grid!important;grid-template-columns:minmax(0,1fr) 310px!important;column-gap:34px!important;align-items:start!important
     }
+    body.rt-future-legacy #contenido .badge{white-space:normal}
     body.rt-future-legacy header.art,body.rt-future-legacy.modo-corto header.art{
       grid-column:1/-1!important;position:relative!important;display:grid!important;
       grid-template-columns:minmax(0,1.12fr) minmax(300px,.58fr)!important;gap:16px 52px!important;
