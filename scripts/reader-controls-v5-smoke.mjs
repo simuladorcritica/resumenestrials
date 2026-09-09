@@ -175,6 +175,19 @@ try{
   assert(mh.aw>=300&&mh.bw>=300&&Math.abs(mh.aw-mh.bw)<=2&&Math.abs(mh.ah-mh.bh)<=2,`Portada móvil: botones desiguales ${JSON.stringify(mh)}`);
   await noOverflow(page,'Portada móvil');
 
+  // P1-05: the dynamic reader has a separate layout from canonical articles.
+  for(const id of [98,112]) for(const brief of [false,true]) for(const width of [320,360,375,390,430]) {
+    await page.setViewportSize({width,height:844});
+    await page.goto(`${BASE}/resumen.html?id=${id}${brief?'&v=corto':''}`);
+    await page.waitForSelector('body.rt-legacy-normalized article.articulo');
+    await page.evaluate(()=>document.fonts.ready);
+    const dimensions=await page.evaluate(()=>({client:document.documentElement.clientWidth,scroll:document.documentElement.scrollWidth,body:document.body.scrollWidth}));
+    assert(dimensions.scroll<=dimensions.client&&dimensions.body<=dimensions.client,`P1-05 ${brief?'breve':'completo'} ${width}: ${JSON.stringify(dimensions)}`);
+    // Stable intrinsic-width regression even when CI cannot download web fonts.
+    await page.locator('header.art h1').evaluate(el=>{el.textContent='TRIAL'+ 'W'.repeat(180)});
+    const extreme=await page.evaluate(()=>document.documentElement.scrollWidth<=document.documentElement.clientWidth);
+    assert(extreme,`P1-05 long title ${brief?'breve':'completo'} ${width}`);
+  }
   assert(errors.length===0,`Errores JavaScript: ${errors.join(' | ')}`);
   console.log(`READER UI V8 PASS · trial ${sample.id} · navegación real + 3 descargas PDF reales + relacionados completo/breve + portada + móvil`);
 } finally {
