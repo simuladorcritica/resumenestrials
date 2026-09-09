@@ -21,6 +21,7 @@ const cssSources = [
   'global-search.css',
   'theme-light.css',
   'reader-mode.css',
+  'editorial.css',
   'print.css',
 ];
 

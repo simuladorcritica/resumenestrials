@@ -1,0 +1,13 @@
+/* Phase 3 / D11: shared editorial roles. Existing rt-* dark-theme tokens
+   remain untouched. Screen-only rules must not change PDF pagination. */
+:root {
+  --ed-ink:#12233b; --ed-muted:#38506e; --ed-teal:#1c8a8a;
+  --ed-link:#0f5f5f; --ed-paper:#f7f6f2; --ed-alt:#efece4;
+  --ed-border:#ddd8cc; --ed-accent:#c8892a;
+  --ed-space-1:8px; --ed-space-2:16px; --ed-space-3:24px;
+  --ed-space-4:32px; --ed-space-5:48px;
+  --ed-control-radius:8px; --ed-panel-radius:10px;
+  --ed-title:clamp(2.125rem,4.4vw,4rem);
+  --ed-section:clamp(1.625rem,2.3vw,2.125rem);
+  --ed-body:1.3125rem; --ed-meta:.875rem; --ed-measure:740px;
+}
