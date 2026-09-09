@@ -89,7 +89,8 @@
     const targetHref = new URL(fullHref, location.href).href;
     document.querySelectorAll('.cambio-version').forEach((link) => {
       if (link.href !== targetHref) link.href = fullHref;
-      if (link.textContent !== targetText) link.textContent = targetText;
+      const labelText = link.closest('.ed-version') ? 'Completo' : targetText;
+      if (link.textContent !== labelText) link.textContent = labelText;
     });
   }
 
