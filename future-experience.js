@@ -202,6 +202,11 @@
     stage.append(controls);
     if (state) stage.append(state);
     stage.append(index);
+    // D03: keep institutional copy intact, after the catalogue. The existing
+    // lead and counters stay in the hero; no clinical or taxonomy data changes.
+    const detail = bajada.querySelector('.bajada-cols');
+    if (detail) { detail.classList.add('ed-institutional-copy'); stage.append(detail); }
+    stage.append(intro);
     main.prepend(stage);
 
     $$('.fila', index).forEach((row, i) => {
