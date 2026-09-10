@@ -50,7 +50,7 @@
  html body.rt-future[data-ed-shell] .rt-global-search-status strong {font-size:16px!important;color:var(--ed-ink)!important}
  html body.rt-future[data-ed-shell] .rt-global-search-result:is(:hover,[aria-selected="true"]) {background:var(--ed-alt)!important;border-color:var(--ed-link)!important;transform:none!important}
  html body.rt-future[data-ed-shell]:not(.rt-tema-claro) {--ed-ink:#eef4f3;--ed-muted:#bacbd3;--ed-paper:#12233b;--ed-alt:#243c51;--ed-link:#83d4cd;--ed-border:#627681}
- html body.rt-future.rt-future-home[data-ed-shell]:not(.rt-tema-claro) :is(#indice,.buscador) {background:var(--ed-paper)!important;color:var(--ed-ink)!important}
+ html body.rt-future.rt-future-home[data-ed-shell]:not(.rt-tema-claro) :is(#indice,.buscador,.indice-cabecera,.rt-explorer-stage) {background:var(--ed-paper)!important;color:var(--ed-ink)!important}
  html body.rt-future.rt-future-home[data-ed-shell]:not(.rt-tema-claro) :is(.meta-nota,.ed-institutional-copy,.rt-explorer-head) {color:var(--ed-muted)!important}
  html body.rt-future.rt-future-home[data-ed-shell]:not(.rt-tema-claro) #indice :is(h2,h3,.anio-num) {color:var(--ed-ink)!important}
  @media(max-width:1040px){

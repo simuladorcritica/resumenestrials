@@ -42,7 +42,9 @@ try{
   await page.goto(`${BASE}/index.html`,{waitUntil:'domcontentloaded',timeout:25000});
   await page.waitForSelector('body.rt-future-home',{timeout:10000});
   await page.waitForFunction(()=>!!document.getElementById('rt-unified-reader-v4'),{timeout:10000});
-  await page.waitForSelector('.rt-orbit',{timeout:10000});
+  await page.waitForSelector('[data-ed-shell]',{timeout:10000});
+  assert(await page.locator('.rt-orbit').isHidden(),'Portada: el ornamento orbital debe ceder espacio al catálogo');
+  assert(await page.locator('#indice').evaluate(el=>!!(el.compareDocumentPosition(document.querySelector('.ed-institutional-copy'))&Node.DOCUMENT_POSITION_FOLLOWING)),'Portada: el catálogo debe preceder al texto institucional conservado');
   await page.waitForSelector('.rt-explorer-stage',{timeout:10000});
   await page.waitForFunction(()=>document.querySelectorAll('.rt-hero-actions a').length===0&&!document.querySelector('.rt-step small'),{timeout:10000});
   assert(await page.locator('.fila').count()>=data.length,`Portada: se esperaban al menos ${data.length} filas`);
@@ -91,7 +93,8 @@ try{
 
   await page.setViewportSize({width:390,height:844});
   await page.waitForTimeout(150);
-  assert(await page.locator('.rt-orbit').isVisible(),'Portada móvil: experiencia visual no visible');
+  assert(await page.locator('.rt-orbit').isHidden(),'Portada móvil: el ornamento orbital no debe ocupar altura');
+  assert(await page.locator('h1.titulo').isVisible(),'Portada móvil: falta el claim de la marca');
   assert(await page.locator('.rt-global-search-input').isVisible(),'Portada móvil: el buscador global no está disponible');
   assert(await page.locator('#q').isVisible(),'Portada móvil: el buscador grande del índice no es visible');
   await noOverflow(page,'Portada móvil');
