@@ -37,7 +37,8 @@ try{
   const buscadorBox=await page.locator('.indice-cabecera .buscador').boundingBox();
   assert(headerBox&&buscadorBox,'Filtros: no se pudo medir la cabecera o el buscador');
   assert(buscadorBox.width/headerBox.width>0.95,`Filtros: el buscador debe ocupar todo el ancho de la cabecera (${buscadorBox.width}/${headerBox.width})`);
-  assert(buscadorBox.height>=64,`Filtros: el buscador debe ser grande/vistoso (alto=${buscadorBox.height})`);
+  assert(buscadorBox.height>=44,`Índice: el buscador perdió su tamaño táctil (alto=${buscadorBox.height})`);
+  assert(await page.locator('label.ed-index-label').isVisible(),'Índice: falta etiqueta visible de búsqueda');
 
   const inputFontSize=await page.locator('.buscador-input').evaluate(el=>parseFloat(getComputedStyle(el).fontSize));
   assert(inputFontSize>=18,`Filtros: el texto del buscador debe ser grande (font-size=${inputFontSize})`);

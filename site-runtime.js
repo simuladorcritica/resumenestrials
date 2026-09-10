@@ -624,6 +624,12 @@
     button.replaceWith(form);
 
     const input = form.querySelector('.rt-global-search-input');
+    input.id = 'rt-global-search-input';
+    const label = document.createElement('label');
+    label.className = 'ed-search-label';
+    label.htmlFor = input.id;
+    label.textContent = 'Buscar';
+    input.before(label);
     input.addEventListener('focus', () => render(input));
     input.addEventListener('input', () => render(input));
     input.addEventListener('keydown', (event) => {
