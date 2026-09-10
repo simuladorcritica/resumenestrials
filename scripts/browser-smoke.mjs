@@ -112,14 +112,15 @@ if(sample.corto){
     await page.waitForSelector('[data-pdf-version="breve"]',{state:'visible',timeout:12000});
     assert(await page.locator('article.corto').first().isVisible(),'lector breve perdió su artículo monocolumna');
     assert(!(await page.locator('[data-pdf-version="completo"]').first().isVisible().catch(()=>false)),'lector breve muestra indebidamente PDF completo');
-    const full=page.locator('.cambio-version').first();
-    await page.waitForFunction(()=>{const a=document.querySelector('.cambio-version');return a&&/\/trials\//.test(a.href)},{timeout:12000});
+    const full=page.locator('.ed-version .cambio-version');
+    await page.waitForFunction(()=>{const a=document.querySelector('.ed-version .cambio-version');return a&&/\/trials\//.test(a.href)&&a.textContent==='Completo'},{timeout:12000});
     const resolved=new URL(await full.getAttribute('href'),BASE).pathname;
     assert(resolved===entry.path,`lector breve no regresa al canónico: ${resolved}`);
     const before=await full.innerText();
     await page.waitForTimeout(800);
     const after=await full.innerText();
-    assert(before===after&&/Ver versión completa/i.test(after),'enlace de versión inestable');
+    assert(before===after&&after==='Completo','enlace de versión inestable');
+    assert(await page.locator('.ed-version [aria-current="page"]').innerText()==='Breve','estado breve no identificado');
     await noHorizontalOverflow('lector breve escritorio');
   });
 }
