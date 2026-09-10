@@ -14,6 +14,7 @@ const jsSources = [
   'reader-controls-v9.js',
   'reader-preferences.js',
   'editorial-reader.js',
+  'editorial-shell.js',
 ];
 
 const cssSources = [
