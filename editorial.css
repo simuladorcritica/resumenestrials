@@ -31,6 +31,8 @@
  html body.rt-future[data-ed-shell] footer.sitio {padding:48px 0!important;min-height:0!important;margin-top:48px!important}
  html body.rt-future[data-ed-shell] footer.sitio p {font-size:16px!important;line-height:1.65!important;text-align:left!important;color:#d8e2e6!important}
  html body.rt-future[data-ed-shell] footer.sitio a {color:#eef4f3!important;text-underline-offset:3px}
+ html body.rt-future[data-ed-shell] > .rt-version {color:var(--ed-muted)!important;background:var(--ed-paper)!important;opacity:1!important}
+ html body.rt-future[data-ed-reader] .rt-reader-rail .rt-rail-nav a:is(.active,.is-active,[aria-current]) {color:var(--ed-link)!important}
  html body.rt-future[data-ed-shell] footer.sitio :is(h2,h3,h4) {color:#83d4cd!important;line-height:1.5!important}
  @media(max-width:700px){html body.rt-future[data-ed-shell] footer.sitio {padding:36px 0!important;margin-top:32px!important}}
 }
