@@ -82,7 +82,8 @@ if(sample.corto){
 }
 
 await check('/pdf-contact.js',(b)=>{
-  assert(b.includes("link.textContent !== targetText"),'producción no contiene la corrección del ciclo de mutaciones');
+  assert(b.includes("const labelText = link.closest('.ed-version') ? 'Completo' : targetText"),'producción no contiene el contrato editorial de etiqueta Completo/Breve');
+  assert(b.includes("link.textContent !== labelText"),'producción no contiene la protección idempotente de la etiqueta editorial');
   assert(b.includes("link.href !== targetHref"),'producción no contiene la protección idempotente del enlace canónico');
 });
 await check('/trial-pdf.js',(b)=>{assert(b.includes('data-trial-download'),'controlador PDF canónico inesperado')});
