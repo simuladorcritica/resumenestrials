@@ -11,6 +11,31 @@
   --ed-section:clamp(1.625rem,2.3vw,2.125rem);
   --ed-body:1.3125rem; --ed-meta:.875rem; --ed-measure:740px;
 }
+/* D07: login presentation only. Private account/library structure is untouched. */
+@media screen {
+ html[data-rt-member-design="v4"] body.rt-member-login .shell {min-height:0!important}
+ html[data-rt-member-design="v4"] body.rt-member-login :is(.story,.formside) {padding-top:48px!important;padding-bottom:48px!important}
+ html[data-rt-member-design="v4"] body.rt-member-login :is(.story,.formside)::before {display:none!important}
+ html[data-rt-member-design="v4"] body.rt-member-login :is(.story h1,.formside h2) {font-size:46px!important;line-height:1.1!important;max-width:100%!important;margin:16px 0!important}
+ html[data-rt-member-design="v4"] body.rt-member-login .formside .sub {margin-bottom:24px!important}
+ html[data-rt-member-design="v4"] body.rt-member-login :is(input,button,a):focus-visible {outline:3px solid var(--ed-link)!important;outline-offset:3px!important}
+ html[data-rt-member-design="v4"] body.rt-member-login :is(input[type="text"],input[type="email"],input[type="password"]) {border:1px solid var(--ed-border)!important;border-radius:var(--ed-control-radius)!important;font-size:16px!important}
+ @media(max-width:980px){
+  html[data-rt-member-design="v4"] body.rt-member-login .formside {order:-1!important;padding:32px 0!important;max-width:100%!important}
+  html[data-rt-member-design="v4"] body.rt-member-login .story {border-right:0!important;padding:32px 0!important}
+  html[data-rt-member-design="v4"] body.rt-member-login :is(.story h1,.formside h2) {font-size:34px!important}
+ }
+}
+/* D09: presentation only; medical/legal/contact text remains unchanged. */
+@media screen {
+ html body.rt-future[data-ed-shell] footer.sitio {padding:48px 0!important;min-height:0!important;margin-top:48px!important}
+ html body.rt-future[data-ed-shell] footer.sitio p {font-size:16px!important;line-height:1.65!important;text-align:left!important;color:#d8e2e6!important}
+ html body.rt-future[data-ed-shell] footer.sitio a {color:#eef4f3!important;text-underline-offset:3px}
+ html body.rt-future[data-ed-shell] > .rt-version {color:var(--ed-muted)!important;background:var(--ed-paper)!important;opacity:1!important}
+ html body.rt-future[data-ed-reader] .rt-reader-rail .rt-rail-nav a:is(.active,.is-active,[aria-current]) {color:var(--ed-link)!important}
+ html body.rt-future[data-ed-shell] footer.sitio :is(h2,h3,h4) {color:#83d4cd!important;line-height:1.5!important}
+ @media(max-width:700px){html body.rt-future[data-ed-shell] footer.sitio {padding:36px 0!important;margin-top:32px!important}}
+}
 /* D06: presentation only; data loading and filtering are unchanged. */
 @media screen {
  .ed-search-label {font:500 14px/1.4 system-ui;color:inherit;flex-shrink:0}
@@ -25,6 +50,13 @@
  html body.rt-future[data-ed-shell] .rt-global-search-status strong {font-size:16px!important;color:var(--ed-ink)!important}
  html body.rt-future[data-ed-shell] .rt-global-search-result:is(:hover,[aria-selected="true"]) {background:var(--ed-alt)!important;border-color:var(--ed-link)!important;transform:none!important}
  html body.rt-future[data-ed-shell]:not(.rt-tema-claro) {--ed-ink:#eef4f3;--ed-muted:#bacbd3;--ed-paper:#12233b;--ed-alt:#243c51;--ed-link:#83d4cd;--ed-border:#627681}
+ html body.rt-future.rt-future-home[data-ed-shell]:not(.rt-tema-claro) :is(#indice,.buscador,.indice-cabecera,.rt-explorer-stage) {background:var(--ed-paper)!important;color:var(--ed-ink)!important}
+ html body.rt-future.rt-future-home[data-ed-shell]:not(.rt-tema-claro) :is(.meta-nota,.ed-institutional-copy,.rt-explorer-head) {color:var(--ed-muted)!important}
+ html body.rt-future.rt-future-home[data-ed-shell]:not(.rt-tema-claro) :is(.ed-institutional-copy,.rt-explorer-head) :is(p,span) {color:var(--ed-muted)!important}
+ html body.rt-future.rt-future-home[data-ed-shell]:not(.rt-tema-claro) .rt-explorer-head :is(h2,b) {color:var(--ed-ink)!important}
+ html body.rt-future.rt-future-home[data-ed-shell]:not(.rt-tema-claro) .rt-step {background:var(--ed-alt)!important;border-color:var(--ed-border)!important}
+ html body.rt-future.rt-future-home[data-ed-shell]:not(.rt-tema-claro) .anio-margen::after {color:var(--ed-link)!important}
+ html body.rt-future.rt-future-home[data-ed-shell]:not(.rt-tema-claro) #indice :is(h2,h3,.anio-num) {color:var(--ed-ink)!important}
  @media(max-width:1040px){
   html body.rt-future[data-ed-shell] .rt-global-search-results {top:calc(var(--rt-topbar-h,121px) + 8px)!important;max-height:calc(100vh - var(--rt-topbar-h,121px) - 24px)!important}
   html body.rt-future[data-ed-shell] :is(.buscador,.rt-global-search-form) kbd {display:none!important}
