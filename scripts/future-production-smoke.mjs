@@ -58,8 +58,8 @@ try{
   await page.goto(`${BASE}/?qa=${Date.now()}`,{waitUntil:'domcontentloaded',timeout:30000});
   await page.waitForSelector('body.rt-future-home',{timeout:15000});
   await waitV4(page);
-  await page.waitForSelector('.rt-orbit',{timeout:15000});
   await page.waitForSelector('.rt-explorer-stage',{timeout:15000});
+  assert(await page.locator('.rt-orbit').isHidden(),'Producción: la órbita editorial debe permanecer oculta para priorizar el catálogo');
   await page.waitForFunction(expected=>document.querySelectorAll('#indice .fila').length>=expected,expectedCount,{timeout:15000});
   assert(await page.locator('.seo-hubs-home').count()===0,'Producción: persisten botones inferiores duplicados');
   assert(await page.locator('.rt-editorial-prelude').count()===0,'Producción: persiste segundo bloque Explora/Interpreta/Conserva');
@@ -126,7 +126,7 @@ try{
   assert(await page.locator('.rt-save-action').isVisible(),'Producción trial: guardar en biblioteca no visible');
   const type=await page.locator('.rt-evidence-section p').first().evaluate(el=>({size:parseFloat(getComputedStyle(el).fontSize),align:getComputedStyle(el).textAlign}));
   assert(type.size>=17,`Producción trial: cuerpo pequeño (${type.size}px)`);
-  assert(type.align==='justify',`Producción trial: cuerpo no justificado (${type.align})`);
+  assert(type.align==='left',`Producción trial: prosa editorial no alineada a la izquierda (${type.align})`);
   const sectionLook=await page.locator('.rt-evidence-section').first().evaluate(el=>({bg:getComputedStyle(el).backgroundImage,radius:getComputedStyle(el).borderRadius}));
   assert(sectionLook.bg==='none'&&sectionLook.radius==='0px',`Producción trial: formato completo no coincide con breve (${sectionLook.bg}, ${sectionLook.radius})`);
   await noOverflow(page,'Producción trial desktop');
@@ -135,6 +135,7 @@ try{
   const orderOk=await page.evaluate(()=>document.querySelector('article.articulo')?.nextElementSibling?.classList.contains('rt-reader-rail')===true);
   assert(orderOk,'Producción trial móvil: herramientas interrumpen la lectura completa');
   const typeMobile=await page.locator('.rt-evidence-section p').first().evaluate(el=>({size:parseFloat(getComputedStyle(el).fontSize),align:getComputedStyle(el).textAlign}));
+  assert(typeMobile.align==='left',`Producción trial móvil: prosa editorial no alineada a la izquierda (${typeMobile.align})`);
   await noOverflow(page,'Producción trial móvil');
 
   const trialId=ids[0];
