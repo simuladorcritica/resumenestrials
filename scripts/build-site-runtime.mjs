@@ -13,6 +13,7 @@ const jsSources = [
   'home-downloads-v8.js',
   'reader-controls-v9.js',
   'reader-preferences.js',
+  'editorial-reader.js',
 ];
 
 const cssSources = [
@@ -21,6 +22,7 @@ const cssSources = [
   'global-search.css',
   'theme-light.css',
   'reader-mode.css',
+  'editorial.css',
   'print.css',
 ];
 

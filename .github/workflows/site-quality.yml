@@ -336,6 +336,7 @@ jobs:
         run: |
           node scripts/browser-smoke.mjs
           node scripts/auth-safe-smoke.mjs
+          node scripts/editorial-reader-smoke.mjs
 
   resend-qa-single-recipient:
     name: Enviar exactamente un correo QA

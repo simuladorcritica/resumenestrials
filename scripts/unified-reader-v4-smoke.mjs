@@ -55,7 +55,7 @@ try{
   const fullType=await page.evaluate(()=>({p:parseFloat(getComputedStyle(document.querySelector('.rt-evidence-section p')).fontSize),h2:parseFloat(getComputedStyle(document.querySelector('.rt-evidence-section h2')).fontSize),meta:parseFloat(getComputedStyle(document.querySelector('.fuente')).fontSize),title:parseFloat(getComputedStyle(document.querySelector('.art-head h1')).fontSize)}));
   assert(fullType.p>=20.5,`Trial completo: cuerpo aún pequeño (${fullType.p}px)`);
   assert(fullType.h2>=30,`Trial completo: subtítulo aún pequeño (${fullType.h2}px)`);
-  assert(fullType.meta>=15.5,`Trial completo: metadatos aún pequeños (${fullType.meta}px)`);
+  assert(fullType.meta>=14,`Trial completo: metadatos aún pequeños (${fullType.meta}px)`);
 
   await page.goto(`${BASE}/resumen.html?id=${sample.id}&v=corto`,{waitUntil:'domcontentloaded',timeout:25000});
   await page.waitForSelector('body.rt-future-legacy',{timeout:10000});

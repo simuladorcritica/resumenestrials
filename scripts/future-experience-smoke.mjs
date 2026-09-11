@@ -122,7 +122,7 @@ try{
   const paragraph=page.locator('.rt-evidence-section p').first();
   const trialType=await paragraph.evaluate(el=>({size:parseFloat(getComputedStyle(el).fontSize),align:getComputedStyle(el).textAlign}));
   assert(trialType.size>=17,`Trial: cuerpo demasiado pequeño (${trialType.size}px)`);
-  assert(trialType.align==='justify',`Trial: texto completo no justificado (${trialType.align})`);
+  assert(trialType.align==='left',`Trial: prosa editorial no alineada a la izquierda (${trialType.align})`);
   const sectionLook=await page.locator('.rt-evidence-section').first().evaluate(el=>({bg:getComputedStyle(el).backgroundImage,radius:getComputedStyle(el).borderRadius}));
   assert(sectionLook.bg==='none',`Trial: el cuerpo completo conserva tarjetas visuales (${sectionLook.bg})`);
   assert(sectionLook.radius==='0px',`Trial: el cuerpo completo no coincide con la lectura breve (${sectionLook.radius})`);
