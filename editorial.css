@@ -132,13 +132,13 @@
  html body.rt-future[data-ed-shell] .ed-menu,html body.rt-future[data-ed-shell] .ed-account-short {display:none}
  html body.rt-future[data-ed-shell] :is(a,button,input):focus-visible {outline:3px solid var(--ed-link)!important;outline-offset:3px!important}
  @media(max-width:1040px){
-  html body.rt-future[data-ed-shell] .topbar-in {position:relative!important;grid-template-columns:38px minmax(48px,1fr) 44px 44px auto!important;padding:8px 12px!important;gap:8px!important}
+  html body.rt-future[data-ed-shell] .topbar-in {position:relative!important;grid-template-columns:38px minmax(48px,1fr) 44px 60px auto!important;padding:8px 12px!important;gap:8px!important}
   html body.rt-future[data-ed-shell] :is(.rt-nav-actions,.top-links,.rt-pref-controls) {display:contents!important}
   html body.rt-future[data-ed-shell] .rt-brand {grid-column:1!important;grid-row:1!important}
   html body.rt-future[data-ed-shell] .rt-brand-name {display:none!important}
   html body.rt-future[data-ed-shell] .ed-menu {display:inline-flex;align-items:center;justify-content:center;grid-row:1;grid-column:2;justify-self:start;min-height:44px;padding:8px;border:1px solid var(--ed-border);border-radius:8px;color:var(--ed-link);background:var(--ed-paper);font:600 14px system-ui}
   html body.rt-future[data-ed-shell] .rt-tema-btn {grid-row:1!important;grid-column:3!important;width:44px!important;padding:8px!important;margin:0!important}
-  html body.rt-future[data-ed-shell] .rt-lectura-btn {grid-row:1!important;grid-column:4!important;width:44px!important;padding:8px!important;margin:0!important}
+  html body.rt-future[data-ed-shell] .rt-lectura-btn {grid-row:1!important;grid-column:4!important;width:60px!important;height:auto!important;min-height:44px!important;white-space:normal!important;line-height:1.15!important;padding:8px!important;margin:0!important}
   html body.rt-future[data-ed-shell] .rt-pref-btn span {display:none!important}
   html body.rt-future[data-ed-shell] .auth-entry {grid-row:1!important;grid-column:5!important;margin:0!important;padding:8px!important;min-width:58px!important;font-size:15px!important}
   html body.rt-future[data-ed-shell] .auth-entry-main {display:none!important}
