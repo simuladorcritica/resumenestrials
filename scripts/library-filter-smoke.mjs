@@ -39,6 +39,9 @@ try{
   assert(buscadorBox.width/headerBox.width>0.95,`Filtros: el buscador debe ocupar todo el ancho de la cabecera (${buscadorBox.width}/${headerBox.width})`);
   assert(buscadorBox.height>=44,`Índice: el buscador perdió su tamaño táctil (alto=${buscadorBox.height})`);
   assert(await page.locator('label.ed-index-label').isVisible(),'Índice: falta etiqueta visible de búsqueda');
+  await page.locator('.fila .rt-download-brief').first().waitFor({state:'visible'});
+  const pdfActions=await page.locator('.fila').first().locator('.fila-pdf :is(.btn-pdf,.rt-download-brief)').evaluateAll(es=>es.map(e=>({size:parseFloat(getComputedStyle(e).fontSize),height:e.getBoundingClientRect().height})));
+  assert(pdfActions.length===2&&pdfActions.every(e=>e.size===14&&e.height>=44),'Índice: ambas acciones PDF deben conservar 14 px y tamaño táctil');
 
   const inputFontSize=await page.locator('.buscador-input').evaluate(el=>parseFloat(getComputedStyle(el).fontSize));
   assert(inputFontSize>=18,`Filtros: el texto del buscador debe ser grande (font-size=${inputFontSize})`);
