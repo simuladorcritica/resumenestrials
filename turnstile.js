@@ -33,6 +33,13 @@ export async function mountTurnstile(containerId, action) {
   const container = document.getElementById(containerId);
   if (!container) throw new Error('No se encontró el contenedor de seguridad.');
 
+  // The account pages label the Turnstile mount point with aria-label. A plain
+  // generic div cannot be named with aria-label, so give that labelled
+  // container an explicit grouping role before the widget is rendered.
+  if (container.hasAttribute('aria-label') && !container.hasAttribute('role')) {
+    container.setAttribute('role', 'group');
+  }
+
   if (!CAPTCHA_ENABLED) {
     container.replaceChildren();
     container.hidden = true;
