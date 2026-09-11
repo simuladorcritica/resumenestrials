@@ -27,7 +27,7 @@ try{
   await shot('/medicina-critica/','04-hub-desktop','body.rt-future-hub');
   await shot('/login.html','05-login-desktop','body.rt-future-account');
   await page.setViewportSize({width:390,height:844});
-  await shot('/index.html','06-home-mobile','.rt-orbit');
+  await shot('/index.html','06-home-mobile','body[data-ed-shell] .rt-explorer-stage');
   await shot(trial,'07-trial-mobile','.rt-evidence-section');
   if(sample.corto)await shot(`/resumen.html?id=${sample.id}&v=corto`,'08-resumen-breve-mobile','article.corto');
   console.log(`FUTURE VISUAL CAPTURE PASS · ${sample.corto?8:6} vistas`);
