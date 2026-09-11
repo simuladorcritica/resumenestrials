@@ -192,6 +192,29 @@ try{
   assert(await page.locator('#exito').count()===1,'Registro: falta estado de confirmación exitoso');
   await noOverflow(page,'Registro');
 
+  // Protect the mobile header against text spilling into the account link.
+  for(const width of [320,390,820,1440])for(const path of [manifest['98'].path,'/resumen.html?id=98','/resumen.html?id=98&v=corto']){
+    await page.setViewportSize({width,height:900});
+    await page.goto(`${BASE}${path}`,{waitUntil:'domcontentloaded',timeout:25000});
+    await page.waitForSelector('[data-ed-shell]',{timeout:10000});
+    await page.evaluate(()=>document.fonts.ready);
+    for(const active of [false,true]){
+      const mode=page.locator('.rt-lectura-btn');
+      if(active)await mode.click();
+      const geometry=await mode.evaluate(button=>{
+        const b=button.getBoundingClientRect(),account=document.querySelector('.auth-entry').getBoundingClientRect();
+        const range=document.createRange();range.selectNodeContents(button);const text=range.getBoundingClientRect();
+        const overlap=(a,c)=>Math.max(0,Math.min(a.right,c.right)-Math.max(a.left,c.left))*Math.max(0,Math.min(a.bottom,c.bottom)-Math.max(a.top,c.top));
+        return {contained:text.left>=b.left-.5&&text.right<=b.right+.5&&text.top>=b.top-.5&&text.bottom<=b.bottom+.5,buttonAccount:overlap(b,account),textAccount:overlap(text,account),width:b.width,height:b.height,document:document.documentElement.scrollWidth,body:document.body.scrollWidth};
+      });
+      const label=`Header ${path} ${width}px active=${active}: ${JSON.stringify(geometry)}`;
+      assert(geometry.contained,`Texto fuera del botón. ${label}`);
+      assert(geometry.buttonAccount===0&&geometry.textAccount===0,`Superposición con Cuenta. ${label}`);
+      assert(geometry.width>=43&&geometry.height>=43,`Área interactiva insuficiente. ${label}`);
+      assert(geometry.document<=width&&geometry.body<=width,`Overflow horizontal. ${label}`);
+      if(active)await mode.click();
+    }
+  }
   assert(pageErrors.length===0,`Errores JavaScript detectados: ${pageErrors.join(' | ')}`);
   console.log(`FUTURE EXPERIENCE PASS · buscador global funcional · ${data.length} resúmenes · trial ${sample.id} · ${sectionCount} secciones`);
 } finally {
