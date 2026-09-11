@@ -30,6 +30,15 @@
     header.querySelector('.filtros')?.remove();
     advanced.remove();
     header.dataset.rtSimpleFilters = '1';
+    const input = buscador.querySelector('input');
+    if (input && !header.querySelector('.ed-index-label')) {
+      if (!input.id) input.id = 'ed-index-query';
+      const label = document.createElement('label');
+      label.className = 'ed-index-label';
+      label.htmlFor = input.id;
+      label.textContent = 'Buscar en el índice';
+      header.insertBefore(label, buscador);
+    }
     return true;
   }
 

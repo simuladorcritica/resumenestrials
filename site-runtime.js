@@ -624,6 +624,12 @@
     button.replaceWith(form);
 
     const input = form.querySelector('.rt-global-search-input');
+    input.id = 'rt-global-search-input';
+    const label = document.createElement('label');
+    label.className = 'ed-search-label';
+    label.htmlFor = input.id;
+    label.textContent = 'Buscar';
+    input.before(label);
     input.addEventListener('focus', () => render(input));
     input.addEventListener('input', () => render(input));
     input.addEventListener('keydown', (event) => {
@@ -2385,7 +2391,7 @@
       ].filter(Boolean);
       buttons.forEach((button) => {
         button.style.setProperty('font-family', "'IBM Plex Mono', monospace", 'important');
-        button.style.setProperty('font-size', '10.5px', 'important');
+        button.style.setProperty('font-size', '14px', 'important');
         button.style.setProperty('font-weight', '600', 'important');
         button.style.setProperty('line-height', '1.28');
         button.style.setProperty('letter-spacing', '.045em');

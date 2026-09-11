@@ -11,7 +11,7 @@
       ].filter(Boolean);
       buttons.forEach((button) => {
         button.style.setProperty('font-family', "'IBM Plex Mono', monospace", 'important');
-        button.style.setProperty('font-size', '10.5px', 'important');
+        button.style.setProperty('font-size', '14px', 'important');
         button.style.setProperty('font-weight', '600', 'important');
         button.style.setProperty('line-height', '1.28');
         button.style.setProperty('letter-spacing', '.045em');
