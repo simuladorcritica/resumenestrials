@@ -12,6 +12,6 @@
   },
   "devDependencies": {
     "jspdf": "4.2.1",
-    "playwright": "1.62.1"
+    "playwright": "1.63.0"
   }
 }
