@@ -89,15 +89,19 @@ jobs:
               assert source.count('/site-runtime.css?v=20260821') == 1, f'{path}: runtime CSS ausente o duplicado'
               assert source.count('/site-runtime.js?v=20260821') == 1, f'{path}: runtime JS ausente o duplicado'
               assert '/future-experience.js?v=1' not in source, f'{path}: conserva carga JS fragmentada'
-              assert source.count(future.ADSENSE_URL) == 1, f'{path}: AdSense debe aparecer exactamente una vez'
-              head, sep, _ = source.partition('</head>')
-              assert sep and future.ADSENSE_URL in head, f'{path}: el script de AdSense no está dentro de <head>'
-              assert 'crossorigin="anonymous"' in head, f'{path}: falta crossorigin de AdSense'
+              if future.adsense_allowed(path):
+                  assert source.count(future.ADSENSE_URL) == 1, f'{path}: AdSense debe aparecer exactamente una vez'
+                  head, sep, _ = source.partition('</head>')
+                  assert sep and future.ADSENSE_URL in head, f'{path}: el script de AdSense no está dentro de <head>'
+                  assert 'crossorigin="anonymous"' in head, f'{path}: falta crossorigin de AdSense'
+              else:
+                  assert 'adsbygoogle' not in source and future.ADSENSE_CLIENT not in source, f'{path}: AdSense prohibido en esta ruta'
               checked += 1
           if checked < 50:
               raise SystemExit(f'Solo se verificaron {checked} páginas; se esperaban al menos 50')
-          print(f'PASS: experiencia futura v4 + buscador global + AdSense verificados en {checked} páginas; ads.txt válido')
+          print(f'PASS: experiencia futura v4 + buscador global + política AdSense verificados en {checked} páginas; ads.txt válido')
           PY
+          python3 scripts/validate-adsense-policy.py
 
       - name: Stagear todas las salidas publicables
         run: |

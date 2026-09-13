@@ -2,6 +2,10 @@ const BASE = (process.env.RT_BASE_URL || 'https://resumenestrials.com').replace(
 const ADSENSE_CLIENT = 'ca-pub-3132744538918477';
 const ADSENSE_URL = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}`;
 const ADS_TXT_RECORD = 'google.com, pub-3132744538918477, DIRECT, f08c47fec0942fa0';
+const EXCLUDED_PATHS = [
+  '/login.html', '/registro.html', '/recuperar.html', '/cuenta.html', '/biblioteca.html',
+  '/privacidad/', '/privacidad/index.html', '/privacidad.html', '/terminos/', '/terminos/index.html',
+];
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
 function assert(value, message) {
@@ -21,7 +25,15 @@ async function fetchText(path) {
   return response.text();
 }
 
-function assertAdsenseHtml(path, html) {
+function assertAdsenseHtml(path, html, allowed = true) {
+  const scripts = [...html.matchAll(/<script\b[^>]*>[\s\S]*?<\/script\s*>/gi)].map(match => match[0]);
+  const loaders = scripts.filter(script => /adsbygoogle\.js/i.test(script));
+  if (!allowed) {
+    assert(loaders.length === 0 && !html.includes('adsbygoogle') && !html.includes(ADSENSE_CLIENT), `${path}: AdSense está prohibido en esta ruta`);
+    return;
+  }
+  assert(loaders.length === 1 && loaders[0].includes(ADSENSE_URL), `${path}: loader AdSense ausente, duplicado o publisher incorrecto`);
+  assert(/crossorigin=["']anonymous["']/.test(loaders[0]), `${path}: falta crossorigin en el loader AdSense`);
   const count = html.split(ADSENSE_URL).length - 1;
   assert(count === 1, `${path}: se esperaba un único script de AdSense y se encontraron ${count}`);
   const headEnd = html.toLowerCase().indexOf('</head>');
@@ -53,6 +65,8 @@ async function waitForAdsenseDeployment() {
       const privacyOk = home.includes('Google AdSense') && privacy.includes('Google AdSense') && privacy.includes('Cookies, almacenamiento local y publicidad');
       if (count === 1 && adsOk && privacyOk) {
         assertAdsenseHtml('/', home);
+        // Wait for exclusions too: a previously deployed home already has ads.
+        for (const path of EXCLUDED_PATHS) assertAdsenseHtml(path, await fetchText(path), false);
         assertPrivacyUpdated(home, privacy);
         console.log(`ADSENSE DEPLOYMENT READY · intento ${attempt}`);
         return;
@@ -85,6 +99,8 @@ assert(Array.isArray(data) && data.length > 0, 'No hay resúmenes para validar A
 const sample = data.find(item => item.corto) || data[0];
 const entry = manifest[String(sample.id)];
 assert(entry?.path, `No existe ruta canónica para el resumen ${sample.id}`);
+const prague = data.find(item => /PRAGUE-26/i.test(item.titulo || ''));
+assert(prague && manifest[String(prague.id)]?.path, 'Falta el control editorial PRAGUE-26');
 
 const paths = [
   '/',
@@ -94,13 +110,7 @@ const paths = [
   '/medicina-interna/',
   '/metodologia/',
   '/equipo-editorial/',
-  '/login.html',
-  '/registro.html',
-  '/recuperar.html',
-  '/cuenta.html',
-  '/biblioteca.html',
-  '/privacidad/',
-  '/terminos/',
+  manifest[String(prague.id)].path,
 ];
 if (sample.corto) paths.splice(3, 0, `/resumen.html?id=${sample.id}&v=corto`);
 
@@ -108,5 +118,6 @@ for (const path of paths) {
   const html = await fetchText(path);
   assertAdsenseHtml(path, html);
 }
+for (const path of EXCLUDED_PATHS) assertAdsenseHtml(path, await fetchText(path), false);
 
-console.log(`ADSENSE PRODUCTION PASS · ${paths.length} páginas · ${ADSENSE_CLIENT} · ads.txt válido · privacidad actualizada`);
+console.log(`ADSENSE PRODUCTION PASS · ${paths.length} controles editoriales con 1 script · ${EXCLUDED_PATHS.length} rutas excluidas con 0 scripts · ${ADSENSE_CLIENT} · ads.txt válido · privacidad actualizada`);
