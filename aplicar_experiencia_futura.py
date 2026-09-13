@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from pathlib import Path
+import re
 
 ROOT = Path(__file__).resolve().parent
 LEGACY_STYLES = [
@@ -12,6 +13,24 @@ STYLES = ['<link rel="stylesheet" href="/site-runtime.css?v=20260821">']
 ADSENSE_CLIENT = 'ca-pub-3132744538918477'
 ADSENSE_URL = f'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={ADSENSE_CLIENT}'
 ADSENSE_SCRIPT = f'<script async src="{ADSENSE_URL}" crossorigin="anonymous"></script>'
+# Authentication, personal account/library and legal routes never load AdSense,
+# including redirects and explicit index aliases, irrespective of session state.
+ADSENSE_EXCLUDED_ROUTES = frozenset({
+    '/login.html', '/registro.html', '/recuperar.html',
+    '/cuenta.html', '/biblioteca.html',
+    '/privacidad/', '/privacidad/index.html', '/privacidad.html',
+    '/terminos/', '/terminos/index.html',
+})
+ADSENSE_SCRIPT_RE = re.compile(
+    r'(?:^[ \t]*)?<script\b[^>]*\bsrc\s*=\s*[\"\'](?:https?:)?//pagead2\.googlesyndication\.com/'
+    r'pagead/js/adsbygoogle\.js[^\"\']*[\"\'][^>]*>[\s\S]*?</script\s*>',
+    re.IGNORECASE | re.MULTILINE,
+)
+
+
+def adsense_allowed(path: Path) -> bool:
+    route = '/' + path.resolve().relative_to(ROOT.resolve()).as_posix()
+    return route not in ADSENSE_EXCLUDED_ROUTES
 
 LEGACY_HOME_PRIVACY = (
     '<p>Este sitio no recopila datos personales de sus visitantes ni utiliza cookies de seguimiento o publicidad. '
@@ -111,8 +130,13 @@ def inject(path: Path) -> bool:
             source = source.replace(old, new)
             changed = True
 
+    if not adsense_allowed(path):
+        without_ads = ADSENSE_SCRIPT_RE.sub('', source)
+        changed = changed or without_ads != source
+        source = without_ads
+
     if '</head>' in source:
-        if ADSENSE_URL not in source:
+        if adsense_allowed(path) and ADSENSE_URL not in source:
             source = source.replace('</head>', ADSENSE_SCRIPT + '</head>', 1)
             changed = True
         missing = ''.join(style for style in STYLES if style not in source)
@@ -139,6 +163,8 @@ def candidates() -> list[Path]:
         ROOT / 'cuenta.html',
         ROOT / 'biblioteca.html',
         ROOT / 'privacidad.html',
+        ROOT / 'privacidad' / 'index.html',
+        ROOT / 'terminos' / 'index.html',
         ROOT / 'agregar.html',
         ROOT / 'metodologia' / 'index.html',
         ROOT / 'equipo-editorial' / 'index.html',
