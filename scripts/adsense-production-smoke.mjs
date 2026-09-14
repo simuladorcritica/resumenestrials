@@ -1,3 +1,4 @@
+import { checkContentAdvertising } from './adsense-content-smoke.mjs';
 const BASE = (process.env.RT_BASE_URL || 'https://resumenestrials.com').replace(/\/$/, '');
 const ADSENSE_CLIENT = 'ca-pub-3132744538918477';
 const ADSENSE_URL = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}`;
@@ -5,6 +6,7 @@ const ADS_TXT_RECORD = 'google.com, pub-3132744538918477, DIRECT, f08c47fec0942f
 const EXCLUDED_PATHS = [
   '/login.html', '/registro.html', '/recuperar.html', '/cuenta.html', '/biblioteca.html',
   '/privacidad/', '/privacidad/index.html', '/privacidad.html', '/terminos/', '/terminos/index.html',
+  '/agregar.html', '/medicina-interna/hematologia-oncologia/',
 ];
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
@@ -105,19 +107,21 @@ assert(prague && manifest[String(prague.id)]?.path, 'Falta el control editorial 
 const paths = [
   '/',
   entry.path,
-  `/resumen.html?id=${sample.id}`,
   '/medicina-critica/',
   '/medicina-interna/',
   '/metodologia/',
   '/equipo-editorial/',
   manifest[String(prague.id)].path,
 ];
-if (sample.corto) paths.splice(3, 0, `/resumen.html?id=${sample.id}&v=corto`);
 
 for (const path of paths) {
   const html = await fetchText(path);
   assertAdsenseHtml(path, html);
 }
 for (const path of EXCLUDED_PATHS) assertAdsenseHtml(path, await fetchText(path), false);
+// The reader's initial HTML must be ad-free even for a valid ID. Browser checks
+// verify that exactly one loader appears only after a valid article is rendered.
+assertAdsenseHtml('/resumen.html', await fetchText('/resumen.html'), false);
+await checkContentAdvertising(BASE);
 
 console.log(`ADSENSE PRODUCTION PASS · ${paths.length} controles editoriales con 1 script · ${EXCLUDED_PATHS.length} rutas excluidas con 0 scripts · ${ADSENSE_CLIENT} · ads.txt válido · privacidad actualizada`);

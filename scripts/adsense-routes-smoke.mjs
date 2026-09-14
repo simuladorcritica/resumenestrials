@@ -2,6 +2,7 @@ import { chromium } from 'playwright';
 import assert from 'node:assert/strict';
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { assertLoopbackBase, installTurnstileTestRoutes } from './turnstile-test-helpers.mjs';
+import { checkContentAdvertising } from './adsense-content-smoke.mjs';
 
 const BASE = (process.env.RT_BASE_URL || '').replace(/\/$/, '');
 assertLoopbackBase(BASE);
@@ -62,3 +63,4 @@ try {
 }
 writeFileSync('future-screenshots/adsense-routes.json', JSON.stringify(results, null, 2));
 console.log(`ADSENSE ROUTES PASS · ${results.length} route/viewport cases · zero advertising, including anonymous redirects · 390/1440 px`);
+await checkContentAdvertising(BASE);
