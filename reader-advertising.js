@@ -5,11 +5,10 @@ export function loadReaderAdvertising(article, content) {
   if (location.pathname !== '/resumen.html' || !requested || !article
       || String(article.id) !== requested || !content?.isConnected
       || !content.textContent.trim()) return false;
-  if (document.querySelector('script[data-reader-advertising]')) return true;
+  if (document.querySelector('script[src*="/pagead/js/adsbygoogle.js"]')) return true;
   const script = document.createElement('script');
   script.async = true;
   script.crossOrigin = 'anonymous';
-  script.dataset.readerAdvertising = 'valid-article';
   script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3132744538918477';
   document.head.append(script);
   return true;

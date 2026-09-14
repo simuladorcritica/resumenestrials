@@ -24,11 +24,12 @@ export async function checkContentAdvertising(base, output = 'future-screenshots
       if (path === '/' && ['localhost', '127.0.0.1'].includes(new URL(base).hostname)) {
         await context.route(base + '/', route => route.fulfill({ contentType: 'text/html', body: readFileSync('_includes/index-source.html', 'utf8') }));
       }
-      const requests = [], errors = [], consoleMessages = [];
+      const requests = [], errors = [], consoleMessages = [], failedResponses = [];
       context.on('request', r => requests.push({ url: r.url(), document: r.frame().url() }));
       const page = await context.newPage();
       page.on('pageerror', e => errors.push(e.message));
       page.on('console', m => consoleMessages.push({ type: m.type(), text: m.text() }));
+      page.on('response', r => { if (r.status() >= 400) failedResponses.push({ url: r.url(), status: r.status() }); });
       let releaseData;
       const dataGate = new Promise(resolve => { releaseData = resolve; });
       if (path.startsWith('/resumen.html')) {
@@ -54,9 +55,10 @@ export async function checkContentAdvertising(base, output = 'future-screenshots
       if (!allowed) assert.deepEqual(originAds, [], path + ': forbidden advertising requests');
       if (path === '/agregar.html') assert.match(await page.locator('meta[name="robots"]').getAttribute('content'), /noindex/);
       assert.deepEqual(errors, [], path + ': page errors');
+      assert.equal(consoleMessages.some(m => /AdSense head tag doesn't support/.test(m.text)), false, path + ': unsupported advertising attribute');
       const dom = await page.evaluate(() => ({ title: document.title, text: document.body.innerText, robots: document.querySelector('meta[name="robots"]')?.content, canonical: document.querySelector('link[rel="canonical"]')?.href, overflow: document.documentElement.scrollWidth > innerWidth + 2 }));
       assert.equal(dom.overflow, false, path + ': horizontal overflow');
-      rows.push({ path, width, finalUrl: page.url(), allowed, loaders, originAds, requests, errors, consoleMessages, dom });
+      rows.push({ path, width, finalUrl: page.url(), allowed, loaders, originAds, requests, failedResponses, errors, consoleMessages, dom });
       await page.screenshot({ path: output + '/content-ads-' + rows.length + '.png' });
       await context.close();
     }
