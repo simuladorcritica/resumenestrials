@@ -1,7 +1,14 @@
 #!/usr/bin/env python3
 import unittest
 
-from validar_resumenes import Hallazgos, validar_estilo_lexico
+from validar_resumenes import (
+    CUERPO_OPCIONAL,
+    SECCIONES_CUERPO,
+    SUBESPECIALIDADES,
+    Hallazgos,
+    es_lista_ordenada_valida,
+    validar_estilo_lexico,
+)
 
 
 def revisar(texto):
@@ -76,6 +83,19 @@ class ContratoEditorialContextualTests(unittest.TestCase):
     def test_referencia_documental_ordinaria_sigue_bloqueada(self):
         hallazgos = revisar("Como se observa en la Figura 2, el efecto fue estable.")
         self.assertTrue(any("incorrecta o ambigua" in m for _, m in hallazgos.errores))
+
+    def test_pico_es_alias_explicito_de_pregunta_de_investigacion(self):
+        secciones = list(SECCIONES_CUERPO)
+        secciones[1] = "Pregunta de investigación (PICO)"
+        self.assertTrue(es_lista_ordenada_valida(secciones, SECCIONES_CUERPO, CUERPO_OPCIONAL))
+
+    def test_alias_pico_no_relaja_otros_encabezados(self):
+        secciones = list(SECCIONES_CUERPO)
+        secciones[1] = "Pregunta clínica"
+        self.assertFalse(es_lista_ordenada_valida(secciones, SECCIONES_CUERPO, CUERPO_OPCIONAL))
+
+    def test_oftalmologia_es_subespecialidad_canonica(self):
+        self.assertIn("Oftalmología", SUBESPECIALIDADES)
 
 
 if __name__ == "__main__":
