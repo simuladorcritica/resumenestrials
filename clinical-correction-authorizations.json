@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "base_sha": "dd4623443d6df907afdf4a93c7d45420a1cf38d5",
+  "authorizations": [
+    {
+      "id": 46,
+      "fields": ["cuerpo"],
+      "reason": "Autorización explícita del propietario para corregir la interpretación del HR/curva de supervivencia libre de LRA y dejar la incertidumbre de parametrización del Cox sin invertir el HR."
+    },
+    {
+      "id": 41,
+      "fields": ["cuerpo"],
+      "reason": "Autorización explícita del propietario para retirar la falsa inconsistencia entre modelos ajustados y conservar por separado la discrepancia documental de fechas de reclutamiento."
+    }
+  ]
+}
