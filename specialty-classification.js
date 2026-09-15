@@ -48,7 +48,8 @@
       /\bshock cardiogenico\b/
     ]],
     ['Nefrolog\u00eda', [
-      /\b(?:enfermedad|lesion) renal (?:cronica|aguda)\b/, /\b(?:nefro|dialisis|glomerul|albuminuria)\w*\b/,
+      /\b(?:enfermedad|lesion) renal (?:cronica|aguda)\b/, /\benfermedad renal terminal\b/,
+      /\b(?:nefro|(?:hemo)?dialisis|glomerul|albuminuria)\w*\b/,
       /\bterapia de reemplazo renal\b/
     ]],
     ['Endocrinolog\u00eda', [
