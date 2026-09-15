@@ -1,16 +1,9 @@
 from pathlib import Path
-import subprocess
-import sys
 
 import corregir_fechas_editoriales
 import aplicar_experiencia_futura
 
-root = Path(__file__).resolve().parent
-migration = root / "scripts" / "apply-authorized-clinical-corrections.py"
-if migration.is_file():
-    subprocess.run([sys.executable, str(migration)], cwd=root, check=True)
-
-path = root / "agregar.html"
+path = Path(__file__).resolve().parent / "agregar.html"
 source = path.read_text(encoding="utf-8")
 tag = '<script src="/agregar-editorial-dates.js?v=1"></script>'
 if tag not in source:
