@@ -12,13 +12,24 @@ on:
       - "restaurar_arquitectura.py"
       - "actualizar_agregar_editorial.py"
       - "agregar-editorial-dates.js"
+      - "generar_paginas_sociales.py"
+      - "aplicar_experiencia_futura.py"
+      - "future-experience.css"
+      - "future-experience-patch.css"
+      - "future-experience.js"
+      - "global-search.css"
+      - "global-search.js"
+      - "future-experience-final.js"
+      - "future-experience-fix-v4.js"
+      - "future-experience-fix-v4-compat.js"
+      - "legacy-unifier-v4.js"
+      - "scripts/build-site-runtime.mjs"
       - "seo-clusters.json"
       - "seo-legacy-redirects.json"
       - "scripts/article-inventory.mjs"
       - "scripts/validate-article-indexability.mjs"
       - "seo-semantic.css"
       - "seo-pro.css"
-      - "generar_paginas_sociales.py"
       - "trial.css"
       - "trial-pdf.js"
       - "pdf-contact.js"
@@ -39,13 +50,24 @@ on:
       - "restaurar_arquitectura.py"
       - "actualizar_agregar_editorial.py"
       - "agregar-editorial-dates.js"
+      - "generar_paginas_sociales.py"
+      - "aplicar_experiencia_futura.py"
+      - "future-experience.css"
+      - "future-experience-patch.css"
+      - "future-experience.js"
+      - "global-search.css"
+      - "global-search.js"
+      - "future-experience-final.js"
+      - "future-experience-fix-v4.js"
+      - "future-experience-fix-v4-compat.js"
+      - "legacy-unifier-v4.js"
+      - "scripts/build-site-runtime.mjs"
       - "seo-clusters.json"
       - "seo-legacy-redirects.json"
       - "scripts/article-inventory.mjs"
       - "scripts/validate-article-indexability.mjs"
       - "seo-semantic.css"
       - "seo-pro.css"
-      - "generar_paginas_sociales.py"
       - "trial.css"
       - "trial-pdf.js"
       - "pdf-contact.js"
@@ -61,7 +83,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: actualizar-sitio-derivado-${{ github.event.pull_request.number || github.ref }}
+  group: materializar-sitio-derivado-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: false
 
 jobs:
@@ -94,8 +116,11 @@ jobs:
       - name: Instalar generador de imágenes
         run: python -m pip install --disable-pip-version-check pillow==11.3.0
 
-      - name: Validar generadores
-        run: python -m py_compile generar_seo.py generar_seo_clusters.py generar_seo_semantico.py generar_seo_avanzado.py restaurar_arquitectura.py actualizar_agregar_editorial.py generar_paginas_sociales.py
+      - name: Validar generadores y construir runtime
+        run: |
+          python -m py_compile generar_seo.py generar_seo_clusters.py generar_seo_semantico.py generar_seo_avanzado.py restaurar_arquitectura.py actualizar_agregar_editorial.py generar_paginas_sociales.py aplicar_experiencia_futura.py
+          node scripts/build-site-runtime.mjs
+          node --check site-runtime.js
 
       - name: Generar paginas SEO y sitemap
         run: python generar_seo.py
@@ -114,6 +139,9 @@ jobs:
 
       - name: Generar paginas sociales por trial
         run: python generar_paginas_sociales.py
+
+      - name: Aplicar experiencia final a todas las superficies publicables
+        run: python aplicar_experiencia_futura.py
 
       - name: Validar cobertura dinámica JSON, páginas y sitemap
         run: node scripts/validate-article-indexability.mjs
@@ -230,7 +258,22 @@ jobs:
           PY
 
       - name: Stagear archivos derivados
-        run: git add sitemap.xml seo-manifest.json seo-cluster-manifest.json trials/ medicina-critica/ medicina-interna/ metodologia/ equipo-editorial/ resumen/ images/trials/ _includes/index-source.html interactive-home.js internal-medicine-ux.js agregar.html
+        run: |
+          git add sitemap.xml seo-manifest.json seo-cluster-manifest.json trials/ medicina-critica/ medicina-interna/ metodologia/ equipo-editorial/ resumen/ images/trials/ _includes/index-source.html interactive-home.js internal-medicine-ux.js agregar.html site-runtime.js site-runtime.css
+          python - <<'PY'
+          from pathlib import Path
+          import subprocess
+          import aplicar_experiencia_futura as future
+
+          root = Path.cwd().resolve()
+          candidates = []
+          for path in future.candidates():
+              if path.is_file():
+                  candidates.append(str(path.resolve().relative_to(root)))
+          if candidates:
+              subprocess.run(['git', 'add', '--', *candidates], check=True)
+          print(f'Stageados {len(candidates)} candidatos de experiencia futura')
+          PY
 
       - name: Guardar archivos derivados en la rama del PR
         if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
@@ -238,12 +281,12 @@ jobs:
           HEAD_REF: ${{ github.event.pull_request.head.ref }}
         run: |
           if git diff --cached --quiet; then
-            echo "Las paginas derivadas y el SEO ya estan actualizados en el PR."
+            echo "Las paginas derivadas, el runtime y el SEO ya estan actualizados en el PR."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -m "Actualizar SEO respetando arquitectura editorial"
+          git commit -m "Materializar sitio derivado antes del merge"
           git push origin "HEAD:${HEAD_REF}"
 
       - name: Rechazar derivados faltantes en main o PR externo
