@@ -65,8 +65,8 @@ test('la taxonomía nunca contiene Medicina Interna General', () => {
 
 test('todos los resúmenes vigentes tienen área canónica y clasificación resoluble', () => {
   const data = JSON.parse(fs.readFileSync(new URL('../resumenes.json', import.meta.url), 'utf8'));
-  for (const record of data) {
-    const result = classify(record);
-    assert.notEqual(result.specialty, REVIEW, `${record.id} ${record.titulo}: ${result.reason}`);
-  }
+  const unresolved = data.map((record) => ({ record, result: classify(record) }))
+    .filter(({ result }) => result.specialty === REVIEW)
+    .map(({ record, result }) => `${record.id} ${record.titulo}: ${result.reason}`);
+  assert.deepEqual(unresolved, [], `Especialidades sin resolver:\n${unresolved.join('\n')}`);
 });
