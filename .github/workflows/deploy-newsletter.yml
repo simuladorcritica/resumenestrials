@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 concurrency:
   group: deploy-newsletter-production
@@ -130,8 +130,9 @@ jobs:
           echo "El servicio no superó la comprobación posterior al despliegue." >&2
           exit 1
 
-      - name: Registrar resultado del despliegue
+      - name: Registrar resultado del despliegue como artefacto
         if: always()
+        id: status
         env:
           OUTCOME_CREDENTIALS: ${{ steps.credentials.outcome }}
           OUTCOME_RESEND: ${{ steps.resend.outcome }}
@@ -173,16 +174,30 @@ jobs:
           }
           EOF
 
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add runtime/newsletter-deploy-status.json
-          if ! git diff --cached --quiet; then
-            git commit -m "chore: registrar estado de despliegue newsletter [skip ci]"
-            git push origin HEAD:main
-          fi
+          {
+            echo "## Newsletter deployment"
+            echo
+            echo "- Status: **$status**"
+            echo "- Failed stage: ${failed_stage:-none}"
+            echo "- Source SHA: \`$GITHUB_SHA\`"
+            echo "- Checked at: $deployed_at"
+            echo "- Persistence: workflow artifact; no direct push to protected main"
+          } >> "$GITHUB_STEP_SUMMARY"
 
-          if [ "$status" != "healthy" ]; then
-            echo "El despliegue falló en: $failed_stage" >&2
-            exit 1
-          fi
-          echo "Despliegue saludable y registrado."
+          echo "status=$status" >> "$GITHUB_OUTPUT"
+          echo "failed_stage=$failed_stage" >> "$GITHUB_OUTPUT"
+
+      - name: Guardar estado como artefacto
+        if: always()
+        uses: actions/upload-artifact@v7.0.1
+        with:
+          name: newsletter-deploy-status-${{ github.run_id }}
+          path: runtime/newsletter-deploy-status.json
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Fallar si el despliegue no fue saludable
+        if: always() && steps.status.outputs.status != 'healthy'
+        run: |
+          echo "El despliegue falló en: ${{ steps.status.outputs.failed_stage }}" >&2
+          exit 1

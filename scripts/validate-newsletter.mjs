@@ -87,11 +87,19 @@ for (const token of [
   'failed_stage',
   'OUTCOME_HEALTH',
   '"status": "$status"',
-  'git push origin HEAD:main',
+  'actions/upload-artifact@v7.0.1',
+  'newsletter-deploy-status-${{ github.run_id }}',
+  'contents: read',
+  'GITHUB_STEP_SUMMARY',
 ]) {
   if (!deploy.includes(token)) fail(`Workflow de despliegue incompleto: falta ${token}`);
 }
-if (!failed) pass('Despliegue de producción usa CLI oficial actual, configura secretos, publica por API, ejecuta health check y registra resultado saludable o etapa de fallo.');
+if (/git\s+push\s+origin\s+HEAD:main/.test(deploy) || /permissions:\s*[\s\S]*?contents:\s*write/.test(deploy)) {
+  fail('El workflow de newsletter no debe escribir directamente en main protegido.');
+} else {
+  pass('Workflow de despliegue conserva observabilidad mediante artefacto/resumen y no escribe directamente en main.');
+}
+if (!failed) pass('Despliegue de producción usa CLI oficial actual, configura secretos, publica por API, ejecuta health check y conserva el resultado sin commits automáticos a main.');
 
 if (failed) process.exit(1);
 console.log('Newsletter integration PASS');
