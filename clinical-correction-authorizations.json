@@ -5,12 +5,12 @@
     {
       "id": 46,
       "fields": ["cuerpo"],
-      "reason": "Autorización explícita del propietario, otorgada el 2026-09-15, para corregir la interpretación del HR/curva de supervivencia libre de LRA y dejar la incertidumbre de parametrización del Cox sin invertir el HR."
+      "reason": "Autorización explícita del propietario, otorgada el 2026-09-15 y trazada en el Issue #97 / PR #99, para corregir la interpretación del HR/curva de supervivencia libre de LRA y dejar la incertidumbre de parametrización del Cox sin invertir el HR."
     },
     {
       "id": 41,
       "fields": ["cuerpo"],
-      "reason": "Autorización explícita del propietario, otorgada el 2026-09-15, para retirar la falsa inconsistencia entre modelos ajustados y conservar por separado la discrepancia documental de fechas de reclutamiento."
+      "reason": "Autorización explícita del propietario, otorgada el 2026-09-15 y trazada en el Issue #97 / PR #99, para retirar la falsa inconsistencia entre modelos ajustados y conservar por separado la discrepancia documental de fechas de reclutamiento."
     }
   ]
 }
