@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "base_sha": "729933fb04843f2a68ba2e25a692619246e4cda0",
+  "authorizations": [
+    {
+      "id": 43,
+      "fields": ["cuerpo"],
+      "reason": "Autorización explícita del usuario para corregir la precisión bibliográfica y metodológica del artículo 43, distinguiendo fecha de publicación y versión PDF, y aclarando que las cifras de plasma/ELF son determinaciones derivadas de 29 lavados broncoalveolares."
+    },
+    {
+      "id": 48,
+      "fields": ["cuerpo"],
+      "reason": "Autorización explícita del usuario para corregir la precisión bibliográfica y metodológica del artículo 48, distinguiendo fechas del registro y publicación, y aclarando la diferencia entre pacientes aleatorizados y analizados."
+    }
+  ]
+}
