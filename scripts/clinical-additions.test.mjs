@@ -33,10 +33,16 @@ function article(id, overrides = {}) {
   };
 }
 
-function runGuard(script, cwd, base) {
+function runGuard(script, cwd, base, { headRef = '', githubActions = 'false' } = {}) {
   return spawnSync(process.execPath, [script], {
     cwd,
-    env: { ...process.env, CLINICAL_BASE_REF: base },
+    env: {
+      ...process.env,
+      CLINICAL_BASE_REF: base,
+      CLINICAL_HEAD_REF: headRef,
+      GITHUB_ACTIONS: githubActions,
+      GITHUB_SHA: headRef,
+    },
     encoding: 'utf8',
     windowsHide: true,
   });
@@ -180,6 +186,41 @@ test('el manifest rechaza comodines y autorizaciones más amplias que el diff re
     const unused = runGuard(clinicalGuard, fixture, base);
     assert.notEqual(unused.status, 0);
     assert.match(unused.stderr, /Autorización clínica no consumida: 1:corto/);
+  } finally {
+    rmSync(fixture, { recursive: true, force: true });
+  }
+});
+
+test('en GitHub Actions los guards validan el contenido comprometido y no un worktree mutado por pasos previos', () => {
+  const { fixture, base } = createFixture('resumenestrials-clinical-committed-');
+  try {
+    write(join(fixture, 'resumenes.json'), `${JSON.stringify([
+      article(1, { cuerpo: '<p>Cuerpo clínico autorizado</p>' }),
+    ], null, 2)}\n`);
+    write(join(fixture, 'trials/one/index.html'), '<article class="articulo"><p>Cuerpo clínico autorizado</p></article>\n');
+    writeAuthorization(fixture, base, [
+      {
+        id: 1,
+        fields: ['cuerpo'],
+        reason: 'Cambio comprometido exacto para probar el modo CI.',
+      },
+    ]);
+    runGit(fixture, ['add', '.']);
+    runGit(fixture, ['commit', '--quiet', '-m', 'authorized correction']);
+    const head = runGit(fixture, ['rev-parse', 'HEAD']);
+
+    write(join(fixture, 'resumenes.json'), `${JSON.stringify([
+      article(1, {
+        cuerpo: '<p>Cuerpo clínico autorizado</p>',
+        objetivo: 'Mutación transitoria no comprometida',
+      }),
+    ], null, 2)}\n`);
+    write(join(fixture, 'trials/one/index.html'), '<article class="articulo"><p>Mutación transitoria no comprometida</p></article>\n');
+
+    const committedClinical = runGuard(clinicalGuard, fixture, base, { headRef: head, githubActions: 'true' });
+    const committedBody = runGuard(bodyGuard, fixture, base, { headRef: head, githubActions: 'true' });
+    assert.equal(committedClinical.status, 0, committedClinical.stderr);
+    assert.equal(committedBody.status, 0, committedBody.stderr);
   } finally {
     rmSync(fixture, { recursive: true, force: true });
   }
