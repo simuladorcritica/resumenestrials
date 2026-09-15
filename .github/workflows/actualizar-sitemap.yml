@@ -1,9 +1,35 @@
 name: Actualizar sitio derivado y SEO
 
 on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "resumenes.json"
+      - "generar_seo.py"
+      - "generar_seo_clusters.py"
+      - "generar_seo_semantico.py"
+      - "generar_seo_avanzado.py"
+      - "restaurar_arquitectura.py"
+      - "actualizar_agregar_editorial.py"
+      - "agregar-editorial-dates.js"
+      - "seo-clusters.json"
+      - "seo-legacy-redirects.json"
+      - "scripts/article-inventory.mjs"
+      - "scripts/validate-article-indexability.mjs"
+      - "seo-semantic.css"
+      - "seo-pro.css"
+      - "generar_paginas_sociales.py"
+      - "trial.css"
+      - "trial-pdf.js"
+      - "pdf-contact.js"
+      - "seo-routing.js"
+      - "legacy-seo.js"
+      - "interactive-home.js"
+      - "internal-medicine-ux.js"
+      - "_includes/index-source.html"
+      - ".github/workflows/actualizar-sitemap.yml"
   push:
-    branches:
-      - main
+    branches: [main]
     paths:
       - "resumenes.json"
       - "generar_seo.py"
@@ -35,7 +61,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: actualizar-sitio-derivado-main
+  group: actualizar-sitio-derivado-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: false
 
 jobs:
@@ -43,12 +69,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Descargar repositorio
+      - name: Descargar rama del PR
+        if: github.event_name == 'pull_request'
+        uses: actions/checkout@v7.0.1
+        with:
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+          persist-credentials: true
+
+      - name: Descargar main
+        if: github.event_name != 'pull_request'
         uses: actions/checkout@v7.0.1
         with:
           ref: main
           fetch-depth: 0
-          persist-credentials: true
+          persist-credentials: false
 
       - name: Configurar Python
         uses: actions/setup-python@v7.0.0
@@ -166,7 +202,6 @@ jobs:
               if '<section class="cat-grid">' not in source:
                   raise SystemExit(f'El cluster {slug} perdió su arquitectura de colección')
 
-          # Regresiones semánticas conocidas que no deben volver.
           if '24' in [str(x) for x in clusters.get('sepsis-shock', {}).get('trial_ids', [])]:
               raise SystemExit('REBOARREST no pertenece al cluster de sepsis/shock')
           if '18' in [str(x) for x in clusters.get('neurologia', {}).get('trial_ids', [])]:
@@ -194,14 +229,30 @@ jobs:
           print(f'PASS: {len(datos)} trials unificados, resumen breve independiente, PDF completo, {len(clusters)} clusters limpios y portada prerenderizada')
           PY
 
-      - name: Guardar archivos derivados
+      - name: Stagear archivos derivados
+        run: git add sitemap.xml seo-manifest.json seo-cluster-manifest.json trials/ medicina-critica/ medicina-interna/ metodologia/ equipo-editorial/ resumen/ images/trials/ _includes/index-source.html interactive-home.js internal-medicine-ux.js agregar.html
+
+      - name: Guardar archivos derivados en la rama del PR
+        if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
+        env:
+          HEAD_REF: ${{ github.event.pull_request.head.ref }}
         run: |
-          if git diff --quiet -- sitemap.xml seo-manifest.json seo-cluster-manifest.json trials/ medicina-critica/ medicina-interna/ metodologia/ equipo-editorial/ resumen/ images/trials/ _includes/index-source.html interactive-home.js internal-medicine-ux.js agregar.html; then
-            echo "Las paginas derivadas y el SEO ya estan actualizados."
+          if git diff --cached --quiet; then
+            echo "Las paginas derivadas y el SEO ya estan actualizados en el PR."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add sitemap.xml seo-manifest.json seo-cluster-manifest.json trials/ medicina-critica/ medicina-interna/ metodologia/ equipo-editorial/ resumen/ images/trials/ _includes/index-source.html interactive-home.js internal-medicine-ux.js agregar.html
           git commit -m "Actualizar SEO respetando arquitectura editorial"
-          git push origin HEAD:main
+          git push origin "HEAD:${HEAD_REF}"
+
+      - name: Rechazar derivados faltantes en main o PR externo
+        if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name != github.repository
+        run: |
+          if git diff --cached --quiet; then
+            echo "PASS: las paginas derivadas ya estaban materializadas."
+            exit 0
+          fi
+          echo "Las paginas derivadas difieren del commit publicado. Deben materializarse en una rama y entrar por PR; main protegido no admite pushes automáticos." >&2
+          git diff --cached --stat >&2
+          exit 1
