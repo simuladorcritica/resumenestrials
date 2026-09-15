@@ -4,7 +4,7 @@
     "category": "Medicina Crítica",
     "path": "/medicina-critica/sepsis-shock/",
     "url": "https://resumenestrials.com/medicina-critica/sepsis-shock/",
-    "count": 12,
+    "count": 13,
     "trial_ids": [
       "2",
       "9",
@@ -17,7 +17,8 @@
       "87",
       "113",
       "129",
-      "149"
+      "149",
+      "168"
     ]
   },
   "ventilacion-respiratoria": {
@@ -115,13 +116,14 @@
     "category": "Medicina Crítica",
     "path": "/medicina-critica/hemodinamica-cardiovascular/",
     "url": "https://resumenestrials.com/medicina-critica/hemodinamica-cardiovascular/",
-    "count": 5,
+    "count": 6,
     "trial_ids": [
       "2",
       "9",
       "56",
       "69",
-      "129"
+      "129",
+      "168"
     ]
   },
   "paro-resucitacion": {
@@ -164,7 +166,7 @@
     "category": "Medicina Interna",
     "path": "/medicina-interna/cardiovascular/",
     "url": "https://resumenestrials.com/medicina-interna/cardiovascular/",
-    "count": 45,
+    "count": 53,
     "trial_ids": [
       "15",
       "18",
@@ -210,7 +212,15 @@
       "130",
       "137",
       "138",
-      "141"
+      "141",
+      "151",
+      "153",
+      "155",
+      "158",
+      "161",
+      "164",
+      "166",
+      "167"
     ]
   },
   "infecciosas": {
@@ -235,7 +245,7 @@
     "category": "Medicina Interna",
     "path": "/medicina-interna/renal-metabolica/",
     "url": "https://resumenestrials.com/medicina-interna/renal-metabolica/",
-    "count": 25,
+    "count": 27,
     "trial_ids": [
       "35",
       "46",
@@ -261,7 +271,9 @@
       "125",
       "135",
       "146",
-      "147"
+      "147",
+      "151",
+      "157"
     ]
   },
   "neurologia": {
@@ -269,7 +281,7 @@
     "category": "Medicina Interna",
     "path": "/medicina-interna/neurologia/",
     "url": "https://resumenestrials.com/medicina-interna/neurologia/",
-    "count": 8,
+    "count": 10,
     "trial_ids": [
       "16",
       "19",
@@ -278,7 +290,9 @@
       "91",
       "118",
       "119",
-      "130"
+      "130",
+      "152",
+      "167"
     ]
   },
   "neumologia": {
@@ -286,7 +300,7 @@
     "category": "Medicina Interna",
     "path": "/medicina-interna/neumologia/",
     "url": "https://resumenestrials.com/medicina-interna/neumologia/",
-    "count": 7,
+    "count": 8,
     "trial_ids": [
       "17",
       "43",
@@ -294,7 +308,8 @@
       "50",
       "64",
       "98",
-      "111"
+      "111",
+      "165"
     ]
   }
 }
