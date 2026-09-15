@@ -6,12 +6,21 @@ import {
 } from './clinical-correction-authorizations.mjs';
 
 const base = process.env.CLINICAL_BASE_REF || 'origin/main';
+const head = process.env.CLINICAL_HEAD_REF || (process.env.GITHUB_ACTIONS === 'true' ? process.env.GITHUB_SHA : '');
 const clinicalFields = new Set(['titulo', 'autor', 'revista', 'objetivo', 'hallazgo', 'cuerpo', 'corto']);
 const classificationFields = new Set(['especialidad_principal', 'especialidad_secundaria']);
 
 function readBase() {
   const source = execFileSync('git', ['-c', 'safe.directory=*', 'show', `${base}:resumenes.json`], { encoding: 'utf8', maxBuffer: 16 * 1024 * 1024 });
   return JSON.parse(source);
+}
+
+function readCurrent() {
+  if (head) {
+    const source = execFileSync('git', ['-c', 'safe.directory=*', 'show', `${head}:resumenes.json`], { encoding: 'utf8', maxBuffer: 16 * 1024 * 1024 });
+    return JSON.parse(source);
+  }
+  return JSON.parse(readFileSync('resumenes.json', 'utf8'));
 }
 
 function visible(value) {
@@ -26,7 +35,7 @@ function changed(oldValue, newValue, key) {
 }
 
 const before = readBase();
-const after = JSON.parse(readFileSync('resumenes.json', 'utf8'));
+const after = readCurrent();
 const authorizations = loadClinicalCorrectionAuthorizations({ baseRef: base });
 const consumedAuthorizations = new Set();
 const beforeById = new Map();
