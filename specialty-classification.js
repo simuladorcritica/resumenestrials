@@ -43,6 +43,7 @@
       /\b(?:fibrilacion auricular|arritmia|monitorizacion electrocardiografica|sincope)\b/,
       /\benfermedad tromboembolica venosa\b/,
       /\binsuficiencia cardia?ca\b/, /\b(?:valvulopatia|tavi|ablacion cardiaca)\b/,
+      /\b(?:estenosis aortica|cirugia valvular|reemplazo valvular aortico|implante valvular aortico)\b/,
       /\b(?:enfermedad cardiovascular aterosclerotica|prevencion cardiovascular|alto riesgo cardiovascular|lipidos|dislipidemia|colesterol ldl|hipertension arterial|presion arterial)\b/,
       /\bshock cardiogenico\b/
     ]],
