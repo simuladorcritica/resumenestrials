@@ -6,7 +6,7 @@
     'Cardiolog\u00eda', 'Cirug\u00eda', 'Endocrinolog\u00eda', 'Enfermedades Infecciosas',
     'Gastroenterolog\u00eda', 'Geriatr\u00eda', 'Hematolog\u00eda', 'Infectolog\u00eda',
     'Medicina de Urgencias', 'Medicina F\u00edsica y Rehabilitaci\u00f3n', 'Nefrolog\u00eda',
-    'Neumolog\u00eda', 'Neurolog\u00eda', 'Oncolog\u00eda', 'Reumatolog\u00eda', 'VIH'
+    'Neumolog\u00eda', 'Neurolog\u00eda', 'Oncolog\u00eda', 'Oftalmolog\u00eda', 'Reumatolog\u00eda', 'VIH'
   ]);
   const REVIEW = 'REVISAR_ESPECIALIDAD';
 
@@ -43,11 +43,13 @@
       /\b(?:fibrilacion auricular|arritmia|monitorizacion electrocardiografica|sincope)\b/,
       /\benfermedad tromboembolica venosa\b/,
       /\binsuficiencia cardia?ca\b/, /\b(?:valvulopatia|tavi|ablacion cardiaca)\b/,
+      /\b(?:estenosis aortica|cirugia valvular|reemplazo valvular aortico|implante valvular aortico)\b/,
       /\b(?:enfermedad cardiovascular aterosclerotica|prevencion cardiovascular|alto riesgo cardiovascular|lipidos|dislipidemia|colesterol ldl|hipertension arterial|presion arterial)\b/,
       /\bshock cardiogenico\b/
     ]],
     ['Nefrolog\u00eda', [
-      /\b(?:enfermedad|lesion) renal (?:cronica|aguda)\b/, /\b(?:nefro|dialisis|glomerul|albuminuria)\w*\b/,
+      /\b(?:enfermedad|lesion) renal (?:cronica|aguda)\b/, /\benfermedad renal terminal\b/,
+      /\b(?:nefro|(?:hemo)?dialisis|glomerul|albuminuria)\w*\b/,
       /\bterapia de reemplazo renal\b/
     ]],
     ['Endocrinolog\u00eda', [

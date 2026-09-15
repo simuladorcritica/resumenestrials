@@ -40,6 +40,12 @@ SECCIONES_CUERPO = [
     "Conclusión",
 ]
 CUERPO_OPCIONAL = {"Cálculos derivados del artículo"}
+# Alias editorial explícito: conserva el contenido visible de resúmenes que nombran
+# el mismo bloque clínico con la aclaración metodológica “(PICO)”, sin relajar el
+# orden ni aceptar encabezados arbitrarios.
+SECCIONES_CUERPO_ALIAS = {
+    "pregunta de investigación (pico)": "pregunta de investigación",
+}
 
 SECCIONES_CORTO = [
     "Objetivo", "Población e intervención", "Diseño", "Resultados",
@@ -51,7 +57,7 @@ SUBESPECIALIDADES = {
     "Cardiología", "Cirugía", "Endocrinología", "Enfermedades Infecciosas",
     "Gastroenterología", "Geriatría", "Hematología", "Infectología",
     "Medicina de Urgencias", "Medicina Física y Rehabilitación", "Nefrología",
-    "Neumología", "Neurología", "Oncología", "Reumatología", "VIH",
+    "Neumología", "Neurología", "Oncología", "Oftalmología", "Reumatología", "VIH",
 }
 ESPECIALIDADES = AREAS | SUBESPECIALIDADES | {""}
 TAGS_PERMITIDAS = {"h2", "p", "strong", "em"}
@@ -119,6 +125,10 @@ def h2_titulos(html: str):
 def norm(s: str) -> str:
     return unicodedata.normalize("NFC", (s or "").strip()).lower()
 
+def norm_seccion(s: str) -> str:
+    n = norm(s)
+    return SECCIONES_CUERPO_ALIAS.get(n, n)
+
 def run_comun_mas_largo(a: str, b: str):
     """Fragmento contiguo (a nivel de palabra) más largo compartido: la frase ancla."""
     A, B = a.split(), b.split()
@@ -143,9 +153,9 @@ def es_lista_ordenada_valida(got, canon, opcionales):
     Las secciones opcionales pueden aparecer antes o después de la evaluación
     crítica: ambas variantes históricas son válidas y no cambian el contenido.
     """
-    opcionales_norm = {norm(sec) for sec in opcionales}
-    got_obligatorias = [norm(sec) for sec in got if norm(sec) not in opcionales_norm]
-    canon_obligatorias = [norm(sec) for sec in canon if norm(sec) not in opcionales_norm]
+    opcionales_norm = {norm_seccion(sec) for sec in opcionales}
+    got_obligatorias = [norm_seccion(sec) for sec in got if norm_seccion(sec) not in opcionales_norm]
+    canon_obligatorias = [norm_seccion(sec) for sec in canon if norm_seccion(sec) not in opcionales_norm]
     return got_obligatorias == canon_obligatorias
 
 def _se_superponen(a, b):
@@ -282,7 +292,7 @@ def validar_entrada(e, H, if_vistos):
     ct = h2_titulos(e.get("cuerpo", ""))
     if not es_lista_ordenada_valida(ct, SECCIONES_CUERPO, CUERPO_OPCIONAL):
         # detalle: ¿algún título mal escrito?
-        malos = [t for t in ct if all(norm(t) != norm(s) for s in SECCIONES_CUERPO)]
+        malos = [t for t in ct if all(norm_seccion(t) != norm_seccion(s) for s in SECCIONES_CUERPO)]
         if malos:
             H.error(idn, f"cuerpo: títulos de sección no canónicos: {malos}")
         else:

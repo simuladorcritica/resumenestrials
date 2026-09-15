@@ -33,6 +33,31 @@ test('controles de especialidad y contexto crítico', () => {
   assert.equal(classify(item('Ventilación mecánica en shock séptico', [], 'Medicina Crítica')).specialty, '');
 });
 
+test('acepta Oftalmología como especialidad secundaria canónica sin desplazar la primaria', () => {
+  const record = {
+    ...item('TenCRAOS: tenecteplasa en la oclusión aguda de la arteria central de la retina', ['Trombólisis', 'Ictus'], 'Neurología'),
+    especialidad_secundaria: 'Oftalmología'
+  };
+  assert.ok(SPECIALTIES.includes('Oftalmología'));
+  assert.equal(classify(record).specialty, 'Neurología');
+});
+
+test('reconoce la estenosis aórtica y cirugía valvular como contexto de Cardiología', () => {
+  const record = item(
+    'RECOVERY: cirugía temprana frente a tratamiento conservador en la estenosis aórtica asintomática a 10 años',
+    ['Cardiología', 'Estenosis aórtica', 'Cirugía valvular']
+  );
+  assert.equal(classify(record).specialty, 'Cardiología');
+});
+
+test('reconoce la hemodiálisis y enfermedad renal terminal como contexto de Nefrología', () => {
+  const record = item(
+    'PISCES: aceite de pescado y eventos cardiovasculares en pacientes en hemodiálisis',
+    ['Hemodiálisis', 'Enfermedad renal terminal', 'Ácidos grasos omega-3']
+  );
+  assert.equal(classify(record).specialty, 'Nefrología');
+});
+
 test('la taxonomía nunca contiene Medicina Interna General', () => {
   assert.ok(!SPECIALTIES.includes('Medicina Interna General'));
   assert.notEqual(classify(item('Pregunta clínica ambigua')).specialty, 'Medicina Interna General');
@@ -40,8 +65,8 @@ test('la taxonomía nunca contiene Medicina Interna General', () => {
 
 test('todos los resúmenes vigentes tienen área canónica y clasificación resoluble', () => {
   const data = JSON.parse(fs.readFileSync(new URL('../resumenes.json', import.meta.url), 'utf8'));
-  for (const record of data) {
-    const result = classify(record);
-    assert.notEqual(result.specialty, REVIEW, `${record.id} ${record.titulo}: ${result.reason}`);
-  }
+  const unresolved = data.map((record) => ({ record, result: classify(record) }))
+    .filter(({ result }) => result.specialty === REVIEW)
+    .map(({ record, result }) => `${record.id} ${record.titulo}: ${result.reason}`);
+  assert.deepEqual(unresolved, [], `Especialidades sin resolver:\n${unresolved.join('\n')}`);
 });
