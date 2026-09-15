@@ -42,6 +42,14 @@ test('acepta Oftalmología como especialidad secundaria canónica sin desplazar 
   assert.equal(classify(record).specialty, 'Neurología');
 });
 
+test('reconoce la estenosis aórtica y cirugía valvular como contexto de Cardiología', () => {
+  const record = item(
+    'RECOVERY: cirugía temprana frente a tratamiento conservador en la estenosis aórtica asintomática a 10 años',
+    ['Cardiología', 'Estenosis aórtica', 'Cirugía valvular']
+  );
+  assert.equal(classify(record).specialty, 'Cardiología');
+});
+
 test('la taxonomía nunca contiene Medicina Interna General', () => {
   assert.ok(!SPECIALTIES.includes('Medicina Interna General'));
   assert.notEqual(classify(item('Pregunta clínica ambigua')).specialty, 'Medicina Interna General');
