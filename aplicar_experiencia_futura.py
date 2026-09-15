@@ -20,7 +20,13 @@ ADSENSE_EXCLUDED_ROUTES = frozenset({
     '/cuenta.html', '/biblioteca.html',
     '/privacidad/', '/privacidad/index.html', '/privacidad.html',
     '/terminos/', '/terminos/index.html',
+    '/agregar.html',
+    '/medicina-interna/hematologia-oncologia/',
+    '/medicina-interna/hematologia-oncologia/index.html',
 })
+# The reader may load advertising only after it has rendered a valid article.
+# Its HTML must never contain an eager loader, including after regeneration.
+ADSENSE_DEFERRED_ROUTES = frozenset({'/resumen.html'})
 ADSENSE_SCRIPT_RE = re.compile(
     r'(?:^[ \t]*)?<script\b[^>]*\bsrc\s*=\s*[\"\'](?:https?:)?//pagead2\.googlesyndication\.com/'
     r'pagead/js/adsbygoogle\.js[^\"\']*[\"\'][^>]*>[\s\S]*?</script\s*>',
@@ -30,7 +36,7 @@ ADSENSE_SCRIPT_RE = re.compile(
 
 def adsense_allowed(path: Path) -> bool:
     route = '/' + path.resolve().relative_to(ROOT.resolve()).as_posix()
-    return route not in ADSENSE_EXCLUDED_ROUTES
+    return route not in ADSENSE_EXCLUDED_ROUTES | ADSENSE_DEFERRED_ROUTES
 
 LEGACY_HOME_PRIVACY = (
     '<p>Este sitio no recopila datos personales de sus visitantes ni utiliza cookies de seguimiento o publicidad. '
@@ -110,6 +116,12 @@ def inject(path: Path) -> bool:
         return False
     source = path.read_text(encoding="utf-8")
     changed = False
+
+    if path.resolve() == (ROOT / 'agregar.html').resolve():
+        robots = '<meta name="robots" content="noindex,follow">'
+        if not re.search(r'<meta\b[^>]*name=["\']robots["\']', source, re.IGNORECASE):
+            source = source.replace('</head>', robots + '</head>', 1)
+            changed = True
 
     for old in LEGACY_STYLES + LEGACY_SCRIPTS:
         if old in source:
