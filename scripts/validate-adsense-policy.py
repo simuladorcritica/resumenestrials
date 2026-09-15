@@ -12,6 +12,7 @@ EXCLUDED_FILES = (
     'login.html', 'registro.html', 'recuperar.html', 'cuenta.html',
     'biblioteca.html', 'privacidad.html', 'privacidad/index.html',
     'terminos/index.html',
+    'agregar.html', 'medicina-interna/hematologia-oncologia/index.html',
 )
 CLIENT = 'ca-pub-3132744538918477'
 URL = f'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={CLIENT}'
@@ -58,11 +59,17 @@ assert len(paths) >= 50
 for name in EXCLUDED_FILES:
     assert ROOT / name in paths, f'{name}: missing regeneration candidate'
     assert not future.adsense_allowed(ROOT / name), f'{name}: must remain excluded'
-for name in ['_includes/index-source.html', 'resumen.html', 'medicina-critica/index.html',
+for name in ['_includes/index-source.html', 'medicina-critica/index.html',
              'medicina-interna/index.html', 'metodologia/index.html', 'equipo-editorial/index.html']:
     assert ROOT / name in paths and future.adsense_allowed(ROOT / name), f'{name}: must retain AdSense'
 for path in paths:
     verify(path, path.read_text(encoding='utf-8'), future.adsense_allowed(path))
+
+reader = (ROOT / 'resumen.html').read_text(encoding='utf-8')
+assert '/resumen.html' in future.ADSENSE_DEFERRED_ROUTES
+assert "import('/reader-advertising.js')" in reader, 'Reader must keep the conditional integration'
+assert reader.index("import('/reader-advertising.js')") > reader.index('if(!dato){noEncontrado();return;}')
+assert '<meta name="robots" content="noindex,follow">' in (ROOT / 'agregar.html').read_text(encoding='utf-8')
 
 # Run this after the full generator pipeline in CI. A second injection must be
 # byte-identical, so missing assets or advertising reintroduced by a build fail.
@@ -76,7 +83,7 @@ for _ in range(2):
 try:
     with TemporaryDirectory() as directory:
         future.ROOT = Path(directory)
-        for name in EXCLUDED_FILES:
+        for name in (*EXCLUDED_FILES, 'resumen.html'):
             path = future.ROOT / name
             path.parent.mkdir(parents=True, exist_ok=True)
             clean = (ROOT / name).read_text(encoding='utf-8')
