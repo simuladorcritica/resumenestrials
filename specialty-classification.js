@@ -3,10 +3,10 @@
 
   const AREAS = Object.freeze(['Medicina Crítica', 'Medicina Interna']);
   const SPECIALTIES = Object.freeze([
-    'Cardiolog\u00eda', 'Cirug\u00eda', 'Endocrinolog\u00eda', 'Enfermedades Infecciosas',
-    'Gastroenterolog\u00eda', 'Geriatr\u00eda', 'Hematolog\u00eda', 'Infectolog\u00eda',
-    'Medicina de Urgencias', 'Medicina F\u00edsica y Rehabilitaci\u00f3n', 'Nefrolog\u00eda',
-    'Neumolog\u00eda', 'Neurolog\u00eda', 'Oncolog\u00eda', 'Reumatolog\u00eda', 'VIH'
+    'Cardiología', 'Cirugía', 'Endocrinología', 'Enfermedades Infecciosas',
+    'Gastroenterología', 'Geriatría', 'Hematología', 'Infectología',
+    'Medicina de Urgencias', 'Medicina Física y Rehabilitación', 'Nefrología',
+    'Neumología', 'Neurología', 'Oncología', 'Oftalmología', 'Reumatología', 'VIH'
   ]);
   const REVIEW = 'REVISAR_ESPECIALIDAD';
 
@@ -16,20 +16,20 @@
 
   const match = (text, patterns) => patterns.some((pattern) => pattern.test(text));
   const CANONICAL_SPECIALTY = Object.freeze({
-    'Enfermedades Infecciosas': 'Infectolog\u00eda',
-    VIH: 'Infectolog\u00eda'
+    'Enfermedades Infecciosas': 'Infectología',
+    VIH: 'Infectología'
   });
 
   // Disease and clinical setting rules intentionally precede drug/mechanism terms.
   // A rule needs a recognizable disease/context phrase; isolated terms such as
   // "anticoagulación", "sangrado" or "plaquetas" never select Hematología.
   const RULES = Object.freeze([
-    ['Neumolog\u00eda', [
+    ['Neumología', [
       /\b(?:embolia|tromboembolismo) pulmonar\b/, /\bhipertension pulmonar\b/,
       /\bepoc\b/, /\basma\b/, /\benfermedad (?:pulmonar|intersticial)\b/,
       /\bneumonia (?:adquirida|nosocomial|comunitaria)\b/
     ]],
-    ['Neurolog\u00eda', [
+    ['Neurología', [
       /\b(?:ictus|accidente cerebrovascular|hemorragia intracerebral)\b/,
       /\b(?:oclusion|estenosis) carotidea\b/, /\bneuro(?:log|critic)/,
       /\b(?:epilepsia|esclerosis multiple)\b/
@@ -37,7 +37,7 @@
     ['Medicina de Urgencias', [
       /\b(?:servicio|departamento) de urgencias\b/, /\bpacientes de urgencias\b/
     ]],
-    ['Cardiolog\u00eda', [
+    ['Cardiología', [
       /\b(?:stemi|nstemi|sindrome coronario agudo)\b/, /\binfarto (?:agudo )?(?:de miocardio|miocardico)\b/,
       /\b(?:intervencion coronaria percutanea|angioplastia|revascularizacion coronaria|stent)\b/,
       /\b(?:fibrilacion auricular|arritmia|monitorizacion electrocardiografica|sincope)\b/,
@@ -46,26 +46,26 @@
       /\b(?:enfermedad cardiovascular aterosclerotica|prevencion cardiovascular|alto riesgo cardiovascular|lipidos|dislipidemia|colesterol ldl|hipertension arterial|presion arterial)\b/,
       /\bshock cardiogenico\b/
     ]],
-    ['Nefrolog\u00eda', [
+    ['Nefrología', [
       /\b(?:enfermedad|lesion) renal (?:cronica|aguda)\b/, /\b(?:nefro|dialisis|glomerul|albuminuria)\w*\b/,
       /\bterapia de reemplazo renal\b/
     ]],
-    ['Endocrinolog\u00eda', [
+    ['Endocrinología', [
       /\bdiabetes (?:mellitus |tipo )?[12]\b/, /\b(?:tiroid|suprarrenal|osteoporosis|obesidad)\w*\b/,
       /\bdiabetes y metabolismo\b/
     ]],
-    ['Gastroenterolog\u00eda', [
+    ['Gastroenterología', [
       /\b(?:cirrosis|hepatitis|pancreatitis|enfermedad inflamatoria intestinal|hemorragia gastrointestinal)\b/,
       /\b(?:hepat|gastro|pancrea)\w*\b/
     ]],
-    ['Infectolog\u00eda', [
+    ['Infectología', [
       /\b(?:vih|tuberculosis|covid-?19|bacteriemia)\b/,
       /\b(?:infeccion|antibiotico|antimicrobiano|vacuna)\w*\b/
     ]],
-    ['Reumatolog\u00eda', [
+    ['Reumatología', [
       /\b(?:artritis reumatoide|lupus|vasculitis|espondilitis|espondiloartritis)\b/
     ]],
-    ['Hematolog\u00eda', [
+    ['Hematología', [
       /\b(?:leucemia|linfoma|mieloma|hemofilia|trombocitopenia|purpura trombotica)\b/,
       /\b(?:anemia|hemoglobinopatia|sindrome mielodisplasico|enfermedad de von willebrand)\b/,
       /\b(?:neoplasia hematologica|trastorno primario de (?:la )?coagulacion)\b/
