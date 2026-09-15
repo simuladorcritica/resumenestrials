@@ -16,7 +16,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 concurrency:
   group: reader-buttons-production
@@ -28,8 +28,6 @@ jobs:
     timeout-minutes: 12
     steps:
       - uses: actions/checkout@v7.0.1
-        with:
-          fetch-depth: 0
       - uses: actions/setup-node@v7.0.0
         with:
           node-version: '20'
@@ -48,7 +46,8 @@ jobs:
         id: smoke
         continue-on-error: true
         run: node scripts/reader-buttons-production-smoke.mjs
-      - name: Persistir resultado verificable
+
+      - name: Registrar resultado verificable como artefacto
         if: always()
         env:
           SMOKE_OUTCOME: ${{ steps.smoke.outcome }}
@@ -57,8 +56,6 @@ jobs:
           RUN_ATTEMPT: ${{ github.run_attempt }}
         run: |
           set -euo pipefail
-          git fetch origin main
-          git checkout -B reader-buttons-status origin/main
           mkdir -p runtime
           python3 - <<'PY'
           import json, os
@@ -86,25 +83,24 @@ jobs:
               json.dumps(payload, ensure_ascii=False, indent=2) + '\n', encoding='utf-8'
           )
           PY
-          git add -- runtime/reader-buttons-production-status.json
-          if git diff --cached --quiet; then
-            echo "El estado persistente ya coincide con esta ejecución."
-          else
-            git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git commit -m "Registrar verificación real de botones del lector"
-            for intento in 1 2 3; do
-              if git push origin HEAD:main; then
-                break
-              fi
-              if [ "$intento" = "3" ]; then
-                echo "No fue posible persistir el resultado después de 3 intentos." >&2
-                exit 1
-              fi
-              git pull --rebase origin main
-              sleep $((intento * 2))
-            done
-          fi
+          {
+            echo "## Reader buttons production smoke"
+            echo
+            echo "- Status: **${SMOKE_OUTCOME}**"
+            echo "- Source SHA: \`${SOURCE_SHA}\`"
+            echo "- Run: ${RUN_ID}.${RUN_ATTEMPT}"
+            echo "- Persistence: workflow artifact; no direct push to protected main"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Guardar estado como artefacto
+        if: always()
+        uses: actions/upload-artifact@v7.0.1
+        with:
+          name: reader-buttons-production-status-${{ github.run_id }}
+          path: runtime/reader-buttons-production-status.json
+          if-no-files-found: error
+          retention-days: 30
+
       - name: Fallar si la interacción real no pasó
         if: always() && steps.smoke.outcome != 'success'
         run: |
