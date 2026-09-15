@@ -50,6 +50,14 @@ test('reconoce la estenosis aórtica y cirugía valvular como contexto de Cardio
   assert.equal(classify(record).specialty, 'Cardiología');
 });
 
+test('reconoce la hemodiálisis y enfermedad renal terminal como contexto de Nefrología', () => {
+  const record = item(
+    'PISCES: aceite de pescado y eventos cardiovasculares en pacientes en hemodiálisis',
+    ['Hemodiálisis', 'Enfermedad renal terminal', 'Ácidos grasos omega-3']
+  );
+  assert.equal(classify(record).specialty, 'Nefrología');
+});
+
 test('la taxonomía nunca contiene Medicina Interna General', () => {
   assert.ok(!SPECIALTIES.includes('Medicina Interna General'));
   assert.notEqual(classify(item('Pregunta clínica ambigua')).specialty, 'Medicina Interna General');
