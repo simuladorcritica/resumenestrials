@@ -28,7 +28,7 @@ jobs:
           python-version: '3.12'
       - name: Restaurar estado privado de inventario
         if: github.event_name != 'pull_request'
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v6
         with:
           path: ${{ runner.temp }}/seo-observation-state
           key: seo-observation-state-main-${{ github.run_id }}
@@ -102,7 +102,7 @@ jobs:
         run: node scripts/send-private-gsc-report.mjs
       - name: Guardar estado privado de inventario
         if: github.event_name != 'pull_request' && steps.discovery.outcome == 'success' && steps.opportunities.outcome == 'success'
-        uses: actions/cache/save@v4
+        uses: actions/cache/save@v6
         with:
           path: ${{ runner.temp }}/seo-observation-state
           key: seo-observation-state-main-${{ github.run_id }}
