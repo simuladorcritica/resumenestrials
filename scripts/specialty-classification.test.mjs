@@ -33,6 +33,15 @@ test('controles de especialidad y contexto crítico', () => {
   assert.equal(classify(item('Ventilación mecánica en shock séptico', [], 'Medicina Crítica')).specialty, '');
 });
 
+test('acepta Oftalmología como especialidad secundaria canónica sin desplazar la primaria', () => {
+  const record = {
+    ...item('TenCRAOS: tenecteplasa en la oclusión aguda de la arteria central de la retina', ['Trombólisis', 'Ictus'], 'Neurología'),
+    especialidad_secundaria: 'Oftalmología'
+  };
+  assert.ok(SPECIALTIES.includes('Oftalmología'));
+  assert.equal(classify(record).specialty, 'Neurología');
+});
+
 test('la taxonomía nunca contiene Medicina Interna General', () => {
   assert.ok(!SPECIALTIES.includes('Medicina Interna General'));
   assert.notEqual(classify(item('Pregunta clínica ambigua')).specialty, 'Medicina Interna General');
