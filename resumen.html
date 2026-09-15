@@ -223,7 +223,7 @@
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/4.2.1/jspdf.umd.min.js" integrity="sha384-qovJwSBbRDPP5cEjCp8S0UP66wrvnjaa60XMOGzTNanrThcrGfXfnZkvgY8N1KT3" crossorigin="anonymous" defer></script>
 <script src="pdf-contact.js?v=2" defer></script>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3132744538918477" crossorigin="anonymous"></script><link rel="stylesheet" href="/site-runtime.css?v=20260821"></head>
+<link rel="stylesheet" href="/site-runtime.css?v=20260821"></head>
 <body>
 <div class="topbar">
   <div class="topbar-in">
@@ -378,6 +378,7 @@
     const descargas=botonesDescargaHTML(dato);
     cont.innerHTML=`<div class="envoltorio">${migasHTML()}<header class="art">${badgesHTML(dato)}<h1>${esc(dato.titulo)}</h1><div class="fuente-linea" style="margin-top:16px">${esc(fuenteLinea)}</div><div class="acciones-art">${descargas}</div>${versionNav?`<div class="version-nav">${versionNav}</div>`:""}</header><article class="no-copiar ${esCorto?"corto":""}">${cuerpoHTML}</article>${originalSeguro?`<div class="enlace-original">Artículo original: <a href="${esc(originalSeguro)}" target="_blank" rel="noopener noreferrer">${esc(originalSeguro)}</a></div>`:""}<div class="acciones-art" style="margin:8px 0 4px">${descargas}</div>${esCorto?"":relacionadosHTML(dato,todos)}<nav class="pie-nav"><a class="volver" href="index.html">← Volver al índice</a>${versionNavPie}</nav><footer class="art">Escribimos este resumen crítico pensando en médicos y profesionales de la salud. Léelo como una guía de lectura, nunca como un reemplazo del artículo original ni de tu propio juicio clínico.</footer></div>`;
     document.querySelectorAll(".btn-pdf").forEach((b)=>b.addEventListener("click",()=>descargarPDF(dato,b.dataset.pdfVersion==="breve",b)));
+    import('/reader-advertising.js').then(m=>m.loadReaderAdvertising(dato,cont.querySelector('article'))).catch(err=>console.warn('Publicidad no disponible:',err));
   }).catch((err)=>{console.error("No se pudo cargar resumenes.json:",err);errorCarga();});
 </script>
 <script src="/site-runtime.js?v=20260821" defer></script></body>
