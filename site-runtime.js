@@ -214,21 +214,16 @@
     if (new URLSearchParams(location.search).get('focus') === 'search') setTimeout(focusSearch, 400);
   }
 
-  function futureOrb() {
+  function evidenceVisual() {
     const visual = document.createElement('div');
     visual.className = 'rt-hero-visual';
-    visual.setAttribute('aria-hidden','true');
-    visual.innerHTML = `<div class="rt-orbit"><div class="rt-orbit-rings"></div><div class="rt-orbit-core"><strong>R<span>T</span></strong></div><div class="rt-orbit-label l1">FILTRAMOS<b>Lo importante</b></div><div class="rt-orbit-label l2">LEEMOS<b>Con profundidad</b></div><div class="rt-orbit-label l3">EXTRAEMOS<b>Lo esencial</b></div></div>`;
-    if (matchMedia('(pointer:fine)').matches && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      visual.addEventListener('pointermove', (event) => {
-        const box = visual.getBoundingClientRect();
-        const x = (event.clientX - box.left) / box.width - .5;
-        const y = (event.clientY - box.top) / box.height - .5;
-        const orb = $('.rt-orbit', visual);
-        if (orb) orb.style.transform = `translate3d(${x * 12}px,${y * 12}px,0) rotateX(${y * -3}deg) rotateY(${x * 3}deg)`;
-      });
-      visual.addEventListener('pointerleave', () => { const orb = $('.rt-orbit', visual); if (orb) orb.style.transform = ''; });
-    }
+    const image = document.createElement('img');
+    image.src = '/images/evidencia-sin-ruido.jpg';
+    image.alt = 'Láminas de cristal azul en una estructura de titanio, iluminadas sobre piedra oscura.';
+    image.width = 1536;
+    image.height = 1024;
+    image.fetchPriority = 'high';
+    visual.append(image);
     return visual;
   }
 
@@ -242,13 +237,9 @@
 
     const copy = document.createElement('div');
     copy.className = 'rt-hero-copy';
-    copy.innerHTML = '<div class="rt-hero-eyebrow">Evidencia que importa · ensayos clínicos · español</div>';
+    copy.innerHTML = '<div class="rt-hero-eyebrow">Resúmenes de ensayos clínicos</div>';
     copy.append(title, bajada);
-    const actions = document.createElement('div');
-    actions.className = 'rt-hero-actions';
-    actions.innerHTML = '<a class="rt-hero-cta" href="#biblioteca-clinica">Descubre cómo funciona <span>→</span></a><a class="rt-hero-cta secondary" href="/metodologia/">Nuestra metodología</a>';
-    copy.append(actions, meta);
-    wrap.replaceChildren(copy, futureOrb());
+    wrap.replaceChildren(copy, evidenceVisual());
 
     const main = $('main.envoltorio');
     const controls = main && $('.indice-cabecera', main);
@@ -261,17 +252,16 @@
     stage.id = 'biblioteca-clinica';
     const intro = document.createElement('div');
     intro.className = 'rt-explorer-head';
-    intro.innerHTML = `<div><p class="eyebrow">Biblioteca clínica viva</p><h2>Encuentra la evidencia por la pregunta que quieres resolver.</h2><p>Busca por trial, intervención, fármaco, revista o tema. La arquitectura prioriza lectura, contexto y aplicación clínica sin sacrificar rigor.</p></div><div class="rt-steps"><div class="rt-step"><small>01</small><b>Explora</b><span>Filtra por especialidad, año o revista.</span></div><div class="rt-step"><small>02</small><b>Interpreta</b><span>Abre el trial y recorre objetivo, método, resultados y límites.</span></div><div class="rt-step"><small>03</small><b>Conserva</b><span>Guarda lo importante en tu biblioteca personal.</span></div></div>`;
+    intro.innerHTML = '<div><h2>Explorar ensayos</h2><p>Busca el estudio o el tema que quieres consultar.</p></div>';
     stage.append(intro);
     if (hubs) stage.append(hubs);
     stage.append(controls);
     if (state) stage.append(state);
     stage.append(index);
-    // D03: keep institutional copy intact, after the catalogue. The existing
-    // lead and counters stay in the hero; no clinical or taxonomy data changes.
+    // Preserve institutional copy and live counters below the catalogue.
     const detail = bajada.querySelector('.bajada-cols');
     if (detail) { detail.classList.add('ed-institutional-copy'); stage.append(detail); }
-    stage.append(intro);
+    stage.append(meta);
     main.prepend(stage);
 
     $$('.fila', index).forEach((row, i) => {
