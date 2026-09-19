@@ -24,6 +24,7 @@ const cssSources = [
   'theme-light.css',
   'reader-mode.css',
   'editorial.css',
+  'evidencia-design.css',
   'print.css',
 ];
 
