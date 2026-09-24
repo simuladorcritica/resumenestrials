@@ -54,8 +54,7 @@
     // (`.rt-tema-claro <selector>` en vez de `:not(.rt-future) <selector>`,
     // misma especificidad, mismo efecto de "siempre gana").
     document.body.classList.add('rt-future');
-    const temaDisponible = !document.body.classList.contains('rt-future-account')
-      && !document.body.classList.contains('rt-future-institutional');
+    const temaDisponible = true;
     window.__rtTemaDisponible = temaDisponible;
     if (temaDisponible && resolveTheme() === 'claro') document.body.classList.add('rt-tema-claro');
   }
@@ -63,7 +62,7 @@
   function navMarkup() {
     const current = (href) => path === href || (href !== '/' && path.startsWith(href));
     return [
-      ['Explorar','/'],['Medicina Crítica','/medicina-critica/'],['Medicina Interna','/medicina-interna/'],['Metodología','/metodologia/'],['Equipo editorial','/equipo-editorial/']
+      ['Explorar','/'],['Medicina Crítica','/medicina-critica/'],['Medicina Interna','/medicina-interna/'],['Metodología','/metodologia/'],['Equipo editorial','/equipo-editorial/'],['Mi biblioteca','/biblioteca.html']
     ].map(([label, href]) => `<a href="${href}"${current(href) ? ' aria-current="page"' : ''}>${label}</a>`).join('');
   }
 

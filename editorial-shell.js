@@ -3,7 +3,7 @@
  'use strict';
  function enhance(){
   if(document.body.dataset.edShell)return;
-  if(!document.body.matches('.rt-future-home,.rt-future-trial,.rt-future-legacy,.rt-future-hub,.rt-future-cluster'))return;
+  if(!document.body.matches('.rt-future-home,.rt-future-trial,.rt-future-legacy,.rt-future-hub,.rt-future-cluster,.rt-future-account,.rt-future-institutional'))return;
   const bar=document.querySelector('.topbar-in'),nav=bar?.querySelector('.rt-main-nav');if(!nav)return;
   document.body.dataset.edShell='true';nav.id='ed-main-navigation';
   const button=document.createElement('button');button.type='button';button.className='ed-menu';button.textContent='Menú';button.setAttribute('aria-controls',nav.id);button.setAttribute('aria-expanded','false');bar.prepend(button);

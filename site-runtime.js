@@ -1,4 +1,42 @@
 /* GENERATED FILE. Run: node scripts/build-site-runtime.mjs */
+/* source: reading-context.js */
+/* Preserve a tab-local return path without changing canonical article URLs. */
+(() => {
+  'use strict';
+  const KEY='rt-reading-context-v1', RETURN='rt-reading-return-v1', VIEW='rt-reading-view-v1:', TTL=12*60*60*1000;
+  const path=location.pathname;
+  const isReader=/^\/trials\//.test(path)||path==='/resumen.html';
+  const isOrigin=p=>p==='/'||p==='/index.html'||p==='/biblioteca.html'||/^\/(medicina-critica|medicina-interna)\//.test(p);
+  const parse=value=>{try{return JSON.parse(value)}catch{return null}};
+  const read=()=>{try{const ctx=parse(sessionStorage.getItem(KEY));return ctx&&Array.isArray(ctx.targets)&&Date.now()-ctx.at<TTL&&isOrigin(new URL(ctx.origin,location.origin).pathname)&&new URL(ctx.origin,location.origin).origin===location.origin?ctx:null}catch{return null}};
+  const write=ctx=>{try{sessionStorage.setItem(KEY,JSON.stringify(ctx))}catch{}};
+  function saveView(){if(!isOrigin(path))return;const q=document.querySelector('#q');if(!q)return;try{sessionStorage.setItem(VIEW+path+location.search,JSON.stringify({at:Date.now(),origin:path+location.search,q:q.value,area:document.querySelector('#area')?.value||'',y:scrollY}))}catch{}}
+  function reloadView(){try{if(performance.getEntriesByType('navigation')[0]?.type!=='reload')return null;const view=parse(sessionStorage.getItem(VIEW+path+location.search));return view&&Date.now()-view.at<TTL?view:null}catch{return null}}
+  function active(){const ctx=read();if(!ctx||!isReader)return null;const id=new URLSearchParams(location.search).get('id')||document.querySelector('[data-trial-download]')?.getAttribute('data-trial-download');const matches=(path!=='/resumen.html'&&ctx.targets.includes(path))||(id&&ctx.id===String(id));if(matches&&id&&ctx.id!==String(id)){ctx.id=String(id);write(ctx)}return matches?ctx:null;}
+  function requestReturn(){const ctx=active();if(!ctx)return;try{sessionStorage.setItem(RETURN,JSON.stringify({origin:ctx.origin,at:Date.now()}))}catch{}}
+  window.RTReadingContext={destination:()=>active()?.origin||'/',requestReturn};
+  document.addEventListener('click',event=>{
+    const link=event.target.closest('a[href]');if(!link)return;
+    if(link.matches('[data-reading-return],.rt-reader-back')){requestReturn();return;}
+    if(!isOrigin(path))return;
+    const url=new URL(link.href,location.href);if(url.origin!==location.origin||!(/^\/trials\//.test(url.pathname)||url.pathname==='/resumen.html'))return;
+    const row=link.closest('.fila,.item,.cat-card');
+    const id=row?.getAttribute('data-id')||link.dataset.read||url.searchParams.get('id')||row?.querySelector('[data-id]')?.getAttribute('data-id')||'';
+    const targets=[url.pathname,...(row?[...row.querySelectorAll('a[href]')].map(a=>new URL(a.href,location.href).pathname).filter(p=>/^\/trials\//.test(p)):[])];
+    write({at:Date.now(),origin:path+location.search,id:String(id),targets:[...new Set(targets)],q:document.querySelector('#q')?.value||'',area:document.querySelector('#area')?.value||'',y:scrollY});
+  },true);
+  function decorate(){if(!isReader)return;const ctx=active();if(!ctx||document.querySelector('[data-reading-return]'))return;const heading=document.querySelector('.art-head,header.art,.articulo');if(!heading)return;const a=document.createElement('a');a.href=ctx.origin;a.className='reading-return';a.dataset.readingReturn='true';a.textContent=ctx.origin.startsWith('/biblioteca.html')?'Volver a mi biblioteca':/^\/(medicina-critica|medicina-interna)\//.test(ctx.origin)?'Volver a la especialidad':'Volver a mis resultados';heading.before(a);}
+  let restored=false;
+  function restore(){if(restored||!isOrigin(path))return;const reloaded=reloadView(),ctx=reloaded||read();if(!ctx||ctx.origin!==path+location.search)return;let requested=false;try{const flag=parse(sessionStorage.getItem(RETURN));requested=flag?.origin===ctx.origin&&Date.now()-flag.at<60000}catch{}const backward=performance.getEntriesByType('navigation')[0]?.type==='back_forward';if(!requested&&!backward&&!reloaded)return;
+    const q=document.querySelector('#q'),area=document.querySelector('#area');
+    if(path==='/biblioteca.html'&&!document.querySelector('#list .item,#list [data-library-state="empty"],#list [data-library-state="no-results"]'))return;
+    if(q){q.value=ctx.q;q.dispatchEvent(new Event('input',{bubbles:true}))}if(area){area.value=ctx.area;area.dispatchEvent(new Event('change',{bubbles:true}))}
+    restored=true;try{sessionStorage.removeItem(RETURN)}catch{}requestAnimationFrame(()=>requestAnimationFrame(()=>{scrollTo(0,ctx.y);q?.focus({preventScroll:true})}));
+  }
+  function boot(){decorate();restore();let scheduled=false;const observer=new MutationObserver(()=>{if(scheduled)return;scheduled=true;requestAnimationFrame(()=>{scheduled=false;decorate();restore()})});observer.observe(document.body,{childList:true,subtree:true});setTimeout(()=>observer.disconnect(),15000);window.addEventListener('pagehide',saveView);window.addEventListener('pageshow',()=>{restored=false;restore()});}
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot,{once:true});else boot();
+})();
+
 /* source: topbar-offset-fix.js */
 /* topbar-offset-fix.js
    Mide la altura REAL y variable de .topbar (cambia segun el ancho de
@@ -119,8 +157,7 @@
     // (`.rt-tema-claro <selector>` en vez de `:not(.rt-future) <selector>`,
     // misma especificidad, mismo efecto de "siempre gana").
     document.body.classList.add('rt-future');
-    const temaDisponible = !document.body.classList.contains('rt-future-account')
-      && !document.body.classList.contains('rt-future-institutional');
+    const temaDisponible = true;
     window.__rtTemaDisponible = temaDisponible;
     if (temaDisponible && resolveTheme() === 'claro') document.body.classList.add('rt-tema-claro');
   }
@@ -128,7 +165,7 @@
   function navMarkup() {
     const current = (href) => path === href || (href !== '/' && path.startsWith(href));
     return [
-      ['Explorar','/'],['Medicina Crítica','/medicina-critica/'],['Medicina Interna','/medicina-interna/'],['Metodología','/metodologia/'],['Equipo editorial','/equipo-editorial/']
+      ['Explorar','/'],['Medicina Crítica','/medicina-critica/'],['Medicina Interna','/medicina-interna/'],['Metodología','/metodologia/'],['Equipo editorial','/equipo-editorial/'],['Mi biblioteca','/biblioteca.html']
     ].map(([label, href]) => `<a href="${href}"${current(href) ? ' aria-current="page"' : ''}>${label}</a>`).join('');
   }
 
@@ -2280,8 +2317,8 @@
     let back = nav.querySelector('.rt-reader-back') || nav.querySelector('a');
     if (!back) { back = document.createElement('a'); nav.appendChild(back); }
     back.classList.add('rt-reader-back');
-    back.href = '/';
-    back.textContent = '← Volver al índice';
+    back.href = window.RTReadingContext?.destination() || '/';
+    back.textContent = window.RTReadingContext?.destination() && window.RTReadingContext.destination() !== '/' ? 'Volver al origen' : '← Volver al índice';
     back.setAttribute('aria-label', 'Volver al índice de Resúmenes Trials');
 
     let version = nav.querySelector('.rt-reader-version,.cambio-version');
@@ -2447,7 +2484,8 @@
     if (!back || !brief || !pdf) return false;
 
     const briefHref = `/resumen.html?id=${encodeURIComponent(id)}&v=corto`;
-    if (back.getAttribute('href') !== '/') back.setAttribute('href', '/');
+    const backHref = window.RTReadingContext?.destination() || '/';
+    if (back.getAttribute('href') !== backHref) back.setAttribute('href', backHref);
     if (brief.getAttribute('href') !== briefHref) brief.setAttribute('href', briefHref);
     if (pdf.getAttribute('data-rt-footer-download') !== id) pdf.setAttribute('data-rt-footer-download', id);
     pdf.disabled = false;
@@ -2473,7 +2511,7 @@
 
   function destination(control) {
     const id = trialId();
-    if (control?.classList.contains('rt-reader-back')) return '/';
+    if (control?.classList.contains('rt-reader-back')) { window.RTReadingContext?.requestReturn(); return window.RTReadingContext?.destination() || '/'; }
     if (control?.classList.contains('rt-reader-version') && id) return `/resumen.html?id=${encodeURIComponent(id)}&v=corto`;
     return '';
   }
@@ -2690,7 +2728,7 @@
  'use strict';
  function enhance(){
   if(document.body.dataset.edShell)return;
-  if(!document.body.matches('.rt-future-home,.rt-future-trial,.rt-future-legacy,.rt-future-hub,.rt-future-cluster'))return;
+  if(!document.body.matches('.rt-future-home,.rt-future-trial,.rt-future-legacy,.rt-future-hub,.rt-future-cluster,.rt-future-account,.rt-future-institutional'))return;
   const bar=document.querySelector('.topbar-in'),nav=bar?.querySelector('.rt-main-nav');if(!nav)return;
   document.body.dataset.edShell='true';nav.id='ed-main-navigation';
   const button=document.createElement('button');button.type='button';button.className='ed-menu';button.textContent='Menú';button.setAttribute('aria-controls',nav.id);button.setAttribute('aria-expanded','false');bar.prepend(button);
@@ -2703,4 +2741,21 @@
  }
  function boot(){enhance();const observer=new MutationObserver(()=>{enhance();if(document.body.dataset.edShell)observer.disconnect()});observer.observe(document.body,{childList:true,subtree:true});}
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot,{once:true});else boot();
+})();
+
+/* source: auxiliary-shell.js */
+/* Apply the approved shared navigation without replacing account controls. */
+(() => {
+  function enhance(){
+    if(!document.body.matches('.rt-future-account,.rt-future-institutional'))return;
+    const bar=document.querySelector('.topbar .top,.topbar .topbar-in,main.page > .top');if(!bar||bar.dataset.evidenceAux)return;
+    bar.dataset.evidenceAux='true';
+    let nav=bar.querySelector('nav');if(!nav){nav=document.createElement('nav');nav.setAttribute('aria-label','Navegación principal');bar.append(nav)}
+    if(!nav.querySelector('a[href="/biblioteca.html"],a[href="biblioteca.html"]')){const link=document.createElement('a');link.href='/biblioteca.html';link.textContent='Mi biblioteca';nav.append(link)}
+    const theme=document.createElement('button');theme.type='button';theme.className='evidence-theme';
+    function label(){theme.textContent=document.body.classList.contains('rt-tema-claro')?'Tema oscuro':'Tema claro';}
+    theme.onclick=()=>{const light=document.body.classList.toggle('rt-tema-claro');try{localStorage.setItem('rt-tema',light?'claro':'oscuro')}catch{}label()};label();bar.append(theme);
+  }
+  function boot(){enhance();const observer=new MutationObserver(enhance);observer.observe(document.body,{attributes:true,attributeFilter:['class'],childList:true,subtree:true});setTimeout(()=>observer.disconnect(),10000)}
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot,{once:true});else boot();
 })();

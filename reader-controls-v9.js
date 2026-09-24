@@ -26,7 +26,8 @@
     if (!back || !brief || !pdf) return false;
 
     const briefHref = `/resumen.html?id=${encodeURIComponent(id)}&v=corto`;
-    if (back.getAttribute('href') !== '/') back.setAttribute('href', '/');
+    const backHref = window.RTReadingContext?.destination() || '/';
+    if (back.getAttribute('href') !== backHref) back.setAttribute('href', backHref);
     if (brief.getAttribute('href') !== briefHref) brief.setAttribute('href', briefHref);
     if (pdf.getAttribute('data-rt-footer-download') !== id) pdf.setAttribute('data-rt-footer-download', id);
     pdf.disabled = false;
@@ -52,7 +53,7 @@
 
   function destination(control) {
     const id = trialId();
-    if (control?.classList.contains('rt-reader-back')) return '/';
+    if (control?.classList.contains('rt-reader-back')) { window.RTReadingContext?.requestReturn(); return window.RTReadingContext?.destination() || '/'; }
     if (control?.classList.contains('rt-reader-version') && id) return `/resumen.html?id=${encodeURIComponent(id)}&v=corto`;
     return '';
   }
