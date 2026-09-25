@@ -849,7 +849,7 @@ html body.rt-future.rt-future-account .item{background:var(--ed-alt);border:1px 
 html body.rt-future.rt-future-account .item h2{font-size:22px!important;line-height:1.4!important}
 html body.rt-future.rt-future-account .empty{padding:24px;border-left:3px solid var(--ed-link);background:var(--ed-alt);margin:16px 0}
 html body.rt-future.rt-future-account .tools{margin:24px 0 16px;gap:12px}
-html body.rt-future.rt-future-account :is(button,input,select,a):focus-visible,body.rt-future .reading-return:focus-visible{outline:3px solid var(--ed-link);outline-offset:3px}
+html body.rt-future.rt-future-account :is(button,input,select,a):focus-visible,body.rt-future .reading-return:focus-visible{outline:3px solid var(--ed-link)!important;outline-offset:3px!important}
 html body.rt-future.rt-future-institutional main :is(p,li){font-family:'Source Serif 4',Georgia,serif;font-size:21px;line-height:1.75}
 html body.rt-future.rt-future-institutional main{padding-inline:24px}
 @media(max-width:650px){html body.rt-future.rt-future-account :is(.page,.wrap,.layout,.shell){padding-inline:16px!important;min-width:0!important}html body.rt-future.rt-future-account .tools input{min-width:0!important;flex-basis:100%}html body.rt-future.rt-future-account .item{grid-template-columns:minmax(0,1fr);padding:18px;gap:14px}html body.rt-future.rt-future-account :is(input,select,textarea){width:100%}html body.rt-future.rt-future-account .topnav{flex-wrap:wrap}html body.rt-future.rt-future-account .item h2{overflow-wrap:anywhere}}
