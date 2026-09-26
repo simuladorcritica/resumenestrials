@@ -61,6 +61,13 @@ export async function mountTurnstile(containerId, action) {
 
   await loadScript();
   container.replaceChildren();
+  // Keep feedback outside the DOM owned by Turnstile so automatic retries
+  // retain the original widget, iframe and response field.
+  status.setAttribute('role', 'status');
+  status.style.cssText = 'font:inherit;color:inherit;padding:10px 0';
+  status.textContent = '';
+  status.hidden = true;
+  container.after(status);
 
   let token = null;
   let widgetId = null;
@@ -76,6 +83,8 @@ export async function mountTurnstile(containerId, action) {
       token = value;
       container.dataset.turnstileStatus = 'ok';
       delete container.dataset.turnstileError;
+      status.textContent = '';
+      status.hidden = true;
     },
     'expired-callback': () => {
       token = null;
@@ -91,10 +100,8 @@ export async function mountTurnstile(containerId, action) {
       container.dataset.turnstileStatus = 'error';
       container.dataset.turnstileError = value;
       console.error('Cloudflare Turnstile error:', value);
-      const message = document.createElement('div');
-      message.style.cssText = 'font:11px IBM Plex Mono,monospace;color:#a3311f;padding:10px 0';
-      message.textContent = `No se pudo cargar la verificación de seguridad (código ${value}).`;
-      container.replaceChildren(message);
+      status.textContent = `No pudimos completar la verificación de seguridad. Si el problema continúa, recarga la página o prueba con otro navegador. Código: ${value}.`;
+      status.hidden = false;
       return true;
     },
     'refresh-expired': 'auto',
