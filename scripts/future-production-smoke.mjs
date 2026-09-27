@@ -75,24 +75,23 @@ try{
   assert(await page.evaluate(()=>scrollY>100),'Producción: el enlace "Explorar" de la navegación no desplaza a la biblioteca');
   await page.evaluate(()=>scrollTo(0,0));
 
-  const search=page.locator('.rt-global-search-input');
-  await search.waitFor({state:'visible',timeout:15000});
   // A pedido explícito del usuario: el buscador de texto del índice (#q)
   // ya no es redundante -- es ahora el único control de esa fila, grande
   // y a todo el ancho (ver future-experience-fix-v4.js).
   assert(await page.locator('#q').isVisible(),'Producción: el buscador grande del índice no es visible');
   assert(!(await page.locator('#rt-advanced').count()),'Producción: los selectores de año/revista no debieron sobrevivir');
+  assert(await page.locator('.rt-nav-search,.rt-global-search-input').count()===0,'Producción: la cabecera conserva el buscador superior retirado');
+  const search=page.locator('#q');
   const searchSample=data.find(item=>/^SOHO\b/i.test(item.titulo))||newest;
   const uniqueSearch=String(searchSample.titulo||'').trim().split(/\s+/)[0];
   const expectedSearchPath=manifest[String(searchSample.id)]?.path;
-  assert(uniqueSearch&&expectedSearchPath,'Producción: no hay término o ruta canónica para probar el buscador global');
+  assert(uniqueSearch&&expectedSearchPath,'Producción: no hay término o ruta canónica para probar el buscador inferior');
   await search.fill(uniqueSearch);
-  await page.waitForSelector('.rt-global-search-result',{timeout:15000});
-  const firstSearchResult=page.locator('.rt-global-search-result').first();
-  assert(await firstSearchResult.getAttribute('href')===expectedSearchPath,`Producción: ruta inesperada en búsqueda global para ${uniqueSearch}`);
-  await search.press('Escape');
-  assert(await page.locator('#rt-global-search-results').isHidden(),'Producción: Escape no cierra los resultados globales');
-  assert(await page.locator('#indice .fila.rt-featured').count()===1,'Producción: falta ensayo destacado tras usar el buscador global');
+  await page.waitForFunction(term=>[...document.querySelectorAll('#indice .fila')].some(row=>getComputedStyle(row).display!=='none'&&(row.textContent||'').toLowerCase().includes(term.toLowerCase())),uniqueSearch,{timeout:15000});
+  const filtered=await page.locator('#indice .fila').evaluateAll(rows=>rows.filter(row=>getComputedStyle(row).display!=='none').map(row=>row.textContent||''));
+  assert(filtered.length>0&&filtered.every(title=>title.toLowerCase().includes(uniqueSearch.toLowerCase())),`Producción: resultados inesperados en el buscador inferior para ${uniqueSearch}`);
+  await search.fill('');
+  assert(await page.locator('#indice .fila.rt-featured').count()===1,'Producción: falta ensayo destacado tras usar el buscador inferior');
 
   const account=page.locator('.topbar .top-links #account-entry');
   await account.waitFor({state:'visible',timeout:15000});
@@ -107,7 +106,7 @@ try{
   await noOverflow(page,'Producción portada desktop');
 
   await page.setViewportSize({width:390,height:844});await page.waitForTimeout(200);await noOverflow(page,'Producción portada móvil');
-  assert(await page.locator('.rt-global-search-input').isVisible(),'Producción móvil: búsqueda clínica global no visible');
+  assert(await page.locator('.rt-nav-search,.rt-global-search-input').count()===0,'Producción móvil: reaparece el buscador superior');
   assert(await page.locator('#q').isVisible(),'Producción móvil: el buscador grande del índice no es visible');
   assert(await account.isVisible(),'Producción móvil: CTA de cuenta no visible');
   assert(await page.locator('#indice .fila.rt-featured').count()===1,'Producción móvil: falta trial destacado');

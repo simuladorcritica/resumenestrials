@@ -82,13 +82,13 @@ await visit('/',async()=>{
   // grande y a todo el ancho de la cabecera (ver future-experience-fix-v4.js).
   assert(await page.locator('#q').isVisible(),'el buscador grande de la portada no es visible');
   assert(!(await page.locator('#rt-advanced').count()),'los selectores de año/revista no debieron sobrevivir');
-  const search=page.locator('.rt-global-search-input');
-  await search.waitFor({state:'visible'});
+  assert(await page.locator('.rt-nav-search,.rt-global-search-input').count()===0,'la cabecera conserva el buscador superior retirado');
+  const search=page.locator('#q');
   await search.fill('SOHO');
-  await page.waitForSelector('.rt-global-search-result',{timeout:10000});
-  const firstGlobal=(await page.locator('.rt-global-search-result-title').first().innerText()).trim();
-  assert(/SOHO/i.test(firstGlobal),`el buscador global devuelve un resultado inesperado para SOHO: ${firstGlobal}`);
-  await search.press('Escape');
+  await page.waitForFunction(()=>[...document.querySelectorAll('#indice .fila')].some(row=>getComputedStyle(row).display!=='none'&&/SOHO/i.test(row.textContent||'')),{timeout:10000});
+  const visibleTitles=await page.locator('#indice .fila').evaluateAll(rows=>rows.filter(row=>getComputedStyle(row).display!=='none').map(row=>row.textContent||''));
+  assert(visibleTitles.length>0&&visibleTitles.every(title=>/SOHO/i.test(title)),`el buscador inferior devuelve resultados inesperados: ${visibleTitles.join(' | ')}`);
+  await search.fill('');
   await noHorizontalOverflow('portada escritorio');
 });
 

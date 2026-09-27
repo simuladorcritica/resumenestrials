@@ -49,8 +49,7 @@ try{
   await page.waitForFunction(()=>document.querySelectorAll('.rt-hero-actions a').length===0&&!document.querySelector('.rt-step small'),{timeout:10000});
   assert(await page.locator('.fila').count()>=data.length,`Portada: se esperaban al menos ${data.length} filas`);
   assert(await page.locator('.fila.rt-featured').count()===1,'Portada: falta trial destacado');
-  assert(await page.locator('.rt-nav-search').isVisible(),'Portada: buscador global no visible');
-  assert(await page.locator('.rt-global-search-input').isVisible(),'Portada: el buscador superior no es un campo funcional');
+  assert(await page.locator('.rt-nav-search,.rt-global-search-input').count()===0,'Portada: el buscador superior debe estar retirado');
   // A pedido explícito del usuario: el buscador de texto del índice (#q)
   // ya no es redundante -- es ahora el único control de esa fila, grande
   // y a todo el ancho (ver future-experience-fix-v4.js).
@@ -62,21 +61,12 @@ try{
   assert(await page.locator('.rt-main-nav a[href="/metodologia/"]').isVisible(),'Portada: Metodología superior debe conservarse');
   assert(await page.locator('.rt-main-nav a[href="/equipo-editorial/"]').isVisible(),'Portada: Equipo editorial superior debe conservarse');
 
-  const globalInput=page.locator('.rt-global-search-input');
-  const searchScrollBefore=await page.evaluate(()=>scrollY);
-  await globalInput.fill('SOHO');
-  await page.waitForSelector('.rt-global-search-result',{timeout:10000});
-  const firstGlobalTitle=(await page.locator('.rt-global-search-result-title').first().innerText()).trim();
-  assert(/SOHO/i.test(firstGlobalTitle),`Buscador global: SOHO no aparece primero (${firstGlobalTitle})`);
-  const soho=data.find(x=>/^SOHO\b/i.test(x.titulo));
-  const sohoPath=soho&&manifest[String(soho.id)]?.path;
-  assert(sohoPath,'Buscador global: falta ruta canónica de SOHO');
-  const firstGlobalHref=await page.locator('.rt-global-search-result').first().getAttribute('href');
-  assert(firstGlobalHref===sohoPath,`Buscador global: ruta inesperada ${firstGlobalHref}`);
-  const searchScrollAfter=await page.evaluate(()=>scrollY);
-  assert(Math.abs(searchScrollAfter-searchScrollBefore)<20,'Buscador global: usar el campo superior desplazó al buscador inferior');
-  await globalInput.press('Escape');
-  assert(await page.locator('#rt-global-search-results').isHidden(),'Buscador global: Escape no cierra resultados');
+  const lowerInput=page.locator('#q');
+  await lowerInput.fill('SOHO');
+  await page.waitForFunction(()=>[...document.querySelectorAll('#indice .fila')].some(row=>getComputedStyle(row).display!=='none'&&/SOHO/i.test(row.textContent||'')),{timeout:10000});
+  const filteredTitles=await page.locator('#indice .fila').evaluateAll(rows=>rows.filter(row=>getComputedStyle(row).display!=='none').map(row=>row.textContent||''));
+  assert(filteredTitles.length>0&&filteredTitles.every(title=>/SOHO/i.test(title)),`Buscador inferior: resultados inesperados ${filteredTitles.join(' | ')}`);
+  await lowerInput.fill('');
 
   const heroBox=await page.locator('header.sitio .envoltorio').boundingBox();
   assert(heroBox && heroBox.x>20 && heroBox.x+heroBox.width<1420,'Portada: el héroe no quedó centrado dentro del viewport');
@@ -95,7 +85,7 @@ try{
   await page.waitForTimeout(150);
   assert(await page.locator('.rt-orbit').isHidden(),'Portada móvil: el ornamento orbital no debe ocupar altura');
   assert(await page.locator('h1.titulo').isVisible(),'Portada móvil: falta el claim de la marca');
-  assert(await page.locator('.rt-global-search-input').isVisible(),'Portada móvil: el buscador global no está disponible');
+  assert(await page.locator('.rt-nav-search,.rt-global-search-input').count()===0,'Portada móvil: reaparece el buscador superior');
   assert(await page.locator('#q').isVisible(),'Portada móvil: el buscador grande del índice no es visible');
   await noOverflow(page,'Portada móvil');
 
@@ -111,7 +101,7 @@ try{
     const finding=[...document.querySelectorAll('.rt-reader-rail .rt-rail-card h3')].some(h=>h.textContent.trim().toLowerCase()==='hallazgo clave');
     return !document.querySelector('.rt-summary-deck')&&!finding&&!document.querySelector('.rt-evidence-section[data-index]');
   },{timeout:10000});
-  assert(await page.locator('.rt-global-search-input').isVisible(),'Trial: buscador global superior no funcional');
+  assert(await page.locator('.rt-nav-search,.rt-global-search-input').count()===0,'Trial: el buscador superior debe estar retirado');
   const sectionCount=await page.locator('.rt-evidence-section').count();
   assert(sectionCount>=4,`Trial: solo ${sectionCount} secciones estructuradas`);
   assert(await page.locator('.rt-summary-deck').count()===0,'Trial: no debe existir Resumen editorial');
@@ -166,16 +156,9 @@ try{
   await page.waitForSelector('body.rt-future-hub',{timeout:10000});
   assert(await page.locator('.cluster-card').count()>=3,'Hub: faltan colecciones clínicas');
   assert(await page.locator('.cat-card').count()>=5,'Hub: faltan trials');
-  assert(await page.locator('.rt-global-search-input').isVisible(),'Hub: buscador global superior no funcional');
+  assert(await page.locator('.rt-nav-search,.rt-global-search-input').count()===0,'Hub: el buscador superior debe estar retirado');
   const catIndex=await page.locator('.cat-card').first().evaluate(el=>getComputedStyle(el,'::before').content);
   assert(catIndex==='none'||catIndex==='""',`Hub: persiste numeración decorativa (${catIndex})`);
-  const hubSearch=page.locator('.rt-global-search-input');
-  await hubSearch.fill('ARISE FLUIDS');
-  await page.waitForSelector('.rt-global-search-result',{timeout:10000});
-  const arise=data.find(x=>/^ARISE FLUIDS\b/i.test(x.titulo));
-  const arisePath=arise&&manifest[String(arise.id)]?.path;
-  assert(arisePath,'Hub: falta ruta canónica de ARISE FLUIDS');
-  assert((await page.locator('.rt-global-search-result').first().getAttribute('href'))===arisePath,'Hub: el buscador global no resuelve ARISE FLUIDS');
   await noOverflow(page,'Hub');
 
   await page.goto(`${BASE}/login.html`,{waitUntil:'domcontentloaded',timeout:25000});
