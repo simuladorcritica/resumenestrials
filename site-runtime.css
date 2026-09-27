@@ -832,6 +832,25 @@ body.rt-modo-lectura .rt-evidence-section::before{display:none}
 /* source: evidencia-surfaces.css */
 /* Approved account and secondary-page surfaces; screen presentation only. */
 @media screen {
+html body.rt-future.rt-future-account .side{background:var(--ed-alt)!important;color:var(--ed-ink)!important;border:1px solid var(--ed-border)!important;border-radius:14px;padding:24px!important;align-self:start}
+html body.rt-future.rt-future-account .side :is(.identity,.safe,.avatar,.nav button){border-color:var(--ed-border)!important;color:var(--ed-ink)!important;font-family:Manrope,sans-serif!important}
+html body.rt-future.rt-future-account .side :is(.safe,.identity span){color:var(--ed-muted)!important;font:400 14px/1.6 Manrope,sans-serif!important;text-transform:none;letter-spacing:normal}
+html body.rt-future.rt-future-account .side .safe{margin-top:28px}
+html body.rt-future.rt-future-account .side .nav :is(button,a){padding:12px!important;text-align:left;text-decoration:none}
+html body.rt-future.rt-future-account .side .nav button.active{background:var(--ed-paper)!important;color:var(--ed-link)!important;border-left:3px solid var(--ed-link)!important}
+html body.rt-future.rt-future-account .side .nav button::after{content:none!important}
+html body.rt-future.rt-future-account .content{min-width:0}
+html body.rt-future.rt-future-account .content .panel{padding:clamp(18px,3vw,32px)}
+html body.rt-future.rt-future-account input:is([type=checkbox],[type=radio]){width:20px!important;height:20px!important;min-height:20px!important;flex:0 0 20px;margin-top:3px;accent-color:var(--ed-link)}
+html body.rt-future.rt-future-account :is(.check,.topic){min-height:44px;font:400 16px/1.5 Manrope,sans-serif!important;letter-spacing:normal!important;text-transform:none!important}
+html body.rt-future.rt-future-account .btn.sec{background:transparent!important;color:var(--ed-link)!important;border:1px solid var(--ed-link)!important}
+html body.rt-future.rt-future-account .notice{background:var(--ed-paper)!important;color:var(--ed-muted)!important;border-color:var(--ed-border)!important}
+html body.rt-future.rt-future-account .account-library{display:block;margin-top:18px;padding:12px;border:1px solid var(--ed-border);border-radius:8px;text-align:center;text-decoration:none;font:500 16px/1.5 Manrope,sans-serif}
+html body.rt-future.rt-future-account main.page>.top::after{content:none!important}
+html body.rt-future.rt-future-account .diagnostic{max-width:760px;margin:40px auto;padding:28px}
+@media(max-width:850px){html body.rt-future.rt-future-account .side .nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}html body.rt-future.rt-future-account .side .safe{display:none}}
+}
+@media screen {
 body.rt-future.rt-future-account,body.rt-future.rt-future-institutional{--papel:var(--ed-paper);--tinta:var(--ed-ink);--tinta-2:var(--ed-muted);--linea:var(--ed-border);--teal:var(--ed-link);--teal-hondo:var(--ed-link);background:var(--ed-paper)!important;color:var(--ed-ink)!important}
 body.rt-future :is(.reading-return){display:block;max-width:1120px;margin:20px auto;padding:10px 20px;color:var(--ed-link);font:500 16px/1.5 Manrope,sans-serif;text-underline-offset:4px}
 html body.rt-future.rt-future-account :is(.page,.wrap,.layout,.shell),html body.rt-future.rt-future-institutional main{max-width:1200px;margin-inline:auto;color:var(--ed-ink)}
@@ -845,7 +864,8 @@ html body.rt-future.rt-future-account :is(button,.primary,.btn){font:500 16px/1.
 html body.rt-future.rt-future-account .primary{background:var(--ed-link)!important;color:var(--ed-paper)!important}
 html body.rt-future.rt-future-account :is(a,.btn){color:var(--ed-link)}
 html body.rt-future.rt-future-account .topbar{background:var(--ed-alt)!important;border-color:var(--ed-border)!important}
-html body.rt-future.rt-future-account .item{background:var(--ed-alt);border:1px solid var(--ed-border);padding:22px;border-radius:4px 14px 14px 14px;margin:16px 0}
+html body.rt-future.rt-future-account .item{background:var(--ed-alt)!important;border:1px solid var(--ed-border)!important;padding:22px;border-radius:4px 14px 14px 14px;margin:16px 0}
+html body.rt-future.rt-future-account :is(.item .meta,.empty,.status){color:var(--ed-muted)!important}
 html body.rt-future.rt-future-account .item h2{font-size:22px!important;line-height:1.4!important}
 html body.rt-future.rt-future-account .empty{padding:24px;border-left:3px solid var(--ed-link);background:var(--ed-alt);margin:16px 0}
 html body.rt-future.rt-future-account .tools{margin:24px 0 16px;gap:12px}

@@ -39,7 +39,7 @@
     if (path === '/' || path.endsWith('/index.html') && !path.includes('/trials/') && path.split('/').filter(Boolean).length === 1) document.body.classList.add('rt-future-home');
     if (path.includes('/trials/')) document.body.classList.add('rt-future-trial');
     if (path.endsWith('/resumen.html')) document.body.classList.add('rt-future-legacy');
-    if (['/login.html','/registro.html','/recuperar.html','/cuenta.html','/biblioteca.html','/privacidad.html','/agregar.html'].some(p => path.endsWith(p))) document.body.classList.add('rt-future-account');
+    if (['/login.html','/registro.html','/recuperar.html','/cuenta.html','/biblioteca.html','/privacidad.html','/agregar.html','/turnstile-check.html'].some(p => path.endsWith(p))) document.body.classList.add('rt-future-account');
     if (path === '/medicina-critica/' || path === '/medicina-interna/' || path.endsWith('/medicina-critica/index.html') || path.endsWith('/medicina-interna/index.html')) document.body.classList.add('rt-future-hub');
     if ((path.startsWith('/medicina-critica/') || path.startsWith('/medicina-interna/')) && !document.body.classList.contains('rt-future-hub') && !document.body.classList.contains('rt-future-trial')) document.body.classList.add('rt-future-cluster');
     if (['/metodologia/','/equipo-editorial/','/privacidad/','/terminos/'].some(p => path.startsWith(p))) document.body.classList.add('rt-future-institutional');

@@ -142,7 +142,7 @@
     if (path === '/' || path.endsWith('/index.html') && !path.includes('/trials/') && path.split('/').filter(Boolean).length === 1) document.body.classList.add('rt-future-home');
     if (path.includes('/trials/')) document.body.classList.add('rt-future-trial');
     if (path.endsWith('/resumen.html')) document.body.classList.add('rt-future-legacy');
-    if (['/login.html','/registro.html','/recuperar.html','/cuenta.html','/biblioteca.html','/privacidad.html','/agregar.html'].some(p => path.endsWith(p))) document.body.classList.add('rt-future-account');
+    if (['/login.html','/registro.html','/recuperar.html','/cuenta.html','/biblioteca.html','/privacidad.html','/agregar.html','/turnstile-check.html'].some(p => path.endsWith(p))) document.body.classList.add('rt-future-account');
     if (path === '/medicina-critica/' || path === '/medicina-interna/' || path.endsWith('/medicina-critica/index.html') || path.endsWith('/medicina-interna/index.html')) document.body.classList.add('rt-future-hub');
     if ((path.startsWith('/medicina-critica/') || path.startsWith('/medicina-interna/')) && !document.body.classList.contains('rt-future-hub') && !document.body.classList.contains('rt-future-trial')) document.body.classList.add('rt-future-cluster');
     if (['/metodologia/','/equipo-editorial/','/privacidad/','/terminos/'].some(p => path.startsWith(p))) document.body.classList.add('rt-future-institutional');
@@ -2754,7 +2754,11 @@
     if(bar.dataset.evidenceAux)return;
     bar.dataset.evidenceAux='true';
     let nav=bar.querySelector('nav');if(!nav){nav=document.createElement('nav');nav.setAttribute('aria-label','Navegación principal');bar.append(nav)}
-    if(!nav.querySelector('a[href="/biblioteca.html"],a[href="biblioteca.html"]')){const link=document.createElement('a');link.href='/biblioteca.html';link.textContent='Mi biblioteca';nav.append(link)}
+    for(const [href,label] of [['/','Explorar'],['/biblioteca.html','Mi biblioteca'],['/cuenta.html','Mi cuenta']]){
+      if([...nav.querySelectorAll('a[href]')].some(a=>new URL(a.href,location.href).pathname.replace(/\/index\.html$/,'/')===href))continue;
+      const link=document.createElement('a');link.href=href;link.textContent=label;
+      if(location.pathname===href)link.setAttribute('aria-current','page');nav.append(link);
+    }
     if(existingTheme)return;
     const theme=document.createElement('button');theme.type='button';theme.className='evidence-theme';
     function label(){theme.textContent=document.body.classList.contains('rt-tema-claro')?'Tema oscuro':'Tema claro';}

@@ -8,7 +8,11 @@
     if(bar.dataset.evidenceAux)return;
     bar.dataset.evidenceAux='true';
     let nav=bar.querySelector('nav');if(!nav){nav=document.createElement('nav');nav.setAttribute('aria-label','Navegación principal');bar.append(nav)}
-    if(!nav.querySelector('a[href="/biblioteca.html"],a[href="biblioteca.html"]')){const link=document.createElement('a');link.href='/biblioteca.html';link.textContent='Mi biblioteca';nav.append(link)}
+    for(const [href,label] of [['/','Explorar'],['/biblioteca.html','Mi biblioteca'],['/cuenta.html','Mi cuenta']]){
+      if([...nav.querySelectorAll('a[href]')].some(a=>new URL(a.href,location.href).pathname.replace(/\/index\.html$/,'/')===href))continue;
+      const link=document.createElement('a');link.href=href;link.textContent=label;
+      if(location.pathname===href)link.setAttribute('aria-current','page');nav.append(link);
+    }
     if(existingTheme)return;
     const theme=document.createElement('button');theme.type='button';theme.className='evidence-theme';
     function label(){theme.textContent=document.body.classList.contains('rt-tema-claro')?'Tema oscuro':'Tema claro';}
