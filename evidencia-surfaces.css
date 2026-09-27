@@ -1,5 +1,6 @@
 /* Approved account and secondary-page surfaces; screen presentation only. */
 @media screen {
+html body.rt-future.rt-future-account .side .identity strong{color:var(--ed-ink)!important}
 html body.rt-future.rt-future-account .side{background:var(--ed-alt)!important;color:var(--ed-ink)!important;border:1px solid var(--ed-border)!important;border-radius:14px;padding:24px!important;align-self:start}
 html body.rt-future.rt-future-account .side :is(.identity,.safe,.avatar,.nav button){border-color:var(--ed-border)!important;color:var(--ed-ink)!important;font-family:Manrope,sans-serif!important}
 html body.rt-future.rt-future-account .side :is(.safe,.identity span){color:var(--ed-muted)!important;font:400 14px/1.6 Manrope,sans-serif!important;text-transform:none;letter-spacing:normal}
