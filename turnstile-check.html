@@ -8,13 +8,16 @@
 <style>
 body{margin:0;background:#f7f6f2;color:#12233b;font-family:system-ui,-apple-system,sans-serif}.box{max-width:620px;margin:70px auto;padding:34px;border-top:1px solid #ddd8cc;border-bottom:1px solid #ddd8cc}.box h1{margin-top:0;font-family:Georgia,serif;font-weight:500}.status{margin-top:22px;padding:15px 0;border-top:1px solid #ddd8cc;color:#38506e}.status strong{display:block;color:#0f5f5f;margin-bottom:5px}.meta{font:12px ui-monospace,monospace;color:#38506e;margin-top:18px}
 </style>
+<link rel="stylesheet" href="/site-runtime.css?v=20260926">
 </head>
 <body>
-<main class="box">
-<h1>Estado de la verificación anti-bot</h1>
-<p>Cloudflare Turnstile está temporalmente desactivado en los formularios de cuenta. La configuración anterior mostraba una verificación correcta en el navegador, pero el servidor rechazaba solicitudes legítimas por un Secret Key inválido.</p>
-<div class="status"><strong>Estado actual: desactivado de forma controlada.</strong>Registro, acceso y recuperación utilizan Supabase Auth sin el CAPTCHA defectuoso. Turnstile solo debe volver a activarse después de configurar y validar un nuevo Secret Key del lado servidor.</div>
-<div class="meta">CAPTCHA_ENABLED=false · noindex,nofollow</div>
+<main class="page"><div class="top"><a class="brand" href="/"><img src="/logo.png" alt="Resúmenes Trials"></a></div><section class="diagnostic card">
+<h1>Ayuda con la verificación de acceso</h1>
+<p>Completa la verificación de seguridad en el formulario que estás utilizando. Si aparece un error, conserva su mensaje para que podamos revisar qué ocurrió.</p>
+<div class="status">Esta página es informativa: no comprueba el estado del servicio ni realiza solicitudes de acceso.</div>
+<p><a href="/login.html">Volver a iniciar sesión</a> · <a href="/recuperar.html">Recuperar contraseña</a></p>
+</section>
 </main>
+<script src="/site-runtime.js?v=20260926" defer></script>
 </body>
 </html>

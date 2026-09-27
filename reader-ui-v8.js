@@ -163,8 +163,8 @@
     let back = nav.querySelector('.rt-reader-back') || nav.querySelector('a');
     if (!back) { back = document.createElement('a'); nav.appendChild(back); }
     back.classList.add('rt-reader-back');
-    back.href = '/';
-    back.textContent = '← Volver al índice';
+    back.href = window.RTReadingContext?.destination() || '/';
+    back.textContent = window.RTReadingContext?.destination() && window.RTReadingContext.destination() !== '/' ? 'Volver al origen' : '← Volver al índice';
     back.setAttribute('aria-label', 'Volver al índice de Resúmenes Trials');
 
     let version = nav.querySelector('.rt-reader-version,.cambio-version');

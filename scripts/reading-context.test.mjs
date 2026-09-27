@@ -1,0 +1,14 @@
+import test from 'node:test';import assert from 'node:assert/strict';import vm from 'node:vm';import fs from 'node:fs';
+const code=fs.readFileSync(new URL('../reading-context.js',import.meta.url),'utf8');
+function context({path='/resumen.html',search='?id=1',saved={}}={}){const values=new Map([['rt-reading-context-v1',JSON.stringify({at:Date.now(),origin:'/biblioteca.html',id:'1',targets:['/trials/soho/'],q:'SOHO',y:100,...saved})]]);const window={};vm.runInNewContext(code,{window,URL,URLSearchParams,Date,location:{pathname:path,search,origin:'https://resumenestrials.com'},document:{readyState:'loading',addEventListener(){},querySelector(){return null}},sessionStorage:{getItem:k=>values.get(k),setItem:(k,v)=>values.set(k,v)}});return {api:window.RTReadingContext,values}}
+test('returns to the originating library for the same trial',()=>assert.equal(context().api.destination(),'/biblioteca.html'));
+test('does not reuse context for an unrelated trial',()=>assert.equal(context({search:'?id=2'}).api.destination(),'/'));
+test('does not follow an external return URL',()=>assert.equal(context({saved:{origin:'https://example.org/'}}).api.destination(),'/'));
+test('does not restore expired context',()=>assert.equal(context({saved:{at:Date.now()-13*60*60*1000}}).api.destination(),'/'));
+test('canonical path preserves specialty return',()=>assert.equal(context({path:'/trials/soho/',search:'',saved:{origin:'/medicina-critica/'}}).api.destination(),'/medicina-critica/'));
+test('return request is recorded only for the matching reader',()=>{const good=context();good.api.requestReturn();assert.equal(JSON.parse(good.values.get('rt-reading-return-v1')).origin,'/biblioteca.html');const other=context({search:'?id=2'});other.api.requestReturn();assert.equal(other.values.has('rt-reading-return-v1'),false)});
+test('reloading the origin restores the latest query, including a cleared query',()=>{
+  const values=new Map();
+  function page(type,query){const listeners={},input={value:query,dispatchEvent(){},focus(){}},window={addEventListener:(name,fn)=>{listeners[name]=fn}};const document={readyState:'loading',body:{},addEventListener:(name,fn)=>{listeners[name]=fn},querySelector:s=>s==='#q'?input:null};vm.runInNewContext(code,{window,document,URL,URLSearchParams,Date,Event:class{},location:{pathname:'/',search:'',origin:'https://resumenestrials.com'},sessionStorage:{getItem:k=>values.get(k),setItem:(k,v)=>values.set(k,v),removeItem:k=>values.delete(k)},performance:{getEntriesByType:()=>[{type}]},scrollY:240,scrollTo(){},requestAnimationFrame:fn=>fn(),setTimeout(){},MutationObserver:class{observe(){}disconnect(){}}});listeners.DOMContentLoaded();return {input,hide:listeners.pagehide}}
+  page('navigate','SOHO').hide();const restored=page('reload','');assert.equal(restored.input.value,'SOHO');restored.input.value='';restored.hide();assert.equal(page('reload','stale').input.value,'');
+});

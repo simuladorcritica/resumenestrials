@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 
 const jsSources = [
+  'reading-context.js',
   'topbar-offset-fix.js',
   'future-experience.js',
   'global-search.js',
@@ -15,6 +16,7 @@ const jsSources = [
   'reader-preferences.js',
   'editorial-reader.js',
   'editorial-shell.js',
+  'auxiliary-shell.js',
 ];
 
 const cssSources = [
@@ -25,6 +27,7 @@ const cssSources = [
   'reader-mode.css',
   'editorial.css',
   'evidencia-design.css',
+  'evidencia-surfaces.css',
   'print.css',
 ];
 
@@ -39,3 +42,4 @@ function bundle(sources, target, comment) {
 bundle(jsSources, 'site-runtime.js', '/* source:');
 bundle(cssSources, 'site-runtime.css', '/* source:');
 console.log(`Runtime generado: ${jsSources.length} JS -> site-runtime.js; ${cssSources.length} CSS -> site-runtime.css.`);
+

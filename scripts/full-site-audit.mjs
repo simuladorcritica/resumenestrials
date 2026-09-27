@@ -61,7 +61,9 @@ function staticAudit(){
   if(/challenges\.cloudflare\.com/.test(diagnostic))fail('captcha','la página diagnóstica sigue cargando el widget desactivado');
 
   const biblioteca=read('biblioteca.html');
-  if(!biblioteca.includes('especialidad_principal')||!biblioteca.includes('r.temas'))fail('biblioteca','no utiliza el esquema actual de especialidad/temas');
+  if(!/<script\b[^>]*type=["']module["'][^>]*src=["']\/library-page\.js["'][^>]*>/.test(biblioteca))fail('biblioteca','no carga el módulo de biblioteca');
+  const bibliotecaModule=read('library-page.js');
+  if(!bibliotecaModule.includes('especialidad_principal')||!bibliotecaModule.includes('r.temas'))fail('biblioteca','no utiliza el esquema actual de especialidad/temas');
   const recommendations=read('recommendations.js');
   if(!recommendations.includes('especialidad_principal')||!recommendations.includes('r.temas'))fail('recomendaciones','no utiliza el esquema actual de especialidad/temas');
 

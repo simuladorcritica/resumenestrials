@@ -113,7 +113,7 @@
     </label>
     <details class="pegar">
       <summary>o pegar su contenido</summary>
-      <textarea id="pegarTxt" placeholder="Pega aquí el contenido actual de resumenes.json"></textarea>
+      <label for="pegarTxt">Contenido actual de resumenes.json</label><textarea id="pegarTxt" placeholder="Pega aquí el contenido actual de resumenes.json"></textarea>
       <button class="btn btn-sec2" id="pegarBtn" style="margin-top:8px;">Cargar lo pegado</button>
     </details>
   </div>
@@ -124,34 +124,34 @@
       <fieldset>
         <legend>Identificación</legend>
         <div class="fila3">
-          <div class="campo"><label>id</label><input type="number" id="id" min="1" step="1"></div>
-          <div class="campo"><label>Año</label><input type="text" id="anio" placeholder="2026" inputmode="numeric"></div>
-          <div class="campo"><label>Registro (NCT)</label><input type="text" id="registro" placeholder="NCT05047263"></div>
+          <div class="campo"><label for="id">id</label><input type="number" id="id" min="1" step="1"></div>
+          <div class="campo"><label for="anio">Año</label><input type="text" id="anio" placeholder="2026" inputmode="numeric"></div>
+          <div class="campo"><label for="registro">Registro (NCT)</label><input type="text" id="registro" placeholder="NCT05047263"></div>
         </div>
-        <div class="campo"><label>Título</label><input type="text" id="titulo" placeholder="Finerenona en enfermedad renal crónica sin diabetes"></div>
+        <div class="campo"><label for="titulo">Título</label><input type="text" id="titulo" placeholder="Finerenona en enfermedad renal crónica sin diabetes"></div>
         <div class="fila2">
-          <div class="campo"><label>Autor</label><input type="text" id="autor" placeholder="Heerspink HJL"></div>
-          <div class="campo"><label>Revista</label><input type="text" id="revista" placeholder="NEJM"></div>
+          <div class="campo"><label for="autor">Autor</label><input type="text" id="autor" placeholder="Heerspink HJL"></div>
+          <div class="campo"><label for="revista">Revista</label><input type="text" id="revista" placeholder="NEJM"></div>
         </div>
         <div class="fila2">
-          <div class="campo"><label>DOI</label><input type="text" id="doi" placeholder="10.1056/NEJMoa2604625"></div>
-          <div class="campo"><label>Financiación</label><input type="text" id="financiacion" placeholder="Financiado por Bayer"></div>
+          <div class="campo"><label for="doi">DOI</label><input type="text" id="doi" placeholder="10.1056/NEJMoa2604625"></div>
+          <div class="campo"><label for="financiacion">Financiación</label><input type="text" id="financiacion" placeholder="Financiado por Bayer"></div>
         </div>
-        <div class="campo"><label>Enlace al artículo original</label><input type="url" id="original" placeholder="https://www.nejm.org/doi/full/…"></div>
+        <div class="campo"><label for="original">Enlace al artículo original</label><input type="url" id="original" placeholder="https://www.nejm.org/doi/full/…"></div>
       </fieldset>
 
       <fieldset>
         <legend>Clasificación</legend>
         <div class="fila2">
           <div class="campo">
-            <label>Especialidad principal</label>
+            <label for="especialidad_principal">Especialidad principal</label>
             <select id="especialidad_principal">
               <option value="Medicina Crítica">Medicina Crítica</option>
               <option value="Medicina Interna">Medicina Interna</option>
             </select>
           </div>
           <div class="campo">
-            <label>Especialidad secundaria (opcional)</label>
+            <label for="especialidad_secundaria">Especialidad secundaria (opcional)</label>
             <select id="especialidad_secundaria">
               <option value="">— ninguna —</option>
               <option value="Medicina Crítica">Medicina Crítica</option>
@@ -161,11 +161,11 @@
         </div>
         <div class="fila2">
           <div class="campo">
-            <label>Temas (separados por comas)</label>
+            <label for="temas">Temas (separados por comas)</label>
             <input type="text" id="temas" placeholder="Sepsis, Choque séptico, Fluidoterapia">
           </div>
           <div class="campo">
-            <label>Tipo de estudio</label>
+            <label for="tipo_estudio">Tipo de estudio</label>
             <input type="text" id="tipo_estudio" value="Ensayo clínico aleatorizado">
           </div>
         </div>
@@ -175,11 +175,11 @@
       <fieldset>
         <legend>Adelanto (lo que se ve en el índice)</legend>
         <div class="campo">
-          <label>Objetivo (breve)</label>
+          <label for="objetivo">Objetivo (breve)</label>
           <textarea id="objetivo" style="min-height:70px;" placeholder="Averiguar si…"></textarea>
         </div>
         <div class="campo">
-          <label>Hallazgo (con la cifra clave)</label>
+          <label for="hallazgo">Hallazgo (con la cifra clave)</label>
           <textarea id="hallazgo" style="min-height:80px;" placeholder="El filtrado cayó más despacio: **−3.3 frente a −4.0 ml/min/1.73 m²/año**…"></textarea>
           <div class="ayuda">Rodea con <code>**dobles asteriscos**</code> lo que quieras en <strong>ámbar</strong> (la cifra que más importa).</div>
         </div>
@@ -200,7 +200,7 @@
       <div class="estado" id="estado"></div>
 
       <div class="salida">
-        <label>resumenes.json resultante</label>
+        <label for="salida">resumenes.json resultante</label>
         <textarea id="salida" readonly placeholder="Pulsa «Generar archivo» y aquí aparecerá el contenido completo, ya válido."></textarea>
       </div>
     </form>
@@ -247,10 +247,10 @@
     row.className = "sec-row";
     row.innerHTML =
       '<div class="sec-head">' +
-        '<input type="text" class="sec-tit" placeholder="Título de la sección">' +
-        '<button type="button" class="sec-x" title="Quitar">✕</button>' +
+        '<input type="text" class="sec-tit" aria-label="Título de la sección" placeholder="Título de la sección">' +
+        '<button type="button" class="sec-x" aria-label="Quitar esta sección" title="Quitar">✕</button>' +
       '</div>' +
-      '<textarea class="sec-txt" placeholder="Texto de la sección…"></textarea>';
+      '<textarea class="sec-txt" aria-label="Texto de la sección" placeholder="Texto de la sección…"></textarea>';
     row.querySelector(".sec-tit").value = titulo || "";
     row.querySelector(".sec-txt").value = texto || "";
     row.querySelector(".sec-x").addEventListener("click", () => { row.remove(); preview(); });

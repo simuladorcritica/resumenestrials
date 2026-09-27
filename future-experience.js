@@ -39,7 +39,7 @@
     if (path === '/' || path.endsWith('/index.html') && !path.includes('/trials/') && path.split('/').filter(Boolean).length === 1) document.body.classList.add('rt-future-home');
     if (path.includes('/trials/')) document.body.classList.add('rt-future-trial');
     if (path.endsWith('/resumen.html')) document.body.classList.add('rt-future-legacy');
-    if (['/login.html','/registro.html','/recuperar.html','/cuenta.html','/biblioteca.html','/privacidad.html','/agregar.html'].some(p => path.endsWith(p))) document.body.classList.add('rt-future-account');
+    if (['/login.html','/registro.html','/recuperar.html','/cuenta.html','/biblioteca.html','/privacidad.html','/agregar.html','/turnstile-check.html'].some(p => path.endsWith(p))) document.body.classList.add('rt-future-account');
     if (path === '/medicina-critica/' || path === '/medicina-interna/' || path.endsWith('/medicina-critica/index.html') || path.endsWith('/medicina-interna/index.html')) document.body.classList.add('rt-future-hub');
     if ((path.startsWith('/medicina-critica/') || path.startsWith('/medicina-interna/')) && !document.body.classList.contains('rt-future-hub') && !document.body.classList.contains('rt-future-trial')) document.body.classList.add('rt-future-cluster');
     if (['/metodologia/','/equipo-editorial/','/privacidad/','/terminos/'].some(p => path.startsWith(p))) document.body.classList.add('rt-future-institutional');
@@ -54,8 +54,7 @@
     // (`.rt-tema-claro <selector>` en vez de `:not(.rt-future) <selector>`,
     // misma especificidad, mismo efecto de "siempre gana").
     document.body.classList.add('rt-future');
-    const temaDisponible = !document.body.classList.contains('rt-future-account')
-      && !document.body.classList.contains('rt-future-institutional');
+    const temaDisponible = true;
     window.__rtTemaDisponible = temaDisponible;
     if (temaDisponible && resolveTheme() === 'claro') document.body.classList.add('rt-tema-claro');
   }
@@ -63,7 +62,7 @@
   function navMarkup() {
     const current = (href) => path === href || (href !== '/' && path.startsWith(href));
     return [
-      ['Explorar','/'],['Medicina Crítica','/medicina-critica/'],['Medicina Interna','/medicina-interna/'],['Metodología','/metodologia/'],['Equipo editorial','/equipo-editorial/']
+      ['Explorar','/'],['Medicina Crítica','/medicina-critica/'],['Medicina Interna','/medicina-interna/'],['Metodología','/metodologia/'],['Equipo editorial','/equipo-editorial/'],['Mi biblioteca','/biblioteca.html']
     ].map(([label, href]) => `<a href="${href}"${current(href) ? ' aria-current="page"' : ''}>${label}</a>`).join('');
   }
 
