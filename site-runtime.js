@@ -206,13 +206,7 @@
 
     const actions = document.createElement('div');
     actions.className = 'rt-nav-actions';
-    const search = document.createElement('button');
-    search.type = 'button';
-    search.className = 'rt-nav-search';
-    search.setAttribute('aria-label','Buscar en Resúmenes Trials');
-    search.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-4-4"></path></svg><span>Buscar ensayos, fármacos…</span><kbd>/</kbd>';
-    search.addEventListener('click', focusSearch);
-    actions.append(search, topLinks);
+    actions.append(topLinks);
     inner.replaceChildren(brand, nav, actions);
 
     // En páginas distintas de la portada también reflejamos la sesión si existe.
