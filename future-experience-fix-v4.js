@@ -189,18 +189,7 @@
        en vez de regenerar el HTML (evita tocar generar_seo_clusters.py/resumenes.json). */
     .cat-card .badges .tema:nth-child(n+3){display:none!important}
 
-    /* Buscador grande de la portada (a pedido explicito del usuario): se quitan
-       los selectores de anio/revista (antes en #rt-advanced, ver
-       library-filter-cleanup.js) y el buscador de texto que ya filtraba
-       en vivo (ver aplicar() en index-source.html) se agranda para ocupar
-       toda la cabecera del indice. future-experience.css define esta zona
-       como una retícula de 3 columnas (filtros | avanzado | buscador);
-       con solo el buscador como hijo, se cambia a una sola columna a
-       todo el ancho. El color del buscador (fondo blanco translucido,
-       texto/icono en tinta oscura) ya era compatible con ambos temas
-       porque flota sobre un fondo con overlay claro tanto en modo claro
-       como oscuro (ver .fila / .buscador en future-experience.css), asi
-       que se conserva ese mismo lenguaje visual, solo mas grande. */
+    /* Controles del índice: buscador primero, filtros legibles y estado visible. */
     body.rt-future-home .indice-cabecera{
       display:flex!important;flex-direction:column!important;
       grid-template-columns:1fr!important;align-items:stretch!important;
@@ -210,13 +199,15 @@
       width:100%!important;min-width:100%!important;max-width:none!important;
       height:auto!important;
       display:flex!important;align-items:center!important;gap:18px!important;
-      padding:26px 56px 26px 34px!important;
+      padding:18px 48px 18px 26px!important;
       border:2px solid rgba(36,200,180,.4)!important;
       border-radius:18px!important;
       background:rgba(255,255,255,.55)!important;
       box-shadow:0 18px 44px rgba(4,20,30,.22)!important;
       transition:border-color .2s ease,box-shadow .2s ease,transform .15s ease,background .2s ease!important;
     }
+    body.rt-future-home .indice-cabecera .filtros,
+    body.rt-future-home .indice-cabecera .rt-advanced{display:flex!important;width:100%!important;max-width:none!important;order:1!important}
     body.rt-future-home .indice-cabecera .buscador:hover{
       border-color:rgba(36,200,180,.65)!important;
       background:rgba(255,255,255,.65)!important;

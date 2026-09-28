@@ -28,7 +28,12 @@ async function load(){
   try{
     state=await getLibraryState();
     if(state.mfaRequired){location.replace('login.html?mfa=1&next=biblioteca.html');return}
-    if(!state.signedIn){location.replace('login.html?next=biblioteca.html');return}
+    if(!state.signedIn){
+      document.querySelector('.lead').textContent='Mi biblioteca reúne los ensayos que quieres conservar para volver a ellos sin buscarlos de nuevo.';
+      document.querySelector('.tools').hidden=true;
+      list.innerHTML='<section class="empty" data-library-state="signed-out"><h2>Tu evidencia, en un solo lugar</h2><p>Inicia sesión para consultar tus resúmenes guardados o crea una cuenta gratuita.</p><p><a class="btn" href="login.html?next=biblioteca.html">Entrar</a> <a class="btn" href="registro.html">Crear cuenta</a></p></section>';
+      return
+    }
     all=(await loadTrials()).slice().sort(compareTrialDates);render();
   }catch{
     list.innerHTML='<div class="empty" data-library-state="error" role="alert"><p>No pudimos cargar tu biblioteca. Inténtalo de nuevo.</p><button type="button" class="btn" id="retry-library">Reintentar</button></div>';

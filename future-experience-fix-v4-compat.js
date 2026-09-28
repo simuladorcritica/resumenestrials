@@ -296,7 +296,7 @@
   function apply() {
     ensureStyle();
     polishFooter();
-    ensureCanonicalFooterDownload();
+    // La barra persistente de reader-ui-v8 concentra la descarga activa.
     addBriefSaveAction();
     wireLegacyProgress();
   }

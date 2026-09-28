@@ -58,8 +58,8 @@ try{
   assert(await page.locator('.rt-editorial-prelude').count()===0,'Portada: Explora/Interpreta/Conserva aparece duplicado');
   assert(await page.locator('.rt-step small').count()===0,'Portada: persiste numeración 01/02/03');
   assert(await page.locator('.rt-hero-actions').count()===0,'Portada: el recuadro de CTA del héroe debe estar eliminado (a pedido explícito del usuario)');
-  assert(await page.locator('.rt-main-nav a[href="/metodologia/"]').isVisible(),'Portada: Metodología superior debe conservarse');
-  assert(await page.locator('.rt-main-nav a[href="/equipo-editorial/"]').isVisible(),'Portada: Equipo editorial superior debe conservarse');
+  assert(await page.locator('.rt-global-footer a[href="/metodologia/"]').isVisible(),'Portada: Metodología debe conservarse en el pie institucional');
+  assert(await page.locator('.rt-global-footer a[href="/equipo-editorial/"]').isVisible(),'Portada: Equipo editorial debe conservarse en el pie institucional');
 
   const lowerInput=page.locator('#q');
   await lowerInput.fill('SOHO');
@@ -182,7 +182,7 @@ try{
     await page.waitForSelector('[data-ed-shell]',{timeout:10000});
     await page.evaluate(()=>document.fonts.ready);
     for(const active of [false,true]){
-      const mode=page.locator('.rt-lectura-btn');
+      const mode=page.locator('.rt-reader-toolbar [data-reading-mode]');
       if(active)await mode.click();
       const geometry=await mode.evaluate(button=>{
         const b=button.getBoundingClientRect(),account=document.querySelector('.auth-entry').getBoundingClientRect();

@@ -22,10 +22,10 @@ try{
 
   await page.goto(`${BASE}/index.html`,{waitUntil:'domcontentloaded',timeout:25000});
   await page.waitForSelector('body.rt-future-home',{timeout:10000});
-  const account=page.locator('.topbar .top-links #account-entry');
+  const account=page.locator('.topbar #account-entry');
   await account.waitFor({state:'visible',timeout:10000});
   const accountText=(await account.innerText()).trim();
-  assert(accountText==='Entrar o crear cuenta'||accountText==='Mi cuenta',`Portada: CTA de cuenta inesperado: ${accountText}`);
+  assert(accountText==='Cuenta'||accountText==='Mi cuenta',`Portada: CTA de cuenta inesperado: ${accountText}`);
 
   await page.waitForFunction((expected)=>document.querySelectorAll('#indice .fila').length>=expected,data.length,{timeout:10000});
   assert(await page.locator('#indice .fila.rt-featured').count()===1,'Portada: debe existir exactamente un trial destacado después de cargar datos');

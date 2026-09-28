@@ -154,8 +154,8 @@ async function browserAudit(){
     if(!/spam/i.test(note)||!/correo no deseado/i.test(note)||!/promociones/i.test(note))fail('registro navegador','el aviso de carpetas alternativas no está renderizado');
 
     await page.goto(`${BASE}/biblioteca.html`,{waitUntil:'domcontentloaded'});
-    await page.waitForURL(/login\.html/, { timeout: 5000 }).catch(() => {});
-    if(!/login\.html/.test(page.url()))fail('biblioteca','usuario no autenticado no fue enviado a login');
+    await page.locator('[data-library-state="signed-out"]').waitFor({timeout:5000}).catch(()=>{});
+    if(new URL(page.url()).pathname!=='/biblioteca.html'||await page.locator('[data-library-state="signed-out"]').count()!==1)fail('biblioteca','el visitante no recibió la explicación y accesos de la biblioteca');
 
     await page.goto(`${BASE}/cuenta.html`,{waitUntil:'domcontentloaded'});
     await page.waitForURL(/login\.html/, { timeout: 5000 }).catch(() => {});

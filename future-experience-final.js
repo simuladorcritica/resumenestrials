@@ -24,8 +24,6 @@
 
     body.rt-future .rt-main-nav a,body.rt-future .topbar nav a{font-size:13.5px!important;line-height:1.15!important}
     body.rt-future .top-links .auth-entry-main{font-size:12.5px!important}
-    body.rt-future:not(.rt-future-home) .rt-main-nav a[href^="/metodologia"],
-    body.rt-future:not(.rt-future-home) .rt-main-nav a[href^="/equipo-editorial"]{display:none!important}
 
     body.rt-future-home .seo-hubs-home,
     body.rt-future-home .rt-editorial-prelude{display:none!important}
