@@ -11,7 +11,7 @@
   const links = rows => rows.map(([label,href]) => `<a href="${href}"${current(href)?' aria-current="page"':''}>${label}</a>`).join('');
   function themeButton(){
     const button=document.createElement('button');button.type='button';button.className='rt-tema-btn';
-    const sync=()=>{const light=document.body.classList.contains('rt-tema-claro');button.textContent=light?'☀':'☾';button.setAttribute('aria-label',light?'Cambiar a tema oscuro':'Cambiar a tema claro');button.title=button.getAttribute('aria-label')};
+    const sync=()=>{const light=document.body.classList.contains('rt-tema-claro');button.innerHTML=light?'<svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42"/></svg>':'<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20.2 15.3A8.5 8.5 0 0 1 8.7 3.8 8.7 8.7 0 1 0 20.2 15.3Z"/></svg>';button.setAttribute('aria-label',light?'Cambiar a tema oscuro':'Cambiar a tema claro');button.title=button.getAttribute('aria-label')};
     button.addEventListener('click',()=>{const light=document.body.classList.toggle('rt-tema-claro');try{localStorage.setItem('rt-tema',light?'claro':'oscuro')}catch{}sync()});sync();return button;
   }
   function mountHeader(){
