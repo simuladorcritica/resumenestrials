@@ -65,8 +65,9 @@ try{
   assert(await page.locator('.rt-editorial-prelude').count()===0,'Producción: persiste segundo bloque Explora/Interpreta/Conserva');
   assert(await page.locator('.rt-step small').count()===0,'Producción: persiste numeración de pasos');
   assert(await page.locator('.rt-hero-actions').count()===0,'Producción: el recuadro de CTA del héroe debe estar eliminado (a pedido explícito del usuario)');
-  assert(await page.locator('.rt-main-nav a[href="/metodologia/"]').isVisible(),'Producción portada: falta Metodología superior');
-  assert(await page.locator('.rt-main-nav a[href="/equipo-editorial/"]').isVisible(),'Producción portada: falta Equipo editorial superior');
+  assert(await page.locator('.rt-main-nav a').count()===4,'Producción portada: la navegación principal debe conservar cuatro destinos contextuales');
+  assert(await page.locator('.rt-global-footer a[href="/metodologia/"]').isVisible(),'Producción portada: falta Metodología en el pie institucional');
+  assert(await page.locator('.rt-global-footer a[href="/equipo-editorial/"]').isVisible(),'Producción portada: falta Equipo editorial en el pie institucional');
 
   assert(!!(await page.locator('#biblioteca-clinica').count()),'Producción: el ancla del explorador debe seguir existiendo aunque se quitó el botón del héroe');
   const exploreNav=page.locator('.rt-main-nav a[href="/"]');
@@ -75,11 +76,11 @@ try{
   assert(await page.evaluate(()=>scrollY>100),'Producción: el enlace "Explorar" de la navegación no desplaza a la biblioteca');
   await page.evaluate(()=>scrollTo(0,0));
 
-  // A pedido explícito del usuario: el buscador de texto del índice (#q)
-  // ya no es redundante -- es ahora el único control de esa fila, grande
-  // y a todo el ancho (ver future-experience-fix-v4.js).
+  // El buscador inferior es la única búsqueda global. Los selectores de año y
+  // revista permanecen como filtros contextuales en la misma superficie.
   assert(await page.locator('#q').isVisible(),'Producción: el buscador grande del índice no es visible');
-  assert(!(await page.locator('#rt-advanced').count()),'Producción: los selectores de año/revista no debieron sobrevivir');
+  assert(await page.locator('#rt-advanced select').count()===2,'Producción: deben existir los selectores de año y revista');
+  assert(await page.locator('#rt-advanced').isVisible(),'Producción: los filtros avanzados no son visibles');
   assert(await page.locator('.rt-nav-search,.rt-global-search-input').count()===0,'Producción: la cabecera conserva el buscador superior retirado');
   const search=page.locator('#q');
   const searchSample=data.find(item=>/^SOHO\b/i.test(item.titulo))||newest;
@@ -93,10 +94,10 @@ try{
   await search.fill('');
   assert(await page.locator('#indice .fila.rt-featured').count()===1,'Producción: falta ensayo destacado tras usar el buscador inferior');
 
-  const account=page.locator('.topbar .top-links #account-entry');
+  const account=page.locator('.topbar #account-entry');
   await account.waitFor({state:'visible',timeout:15000});
   const accountText=(await account.innerText()).trim();
-  assert(accountText==='Entrar o crear cuenta'||accountText==='Mi cuenta',`Producción: CTA de cuenta inesperado: ${accountText}`);
+  assert(accountText==='Cuenta'||accountText==='Mi cuenta',`Producción: CTA de cuenta inesperado: ${accountText}`);
   const year=page.locator('.grupo-anio .anio-num').first();
   assert(await year.isVisible(),'Producción: año no visible en el explorador');
   assert((await year.innerText()).trim()===String(newest.anio),'Producción: año más reciente no coincide con los datos');
