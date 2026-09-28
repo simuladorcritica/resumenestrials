@@ -7,7 +7,7 @@ const BASE=(process.env.RT_BASE_URL||'https://resumenestrials.com').replace(/\/$
 if (process.env.RT_BASE_URL) {
   const originalIndex=readFileSync('index.html','utf8');
   process.once('exit',()=>writeFileSync('index.html',originalIndex,'utf8'));
-  const homeModules='<script type="module" src="/home-auth-ui.js?v=8"></script><script type="module" src="/interactive-home.js?v=20260819.4"></script><script src="/library-filter-cleanup.js?v=1" defer></script><script type="module" src="/recommendations.js?v=2"></script><script src="/specialty-classification.js?v=2"></script><script type="module" src="/internal-medicine-ux.js?v=2"></script><script type="module" src="/home-visual-tuning.js?v=1"></script><script src="/pdf-contact.js?v=2" defer></script><script src="/home-control-layout.js?v=1" defer></script>';
+  const homeModules='<script type="module" src="/home-auth-ui.js?v=8"></script><script type="module" src="/interactive-home.js?v=20260819.4"></script><script type="module" src="/recommendations.js?v=2"></script><script src="/specialty-classification.js?v=2"></script><script type="module" src="/internal-medicine-ux.js?v=2"></script><script type="module" src="/home-visual-tuning.js?v=1"></script><script src="/pdf-contact.js?v=2" defer></script><script src="/home-control-layout.js?v=1" defer></script>';
   writeFileSync('index.html',readFileSync('_includes/index-source.html','utf8').replace('</body>',`${homeModules}</body>`),'utf8');
 }
 const data=JSON.parse(readFileSync('resumenes.json','utf8'));
@@ -77,11 +77,10 @@ await visit('/',async()=>{
   const legacyOk=legacyCreate===1&&legacyLogin===1;
   assert(editorial===1||legacyOk,`Cabecera de cuenta incorrecta: editorial=${editorial}, crear=${legacyCreate}, entrar=${legacyLogin}`);
   assert(editorial<=1,`Módulo editorial de cuenta duplicado: ${editorial}`);
-  // A pedido explícito del usuario: se quitaron los selectores de año/revista
-  // y el buscador de texto (#q / .buscador-input) es ahora el único control,
-  // grande y a todo el ancho de la cabecera (ver future-experience-fix-v4.js).
+  // La navegación por contexto conserva un único buscador en la portada y
+  // recupera los selectores de año y revista junto a los filtros de área.
   assert(await page.locator('#q').isVisible(),'el buscador grande de la portada no es visible');
-  assert(!(await page.locator('#rt-advanced').count()),'los selectores de año/revista no debieron sobrevivir');
+  assert(await page.locator('#rt-advanced').isVisible(),'los selectores de año/revista no son visibles');
   assert(await page.locator('.rt-nav-search,.rt-global-search-input').count()===0,'la cabecera conserva el buscador superior retirado');
   const search=page.locator('#q');
   await search.fill('SOHO');
@@ -130,7 +129,7 @@ await visit('/',async()=>{
   await page.waitForSelector('#indice .fila',{timeout:20000});
   assert((await page.locator('#conteo').innerText()).trim()===String(data.length),'contador móvil incorrecto');
   assert(await page.locator('#q').isVisible(),'el buscador grande de la portada no es visible en móvil');
-  assert(!(await page.locator('#rt-advanced').count()),'los selectores de año/revista no debieron sobrevivir en móvil');
+  assert(await page.locator('#rt-advanced').isVisible(),'los selectores de año/revista no son visibles en móvil');
   await noHorizontalOverflow('portada móvil');
 });
 await visit(entry.path,async()=>{
@@ -142,7 +141,10 @@ await page.setViewportSize({width:1440,height:1000});
 await visit('/login.html?smoke=1',async()=>{await validateTurnstile('turnstile-login')});
 await visit('/registro.html?smoke=1',async()=>{await validateTurnstile('turnstile-registro')});
 await visit('/recuperar.html?smoke=1',async()=>{await validateTurnstile('turnstile-recuperar')});
-await visit('/biblioteca.html',async()=>{await page.waitForURL(/login\.html/,{timeout:12000})});
+await visit('/biblioteca.html',async()=>{
+  await page.locator('[data-library-state="signed-out"]').waitFor({timeout:12000});
+  assert(new URL(page.url()).pathname==='/biblioteca.html','la biblioteca redirigió al visitante sin sesión');
+});
 
 await browser.close();
 if(errors.length){console.error(errors.join('\n'));process.exit(1)}

@@ -355,7 +355,7 @@
 
   async function init() {
     pageClass();
-    enhanceTopbar();
+    // editorial-shell.js monta la única cabecera global al final del bundle.
     if (document.body.classList.contains('rt-future-home')) enhanceHome();
     if (document.body.classList.contains('rt-future-trial')) await enhanceTrial();
     if (document.body.classList.contains('rt-future-hub') || document.body.classList.contains('rt-future-cluster')) enhanceCategory();

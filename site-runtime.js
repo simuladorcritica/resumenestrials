@@ -14,7 +14,7 @@
   function reloadView(){try{if(performance.getEntriesByType('navigation')[0]?.type!=='reload')return null;const view=parse(sessionStorage.getItem(VIEW+path+location.search));return view&&Date.now()-view.at<TTL?view:null}catch{return null}}
   function active(){const ctx=read();if(!ctx||!isReader)return null;const id=new URLSearchParams(location.search).get('id')||document.querySelector('[data-trial-download]')?.getAttribute('data-trial-download');const matches=(path!=='/resumen.html'&&ctx.targets.includes(path))||(id&&ctx.id===String(id));if(matches&&id&&ctx.id!==String(id)){ctx.id=String(id);write(ctx)}return matches?ctx:null;}
   function requestReturn(){const ctx=active();if(!ctx)return;try{sessionStorage.setItem(RETURN,JSON.stringify({origin:ctx.origin,at:Date.now()}))}catch{}}
-  window.RTReadingContext={destination:()=>active()?.origin||'/',requestReturn};
+  window.RTReadingContext={destination:()=>active()?.origin||'/',requestReturn,context:()=>active()};
   document.addEventListener('click',event=>{
     const link=event.target.closest('a[href]');if(!link)return;
     if(link.matches('[data-reading-return],.rt-reader-back')){requestReturn();return;}
@@ -22,7 +22,8 @@
     const url=new URL(link.href,location.href);if(url.origin!==location.origin||!(/^\/trials\//.test(url.pathname)||url.pathname==='/resumen.html'))return;
     const row=link.closest('.fila,.item,.cat-card');
     const id=row?.getAttribute('data-id')||link.dataset.read||url.searchParams.get('id')||row?.querySelector('[data-id]')?.getAttribute('data-id')||'';
-    const targets=[url.pathname,...(row?[...row.querySelectorAll('a[href]')].map(a=>new URL(a.href,location.href).pathname).filter(p=>/^\/trials\//.test(p)):[])];
+    const listTargets=[...document.querySelectorAll('.fila:not([hidden]),.item:not([hidden]),.cat-card:not([hidden])')].map(item=>item.querySelector('a[href*="/trials/"],a.cabeza[href],h2 a[href]')).filter(Boolean).map(a=>new URL(a.href,location.href).pathname).filter(p=>/^\/trials\//.test(p));
+    const targets=[...listTargets,url.pathname,...(row?[...row.querySelectorAll('a[href]')].map(a=>new URL(a.href,location.href).pathname).filter(p=>/^\/trials\//.test(p)):[])];
     write({at:Date.now(),origin:path+location.search,id:String(id),targets:[...new Set(targets)],q:document.querySelector('#q')?.value||'',area:document.querySelector('#area')?.value||'',y:scrollY});
   },true);
   function decorate(){if(!isReader)return;const ctx=active();if(!ctx||document.querySelector('[data-reading-return]'))return;const heading=document.querySelector('.art-head,header.art,.articulo');if(!heading)return;const a=document.createElement('a');a.href=ctx.origin;a.className='reading-return';a.dataset.readingReturn='true';a.textContent=ctx.origin.startsWith('/biblioteca.html')?'Volver a mi biblioteca':/^\/(medicina-critica|medicina-interna)\//.test(ctx.origin)?'Volver a la especialidad':'Volver a mis resultados';heading.before(a);}
@@ -458,7 +459,7 @@
 
   async function init() {
     pageClass();
-    enhanceTopbar();
+    // editorial-shell.js monta la única cabecera global al final del bundle.
     if (document.body.classList.contains('rt-future-home')) enhanceHome();
     if (document.body.classList.contains('rt-future-trial')) await enhanceTrial();
     if (document.body.classList.contains('rt-future-hub') || document.body.classList.contains('rt-future-cluster')) enhanceCategory();
@@ -738,8 +739,6 @@
 
     body.rt-future .rt-main-nav a,body.rt-future .topbar nav a{font-size:13.5px!important;line-height:1.15!important}
     body.rt-future .top-links .auth-entry-main{font-size:12.5px!important}
-    body.rt-future:not(.rt-future-home) .rt-main-nav a[href^="/metodologia"],
-    body.rt-future:not(.rt-future-home) .rt-main-nav a[href^="/equipo-editorial"]{display:none!important}
 
     body.rt-future-home .seo-hubs-home,
     body.rt-future-home .rt-editorial-prelude{display:none!important}
@@ -1202,18 +1201,7 @@
        en vez de regenerar el HTML (evita tocar generar_seo_clusters.py/resumenes.json). */
     .cat-card .badges .tema:nth-child(n+3){display:none!important}
 
-    /* Buscador grande de la portada (a pedido explicito del usuario): se quitan
-       los selectores de anio/revista (antes en #rt-advanced, ver
-       library-filter-cleanup.js) y el buscador de texto que ya filtraba
-       en vivo (ver aplicar() en index-source.html) se agranda para ocupar
-       toda la cabecera del indice. future-experience.css define esta zona
-       como una retícula de 3 columnas (filtros | avanzado | buscador);
-       con solo el buscador como hijo, se cambia a una sola columna a
-       todo el ancho. El color del buscador (fondo blanco translucido,
-       texto/icono en tinta oscura) ya era compatible con ambos temas
-       porque flota sobre un fondo con overlay claro tanto en modo claro
-       como oscuro (ver .fila / .buscador en future-experience.css), asi
-       que se conserva ese mismo lenguaje visual, solo mas grande. */
+    /* Controles del índice: buscador primero, filtros legibles y estado visible. */
     body.rt-future-home .indice-cabecera{
       display:flex!important;flex-direction:column!important;
       grid-template-columns:1fr!important;align-items:stretch!important;
@@ -1223,13 +1211,15 @@
       width:100%!important;min-width:100%!important;max-width:none!important;
       height:auto!important;
       display:flex!important;align-items:center!important;gap:18px!important;
-      padding:26px 56px 26px 34px!important;
+      padding:18px 48px 18px 26px!important;
       border:2px solid rgba(36,200,180,.4)!important;
       border-radius:18px!important;
       background:rgba(255,255,255,.55)!important;
       box-shadow:0 18px 44px rgba(4,20,30,.22)!important;
       transition:border-color .2s ease,box-shadow .2s ease,transform .15s ease,background .2s ease!important;
     }
+    body.rt-future-home .indice-cabecera .filtros,
+    body.rt-future-home .indice-cabecera .rt-advanced{display:flex!important;width:100%!important;max-width:none!important;order:1!important}
     body.rt-future-home .indice-cabecera .buscador:hover{
       border-color:rgba(36,200,180,.65)!important;
       background:rgba(255,255,255,.65)!important;
@@ -1682,7 +1672,7 @@
   function apply() {
     ensureStyle();
     polishFooter();
-    ensureCanonicalFooterDownload();
+    // La barra persistente de reader-ui-v8 concentra la descarga activa.
     addBriefSaveAction();
     wireLegacyProgress();
   }
@@ -2154,6 +2144,7 @@
   const $ = (selector, root = document) => root.querySelector(selector);
   const path = location.pathname.toLowerCase();
   const isCanonical = path.includes('/trials/');
+  const isLegacy = /\/resumen\.html$/.test(path);
   const isBrief = /\/resumen\.html$/.test(path) && new URLSearchParams(location.search).get('v') === 'corto';
   const isHome = /\/(?:index\.html)?$/.test(path);
 
@@ -2322,37 +2313,40 @@
     version.textContent = 'Ver resumen breve →';
     version.setAttribute('aria-label', 'Abrir el resumen breve de este artículo');
 
-    let actions = $('.rt-reader-bottom-actions');
-    if (!actions) {
-      actions = document.createElement('div');
-      actions.className = 'rt-reader-bottom-actions';
-      actions.setAttribute('aria-label', 'Descarga del resumen completo');
-      nav.insertAdjacentElement('afterend', actions);
-    }
-
-    let bottom = actions.querySelector('.rt-reader-footer-download');
-    if (!bottom || bottom.dataset.rtReaderUi !== 'v8') {
-      const fresh = document.createElement('button');
-      fresh.type = 'button';
-      fresh.className = 'rt-reader-footer-download';
-      fresh.innerHTML = source.innerHTML;
-      fresh.setAttribute('data-rt-footer-download', id);
-      fresh.setAttribute('data-rt-reader-ui', 'v8');
-      fresh.setAttribute('aria-label', 'Descargar resumen completo PDF');
-      fresh.disabled = false;
-      if (bottom) bottom.replaceWith(fresh); else actions.appendChild(fresh);
-    } else {
-      bottom.removeAttribute('data-trial-download');
-      bottom.setAttribute('data-rt-footer-download', id);
-      bottom.disabled = false;
-    }
+    $('.rt-reader-bottom-actions')?.remove();
 
     const related = $('.relacionados');
     if (original.nextElementSibling !== nav) original.insertAdjacentElement('afterend', nav);
-    if (nav.nextElementSibling !== actions) nav.insertAdjacentElement('afterend', actions);
-    if (related && actions.nextElementSibling !== related) actions.insertAdjacentElement('afterend', related);
+    if (related && nav.nextElementSibling !== related) nav.insertAdjacentElement('afterend', related);
     nav.dataset.rtReaderUi = 'v8';
-    actions.dataset.rtReaderUi = 'v8';
+  }
+
+  function readerPanel(){
+    let panel=$('.rt-sections-panel');if(panel)return panel;
+    panel=document.createElement('div');panel.className='rt-sections-panel';panel.hidden=true;panel.innerHTML='<div class="rt-sections-sheet" role="dialog" aria-modal="true" aria-labelledby="rt-sections-title"><header><h2 id="rt-sections-title">Secciones</h2><button type="button" aria-label="Cerrar secciones">Cerrar</button></header><nav></nav></div>';document.body.append(panel);
+    const close=()=>{panel.hidden=true};panel.addEventListener('click',e=>{if(e.target===panel||e.target.closest('header button')||e.target.closest('nav a'))close()});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!panel.hidden)close()});return panel;
+  }
+  function syncSectionLinks(panel){const source=$('.rt-reader-rail .rt-rail-nav');const nav=$('nav',panel);if(source&&nav&&!nav.children.length)nav.innerHTML=source.innerHTML}
+  function createReaderToolbar(){
+    if(!isCanonical&&!isLegacy)return;let bar=$('.rt-reader-toolbar');if(bar)return;
+    bar=document.createElement('nav');bar.className='rt-reader-toolbar';bar.setAttribute('aria-label','Controles de lectura');
+    const version=$('.cambio-version,.rt-reader-version');const isBrief=document.body.classList.contains('modo-corto')||new URLSearchParams(location.search).get('v')==='corto';
+    bar.innerHTML=`<a class="rt-toolbar-version" href="${version?.href||'#'}">${isBrief?'Completo':'Breve'}</a><button type="button" data-sections>Secciones</button><button type="button" data-pdf>Descargar PDF</button><button type="button" data-save>Guardar</button><button type="button" data-reading-mode>Modo lectura</button>`;
+    const panel=readerPanel();bar.querySelector('[data-sections]').onclick=()=>{syncSectionLinks(panel);panel.hidden=false;panel.querySelector('a,button')?.focus()};
+    bar.querySelector('[data-pdf]').onclick=()=>$('.art-head [data-trial-download],header.art [data-trial-download],#descargar')?.click();
+    bar.querySelector('[data-save]').onclick=()=>$('.rt-save-action')?.click();
+    const reading=bar.querySelector('[data-reading-mode]');const paintReading=()=>{const active=document.body.classList.contains('rt-modo-lectura');reading.setAttribute('aria-pressed',String(active));reading.textContent=active?'Salir de lectura':'Modo lectura'};reading.onclick=()=>{const legacy=$('.rt-lectura-btn');if(legacy){legacy.click()}else{const next=!document.body.classList.contains('rt-modo-lectura');document.body.classList.toggle('rt-modo-lectura',next);try{localStorage.setItem('rt-modo-lectura',next?'1':'0')}catch{}}paintReading()};paintReading();
+    const placeholder=$('.rt-mobile-bar[data-reader-placeholder]');if(placeholder)placeholder.replaceWith(bar);else document.body.append(bar);
+  }
+  async function readerNeighbors(){
+    if(!isCanonical&&!isLegacy)return;const nav=$('.pie-nav');if(!nav||nav.dataset.rtNeighbors)return;nav.dataset.rtNeighbors='1';
+    const here=location.pathname;let targets=window.RTReadingContext?.context?.()?.targets||[];
+    if(targets.length<2){try{const [manifest,rows]=await Promise.all([fetch('/seo-manifest.json').then(r=>r.json()),import('/trial-data.js').then(m=>m.loadTrials())]);const id=new URLSearchParams(location.search).get('id')||$('[data-trial-download]')?.getAttribute('data-trial-download');const current=rows.find(r=>String(r.id)===String(id))||rows.find(r=>manifest[r.id]?.path===here);const specialty=current?.especialidad_principal;targets=rows.filter(r=>!specialty||r.especialidad_principal===specialty).sort((a,b)=>String(b.fecha||'').localeCompare(String(a.fecha||''))).map(r=>manifest[r.id]?.path).filter(Boolean)}catch{}}
+    const index=Math.max(0,targets.indexOf(here));const previous=targets[index-1],next=targets[index+1];const back=nav.querySelector('.rt-reader-back')||nav.querySelector('a');const version=nav.querySelector('.rt-reader-version,.cambio-version');nav.replaceChildren();
+    if(previous){const a=document.createElement('a');a.href=previous;a.textContent='← Anterior';nav.append(a)}
+    if(back){back.dataset.readingReturn='true';back.textContent='Volver a la lista';nav.append(back)}
+    if(next){const a=document.createElement('a');a.href=next;a.textContent='Siguiente →';nav.append(a)}
+    version?.remove();
   }
 
   function polishBriefRelated() {
@@ -2368,12 +2362,19 @@
       const brief = area.querySelector('.rt-download-brief');
       if (full) full.dataset.rtReaderUi = 'v8';
       if (brief) brief.dataset.rtReaderUi = 'v8';
+      if (full && brief && !area.querySelector('.rt-pdf-menu')) {
+        const menu=document.createElement('details');menu.className='rt-pdf-menu';
+        const summary=document.createElement('summary');summary.textContent='Descargar PDF';summary.setAttribute('aria-label','Elegir versión para descargar PDF');
+        const options=document.createElement('div');options.className='rt-pdf-options';options.append(full,brief);menu.append(summary,options);area.append(menu);
+      }
     });
   }
 
   function apply() {
     ensureStyle();
     ensureCanonicalControls();
+    createReaderToolbar();
+    readerNeighbors();
     polishBriefRelated();
     markHomeDownloads();
   }
@@ -2717,47 +2718,46 @@
 })();
 
 /* source: editorial-shell.js */
-/* D02: a labelled mobile disclosure for the existing navigation. */
+/* Navegación global única para páginas públicas, lector y cuenta. */
 (() => {
- 'use strict';
- function enhance(){
-  if(document.body.dataset.edShell)return;
-  if(!document.body.matches('.rt-future-home,.rt-future-trial,.rt-future-legacy,.rt-future-hub,.rt-future-cluster,.rt-future-account,.rt-future-institutional'))return;
-  const bar=document.querySelector('.topbar-in'),nav=bar?.querySelector('.rt-main-nav');if(!nav)return;
-  document.body.dataset.edShell='true';nav.id='ed-main-navigation';
-  const button=document.createElement('button');button.type='button';button.className='ed-menu';button.textContent='Menú';button.setAttribute('aria-controls',nav.id);button.setAttribute('aria-expanded','false');bar.prepend(button);
-  const close=()=>{button.setAttribute('aria-expanded','false');bar.removeAttribute('data-menu-open')};
-  button.addEventListener('click',()=>{const open=button.getAttribute('aria-expanded')!=='true';button.setAttribute('aria-expanded',String(open));bar.toggleAttribute('data-menu-open',open)});
-  bar.addEventListener('keydown',e=>{if(e.key==='Escape'&&button.getAttribute('aria-expanded')==='true'){close();button.focus()}});
-  document.addEventListener('click',e=>{if(!bar.contains(e.target))close()});
-  nav.addEventListener('click',e=>{if(e.target.closest('a'))close()});
-  const account=bar.querySelector('.auth-entry');if(account){const short=document.createElement('span');short.className='ed-account-short';short.textContent='Cuenta';short.setAttribute('aria-hidden','true');account.append(short)}
- }
- function boot(){enhance();const observer=new MutationObserver(()=>{enhance();if(document.body.dataset.edShell)observer.disconnect()});observer.observe(document.body,{childList:true,subtree:true});}
- if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot,{once:true});else boot();
-})();
-
-/* source: auxiliary-shell.js */
-/* Apply the approved shared navigation without replacing account controls. */
-(() => {
-  function enhance(){
-    if(!document.body.matches('.rt-future-account,.rt-future-institutional'))return;
-    const bar=document.querySelector('.topbar .top,.topbar .topbar-in,main.page > .top');if(!bar)return;
-    const existingTheme=bar.querySelector('.rt-tema-btn');
-    if(existingTheme)bar.querySelector('.evidence-theme')?.remove();
-    if(bar.dataset.evidenceAux)return;
-    bar.dataset.evidenceAux='true';
-    let nav=bar.querySelector('nav');if(!nav){nav=document.createElement('nav');nav.setAttribute('aria-label','Navegación principal');bar.append(nav)}
-    for(const [href,label] of [['/','Explorar'],['/biblioteca.html','Mi biblioteca'],['/cuenta.html','Mi cuenta']]){
-      if([...nav.querySelectorAll('a[href]')].some(a=>new URL(a.href,location.href).pathname.replace(/\/index\.html$/,'/')===href))continue;
-      const link=document.createElement('a');link.href=href;link.textContent=label;
-      if(location.pathname===href)link.setAttribute('aria-current','page');nav.append(link);
-    }
-    if(existingTheme)return;
-    const theme=document.createElement('button');theme.type='button';theme.className='evidence-theme';
-    function label(){theme.textContent=document.body.classList.contains('rt-tema-claro')?'Tema oscuro':'Tema claro';}
-    theme.onclick=()=>{const light=document.body.classList.toggle('rt-tema-claro');try{localStorage.setItem('rt-tema',light?'claro':'oscuro')}catch{}label()};label();bar.append(theme);
+  'use strict';
+  if (window.__rtEditorialShell) return;
+  window.__rtEditorialShell = true;
+  const path = location.pathname.replace(/\/index\.html$/i, '/') || '/';
+  const items = [['Explorar','/'],['Medicina Crítica','/medicina-critica/'],['Medicina Interna','/medicina-interna/'],['Mi biblioteca','/biblioteca.html']];
+  const institutional = [['Metodología','/metodologia/'],['Equipo editorial','/equipo-editorial/'],['Privacidad','/privacidad/'],['Términos','/terminos/']];
+  const isReader = /^\/trials\//.test(path) || path === '/resumen.html';
+  const current = href => path === href || (href.endsWith('/') && href !== '/' && path.startsWith(href));
+  const links = rows => rows.map(([label,href]) => `<a href="${href}"${current(href)?' aria-current="page"':''}>${label}</a>`).join('');
+  function themeButton(){
+    const button=document.createElement('button');button.type='button';button.className='rt-tema-btn';
+    const sync=()=>{const light=document.body.classList.contains('rt-tema-claro');button.textContent=light?'☀':'☾';button.setAttribute('aria-label',light?'Cambiar a tema oscuro':'Cambiar a tema claro');button.title=button.getAttribute('aria-label')};
+    button.addEventListener('click',()=>{const light=document.body.classList.toggle('rt-tema-claro');try{localStorage.setItem('rt-tema',light?'claro':'oscuro')}catch{}sync()});sync();return button;
   }
-  function boot(){enhance();const observer=new MutationObserver(enhance);observer.observe(document.body,{attributes:true,attributeFilter:['class'],childList:true,subtree:true});setTimeout(()=>observer.disconnect(),10000)}
+  function mountHeader(){
+    let header=document.querySelector('.topbar');if(!header){header=document.createElement('header');header.className='topbar';document.body.prepend(header)}
+    header.className='topbar';
+    const inner=document.createElement('div');inner.className='topbar-in';inner.dataset.rtGlobalShell='1';
+    inner.innerHTML=`<a class="rt-brand" href="/" aria-label="Resúmenes Trials, inicio"><img src="/logo.png" alt=""><span class="rt-brand-name">Resúmenes Trials</span></a><nav class="rt-main-nav" id="rt-main-navigation" aria-label="Navegación principal">${links(items)}</nav><div class="rt-nav-actions"><a class="auth-entry" id="account-entry" href="/login.html"><span class="auth-entry-main">Cuenta</span></a></div>`;
+    const menu=document.createElement('button');menu.type='button';menu.className='ed-menu';menu.textContent='Menú';menu.setAttribute('aria-controls','rt-main-navigation');menu.setAttribute('aria-expanded','false');
+    const close=()=>{menu.setAttribute('aria-expanded','false');inner.removeAttribute('data-menu-open')};
+    menu.addEventListener('click',()=>{const open=menu.getAttribute('aria-expanded')!=='true';menu.setAttribute('aria-expanded',String(open));inner.toggleAttribute('data-menu-open',open)});
+    inner.addEventListener('keydown',e=>{if(e.key==='Escape'){close();menu.focus()}});document.addEventListener('click',e=>{if(!inner.contains(e.target))close()});
+    inner.prepend(menu);inner.querySelector('.rt-nav-actions').prepend(themeButton());header.replaceChildren(inner);
+    if(path==='/')inner.querySelector('.rt-main-nav a[href="/"]')?.addEventListener('click',e=>{e.preventDefault();const target=document.querySelector('#biblioteca-clinica,#q');target?.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth',block:'start'});setTimeout(()=>document.querySelector('#q')?.focus({preventScroll:true}),220)});
+    import('/auth.js').then(async mod=>{const user=await mod.currentUser().catch(()=>null);const a=inner.querySelector('#account-entry');if(user){a.href='/cuenta.html';a.querySelector('span').textContent='Mi cuenta'}}).catch(()=>{});
+  }
+  function mountFooter(){if(document.querySelector('footer.rt-global-footer'))return;const footer=document.createElement('footer');footer.className='rt-global-footer';footer.innerHTML=`<nav aria-label="Información">${links(institutional)}<a href="https://t.me/ResumenesTrials" target="_blank" rel="noopener">Telegram</a><a href="https://x.com/resumenestrials" target="_blank" rel="noopener">X</a></nav><p>Resúmenes críticos para profesionales de la salud.</p>`;document.body.append(footer)}
+  function mountMobileBar(){if(isReader&&document.querySelector('.rt-reader-toolbar'))return;const bar=document.createElement('nav');bar.className='rt-mobile-bar';bar.setAttribute('aria-label',isReader?'Controles de lectura':'Accesos rápidos');if(isReader){bar.dataset.readerPlaceholder='true'}else bar.innerHTML='<a href="/">Inicio</a><a href="/?focus=search">Buscar</a><button type="button" data-specialties>Especialidades</button><a href="/biblioteca.html">Mi biblioteca</a>';document.body.append(bar);bar.querySelector('[data-specialties]')?.addEventListener('click',()=>{document.querySelector('.ed-menu')?.click();document.querySelector('.rt-main-nav a[href="/medicina-critica/"]')?.focus()})}
+  function mountBackTop(){const b=document.createElement('button');b.type='button';b.className='rt-back-top';b.textContent='↑ Volver arriba';b.hidden=true;b.addEventListener('click',()=>scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth'}));addEventListener('scroll',()=>{b.hidden=scrollY<innerHeight*2},{passive:true});document.body.append(b)}
+  function enhanceHub(){
+    const cards=[...document.querySelectorAll('.cat-card')];if(!cards.length)return;const grid=cards[0].parentElement;if(!grid||document.querySelector('.rt-hub-tools'))return;
+    const years=[...new Set(cards.flatMap(c=>(c.textContent.match(/\b(20\d{2})\b/g)||[])))].sort().reverse();
+    const tools=document.createElement('section');tools.className='rt-hub-tools';tools.innerHTML=`<label>Buscar en esta especialidad<input type="search" placeholder="Buscar ensayo o tema" aria-label="Buscar en esta especialidad"></label><select aria-label="Filtrar por año"><option value="">Todos los años</option>${years.map(y=>`<option>${y}</option>`).join('')}</select><span aria-live="polite"></span>`;grid.before(tools);
+    const input=tools.querySelector('input'),year=tools.querySelector('select'),status=tools.querySelector('span');let limit=24;
+    const apply=()=>{const q=input.value.trim().toLowerCase(),y=year.value;const matches=cards.filter(c=>(!q||c.textContent.toLowerCase().includes(q))&&(!y||c.textContent.includes(y)));cards.forEach(c=>c.hidden=!matches.includes(c)||matches.indexOf(c)>=limit);status.textContent=`${matches.length} resultados`;let more=document.querySelector('.rt-hub-more');if(matches.length>limit){if(!more){more=document.createElement('button');more.type='button';more.className='rt-hub-more';more.textContent='Mostrar más';grid.after(more);more.onclick=()=>{limit+=24;apply()}}}else more?.remove();const p=new URLSearchParams();if(q)p.set('q',input.value.trim());if(y)p.set('anio',y);history.replaceState(null,'',location.pathname+(p.size?`?${p}`:''))};
+    const p=new URLSearchParams(location.search);input.value=p.get('q')||'';year.value=p.get('anio')||'';tools.oninput=()=>{limit=24;apply()};tools.onchange=()=>{limit=24;apply()};cards.forEach(card=>{const a=card.querySelector('a[href]');if(a){card.addEventListener('click',e=>{if(!e.target.closest('a,button'))a.click()})}});apply();
+  }
+  function boot(){document.querySelectorAll('main.page > .top,.evidence-theme').forEach(x=>x.remove());mountHeader();mountFooter();mountMobileBar();mountBackTop();enhanceHub();document.body.dataset.edShell='true'}
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot,{once:true});else boot();
 })();

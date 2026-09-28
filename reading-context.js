@@ -12,7 +12,7 @@
   function reloadView(){try{if(performance.getEntriesByType('navigation')[0]?.type!=='reload')return null;const view=parse(sessionStorage.getItem(VIEW+path+location.search));return view&&Date.now()-view.at<TTL?view:null}catch{return null}}
   function active(){const ctx=read();if(!ctx||!isReader)return null;const id=new URLSearchParams(location.search).get('id')||document.querySelector('[data-trial-download]')?.getAttribute('data-trial-download');const matches=(path!=='/resumen.html'&&ctx.targets.includes(path))||(id&&ctx.id===String(id));if(matches&&id&&ctx.id!==String(id)){ctx.id=String(id);write(ctx)}return matches?ctx:null;}
   function requestReturn(){const ctx=active();if(!ctx)return;try{sessionStorage.setItem(RETURN,JSON.stringify({origin:ctx.origin,at:Date.now()}))}catch{}}
-  window.RTReadingContext={destination:()=>active()?.origin||'/',requestReturn};
+  window.RTReadingContext={destination:()=>active()?.origin||'/',requestReturn,context:()=>active()};
   document.addEventListener('click',event=>{
     const link=event.target.closest('a[href]');if(!link)return;
     if(link.matches('[data-reading-return],.rt-reader-back')){requestReturn();return;}
@@ -20,7 +20,8 @@
     const url=new URL(link.href,location.href);if(url.origin!==location.origin||!(/^\/trials\//.test(url.pathname)||url.pathname==='/resumen.html'))return;
     const row=link.closest('.fila,.item,.cat-card');
     const id=row?.getAttribute('data-id')||link.dataset.read||url.searchParams.get('id')||row?.querySelector('[data-id]')?.getAttribute('data-id')||'';
-    const targets=[url.pathname,...(row?[...row.querySelectorAll('a[href]')].map(a=>new URL(a.href,location.href).pathname).filter(p=>/^\/trials\//.test(p)):[])];
+    const listTargets=[...document.querySelectorAll('.fila:not([hidden]),.item:not([hidden]),.cat-card:not([hidden])')].map(item=>item.querySelector('a[href*="/trials/"],a.cabeza[href],h2 a[href]')).filter(Boolean).map(a=>new URL(a.href,location.href).pathname).filter(p=>/^\/trials\//.test(p));
+    const targets=[...listTargets,url.pathname,...(row?[...row.querySelectorAll('a[href]')].map(a=>new URL(a.href,location.href).pathname).filter(p=>/^\/trials\//.test(p)):[])];
     write({at:Date.now(),origin:path+location.search,id:String(id),targets:[...new Set(targets)],q:document.querySelector('#q')?.value||'',area:document.querySelector('#area')?.value||'',y:scrollY});
   },true);
   function decorate(){if(!isReader)return;const ctx=active();if(!ctx||document.querySelector('[data-reading-return]'))return;const heading=document.querySelector('.art-head,header.art,.articulo');if(!heading)return;const a=document.createElement('a');a.href=ctx.origin;a.className='reading-return';a.dataset.readingReturn='true';a.textContent=ctx.origin.startsWith('/biblioteca.html')?'Volver a mi biblioteca':/^\/(medicina-critica|medicina-interna)\//.test(ctx.origin)?'Volver a la especialidad':'Volver a mis resultados';heading.before(a);}

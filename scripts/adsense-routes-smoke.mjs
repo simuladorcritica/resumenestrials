@@ -40,7 +40,8 @@ try {
       // No advertising request is mocked, blocked or fulfilled by this test.
       const response = await page.goto(BASE + path, { waitUntil: 'domcontentloaded' });
       assert.equal(response.status(), 200, path);
-      if (['/cuenta.html', '/biblioteca.html'].includes(path)) await page.waitForURL(/\/login\.html/);
+      if (path === '/cuenta.html') await page.waitForURL(/\/login\.html/);
+      if (path === '/biblioteca.html') await page.locator('[data-library-state="signed-out"]').waitFor();
       if (path === '/privacidad.html') await page.waitForURL(/\/privacidad\/$/);
       await page.locator('h1').first().waitFor({ state: 'visible' });
       await page.waitForTimeout(700);
@@ -62,5 +63,5 @@ try {
   await browser.close();
 }
 writeFileSync('future-screenshots/adsense-routes.json', JSON.stringify(results, null, 2));
-console.log(`ADSENSE ROUTES PASS · ${results.length} route/viewport cases · zero advertising, including anonymous redirects · 390/1440 px`);
+console.log(`ADSENSE ROUTES PASS · ${results.length} route/viewport cases · zero advertising on anonymous account surfaces · 390/1440 px`);
 await checkContentAdvertising(BASE);

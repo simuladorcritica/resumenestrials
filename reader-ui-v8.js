@@ -6,6 +6,7 @@
   const $ = (selector, root = document) => root.querySelector(selector);
   const path = location.pathname.toLowerCase();
   const isCanonical = path.includes('/trials/');
+  const isLegacy = /\/resumen\.html$/.test(path);
   const isBrief = /\/resumen\.html$/.test(path) && new URLSearchParams(location.search).get('v') === 'corto';
   const isHome = /\/(?:index\.html)?$/.test(path);
 
@@ -174,37 +175,40 @@
     version.textContent = 'Ver resumen breve →';
     version.setAttribute('aria-label', 'Abrir el resumen breve de este artículo');
 
-    let actions = $('.rt-reader-bottom-actions');
-    if (!actions) {
-      actions = document.createElement('div');
-      actions.className = 'rt-reader-bottom-actions';
-      actions.setAttribute('aria-label', 'Descarga del resumen completo');
-      nav.insertAdjacentElement('afterend', actions);
-    }
-
-    let bottom = actions.querySelector('.rt-reader-footer-download');
-    if (!bottom || bottom.dataset.rtReaderUi !== 'v8') {
-      const fresh = document.createElement('button');
-      fresh.type = 'button';
-      fresh.className = 'rt-reader-footer-download';
-      fresh.innerHTML = source.innerHTML;
-      fresh.setAttribute('data-rt-footer-download', id);
-      fresh.setAttribute('data-rt-reader-ui', 'v8');
-      fresh.setAttribute('aria-label', 'Descargar resumen completo PDF');
-      fresh.disabled = false;
-      if (bottom) bottom.replaceWith(fresh); else actions.appendChild(fresh);
-    } else {
-      bottom.removeAttribute('data-trial-download');
-      bottom.setAttribute('data-rt-footer-download', id);
-      bottom.disabled = false;
-    }
+    $('.rt-reader-bottom-actions')?.remove();
 
     const related = $('.relacionados');
     if (original.nextElementSibling !== nav) original.insertAdjacentElement('afterend', nav);
-    if (nav.nextElementSibling !== actions) nav.insertAdjacentElement('afterend', actions);
-    if (related && actions.nextElementSibling !== related) actions.insertAdjacentElement('afterend', related);
+    if (related && nav.nextElementSibling !== related) nav.insertAdjacentElement('afterend', related);
     nav.dataset.rtReaderUi = 'v8';
-    actions.dataset.rtReaderUi = 'v8';
+  }
+
+  function readerPanel(){
+    let panel=$('.rt-sections-panel');if(panel)return panel;
+    panel=document.createElement('div');panel.className='rt-sections-panel';panel.hidden=true;panel.innerHTML='<div class="rt-sections-sheet" role="dialog" aria-modal="true" aria-labelledby="rt-sections-title"><header><h2 id="rt-sections-title">Secciones</h2><button type="button" aria-label="Cerrar secciones">Cerrar</button></header><nav></nav></div>';document.body.append(panel);
+    const close=()=>{panel.hidden=true};panel.addEventListener('click',e=>{if(e.target===panel||e.target.closest('header button')||e.target.closest('nav a'))close()});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!panel.hidden)close()});return panel;
+  }
+  function syncSectionLinks(panel){const source=$('.rt-reader-rail .rt-rail-nav');const nav=$('nav',panel);if(source&&nav&&!nav.children.length)nav.innerHTML=source.innerHTML}
+  function createReaderToolbar(){
+    if(!isCanonical&&!isLegacy)return;let bar=$('.rt-reader-toolbar');if(bar)return;
+    bar=document.createElement('nav');bar.className='rt-reader-toolbar';bar.setAttribute('aria-label','Controles de lectura');
+    const version=$('.cambio-version,.rt-reader-version');const isBrief=document.body.classList.contains('modo-corto')||new URLSearchParams(location.search).get('v')==='corto';
+    bar.innerHTML=`<a class="rt-toolbar-version" href="${version?.href||'#'}">${isBrief?'Completo':'Breve'}</a><button type="button" data-sections>Secciones</button><button type="button" data-pdf>Descargar PDF</button><button type="button" data-save>Guardar</button><button type="button" data-reading-mode>Modo lectura</button>`;
+    const panel=readerPanel();bar.querySelector('[data-sections]').onclick=()=>{syncSectionLinks(panel);panel.hidden=false;panel.querySelector('a,button')?.focus()};
+    bar.querySelector('[data-pdf]').onclick=()=>$('.art-head [data-trial-download],header.art [data-trial-download],#descargar')?.click();
+    bar.querySelector('[data-save]').onclick=()=>$('.rt-save-action')?.click();
+    const reading=bar.querySelector('[data-reading-mode]');const paintReading=()=>{const active=document.body.classList.contains('rt-modo-lectura');reading.setAttribute('aria-pressed',String(active));reading.textContent=active?'Salir de lectura':'Modo lectura'};reading.onclick=()=>{const legacy=$('.rt-lectura-btn');if(legacy){legacy.click()}else{const next=!document.body.classList.contains('rt-modo-lectura');document.body.classList.toggle('rt-modo-lectura',next);try{localStorage.setItem('rt-modo-lectura',next?'1':'0')}catch{}}paintReading()};paintReading();
+    const placeholder=$('.rt-mobile-bar[data-reader-placeholder]');if(placeholder)placeholder.replaceWith(bar);else document.body.append(bar);
+  }
+  async function readerNeighbors(){
+    if(!isCanonical&&!isLegacy)return;const nav=$('.pie-nav');if(!nav||nav.dataset.rtNeighbors)return;nav.dataset.rtNeighbors='1';
+    const here=location.pathname;let targets=window.RTReadingContext?.context?.()?.targets||[];
+    if(targets.length<2){try{const [manifest,rows]=await Promise.all([fetch('/seo-manifest.json').then(r=>r.json()),import('/trial-data.js').then(m=>m.loadTrials())]);const id=new URLSearchParams(location.search).get('id')||$('[data-trial-download]')?.getAttribute('data-trial-download');const current=rows.find(r=>String(r.id)===String(id))||rows.find(r=>manifest[r.id]?.path===here);const specialty=current?.especialidad_principal;targets=rows.filter(r=>!specialty||r.especialidad_principal===specialty).sort((a,b)=>String(b.fecha||'').localeCompare(String(a.fecha||''))).map(r=>manifest[r.id]?.path).filter(Boolean)}catch{}}
+    const index=Math.max(0,targets.indexOf(here));const previous=targets[index-1],next=targets[index+1];const back=nav.querySelector('.rt-reader-back')||nav.querySelector('a');const version=nav.querySelector('.rt-reader-version,.cambio-version');nav.replaceChildren();
+    if(previous){const a=document.createElement('a');a.href=previous;a.textContent='← Anterior';nav.append(a)}
+    if(back){back.dataset.readingReturn='true';back.textContent='Volver a la lista';nav.append(back)}
+    if(next){const a=document.createElement('a');a.href=next;a.textContent='Siguiente →';nav.append(a)}
+    version?.remove();
   }
 
   function polishBriefRelated() {
@@ -220,12 +224,19 @@
       const brief = area.querySelector('.rt-download-brief');
       if (full) full.dataset.rtReaderUi = 'v8';
       if (brief) brief.dataset.rtReaderUi = 'v8';
+      if (full && brief && !area.querySelector('.rt-pdf-menu')) {
+        const menu=document.createElement('details');menu.className='rt-pdf-menu';
+        const summary=document.createElement('summary');summary.textContent='Descargar PDF';summary.setAttribute('aria-label','Elegir versión para descargar PDF');
+        const options=document.createElement('div');options.className='rt-pdf-options';options.append(full,brief);menu.append(summary,options);area.append(menu);
+      }
     });
   }
 
   function apply() {
     ensureStyle();
     ensureCanonicalControls();
+    createReaderToolbar();
+    readerNeighbors();
     polishBriefRelated();
     markHomeDownloads();
   }
