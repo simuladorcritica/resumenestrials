@@ -66,7 +66,7 @@ try{
     await page.goto(`${BASE}${trialPath}?readerqa=${Date.now()}`,{waitUntil:'domcontentloaded',timeout:30000});
     await page.waitForSelector('.rt-reader-toolbar',{state:'visible',timeout:15000});
     for(const selector of ['.pie-nav [data-reading-return]','.rt-reader-toolbar .rt-toolbar-version','.rt-reader-toolbar [data-pdf]']){
-      assert(await page.locator(selector).isVisible(),`No está visible ${selector}`);
+      await page.locator(selector).waitFor({state:'visible',timeout:15000});
     }
   };
 
