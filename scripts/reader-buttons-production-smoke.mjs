@@ -65,26 +65,26 @@ try{
   const openTrial=async()=>{
     await page.goto(`${BASE}${trialPath}?readerqa=${Date.now()}`,{waitUntil:'domcontentloaded',timeout:30000});
     await page.waitForSelector('html[data-rt-reader-controls-v9="ready"]',{timeout:15000});
-    for(const selector of ['.rt-reader-back[data-rt-reader-controls="v9"]','.rt-reader-version[data-rt-reader-controls="v9"]','.rt-reader-footer-download[data-rt-reader-controls="v9"]']){
+    for(const selector of ['.pie-nav [data-reading-return]','.rt-reader-toolbar .rt-toolbar-version','.rt-reader-toolbar [data-pdf]']){
       assert(await page.locator(selector).isVisible(),`No está visible ${selector}`);
     }
   };
 
   // 1) Volver al índice: interacción física pointerdown -> pausa -> pointerup.
   await openTrial();
-  await physicalRelease(page,'.rt-reader-back',()=>page.waitForURL(url=>url.pathname==='/'||url.pathname==='/index.html',{timeout:15000}));
+  await physicalRelease(page,'.pie-nav [data-reading-return]',()=>page.waitForURL(url=>url.pathname==='/'||url.pathname==='/index.html',{timeout:15000}));
   assert(new URL(page.url()).pathname==='/'||new URL(page.url()).pathname==='/index.html','Volver al índice no navegó a la portada');
 
   // 2) Ver resumen breve: debe conservar el mismo id y v=corto.
   await openTrial();
-  await physicalRelease(page,'.rt-reader-version',()=>page.waitForURL(url=>url.pathname==='/resumen.html'&&url.searchParams.get('id')===String(sample.id)&&url.searchParams.get('v')==='corto',{timeout:15000}));
+  await physicalRelease(page,'.rt-reader-toolbar .rt-toolbar-version',()=>page.waitForURL(url=>url.pathname==='/resumen.html'&&url.searchParams.get('id')===String(sample.id)&&url.searchParams.get('v')==='corto',{timeout:15000}));
   const briefUrl=new URL(page.url());
   assert(briefUrl.pathname==='/resumen.html'&&briefUrl.searchParams.get('id')===String(sample.id)&&briefUrl.searchParams.get('v')==='corto','Ver resumen breve abrió un destino incorrecto');
 
   // 3) Descargar resumen completo PDF: debe producir un archivo real.
   await openTrial();
   let download=null;
-  await physicalRelease(page,'.rt-reader-footer-download',async()=>{
+  await physicalRelease(page,'.rt-reader-toolbar [data-pdf]',async()=>{
     download=await page.waitForEvent('download',{timeout:45000});
   });
   assert(download,'El botón PDF no inició una descarga');
@@ -95,14 +95,14 @@ try{
   await page.setViewportSize({width:390,height:844});
   await openTrial();
   const mobile=await page.evaluate(()=>{
-    const selectors=['.rt-reader-back','.rt-reader-version','.rt-reader-footer-download'];
+    const selectors=['.rt-reader-toolbar .rt-toolbar-version','.rt-reader-toolbar [data-sections]','.rt-reader-toolbar [data-pdf]','.rt-reader-toolbar [data-save]','.rt-reader-toolbar [data-reading-mode]'];
     return selectors.map(selector=>{
       const el=document.querySelector(selector); const r=el?.getBoundingClientRect();
       return {selector,width:r?.width||0,height:r?.height||0,pointer:el?getComputedStyle(el).pointerEvents:'',touch:el?getComputedStyle(el).touchAction:''};
     });
   });
-  assert(mobile.every(x=>x.width>=300&&x.height>=54&&x.pointer==='auto'&&x.touch==='manipulation'),`Controles móviles inválidos: ${JSON.stringify(mobile)}`);
-  await physicalRelease(page,'.rt-reader-version',()=>page.waitForURL(url=>url.pathname==='/resumen.html'&&url.searchParams.get('id')===String(sample.id)&&url.searchParams.get('v')==='corto',{timeout:15000}));
+  assert(mobile.every(x=>x.width>=44&&x.height>=44&&x.pointer==='auto'),`Controles móviles inválidos: ${JSON.stringify(mobile)}`);
+  await physicalRelease(page,'.rt-reader-toolbar .rt-toolbar-version',()=>page.waitForURL(url=>url.pathname==='/resumen.html'&&url.searchParams.get('id')===String(sample.id)&&url.searchParams.get('v')==='corto',{timeout:15000}));
 
   assert(errors.length===0,`Errores JavaScript durante la prueba: ${[...new Set(errors)].join(' | ')}`);
   console.log(`READER BUTTONS PRODUCTION PASS · trial ${sample.id} · volver + breve + PDF + móvil mediante interacción física`);
