@@ -1,0 +1,25 @@
+exclude:
+  - docs
+  - scripts
+  - supabase
+  - tools
+  - reports
+  - future-screenshots
+  - runtime
+  - node_modules
+  - "*.py"
+  - "PROMPT_*.md"
+  - README.md
+  - CONTENT_POLICY.md
+  - SECURITY.md
+  - CHANGELOG_diseno.md
+  - UX_TIPOGRAFIA_CONTROLES_v1.md
+  - package.json
+  - pnpm-lock.yaml
+  - pnpm-workspace.yaml
+  - deno.json
+  - deno.lock
+  - dependencies.json
+  - "release-marker*.txt"
+  - debug.log
+  - shot.mjs
