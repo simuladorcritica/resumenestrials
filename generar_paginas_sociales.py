@@ -37,7 +37,7 @@ def pagina(item, corta=False):
     )
 
     archivo = f"{trial_id}-corto.html" if corta else f"{trial_id}.html"
-    destino = ruta_trial(item) + ("#resumen-breve" if corta else "")
+    destino = f"/resumen.html?id={trial_id}&v=corto" if corta else ruta_trial(item)
     canonical = url_trial(item)
     social_image = f"{BASE_URL}/images/trials/{slug_para_item(item)}-16x9.jpg"
 
