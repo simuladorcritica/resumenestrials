@@ -106,6 +106,11 @@ await visit(entry.path,async()=>{
 });
 
 if(sample.corto){
+  await visit(`/resumen/${sample.id}-corto.html`,async()=>{
+    await page.waitForURL((url)=>url.pathname==='/resumen.html'&&url.searchParams.get('id')===String(sample.id)&&url.searchParams.get('v')==='corto');
+    await page.waitForSelector('article.corto',{state:'visible',timeout:12000});
+    assert(await page.locator('article.corto h2').count()===7,'el lector social breve debe abrir las siete secciones breves');
+  });
   await visit(`/resumen.html?id=${sample.id}&v=corto`,async()=>{
     await page.waitForSelector('body.modo-corto',{timeout:12000});
     await page.waitForSelector('[data-pdf-version="breve"]',{state:'visible',timeout:12000});

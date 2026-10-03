@@ -106,6 +106,23 @@ for (const redirect of redirects) {
 
 const legacy = readFileSync(join(ROOT, 'resumen.html'), 'utf8');
 if (!/name="robots"[^>]+content="noindex,follow/i.test(legacy)) errors.push('resumen.html debe ser noindex,follow');
+for (const record of data) {
+  for (const short of record.corto ? [false, true] : [false]) {
+    const path = `resumen/${record.id}${short ? '-corto' : ''}.html`;
+    if (!existsSync(join(ROOT, path))) {
+      errors.push(`Falta lector social ${path}`);
+      continue;
+    }
+    const source = readFileSync(join(ROOT, path), 'utf8');
+    const destination = short ? `/resumen.html?id=${record.id}&v=corto` : manifest[String(record.id)].path;
+    const redirect = source.match(/window\.location\.replace\(("[^"\n]+")\)/)?.[1];
+    if (!redirect || JSON.parse(redirect) !== destination) errors.push(`Destino o versión incorrectos en ${path}`);
+    if (!/name="robots"[^>]+content="noindex,follow/i.test(source)
+      || !source.includes(`<link rel="canonical" href="${manifest[String(record.id)].url}">`)) {
+      errors.push(`Metadatos de compatibilidad incorrectos en ${path}`);
+    }
+  }
+}
 if (coverage.missingManifest.length) errors.push(`IDs sin manifiesto: ${coverage.missingManifest.join(',')}`);
 if (coverage.mismatchedManifest.length) errors.push(`IDs con manifiesto incoherente: ${coverage.mismatchedManifest.join(',')}`);
 if (coverage.missingPages.length) errors.push(`IDs sin página: ${coverage.missingPages.join(',')}`);
