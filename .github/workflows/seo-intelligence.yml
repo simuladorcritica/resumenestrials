@@ -38,6 +38,7 @@ jobs:
         run: node scripts/seo-audit.mjs --output reports/seo-technical.json --fail-on-high
       - name: Detectar credenciales privadas de Search Console
         id: gsc
+        if: github.event_name != 'pull_request'
         shell: bash
         env:
           GSC_OAUTH_CLIENT_ID: ${{ secrets.GSC_OAUTH_CLIENT_ID }}
@@ -65,7 +66,7 @@ jobs:
           fi
       - name: Descargar datos agregados de Search Console
         id: gsc_fetch
-        if: steps.gsc.outputs.enabled == 'true'
+        if: github.event_name != 'pull_request' && steps.gsc.outputs.enabled == 'true'
         env:
           GSC_OAUTH_CLIENT_ID: ${{ secrets.GSC_OAUTH_CLIENT_ID }}
           GSC_OAUTH_CLIENT_SECRET: ${{ secrets.GSC_OAUTH_CLIENT_SECRET }}
