@@ -31,3 +31,6 @@ Las aserciones de ornamentación, fuentes y paleta antiguas se sustituyen por lo
 `account-safe-smoke` añade recorridos de perfil, avisos, preferencias, MFA y biblioteca con persistencia local, recomendaciones y axe con sesión. `design-usability-smoke` mide acciones de navegación y consentimiento/envío: escribir y desplazarse no suman una navegación. El acceso rápido Crítica/año evita abrir dos selectores. Las ocho tareas deben requerir tres pulsaciones como máximo; Metodología, dos. También se comprueba la posición de retorno y los filtros.
 
 Los artefactos detallados se entregan fuera del repositorio. Los outputs de CI se guardan como artifacts; no se añaden PDFs, capturas, prompts, datos privados ni informes al sitio público.
+
+Los smokes con AdSense real conservan los errores y registran la pila de creación de las promesas en el contexto de QA. Una excepción se atribuye al proveedor solo cuando su pila señala el script de anuncios de Google y no contiene el origen del sitio, y coincide con un error observado. Toda excepción propia o sin atribución bloquea la prueba. La instrumentación vive únicamente en Playwright y no cambia el código publicado ni suprime eventos.
+
