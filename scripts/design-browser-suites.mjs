@@ -91,13 +91,14 @@ async function shell(p,base){
  await p.locator('button[aria-controls=password]').click();assert.equal(await p.locator('#password').getAttribute('type'),'text');await p.locator('button[aria-controls=password]').click();assert.equal(await p.locator('#password').getAttribute('type'),'password');
 }
 async function sweep(p,base,width,records=data){
- // Independent content records get an isolated page. Keep each three-route
- // journey together; release the document/history between unrelated records.
+ // Keep one WebView within a bounded browser batch. Repeated WebView creation
+ // and destruction exposed a native allocator abort in Linux WebKit. Every
+ // record and route still runs; the complete browser is closed after 24 records.
+ const errors=[];p.setDefaultTimeout(15000);p.on('pageerror',e=>errors.push(e.message));
  for(const r of records){
-  const page=await p.context().newPage(),errors=[];page.setDefaultTimeout(15000);page.on('pageerror',e=>errors.push(e.message));
-  try{for(const path of [map[String(r.id)].path,'/resumen.html?id='+r.id,'/resumen.html?id='+r.id+'&v=corto']){
-   await ready(page,path,base);assert.equal(await page.locator('[data-ev-field=titulo]').textContent(),r.titulo);assert(await page.locator('article').first().textContent());assert.equal(await page.locator('[data-ev-sections]').count(),1);await geometry(page);
-  }assert.deepEqual(errors,[],'Uncaught browser errors / '+r.id)}finally{await page.close()}
+  for(const path of [map[String(r.id)].path,'/resumen.html?id='+r.id,'/resumen.html?id='+r.id+'&v=corto']){
+   await ready(p,path,base);assert.equal(await p.locator('[data-ev-field=titulo]').textContent(),r.titulo);assert(await p.locator('article').first().textContent());assert.equal(await p.locator('[data-ev-sections]').count(),1);await geometry(p);
+  }assert.deepEqual(errors,[],'Uncaught browser errors / '+r.id)
  }
 }
 const tests={archive,navigation,reader,downloads,shell,sweep};
