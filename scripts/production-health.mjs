@@ -1,4 +1,5 @@
 import { readFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import { belongsToCategory } from './article-inventory.mjs';
 
 const BASE=(process.env.RT_BASE_URL||'https://resumenestrials.com').replace(/\/$/,'');
@@ -9,6 +10,20 @@ const checks=[];
 const expected=JSON.parse(readFileSync('resumenes.json','utf8'));
 const manifest=JSON.parse(readFileSync('seo-manifest.json','utf8'));
 const clusters=JSON.parse(readFileSync('seo-cluster-manifest.json','utf8'));
+
+// A main push starts CI before Pages finishes. Wait for the requested bundle
+// and exact clinical bytes before evaluating the published-site contracts.
+if(process.env.RT_WAIT_FOR_DEPLOY==='1'){
+ const version=JSON.parse(readFileSync('ui/runtime-version.json','utf8')).version,clinicalSHA=createHash('sha256').update(readFileSync('resumenes.json')).digest('hex');let deployed=false;
+ for(let attempt=1;attempt<=36;attempt++){
+  try{const stamp=Date.now(),[home,clinical]=await Promise.all([fetch(BASE+'/?deploycheck='+stamp,{signal:AbortSignal.timeout(timeout),headers:{'cache-control':'no-cache'}}),fetch(BASE+'/resumenes.json?deploycheck='+stamp,{signal:AbortSignal.timeout(timeout),headers:{'cache-control':'no-cache'}})]);
+   if(home.ok&&clinical.ok&&(await home.text()).includes('/site-runtime.js?v='+version)&&createHash('sha256').update(Buffer.from(await clinical.arrayBuffer())).digest('hex')===clinicalSHA){deployed=true;break}
+  }catch{}
+  console.log('Waiting for Pages deployment '+attempt+'/36');if(attempt<36)await new Promise(resolve=>setTimeout(resolve,10000));
+ }
+ assert(deployed,'The requested Pages deployment did not become available');
+}
+
 const expectedIds=new Set(expected.map((r)=>String(r.id)));
 const expectedCrit=expected.filter((record)=>belongsToCategory(record,'Medicina Crítica')).length;
 const expectedInt=expected.filter((record)=>belongsToCategory(record,'Medicina Interna')).length;

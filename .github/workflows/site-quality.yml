@@ -278,6 +278,8 @@ jobs:
         with:
           node-version: '20'
       - name: Check production endpoints
+        env:
+          RT_WAIT_FOR_DEPLOY: '1'
         run: node scripts/production-health.mjs
 
   browser-smoke:
@@ -346,4 +348,3 @@ jobs:
 
       - name: Enviar un único correo QA
         run: node scripts/resend-qa-single-recipient.mjs
-

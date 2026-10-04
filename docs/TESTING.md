@@ -38,3 +38,4 @@ El barrido de contenido abre una página aislada por ensayo y conserva dentro de
 
 Cada lote de 24 ensayos del barrido exhaustivo usa un navegador nuevo: mantiene las tres rutas por ensayo, los 504 casos por configuración, errores y aserciones, y limita la acumulación de recursos nativos en el runner Linux. No hay reintentos ni excepciones ignoradas.
 
+El health check de main espera que Pages sirva el hash solicitado del bundle y los bytes clínicos del checkout antes de evaluar sus contratos, para evitar comparar un despliegue todavía pendiente con el código nuevo. La espera es limitada; si no llega, falla.
