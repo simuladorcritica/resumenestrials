@@ -74,17 +74,17 @@ jobs:
           node --test scripts/trial-data.test.mjs
           node --test scripts/reading-context.test.mjs
           node --test scripts/turnstile-recovery.test.mjs
-          node --check interactive-home.js
+          node --check ui/archive.js
           node --check agregar-editorial-dates.js
           node --check recommendations.js
           node --check library-store.js
           node --check client-monitor.js
           node --check app-version.js
-          node --check internal-medicine-ux.js
-          node --check home-visual-tuning.js
-          node --check pdf-contact.js
-          node --check trial-pdf.js
-          node --check home-control-layout.js
+          node --check specialty-classification.js
+          node --check ui/core.js
+          node --check ui/pdf.js
+          node --check ui/pdf.js
+          node --check ui/archive.js
           node --check turnstile.js
           node --check tools/revisar_pagina_pdf.mjs
           node --check tools/auditoria_sitio_profunda.mjs
@@ -136,7 +136,10 @@ jobs:
       - name: Validate local resumenes.json automation
         shell: pwsh
         run: |
-          node --test scripts/article-inventory.test.mjs scripts/resumenes-json-guard.test.mjs scripts/resumenes-json-automation.test.mjs scripts/article-ingestion-synthetic.test.mjs scripts/article-discovery-monitor.test.mjs scripts/clinical-additions.test.mjs scripts/specialty-classification.test.mjs
+          npm run test:resumenes-automation
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          node --test scripts/article-inventory.test.mjs scripts/article-discovery-monitor.test.mjs
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
           $parseErrors = @()
           foreach ($script in @('scripts/watch-resumenes-json.ps1', 'scripts/install-resumenes-json-watcher.ps1')) {
             $tokens = $null
@@ -177,55 +180,15 @@ jobs:
       - name: Validate SEO without visual regressions
         run: |
           python3 -m pip install --disable-pip-version-check pillow==11.3.0
+          node scripts/build-site-runtime.mjs
           python3 generar_seo.py
           python3 generar_seo_semantico.py
           python3 generar_seo_avanzado.py
           python3 restaurar_arquitectura.py
           python3 actualizar_agregar_editorial.py
-          python3 - <<'PY'
-          import json
-          import re
-          from pathlib import Path
-          data=json.loads(Path('resumenes.json').read_text(encoding='utf-8'))
-          manifest=json.loads(Path('seo-manifest.json').read_text(encoding='utf-8'))
-          home=Path('_includes/index-source.html').read_text(encoding='utf-8')
-          assert home.count('class="fila" data-id=') >= len(data)
-          assert '<!-- RT-PRERENDER-START -->' in home
-          assert 'async function cargarJsPDF()' in home
-          assert 'jspdf.umd.min.js" defer' not in home
-          assert '/agregar-editorial-dates.js?v=1' in Path('agregar.html').read_text(encoding='utf-8')
-          assert Path('trial-pdf.js').is_file()
-          for item in data:
-              entry=manifest[str(item['id'])]
-              assert len(entry.get('images') or []) == 3
-              page=Path(entry['path'].lstrip('/'))/'index.html'
-              source=page.read_text(encoding='utf-8')
-              assert '<!-- RT-HERO-START -->' not in source
-              assert 'class="trial-hero"' not in source
-              assert '<!-- RT-INTENT-START -->' not in source
-              assert 'class="respuesta-clinica"' not in source
-              assert 'id="resumen-breve"' not in source
-              assert 'class="resumen-breve"' not in source
-              assert not re.search(r'<img[^>]+images/trials/', source)
-              assert '<article class="articulo">' in source
-              assert f'data-trial-download="{item["id"]}"' in source
-              assert '/trial-pdf.js?v=1' in source
-              if item.get('corto'):
-                  assert f'/resumen.html?id={item["id"]}&amp;v=corto' in source
-              assert '<link rel="canonical"' in source
-              for url in entry['images']:
-                  assert url in source
-                  assert Path(url.replace('https://resumenestrials.com/','')).is_file()
-          clusters=json.loads(Path('seo-cluster-manifest.json').read_text(encoding='utf-8'))
-          for slug,c in clusters.items():
-              source=(Path(c['path'].lstrip('/'))/'index.html').read_text(encoding='utf-8')
-              assert '<!-- RT-CLUSTER-SYNTHESIS-START -->' not in source
-              assert 'class="cluster-synthesis"' not in source
-              assert '<section class="cat-grid">' in source
-          assert '24' not in [str(x) for x in clusters.get('sepsis-shock',{}).get('trial_ids',[])]
-          assert '18' not in [str(x) for x in clusters.get('neurologia',{}).get('trial_ids',[])]
-          print(f'Unified architecture PASS: {len(data)} trials, {len(clusters)} clusters')
-          PY
+          python3 generar_paginas_sociales.py
+          python3 aplicar_experiencia_futura.py
+          python3 scripts/validate-design.py
       - name: Validate embedded module scripts
         run: node scripts/validate-inline-modules.mjs
       - name: Validate article detail page
@@ -283,17 +246,20 @@ jobs:
       - name: Generate the exact corrected site under test
         run: |
           python3 -m pip install --disable-pip-version-check pillow==11.3.0
+          node scripts/build-site-runtime.mjs
           python3 generar_seo.py
           python3 generar_seo_semantico.py
           python3 generar_seo_avanzado.py
           python3 restaurar_arquitectura.py
           python3 actualizar_agregar_editorial.py
+          python3 generar_paginas_sociales.py
+          python3 aplicar_experiencia_futura.py
       - name: Install PDF inspection and Playwright
         run: |
           sudo apt-get update
           sudo apt-get install -y poppler-utils
-          npm install --no-save playwright@1.62.1 jspdf@4.2.1
-          npx playwright install --with-deps chromium
+          npm install jspdf@4.2.1
+          npx playwright install --with-deps chromium webkit
       - name: Serve generated site locally
         run: |
           python3 -m http.server 8000 >/tmp/rt-http.log 2>&1 &
@@ -312,12 +278,92 @@ jobs:
         with:
           node-version: '20'
       - name: Check production endpoints
+        env:
+          RT_WAIT_FOR_DEPLOY: '1'
         run: node scripts/production-health.mjs
 
-  browser-smoke:
+  browser-smoke-chromium:
     if: ${{ (github.event_name != 'workflow_dispatch' || inputs.confirmation != 'SEND_ONE_QA_EMAIL') && (github.event_name == 'pull_request' || github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main') }}
     runs-on: ubuntu-latest
-    timeout-minutes: 12
+    container: mcr.microsoft.com/playwright:v1.62.1-noble
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        case: ['chromium:390:oscuro', 'chromium:390:claro', 'chromium:1440:oscuro', 'chromium:1440:claro']
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-node@v7.0.0
+        with:
+          node-version: '20'
+      - uses: actions/setup-python@v7.0.0
+        with:
+          python-version: '3.12'
+      - name: Install matching Playwright package
+        run: npm install
+      - name: Serve the exact pull request locally
+        run: |
+          python3 -m http.server 8000 >/tmp/rt-browser-http.log 2>&1 &
+          sleep 3
+      - name: Sweep every record in this browser configuration
+        env:
+          RT_BASE_URL: http://127.0.0.1:8000
+          RT_SWEEP_CASE: ${{ matrix.case }}
+          DEBUG: pw:browser
+        run: node scripts/browser-smoke.mjs
+      - name: Preserve server diagnostics
+        if: failure()
+        run: tail -n 100 /tmp/rt-browser-http.log
+
+  browser-smoke-webkit:
+    if: ${{ (github.event_name != 'workflow_dispatch' || inputs.confirmation != 'SEND_ONE_QA_EMAIL') && (github.event_name == 'pull_request' || github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main') }}
+    runs-on: windows-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        case: ['webkit:390:oscuro', 'webkit:390:claro', 'webkit:1440:oscuro', 'webkit:1440:claro']
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-node@v7.0.0
+        with:
+          node-version: '20'
+      - uses: actions/setup-python@v7.0.0
+        with:
+          python-version: '3.12'
+      - name: Install matching Playwright and WebKit
+        run: |
+          npm install
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          npx playwright install webkit
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Serve and sweep every record in this WebKit configuration
+        env:
+          RT_BASE_URL: http://127.0.0.1:8000
+          RT_SWEEP_CASE: ${{ matrix.case }}
+          DEBUG: pw:browser
+        run: |
+          $qaServer = Start-Process -FilePath "$env:pythonLocation/python.exe" -ArgumentList '-m','http.server','8000' -WorkingDirectory $env:GITHUB_WORKSPACE -WindowStyle Hidden -PassThru -RedirectStandardOutput "$env:RUNNER_TEMP/rt-browser-http.log" -RedirectStandardError "$env:RUNNER_TEMP/rt-browser-http-errors.log"
+          try {
+            Start-Sleep -Seconds 3
+            if ($qaServer.HasExited) { throw 'The local QA server exited before the sweep' }
+            $qaResponse = Invoke-WebRequest -Uri 'http://127.0.0.1:8000/'
+            if ($qaResponse.StatusCode -ne 200) { throw 'The local QA server is not ready' }
+            node scripts/browser-smoke.mjs
+            if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          } finally {
+            if (-not $qaServer.HasExited) { Stop-Process -Id $qaServer.Id }
+          }
+      - name: Preserve server diagnostics
+        if: failure()
+        run: |
+          Get-Content -LiteralPath "$env:RUNNER_TEMP/rt-browser-http.log" -Tail 100
+          Get-Content -LiteralPath "$env:RUNNER_TEMP/rt-browser-http-errors.log" -Tail 100
+
+  browser-interactions:
+    if: ${{ (github.event_name != 'workflow_dispatch' || inputs.confirmation != 'SEND_ONE_QA_EMAIL') && (github.event_name == 'pull_request' || github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v7.0.1
       - uses: actions/setup-node@v7.0.0
@@ -325,19 +371,36 @@ jobs:
           node-version: '20'
       - name: Install Playwright
         run: |
-          npm install --no-save playwright@1.62.1
-          npx playwright install --with-deps chromium
+          npm install
+          npx playwright install --with-deps chromium webkit
       - name: Serve the exact pull request locally
         run: |
           python3 -m http.server 8000 >/tmp/rt-browser-http.log 2>&1 &
           sleep 3
-      - name: Browser smoke test
+      - name: Check all eight interaction configurations
         env:
           RT_BASE_URL: http://127.0.0.1:8000
         run: |
-          node scripts/browser-smoke.mjs
           node scripts/auth-safe-smoke.mjs
+          node scripts/account-safe-smoke.mjs
+          node scripts/design-usability-smoke.mjs
           node scripts/editorial-reader-smoke.mjs
+
+  browser-smoke:
+    if: ${{ always() && (github.event_name != 'workflow_dispatch' || inputs.confirmation != 'SEND_ONE_QA_EMAIL') }}
+    needs: [browser-smoke-chromium, browser-smoke-webkit, browser-interactions, download-contract-smoke]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Require every browser and download dependency to succeed
+        env:
+          QA_RESULTS: ${{ toJSON(needs) }}
+        run: |
+          node - <<'NODE'
+          const results = JSON.parse(process.env.QA_RESULTS);
+          const failed = Object.entries(results).filter(([, job]) => job.result !== 'success');
+          if (failed.length) throw new Error('Browser checks did not succeed: ' + failed.map(([name, job]) => name + '=' + job.result).join(', '));
+          console.log('browser-smoke: all browser matrices, interactions and downloads passed');
+          NODE
 
   resend-qa-single-recipient:
     name: Enviar exactamente un correo QA

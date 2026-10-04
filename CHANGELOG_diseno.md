@@ -1,6 +1,12 @@
 # CHANGELOG de diseño — Resúmenes Trials
 
-Registro de cambios del rediseño estético (prompt v3), fase por fase. Comentarios en español. Ningún cambio se publica a `main` por esta vía; cada fase queda en una rama para revisión humana.
+Historial de diseño. Las entradas anteriores describen estados históricos; la arquitectura actual se documenta en `docs/ARCHITECTURE.md`.
+
+## 2026-10-02 — Laboratorio de evidencia
+
+Sustitución de las capas de presentación acumuladas por plantillas compartidas, tokens y un único runtime. Nuevos archivo con cinco filtros y URL persistente, búsqueda global accesible, lector completo/breve con contexto de retorno y PDF A4/celular con logo en todas las páginas. Registro, cuenta, MFA y biblioteca conservan su lógica con interfaz y validación nuevas.
+
+Se retiran 39 archivos de presentación sustituidos; las pruebas con nombres históricos se mantienen como entradas compatibles y comprueban funciones del sistema nuevo. Matriz Chromium/WebKit, dos resoluciones y dos temas; WCAG 2.2 AA mediante axe. Datos clínicos, slugs, SEO, imágenes sociales y reglas de publicidad protegidos. Validación y equivalencias: `docs/TESTING.md`.
 
 ## Fase 0 — Mapa y decisión de arquitectura (sin cambios de código)
 
