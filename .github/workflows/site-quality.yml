@@ -386,6 +386,22 @@ jobs:
           node scripts/design-usability-smoke.mjs
           node scripts/editorial-reader-smoke.mjs
 
+  browser-smoke:
+    if: ${{ always() && (github.event_name != 'workflow_dispatch' || inputs.confirmation != 'SEND_ONE_QA_EMAIL') }}
+    needs: [browser-smoke-chromium, browser-smoke-webkit, browser-interactions, download-contract-smoke]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Require every browser and download dependency to succeed
+        env:
+          QA_RESULTS: ${{ toJSON(needs) }}
+        run: |
+          node - <<'NODE'
+          const results = JSON.parse(process.env.QA_RESULTS);
+          const failed = Object.entries(results).filter(([, job]) => job.result !== 'success');
+          if (failed.length) throw new Error('Browser checks did not succeed: ' + failed.map(([name, job]) => name + '=' + job.result).join(', '));
+          console.log('browser-smoke: all browser matrices, interactions and downloads passed');
+          NODE
+
   resend-qa-single-recipient:
     name: Enviar exactamente un correo QA
     if: ${{ github.event_name == 'workflow_dispatch' && inputs.confirmation == 'SEND_ONE_QA_EMAIL' }}

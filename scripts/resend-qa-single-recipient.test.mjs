@@ -127,7 +127,7 @@ test('el lanzador premerge aísla QA de los trabajos normales', () => {
   assert.match(workflow, /secrets\.RESEND_QA_RECIPIENT/);
   assert.match(workflow, /Idempotency-Key|resend-qa-single-recipient\.mjs/);
 
-  const guardedJobs = ['data-validation', 'download-contract-smoke', 'production-health', 'browser-smoke-chromium', 'browser-smoke-webkit', 'browser-interactions'];
+  const guardedJobs = ['data-validation', 'download-contract-smoke', 'production-health', 'browser-smoke-chromium', 'browser-smoke-webkit', 'browser-interactions', 'browser-smoke'];
   for (const job of guardedJobs) {
     const escapedJob = job.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     assert.match(
