@@ -285,6 +285,39 @@ jobs:
   browser-smoke:
     if: ${{ (github.event_name != 'workflow_dispatch' || inputs.confirmation != 'SEND_ONE_QA_EMAIL') && (github.event_name == 'pull_request' || github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main') }}
     runs-on: ubuntu-latest
+    container: mcr.microsoft.com/playwright:v1.62.1-noble
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        case: ['chromium:390:oscuro', 'chromium:390:claro', 'chromium:1440:oscuro', 'chromium:1440:claro', 'webkit:390:oscuro', 'webkit:390:claro', 'webkit:1440:oscuro', 'webkit:1440:claro']
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-node@v7.0.0
+        with:
+          node-version: '20'
+      - uses: actions/setup-python@v7.0.0
+        with:
+          python-version: '3.12'
+      - name: Install matching Playwright package
+        run: npm install
+      - name: Serve the exact pull request locally
+        run: |
+          python3 -m http.server 8000 >/tmp/rt-browser-http.log 2>&1 &
+          sleep 3
+      - name: Sweep every record in this browser configuration
+        env:
+          RT_BASE_URL: http://127.0.0.1:8000
+          RT_SWEEP_CASE: ${{ matrix.case }}
+          DEBUG: pw:browser
+        run: node scripts/browser-smoke.mjs
+      - name: Preserve server diagnostics
+        if: failure()
+        run: tail -n 100 /tmp/rt-browser-http.log
+
+  browser-interactions:
+    if: ${{ (github.event_name != 'workflow_dispatch' || inputs.confirmation != 'SEND_ONE_QA_EMAIL') && (github.event_name == 'pull_request' || github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main') }}
+    runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v7.0.1
@@ -299,11 +332,10 @@ jobs:
         run: |
           python3 -m http.server 8000 >/tmp/rt-browser-http.log 2>&1 &
           sleep 3
-      - name: Browser smoke test
+      - name: Check all eight interaction configurations
         env:
           RT_BASE_URL: http://127.0.0.1:8000
         run: |
-          node scripts/browser-smoke.mjs
           node scripts/auth-safe-smoke.mjs
           node scripts/account-safe-smoke.mjs
           node scripts/design-usability-smoke.mjs

@@ -104,7 +104,9 @@ const tests={archive,navigation,reader,downloads,shell,sweep};
 export async function runSuite(name){
  const base=(process.env.RT_BASE_URL||'http://127.0.0.1:8000').replace(/\/$/,'');assertLoopbackBase(base);assert(tests[name],'Unknown suite');let cases=0;
  if(name==='sweep'){
+  const selected=process.env.RT_SWEEP_CASE;const validCases=['chromium','webkit'].flatMap(e=>[390,1440].flatMap(w=>['oscuro','claro'].map(t=>e+':'+w+':'+t)));assert(!selected||validCases.includes(selected),'Invalid sweep matrix case');
   for(const [engine,type]of [['chromium',chromium],['webkit',webkit]])for(const width of [390,1440])for(const theme of ['oscuro','claro']){
+   if(selected&&selected!==engine+':'+width+':'+theme)continue;
    let checked=0;
    for(let start=0;start<data.length;start+=24){
     const browser=await type.launch();try{
@@ -123,5 +125,4 @@ export async function runSuite(name){
  }}finally{await browser.close()}}
  console.log('DESIGN '+name+' PASS '+cases+' configurations');
 }
-
 
