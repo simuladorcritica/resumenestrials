@@ -4,16 +4,24 @@ on:
   pull_request:
     branches: [main]
     paths:
-      - home-control-layout.js
-      - interactive-home.js
+      - 'ui/**'
+      - 'site_templates.py'
+      - 'templates/**'
+      - 'scripts/design-browser-suites.mjs'
+      - ui/archive.js
+      - ui/archive.js
       - _includes/index-source.html
       - scripts/home-controls-smoke.mjs
       - .github/workflows/ui-layout-smoke.yml
   push:
     branches: [main]
     paths:
-      - home-control-layout.js
-      - interactive-home.js
+      - 'ui/**'
+      - 'site_templates.py'
+      - 'templates/**'
+      - 'scripts/design-browser-suites.mjs'
+      - ui/archive.js
+      - ui/archive.js
       - _includes/index-source.html
       - scripts/home-controls-smoke.mjs
       - .github/workflows/ui-layout-smoke.yml
@@ -37,7 +45,13 @@ jobs:
           node-version: '20'
       - name: Instalar Playwright
         run: |
-          npm install --no-save playwright@1.62.1
-          npx playwright install --with-deps chromium
+          npm install
+          npx playwright install --with-deps chromium webkit
+      - name: Servir sitio local
+        run: |
+          python3 -m http.server 8000 >/tmp/rt-ui-http.log 2>&1 &
+          sleep 3
       - name: Validar filtro de revistas y fila completa
+        env:
+          RT_BASE_URL: http://127.0.0.1:8000
         run: node scripts/home-controls-smoke.mjs

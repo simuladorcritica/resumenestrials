@@ -1,6 +1,8 @@
 .DS_Store
 Thumbs.db
 node_modules/
+_site/
+.jekyll-cache/
 __pycache__/
 *.py[cod]
 playwright-report/
@@ -16,3 +18,5 @@ seo-data/
 gsc-data/
 search-console*.json
 .secrets/
+
+full-site-audit.json

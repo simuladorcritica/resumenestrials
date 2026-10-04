@@ -66,14 +66,14 @@ async function main() {
   // 1) Portada
   let errs = await cargarConVigilancia(page, `${BASE}/index.html`, "index");
   errs.forEach(e => push("index", "JS/carga: " + e));
-  const nCards = await page.locator("a[href*='resumen.html'], .card, article").count().catch(() => 0);
+  const nCards = await page.locator("a[href*='/trials/'], .ev-card").count().catch(() => 0);
   if (!nCards) push("index", "la portada no muestra ningún resumen enlazado");
 
   // Precheck: ¿cargó la librería jsPDF desde el CDN? Si no, es un problema de
   // disponibilidad del CDN (afecta a TODOS los PDF), no un fallo por entrada.
   await page.goto(`${BASE}/resumen.html?id=${ids[0]}`, { waitUntil: "networkidle", timeout: 30000 }).catch(() => {});
   const jspdfOk = await page.evaluate(() =>
-    typeof window.jspdf !== "undefined" || typeof window.jsPDF !== "undefined").catch(() => false);
+    import('/ui/pdf.js').then(m=>m.loadJsPDF()).then(()=>true)).catch(() => false);
   if (!jspdfOk) {
     push("PDF", "la librería jsPDF no se cargó (¿CDN cdnjs caído o bloqueado?): fallarían todas las descargas");
   }
@@ -90,7 +90,7 @@ async function main() {
 
     // PDF: pulsar el primer botón de descarga y esperar el archivo
     // (si jsPDF no cargó, ya se reportó arriba; no repetimos el fallo por cada id)
-    const boton = page.locator("button:has-text('Descargar'), a:has-text('Descargar')").first();
+    const boton = page.locator("[data-ev-pdf]").first();
     if (jspdfOk && await boton.count()) {
       try {
         const [download] = await Promise.all([

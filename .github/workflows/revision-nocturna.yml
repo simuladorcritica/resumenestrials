@@ -59,8 +59,8 @@ jobs:
         run: |
           node --check tools/revisar_pagina_pdf.mjs
           node --check tools/auditoria_sitio_profunda.mjs
-          node --check pdf-contact.js
-          node --check home-control-layout.js
+          node --check ui/pdf.js
+          node --check ui/archive.js
 
       - name: Instalar herramientas de inspección PDF
         run: |
@@ -69,8 +69,8 @@ jobs:
 
       - name: Instalar Playwright Chromium
         run: |
-          npm install --no-save playwright@1.62.1
-          npx playwright install --with-deps chromium
+          npm install
+          npx playwright install --with-deps chromium webkit
 
       - name: Servir sitio local
         run: |

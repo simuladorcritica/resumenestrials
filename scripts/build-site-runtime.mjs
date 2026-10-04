@@ -1,44 +1,12 @@
-import fs from 'node:fs';
-
-const jsSources = [
-  'reading-context.js',
-  'topbar-offset-fix.js',
-  'future-experience.js',
-  'global-search.js',
-  'future-experience-final.js',
-  'future-experience-fix-v4.js',
-  'future-experience-fix-v4-compat.js',
-  'legacy-unifier-v4.js',
-  'reader-endmatter-v7.js',
-  'reader-ui-v8.js',
-  'home-downloads-v8.js',
-  'reader-controls-v9.js',
-  'reader-preferences.js',
-  'editorial-reader.js',
-  'editorial-shell.js',
-];
-
-const cssSources = [
-  'future-experience.css',
-  'future-experience-patch.css',
-  'global-search.css',
-  'theme-light.css',
-  'reader-mode.css',
-  'editorial.css',
-  'evidencia-design.css',
-  'evidencia-surfaces.css',
-  'print.css',
-];
-
-function bundle(sources, target, comment) {
-  const output = sources.map((source) => {
-    const content = fs.readFileSync(source, 'utf8').trim();
-    return `${comment} ${source} */\n${content}`;
-  }).join('\n\n');
-  fs.writeFileSync(target, `/* GENERATED FILE. Run: node scripts/build-site-runtime.mjs */\n${output}\n`, 'utf8');
-}
-
-bundle(jsSources, 'site-runtime.js', '/* source:');
-bundle(cssSources, 'site-runtime.css', '/* source:');
-console.log(`Runtime generado: ${jsSources.length} JS -> site-runtime.js; ${cssSources.length} CSS -> site-runtime.css.`);
+import fs from 'node:fs';import crypto from 'node:crypto';
+const jsSources=['specialty-classification.js','ui/core.js','reading-context.js','ui/archive.js','ui/reader.js','ui/forms.js'];
+const cssSources=['ui/tokens.css','ui/site.css'];
+const bundle=sources=>'/* GENERATED FILE. Run: node scripts/build-site-runtime.mjs */\n'+sources.map(p=>'/* source: '+p+' */\n'+fs.readFileSync(p,'utf8').replace(/\r\n/g,'\n').trim()).join('\n\n')+'\n';
+const js=bundle(jsSources),css=bundle(cssSources);
+if(Buffer.byteLength(css)>70000)throw Error('CSS supera 70 KB');
+if(Buffer.byteLength(js)>90000)throw Error('Runtime JS supera 90 KB');
+fs.writeFileSync('site-runtime.js',js);fs.writeFileSync('site-runtime.css',css);
+const version=crypto.createHash('sha256').update(js).update(css).update(fs.readFileSync('ui/pdf.js','utf8').replace(/\r\n/g,'\n')).digest('hex').slice(0,12);
+fs.writeFileSync('ui/runtime-version.json',JSON.stringify({version},null,2)+'\n');
+console.log('Runtime único: '+Buffer.byteLength(js)+' bytes JS / '+Buffer.byteLength(css)+' bytes CSS · '+version);
 

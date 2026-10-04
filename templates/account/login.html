@@ -1,0 +1,34 @@
+<html><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Acceso · Resumenes Trials</title><meta name="robots" content="noindex,follow"><link rel="icon" type="image/png" href="favicon.png">
+
+</head><body><div class="ev-page">
+
+<section class="ev-shell">
+<aside class="ev-story"><div><div class="ev-kicker">Tu acceso</div><h2>Evidencia<br>sin ruido</h2><div class="ev-rule"></div><p>Guarda los ensayos que quieres volver a consultar y recupéralos desde tu biblioteca.</p><p class="ev-promise">Entra con tu correo o nombre de usuario para continuar.</p></div><div class="ev-trust">Tus resúmenes, reunidos en un mismo lugar.</div></aside>
+<section class="ev-formside"><h1 id="form-title">Bienvenido de nuevo</h1><p class="ev-sub" id="form-sub">Continúa con tu correo electrónico o nombre de usuario.</p><div id="mensaje-confirmacion"></div>
+<form id="login"><div class="ev-campo"><label for="identifier">Correo o usuario</label><input id="identifier" type="text" autocomplete="username" autocapitalize="none" spellcheck="false" placeholder="ejemplo@correo.com o nombre.usuario" required></div><div class="ev-campo"><label for="password">Contraseña</label><input id="password" type="password" autocomplete="current-password" placeholder="Tu contraseña" required></div><div class="ev-meta"><a href="recuperar.html">¿Olvidaste tu contraseña?</a></div><div id="turnstile-login" class="ev-turnstile-slot" aria-label="Verificación anti-bot"></div><button class="ev-primary" id="enviar" type="submit">Entrar a mi cuenta</button><div id="estado" class="ev-estado" role="status" aria-live="polite"></div></form>
+<form id="mfa-form" class="ev-mfa-step" hidden><div class="ev-mfa-kicker">Verificación en dos pasos</div><p>Abre tu aplicación autenticadora e introduce el código de seis dígitos para completar el acceso.</p><div class="ev-campo"><label for="mfa-code">Código de autenticación</label><input id="mfa-code" type="text" inputmode="numeric" autocomplete="one-time-code" pattern="[0-9]{6}" minlength="6" maxlength="6" placeholder="000000" required></div><button class="ev-primary" id="mfa-submit" type="submit">Verificar y continuar</button><button class="ev-secondary" id="mfa-other" type="button">Usar otra cuenta</button><div id="mfa-estado" class="ev-estado" role="status" aria-live="polite"></div></form>
+<p class="ev-alta" id="alta">¿Aún no tienes cuenta? <a href="registro.html">Crear cuenta</a></p></section>
+</section></div>
+<script type="module">
+import{signInUser,currentUser,getMfaLoginState,verifyMfaLoginCode,signOutUser}from'./auth.js?v=20261003-laboratorio-v1';
+import{mountTurnstile,turnstileEnabled}from'./turnstile.js?v=20261003-laboratorio-v1';
+const f=document.getElementById('login'),e=document.getElementById('estado'),b=document.getElementById('enviar'),m=document.getElementById('mensaje-confirmacion'),mfaForm=document.getElementById('mfa-form'),mfaCode=document.getElementById('mfa-code'),mfaEstado=document.getElementById('mfa-estado'),mfaSubmit=document.getElementById('mfa-submit'),alta=document.getElementById('alta'),title=document.getElementById('form-title'),sub=document.getElementById('form-sub');
+const params=new URLSearchParams(location.search);
+const requestedNext=params.get('next');
+const allowedNext=new Set(['index.html','cuenta.html','biblioteca.html']);
+const next=allowedNext.has(requestedNext)?requestedNext:null;
+let factorId=null;
+function showMfa(state){factorId=state?.factorId||null;f.hidden=true;alta.hidden=true;mfaForm.hidden=false;title.textContent='Confirma que eres tú';sub.textContent='Tu contraseña es correcta. Falta el segundo factor de seguridad.';mfaCode.focus()}
+async function continueExistingSession(){try{const user=await currentUser();if(!user)return false;const state=await getMfaLoginState();if(state.requiresMfa){showMfa(state);return true}location.replace(next||'cuenta.html');return true}catch{return false}}
+await continueExistingSession();
+if(params.get('confirmado')==='1')m.innerHTML='<div class="ev-notice">Correo confirmado. Tu cuenta ya está activa.</div>';
+if(params.get('password')==='actualizada')m.innerHTML='<div class="ev-notice">Contraseña actualizada correctamente.</div>';
+let captcha=null;
+try{captcha=await mountTurnstile('turnstile-login','login')}catch(err){console.error(err);e.className='ev-estado ev-err';e.textContent='No fue posible cargar la verificación de seguridad. Recarga la página.'}
+f.addEventListener('submit',async ev=>{ev.preventDefault();if(!f.reportValidity())return;const captchaToken=captcha?.getToken?.()||null;if(turnstileEnabled()&&!captchaToken){e.className='ev-estado ev-err';e.textContent='Completa la verificación de seguridad antes de continuar.';return}b.disabled=true;b.textContent='Entrando…';e.textContent='';try{await signInUser({identifier:document.getElementById('identifier').value,password:document.getElementById('password').value,captchaToken});const state=await getMfaLoginState();if(state.requiresMfa)showMfa(state);else location.href=next||'index.html'}catch(err){console.error(err);captcha?.reset?.();e.className='ev-estado ev-err';e.textContent='No pudimos iniciar sesión. Revisa tus credenciales y que tu correo esté confirmado.'}finally{b.disabled=false;b.textContent='Entrar a mi cuenta'}});
+mfaForm.addEventListener('submit',async ev=>{ev.preventDefault();if(!mfaForm.reportValidity())return;mfaSubmit.disabled=true;mfaSubmit.textContent='Verificando…';mfaEstado.textContent='';try{await verifyMfaLoginCode(mfaCode.value,factorId);mfaEstado.className='ev-estado ev-ok';mfaEstado.textContent='Verificación correcta.';location.href=next||'index.html'}catch(err){console.error(err);mfaEstado.className='ev-estado ev-err';mfaEstado.textContent='El código no es válido o ya expiró. Intenta con el código actual de tu aplicación.';mfaCode.select()}finally{mfaSubmit.disabled=false;mfaSubmit.textContent='Verificar y continuar'}});
+document.getElementById('mfa-other').addEventListener('click',async()=>{try{await signOutUser()}catch{}location.replace('login.html')});
+</script>
+</body></html>

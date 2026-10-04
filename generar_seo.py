@@ -230,55 +230,13 @@ def jsonld_article(item: dict) -> str:
 
 
 def pagina_trial(item: dict, todos: list[dict]) -> str:
-    titulo = texto_plano(item.get("titulo")) or "Resumen clínico"
-    canonical = url_trial(item)
-    social_image = f"{BASE_URL}/images/trials/{slug_para_item(item)}-16x9.jpg"
-    descripcion = recortar(item.get("objetivo") or item.get("hallazgo") or "Resumen crítico en español de un ensayo clínico aleatorizado.")
-    cats = categorias(item)
-    badges = "".join(badge(c) for c in cats)
-    temas = "".join(f'<span class="tema">{html.escape(str(t))}</span>' for t in (item.get("temas") or []))
-    fuente = " · ".join(filter(None, [texto_plano(item.get("autor")), texto_plano(item.get("revista")), texto_plano(item.get("registro")), texto_plano(item.get("doi"))]))
-    fecha = fecha_humana(item.get("fecha"))
-
-    if cats:
-        cat = cats[0]
-        crumbs = f'<a href="/">Inicio</a><span>›</span><a href="/{CATEGORY_PATHS[cat]}/">{html.escape(cat)}</a><span>›</span><span>Trial</span>'
-    else:
-        crumbs = '<a href="/">Inicio</a><span>›</span><span>Trial</span>'
-
-    rel_items = []
-    for r in related(item, todos):
-        r_cats = "".join(badge(c) for c in categorias(r))
-        rel_items.append(
-            f'<article class="rel-item"><a href="{html.escape(ruta_trial(r))}">{r_cats}'
-            f'<h3>{html.escape(texto_plano(r.get("titulo")))}</h3>'
-            f'<p>{html.escape(texto_plano(r.get("revista")))} · {html.escape(str(r.get("anio") or ""))}</p></a></article>'
-        )
-    relacionados = ""
-    if rel_items:
-        relacionados = '<section class="relacionados"><h2>Evidencia relacionada</h2><div class="rel-grid">' + "".join(rel_items) + "</div></section>"
-
-    corto = ""
-    if item.get("corto"):
-        corto = (
-            '<section id="resumen-breve" class="resumen-breve">'
-            '<details><summary>Resumen breve</summary><div class="breve-cuerpo">'
-            + str(item.get("corto") or "") +
-            '</div></details></section>'
-        )
-
-    original = ""
-    original_url = url_http(item.get("original"))
-    if original_url:
-        original = f'<div class="enlace-original"><strong>Artículo original</strong><br><a href="{html.escape(original_url)}" target="_blank" rel="noopener noreferrer">{html.escape(original_url)}</a></div>'
-    elif item.get("original"):
-        original = f'<div class="enlace-original"><strong>Referencia del artículo original</strong><br><span>{html.escape(texto_plano(item.get("original")))}</span></div>'
-
-    publication = f'<div class="publicacion">Artículo original publicado: {html.escape(fecha)}</div>' if fecha else ""
-
-    return f'''<!DOCTYPE html>
-<html lang="es-MX">
-<head>
+    from site_templates import document, reading
+    titulo=texto_plano(item.get("titulo")) or "Resumen clínico"
+    canonical=url_trial(item)
+    social_image=f"{BASE_URL}/images/trials/{slug_para_item(item)}-16x9.jpg"
+    descripcion=recortar(item.get("objetivo") or item.get("hallazgo") or "Resumen crítico en español de un ensayo clínico aleatorizado.")
+    manifest={id_texto(r["id"]):{"path":ruta_trial(r)} for r in todos}
+    metadata=f'''<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>{html.escape(titulo)} | Resúmenes Trials</title>
@@ -286,7 +244,7 @@ def pagina_trial(item: dict, todos: list[dict]) -> str:
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
 <link rel="canonical" href="{html.escape(canonical)}">
 <link rel="alternate" type="application/atom+xml" title="Resúmenes Trials" href="{BASE_URL}/feed.xml">
-<meta name="theme-color" content="#f7f6f2">
+
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Resúmenes Trials">
 <meta property="og:locale" content="es_MX">
@@ -302,41 +260,19 @@ def pagina_trial(item: dict, todos: list[dict]) -> str:
 <script type="application/ld+json">{jsonld_article(item)}</script>
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="apple-touch-icon" href="/favicon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/trial.css?v=1">
-</head>
-<body>
-<header class="topbar"><div class="topbar-in"><a class="marca" href="/"><img src="/logo.png" alt="Resúmenes Trials"></a><nav><a href="/medicina-critica/">Medicina Crítica</a><a href="/medicina-interna/">Medicina Interna</a></nav></div></header>
-<main class="envoltorio">
-<nav class="migas" aria-label="Ruta">{crumbs}</nav>
-<header class="art-head"><div class="badges">{badges}{temas}</div><h1>{html.escape(titulo)}</h1><div class="fuente">{html.escape(fuente)}</div>{publication}</header>
-<article class="articulo">{item.get("cuerpo") or ""}</article>
-{corto}
-{original}
-{relacionados}
-<nav class="pie-nav"><a href="/">← Volver al índice</a></nav>
-<footer class="art-footer">Resumen crítico para médicos y profesionales de la salud. No sustituye el artículo original ni el juicio clínico.</footer>
-</main>
-</body>
-</html>
-'''
+
+
+
+
+</head>''' 
+    return document(metadata,reading(item,manifest),ruta_trial(item),"reader")
 
 
 def pagina_categoria(nombre: str, items: list[dict]) -> str:
-    path = CATEGORY_PATHS[nombre]
-    canonical = f"{BASE_URL}/{path}/"
-    desc = f"Ensayos clínicos aleatorizados y evidencia relevante de {nombre}, resumidos críticamente en español para médicos y profesionales de la salud."
-    cards = []
-    for item in sorted(items, key=lambda x: str(x.get("fecha") or ""), reverse=True):
-        temas = "".join(f'<span class="tema">{html.escape(str(t))}</span>' for t in (item.get("temas") or []))
-        cards.append(
-            f'<article class="cat-card"><a href="{html.escape(ruta_trial(item))}"><div class="badges">{temas}</div>'
-            f'<h2>{html.escape(texto_plano(item.get("titulo")))}</h2>'
-            f'<p class="cat-meta">{html.escape(texto_plano(item.get("revista")))} · {html.escape(str(item.get("anio") or ""))}</p>'
-            f'<p>{html.escape(recortar(item.get("hallazgo") or item.get("objetivo"), 190))}</p></a></article>'
-        )
+    from site_templates import document, archive
+    path=CATEGORY_PATHS[nombre]
+    canonical=f"{BASE_URL}/{path}/"
+    desc=f"Ensayos clínicos aleatorizados y evidencia relevante de {nombre}, resumidos críticamente en español para médicos y profesionales de la salud."
     schema = {
         "@context": "https://schema.org",
         "@type": "CollectionPage",
@@ -352,16 +288,15 @@ def pagina_categoria(nombre: str, items: list[dict]) -> str:
             ],
         },
     }
-    return f'''<!DOCTYPE html>
-<html lang="es-MX"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+    manifest={id_texto(r["id"]):{"path":ruta_trial(r)} for r in items}
+    metadata=f'''<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>{html.escape(nombre)}: ensayos clínicos | Resúmenes Trials</title>
 <meta name="description" content="{html.escape(desc)}"><meta name="robots" content="index,follow,max-image-preview:large">
 <link rel="canonical" href="{canonical}"><meta property="og:type" content="website"><meta property="og:title" content="{html.escape(nombre)} · Resúmenes Trials"><meta property="og:description" content="{html.escape(desc)}"><meta property="og:url" content="{canonical}"><meta property="og:image" content="{BASE_URL}/logo.png">
 <link rel="alternate" type="application/atom+xml" title="Resúmenes Trials" href="{BASE_URL}/feed.xml">
 <script type="application/ld+json">{json.dumps(schema, ensure_ascii=False, separators=(",", ":"))}</script>
-<link rel="icon" href="/favicon.png"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"><link rel="stylesheet" href="/trial.css?v=1"></head>
-<body><header class="topbar"><div class="topbar-in"><a class="marca" href="/"><img src="/logo.png" alt="Resúmenes Trials"></a><nav><a href="/medicina-critica/">Medicina Crítica</a><a href="/medicina-interna/">Medicina Interna</a></nav></div></header>
-<main class="envoltorio categoria"><nav class="migas"><a href="/">Inicio</a><span>›</span><span>{html.escape(nombre)}</span></nav><header class="cat-head"><p class="eyebrow">Biblioteca temática</p><h1>{html.escape(nombre)}</h1><p>{html.escape(desc)}</p><strong>{len(items)} resúmenes</strong></header><section class="cat-grid">{''.join(cards)}</section><nav class="pie-nav"><a href="/">← Volver al índice</a></nav></main></body></html>'''
+<link rel="icon" href="/favicon.png"></head>'''
+    return document(metadata,archive(items,manifest,nombre,path),"/"+path+"/","archive")
 
 
 def generar_sitemap(items: list[dict], categorias_contenido: dict[str, list[dict]]) -> None:

@@ -15,11 +15,17 @@ Sitio estático de lectura crítica de ensayos clínicos. La rama `main` de este
 5. Ejecutar validadores y pruebas de navegador.
 6. Abrir un pull request; no publicar directamente desde copias locales antiguas.
 
+## Interfaz
+
+El sistema «Laboratorio de evidencia» tiene una sola capa de presentación. `site_templates.py` genera la cabecera, archivo, lector y documentos; `templates/account/` conserva los formularios y su lógica. `ui/tokens.css` y `ui/site.css` son las fuentes CSS. `ui/core.js`, `ui/archive.js`, `ui/reader.js` y `ui/forms.js` son módulos de interfaz; `ui/pdf.js` es el único generador PDF. El build incluye el clasificador canónico y el contexto de lectura existente.
+
+No editar `site-runtime.*` ni páginas generadas. Consulte `docs/DESIGN_SYSTEM.md`, `docs/ARCHITECTURE.md` y `docs/TESTING.md`.
+
 ## Validación local
 
 ```text
 pnpm install --frozen-lockfile
-pnpm exec playwright install chromium
+pnpm exec playwright install chromium webkit
 pnpm run build
 pnpm run validate
 ```
