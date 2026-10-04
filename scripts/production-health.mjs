@@ -16,8 +16,8 @@ const clusters=JSON.parse(readFileSync('seo-cluster-manifest.json','utf8'));
 if(process.env.RT_WAIT_FOR_DEPLOY==='1'){
  const version=JSON.parse(readFileSync('ui/runtime-version.json','utf8')).version,clinicalSHA=createHash('sha256').update(readFileSync('resumenes.json')).digest('hex');let deployed=false;
  for(let attempt=1;attempt<=36;attempt++){
-  try{const stamp=Date.now(),[home,clinical]=await Promise.all([fetch(BASE+'/?deploycheck='+stamp,{signal:AbortSignal.timeout(timeout),headers:{'cache-control':'no-cache'}}),fetch(BASE+'/resumenes.json?deploycheck='+stamp,{signal:AbortSignal.timeout(timeout),headers:{'cache-control':'no-cache'}})]);
-   if(home.ok&&clinical.ok&&(await home.text()).includes('/site-runtime.js?v='+version)&&createHash('sha256').update(Buffer.from(await clinical.arrayBuffer())).digest('hex')===clinicalSHA){deployed=true;break}
+  try{const stamp=Date.now(),[home,clinical,config]=await Promise.all([fetch(BASE+'/?deploycheck='+stamp,{signal:AbortSignal.timeout(timeout),headers:{'cache-control':'no-cache'}}),fetch(BASE+'/resumenes.json?deploycheck='+stamp,{signal:AbortSignal.timeout(timeout),headers:{'cache-control':'no-cache'}}),fetch(BASE+'/supabase-config.js?deploycheck='+stamp,{signal:AbortSignal.timeout(timeout),headers:{'cache-control':'no-cache'}})]);
+   if(home.ok&&clinical.ok&&config.ok&&(await config.text()).replace(/\r\n/g,'\n')===readFileSync('supabase-config.js','utf8').replace(/\r\n/g,'\n')&&(await home.text()).includes('/site-runtime.js?v='+version)&&createHash('sha256').update(Buffer.from(await clinical.arrayBuffer())).digest('hex')===clinicalSHA){deployed=true;break}
   }catch{}
   console.log('Waiting for Pages deployment '+attempt+'/36');if(attempt<36)await new Promise(resolve=>setTimeout(resolve,10000));
  }
