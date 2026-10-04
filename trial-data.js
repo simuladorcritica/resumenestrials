@@ -1,12 +1,8 @@
 // One data request per navigation, shared by the public readers and controls.
-let pending,controller;
-// Navigation cancels an unfinished request before WebKit tears down its origin.
-if(typeof window!=='undefined')for(const event of ['beforeunload','pagehide'])window.addEventListener(event,()=>controller?.abort());
+let pending;
 export function loadTrials() {
-  if(typeof window!=='undefined'&&window.evNavigatingAway)return Promise.reject(new DOMException('La navegación finalizó','AbortError'));
   if (!pending) {
-    controller=new AbortController();
-    pending = fetch('/resumenes.json', { cache: 'no-store',signal:controller.signal }).then(async response => {
+    pending = fetch('/resumenes.json', { cache: 'no-store' }).then(async response => {
       if (!response.ok) throw new Error(`resumenes.json HTTP ${response.status}`);
       const rows = await response.json();
       if (!Array.isArray(rows) || rows.some(row => !row || typeof row !== 'object' || Array.isArray(row))) {

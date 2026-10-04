@@ -41,7 +41,7 @@ def pagina(item, corta=False):
     canonical = url_trial(item)
     social_image = f"{BASE_URL}/images/trials/{slug_para_item(item)}-16x9.jpg"
 
-    source = f'''<!DOCTYPE html>
+    return f'''<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
@@ -73,9 +73,6 @@ def pagina(item, corta=False):
 </body>
 </html>
 '''
-    from site_templates import document, reading
-    manifest = json.loads((ROOT / "seo-manifest.json").read_text(encoding="utf-8"))
-    return document(source, reading(item, manifest, brief=corta, legacy=True), "/resumen/" + archivo, "reader")
 
 
 def main():

@@ -55,7 +55,7 @@ export async function mountTurnstile(containerId, action) {
   container.hidden = false;
   container.removeAttribute('aria-hidden');
   const status = document.createElement('div');
-  status.className = 'ev-turnstile-status';
+  status.style.cssText = 'font:11px IBM Plex Mono,monospace;color:#38506e;padding:10px 0';
   status.textContent = 'Cargando verificación de seguridad…';
   container.replaceChildren(status);
 
@@ -64,7 +64,7 @@ export async function mountTurnstile(containerId, action) {
   // Keep feedback outside the DOM owned by Turnstile so automatic retries
   // retain the original widget, iframe and response field.
   status.setAttribute('role', 'status');
-  status.className = 'ev-turnstile-status';
+  status.style.cssText = 'font:inherit;color:inherit;padding:10px 0';
   status.textContent = '';
   status.hidden = true;
   container.after(status);

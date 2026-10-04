@@ -21,10 +21,28 @@ for (const [index, code] of scripts.entries()) {
   else pass(`JavaScript inline ${index + 1} válido.`);
 }
 
-const runtime=fs.readFileSync('site-runtime.js','utf8'),pdf=fs.readFileSync('ui/pdf.js','utf8'),templates=fs.readFileSync('site_templates.py','utf8');
-for(const token of ['ev-dynamic-reader','<noscript>','/site-runtime.js?v='])if(!html.includes(token))fail('Lector sin '+token);
-for(const token of ['SpecialtyClassification','data-ev-reader','data-ev-sections','data-ev-pdf','data-ev-save','data-ev-return', "p.get('v')==='corto'",'Resumen no encontrado'])if(!runtime.includes(token))fail('Runtime sin '+token);
-for(const token of ["format='a4'", "['a4','mobile']", 'item.corto','item.cuerpo','JSPDF_SRI','opacity:.045'])if(!pdf.includes(token))fail('PDF sin '+token);
-if(!templates.includes('data-ev-pdf')||!templates.includes('icon("pdf")'))fail('Controles estáticos sin icono PDF SVG');
-if(/<script[^>]+src=["'][^"']*(?:pdf-contact|trial-pdf|reader-controls)/.test(html))fail('Múltiples controladores de lectura');
-if(failed)process.exit(1);console.log('Resumen detail UX PASS');
+const required = [
+  'SpecialtyClassification',
+  'subespecialidadMI(dato)',
+  'data-subspecialty=',
+  'Descargar resumen completo PDF',
+  'Descargar resumen breve PDF',
+  'data-pdf-version="completo"',
+  'data-pdf-version="breve"',
+  'download-icon',
+  'migasHTML(){return `<nav class="migas" aria-label="Ruta"><a class="volver-top" href="index.html">← Volver al índice</a></nav>`;}'
+];
+for (const fragment of required) {
+  if (!html.includes(fragment)) fail(`Falta el fragmento requerido: ${fragment}`);
+}
+if (!html.includes('src="specialty-classification.js')) fail('La página de resumen no carga la taxonomía clínica canónica.');
+else pass('La página de resumen carga la taxonomía clínica canónica.');
+
+if (/class="miga-esp"/.test(html)) fail('La especialidad todavía aparece junto a “Volver al índice”.');
+else pass('No se muestra Medicina Interna/Crítica junto a “Volver al índice”.');
+
+if (/⬇\s*Descargar/.test(html)) fail('Persisten flechas Unicode antiguas en los botones de descarga.');
+else pass('Botones PDF usan iconografía SVG editorial.');
+
+if (failed) process.exit(1);
+console.log('Resumen detail UX PASS');

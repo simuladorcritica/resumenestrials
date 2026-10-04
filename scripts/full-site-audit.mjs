@@ -14,7 +14,7 @@ const read=p=>readFileSync(join(ROOT,p),'utf8');
 function walk(dir='.'){
   const out=[];
   for(const entry of readdirSync(join(ROOT,dir),{withFileTypes:true})){
-    if(['.git','node_modules','.jekyll-cache','vendor','_includes','templates'].includes(entry.name))continue;
+    if(['.git','node_modules','.jekyll-cache','vendor','_includes'].includes(entry.name))continue;
     const rel=dir==='.'?entry.name:join(dir,entry.name);
     if(entry.isDirectory())out.push(...walk(rel));else out.push(rel.replaceAll('\\','/'));
   }
@@ -61,7 +61,7 @@ function staticAudit(){
   if(/challenges\.cloudflare\.com/.test(diagnostic))fail('captcha','la página diagnóstica sigue cargando el widget desactivado');
 
   const biblioteca=read('biblioteca.html');
-  if(!/<script\b[^>]*type=["']module["'][^>]*src=["']\/library-page\.js\?v=20261003-laboratorio-v1["'][^>]*>/.test(biblioteca))fail('biblioteca','no carga el módulo de biblioteca');
+  if(!/<script\b[^>]*type=["']module["'][^>]*src=["']\/library-page\.js["'][^>]*>/.test(biblioteca))fail('biblioteca','no carga el módulo de biblioteca');
   const bibliotecaModule=read('library-page.js');
   if(!bibliotecaModule.includes('especialidad_principal')||!bibliotecaModule.includes('r.temas'))fail('biblioteca','no utiliza el esquema actual de especialidad/temas');
   const recommendations=read('recommendations.js');
@@ -88,10 +88,84 @@ function staticAudit(){
   }
 }
 
+function buildHomeAuditFixture(){
+  const source=read('_includes/index-source.html');
+  const extras=`\n<script type="module" src="home-auth-ui.js?v=audit"></script>\n<script type="module" src="interactive-home.js?v=audit"></script>\n<script type="module" src="recommendations.js?v=audit"></script>\n<script src="specialty-classification.js?v=audit"></script>\n<script type="module" src="internal-medicine-ux.js?v=audit"></script>\n<script type="module" src="home-visual-tuning.js?v=audit"></script>\n<script src="pdf-contact.js?v=audit" defer></script>\n<script src="home-control-layout.js?v=audit" defer></script>\n<script src="seo-hubs-home.js?v=audit" defer></script>\n`;
+  writeFileSync(join(ROOT,'index-full-audit.html'),source+extras,'utf8');
+}
 
-import {runSuite} from './design-browser-suites.mjs';
+function ignorableConsoleError(message){
+  return /favicon|ERR_FAILED|Failed to load resource/i.test(message) ||
+    (/google\.com/i.test(message) && /report-only Content Security Policy/i.test(message) && /frame-ancestors/i.test(message));
+}
+
+async function installAnonymousAuthTestRoute(page){
+  const module = `export function createClient(){return {auth:{async getUser(){return {data:{user:null},error:null}},async getSession(){return {data:{session:null},error:null}},onAuthStateChange(){return {data:{subscription:{unsubscribe(){}}},error:null}},mfa:{async getAuthenticatorAssuranceLevel(){return {data:{currentLevel:null,nextLevel:null},error:null}},async listFactors(){return {data:{totp:[]},error:null}}}}}}`;
+  await page.route('https://esm.sh/@supabase/supabase-js@2.112.3*',route=>route.fulfill({
+    status:200,
+    contentType:'application/javascript; charset=utf-8',
+    headers:{'Access-Control-Allow-Origin':'*'},
+    body:module,
+  }));
+}
+
+async function browserAudit(){
+  buildHomeAuditFixture();
+  const data=JSON.parse(read('resumenes.json'));
+  const manifest=JSON.parse(read('seo-manifest.json'));
+  const clusters=JSON.parse(read('seo-cluster-manifest.json'));
+  const firstTrial=manifest[String(data[0].id)]?.path;
+  const firstCluster=Object.values(clusters).find(x=>x?.path)?.path;
+  const publicRoutes=['/index-full-audit.html','/login.html','/registro.html','/recuperar.html','/privacidad/','/terminos/','/metodologia/','/equipo-editorial/','/medicina-critica/','/medicina-interna/',firstCluster,firstTrial].filter(Boolean);
+  const viewports=[{name:'desktop',width:1440,height:1000},{name:'tablet',width:1024,height:900},{name:'mobile',width:390,height:844}];
+  const browser=await chromium.launch({headless:true});
+  try{
+    for(const viewport of viewports){
+      const page=await browser.newPage({viewport:{width:viewport.width,height:viewport.height}});
+      if(process.env.RT_BASE_URL)await installTurnstileTestRoutes(page,BASE);
+      if(process.env.RT_BASE_URL)await installAnonymousAuthTestRoute(page);
+      await page.route('https://fonts.googleapis.com/**',r=>r.abort());
+      await page.route('https://fonts.gstatic.com/**',r=>r.abort());
+      await page.route('https://pagead2.googlesyndication.com/**',r=>r.fulfill({status:200,contentType:'application/javascript',body:''}));
+      const pageErrors=[];
+      page.on('pageerror',e=>pageErrors.push(e.message));
+      page.on('console',m=>{if(m.type()==='error'&&!ignorableConsoleError(m.text()))pageErrors.push(m.text())});
+      for(const route of publicRoutes){
+        pageErrors.length=0;
+        const response=await page.goto(`${BASE}${route}`,{waitUntil:'domcontentloaded',timeout:30000}).catch(e=>{fail(`${viewport.name} ${route}`,`navegación: ${e.message}`);return null});
+        if(response&&response.status()>=400)fail(`${viewport.name} ${route}`,`HTTP ${response.status()}`);
+        await page.waitForTimeout(300);
+        const metrics=await page.evaluate(()=>({overflow:document.documentElement.scrollWidth-document.documentElement.clientWidth,title:document.title,body:(document.body?.innerText||'').slice(0,5000)})).catch(()=>null);
+        if(metrics){
+          if(metrics.overflow>4)fail(`${viewport.name} ${route}`,`overflow horizontal ${metrics.overflow}px`);
+          if(!metrics.title.trim())fail(`${viewport.name} ${route}`,'documento sin title');
+          if(/\bundefined\b|\bNaN\b|\[object Object\]/.test(metrics.body))fail(`${viewport.name} ${route}`,'valor JavaScript visible al usuario');
+        }
+        if(pageErrors.length)fail(`${viewport.name} ${route}`,`errores JS: ${[...new Set(pageErrors)].join(' | ')}`);
+      }
+      await page.close();
+    }
+
+    const page=await browser.newPage({viewport:{width:1440,height:900}});
+    if(process.env.RT_BASE_URL)await installTurnstileTestRoutes(page,BASE);
+    if(process.env.RT_BASE_URL)await installAnonymousAuthTestRoute(page);
+    await page.goto(`${BASE}/registro.html`,{waitUntil:'domcontentloaded'});
+    const note=await page.locator('.mail-note').innerText().catch(()=> '');
+    if(!/spam/i.test(note)||!/correo no deseado/i.test(note)||!/promociones/i.test(note))fail('registro navegador','el aviso de carpetas alternativas no está renderizado');
+
+    await page.goto(`${BASE}/biblioteca.html`,{waitUntil:'domcontentloaded'});
+    await page.locator('[data-library-state="signed-out"]').waitFor({timeout:5000}).catch(()=>{});
+    if(new URL(page.url()).pathname!=='/biblioteca.html'||await page.locator('[data-library-state="signed-out"]').count()!==1)fail('biblioteca','el visitante no recibió la explicación y accesos de la biblioteca');
+
+    await page.goto(`${BASE}/cuenta.html`,{waitUntil:'domcontentloaded'});
+    await page.waitForURL(/login\.html/, { timeout: 5000 }).catch(() => {});
+    if(!/login\.html/.test(page.url()))fail('cuenta','usuario no autenticado no fue enviado a login');
+    await page.close();
+  }finally{await browser.close()}
+}
+
 staticAudit();
-if(errors.length)throw Error(errors.join('\n'));
-await runSuite('shell');
-writeFileSync('full-site-audit.json',JSON.stringify({errors,warnings,staticAudit:true},null,2));
-console.log('FULL SITE AUDIT PASS');
+await browserAudit();
+for(const w of warnings)console.warn('WARN',w);
+if(errors.length){for(const e of errors)console.error('FAIL',e);console.error(`FULL SITE AUDIT FAIL · ${errors.length} errores · ${warnings.length} advertencias`);process.exit(1)}
+console.log(`FULL SITE AUDIT PASS · ${warnings.length} advertencias no bloqueantes`);

@@ -9,7 +9,6 @@ import unicodedata
 import xml.etree.ElementTree as ET
 
 import generar_seo as base
-import site_templates as presentation
 
 ROOT = base.ROOT
 CONFIG = ROOT / "seo-clusters.json"
@@ -131,6 +130,17 @@ def seo_description(item: dict) -> str:
     return base.recortar(prefix + content + " Análisis crítico y resultados en español.", 158)
 
 
+def visible_breadcrumb(item: dict, item_clusters: list[dict]) -> str:
+    parts = ['<a href="/">Inicio</a><span>›</span>']
+    cats = base.categorias(item)
+    if cats:
+        cat = cats[0]
+        parts.append(f'<a href="/{base.CATEGORY_PATHS[cat]}/">{html.escape(cat)}</a><span>›</span>')
+    if item_clusters:
+        c = item_clusters[0]
+        parts.append(f'<a href="{html.escape(cluster_path(c))}">{html.escape(c["name"])}</a><span>›</span>')
+    parts.append('<span>Trial</span>')
+    return '<nav class="migas" aria-label="Ruta">' + "".join(parts) + '</nav>'
 
 
 def update_jsonld(source: str, item: dict, item_clusters: list[dict]) -> str:
@@ -201,25 +211,59 @@ def related(item: dict, items: list[dict], by_item: dict[str, list[dict]], limit
     return [x[2] for x in scored[:limit]]
 
 
+def related_section(item: dict, items: list[dict], by_item: dict[str, list[dict]]) -> str:
+    cards = []
+    for other in related(item, items, by_item):
+        badges = "".join(base.badge(c) for c in base.categorias(other))
+        clusters = by_item.get(base.id_texto(other.get("id")), [])
+        cluster = f'<span class="tema">{html.escape(clusters[0]["name"])}</span>' if clusters else ""
+        cards.append(f'<article class="rel-item"><a href="{html.escape(base.ruta_trial(other))}">{badges}{cluster}<h3>{html.escape(plain(other.get("titulo")))}</h3><p>{html.escape(plain(other.get("revista")))} · {html.escape(str(other.get("anio") or ""))}</p></a></article>')
+    if not cards:
+        return ""
+    return '<section class="relacionados"><h2>Evidencia relacionada</h2><div class="rel-grid">' + "".join(cards) + '</div></section>'
 
 
 def add_semantic_css(source: str) -> str:
+    if '/seo-semantic.css' not in source:
+        source = source.replace('</head>', '<link rel="stylesheet" href="/seo-semantic.css?v=1"></head>', 1)
     return source
 
 
 def expand_topbar(source: str) -> str:
-    return source
+    old = '<nav><a href="/medicina-critica/">Medicina Crítica</a><a href="/medicina-interna/">Medicina Interna</a></nav>'
+    new = '<nav><a href="/medicina-critica/">Medicina Crítica</a><a href="/medicina-interna/">Medicina Interna</a><a href="/metodologia/">Metodología</a><a href="/equipo-editorial/">Equipo editorial</a></nav>'
+    return source.replace(old, new)
 
 
 def improve_trials(items: list[dict], by_item: dict[str, list[dict]]) -> None:
+    trust = '<aside class="confianza"><strong>Transparencia editorial</strong><p>Este resumen sigue la <a href="/metodologia/">metodología editorial de Resúmenes Trials</a>. Consulta también el <a href="/equipo-editorial/">equipo editorial y los principios de independencia</a>.</p></aside>'
     for item in items:
-        path=base.TRIALS_DIR / base.slug_para_item(item) / "index.html"
-        source=path.read_text(encoding="utf-8")
-        source=re.sub(r'<title>.*?</title>',f'<title>{html.escape(seo_title(item))}</title>',source,count=1,flags=re.S)
-        source=re.sub(r'<meta name="description" content=".*?">',f'<meta name="description" content="{html.escape(seo_description(item))}">',source,count=1,flags=re.S)
-        path.write_text(update_jsonld(source,item,by_item.get(base.id_texto(item["id"]),[])),encoding="utf-8")
+        path = base.TRIALS_DIR / base.slug_para_item(item) / "index.html"
+        source = path.read_text(encoding="utf-8")
+        clusters = by_item.get(base.id_texto(item["id"]), [])
+        source = re.sub(r'<title>.*?</title>', f'<title>{html.escape(seo_title(item))}</title>', source, count=1, flags=re.S)
+        source = re.sub(r'<meta name="description" content=".*?">', f'<meta name="description" content="{html.escape(seo_description(item))}">', source, count=1, flags=re.S)
+        source = add_semantic_css(expand_topbar(source))
+        source = re.sub(r'<nav class="migas" aria-label="Ruta">.*?</nav>', visible_breadcrumb(item, clusters), source, count=1, flags=re.S)
+        source = re.sub(r'<a class="tema tema-link" href="[^"]+">.*?</a>', '', source, flags=re.S)
+        if clusters:
+            links = "".join(f'<a class="tema tema-link" href="{html.escape(cluster_path(c))}">{html.escape(c["name"])}</a>' for c in clusters)
+            source = source.replace('<header class="art-head"><div class="badges">', '<header class="art-head"><div class="badges">' + links, 1)
+        source = update_jsonld(source, item, clusters)
+        rel = related_section(item, items, by_item)
+        if re.search(r'<section class="relacionados">.*?</section>', source, flags=re.S):
+            source = re.sub(r'<section class="relacionados">.*?</section>', rel, source, count=1, flags=re.S)
+        elif rel:
+            source = source.replace('<nav class="pie-nav">', rel + '<nav class="pie-nav">', 1)
+        if '<aside class="confianza">' not in source:
+            marker = '<section class="relacionados">' if '<section class="relacionados">' in source else '<nav class="pie-nav">'
+            source = source.replace(marker, trust + marker, 1)
+        path.write_text(source, encoding="utf-8")
 
 
+def trial_card(item: dict) -> str:
+    topics = "".join(f'<span class="tema">{html.escape(str(t))}</span>' for t in (item.get("temas") or []))
+    return f'<article class="cat-card"><a href="{html.escape(base.ruta_trial(item))}"><div class="badges">{topics}</div><h2>{html.escape(plain(item.get("titulo")))}</h2><p class="cat-meta">{html.escape(plain(item.get("revista")))} · {html.escape(str(item.get("anio") or ""))}</p><p>{html.escape(base.recortar(item.get("hallazgo") or item.get("objetivo"), 190))}</p></a></article>'
 
 
 def collection_schema(name: str, description: str, url: str, items: list[dict]) -> str:
@@ -228,25 +272,23 @@ def collection_schema(name: str, description: str, url: str, items: list[dict]) 
 
 
 def page_shell(title: str, description: str, canonical: str, body: str, schema: str) -> str:
-    source=f'''<!DOCTYPE html><html lang="es-MX"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>{html.escape(title)}</title><meta name="description" content="{html.escape(base.recortar(description,158))}"><meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1"><link rel="canonical" href="{html.escape(canonical)}"><meta property="og:type" content="website"><meta property="og:site_name" content="Resúmenes Trials"><meta property="og:title" content="{html.escape(title)}"><meta property="og:description" content="{html.escape(description)}"><meta property="og:url" content="{html.escape(canonical)}"><meta property="og:image" content="{base.BASE_URL}/logo.png"><script type="application/ld+json">{schema}</script><link rel="icon" href="/favicon.png"></head><body></body></html>'''
-    route=canonical.removeprefix(base.BASE_URL)
-    return presentation.document(source,body,route,"archive" if "data-ev-ids" in body else "document")
+    topbar = '<header class="topbar"><div class="topbar-in"><a class="marca" href="/"><img src="/logo.png" alt="Resúmenes Trials"></a><nav><a href="/medicina-critica/">Medicina Crítica</a><a href="/medicina-interna/">Medicina Interna</a><a href="/metodologia/">Metodología</a><a href="/equipo-editorial/">Equipo editorial</a></nav></div></header>'
+    return f'''<!DOCTYPE html><html lang="es-MX"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>{html.escape(title)}</title><meta name="description" content="{html.escape(base.recortar(description,158))}"><meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1"><link rel="canonical" href="{html.escape(canonical)}"><meta property="og:type" content="website"><meta property="og:site_name" content="Resúmenes Trials"><meta property="og:title" content="{html.escape(title)}"><meta property="og:description" content="{html.escape(description)}"><meta property="og:url" content="{html.escape(canonical)}"><meta property="og:image" content="{base.BASE_URL}/logo.png"><script type="application/ld+json">{schema}</script><link rel="icon" href="/favicon.png"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"><link rel="stylesheet" href="/trial.css?v=1"><link rel="stylesheet" href="/seo-semantic.css?v=1"></head><body>{topbar}{body}</body></html>'''
 
 
 def cluster_page(c: dict, items: list[dict], clusters: list[dict], active: dict[str, list[dict]]) -> str:
-    ordered=sorted(items,key=lambda x:str(x.get("fecha") or ""),reverse=True)
-    manifest=json.loads(base.MANIFEST_PATH.read_text(encoding="utf-8"))
-    body=presentation.archive(ordered,manifest,c["name"],cluster_path(c))
-    return page_shell(f'{c["name"]}: ensayos clínicos | Resúmenes Trials',c.get("description") or "",cluster_url(c),body,collection_schema(c["name"],c.get("description") or "",cluster_url(c),ordered))
+    ordered = sorted(items, key=lambda x: str(x.get("fecha") or ""), reverse=True)
+    cat_path = base.CATEGORY_PATHS[c["category"]]
+    related = "".join(f'<a href="{html.escape(cluster_path(o))}">{html.escape(o["name"])}</a>' for o in clusters if o["category"] == c["category"] and o["slug"] != c["slug"] and active.get(o["slug"]))
+    related_html = f'<nav class="cluster-related"><strong>Otros temas:</strong>{related}</nav>' if related else ""
+    body = f'<main class="envoltorio categoria"><nav class="migas"><a href="/">Inicio</a><span>›</span><a href="/{cat_path}/">{html.escape(c["category"])}</a><span>›</span><span>{html.escape(c["name"])}</span></nav><header class="cat-head"><p class="eyebrow">Cluster clínico</p><h1>{html.escape(c["name"])}</h1><p>{html.escape(c.get("description") or "")}</p><strong>{len(items)} ensayos relacionados</strong></header>{related_html}<section class="cat-grid">{"".join(trial_card(x) for x in ordered)}</section><nav class="pie-nav"><a href="/{cat_path}/">← Volver a {html.escape(c["category"])}</a></nav></main>'
+    return page_shell(f'{c["name"]}: ensayos clínicos | Resúmenes Trials', c.get("description") or "", cluster_url(c), body, collection_schema(c["name"], c.get("description") or "", cluster_url(c), ordered))
 
 
 def legacy_redirect_page(redirect: dict) -> str:
     target_url = f"{base.BASE_URL}{redirect['to']}"
     reason = plain(redirect.get("reason") or "Esta colección se integró en una sección vigente.")
-    source=f'''<!DOCTYPE html><html lang="es-MX"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Colección trasladada | Resúmenes Trials</title><meta name="description" content="Esta colección temática se trasladó a su sección canónica vigente."><meta name="robots" content="noindex,follow"><link rel="canonical" href="{html.escape(target_url)}"><meta http-equiv="refresh" content="0; url={html.escape(target_url)}"><script>location.replace({json.dumps(target_url)});</script><link rel="icon" href="/favicon.png"></head><body><section class="ev-notice"><h1>Colección trasladada</h1><p>{html.escape(reason)}</p><p><a href="{html.escape(redirect['to'])}">Continuar a Medicina Interna</a></p></section></body></html>'''
-    head=re.search(r"<head[^>]*>(.*?)</head>",source,re.S)[0]
-    body=re.search(r"<body[^>]*>(.*?)</body>",source,re.S)[1]
-    return presentation.document(head,body,redirect["from"])
+    return f'''<!DOCTYPE html><html lang="es-MX"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Colección trasladada | Resúmenes Trials</title><meta name="description" content="Esta colección temática se trasladó a su sección canónica vigente."><meta name="robots" content="noindex,follow"><link rel="canonical" href="{html.escape(target_url)}"><meta http-equiv="refresh" content="0; url={html.escape(target_url)}"><script>location.replace({json.dumps(target_url)});</script><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/trial.css?v=2"></head><body><main class="envoltorio pagina-institucional"><h1>Colección trasladada</h1><p>{html.escape(reason)}</p><p><a href="{html.escape(redirect['to'])}">Continuar a Medicina Interna</a></p></main></body></html>'''
 
 
 def generate_cluster_pages(items: list[dict], clusters: list[dict], active: dict[str, list[dict]], redirects: list[dict]) -> dict:
@@ -287,18 +329,25 @@ def generate_cluster_pages(items: list[dict], clusters: list[dict], active: dict
 
 
 def improve_categories(clusters: list[dict], active: dict[str, list[dict]]) -> None:
-    # The common specialty dialog exposes every active collection from the manifest.
-    return
+    for cat, folder in base.CATEGORY_PATHS.items():
+        path = ROOT / folder / "index.html"
+        source = add_semantic_css(expand_topbar(path.read_text(encoding="utf-8")))
+        source = re.sub(r'<section class="cluster-section">.*?</section>', '', source, flags=re.S)
+        cards = []
+        for c in clusters:
+            values = active.get(c["slug"], [])
+            if c["category"] == cat and values:
+                cards.append(f'<a class="cluster-card" href="{html.escape(cluster_path(c))}"><span>{len(values)} estudios</span><h2>{html.escape(c["name"])}</h2><p>{html.escape(c.get("description") or "")}</p></a>')
+        section = '<section class="cluster-section"><p class="eyebrow">Explorar por tema</p><div class="cluster-grid">' + "".join(cards) + '</div></section>' if cards else ""
+        source = source.replace('</header><section class="cat-grid">', '</header>' + section + '<section class="cat-grid">', 1)
+        path.write_text(source, encoding="utf-8")
 
 
 def methodology_page() -> str:
     canonical = f"{base.BASE_URL}/metodologia/"
     desc = "Metodología editorial de Resúmenes Trials: selección, extracción, evaluación crítica, cálculos derivados, transparencia y política de correcciones."
     schema = json.dumps({"@context":"https://schema.org","@type":"WebPage","name":"Metodología editorial | Resúmenes Trials","description":desc,"url":canonical,"inLanguage":"es-MX","publisher":{"@type":"Organization","name":"Resúmenes Trials","url":f"{base.BASE_URL}/equipo-editorial/"}}, ensure_ascii=False, separators=(",", ":"))
-    source=(ROOT/"templates/documents/metodologia.html").read_text(encoding="utf-8")
-    h1=re.search(r"<h1[^>]*>(.*?)</h1>",source,re.S)[1]
-    article=re.search(r"<article[^>]*>(.*?)</article>",source,re.S)[1]
-    body='<h1>'+h1+'</h1><article class="ev-prose">'+article+'</article>'
+    body = '''<main class="envoltorio pagina-institucional"><nav class="migas"><a href="/">Inicio</a><span>›</span><span>Metodología</span></nav><header class="cat-head"><p class="eyebrow">Transparencia editorial</p><h1>Cómo elaboramos los resúmenes</h1><p>Selección, extracción, evaluación crítica, cálculos derivados y política de correcciones.</p></header><article class="prose"><h2>1. Selección de la evidencia</h2><p>Resúmenes Trials prioriza ensayos clínicos aleatorizados y otros trabajos de alta relevancia clínica. Cada entrada identifica el artículo original, la revista, el registro cuando está disponible y el DOI o enlace de publicación.</p><h2>2. Extracción estructurada</h2><p>La lectura se organiza alrededor de la pregunta de investigación, población, intervención, comparador, desenlace primario, diseño, resultados, seguridad, limitaciones y aplicabilidad clínica. Se conserva la distinción entre desenlaces primarios, secundarios y análisis exploratorios.</p><h2>3. Evaluación crítica</h2><p>La síntesis valora aleatorización, cegamiento, pérdidas, análisis por intención de tratar, multiplicidad, potencia estadística, desviaciones del protocolo, validez interna y validez externa cuando estos elementos son pertinentes.</p><h2>4. Cálculos derivados</h2><p>Cuando se presentan medidas calculadas a partir de cifras del artículo, se identifican como cálculos derivados y no como resultados textuales de la publicación original.</p><h2>5. Financiación y conflictos de interés</h2><p>Cuando la publicación original informa financiación o conflictos de interés relevantes, se incorporan a la lectura crítica para contextualizar la evidencia.</p><h2>6. Revisión y correcciones</h2><p>La capa automática genera URLs, metadatos, clusters temáticos y enlaces internos; no altera el contenido científico. Las correcciones se realizan en la fuente de datos y las páginas derivadas se regeneran automáticamente.</p><h2>7. Alcance</h2><p>Los resúmenes están dirigidos a médicos y profesionales de la salud. No sustituyen la lectura del artículo original, las guías vigentes ni el juicio clínico individual.</p></article><aside class="confianza"><strong>Quién publica</strong><p>Consulta el <a href="/equipo-editorial/">equipo editorial y los principios de independencia</a>.</p></aside><nav class="pie-nav"><a href="/">← Volver al índice</a></nav></main>'''
     return page_shell("Metodología editorial | Resúmenes Trials", desc, canonical, body, schema)
 
 
@@ -306,10 +355,7 @@ def editorial_page() -> str:
     canonical = f"{base.BASE_URL}/equipo-editorial/"
     desc = "Información editorial de Resúmenes Trials: propósito, autoría organizacional, independencia, transparencia y enfoque de medicina basada en evidencia."
     schema = json.dumps({"@context":"https://schema.org","@type":"Organization","name":"Resúmenes Trials","url":canonical,"logo":f"{base.BASE_URL}/logo.png","description":desc}, ensure_ascii=False, separators=(",", ":"))
-    source=(ROOT/"templates/documents/equipo-editorial.html").read_text(encoding="utf-8")
-    h1=re.search(r"<h1[^>]*>(.*?)</h1>",source,re.S)[1]
-    article=re.search(r"<article[^>]*>(.*?)</article>",source,re.S)[1]
-    body='<h1>'+h1+'</h1><article class="ev-prose">'+article+'</article>'
+    body = '''<main class="envoltorio pagina-institucional"><nav class="migas"><a href="/">Inicio</a><span>›</span><span>Equipo editorial</span></nav><header class="cat-head"><p class="eyebrow">Sobre el proyecto</p><h1>Equipo editorial de Resúmenes Trials</h1><p>Propósito, autoría organizacional, independencia y transparencia editorial.</p></header><article class="prose"><h2>Propósito</h2><p>Resúmenes Trials es un proyecto editorial médico en español orientado a convertir ensayos clínicos complejos en lecturas estructuradas, críticas y trazables hasta la publicación original.</p><h2>Autoría organizacional</h2><p>Mientras no se publique una ficha individual de autor o revisor, las páginas identifican la autoría como “Equipo editorial de Resúmenes Trials”. Así se evita atribuir credenciales personales no documentadas públicamente y se mantiene una autoría consistente.</p><h2>Independencia editorial</h2><p>El objetivo es separar los resultados del artículo de su interpretación. La financiación y los conflictos declarados por los autores se contextualizan cuando son relevantes, y el artículo original permanece enlazado para verificación.</p><h2>Transparencia</h2><p>La arquitectura SEO, el sitemap, los clusters y los enlaces relacionados se generan automáticamente a partir de los datos publicados. La automatización organiza el contenido; no debe inventar resultados ni modificar cifras.</p><h2>Correcciones</h2><p>Si se identifica un error, la corrección se realiza en la fuente de datos. La regeneración automática propaga después el cambio a la página canónica y a las colecciones temáticas.</p></article><aside class="confianza"><strong>Metodología</strong><p>Revisa <a href="/metodologia/">cómo se selecciona, estructura y evalúa la evidencia</a>.</p></aside><nav class="pie-nav"><a href="/">← Volver al índice</a></nav></main>'''
     return page_shell("Equipo editorial | Resúmenes Trials", desc, canonical, body, schema)
 
 

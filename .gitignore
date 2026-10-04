@@ -16,5 +16,3 @@ seo-data/
 gsc-data/
 search-console*.json
 .secrets/
-
-full-site-audit.json

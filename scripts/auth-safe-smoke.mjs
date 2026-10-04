@@ -1,4 +1,4 @@
-import { chromium, webkit } from 'playwright';
+import { chromium } from 'playwright';
 import {
   TURNSTILE_TEST_SITE_KEY,
   TURNSTILE_TEST_TOKEN,
@@ -13,12 +13,38 @@ function assert(value, message) {
   if (!value) throw new Error(message);
 }
 
-import {fakeSupabaseModule} from './auth-test-fixtures.mjs';
+const fakeSupabaseModule = `
+const eventKey = 'rt-auth-safe-events';
+const log = (type, payload = {}) => {
+  const current = JSON.parse(localStorage.getItem(eventKey) || '[]');
+  current.push({ type, payload });
+  localStorage.setItem(eventKey, JSON.stringify(current));
+};
+let user = null;
+const ok = (data = {}) => ({ data, error: null });
+export function createClient() {
+  return {
+    auth: {
+      async signUp(payload) { log('signup', payload); return ok({ user: { id: 'local-signup-user' } }); },
+      async signInWithPassword(payload) { user = { id: 'local-login-user', email: payload.email }; log('email-login', payload); return ok({ user, session: { access_token: 'local-access' } }); },
+      async setSession(payload) { user = { id: 'local-username-user' }; log('set-session', payload); return ok({ user, session: payload }); },
+      async resetPasswordForEmail(email, options) { log('password-reset-request', { email, options }); return ok({}); },
+      async updateUser(payload) { user = { id: 'local-password-user' }; log('password-update', payload); return ok({ user }); },
+      async getUser() { return ok({ user }); },
+      async getSession() { return ok({ session: user ? { user } : null }); },
+      onAuthStateChange() { return ok({ subscription: { unsubscribe() {} } }); },
+      async signOut() { user = null; return ok({}); },
+      mfa: {
+        async getAuthenticatorAssuranceLevel() { return ok({ currentLevel: 'aal1', nextLevel: 'aal1' }); },
+        async listFactors() { return ok({ totp: [] }); },
+      },
+    },
+  };
+}
+`;
 
-async function runAuth(type,width,theme){
-const browser = await type.launch({ headless: true });
-const context = await browser.newContext({ viewport: { width, height:width===390?844:900 } });
-await context.addInitScript(t=>localStorage.setItem('rt-tema',t),theme);
+const browser = await chromium.launch({ headless: true });
+const context = await browser.newContext({ viewport: { width: 1280, height: 900 } });
 let usernameRequest = null;
 
 await context.route('https://esm.sh/@supabase/supabase-js@2.112.3*', (route) => route.fulfill({
@@ -72,7 +98,7 @@ try {
   await page.fill('#password2', 'LocalPass!2026');
   await page.check('#privacidad');
   await page.click('#enviar');
-  await page.waitForSelector('#exito.ev-visible');
+  await page.waitForSelector('#exito.visible');
   let recorded = await events(page);
   const signup = recorded.find((event) => event.type === 'signup');
   assert(signup?.payload?.options?.captchaToken === TURNSTILE_TEST_TOKEN, 'Registro positivo no transmitió el token de prueba');
@@ -126,8 +152,4 @@ try {
   await browser.close();
 }
 
-console.log(type.name()+' '+width+' '+theme+' AUTH SAFE PASS · registro + login correo + login usuario + solicitud/actualización de contraseña · Supabase local simulado · Turnstile oficial de prueba');
-
-
-}
-for(const type of [chromium,webkit])for(const width of [390,1440])for(const theme of ['claro','oscuro'])await runAuth(type,width,theme);
+console.log('AUTH SAFE PASS · registro + login correo + login usuario + solicitud/actualización de contraseña · Supabase local simulado · Turnstile oficial de prueba');

@@ -5,8 +5,8 @@ const BASE=(process.env.RT_BASE_URL||'http://127.0.0.1:8000').replace(/\/$/,'');
 const data=JSON.parse(readFileSync('resumenes.json','utf8'));
 const manifest=JSON.parse(readFileSync('seo-manifest.json','utf8'));
 const originalIndex=readFileSync('index.html','utf8');
-
-
+process.once('exit',()=>writeFileSync('index.html',originalIndex,'utf8'));
+writeFileSync('index.html',readFileSync('_includes/index-source.html','utf8'),'utf8');
 mkdirSync('future-screenshots',{recursive:true});
 const sample=data.find(x=>x.corto)||data[0];
 const trial=manifest[String(sample.id)]?.path;
@@ -21,15 +21,15 @@ try{
     await page.waitForTimeout(700);
     await page.screenshot({path:`future-screenshots/${name}.png`,fullPage:true});
   }
-  await shot('/index.html','01-home-desktop','[data-ev-ids]');
-  await shot(trial,'02-trial-desktop','[data-ev-reader]');
-  if(sample.corto)await shot(`/resumen.html?id=${sample.id}&v=corto`,'03-resumen-breve-desktop','[data-ev-reader]');
-  await shot('/medicina-critica/','04-hub-desktop','[data-ev-ids]');
-  await shot('/login.html','05-login-desktop','body.ev-member');
+  await shot('/index.html','01-home-desktop','.rt-explorer-stage');
+  await shot(trial,'02-trial-desktop','.rt-reader-rail');
+  if(sample.corto)await shot(`/resumen.html?id=${sample.id}&v=corto`,'03-resumen-breve-desktop','.rt-reader-rail[data-v4="1"]');
+  await shot('/medicina-critica/','04-hub-desktop','body.rt-future-hub');
+  await shot('/login.html','05-login-desktop','body.rt-future-account');
   await page.setViewportSize({width:390,height:844});
-  await shot('/index.html','06-home-mobile','[data-ev-ids]');
-  await shot(trial,'07-trial-mobile','article');
-  if(sample.corto)await shot(`/resumen.html?id=${sample.id}&v=corto`,'08-resumen-breve-mobile','article');
+  await shot('/index.html','06-home-mobile','body[data-ed-shell] .rt-explorer-stage');
+  await shot(trial,'07-trial-mobile','.rt-evidence-section');
+  if(sample.corto)await shot(`/resumen.html?id=${sample.id}&v=corto`,'08-resumen-breve-mobile','article.corto');
   console.log(`FUTURE VISUAL CAPTURE PASS · ${sample.corto?8:6} vistas`);
 } finally {
   await browser.close();

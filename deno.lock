@@ -59,7 +59,6 @@
   "workspace": {
     "packageJson": {
       "dependencies": [
-        "npm:axe-core@4.10.3",
         "npm:jspdf@4.2.1",
         "npm:playwright@1.62.1"
       ]
