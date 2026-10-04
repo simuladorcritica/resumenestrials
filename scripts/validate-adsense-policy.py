@@ -67,8 +67,10 @@ for path in paths:
 
 reader = (ROOT / 'resumen.html').read_text(encoding='utf-8')
 assert '/resumen.html' in future.ADSENSE_DEFERRED_ROUTES
-assert "import('/reader-advertising.js')" in reader, 'Reader must keep the conditional integration'
-assert reader.index("import('/reader-advertising.js')") > reader.index('if(!dato){noEncontrado();return;}')
+reader_runtime=(ROOT/'ui/reader.js').read_text(encoding='utf-8')
+assert "import('/reader-advertising.js')" in reader_runtime, 'Reader must keep the conditional integration'
+assert reader_runtime.index("import('/reader-advertising.js')") > reader_runtime.index("Resumen no encontrado")
+assert "if(dynamic)import('/reader-advertising.js')" in reader_runtime
 assert '<meta name="robots" content="noindex,follow">' in (ROOT / 'agregar.html').read_text(encoding='utf-8')
 
 # Run this after the full generator pipeline in CI. A second injection must be

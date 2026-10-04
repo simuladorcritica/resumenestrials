@@ -4,10 +4,14 @@ on:
   push:
     branches: [main]
     paths:
-      - "reader-controls-v9.js"
+      - 'ui/**'
+      - 'site_templates.py'
+      - 'templates/**'
+      - 'scripts/design-browser-suites.mjs'
+      - "ui/reader.js"
       - "site-runtime.js"
       - "aplicar_experiencia_futura.py"
-      - "trial-pdf.js"
+      - "ui/pdf.js"
       - "scripts/build-site-runtime.mjs"
       - "scripts/reader-buttons-production-smoke.mjs"
       - "scripts/reader-runtime-contract.mjs"
@@ -33,15 +37,15 @@ jobs:
           node-version: '20'
       - name: Validar sintaxis
         run: |
-          node --check reader-controls-v9.js
+          node --check ui/reader.js
           node --check scripts/reader-buttons-production-smoke.mjs
           node --check scripts/reader-runtime-contract.mjs
           node --test scripts/reader-runtime-contract.test.mjs
           python3 -m py_compile aplicar_experiencia_futura.py
       - name: Instalar Chromium
         run: |
-          npm install --no-save playwright@1.62.1
-          npx playwright install --with-deps chromium
+          npm install
+          npx playwright install --with-deps chromium webkit
       - name: Probar controles publicados con interacción física
         id: smoke
         continue-on-error: true

@@ -28,19 +28,19 @@ jobs:
           python-version: '3.12'
       - name: Validar sintaxis
         run: |
-          node --check future-experience.js
-          node --check global-search.js
-          node --check editorial-shell.js
-          node --check future-experience-final.js
-          node --check future-experience-fix-v4.js
-          node --check future-experience-fix-v4-compat.js
-          node --check future-experience-fix-v4-compat-base.js
-          node --check legacy-unifier-v4.js
-          node --check reader-endmatter-v7.js
-          node --check reader-ui-v8.js
-          node --check home-downloads-v8.js
-          node --check pdf-contact.js
-          node --check trial-pdf.js
+          node --check ui/archive.js
+          node --check ui/core.js
+          node --check ui/core.js
+          node --check ui/reader.js
+          node --check ui/forms.js
+          node --check ui/core.js
+          node --check ui/core.js
+          node --check ui/reader.js
+          node --check ui/reader.js
+          node --check ui/reader.js
+          node --check ui/pdf.js
+          node --check ui/pdf.js
+          node --check ui/pdf.js
           node --check scripts/future-experience-smoke.mjs
           node --check scripts/library-filter-smoke.mjs
           node --check scripts/navigation-ux-smoke.mjs
@@ -57,51 +57,23 @@ jobs:
       - name: Generar exactamente el sitio final
         run: |
           python3 -m pip install --disable-pip-version-check pillow==11.3.0
+          node scripts/build-site-runtime.mjs
           python3 generar_seo.py
           python3 generar_seo_semantico.py
           python3 generar_seo_avanzado.py
           python3 restaurar_arquitectura.py
           python3 actualizar_agregar_editorial.py
+          python3 generar_paginas_sociales.py
+          python3 aplicar_experiencia_futura.py
           python3 aplicar_experiencia_futura.py
       - name: Verificar inyección global
         run: |
-          python3 - <<'PY'
-          from pathlib import Path
-          import aplicar_experiencia_futura as future
-
-          expected_ads = 'google.com, pub-3132744538918477, DIRECT, f08c47fec0942fa0'
-          ads_path = Path('ads.txt')
-          assert ads_path.is_file(), 'Falta ads.txt en la raíz del sitio'
-          assert ads_path.read_text(encoding='utf-8').strip() == expected_ads, 'ads.txt no coincide con el publisher autorizado'
-
-          checked = 0
-          for path in future.candidates():
-              if not path.is_file():
-                  continue
-              s = path.read_text(encoding='utf-8')
-              assert s.count('/site-runtime.css?v=20260821') == 1, f'{path}: runtime CSS ausente o duplicado'
-              assert s.count('/site-runtime.js?v=20260821') == 1, f'{path}: runtime JS ausente o duplicado'
-              assert '/future-experience.css?v=1' not in s, f'{path}: conserva CSS fragmentado'
-              assert '/future-experience.js?v=1' not in s, f'{path}: conserva JS fragmentado'
-              assert '/future-experience-final.js?v=1' not in s, f'{path}: conserva ajuste JS final obsoleto v1'
-              assert '/future-experience-final.js?v=2' not in s, f'{path}: conserva ajuste JS final obsoleto v2'
-              if future.adsense_allowed(path):
-                  assert s.count(future.ADSENSE_URL) == 1, f'{path}: AdSense debe aparecer exactamente una vez'
-                  head, sep, _ = s.partition('</head>')
-                  assert sep and future.ADSENSE_URL in head, f'{path}: el script de AdSense no está dentro de <head>'
-                  assert 'crossorigin="anonymous"' in head, f'{path}: falta crossorigin de AdSense'
-              else:
-                  assert 'adsbygoogle' not in s and future.ADSENSE_CLIENT not in s, f'{path}: AdSense prohibido en esta ruta'
-              checked += 1
-          if checked < 50:
-              raise SystemExit(f'Solo se verificaron {checked} páginas; se esperaban al menos 50')
-          print(f'Assets futuros v8 + descargas de portada + buscador global + política AdSense verificados en {checked} páginas; ads.txt válido')
-          PY
+          python3 scripts/validate-design.py
           python3 scripts/validate-adsense-policy.py
       - name: Instalar Playwright
         run: |
-          npm install --no-save playwright@1.62.1
-          npx playwright install --with-deps chromium
+          npm install
+          npx playwright install --with-deps chromium webkit
       - name: Servir sitio generado
         run: |
           python3 -m http.server 8000 >/tmp/rt-future-http.log 2>&1 &
@@ -141,8 +113,8 @@ jobs:
           node-version: '20'
       - name: Instalar navegador
         run: |
-          npm install --no-save playwright@1.62.1
-          npx playwright install --with-deps chromium
+          npm install
+          npx playwright install --with-deps chromium webkit
       - name: Esperar despliegue y validar producción
         run: |
           node scripts/future-production-smoke.mjs

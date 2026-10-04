@@ -15,6 +15,7 @@ test('una alta sintética N+1 genera página, canonical, sitemap, schema, hub y 
   const temporary = mkdtempSync(join(tmpdir(), 'rt-ingestion-n-plus-one-'));
   try {
     copyFileSync(new URL('../generar_seo.py', import.meta.url), join(temporary, 'generar_seo.py'));
+    copyFileSync(new URL('../site_templates.py', import.meta.url), join(temporary, 'site_templates.py'));
     const data = JSON.parse(before.toString('utf8'));
     const nextId = Math.max(...data.map((item) => Number(item.id))) + 1;
     const synthetic = {
