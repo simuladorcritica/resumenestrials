@@ -14,7 +14,7 @@ function render(){
     list.innerHTML=saved.length?'<div class="ev-notice" data-library-state="no-results"><p>No encontramos coincidencias con esta búsqueda.</p><button type="button" class="ev-button" id="clear-library-search">Restablecer búsqueda</button></div>':'<div class="ev-notice" data-library-state="empty"><p>Todavía no has guardado resúmenes. Puedes hacerlo mientras exploras los ensayos.</p><a href="/">Explorar resúmenes</a></div>';
     const reset=document.getElementById('clear-library-search');if(reset)reset.onclick=()=>{q.value='';area.value='';render();q.focus()};return;
   }
-  list.innerHTML=rows.map(r=>`<article class="ev-library-item" data-id="${esc(r.id)}"><div><div class="ev-badges"><span class="ev-tag">${esc(specialty(r))}</span>${topics(r)[0]?`<span class="ev-tag">${esc(topics(r)[0])}</span>`:''}</div><h2><a data-read="${esc(r.id)}" href="resumen.html?id=${encodeURIComponent(r.id)}">${esc(r.titulo||r.nombre||'Resumen')}</a></h2><div class="ev-meta">${esc(r.autor||'')} · ${esc(r.revista||'')}${r.fecha?' · '+esc(r.fecha):''}</div></div><button type="button" class="ev-button" data-remove="${esc(r.id)}" aria-label="Quitar de biblioteca: ${esc(r.titulo||r.nombre||'Resumen')}">Quitar de biblioteca</button></article>`).join('');
+  list.innerHTML=rows.map(r=>`<article class="ev-library-item" data-id="${esc(r.id)}"><div><div class="ev-badges"><span class="ev-tag">${esc(specialty(r))}</span>${topics(r)[0]?`<span class="ev-tag">${esc(topics(r)[0])}</span>`:''}</div><h2><a data-read="${esc(r.id)}" href="resumen.html?id=${encodeURIComponent(r.id)}">${esc(r.titulo||r.nombre||'Resumen')}</a></h2><div class="ev-meta">${esc(r.autor||'')} · ${esc(r.revista||'')}${r.fecha?' · '+esc(r.fecha):''}</div><details><summary>Ficha del estudio</summary>${window.EV?.facts(r)||''}</details></div><button type="button" class="ev-button" data-remove="${esc(r.id)}" aria-label="Quitar de biblioteca: ${esc(r.titulo||r.nombre||'Resumen')}">Quitar de biblioteca</button></article>`).join('');
   list.querySelectorAll('[data-remove]').forEach(button=>button.onclick=async()=>{
     if(busy)return;busy=true;button.disabled=true;status.textContent='Actualizando tu biblioteca…';
     try{await toggleFavorite(button.dataset.remove);state.favorites=state.favorites.filter(x=>x!==String(button.dataset.remove));render();status.textContent='Resumen quitado de tu biblioteca.';q.focus()}
@@ -43,3 +43,4 @@ async function load(){
 q.addEventListener('input',()=>{if(state?.signedIn&&all.length)render()});
 area.addEventListener('change',()=>{if(state?.signedIn&&all.length)render()});
 load();
+

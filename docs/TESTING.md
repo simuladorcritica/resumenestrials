@@ -35,3 +35,6 @@ Los artefactos detallados se entregan fuera del repositorio. Los outputs de CI s
 Los smokes con AdSense real conservan los errores y registran la pila de creación de las promesas en el contexto de QA. Una excepción se atribuye al proveedor solo cuando su pila señala el script de anuncios de Google y no contiene el origen del sitio, y coincide con un error observado. Toda excepción propia o sin atribución bloquea la prueba. La instrumentación vive únicamente en Playwright y no cambia el código publicado ni suprime eventos.
 
 El barrido de contenido abre una página aislada por ensayo y conserva dentro de ella las tres rutas. Se comprueban las mismas 4032 vistas y todos los errores de cada página; se libera documento/historial entre ensayos independientes para evitar acumular cientos de navegaciones en WebKit. Los recorridos de historial y retorno permanecen en reader/archive/usability.
+
+Cada lote de 24 ensayos del barrido exhaustivo usa un navegador nuevo: mantiene las tres rutas por ensayo, los 504 casos por configuración, errores y aserciones, y limita la acumulación de recursos nativos en el runner Linux. No hay reintentos ni excepciones ignoradas.
+

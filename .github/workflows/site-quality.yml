@@ -136,7 +136,10 @@ jobs:
       - name: Validate local resumenes.json automation
         shell: pwsh
         run: |
-          node --test scripts/article-inventory.test.mjs scripts/resumenes-json-guard.test.mjs scripts/resumenes-json-automation.test.mjs scripts/article-ingestion-synthetic.test.mjs scripts/article-discovery-monitor.test.mjs scripts/clinical-additions.test.mjs scripts/specialty-classification.test.mjs
+          npm run test:resumenes-automation
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          node --test scripts/article-inventory.test.mjs scripts/article-discovery-monitor.test.mjs
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
           $parseErrors = @()
           foreach ($script in @('scripts/watch-resumenes-json.ps1', 'scripts/install-resumenes-json-watcher.ps1')) {
             $tokens = $null
@@ -343,3 +346,4 @@ jobs:
 
       - name: Enviar un único correo QA
         run: node scripts/resend-qa-single-recipient.mjs
+

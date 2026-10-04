@@ -30,8 +30,9 @@ async function init(){
     if(!ranked.length)return;
     const section=document.createElement('section');
     section.className='ev-recommendations';
-    section.innerHTML=`<div class="ev-rec-head"><div><span>Selección personal</span><strong>Para ti</strong></div><a href="cuenta.html#preferencias">Ajustar preferencias</a></div><ol>${ranked.map(r=>`<li><a href="resumen.html?id=${encodeURIComponent(r.id)}"><span>${esc(r.revista||specialty(r)||'Evidencia clínica')}</span><b>${esc(r.titulo||r.nombre||'Resumen')}</b><small>Leer resumen →</small></a></li>`).join('')}</ol>`;
+    section.innerHTML=`<div class="ev-rec-head"><div><span>Selección personal</span><strong>Para ti</strong></div><a href="cuenta.html#preferencias">Ajustar preferencias</a></div><ol>${ranked.map(r=>`<li><a href="resumen.html?id=${encodeURIComponent(r.id)}"><span>${esc(r.revista||specialty(r)||'Evidencia clínica')}</span><b>${esc(r.titulo||r.nombre||'Resumen')}</b><small>Leer resumen →</small></a><details><summary>Ficha del estudio</summary>${window.EV?.facts(r)||''}</details></li>`).join('')}</ol>`;
     anchor.insertAdjacentElement('beforebegin',section);
   }catch(err){console.error('Recommendations init',err)}
 }
 setTimeout(init,0);
+

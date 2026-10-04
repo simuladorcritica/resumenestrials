@@ -90,10 +90,10 @@ async function shell(p,base){
  await ready(p,'/registro.html',base);assert(/spam.*correo no deseado|correo no deseado.*spam/is.test(await p.locator('#exito').textContent()));await p.locator('#email').fill('bad');await p.locator('#password').focus();assert.equal(await p.locator('#email').getAttribute('aria-invalid'),'true');
  await p.locator('button[aria-controls=password]').click();assert.equal(await p.locator('#password').getAttribute('type'),'text');await p.locator('button[aria-controls=password]').click();assert.equal(await p.locator('#password').getAttribute('type'),'password');
 }
-async function sweep(p,base){
+async function sweep(p,base,width,records=data){
  // Independent content records get an isolated page. Keep each three-route
  // journey together; release the document/history between unrelated records.
- for(const r of data){
+ for(const r of records){
   const page=await p.context().newPage(),errors=[];page.setDefaultTimeout(15000);page.on('pageerror',e=>errors.push(e.message));
   try{for(const path of [map[String(r.id)].path,'/resumen.html?id='+r.id,'/resumen.html?id='+r.id+'&v=corto']){
    await ready(page,path,base);assert.equal(await page.locator('[data-ev-field=titulo]').textContent(),r.titulo);assert(await page.locator('article').first().textContent());assert.equal(await page.locator('[data-ev-sections]').count(),1);await geometry(page);
@@ -103,10 +103,25 @@ async function sweep(p,base){
 const tests={archive,navigation,reader,downloads,shell,sweep};
 export async function runSuite(name){
  const base=(process.env.RT_BASE_URL||'http://127.0.0.1:8000').replace(/\/$/,'');assertLoopbackBase(base);assert(tests[name],'Unknown suite');let cases=0;
+ if(name==='sweep'){
+  for(const [engine,type]of [['chromium',chromium],['webkit',webkit]])for(const width of [390,1440])for(const theme of ['oscuro','claro']){
+   let checked=0;
+   for(let start=0;start<data.length;start+=24){
+    const browser=await type.launch();try{
+     const c=await browser.newContext({viewport:{width,height:width===390?844:900},acceptDownloads:true,reducedMotion:'reduce'});await isolate(c,base);await c.addInitScript(t=>localStorage.setItem('rt-tema',t),theme);const page=await c.newPage();
+     const batch=data.slice(start,start+24);await sweep(page,base,width,batch);checked+=batch.length*3;await c.close();
+    }finally{await browser.close()}
+   }
+   assert.equal(checked,data.length*3);cases++;console.log('sweep '+engine+' '+width+' '+theme+' PASS '+checked+' views / bounded browser batches');
+  }
+  console.log('DESIGN sweep PASS '+cases+' configurations');return;
+ }
+
  for(const [engine,type]of [['chromium',chromium],['webkit',webkit]]){const browser=await type.launch();try{for(const width of [390,1440])for(const theme of ['oscuro','claro']){
   const c=await browser.newContext({viewport:{width,height:width===390?844:900},acceptDownloads:true,reducedMotion:'reduce'});await isolate(c,base);await c.addInitScript(t=>{if(!localStorage.getItem('rt-tema'))localStorage.setItem('rt-tema',t)},theme);const p=await c.newPage();const errors=[];p.on('pageerror',e=>errors.push(e.message));await installTurnstileTestRoutes(p,base);p.setDefaultTimeout(15000);
   try{await tests[name](p,base,width);assert.deepEqual(errors,[],'Uncaught browser errors');cases++;console.log(name+' '+engine+' '+width+' '+theme+' PASS')}finally{await c.close()}
  }}finally{await browser.close()}}
  console.log('DESIGN '+name+' PASS '+cases+' configurations');
 }
+
 
