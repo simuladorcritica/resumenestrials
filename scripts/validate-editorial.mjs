@@ -1,49 +1,20 @@
 import fs from 'node:fs';
-
-const read = (path) => fs.readFileSync(path, 'utf8');
-const fail = (message) => { console.error(`EDITORIAL FAIL: ${message}`); process.exitCode = 1; };
-const ok = (message) => console.log(`EDITORIAL PASS: ${message}`);
-
-const homeAuth = read('home-auth-ui.js');
-const interactive = read('interactive-home.js');
-const internalMedicineUx = read('internal-medicine-ux.js');
-const specialtyClassification = read('specialty-classification.js');
-const homeVisualTuning = read('home-visual-tuning.js');
-const homeControlLayout = read('home-control-layout.js');
-const memberDesign = read('member-design-v3.js');
-const trialCss = read('trial.css');
-const semanticCss = read('seo-semantic.css');
-const index = read('index.html');
-const privacy = read('privacidad/index.html');
-const account = read('cuenta.html');
-const auth = read('auth.js');
-const login = read('login.html');
-const register = read('registro.html');
-const recovery = read('recuperar.html');
-
-if (!homeAuth.includes('id = "account-entry"')) fail('La portada no define el módulo único de cuenta.');
-else ok('Módulo único de cuenta presente.');
-
-if (homeAuth.includes('cuenta-link') || homeAuth.includes('login-link')) fail('Persisten identificadores de CTA separados en la cabecera.');
-else ok('No existen CTA separados de Crear cuenta / Entrar en la portada.');
-
-if (!interactive.includes("header.insertBefore(div, search)")) fail('Los filtros avanzados no están integrados dentro de la cabecera del índice.');
-else ok('Filtros avanzados integrados en la barra del índice.');
-
-for (const [name, html] of [['cuenta.html', account], ['login.html', login], ['registro.html', register]]) {
-  if (/box-shadow\s*:\s*0\s+18px\s+55px/i.test(html)) fail(`${name} conserva la sombra flotante anterior.`);
-  else ok(`${name} sin la sombra flotante del diseño anterior.`);
+const read=p=>fs.readFileSync(p,'utf8');
+const fail=m=>{console.error('EDITORIAL FAIL: '+m);process.exitCode=1};
+const ok=m=>console.log('EDITORIAL PASS: '+m);
+const index=read('index.html'),privacy=read('privacidad/index.html'),account=read('cuenta.html'),auth=read('auth.js'),login=read('login.html'),register=read('registro.html'),recovery=read('recuperar.html'),runtime=read('site-runtime.js'),css=read('site-runtime.css'),classifier=read('specialty-classification.js');
+for(const [name,html] of [['index',index],['cuenta',account],['login',login],['registro',register],['recuperar',recovery],['privacidad',privacy]]){
+ for(const font of ['Inter+Tight','JetBrains+Mono','Source+Serif+4'])if(!html.includes(font))fail(name+' no carga '+font);
+ if(!html.includes('/site-runtime.js?v=')||!html.includes('/site-runtime.css?v='))fail(name+' no carga runtime versionado');
+ if((html.match(/<header class="ev-header">/g)||[]).length!==1)fail(name+' no tiene exactamente una cabecera');
+ if(/Fraunces|Newsreader|IBM.Plex.Mono|<style\b/.test(html))fail(name+' conserva presentación anterior o CSS inline');
 }
-
-const registrationLinks = (login.match(/href="registro\.html"/g) || []).length;
-if (registrationLinks !== 1) fail(`login.html debe tener una sola ruta visible a registro; encontradas ${registrationLinks}.`);
-else ok('Login con una sola ruta a creación de cuenta.');
-
-for (const [name, html] of [['cuenta.html', account], ['login.html', login], ['registro.html', register], ['recuperar.html', recovery]]) {
-  if (!html.includes('Fraunces') || !html.includes('Newsreader') || !html.includes('IBM+Plex+Mono')) fail(`${name} no conserva las tres familias tipográficas del sistema.`);
-  else ok(`${name} conserva Fraunces, Newsreader e IBM Plex Mono.`);
-}
-
+if((login.match(/href="registro\.html"/g)||[]).length!==1)fail('Login debe tener un enlace a registro');
+for(const key of ['area','topic','year','journal','type'])if(!index.includes('data-ev-filter="'+key+'"'))fail('Falta filtro '+key);
+if(!index.includes('data-ev-card-pdf=')||!runtime.includes('SpecialtyClassification'))fail('Portada sin PDF o taxonomía');
+if(!classifier.includes('Hematolog')||!classifier.includes('Neumolog')||classifier.includes('Medicina Interna General'))fail('Taxonomía canónica incompleta');
+if(!css.includes('minmax(0,1fr)')||!css.includes('ev-mobile-nav'))fail('Contrato responsive incompleto');
+if(!privacy.includes('ev-prose')||!privacy.includes('Política de Privacidad'))fail('Política fuera del sistema institucional');
 if (!auth.includes('getAccountPreferences') || !auth.includes('updateAccountPreferences')) fail('auth.js no expone el contrato de preferencias de cuenta.');
 else ok('Contrato de preferencias disponible en auth.js.');
 
@@ -65,81 +36,5 @@ for (const fragment of obsoleteAccountFragments) {
 }
 if (!process.exitCode) ok('Cuenta y auth.js comparten el mismo contrato de perfil, avisos y preferencias.');
 
-if (!index.includes('internal-medicine-ux.js')) fail('index.html no carga la capa de subespecialidad y descargas.');
-else ok('Portada carga la capa de subespecialidad y descargas.');
-if (!index.includes('specialty-classification.js')) fail('index.html no carga la taxonomía clínica canónica.');
-else ok('Portada carga la taxonomía clínica canónica.');
 
-const uxFragments = [
-  "const MI = 'Medicina Interna'",
-  'SpecialtyClassification',
-  'rt-download-brief',
-  'generateBriefPDF',
-  "full.textContent = '⬇ Resumen completo'"
-];
-for (const fragment of uxFragments) {
-  if (!internalMedicineUx.includes(fragment)) fail(`internal-medicine-ux.js incompleto: falta ${fragment}`);
-}
-for (const [specialty, source] of [
-  ['Cardiología', String.raw`Cardiolog\u00eda`], ['Infectología', String.raw`Infectolog\u00eda`],
-  ['Neurología', String.raw`Neurolog\u00eda`], ['Hematología', String.raw`Hematolog\u00eda`],
-  ['Neumología', String.raw`Neumolog\u00eda`]
-]) {
-  if (!specialtyClassification.includes(source)) fail(`Taxonomía clínica incompleta: falta ${specialty}`);
-}
-if (specialtyClassification.includes('Medicina Interna General')) fail('La taxonomía conserva la categoría fantasma Medicina Interna General.');
-
-if (!index.includes('home-visual-tuning.js')) fail('index.html no carga el sistema visual principal de portada.');
-else ok('Portada carga el sistema visual editorial 2026.');
-
-const visualFragments = [
-  '--rt-paper:#f5f2e9',
-  'rt-editorial-prelude',
-  'rt-scroll-progress',
-  'grid-template-columns:minmax(0,1.42fr)',
-  'counter-reset:rtitem',
-  '.fila-cuerpo h3{font:500 clamp(27px,3vw,43px)',
-  'data-subspecialty="cardiologia"',
-  'data-subspecialty="infectologia"',
-  'data-subspecialty="neurologia"',
-  'data-subspecialty="hematologia"',
-  'data-subspecialty="neumologia"'
-];
-for (const fragment of visualFragments) {
-  if (!homeVisualTuning.includes(fragment)) fail(`home-visual-tuning.js incompleto: falta ${fragment}`);
-}
-if (!homeControlLayout.includes('overflow-x:clip')) fail('La portada no contiene el cierre de desbordamiento horizontal del nuevo lienzo editorial.');
-else ok('Lienzo editorial protegido contra desbordamiento horizontal.');
-
-const memberFragments = [
-  'data-rt-member-design="v4"',
-  'CUADERNO PERSONAL',
-  'ARCHIVO PERSONAL / EVIDENCIA GUARDADA',
-  'MEMBERS / RT',
-  '.mail-note',
-  'background:#10253d!important'
-];
-for (const fragment of memberFragments) {
-  if (!memberDesign.includes(fragment)) fail(`member-design-v3.js incompleto: falta ${fragment}`);
-}
-if (!process.exitCode) ok('Acceso, registro, cuenta y biblioteca comparten el nuevo sistema editorial.');
-
-const trialFragments = [
-  'ATLAS DE EVIDENCIA',
-  'counter-reset:rtsection',
-  'FUENTE PRIMARIA',
-  'grid-template-columns:repeat(3,minmax(0,1fr))',
-  '--papel:#f5f2e9'
-];
-for (const fragment of trialFragments) {
-  if (!trialCss.includes(fragment)) fail(`trial.css incompleto: falta ${fragment}`);
-}
-if (!semanticCss.includes('.cluster-card:hover{background:var(--tinta);color:#fff}')) fail('seo-semantic.css no conserva el comportamiento editorial del atlas de clusters.');
-else ok('Trials, categorías y clusters comparten el atlas editorial clínico.');
-
-if (!privacy.includes('pagina-institucional') || !privacy.includes('Fraunces') || !privacy.includes('Newsreader') || !privacy.includes('Política de Privacidad')) {
-  fail('La Política de Privacidad no respeta el sistema institucional del sitio.');
-} else ok('Política de Privacidad integrada en el sistema institucional existente.');
-
-if (process.exitCode) process.exit(process.exitCode);
-console.log('Editorial architecture PASS');
+if(process.exitCode)process.exit(process.exitCode);console.log('Editorial architecture PASS');

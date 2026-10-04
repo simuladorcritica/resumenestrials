@@ -3,15 +3,16 @@ const OBSOLETE_READER_SCRIPT_PATTERN = /<script\b[^>]*\bsrc=["'][^"']*reader-con
 
 const RUNTIME_MARKERS = Object.freeze({
   generatedBundle: '/* GENERATED FILE. Run: node scripts/build-site-runtime.mjs */',
-  readerSource: '/* source: reader-controls-v9.js */',
-  readerGuard: '__rtReaderControlsV9',
-  minimumTouchHeight: "setProperty('min-height', '54px'",
-  touchAction: "setProperty('touch-action', 'manipulation'",
+  readerSource: '/* source: ui/reader.js */',
+  readerGuard: 'data-ev-sections',
+  minimumTouchHeight: "min-height:44px",
+  touchAction: "touch-action:manipulation",
 });
 
-export function inspectReaderRuntime(html, runtimeJavaScript = '') {
+export function inspectReaderRuntime(html, runtimeJavaScript = '', runtimeCSS = '') {
   const source = String(html || '');
   const runtime = String(runtimeJavaScript || '');
+  const styles=String(runtimeCSS||'');
   const runtimePath = source.match(RUNTIME_SCRIPT_PATTERN)?.[1]?.replaceAll('&amp;', '&') || null;
   const checks = {
     bundledRuntimeReference: Boolean(runtimePath),
@@ -19,8 +20,8 @@ export function inspectReaderRuntime(html, runtimeJavaScript = '') {
     generatedBundle: runtime.includes(RUNTIME_MARKERS.generatedBundle),
     readerSource: runtime.includes(RUNTIME_MARKERS.readerSource),
     readerGuard: runtime.includes(RUNTIME_MARKERS.readerGuard),
-    minimumTouchHeight: runtime.includes(RUNTIME_MARKERS.minimumTouchHeight),
-    touchAction: runtime.includes(RUNTIME_MARKERS.touchAction),
+    minimumTouchHeight: styles.includes(RUNTIME_MARKERS.minimumTouchHeight),
+    touchAction: styles.includes(RUNTIME_MARKERS.touchAction),
   };
 
   return {

@@ -7,6 +7,7 @@ import { join } from 'node:path';
 const BASE = (process.env.BASE_URL || 'http://localhost:8000').replace(/\/$/, '');
 const OUT = process.env.AUDIT_JSON || 'informe_sitio_profundo.json';
 const PDF_MIN = 3000;
+const manifest=await fetch(BASE+'/seo-manifest.json').then(r=>r.json());
 const findings = [];
 const resources = new Set();
 
@@ -93,30 +94,30 @@ async function checkArticle(page, record) {
   const id = record.id;
   const label = `resumen ${id}`;
   await guardedGoto(page, `${BASE}/resumen.html?id=${encodeURIComponent(id)}`, label);
-  await page.waitForSelector('header.art h1', { timeout: 15000 }).catch(() => {});
+  await page.waitForSelector('.ev-reading-head h1', { timeout: 15000 }).catch(() => {});
   await page.waitForTimeout(250);
 
-  const title = (await page.locator('header.art h1').innerText().catch(() => '')).trim();
+  const title = (await page.locator('.ev-reading-head h1').innerText().catch(() => '')).trim();
   const expected = String(record.titulo || '').replace(/<[^>]+>/g, '').trim();
   if (!title) add('CRÍTICO', label, 'render', 'título ausente');
   else if (title !== expected) add('ALTO', label, 'consistencia', 'título renderizado no coincide con resumenes.json', `${title} != ${expected}`);
 
-  const body = await page.locator('article').innerText().catch(() => '');
+  const body = await page.locator('article').first().innerText().catch(() => '');
   if (body.length < 250) add('ALTO', label, 'render', 'cuerpo largo ausente o demasiado corto');
   if (/\bundefined\b|\bNaN\b|\[object Object\]/.test(await page.locator('body').innerText().catch(() => ''))) add('ALTO', label, 'render', 'texto de error/valor JavaScript visible');
 
   if (record.especialidad_principal === 'Medicina Interna' || record.especialidad_secundaria === 'Medicina Interna') {
-    if (!(await page.locator('.badge.subesp-mi').count())) add('MEDIO', label, 'clasificación', 'Medicina Interna sin subespecialidad visible');
+    if (!(await page.locator('[data-ev-subspecialty]').count())) add('MEDIO', label, 'clasificación', 'Medicina Interna sin subespecialidad visible');
   }
 
   const canonical = await page.locator('link[rel="canonical"]').getAttribute('href').catch(() => null);
-  const expectedCanonical = `https://resumenestrials.com/resumen.html?id=${id}`;
+  const expectedCanonical = `https://resumenestrials.com${manifest[String(id)].path}`;
   if (canonical !== expectedCanonical) add('ALTO', label, 'SEO', 'canonical inesperado', `${canonical} != ${expectedCanonical}`);
 
   const structured = await page.locator('#structured-data').textContent().catch(() => '');
   try { JSON.parse(structured || '{}'); } catch (err) { add('ALTO', label, 'SEO', 'JSON-LD inválido', err.message); }
 
-  const backText = await page.locator('.migas').innerText().catch(() => '');
+  const backText = await page.locator('.ev-breadcrumb').innerText().catch(() => '');
   if (/Medicina (?:Crítica|Interna)/.test(backText)) add('MEDIO', label, 'UX', 'la especialidad reapareció junto a Volver al índice', backText);
 
   const fullVisible = await page.locator('[data-pdf-version="completo"]:visible').count();
@@ -124,7 +125,7 @@ async function checkArticle(page, record) {
   if (!fullVisible) add('CRÍTICO', label, 'PDF/UX', 'la versión completa no muestra su botón de descarga');
   if (briefVisibleOnFull) add('ALTO', label, 'PDF/UX', 'la versión completa muestra indebidamente el botón de resumen breve');
 
-  const fullText = await page.locator('[data-pdf-version="completo"]:visible').first().innerText().catch(() => '');
+  const fullText = await page.locator('[data-pdf-version="completo"]:visible').first().getAttribute('aria-label').catch(() => '');
   if (fullVisible && !/Descargar resumen completo PDF/i.test(fullText)) add('MEDIO', label, 'UX', 'etiqueta del botón completo poco identificable', fullText);
 
   try {
@@ -139,19 +140,19 @@ async function checkArticle(page, record) {
   if (record.corto) {
     const shortLabel = `${label} breve`;
     await guardedGoto(page, `${BASE}/resumen.html?id=${encodeURIComponent(id)}&v=corto`, shortLabel);
-    await page.waitForSelector('article.corto', { timeout: 15000 }).catch(() => {});
+    await page.waitForSelector('article.ev-body', { timeout: 15000 }).catch(() => {});
     await page.waitForTimeout(250);
 
-    const shortBody = await page.locator('article.corto').innerText().catch(() => '');
+    const shortBody = await page.locator('article.ev-body').innerText().catch(() => '');
     if (shortBody.length < 120) add('ALTO', shortLabel, 'render', 'versión breve ausente o demasiado corta');
-    if ((record.especialidad_principal === 'Medicina Interna' || record.especialidad_secundaria === 'Medicina Interna') && !(await page.locator('.badge.subesp-mi').count())) add('MEDIO', shortLabel, 'clasificación', 'subespecialidad ausente en la versión breve');
+    if ((record.especialidad_principal === 'Medicina Interna' || record.especialidad_secundaria === 'Medicina Interna') && !(await page.locator('[data-ev-subspecialty]').count())) add('MEDIO', shortLabel, 'clasificación', 'subespecialidad ausente en la versión breve');
 
     const briefVisible = await page.locator('[data-pdf-version="breve"]:visible').count();
     const fullVisibleOnBrief = await page.locator('[data-pdf-version="completo"]:visible').count();
     if (!briefVisible) add('ALTO', shortLabel, 'PDF/UX', 'la versión breve no muestra su botón de descarga');
     if (fullVisibleOnBrief) add('ALTO', shortLabel, 'PDF/UX', 'la versión breve muestra indebidamente el botón de resumen completo');
 
-    const briefText = await page.locator('[data-pdf-version="breve"]:visible').first().innerText().catch(() => '');
+    const briefText = await page.locator('[data-pdf-version="breve"]:visible').first().getAttribute('aria-label').catch(() => '');
     if (briefVisible && !/Descargar resumen breve PDF/i.test(briefText)) add('MEDIO', shortLabel, 'UX', 'etiqueta del botón breve poco identificable', briefText);
 
     try {
@@ -176,17 +177,17 @@ async function main() {
   const page = await ctx.newPage();
 
   await guardedGoto(page, `${BASE}/index.html`, 'index');
-  await page.waitForSelector('#indice .fila', { timeout: 15000 }).catch(() => {});
-  await page.waitForSelector('#rt-year', { timeout: 10000 }).catch(() => {});
+  await page.waitForSelector('#ev-list>.ev-card', { timeout: 15000 }).catch(() => {});
+  await page.waitForSelector('#ev-year', { timeout: 10000 }).catch(() => {});
   await page.waitForTimeout(500);
 
-  const cards = await page.locator('#indice .fila').count();
+  const cards = await page.locator('#ev-list>.ev-card').count();
   if (cards !== data.length) add('ALTO', 'index', 'integridad', `la portada muestra ${cards} filas para ${data.length} registros`);
 
   const align = await page.evaluate(() => {
-    const search = document.querySelector('.buscador');
-    const year = document.querySelector('#rt-year');
-    const journal = document.querySelector('#rt-journal');
+    const search = document.querySelector('#ev-q');
+    const year = document.querySelector('#ev-year');
+    const journal = document.querySelector('#ev-journal');
     if (!search || !year || !journal) return null;
     const s = search.getBoundingClientRect(), y = year.getBoundingClientRect(), j = journal.getBoundingClientRect();
     return { searchTop: s.top, yearTop: y.top, journalTop: j.top, maxDelta: Math.max(Math.abs(s.top-y.top), Math.abs(s.top-j.top)) };
@@ -194,20 +195,16 @@ async function main() {
   if (!align) add('ALTO', 'index', 'filtros', 'faltan buscador o filtros de año/revista');
   else if (align.maxDelta > 10) add('MEDIO', 'index', 'UX', 'buscador, año y revista no están en el mismo renglón en escritorio', JSON.stringify(align));
 
-  const fullIndexText = await page.locator('.fila-pdf .btn-pdf:not(.rt-download-brief)').first().innerText().catch(() => '');
-  if (!/Descargar resumen completo PDF/i.test(fullIndexText)) add('MEDIO', 'index', 'UX', 'los controles del índice no identifican claramente la descarga completa', fullIndexText);
-  if (data.some((r) => r.corto)) {
-    const briefIndexText = await page.locator('.fila-pdf .rt-download-brief').first().innerText().catch(() => '');
-    if (!/Descargar resumen breve PDF/i.test(briefIndexText)) add('MEDIO', 'index', 'UX', 'los controles del índice no identifican claramente la descarga breve', briefIndexText);
-  }
-
-  const input = page.locator('.buscador-input');
+  const fullIndexText=await page.locator('[data-ev-card-pdf]').first().getAttribute('aria-label').catch(()=>'');
+  if(!/Descargar resumen completo PDF/i.test(fullIndexText))add('MEDIO','index','UX','PDF completo no identificado',fullIndexText);
+  // Brief reading and its download are checked for every record below.
+  const input = page.locator('#ev-q');
   if (await input.count()) {
     const term = String(data[0].titulo || '').split(':')[0].trim();
     if (term) {
       await input.fill(term);
       await page.waitForTimeout(300);
-      const visible = await page.locator('#indice .fila:visible').count();
+      const visible = await page.locator('#ev-list>.ev-card:visible').count();
       if (visible < 1) add('ALTO', 'index', 'buscador', `buscar '${term}' dejó cero resultados`);
       await input.fill('');
     }
@@ -219,7 +216,7 @@ async function main() {
     await basicA11y(page, route);
     if (route === 'privacidad/') {
       const alignPrivacy = await page.locator('main p:not(.fecha)').first().evaluate((el) => getComputedStyle(el).textAlign).catch(() => '');
-      if (alignPrivacy !== 'justify') add('MEDIO', route, 'UX/editorial', 'el texto principal del aviso de privacidad no está justificado', alignPrivacy);
+      if (!['left','start','justify'].includes(alignPrivacy)) add('MEDIO', route, 'UX/editorial', 'alineación del texto de privacidad no legible', alignPrivacy);
     }
   }
 

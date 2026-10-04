@@ -4,16 +4,20 @@ on:
   push:
     branches: [main]
     paths:
+      - 'ui/**'
+      - 'site_templates.py'
+      - 'templates/**'
+      - 'scripts/design-browser-suites.mjs'
       - "aplicar_experiencia_futura.py"
-      - "future-experience.css"
-      - "future-experience-patch.css"
-      - "future-experience.js"
-      - "global-search.css"
-      - "global-search.js"
-      - "future-experience-final.js"
-      - "future-experience-fix-v4.js"
-      - "future-experience-fix-v4-compat.js"
-      - "legacy-unifier-v4.js"
+      - "ui/site.css"
+      - "ui/site.css"
+      - "ui/archive.js"
+      - "ui/site.css"
+      - "ui/core.js"
+      - "ui/reader.js"
+      - "ui/forms.js"
+      - "ui/core.js"
+      - "ui/reader.js"
       - "scripts/build-site-runtime.mjs"
       - ".github/workflows/future-regenerate.yml"
   workflow_dispatch:
@@ -48,20 +52,21 @@ jobs:
       - name: Validar generadores e inyector
         run: |
           python -m py_compile generar_seo.py generar_seo_clusters.py generar_seo_semantico.py generar_seo_avanzado.py restaurar_arquitectura.py actualizar_agregar_editorial.py aplicar_experiencia_futura.py generar_paginas_sociales.py
-          node --check future-experience.js
-          node --check global-search.js
-          node --check future-experience-final.js
-          node --check future-experience-fix-v4.js
-          node --check future-experience-fix-v4-compat.js
-          node --check legacy-unifier-v4.js
-          node --check pdf-contact.js
-          node --check trial-pdf.js
+          node --check ui/archive.js
+          node --check ui/core.js
+          node --check ui/reader.js
+          node --check ui/forms.js
+          node --check ui/core.js
+          node --check ui/reader.js
+          node --check ui/pdf.js
+          node --check ui/pdf.js
           node --check scripts/adsense-production-smoke.mjs
           node scripts/build-site-runtime.mjs
           node --check site-runtime.js
 
       - name: Regenerar sitio completo en memoria de trabajo
         run: |
+          node scripts/build-site-runtime.mjs
           python generar_seo.py
           python generar_seo_semantico.py
           python generar_seo_avanzado.py
@@ -72,35 +77,7 @@ jobs:
 
       - name: Verificar experiencia v4 y AdSense en todas las salidas
         run: |
-          python - <<'PY'
-          from pathlib import Path
-          import aplicar_experiencia_futura as future
-
-          expected_ads = 'google.com, pub-3132744538918477, DIRECT, f08c47fec0942fa0'
-          ads_path = Path('ads.txt')
-          assert ads_path.is_file(), 'Falta ads.txt en la raíz del sitio'
-          assert ads_path.read_text(encoding='utf-8').strip() == expected_ads, 'ads.txt no coincide con el publisher autorizado'
-
-          checked = 0
-          for path in future.candidates():
-              if not path.is_file():
-                  continue
-              source = path.read_text(encoding='utf-8')
-              assert source.count('/site-runtime.css?v=20260821') == 1, f'{path}: runtime CSS ausente o duplicado'
-              assert source.count('/site-runtime.js?v=20260821') == 1, f'{path}: runtime JS ausente o duplicado'
-              assert '/future-experience.js?v=1' not in source, f'{path}: conserva carga JS fragmentada'
-              if future.adsense_allowed(path):
-                  assert source.count(future.ADSENSE_URL) == 1, f'{path}: AdSense debe aparecer exactamente una vez'
-                  head, sep, _ = source.partition('</head>')
-                  assert sep and future.ADSENSE_URL in head, f'{path}: el script de AdSense no está dentro de <head>'
-                  assert 'crossorigin="anonymous"' in head, f'{path}: falta crossorigin de AdSense'
-              else:
-                  assert 'adsbygoogle' not in source and future.ADSENSE_CLIENT not in source, f'{path}: AdSense prohibido en esta ruta'
-              checked += 1
-          if checked < 50:
-              raise SystemExit(f'Solo se verificaron {checked} páginas; se esperaban al menos 50')
-          print(f'PASS: experiencia futura + buscador global + política AdSense verificados en {checked} páginas; ads.txt válido')
-          PY
+          python3 scripts/validate-design.py
           python3 scripts/validate-adsense-policy.py
 
       - name: Confirmar que main ya contiene todas las salidas derivadas
