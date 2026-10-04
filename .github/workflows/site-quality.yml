@@ -282,7 +282,7 @@ jobs:
           RT_WAIT_FOR_DEPLOY: '1'
         run: node scripts/production-health.mjs
 
-  browser-smoke:
+  browser-smoke-chromium:
     if: ${{ (github.event_name != 'workflow_dispatch' || inputs.confirmation != 'SEND_ONE_QA_EMAIL') && (github.event_name == 'pull_request' || github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main') }}
     runs-on: ubuntu-latest
     container: mcr.microsoft.com/playwright:v1.62.1-noble
@@ -290,7 +290,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        case: ['chromium:390:oscuro', 'chromium:390:claro', 'chromium:1440:oscuro', 'chromium:1440:claro', 'webkit:390:oscuro', 'webkit:390:claro', 'webkit:1440:oscuro', 'webkit:1440:claro']
+        case: ['chromium:390:oscuro', 'chromium:390:claro', 'chromium:1440:oscuro', 'chromium:1440:claro']
     steps:
       - uses: actions/checkout@v7.0.1
       - uses: actions/setup-node@v7.0.0
@@ -314,6 +314,44 @@ jobs:
       - name: Preserve server diagnostics
         if: failure()
         run: tail -n 100 /tmp/rt-browser-http.log
+
+  browser-smoke-webkit:
+    if: ${{ (github.event_name != 'workflow_dispatch' || inputs.confirmation != 'SEND_ONE_QA_EMAIL') && (github.event_name == 'pull_request' || github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main') }}
+    runs-on: windows-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        case: ['webkit:390:oscuro', 'webkit:390:claro', 'webkit:1440:oscuro', 'webkit:1440:claro']
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-node@v7.0.0
+        with:
+          node-version: '20'
+      - uses: actions/setup-python@v7.0.0
+        with:
+          python-version: '3.12'
+      - name: Install matching Playwright and WebKit
+        run: |
+          npm install
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          npx playwright install webkit
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Serve the exact pull request locally
+        run: |
+          Start-Process python -ArgumentList '-m','http.server','8000' -WindowStyle Hidden -RedirectStandardOutput "$env:RUNNER_TEMP/rt-browser-http.log" -RedirectStandardError "$env:RUNNER_TEMP/rt-browser-http-errors.log"
+          Start-Sleep -Seconds 3
+      - name: Sweep every record in this WebKit configuration
+        env:
+          RT_BASE_URL: http://127.0.0.1:8000
+          RT_SWEEP_CASE: ${{ matrix.case }}
+          DEBUG: pw:browser
+        run: node scripts/browser-smoke.mjs
+      - name: Preserve server diagnostics
+        if: failure()
+        run: |
+          Get-Content -LiteralPath "$env:RUNNER_TEMP/rt-browser-http.log" -Tail 100
+          Get-Content -LiteralPath "$env:RUNNER_TEMP/rt-browser-http-errors.log" -Tail 100
 
   browser-interactions:
     if: ${{ (github.event_name != 'workflow_dispatch' || inputs.confirmation != 'SEND_ONE_QA_EMAIL') && (github.event_name == 'pull_request' || github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main') }}
