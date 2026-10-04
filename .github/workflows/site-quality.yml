@@ -337,16 +337,23 @@ jobs:
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
           npx playwright install webkit
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-      - name: Serve the exact pull request locally
-        run: |
-          Start-Process python -ArgumentList '-m','http.server','8000' -WindowStyle Hidden -RedirectStandardOutput "$env:RUNNER_TEMP/rt-browser-http.log" -RedirectStandardError "$env:RUNNER_TEMP/rt-browser-http-errors.log"
-          Start-Sleep -Seconds 3
-      - name: Sweep every record in this WebKit configuration
+      - name: Serve and sweep every record in this WebKit configuration
         env:
           RT_BASE_URL: http://127.0.0.1:8000
           RT_SWEEP_CASE: ${{ matrix.case }}
           DEBUG: pw:browser
-        run: node scripts/browser-smoke.mjs
+        run: |
+          $qaServer = Start-Process -FilePath "$env:pythonLocation/python.exe" -ArgumentList '-m','http.server','8000' -WorkingDirectory $env:GITHUB_WORKSPACE -WindowStyle Hidden -PassThru -RedirectStandardOutput "$env:RUNNER_TEMP/rt-browser-http.log" -RedirectStandardError "$env:RUNNER_TEMP/rt-browser-http-errors.log"
+          try {
+            Start-Sleep -Seconds 3
+            if ($qaServer.HasExited) { throw 'The local QA server exited before the sweep' }
+            $qaResponse = Invoke-WebRequest -Uri 'http://127.0.0.1:8000/'
+            if ($qaResponse.StatusCode -ne 200) { throw 'The local QA server is not ready' }
+            node scripts/browser-smoke.mjs
+            if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          } finally {
+            if (-not $qaServer.HasExited) { Stop-Process -Id $qaServer.Id }
+          }
       - name: Preserve server diagnostics
         if: failure()
         run: |
