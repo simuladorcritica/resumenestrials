@@ -15,7 +15,7 @@
   window.RTReadingContext={destination:()=>active()?.origin||'/',requestReturn,context:()=>active()};
   document.addEventListener('click',event=>{
     const link=event.target.closest('a[href]');if(!link)return;
-    if(link.matches('[data-reading-return],[data-ev-return]')){requestReturn();return;}
+    if(link.matches('[data-reading-return],[data-ev-return]')){const ctx=active();if(ctx)link.href=ctx.origin;requestReturn();return;}
     if(isReader&&link.closest('[data-ev-neighbors]')){const ctx=active(),url=new URL(link.href,location.href);if(ctx&&url.origin===location.origin&&/^\/trials\//.test(url.pathname)){ctx.targets=[...new Set([...ctx.targets,url.pathname])];write(ctx)}return;}
     if(!isOrigin(path))return;
     const url=new URL(link.href,location.href);if(url.origin!==location.origin||!(/^\/trials\//.test(url.pathname)||url.pathname==='/resumen.html'))return;

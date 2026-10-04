@@ -43,4 +43,3 @@ async function load(){
 q.addEventListener('input',()=>{if(state?.signedIn&&all.length)render()});
 area.addEventListener('change',()=>{if(state?.signedIn&&all.length)render()});
 load();
-

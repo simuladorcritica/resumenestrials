@@ -35,4 +35,3 @@ async function init(){
   }catch(err){console.error('Recommendations init',err)}
 }
 setTimeout(init,0);
-

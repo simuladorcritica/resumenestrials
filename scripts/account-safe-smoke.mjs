@@ -28,4 +28,3 @@ for(const type of [chromium,webkit]){const b=await type.launch();try{for(const w
  }finally{await c.close()}
 }}finally{await b.close()}}
 
-
