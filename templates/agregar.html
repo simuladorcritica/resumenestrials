@@ -1,0 +1,322 @@
+<html><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agregar resumen · Síntesis</title>
+
+
+
+
+<meta name="robots" content="noindex,follow"><script>try{const t=localStorage.getItem("rt-tema");document.documentElement.dataset.evTheme=t==="claro"||t==="oscuro"?t:matchMedia("(prefers-color-scheme:light)").matches?"claro":"oscuro"}catch{}</script><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;650;700&family=JetBrains+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap"><link rel="stylesheet" href="/site-runtime.css?v=a9eb27b2b3ce"></head><body>
+<div class="ev-envoltorio">
+
+  
+
+  <div class="ev-cargado" id="cargado">Cargando resúmenes existentes…</div>
+  <div class="ev-cargar-opts">
+    <span>¿No cargó solo?</span>
+    <label>
+      Subir resumenes.json actual <input type="file" id="archivo" accept=".json,application/json">
+    </label>
+    <details class="ev-pegar">
+      <summary>o pegar su contenido</summary>
+      <label for="pegarTxt">Contenido actual de resumenes.json</label><textarea id="pegarTxt" placeholder="Pega aquí el contenido actual de resumenes.json"></textarea>
+      <button class="ev-btn ev-btn-sec2" id="pegarBtn">Cargar lo pegado</button>
+    </details>
+  </div>
+
+  <div class="ev-cols">
+    <!-- ============ FORMULARIO ============ -->
+    <form id="form" autocomplete="off">
+      <fieldset>
+        <legend>Identificación</legend>
+        <div class="ev-fila3">
+          <div class="ev-campo"><label for="id">id</label><input type="number" id="id" min="1" step="1"></div>
+          <div class="ev-campo"><label for="anio">Año</label><input type="text" id="anio" placeholder="2026" inputmode="numeric"></div>
+          <div class="ev-campo"><label for="registro">Registro (NCT)</label><input type="text" id="registro" placeholder="NCT05047263"></div>
+        </div>
+        <div class="ev-campo"><label for="titulo">Título</label><input type="text" id="titulo" placeholder="Finerenona en enfermedad renal crónica sin diabetes"></div>
+        <div class="ev-fila2">
+          <div class="ev-campo"><label for="autor">Autor</label><input type="text" id="autor" placeholder="Heerspink HJL"></div>
+          <div class="ev-campo"><label for="revista">Revista</label><input type="text" id="revista" placeholder="NEJM"></div>
+        </div>
+        <div class="ev-fila2">
+          <div class="ev-campo"><label for="doi">DOI</label><input type="text" id="doi" placeholder="10.1056/NEJMoa2604625"></div>
+          <div class="ev-campo"><label for="financiacion">Financiación</label><input type="text" id="financiacion" placeholder="Financiado por Bayer"></div>
+        </div>
+        <div class="ev-campo"><label for="original">Enlace al artículo original</label><input type="url" id="original" placeholder="https://www.nejm.org/doi/full/…"></div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Clasificación</legend>
+        <div class="ev-fila2">
+          <div class="ev-campo">
+            <label for="especialidad_principal">Especialidad principal</label>
+            <select id="especialidad_principal">
+              <option value="Medicina Crítica">Medicina Crítica</option>
+              <option value="Medicina Interna">Medicina Interna</option>
+            </select>
+          </div>
+          <div class="ev-campo">
+            <label for="especialidad_secundaria">Especialidad secundaria (opcional)</label>
+            <select id="especialidad_secundaria">
+              <option value="">— ninguna —</option>
+              <option value="Medicina Crítica">Medicina Crítica</option>
+              <option value="Medicina Interna">Medicina Interna</option>
+            </select>
+          </div>
+        </div>
+        <div class="ev-fila2">
+          <div class="ev-campo">
+            <label for="temas">Temas (separados por comas)</label>
+            <input type="text" id="temas" placeholder="Sepsis, Choque séptico, Fluidoterapia">
+          </div>
+          <div class="ev-campo">
+            <label for="tipo_estudio">Tipo de estudio</label>
+            <input type="text" id="tipo_estudio" value="Ensayo clínico aleatorizado">
+          </div>
+        </div>
+        <div class="ev-ayuda">La especialidad secundaria solo se usa cuando el trial pertenece de verdad a ambas áreas; entonces aparecerá al filtrar cualquiera de las dos.</div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Adelanto (lo que se ve en el índice)</legend>
+        <div class="ev-campo">
+          <label for="objetivo">Objetivo (breve)</label>
+          <textarea id="objetivo" placeholder="Averiguar si…"></textarea>
+        </div>
+        <div class="ev-campo">
+          <label for="hallazgo">Hallazgo (con la cifra clave)</label>
+          <textarea id="hallazgo" placeholder="El filtrado cayó más despacio: **−3.3 frente a −4.0 ml/min/1.73 m²/año**…"></textarea>
+          <div class="ev-ayuda">Rodea con <code>**dobles asteriscos**</code> lo que quieras en <strong>ámbar</strong> (la cifra que más importa).</div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Cuerpo del resumen (página completa)</legend>
+        <div class="ev-ayuda">Cada bloque se convierte en una sección. Separa párrafos con una línea en blanco. Usa <code>**…**</code> para negritas. Deja vacío el bloque que no uses.</div>
+        <div id="secciones"></div>
+        <button type="button" class="ev-btn-sec" id="addSec">+ Añadir sección</button>
+      </fieldset>
+
+      <div class="ev-acciones">
+        <button type="button" class="ev-btn ev-btn-primario" id="generar">Generar archivo</button>
+        <button type="button" class="ev-btn ev-btn-sec2" id="descargar">Descargar resumenes.json</button>
+        <button type="button" class="ev-btn ev-btn-sec2" id="copiar">Copiar solo este objeto</button>
+      </div>
+      <div class="ev-estado" id="estado"></div>
+
+      <div class="ev-salida">
+        <label for="salida">resumenes.json resultante</label>
+        <textarea id="salida" readonly placeholder="Pulsa «Generar archivo» y aquí aparecerá el contenido completo, ya válido."></textarea>
+      </div>
+    </form>
+
+    <!-- ============ VISTA PREVIA ============ -->
+    <div class="ev-previo-wrap">
+      <div class="ev-previo-tit">Vista previa en vivo</div>
+      <div class="ev-previo-caja">
+        <div class="ev-pv-label">Tarjeta en el índice</div>
+        <div id="pvCard"></div>
+        <div class="ev-pv-label">Página completa</div>
+        <div class="ev-pv-art" id="pvArt"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const SECCIONES_ESTANDAR = [
+    "Objetivo","Población e intervención","Diseño",
+    "Resultados","Seguridad","Conclusión","Aplicación clínica"
+  ];
+
+  let existentes = [];
+  let bibliotecaCargada = false;
+  let ultimoFull = null;
+
+  const $ = (id) => document.getElementById(id);
+  const cargadoEl = $("cargado");
+  const estadoEl = $("estado");
+  const seccionesEl = $("secciones");
+
+  // ---- utilidades de texto ----
+  const esc = (s) => (s || "").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+  const inline = (s) => esc(s).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+  const parrafos = (t) => (t || "").split(/\n\s*\n/).map(b => b.trim()).filter(Boolean)
+      .map(b => "<p>" + inline(b).replace(/\n/g, " ") + "</p>").join("\n");
+
+  function estado(msg, tipo){ estadoEl.textContent = msg; estadoEl.className = "ev-estado" + (tipo || ""); }
+
+  // ---- secciones del cuerpo ----
+  function nuevaSeccion(titulo, texto){
+    const row = document.createElement("div");
+    row.className = "ev-sec-row";
+    row.innerHTML =
+      '<div class="ev-sec-head">' +
+        '<input type="text" class="ev-sec-tit" aria-label="Título de la sección" placeholder="Título de la sección">' +
+        '<button type="button" class="ev-sec-x" aria-label="Quitar esta sección" title="Quitar">✕</button>' +
+      '</div>' +
+      '<textarea class="ev-sec-txt" aria-label="Texto de la sección" placeholder="Texto de la sección…"></textarea>';
+    row.querySelector(".ev-sec-tit").value = titulo || "";
+    row.querySelector(".ev-sec-txt").value = texto || "";
+    row.querySelector(".ev-sec-x").addEventListener("click", () => { row.remove(); preview(); });
+    seccionesEl.appendChild(row);
+  }
+  SECCIONES_ESTANDAR.forEach(t => nuevaSeccion(t, ""));
+  $("addSec").addEventListener("click", () => { nuevaSeccion("", ""); });
+
+  function leerSecciones(){
+    return [...seccionesEl.querySelectorAll(".sec-row")].map(r => ({
+      titulo: r.querySelector(".ev-sec-tit").value.trim(),
+      texto: r.querySelector(".ev-sec-txt").value
+    }));
+  }
+  function construirCuerpo(){
+    return leerSecciones().filter(s => s.titulo && s.texto.trim())
+      .map(s => "<h2>" + esc(s.titulo) + "</h2>\n" + parrafos(s.texto)).join("\n");
+  }
+
+  // ---- objeto resumen ----
+  const v = (id) => $(id).value.trim();
+  function objeto(){
+    const temas = v("temas").split(",").map(t => t.trim()).filter(Boolean);
+    return {
+      ...existentes.find(x => x.id === Number(v("id"))),
+      id: Number(v("id")) || 0,
+      titulo: v("titulo"),
+      autor: v("autor"),
+      revista: v("revista"),
+      anio: /^\d{4}$/.test(v("anio")) ? Number(v("anio")) : v("anio"),
+      registro: v("registro"),
+      doi: v("doi"),
+      financiacion: v("financiacion"),
+      original: v("original"),
+      especialidad_principal: v("especialidad_principal"),
+      especialidad_secundaria: v("especialidad_secundaria"),
+      temas: temas,
+      tipo_estudio: v("tipo_estudio"),
+      objetivo: inline(v("objetivo")),
+      hallazgo: inline(v("hallazgo")),
+      cuerpo: construirCuerpo()
+    };
+  }
+
+  // ---- vista previa ----
+  function preview(){
+    const o = objeto();
+    const lineaIdx = [o.autor, o.revista, o.registro, o.doi].filter(Boolean).join(" · ");
+    const esps = [o.especialidad_principal, o.especialidad_secundaria].filter(Boolean)
+      .map(e => '<span class="ev-preview-muted">' + esc(e) + '</span>').join("");
+    $("pvCard").innerHTML =
+      (esps ? '<div class="ev-preview-muted">' + esps + '</div>' : '') +
+      '<div class="ev-pv-tit">' + esc(o.titulo || "(título)") + '</div>' +
+      '<div class="ev-pv-fuente">' + esc(lineaIdx || "autor · revista · NCT · DOI") + '</div>' +
+      '<div class="ev-pv-caja">' +
+        '<div class="ev-pv-obj">' + (o.objetivo || '<span class="ev-preview-muted">(objetivo)</span>') + '</div>' +
+        '<div class="ev-pv-hall">' + (o.hallazgo || "(hallazgo)") + '</div>' +
+      '</div>';
+    const fuente = [o.autor, o.anio ? o.revista + " " + o.anio : o.revista, o.registro, o.financiacion].filter(Boolean).join(" · ");
+    $("pvArt").innerHTML =
+      '<div class="ev-pv-fuente">' + esc(fuente || "—") + '</div>' +
+      '<div class="ev-pv-h1">' + esc(o.titulo || "(título)") + '</div>' +
+      '<div class="ev-pv-cuerpo">' + (o.cuerpo || '<p class="ev-preview-muted">(sin contenido todavía)</p>') + '</div>' +
+      (o.original ? '<div class="ev-pv-enlace">Artículo original: consultar en la revista →</div>' : "");
+  }
+  document.getElementById("form").addEventListener("input", preview);
+
+  // ---- validación ----
+  function validar(o){
+    const req = { titulo:"Título", autor:"Autor", revista:"Revista", anio:"Año", registro:"Registro (NCT)", especialidad_principal:"Especialidad principal" };
+    const faltan = Object.entries(req).filter(([k]) => !o[k]).map(([,n]) => n);
+    const msgs = [];
+    if (faltan.length) msgs.push("Faltan: " + faltan.join(", "));
+    if (!Number.isSafeInteger(o.id) || o.id < 1) msgs.push("El id debe ser un número entero seguro ≥ 1");
+    if (o.anio && !/^\d{4}$/.test(o.anio)) msgs.push("El año debe tener 4 dígitos");
+    if (!o.cuerpo) msgs.push("El cuerpo está vacío");
+    const dup = existentes.some(x => String(x.id) === String(o.id));
+    return { msgs, dup };
+  }
+
+  // ---- generar / descargar / copiar ----
+  function generar(){
+    if (!bibliotecaCargada) {
+      estado("Carga un resumenes.json válido antes de generar el archivo completo.", "err");
+      ultimoFull = null;
+      return null;
+    }
+    const o = objeto();
+    const { msgs, dup } = validar(o);
+    if (msgs.length){ estado("⚠ " + msgs.join(" · "), "err"); ultimoFull = null; return null; }
+    const full = existentes.filter(x => String(x.id) !== String(o.id)).concat(o)
+                           .sort((a,b) => (Number(a.id)||0) - (Number(b.id)||0));
+    ultimoFull = full;
+    $("salida").value = JSON.stringify(full, null, 2);
+    estado((dup ? "✓ Actualizado el id " + o.id + " (ya existía). " : "✓ Agregado el id " + o.id + ". ") +
+           "Total: " + full.length + ". Descarga el archivo y súbelo al repositorio.", "ok");
+    return full;
+  }
+  $("generar").addEventListener("click", generar);
+
+  $("descargar").addEventListener("click", () => {
+    const full = generar();
+    if (!full) return;
+    const blob = new Blob([JSON.stringify(full, null, 2)], { type: "application/json" });
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "resumenes.json";
+    document.body.appendChild(a); a.click(); a.remove();
+    URL.revokeObjectURL(a.href);
+  });
+
+  $("copiar").addEventListener("click", () => {
+    const o = objeto();
+    const txt = JSON.stringify(o, null, 2);
+    navigator.clipboard.writeText(txt)
+      .then(() => estado("Objeto copiado al portapapeles.", "ok"))
+      .catch(() => { $("salida").value = txt; estado("Copia manual desde el cuadro de abajo.", ""); });
+  });
+
+  // ---- cargar existentes ----
+  function setExistentes(arr, explicita = false){
+    if (!Array.isArray(arr) || arr.some(x => !x || typeof x !== "object" || Array.isArray(x) || !Number.isSafeInteger(x.id) || x.id < 1) || new Set(arr.map(x => x.id)).size !== arr.length) {
+      throw new Error("Se requiere una lista de resúmenes con IDs enteros positivos y únicos.");
+    }
+    if (!arr.length && (!explicita || existentes.length)) {
+      throw new Error("Una biblioteca vacía solo se admite explícitamente para la primera alta.");
+    }
+    existentes = arr;
+    bibliotecaCargada = true;
+    ultimoFull = null;
+    const next = existentes.reduce((m,x) => Math.max(m, Number(x.id) || 0), 0) + 1;
+    if (!$("id").value) $("id").value = next;
+    cargadoEl.textContent = existentes.length
+      ? existentes.length + " resúmenes cargados. Próximo id sugerido: " + next + "."
+      : "Aún no hay resúmenes (este será el primero). id sugerido: 1.";
+    preview();
+  }
+
+  fetch("resumenes.json", { cache: "no-store" })
+    .then(r => { if (!r.ok) throw new Error(); return r.json(); })
+    .then(setExistentes)
+    .catch(() => {
+      cargadoEl.textContent = "No pude leer resumenes.json automáticamente (normal si abriste el archivo desde tu disco). Súbelo o pégalo aquí abajo para poder descargar el archivo completo.";
+      $("id").value = 1;
+      preview();
+    });
+
+  $("archivo").addEventListener("change", (e) => {
+    const f = e.target.files[0]; if (!f) return;
+    const rd = new FileReader();
+    rd.onload = () => { try { setExistentes(JSON.parse(rd.result), true); estado("Archivo cargado.", "ok"); }
+                        catch (error) { estado(error instanceof SyntaxError ? "Ese archivo no es JSON válido." : error.message, "err"); } };
+    rd.readAsText(f);
+  });
+  $("pegarBtn").addEventListener("click", () => {
+    try { setExistentes(JSON.parse($("pegarTxt").value), true); estado("Contenido cargado.", "ok"); }
+    catch (error) { estado(error instanceof SyntaxError ? "El texto pegado no es JSON válido." : error.message, "err"); }
+  });
+
+  preview();
+</script>
+<script src="/agregar-editorial-dates.js?v=1"></script>
+</body></html>

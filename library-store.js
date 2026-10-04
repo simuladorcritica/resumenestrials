@@ -1,4 +1,4 @@
-import { supabase, currentUser, getMfaLoginState } from './auth.js';
+import { supabase, currentUser, getMfaLoginState } from './auth.js?v=20261003-laboratorio-v1';
 
 const MAX_IDS=500;
 
