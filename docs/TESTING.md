@@ -6,6 +6,8 @@ Ejecutar `npm run build`, la secuencia de `ARCHITECTURE.md`, `npm run validate`,
 
 ## Equivalencias
 
+La portada conserva en templates/home-disclosure.html los dos párrafos originales de privacidad y contenido de _includes/index-source.html del commit anterior. Se insertan desde la plantilla, sin cambiar su texto. Las tres regresiones home-disclosure.test.mjs congelan el contenido con LF normalizado y comprueban que ambos HTML de portada lo incluyan una sola vez. El smoke de AdSense mantiene todas sus aserciones originales: Google AdSense explícito en portada y política, sección de cookies, ausencia de declaraciones falsas, exclusiones, publisher y gate de datos. Salud y el smoke del lector esperan también este aviso para distinguir el despliegue nuevo aunque el bundle no cambie.
+
 | Entrada anterior | Verificación actual | Contratos conservados |
 |---|---|---|
 | navigation-ux-smoke | navigation | Cabecera, destinos, búsqueda, atajos, teclado, tema, menú móvil |
@@ -32,7 +34,7 @@ Las aserciones de ornamentación, fuentes y paleta antiguas se sustituyen por lo
 
 Los artefactos detallados se entregan fuera del repositorio. Los outputs de CI se guardan como artifacts; no se añaden PDFs, capturas, prompts, datos privados ni informes al sitio público.
 
-Los smokes con AdSense real conservan los errores y registran la pila de creación de las promesas en el contexto de QA. Una excepción se atribuye al proveedor solo cuando su pila señala el script de anuncios de Google y no contiene el origen del sitio, y coincide con un error observado. Toda excepción propia o sin atribución bloquea la prueba. La instrumentación vive únicamente en Playwright y no cambia el código publicado ni suprime eventos.
+Los smokes con AdSense real conservan los errores y registran la pila de creación de las promesas en el contexto de QA. Una excepción se atribuye al proveedor solo cuando su pila señala el script de anuncios de Google y no contiene el origen del sitio, y coincide con un error observado. Toda excepción propia o sin atribución bloquea la prueba. La instrumentación vive únicamente en Playwright y no cambia el código publicado ni suprime eventos. El smoke también conserva las pilas de excepciones directas. Solo atribuye int64 de rum_fy2021.js cuando cada frame tiene una ubicación HTTPS en el host exacto pagead2.googlesyndication.com y ese mismo script. Las pilas vacías, mixtas, nativas, desconocidas, otros mensajes/scripts o hosts parecidos siguen bloqueando; production-error-attribution.test.mjs verifica 13 casos y se ejecuta en validate. La atribución deriva del fallo documentado del job de producción 111546277574, sin retirar controles funcionales.
 
 El barrido de contenido conserva una página durante cada lote de 24 ensayos, con tres rutas por ensayo. Se comprueban las mismas 4032 vistas y todos los errores; al terminar el lote se cierra el navegador completo. Los recorridos de historial y retorno permanecen en reader/archive/usability.
 
