@@ -49,6 +49,7 @@ async function navigation(p,base,width){
  for(const q of [sample.titulo,sample.doi,sample.registro,String(sample.anio),sample.revista,norm(sample.especialidad_principal),sample.autor]){
   await p.fill('#ev-search-input',q);await p.waitForTimeout(180);assert((await p.locator('#ev-search-results a').count())>0,'Search field '+q);
  }
+ await p.fill('#ev-search-input','__SIN_RESULTADOS__');await p.waitForTimeout(180);assert.equal(await p.locator('#ev-search-results a').count(),0);assert(/Sin resultados/.test(await p.locator('#ev-search-status').textContent()));await p.keyboard.press('Escape');await p.waitForFunction(()=>!document.querySelector('#ev-search').open);await p.keyboard.press('Control+k');await p.waitForFunction(()=>document.querySelector('#ev-search').open);
  await p.fill('#ev-search-input',sample.doi);await p.waitForTimeout(180);assert(await p.locator('#ev-search-results mark').count()>0);
  await p.keyboard.press('ArrowDown');assert(await p.locator('#ev-search-results a').first().evaluate(n=>n===document.activeElement));await p.keyboard.press('Enter');await p.waitForURL('**'+map[String(sample.id)].path);
  await p.keyboard.press('Control+k');assert(await p.locator('#ev-search').isVisible());await p.keyboard.press('Escape');assert(!(await p.locator('#ev-search').isVisible()));
@@ -90,8 +91,13 @@ async function shell(p,base){
  await p.locator('button[aria-controls=password]').click();assert.equal(await p.locator('#password').getAttribute('type'),'text');await p.locator('button[aria-controls=password]').click();assert.equal(await p.locator('#password').getAttribute('type'),'password');
 }
 async function sweep(p,base){
- for(const r of data)for(const path of [map[String(r.id)].path,'/resumen.html?id='+r.id,'/resumen.html?id='+r.id+'&v=corto']){
-  await ready(p,path,base);assert.equal(await p.locator('[data-ev-field=titulo]').textContent(),r.titulo);assert(await p.locator('article').first().textContent());assert.equal(await p.locator('[data-ev-sections]').count(),1);await geometry(p);
+ // Independent content records get an isolated page. Keep each three-route
+ // journey together; release the document/history between unrelated records.
+ for(const r of data){
+  const page=await p.context().newPage(),errors=[];page.setDefaultTimeout(15000);page.on('pageerror',e=>errors.push(e.message));
+  try{for(const path of [map[String(r.id)].path,'/resumen.html?id='+r.id,'/resumen.html?id='+r.id+'&v=corto']){
+   await ready(page,path,base);assert.equal(await page.locator('[data-ev-field=titulo]').textContent(),r.titulo);assert(await page.locator('article').first().textContent());assert.equal(await page.locator('[data-ev-sections]').count(),1);await geometry(page);
+  }assert.deepEqual(errors,[],'Uncaught browser errors / '+r.id)}finally{await page.close()}
  }
 }
 const tests={archive,navigation,reader,downloads,shell,sweep};
