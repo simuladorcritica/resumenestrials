@@ -1,4 +1,4 @@
-import { chromium,webkit } from 'playwright';
+import { chromium } from 'playwright';
 import assert from 'node:assert/strict';
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { assertLoopbackBase, installTurnstileTestRoutes } from './turnstile-test-helpers.mjs';
@@ -21,14 +21,13 @@ function advertising(url) {
   return /adsbygoogle|ca-pub-3132744538918477/.test(url)
     || /(^|\.)(googlesyndication\.com|doubleclick\.net|googleadservices\.com)$/.test(parsed.hostname);
 }
+const browser = await chromium.launch({ headless: true });
 const results = [];
-for(const engine of [chromium,webkit]){const browser = await engine.launch({headless:true});
 mkdirSync('future-screenshots', { recursive: true });
 try {
-  for (const width of [390, 1440]) for(const theme of ['claro','oscuro']) {
+  for (const width of [390, 1440]) {
     for (const path of paths) {
       const context = await browser.newContext({ viewport: { width, height: 1000 } });
-      await context.addInitScript(t=>localStorage.setItem('rt-tema',t),theme);
       const requests = [], errors = [];
       // Observe from before the first navigation, including requests before redirects.
       context.on('request', request => requests.push(request.url()));
@@ -56,13 +55,13 @@ try {
       }
       const filename = path.replace(/[^a-z0-9]/gi, '_');
       await page.screenshot({ path: `future-screenshots/adsense-${filename}-${width}.png` });
-      results.push({ engine:engine.name(),theme,path, width, finalPath: new URL(page.url()).pathname, advertisingRequests: 0, errors, dimensions });
+      results.push({ path, width, finalPath: new URL(page.url()).pathname, advertisingRequests: 0, errors, dimensions });
       await context.close();
     }
   }
 } finally {
   await browser.close();
-}}
+}
 writeFileSync('future-screenshots/adsense-routes.json', JSON.stringify(results, null, 2));
 console.log(`ADSENSE ROUTES PASS · ${results.length} route/viewport cases · zero advertising on anonymous account surfaces · 390/1440 px`);
-for(const engine of [chromium,webkit])for(const theme of ['claro','oscuro'])await checkContentAdvertising(BASE,'future-screenshots/ads-'+engine.name()+'-'+theme,engine,theme);
+await checkContentAdvertising(BASE);

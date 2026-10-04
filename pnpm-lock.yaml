@@ -8,9 +8,6 @@ importers:
 
   .:
     devDependencies:
-      axe-core:
-        specifier: 4.10.3
-        version: 4.10.3
       jspdf:
         specifier: 4.2.1
         version: 4.2.1
@@ -32,10 +29,6 @@ packages:
 
   '@types/trusted-types@2.0.7':
     resolution: {integrity: sha512-ScaPdn1dQczgbl0QFTeTOmVHFULt394XJgOQNoyVhZ6r2vLnMLJfBPd53SB52T/3G36VI1/g2MZaX0cwDuXsfw==}
-
-  axe-core@4.10.3:
-    resolution: {integrity: sha512-Xm7bpRXnDSX2YE2YFfBk2FnF0ep6tmG7xPh8iHee8MIcrgq762Nkce856dYtJYLkuIoYZvGfTs/PbZhideTcEg==}
-    engines: {node: '>=4'}
 
   base64-arraybuffer@1.0.2:
     resolution: {integrity: sha512-I3yl4r9QB5ZRY3XuJVEPfc2XhZO6YweFPI+UovAzn+8/hb3oJ6lnysaFcjVpkCPfVWFUDvoZ8kmVDP7WyRtYtQ==}
@@ -126,8 +119,6 @@ snapshots:
 
   '@types/trusted-types@2.0.7':
     optional: true
-
-  axe-core@4.10.3: {}
 
   base64-arraybuffer@1.0.2:
     optional: true

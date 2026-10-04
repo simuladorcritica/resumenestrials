@@ -1,5 +1,4 @@
 import { readFileSync } from 'node:fs';
-import { createHash } from 'node:crypto';
 import { belongsToCategory } from './article-inventory.mjs';
 
 const BASE=(process.env.RT_BASE_URL||'https://resumenestrials.com').replace(/\/$/,'');
@@ -10,20 +9,6 @@ const checks=[];
 const expected=JSON.parse(readFileSync('resumenes.json','utf8'));
 const manifest=JSON.parse(readFileSync('seo-manifest.json','utf8'));
 const clusters=JSON.parse(readFileSync('seo-cluster-manifest.json','utf8'));
-
-// A main push starts CI before Pages finishes. Wait for the requested bundle
-// and exact clinical bytes before evaluating the published-site contracts.
-if(process.env.RT_WAIT_FOR_DEPLOY==='1'){
- const version=JSON.parse(readFileSync('ui/runtime-version.json','utf8')).version,clinicalSHA=createHash('sha256').update(readFileSync('resumenes.json')).digest('hex');let deployed=false;
- for(let attempt=1;attempt<=36;attempt++){
-  try{const stamp=Date.now(),[home,clinical]=await Promise.all([fetch(BASE+'/?deploycheck='+stamp,{signal:AbortSignal.timeout(timeout),headers:{'cache-control':'no-cache'}}),fetch(BASE+'/resumenes.json?deploycheck='+stamp,{signal:AbortSignal.timeout(timeout),headers:{'cache-control':'no-cache'}})]);
-   if(home.ok&&clinical.ok&&(await home.text()).includes('/site-runtime.js?v='+version)&&createHash('sha256').update(Buffer.from(await clinical.arrayBuffer())).digest('hex')===clinicalSHA){deployed=true;break}
-  }catch{}
-  console.log('Waiting for Pages deployment '+attempt+'/36');if(attempt<36)await new Promise(resolve=>setTimeout(resolve,10000));
- }
- assert(deployed,'The requested Pages deployment did not become available');
-}
-
 const expectedIds=new Set(expected.map((r)=>String(r.id)));
 const expectedCrit=expected.filter((record)=>belongsToCategory(record,'Medicina Crítica')).length;
 const expectedInt=expected.filter((record)=>belongsToCategory(record,'Medicina Interna')).length;
@@ -55,9 +40,12 @@ assert(expected.length>0,'El repositorio no contiene resúmenes');
 assert(sample&&sampleEntry?.path,'No hay muestra canónica para la auditoría');
 
 await check('/',(b)=>{
-  const rows=(b.match(/class="ev-card" data-id=/g)||[]).length;
-  assert(rows===expected.length,'Portada no prerenderiza todos los ensayos');
-  assert(b.includes('id="ev-count"')&&b.includes(expected.length+' resúmenes'),'Contador de portada incorrecto');
+  assert(b.includes('RT-PRERENDER-START'),'la portada publicada no está prerenderizada');
+  assert(b.includes(`id="conteo">${expected.length}</span>`),`contador total publicado distinto de ${expected.length}`);
+  assert(b.includes(`id="conteo-crit">${expectedCrit}</span>`),`contador de Medicina Crítica distinto de ${expectedCrit}`);
+  assert(b.includes(`id="conteo-int">${expectedInt}</span>`),`contador de Medicina Interna distinto de ${expectedInt}`);
+  const rows=(b.match(/class="fila" data-id=/g)||[]).length;
+  assert(rows>=expected.length,`la portada solo contiene ${rows}/${expected.length} trials prerenderizados`);
   assert(b.includes(sampleEntry.path),`la portada no enlaza al trial canónico de muestra ${sample.id}`);
 });
 
@@ -79,7 +67,7 @@ await check('/seo-manifest.json',(body)=>{
 });
 
 await check(sampleEntry.path,(b)=>{
-  assert(b.includes(`data-ev-reader="${sample.id}"`),'trial canónico sin descarga PDF completa');
+  assert(b.includes(`data-trial-download="${sample.id}"`),'trial canónico sin descarga PDF completa');
   assert(b.includes('<article class="articulo">'),'trial canónico sin artículo principal');
   assert(b.includes('<link rel="canonical"'),'trial canónico sin canonical');
   if(sample.corto)assert(b.includes(`/resumen.html?id=${sample.id}&amp;v=corto`),'trial canónico sin enlace a lectura breve');
@@ -88,17 +76,23 @@ await check(sampleEntry.path,(b)=>{
 
 if(sample.corto){
   await check(`/resumen.html?id=${sample.id}&v=corto`,(b)=>{
-    assert(b.includes('ev-dynamic-reader')&&b.includes('/site-runtime.js?v='),'Lector dinámico sin runtime');
+    assert(b.includes('pdf-contact.js?v=2'),'lector breve no carga el controlador PDF corregido');
+    assert(b.includes('data-pdf-version="breve"'),'lector breve perdió su botón PDF');
   });
 }
-await check('/ui/pdf.js',b=>{for(const token of ['JSPDF_SRI','item.corto','item.cuerpo','generatePDF','opacity:.045','resumenestrials@outlook.com'])assert(b.includes(token),'PDF sin '+token)});
-await check('/site-runtime.js',b=>{for(const token of ['data-ev-sections','data-ev-save','data-ev-pdf','SpecialtyClassification'])assert(b.includes(token),'Runtime sin '+token)});
-for(const [path,count] of [['/medicina-critica/',expectedCrit],['/medicina-interna/',expectedInt]])await check(path,b=>assert((b.match(/class="ev-card" data-id=/g)||[]).length===count,'Hub sin todos los ensayos'));
+
+await check('/pdf-contact.js',(b)=>{
+  assert(b.includes("const labelText = link.closest('.ed-version') ? 'Completo' : targetText"),'producción no contiene el contrato editorial de etiqueta Completo/Breve');
+  assert(b.includes("link.textContent !== labelText"),'producción no contiene la protección idempotente de la etiqueta editorial');
+  assert(b.includes("link.href !== targetHref"),'producción no contiene la protección idempotente del enlace canónico');
+});
+await check('/trial-pdf.js',(b)=>{assert(b.includes('data-trial-download'),'controlador PDF canónico inesperado')});
+
 for(const path of ['/medicina-critica/','/medicina-interna/','/metodologia/','/equipo-editorial/','/privacidad/','/terminos/']){
   await check(path,(b)=>{assert(/Resúmenes Trials|Resumenes Trials/.test(b),'HTML editorial inesperado')});
 }
 for(const entry of Object.values(clusters)){
-  await check(entry.path,(b)=>{assert(b.includes('data-ev-ids='),'cluster publicado sin colección de trials')});
+  await check(entry.path,(b)=>{assert(b.includes('cat-grid'),'cluster publicado sin colección de trials')});
 }
 
 await check('/sitemap.xml',(b)=>{

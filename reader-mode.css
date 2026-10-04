@@ -1,0 +1,53 @@
+/* Resúmenes Trials · Fase 4 — controles de preferencia (tema y modo lectura)
+   Se carga junto con theme-light.css, después de future-experience*.css.
+
+   Hotfix post-publicación: ".rt-future" está SIEMPRE presente en el body una vez que el JS
+   corre (ver future-experience.js) — no es exclusivo del tema oscuro. Por eso el estilo sin
+   calificar de abajo es el oscuro (el caso permanente), y ".rt-tema-claro" es el que sobreescribe
+   para el tema claro — al revés de como estaba antes, que asumía que "rt-future ausente" era
+   el caso normal del tema claro y nunca aplicaba. */
+
+.rt-pref-controls{display:flex;align-items:center;gap:6px;margin-right:6px}
+.rt-pref-btn{
+  display:inline-flex;align-items:center;gap:6px;min-height:36px;
+  padding:7px 11px;border-radius:8px;border:1px solid var(--rt-line-strong);
+  background:transparent;color:var(--rt-muted);
+  font:600 12.5px 'IBM Plex Mono',monospace;letter-spacing:.04em;
+  cursor:pointer;white-space:nowrap;transition:color .15s ease,border-color .15s ease,background .15s ease;
+}
+.rt-pref-btn:hover{color:var(--rt-teal);border-color:var(--rt-teal)}
+.rt-pref-btn:focus-visible{outline:2px solid var(--rt-teal);outline-offset:2px}
+.rt-tema-claro .rt-pref-btn{border-color:var(--linea);color:var(--tinta-2)}
+.rt-tema-claro .rt-pref-btn:hover{color:var(--teal-hondo);border-color:var(--teal)}
+.rt-tema-claro .rt-pref-btn:focus-visible{outline-color:var(--teal-hondo)}
+.rt-lectura-btn[aria-pressed="true"]{color:var(--rt-teal);border-color:var(--rt-teal);background:rgba(36,200,180,.09)}
+.rt-tema-claro .rt-lectura-btn[aria-pressed="true"]{color:var(--teal-hondo);border-color:var(--teal);background:rgba(28,138,138,.07)}
+
+@media (max-width:1040px){
+  .rt-pref-btn span{display:none}
+  .rt-pref-btn{padding:8px;min-width:36px;justify-content:center}
+}
+
+/* ---------- Modo lectura: oculta el rail y la ficha, centra el artículo ---------- */
+body.rt-modo-lectura .rt-reader-rail,
+body.rt-modo-lectura .rt-summary-deck{display:none!important}
+
+body.rt-future-trial.rt-modo-lectura main.envoltorio{grid-template-columns:minmax(0,1fr)!important}
+body.rt-future-legacy.rt-modo-lectura #contenido>.envoltorio{grid-template-columns:minmax(0,1fr)!important}
+
+body.rt-modo-lectura .articulo,
+body.rt-modo-lectura article.articulo{max-width:74ch!important;margin-inline:auto!important}
+
+body.rt-modo-lectura .rt-evidence-section{
+  background:transparent!important;border:0!important;border-radius:0!important;
+  padding:0 0 8px!important;box-shadow:none!important
+}
+body.rt-modo-lectura .rt-evidence-section::before{display:none}
+
+/* En modo lectura el resto de la cabecera (migas, acciones, título) se mantiene:
+   solo se retira lo que compite visualmente con el texto (rail lateral y la ficha
+   editorial), tal como pide el prompt ("oculte sidebars y cromo"). */
+
+@media (prefers-reduced-motion: reduce){
+  .rt-pref-btn{transition:none!important}
+}

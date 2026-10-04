@@ -5,7 +5,7 @@ import { mkdirSync, writeFileSync, readFileSync } from 'node:fs';
 const advertising = url => /adsbygoogle|ca-pub-3132744538918477/.test(url)
   || /(^|\.)(googlesyndication\.com|doubleclick\.net|googleadservices\.com)$/.test(new URL(url).hostname);
 
-export async function checkContentAdvertising(base, output = 'future-screenshots', engine=chromium, theme='claro') {
+export async function checkContentAdvertising(base, output = 'future-screenshots') {
   const manifest = await (await fetch(base + '/seo-manifest.json')).json();
   const moved = '/medicina-interna/hematologia-oncologia/';
   const cases = [
@@ -13,7 +13,7 @@ export async function checkContentAdvertising(base, output = 'future-screenshots
     ['/resumen.html', false], ['/resumen.html?id=999999', false],
     ['/agregar.html', false], [moved, false], ['/', true], [manifest['98'].path, true],
   ];
-  const browser = await engine.launch({ headless: true, ...(process.env.RT_CHROME_CHANNEL ? { channel: process.env.RT_CHROME_CHANNEL } : {}) });
+  const browser = await chromium.launch({ headless: true, ...(process.env.RT_CHROME_CHANNEL ? { channel: process.env.RT_CHROME_CHANNEL } : {}) });
   const rows = [];
   mkdirSync(output, { recursive: true });
   try {
@@ -24,8 +24,6 @@ export async function checkContentAdvertising(base, output = 'future-screenshots
       if (path === '/' && ['localhost', '127.0.0.1'].includes(new URL(base).hostname)) {
         await context.route(base + '/', route => route.fulfill({ contentType: 'text/html', body: readFileSync('_includes/index-source.html', 'utf8') }));
       }
-      await context.addInitScript(t=>localStorage.setItem('rt-tema',t),theme);
-      if(path===moved)await context.route('https://resumenestrials.com/**',async route=>{const u=new URL(route.request().url()),response=await context.request.get(base+u.pathname+u.search);await route.fulfill({response})});
       const requests = [], errors = [], consoleMessages = [], failedResponses = [];
       context.on('request', r => requests.push({ url: r.url(), document: r.frame().url() }));
       const page = await context.newPage();
@@ -45,7 +43,7 @@ export async function checkContentAdvertising(base, output = 'future-screenshots
       }
       if (path === moved) await page.waitForURL(url => url.pathname === '/medicina-interna/');
       if (path.startsWith('/resumen.html')) {
-        await page.locator(allowed ? 'article' : '.ev-notice').first().waitFor({ state: 'visible' });
+        await page.locator(allowed ? 'article' : '.aviso').first().waitFor({ state: 'visible' });
       }
       if (allowed || path === moved) await page.waitForFunction(() => document.querySelectorAll('script[src*="adsbygoogle.js"]').length === 1);
       await page.waitForTimeout(800);

@@ -8,10 +8,6 @@
 - `resumen/*.html`: compatibilidad social/legada, `noindex` y canonical al trial.
 - `seo-manifest.json`, `seo-cluster-manifest.json`, `sitemap.xml`: salidas SEO.
 - `images/trials/*`: imágenes sociales generadas.
-- `site_templates.py`, `templates/account/`, `templates/documents/`: presentación común y fuentes de formularios/documentos. `templates/` se excluye de Jekyll.
-- `ui/tokens.css` y `ui/site.css`: tokens y reglas; ninguna inyección de estilos en ejecución.
-- `ui/core.js`, `ui/archive.js`, `ui/reader.js`, `ui/forms.js`: módulos agrupados junto con `specialty-classification.js` y `reading-context.js`.
-- `ui/pdf.js`: generador único A4/celular, completo/breve, logo en cabecera y marca de agua en cada página; jsPDF 4.2.1 con SRI.
 - `site-runtime.js` y `site-runtime.css`: bundles generados; sus fuentes permanecen separadas para mantenimiento.
 
 ## Generación reproducible
@@ -32,10 +28,6 @@ Los archivos generados se versionan para que GitHub Pages pueda servirlos sin un
 La secuencia debe ser idempotente: dos ejecuciones consecutivas tienen que producir las mismas salidas. `sitemap.xml` solo publica `lastmod` cuando existe una fecha editorial explícita (`fecha_revision`, `actualizado` o `fecha_publicacion_resumen`); la fecha de publicación del estudio no representa una modificación del sitio.
 
 `fecha_publicacion_resumen` es la fecha editorial explícita de publicación web para altas futuras. Es independiente de `fecha`, que conserva la fecha bibliográfica. No se completa retroactivamente ni se infiere a partir de la publicación científica. Cuando es una fecha ISO real, la alta entra automáticamente al feed Atom.
-
-`restaurar_arquitectura.py` y `aplicar_experiencia_futura.py` conservan sus nombres por compatibilidad de automatización, pero llaman al nuevo renderizador común. La última aplicación refresca las versiones después del build. Las rutas legadas permanecen `noindex`; `resumen.html?id=` usa el mismo lector con datos públicos y valida el ID antes de cargar publicidad. Sin JavaScript, cada canónica y página legada presenta su contenido completo; el lector con query ofrece enlaces canónicos de los 168 ensayos.
-
-El runtime usa hashes deterministas con saltos de línea LF e incluye el módulo PDF en la versión. Auth, biblioteca, recomendaciones y Turnstile conservan sus APIs y comportamiento. El despliegue de backend Auth es manual y requiere opt-in; las verificaciones automáticas usan dobles locales.
 
 ## Vigilancia posterior a la publicación
 
