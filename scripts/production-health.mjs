@@ -7,6 +7,7 @@ const CANONICAL_ORIGIN='https://resumenestrials.com';
 const timeout=15000;
 const failures=[];
 const checks=[];
+const expectedHomeDisclosure=readFileSync('templates/home-disclosure.html','utf8').replace(/\r\n/g,'\n').trim();
 const expected=JSON.parse(readFileSync('resumenes.json','utf8'));
 const manifest=JSON.parse(readFileSync('seo-manifest.json','utf8'));
 const clusters=JSON.parse(readFileSync('seo-cluster-manifest.json','utf8'));
@@ -17,7 +18,7 @@ if(process.env.RT_WAIT_FOR_DEPLOY==='1'){
  const version=JSON.parse(readFileSync('ui/runtime-version.json','utf8')).version,clinicalSHA=createHash('sha256').update(readFileSync('resumenes.json')).digest('hex');let deployed=false;
  for(let attempt=1;attempt<=36;attempt++){
   try{const stamp=Date.now(),[home,clinical,config]=await Promise.all([fetch(BASE+'/?deploycheck='+stamp,{signal:AbortSignal.timeout(timeout),headers:{'cache-control':'no-cache'}}),fetch(BASE+'/resumenes.json?deploycheck='+stamp,{signal:AbortSignal.timeout(timeout),headers:{'cache-control':'no-cache'}}),fetch(BASE+'/supabase-config.js?deploycheck='+stamp,{signal:AbortSignal.timeout(timeout),headers:{'cache-control':'no-cache'}})]);
-   if(home.ok&&clinical.ok&&config.ok&&(await config.text()).replace(/\r\n/g,'\n')===readFileSync('supabase-config.js','utf8').replace(/\r\n/g,'\n')&&(await home.text()).includes('/site-runtime.js?v='+version)&&createHash('sha256').update(Buffer.from(await clinical.arrayBuffer())).digest('hex')===clinicalSHA){deployed=true;break}
+   if(home.ok&&clinical.ok&&config.ok&&(await config.text()).replace(/\r\n/g,'\n')===readFileSync('supabase-config.js','utf8').replace(/\r\n/g,'\n')&&await home.text().then(b=>b.includes('/site-runtime.js?v='+version)&&b.replace(/\r\n/g,'\n').includes(expectedHomeDisclosure))&&createHash('sha256').update(Buffer.from(await clinical.arrayBuffer())).digest('hex')===clinicalSHA){deployed=true;break}
   }catch{}
   console.log('Waiting for Pages deployment '+attempt+'/36');if(attempt<36)await new Promise(resolve=>setTimeout(resolve,10000));
  }
@@ -55,6 +56,7 @@ assert(expected.length>0,'El repositorio no contiene resúmenes');
 assert(sample&&sampleEntry?.path,'No hay muestra canónica para la auditoría');
 
 await check('/',(b)=>{
+  assert(b.replace(/\r\n/g,'\n').includes(expectedHomeDisclosure),'Portada: falta el aviso original de publicidad y contenido');
   const rows=(b.match(/class="ev-card" data-id=/g)||[]).length;
   assert(rows===expected.length,'Portada no prerenderiza todos los ensayos');
   assert(b.includes('id="ev-count"')&&b.includes(expected.length+' resúmenes'),'Contador de portada incorrecto');

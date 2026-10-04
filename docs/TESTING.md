@@ -6,6 +6,8 @@ Ejecutar `npm run build`, la secuencia de `ARCHITECTURE.md`, `npm run validate`,
 
 ## Equivalencias
 
+La portada conserva en templates/home-disclosure.html los dos párrafos originales de privacidad y contenido de _includes/index-source.html del commit anterior. Se insertan desde la plantilla, sin cambiar su texto. Las tres regresiones home-disclosure.test.mjs congelan el contenido con LF normalizado y comprueban que ambos HTML de portada lo incluyan una sola vez. El smoke de AdSense mantiene todas sus aserciones originales: Google AdSense explícito en portada y política, sección de cookies, ausencia de declaraciones falsas, exclusiones, publisher y gate de datos. Salud y el smoke del lector esperan también este aviso para distinguir el despliegue nuevo aunque el bundle no cambie.
+
 | Entrada anterior | Verificación actual | Contratos conservados |
 |---|---|---|
 | navigation-ux-smoke | navigation | Cabecera, destinos, búsqueda, atajos, teclado, tema, menú móvil |
