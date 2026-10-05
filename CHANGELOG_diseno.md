@@ -2,6 +2,11 @@
 
 Historial de diseño. Las entradas anteriores describen estados históricos; la arquitectura actual se documenta en `docs/ARCHITECTURE.md`.
 
+## 2026-10-04 — T1 / T2: tarjetas y justificado
+Retirada la línea superior de tipo de estudio/año en ambas fuentes de tarjetas. Títulos alineados desde el margen interior superior; ficha, filtros e insignias conservados.
+Prosa web justificada con última línea al inicio, hyphens:auto y corte de tokens largos en todos los anchos. Se actualiza únicamente la expectativa editorial de alineación; se conserva la matriz de 1152 comprobaciones y sus límites.
+PDF: párrafos justificados mediante espaciado de palabras, conservando la última línea y los saltos de página. En celular, no se estiran líneas que superarían 2,5 veces el espacio natural. La comparación de 672 documentos usa pdftotext; el validador comprueba palabras, límites geométricos, última línea, secciones, ID, logo y marca de agua.
+
 ## 2026-10-02 — Laboratorio de evidencia
 
 Sustitución de las capas de presentación acumuladas por plantillas compartidas, tokens y un único runtime. Nuevos archivo con cinco filtros y URL persistente, búsqueda global accesible, lector completo/breve con contexto de retorno y PDF A4/celular con logo en todas las páginas. Registro, cuenta, MFA y biblioteca conservan su lógica con interfaz y validación nuevas.

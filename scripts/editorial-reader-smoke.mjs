@@ -21,7 +21,7 @@ for(const type of [chromium,webkit]){const browser=await type.launch();try {
     return {scroll:document.documentElement.scrollWidth,body:document.body.scrollWidth,client:document.documentElement.clientWidth,title:document.querySelector('[data-ev-field=titulo]').textContent,align:getComputedStyle(p).textAlign,measure:p.getBoundingClientRect().width,ch,active:document.querySelectorAll('.ev-version [aria-current="page"]').length,display:g.display,tracks:g.gridTemplateColumns.split(/\s+/).map(parseFloat),gap:parseFloat(g.columnGap),rail:rail.getBoundingClientRect().width,clipping:getComputedStyle(article).overflowX};
    });
    const label=`${path} ${width}: ${JSON.stringify(m)}`;
-   assert.ok(m.scroll<=m.client&&m.body<=m.client,label);assert.equal(m.title,rows.find(r=>r.id===id).titulo);assert.equal(m.align,'left');assert.ok(m.measure<=75*m.ch+1,label);assert.equal(m.active,1);assert.equal(m.display,width>=720?'grid':'block',label);assert.ok(!['hidden','clip'].includes(m.clipping),label);
+   assert.ok(m.scroll<=m.client&&m.body<=m.client,label);assert.equal(m.title,rows.find(r=>r.id===id).titulo);assert.equal(m.align,'justify');assert.ok(m.measure<=75*m.ch+1,label);assert.equal(m.active,1);assert.equal(m.display,width>=720?'grid':'block',label);assert.ok(!['hidden','clip'].includes(m.clipping),label);
    if(width>=720){assert.equal(m.tracks.length,2,label);assert.ok(m.rail>=179&&m.rail<=241,label);assert.ok(m.gap>=31&&m.gap<=57,label)}else assert.equal(m.rail,0,label);
    results.push({engine:type.name(),theme,id,path,width,height,status:'PASS',...m});
   }
