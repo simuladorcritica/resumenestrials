@@ -327,3 +327,6 @@ La fuente principal Source Serif 4 se conserva. Si no está disponible, se usa T
 
 ### A1 — coherencia de insignias de subespecialidad (5-oct-2026)
 La insignia utiliza directamente el clasificador clínico vigente, que reconoce las especialidades canónicas explícitas y excluye el contexto principal de Medicina Crítica. OBERON y TITANIA (165) recibe Neumología, como PRAGUE-26 (98); TRICYCLE (168) permanece sin subespecialidad. Se elimina únicamente el filtro previo por el texto literal Medicina Interna. La regresión navega y verifica tarjeta y lector de los tres casos en las ocho combinaciones de navegador, ancho y tema. No se cambia el JSON clínico ni la taxonomía.
+
+### F-001 — salida de Modo lectura con Escape (5-oct-2026)
+La auditoría con teclado confirmó que Escape no salía del modo lectura en ninguno de los dieciséis casos de motor, ancho y tema, tanto local como en producción. El manejador global reutiliza el botón existente para salir y persistir el estado. Si hay un diálogo o menú abierto, Escape lo cierra primero y conserva el modo lectura. La regresión mantiene la salida por clic y añade cierre del diálogo, salida con Escape y persistencia después de recargar.
