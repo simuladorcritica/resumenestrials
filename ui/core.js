@@ -18,7 +18,7 @@ E.prose=root=>{
     const word=match[0],technical=/[\d._:/-]/.test(word)||(/^[A-Z]{10,}$/.test(word)),points=new Set();
     if(technical){for(let i=3;i<word.length-2;i+=3)points.add(i);}
     else if(!/^[A-Z]+$/.test(word))for(const syllable of word.matchAll(/[aeiouáéíóúü]([bcdfghjklmnñpqrstvwxyz]+)(?=[aeiouáéíóúü])/gi)){
-     const consonants=syllable[1],onset=/(?:[bcfgpt]r|[bcfgp]l|ch|ll|rr)$/i.test(consonants)?2:1,point=syllable.index+1+consonants.length-onset;
+     const consonants=syllable[1],onset=/(?:[bcdfgpt]r|[bcfgpt]l|ch|ll|rr)$/i.test(consonants)?2:1,point=syllable.index+1+consonants.length-onset;
      if(point>=2&&word.length-point>=2)points.add(point);
     }
     fragment.append(node.data.slice(cursor,match.index));let from=0;

@@ -61,3 +61,5 @@ La comparación PDF usa pdftotext -layout, como la auditoría profunda existente
 
 ### T2-MOBILE — cortes visuales de prosa
 Los párrafos mantienen justify e hyphens:auto. ui/core.js ofrece cortes visuales conservadores entre sílabas y wbr en tokens técnicos largos; ui/reader.js los aplica al lector dinámico. Los marcadores son vacíos: el guion opcional se dibuja con CSS y aria-hidden. textContent, selección, HTML clínico de origen y PDF permanecen intactos. La última línea conserva start. Es un apoyo a los diccionarios nativos (WebKit Windows no incluye partición española efectiva); sin JavaScript se conserva la propiedad nativa y el contenido prerenderizado.
+
+La fuente principal Source Serif 4 se conserva. Si no está disponible, se usa Times New Roman/Times/serif como respaldo: sus métricas permiten mantener el límite móvil de2em también cuando las fuentes de Google están bloqueadas. Los grupos dr y tl se mantienen unidos en los puntos opcionales de corte.
