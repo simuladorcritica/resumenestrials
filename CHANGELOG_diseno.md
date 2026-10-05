@@ -1,3 +1,7 @@
+## 2026-10-05 · Auditoría: enlace al artículo original
+
+- El enlace al artículo original dispone de un área pulsable mínima de 44 px, conserva el destino y sigue ajustándose al ancho disponible. La prueba existente del lector comprueba tamaño y apertura con un clic real interceptado localmente.
+
 ## 2026-10-05 · Auditoría: área pulsable del título
 
 - El enlace del título de cada tarjeta conserva la alineación superior y ofrece al menos 44 px de alto, también en vista densa con títulos de una línea. La prueba de archivo comprueba ambos modos.
