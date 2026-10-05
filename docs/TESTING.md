@@ -15,7 +15,7 @@ La portada conserva en templates/home-disclosure.html los dos párrafos original
 | home-controls-smoke / library-filter-smoke / future-final-smoke | archive | Todos los filtros, pertenencia, orden, chips, paginación explícita, recarga e historial |
 | future-experience-smoke | shell | Todas las superficies, formularios, privacidad/publicidad, estilos y accesibilidad |
 | unified-reader-v4-smoke / reader-controls-v5-smoke | reader | Cuerpo íntegro, variantes, secciones, progreso, foco, tamaño, guardado, continuidad y retorno |
-| editorial-reader-smoke | Matriz de lectura en 12 tamaños y ambos motores/temas | Títulos largos, overflow, alineación izquierda, ancho legible, navegación activa y ausencia de recorte |
+| editorial-reader-smoke | Matriz de lectura en 12 tamaños y ambos motores/temas | Títulos largos, overflow, alineación justificada, ancho legible, navegación activa y ausencia de recorte |
 | download-contract-smoke | downloads | Descarga física, seis rutas, nombres, contenido PDF y logo |
 | full-site-audit | Crawl estático original + shell | Recursos, enlaces, IDs, spam, captcha, biblioteca, preferencias, MFA, avisos y datos de perfil |
 | validate-editorial / validate-resumen-page / validate-night-audit | Validadores portados | Biblioteca, Auth, MFA, preferencias, PDF/SRI, fechas, cuerpos, workflow nocturno y estados |
@@ -51,3 +51,15 @@ La matriz Linux completó siete configuraciones, pero WebKit390oscuro abortó en
 El contrato de aislamiento de Resend QA comprueba explícitamente los tres jobs de navegador nuevos, además de datos, PDF y salud de producción. El servidor Windows se inicia con el ejecutable Python configurado y permanece dentro del mismo paso que el barrido; se exige HTTP200 antes de probar y se cierra en finally.
 
 El comando test:browser ejecuta una vez cada grupo funcional. home-controls-smoke cubre archive; library-filter-smoke y future-final-smoke son aliases del mismo runSuite(archive) y permanecen como entradas de compatibilidad para workflows. full-site-audit conserva el crawl y runSuite(shell); future-experience-smoke sigue siendo su alias de shell para workflows. Así se conservan todos los controles y sus ocho configuraciones, eliminando únicamente invocaciones idénticas repetidas. El retorno del lector espera DOMContentLoaded más la URL y contador/filtros/vista/geometry del archivo; Guardar exige la URL next y formulario de login visible. No se retira una aserción funcional ni se amplía el límite de 15 segundos.
+
+## Regresión de tarjetas, prosa y PDF (T1 / T2)
+`prose-justification-smoke.mjs` añade 256 configuraciones de familias de páginas, incluyendo alias redirigidos, controles excluidos y ambas fuentes de tarjeta. Añade 768 variantes de lector a 360/390/768/1440 px, A+ 18/20/22 px y modo lectura. Se ejecuta en test:browser y en el job de interacción, sin sustituir ninguna suite anterior.
+Para los 672 PDF previos y posteriores: `python scripts/verify-pdf-justification.py --before RUTA_PRIVADA_ANTES --after RUTA_PRIVADA_DESPUES --pdftotext RUTA_POPPLER --report RUTA_PRIVADA_REPORTE`. Requiere pypdf para comprobar imágenes y opacidad, y Poppler para comparar tokens y cajas de palabras. Ningún PDF, captura o reporte se incorpora al sitio.
+
+La comparación PDF usa pdftotext -layout, como la auditoría profunda existente: el modo predeterminado puede interpretar espacios de justificado como columnas. Las cajas de palabras se agrupan por fila física, con el margen derecho a menos de 1 pt y la última línea comparada contra el baseline. El espaciado usa las métricas AFM precisas de Times-Roman y Helvetica, sin cambiar fuentes ni envoltura de líneas.
+
+
+### T2-MOBILE — cortes visuales de prosa
+Los párrafos mantienen justify e hyphens:auto. ui/core.js ofrece cortes visuales conservadores entre sílabas y wbr en tokens técnicos largos; ui/reader.js los aplica al lector dinámico. Los marcadores son vacíos: el guion opcional se dibuja con CSS y aria-hidden. textContent, selección, HTML clínico de origen y PDF permanecen intactos. La última línea conserva start. Es un apoyo a los diccionarios nativos (WebKit Windows no incluye partición española efectiva); sin JavaScript se conserva la propiedad nativa y el contenido prerenderizado.
+
+La fuente principal Source Serif 4 se conserva. Si no está disponible, se usa Times New Roman/Times/serif como respaldo: sus métricas permiten mantener el límite móvil de2em también cuando las fuentes de Google están bloqueadas. Los grupos dr y tl se mantienen unidos en los puntos opcionales de corte.

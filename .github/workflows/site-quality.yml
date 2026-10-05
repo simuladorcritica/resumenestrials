@@ -385,6 +385,7 @@ jobs:
           node scripts/account-safe-smoke.mjs
           node scripts/design-usability-smoke.mjs
           node scripts/editorial-reader-smoke.mjs
+          node scripts/prose-justification-smoke.mjs
 
   jekyll-artifact:
     if: ${{ github.event_name != 'workflow_dispatch' || inputs.confirmation != 'SEND_ONE_QA_EMAIL' }}

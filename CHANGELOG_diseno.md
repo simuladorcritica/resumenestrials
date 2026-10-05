@@ -2,6 +2,11 @@
 
 Historial de diseño. Las entradas anteriores describen estados históricos; la arquitectura actual se documenta en `docs/ARCHITECTURE.md`.
 
+## 2026-10-04 — T1 / T2: tarjetas y justificado
+Retirada la línea superior de tipo de estudio/año en ambas fuentes de tarjetas. Títulos alineados desde el margen interior superior; ficha, filtros e insignias conservados.
+Prosa web justificada con última línea al inicio, hyphens:auto y corte de tokens largos en todos los anchos. Se actualiza únicamente la expectativa editorial de alineación; se conserva la matriz de 1152 comprobaciones y sus límites.
+PDF: párrafos justificados mediante espaciado de palabras, conservando la última línea y los saltos de página. En celular, no se estiran líneas que superarían 2,5 veces el espacio natural. La comparación de 672 documentos usa pdftotext; el validador comprueba palabras, límites geométricos, última línea, secciones, ID, logo y marca de agua.
+
 ## 2026-10-02 — Laboratorio de evidencia
 
 Sustitución de las capas de presentación acumuladas por plantillas compartidas, tokens y un único runtime. Nuevos archivo con cinco filtros y URL persistente, búsqueda global accesible, lector completo/breve con contexto de retorno y PDF A4/celular con logo en todas las páginas. Registro, cuenta, MFA y biblioteca conservan su lógica con interfaz y validación nuevas.
@@ -313,3 +318,9 @@ El usuario revisó la portada y `resumen.html` en vivo (5 capturas) y reportó 6
 **Verificación:** Playwright real (Chromium headless local, sirviendo `_includes/index-source.html` con los mismos scripts que la portada real) confirmó: `#rt-advanced`, `#rt-year`, `#rt-journal` y `.filtros` ausentes del DOM; `.buscador` es el único hijo de `.indice-cabecera` y ocupa el 100% de su ancho tanto en escritorio (1440px) como en móvil (390px), en ambos temas; el texto del campo mide 21px; escribir un término filtra las filas visibles en vivo y limpiar el campo las restaura todas, sin errores de JavaScript. Se revisaron capturas de pantalla en escritorio/móvil × claro/oscuro.
 
 **Pruebas del repo actualizadas (mismo patrón que en rondas anteriores, cuando un fix legítimo vuelve obsoleta una aserción previa):** `scripts/browser-smoke.mjs` y `scripts/future-experience-smoke.mjs` afirmaban explícitamente que `#q` ("el buscador redundante del renglón") debía permanecer oculto — se invirtió a "debe ser visible" y se agregó la comprobación de que `#rt-advanced` ya no exista. `scripts/home-controls-smoke.mjs` probaba anchos mínimos de `#rt-year`/`#rt-journal`/`.filtros` con una página sintética; se reescribió para reflejar la nueva cabecera de un solo control y verificar que el buscador ocupe todo el ancho disponible. `scripts/library-filter-smoke.mjs` verificaba que sobrevivieran año/revista con año/revista centrados y de cierto ancho mínimo, y que no sobreviviera el buscador; se reescribió para verificar lo contrario (buscador único, a todo el ancho, con una prueba funcional de búsqueda de texto en vivo) manteniendo las comprobaciones de que la cabecera siguiera sin líneas/sombras de separación. Las 10 pruebas de `npm run test:browser` (con las 3 actualizadas) y las 22 pruebas + auditoría SEO de `npm run validate` en PASS contra el estado local antes de publicar.
+
+
+### T2-MOBILE — cortes visuales de prosa
+Los párrafos mantienen justify e hyphens:auto. ui/core.js ofrece cortes visuales conservadores entre sílabas y wbr en tokens técnicos largos; ui/reader.js los aplica al lector dinámico. Los marcadores son vacíos: el guion opcional se dibuja con CSS y aria-hidden. textContent, selección, HTML clínico de origen y PDF permanecen intactos. La última línea conserva start. Es un apoyo a los diccionarios nativos (WebKit Windows no incluye partición española efectiva); sin JavaScript se conserva la propiedad nativa y el contenido prerenderizado.
+
+La fuente principal Source Serif 4 se conserva. Si no está disponible, se usa Times New Roman/Times/serif como respaldo: sus métricas permiten mantener el límite móvil de2em también cuando las fuentes de Google están bloqueadas. Los grupos dr y tl se mantienen unidos en los puntos opcionales de corte.

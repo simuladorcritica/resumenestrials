@@ -50,3 +50,14 @@ Las comprobaciones de integridad clínica no se debilitan. Se retiene article.ar
 ## Criterios obligatorios
 Texto renderizado y datos: diferencia cero. 672PDF con título,ID,seccionesylogo. ChromiumyWebKit,390/1440,claroyoscuro. Axe: cero serias/críticas. Sin desborde, foco visible, Esc y movimiento reducido. Presupuestos cumplidos. PR verde, publicación de Pages y recorrido de producción.
 
+
+## 2026-10-04 — Tarjetas y prosa (T1 / T2)
+Las tarjetas empiezan por el título, sin la línea de tipo/año. Estos datos permanecen en la ficha y el filtro. Las insignias de subespecialidad y biblioteca se conservan.
+Los párrafos de prosa y listas largas se justifican en todos los anchos, con última línea al inicio, partición automática es-MX y corte de tokens largos. Encabezados, metadatos, controles, navegación, formularios y tablas conservan alineación al inicio. Los textos breves ocupan una última línea sin estirarse.
+En PDF, únicamente los párrafos P del cuerpo completo/breve se justifican; el índice de línea pertenece al párrafo entero aunque cruce páginas. La última línea conserva su posición original. En celular, una línea concreta permanece al inicio si tiene una sola palabra o si justificarla ensancharía el espacio a más de 2,5 veces su ancho natural. No se añaden guiones ni se modifica la secuencia de palabras. Logo, marca de agua, márgenes, saneado, carga diferida y jsPDF 4.2.1/SRI conservan su contrato.
+
+
+### T2-MOBILE — cortes visuales de prosa
+Los párrafos mantienen justify e hyphens:auto. ui/core.js ofrece cortes visuales conservadores entre sílabas y wbr en tokens técnicos largos; ui/reader.js los aplica al lector dinámico. Los marcadores son vacíos: el guion opcional se dibuja con CSS y aria-hidden. textContent, selección, HTML clínico de origen y PDF permanecen intactos. La última línea conserva start. Es un apoyo a los diccionarios nativos (WebKit Windows no incluye partición española efectiva); sin JavaScript se conserva la propiedad nativa y el contenido prerenderizado.
+
+La fuente principal Source Serif 4 se conserva. Si no está disponible, se usa Times New Roman/Times/serif como respaldo: sus métricas permiten mantener el límite móvil de2em también cuando las fuentes de Google están bloqueadas. Los grupos dr y tl se mantienen unidos en los puntos opcionales de corte.
