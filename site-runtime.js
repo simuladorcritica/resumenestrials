@@ -168,7 +168,7 @@ let records,routes,library;
 E.data=()=>records??=import('/trial-data.js?v=20261003-laboratorio-v1').then(m=>m.loadTrials());
 E.routes=()=>routes??=fetch('/seo-manifest.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('No se pudo cargar el índice');return r.json()});
 E.library=()=>library??=import('/library-store.js?v=20261003-laboratorio-v1');
-E.inferSubspecialty=r=>{if(r?.especialidad_principal!=='Medicina Interna'&&r?.especialidad_secundaria!=='Medicina Interna')return '';const result=globalThis.SpecialtyClassification?.classify(r);return result?.specialty===globalThis.SpecialtyClassification?.REVIEW?'':result?.specialty||''};
+E.inferSubspecialty=r=>{const result=globalThis.SpecialtyClassification?.classify(r);return result?.specialty===globalThis.SpecialtyClassification?.REVIEW?'':result?.specialty||''};
 E.ready=f=>document.readyState==='loading'?document.addEventListener('DOMContentLoaded',f,{once:true}):f();
 E.open=id=>{const d=document.getElementById(id);if(d&&!d.open)d.showModal();return d};
 E.status=(node,text)=>{if(node)node.textContent=text};

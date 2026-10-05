@@ -57,6 +57,11 @@ async function navigation(p,base,width){
  assert(await p.locator('a[href="/metodologia/"]').first().isVisible());await geometry(p);
 }
 async function reader(p,base){
+ for(const [id,badge]of [['98','Neumología'],['165','Neumología'],['168','']]){
+  const record=data.find(r=>String(r.id)===id);await ready(p,'/',base);await p.fill('#ev-q',record.titulo);await p.waitForURL(u=>u.searchParams.get('q')===record.titulo);
+  const card=p.locator('#ev-list>.ev-card[data-id="'+id+'"]');assert(await card.isVisible());assert.deepEqual(await card.locator('[data-ev-subspecialty]').allTextContents(),badge?[badge]:[],'Archive subspecialty '+id);
+  await card.locator('[data-ev-read]').first().click();await p.waitForFunction(()=>document.querySelector('[data-ev-sections]')?.onclick);assert.deepEqual(await p.locator('.ev-reading-head [data-ev-subspecialty]').allTextContents(),badge?[badge]:[],'Reader subspecialty '+id);
+ }
  const r=data[0],path=map[String(r.id)].path;await ready(p,path,base);
  const expected=await p.evaluate(r=>new DOMParser().parseFromString(r.cuerpo,'text/html').body.textContent.replace(/\s+/g,' ').trim(),r);
  assert.equal((await p.locator('article').first().textContent()).replace(/\s+/g,' ').trim(),expected);assert.equal((await p.locator('[data-ev-field=titulo]').textContent()).trim(),r.titulo);
