@@ -1,3 +1,7 @@
+## 2026-10-05 · Auditoría: foco del buscador en WebKit
+
+- Los diálogos globales devuelven el foco al control de apertura. Un campo oculto tras cerrar un diálogo no bloquea el atajo `/`; se conserva la edición normal de los campos visibles. La prueba de navegación cubre Escape seguido inmediatamente de `/` y la restauración del foco.
+
 ## 2026-10-05 · Auditoría: enlace al artículo original
 
 - El enlace al artículo original dispone de un área pulsable mínima de 44 px, conserva el destino y sigue ajustándose al ancho disponible. La prueba existente del lector comprueba tamaño y apertura con un clic real interceptado localmente.

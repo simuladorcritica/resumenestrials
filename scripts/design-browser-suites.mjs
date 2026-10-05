@@ -46,7 +46,7 @@ async function archive(p,base){
 }
 async function navigation(p,base,width){
  await ready(p,'/',base);if(width<960){await p.locator('[data-ev-menu]').click();assert(await p.locator('#ev-navigation').isVisible());await p.keyboard.press('Escape');assert(!(await p.locator('#ev-navigation').isVisible()));assert.equal(await p.locator('[data-ev-menu]').getAttribute('aria-expanded'),'false');assert.equal(await p.locator('.ev-mobile-nav').locator('a,button').count(),4)}
- await p.keyboard.press('/');assert(await p.locator('#ev-search').isVisible());const sample=data.find(r=>r.doi&&r.registro);
+ await p.locator('button[data-ev-search]').first().focus();await p.keyboard.press('/');assert(await p.locator('#ev-search').isVisible());await p.keyboard.press('Escape');await p.keyboard.press('/');assert(await p.locator('#ev-search').isVisible(),'Search reopens immediately after Escape');await p.keyboard.press('Escape');await p.waitForFunction(()=>document.activeElement===document.querySelector('button[data-ev-search]'));await p.keyboard.press('/');assert(await p.locator('#ev-search').isVisible());const sample=data.find(r=>r.doi&&r.registro);
  for(const q of [sample.titulo,sample.doi,sample.registro,String(sample.anio),sample.revista,norm(sample.especialidad_principal),sample.autor]){
   await p.fill('#ev-search-input',q);await p.waitForTimeout(180);assert((await p.locator('#ev-search-results a').count())>0,'Search field '+q);
  }
