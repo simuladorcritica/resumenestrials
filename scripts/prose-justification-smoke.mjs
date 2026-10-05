@@ -6,6 +6,7 @@ import {isolate} from './design-browser-suites.mjs';
 const base=process.env.RT_BASE_URL||'http://127.0.0.1:8000';
 const routes=JSON.parse(fs.readFileSync('seo-manifest.json','utf8'));
 const clusters=JSON.parse(fs.readFileSync('seo-cluster-manifest.json','utf8'));
+const clinical=JSON.parse(fs.readFileSync('resumenes.json','utf8'));
 const paths=['/','/medicina-critica/','/medicina-interna/',...Object.values(clusters).map(c=>c.path),'/medicina-interna/hematologia-oncologia/',routes['168'].path,'/resumen.html?id=168','/resumen.html?id=168&v=corto','/resumen/168.html','/metodologia/','/equipo-editorial/','/privacidad.html','/privacidad/','/terminos/','/404.html','/cuenta.html','/biblioteca.html','/registro.html','/login.html','/recuperar.html'];
 const excluded=':where(.ev-meta,.ev-count,.ev-eyebrow,.ev-kicker,.ev-trust,.ev-state,.ev-estado,.ev-strength,.ev-hint,.ev-field-error,.ev-pill,.ev-editorial-dates,.ev-turnstile-status,.ev-safe)';
 const results=[];
@@ -45,6 +46,12 @@ for(const engine of [chromium,webkit]){
    results.push({path,width,theme,engine:engine.name(),paragraphs:m.prose.length,status:'OK'});
    if(await page.locator('[data-ev-reader]').count()){
     await page.waitForFunction(()=>document.querySelector('[data-ev-font]')?.onclick);
+    const readerId=await page.locator('[data-ev-reader]').getAttribute('data-ev-reader'),record=clinical.find(r=>String(r.id)===readerId),brief=await page.locator('[data-ev-reader]').getAttribute('data-ev-brief')==='true';
+    const expected=await page.evaluate(html=>new DOMParser().parseFromString(html,'text/html').body.textContent,record[brief?'corto':'cuerpo']);
+    assert.equal((await page.locator('article').textContent()).replace(/\s+/g,' ').trim(),expected.replace(/\s+/g,' ').trim(),'Visual breaks changed clinical text');
+    const selection=await page.evaluate(()=>{const range=document.createRange();range.selectNodeContents(document.querySelector('article'));const selection=getSelection();selection.removeAllRanges();selection.addRange(range);const text=selection.toString();selection.removeAllRanges();return text;});
+    assert.equal(selection.replace(/\s+/g,' ').trim(),expected.replace(/\s+/g,' ').trim(),'Visual breaks changed copied text');
+
     for(const readingWidth of [360,390,768,1440]){
      await page.setViewportSize({width:readingWidth,height:readingWidth<720?844:900});
      const sizes=new Set();
@@ -52,6 +59,11 @@ for(const engine of [chromium,webkit]){
       for(const focus of [false,true]){
        const button=page.locator('[data-ev-focus]');if((await button.getAttribute('aria-pressed')==='true')!==focus)await button.click();
        const reading=await page.locator('article p').first().evaluate(n=>{const s=getComputedStyle(n);return {size:parseFloat(s.fontSize),align:s.textAlign,hyphens:s.hyphens,last:s.textAlignLast,viewport:innerWidth,scroll:document.documentElement.scrollWidth,body:document.body.scrollWidth}});
+
+       if(readingWidth<720){
+        const spacing=await page.evaluate(()=>{let max=0;for(const paragraph of document.querySelectorAll('article p')){const words=[],walker=document.createTreeWalker(paragraph,NodeFilter.SHOW_TEXT);while(walker.nextNode()){const node=walker.currentNode;for(const match of node.data.matchAll(/\S+/g)){const range=document.createRange();range.setStart(node,match.index);range.setEnd(node,match.index+match[0].length);for(const rect of range.getClientRects())if(rect.width>0)words.push({x:rect.x,right:rect.right,y:rect.y});}}for(let i=1;i<words.length;i++){const a=words[i-1],b=words[i];if(Math.abs(a.y-b.y)<2&&b.x>=a.right)max=Math.max(max,b.x-a.right);}}return max;});
+        assert(spacing<=reading.size*2+.5,`${path} ${engine.name()} ${readingWidth}px font ${reading.size} focus ${focus}: space ${spacing}px exceeds 2em`);
+       }
        assert.equal(reading.align,'justify');assert.equal(reading.hyphens,'auto');assert.equal(reading.last,'start');assert(reading.scroll<=reading.viewport&&reading.body<=reading.viewport,JSON.stringify(reading));assert([18,20,22].includes(reading.size));sizes.add(reading.size);
        results.push({path,width:readingWidth,theme,engine:engine.name(),focus,size:reading.size,status:'OK'});
       }

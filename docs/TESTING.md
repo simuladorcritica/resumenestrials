@@ -57,3 +57,7 @@ El comando test:browser ejecuta una vez cada grupo funcional. home-controls-smok
 Para los 672 PDF previos y posteriores: `python scripts/verify-pdf-justification.py --before RUTA_PRIVADA_ANTES --after RUTA_PRIVADA_DESPUES --pdftotext RUTA_POPPLER --report RUTA_PRIVADA_REPORTE`. Requiere pypdf para comprobar imágenes y opacidad, y Poppler para comparar tokens y cajas de palabras. Ningún PDF, captura o reporte se incorpora al sitio.
 
 La comparación PDF usa pdftotext -layout, como la auditoría profunda existente: el modo predeterminado puede interpretar espacios de justificado como columnas. Las cajas de palabras se agrupan por fila física, con el margen derecho a menos de 1 pt y la última línea comparada contra el baseline. El espaciado usa las métricas AFM precisas de Times-Roman y Helvetica, sin cambiar fuentes ni envoltura de líneas.
+
+
+### T2-MOBILE — cortes visuales de prosa
+Los párrafos mantienen justify e hyphens:auto. ui/core.js ofrece cortes visuales conservadores entre sílabas y wbr en tokens técnicos largos; ui/reader.js los aplica al lector dinámico. Los marcadores son vacíos: el guion opcional se dibuja con CSS y aria-hidden. textContent, selección, HTML clínico de origen y PDF permanecen intactos. La última línea conserva start. Es un apoyo a los diccionarios nativos (WebKit Windows no incluye partición española efectiva); sin JavaScript se conserva la propiedad nativa y el contenido prerenderizado.
