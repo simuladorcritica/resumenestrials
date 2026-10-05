@@ -1,3 +1,7 @@
+## 2026-10-05 · Auditoría: controles estables al validar campos
+
+- Se reserva el espacio del aviso de validación para que un campo no desplace el botón entre mousedown y mouseup al perder el foco. El aviso oculto conserva su invisibilidad visual y accesible; la validación y las reglas de autenticación permanecen activas.
+
 ## 2026-10-05 · Auditoría: conservar secciones del editor
 
 - El recolector utiliza las filas del contenedor de secciones, independientemente de sus clases visuales. Se corrige la pérdida de texto en vista previa y copia, y el bloqueo de generación/descarga. La regresión utiliza datos sintéticos y comprueba el cuerpo generado y exportado. No modifica los ensayos reales.
