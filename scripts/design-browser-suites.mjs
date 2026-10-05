@@ -28,6 +28,7 @@ async function geometry(p){
 async function visibleIds(p){return p.locator('#ev-list>.ev-card:visible').evaluateAll(ns=>ns.map(n=>n.dataset.id))}
 async function archive(p,base){
  await ready(p,'/',base);assert.equal(await p.locator('#ev-list>.ev-card').count(),data.length);assert.equal((await visibleIds(p)).length,24);
+ for(const dense of [false,true]){if(dense)await p.locator('#ev-view').click();const boxes=await p.locator('#ev-list>.ev-card:visible>div:first-child>a[data-ev-read]').evaluateAll(ns=>ns.map(n=>{const b=n.getBoundingClientRect(),h=n.querySelector('h2').getBoundingClientRect();return {width:b.width,height:b.height,titleOffset:h.top-b.top}}));assert.equal(boxes.length,24);assert(boxes.every(b=>b.width>=44&&b.height>=44&&Math.abs(b.titleOffset)<1),'Card title hit area >=44px and upper alignment, dense='+dense)}await p.locator('#ev-view').click();
  await p.locator('#ev-more').click();assert.equal((await visibleIds(p)).length,48);assert(new URL(p.url()).searchParams.get('n')==='48');
  await p.locator('#ev-view').click();assert.equal(await p.locator('#ev-view').getAttribute('aria-pressed'),'true');await p.reload();await p.waitForFunction(()=>document.querySelector('#ev-count').textContent.includes(' de '));assert.equal((await visibleIds(p)).length,48);assert.equal(await p.locator('#ev-view').getAttribute('aria-pressed'),'true');
  for(const [key,param]of [['year','anio'],['journal','revista'],['type','tipo'],['topic','tema'],['area','esp']]){

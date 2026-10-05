@@ -1,3 +1,7 @@
+## 2026-10-05 · Auditoría: área pulsable del título
+
+- El enlace del título de cada tarjeta conserva la alineación superior y ofrece al menos 44 px de alto, también en vista densa con títulos de una línea. La prueba de archivo comprueba ambos modos.
+
 # CHANGELOG de diseño — Resúmenes Trials
 
 Historial de diseño. Las entradas anteriores describen estados históricos; la arquitectura actual se documenta en `docs/ARCHITECTURE.md`.
