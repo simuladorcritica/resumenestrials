@@ -105,7 +105,10 @@ def render_all():
   source=path.read_text(encoding="utf-8");write(path,document(source,archive([],manifest,"Hematología y oncología","hematologia-oncologia"),"/medicina-interna/hematologia-oncologia/","archive"))
  for name in ["agregar","privacidad"]:
   source=(ROOT/"templates"/(name+".html")).read_text(encoding="utf-8");body=re.search(r"<body>([\s\S]*?)</body>",source)[1]
-  if name=="agregar":body='<p class="ev-eyebrow">Herramienta interna</p><h1>Panel editorial</h1>'+body
+  if name=="agregar":
+   # The section container owns its rows; collection must not depend on legacy CSS names.
+   body=body.replace('seccionesEl.querySelectorAll(".sec-row")', "seccionesEl.children")
+   body='<p class="ev-eyebrow">Herramienta interna</p><h1>Panel editorial</h1>'+body
   write(ROOT/(name+".html"),document(source,body,"/"+name+".html","internal" if name=="agregar" else "document"))
  templates=ROOT/"templates/account"
  for name in ["login","registro","recuperar","cuenta","biblioteca"]:
