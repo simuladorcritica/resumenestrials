@@ -1,3 +1,7 @@
+## 2026-10-05 · Auditoría: índice activo en pantallas anchas
+
+- El índice sigue el encabezado situado en el punto de lectura definido por los márgenes de desplazamiento existentes. Se actualiza al desplazarse, cambiar el tamaño de letra, alternar modo lectura y redimensionar. La regresión del lector cubre saltos hacia delante y hacia atrás.
+
 ## 2026-10-05 · Auditoría: foco del buscador en WebKit
 
 - Los diálogos globales devuelven el foco al control de apertura. Un campo oculto tras cerrar un diálogo no bloquea el atajo `/`; se conserva la edición normal de los campos visibles. La prueba de navegación cubre Escape seguido inmediatamente de `/` y la restauración del foco.
