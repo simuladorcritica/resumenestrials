@@ -1,3 +1,7 @@
+## 2026-10-05 · Auditoría: completar áreas táctiles de 44 px
+
+- Área de marca móvil y enlace X del pie de al menos 44 px, enlaces legales y retorno de recuperación con altura mínima de 44 px. La casilla de novedades conserva su ancho al compartir fila. La regresión de páginas comprueba todas las áreas de controles visibles.
+
 ## 2026-10-05 · Auditoría: índice activo en pantallas anchas
 
 - El índice sigue el encabezado situado en el punto de lectura definido por los márgenes de desplazamiento existentes. Se actualiza al desplazarse, cambiar el tamaño de letra, alternar modo lectura y redimensionar. La regresión del lector cubre saltos hacia delante y hacia atrás.
