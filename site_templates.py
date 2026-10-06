@@ -114,6 +114,9 @@ def render_all():
  for name in ["login","registro","recuperar","cuenta","biblioteca"]:
   source=(templates/(name+".html")).read_text(encoding="utf-8")
   body=re.search(r"<body>([\s\S]*?)</body>",source)[1]
+  # Navigation cancels the pending vendor script; retain errors while the page is active.
+  body=re.sub(r"(try\{captcha=await mountTurnstile\([^)]*\)\}catch\(err\)\{)([^}]*)(\})",
+              r"\1if(!window.evNavigatingAway){\2}\3",body)
   write(ROOT/(name+".html"),document(source,body,"/"+name+".html","member"))
  source=(ROOT/"templates/reader-head.html").read_text(encoding="utf-8")
  fallback='<noscript><section class="ev-notice"><h1>Leer un ensayo</h1><p>Selecciona el ensayo para abrir su página con contenido disponible sin JavaScript.</p><ul>'+''.join(f'<li><a href="{esc(manifest[trial_id(r["id"])]["path"])}">{esc(r["titulo"])}</a></li>' for r in items)+'</ul></section></noscript>'
