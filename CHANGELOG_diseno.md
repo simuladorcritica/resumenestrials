@@ -1,3 +1,7 @@
+## 2026-10-05 · Auditoría: conservar secciones del editor
+
+- El recolector utiliza las filas del contenedor de secciones, independientemente de sus clases visuales. Se corrige la pérdida de texto en vista previa y copia, y el bloqueo de generación/descarga. La regresión utiliza datos sintéticos y comprueba el cuerpo generado y exportado. No modifica los ensayos reales.
+
 ## 2026-10-05 · Auditoría: completar áreas táctiles de 44 px
 
 - Área de marca móvil y enlace X del pie de al menos 44 px, enlaces legales y retorno de recuperación con altura mínima de 44 px. La casilla de novedades conserva su ancho al compartir fila. La regresión de páginas comprueba todas las áreas de controles visibles.

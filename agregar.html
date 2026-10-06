@@ -166,7 +166,7 @@
   $("addSec").addEventListener("click", () => { nuevaSeccion("", ""); });
 
   function leerSecciones(){
-    return [...seccionesEl.querySelectorAll(".sec-row")].map(r => ({
+    return [...seccionesEl.children].map(r => ({
       titulo: r.querySelector(".ev-sec-tit").value.trim(),
       texto: r.querySelector(".ev-sec-txt").value
     }));
