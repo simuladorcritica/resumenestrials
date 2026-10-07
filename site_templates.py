@@ -117,7 +117,7 @@ def render_all():
   # Navigation cancels the pending vendor script; retain errors while the page is active.
   body=body.replace('pattern="[A-Za-z0-9._-]+"', 'pattern="[A-Za-z0-9._\\-]+"')
   body=re.sub(r"(try\{captcha=await mountTurnstile\([^)]*\)\}catch\(err\)\{)([^}]*)(\})",
-              r"\1if(!window.evNavigatingAway){\2}\3",body)
+              r"\1await new Promise(resolve=>setTimeout(resolve,50));if(!window.evNavigatingAway){\2}\3",body)
   write(ROOT/(name+".html"),document(source,body,"/"+name+".html","member"))
  source=(ROOT/"templates/reader-head.html").read_text(encoding="utf-8")
  fallback='<noscript><section class="ev-notice"><h1>Leer un ensayo</h1><p>Selecciona el ensayo para abrir su página con contenido disponible sin JavaScript.</p><ul>'+''.join(f'<li><a href="{esc(manifest[trial_id(r["id"])]["path"])}">{esc(r["titulo"])}</a></li>' for r in items)+'</ul></section></noscript>'
