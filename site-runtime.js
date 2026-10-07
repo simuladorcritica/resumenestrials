@@ -138,6 +138,8 @@ E.safe=s=>{const d=document.createElement('div');d.innerHTML=String(s??'');for(c
 E.prose=root=>{
  const excluded='.ev-meta,.ev-count,.ev-eyebrow,.ev-kicker,.ev-trust,.ev-state,.ev-estado,.ev-strength,.ev-hint,.ev-field-error,.ev-pill,.ev-editorial-dates,.ev-turnstile-status,.ev-safe';
  for(const paragraph of root.querySelectorAll('p,:where(.ev-prose,.ev-body,article.articulo) li')){
+  // The fixed archive introduction needs no extra breaks; text fragments shift when its font swaps.
+  if(paragraph.matches('.ev-hero .ev-lead'))continue;
   if(paragraph.matches(excluded)||paragraph.dataset.evProseReady||getComputedStyle(paragraph).textAlign!=='justify')continue;
   const walker=document.createTreeWalker(paragraph,NodeFilter.SHOW_TEXT),nodes=[];
   while(walker.nextNode())if(!walker.currentNode.parentElement.closest('button,label,input,select,textarea,h1,h2,h3,th,td,summary'))nodes.push(walker.currentNode);
