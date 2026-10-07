@@ -115,6 +115,7 @@ def render_all():
   source=(templates/(name+".html")).read_text(encoding="utf-8")
   body=re.search(r"<body>([\s\S]*?)</body>",source)[1]
   # Navigation cancels the pending vendor script; retain errors while the page is active.
+  body=body.replace('pattern="[A-Za-z0-9._-]+"', 'pattern="[A-Za-z0-9._\\-]+"')
   body=re.sub(r"(try\{captcha=await mountTurnstile\([^)]*\)\}catch\(err\)\{)([^}]*)(\})",
               r"\1if(!window.evNavigatingAway){\2}\3",body)
   write(ROOT/(name+".html"),document(source,body,"/"+name+".html","member"))
