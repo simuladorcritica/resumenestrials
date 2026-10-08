@@ -39,6 +39,7 @@ jobs:
       - name: Detectar credenciales privadas de Search Console
         if: github.event_name != 'pull_request'
         id: gsc
+        if: github.event_name != 'pull_request'
         shell: bash
         env:
           GSC_OAUTH_CLIENT_ID: ${{ secrets.GSC_OAUTH_CLIENT_ID }}

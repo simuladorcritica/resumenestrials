@@ -95,3 +95,14 @@ test('los nombres habituales de datasets GSC permanecen ignorados por Git', () =
     assert.ok(ignore.includes(entry), `Falta ignorar ${entry}`);
   }
 });
+
+test('las operaciones privadas solo se ejecutan fuera de pull_request', () => {
+  const steps = workflow.split(/(?=^      - name:)/m);
+  const privateSteps = steps.filter((step) => /\$\{\{ secrets\./.test(step));
+  assert.equal(privateSteps.length, 3, 'Se deben revisar todos los pasos con credenciales privadas');
+  for (const step of privateSteps) {
+    const condition = step.match(/^        if:\s*(.+)$/m)?.[1];
+    assert.ok(condition?.includes("github.event_name != 'pull_request'"),
+      'Cada operación privada debe excluir expresamente los pull requests');
+  }
+});
