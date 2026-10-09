@@ -11,7 +11,7 @@
     "watch:resumenes": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/watch-resumenes-json.ps1"
   },
   "devDependencies": {
-    "axe-core": "4.10.3",
+    "axe-core": "4.14.0",
     "jspdf": "4.2.1",
     "playwright": "1.62.1"
   }
