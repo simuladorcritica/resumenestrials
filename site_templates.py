@@ -3,7 +3,7 @@ from pathlib import Path
 import json, re, html
 ROOT=Path(__file__).resolve().parent
 BASE="https://resumenestrials.com"
-FONT_URL="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;650;700&family=JetBrains+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap"
+FONT_URL="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=Sora:wght@400;500;600;700&display=swap"
 EXCLUDED=frozenset({"/login.html","/registro.html","/recuperar.html","/cuenta.html","/biblioteca.html","/privacidad.html","/privacidad/","/privacidad/index.html","/terminos/","/terminos/index.html","/agregar.html","/medicina-interna/hematologia-oncologia/","/medicina-interna/hematologia-oncologia/index.html","/404.html"})
 ADSENSE_CLIENT="ca-pub-3132744538918477"
 ADSENSE_URL=f"https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={ADSENSE_CLIENT}"
@@ -27,21 +27,57 @@ def editorial_dates(r):
 
 def version():
  p=ROOT/"ui/runtime-version.json"
- return json.loads(p.read_text(encoding="utf-8"))["version"] if p.exists() else "design-v1"
-def icon(name):
- paths={"search":'<circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/>',"theme":'<path d="M20 15a8 8 0 0 1-11-11 8 8 0 1 0 11 11Z"/>',"menu":'<path d="M4 6h16M4 12h16M4 18h16"/>',"close":'<path d="m6 6 12 12M18 6 6 18"/>',"home":'<path d="m3 11 9-8 9 8M5 9v12h14V9M10 21v-7h4v7"/>',"grid":'<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>',"book":'<path d="M4 3h13a3 3 0 0 1 3 3v15H6a2 2 0 0 1-2-2V3Zm0 14h16"/>',"pdf":'<path d="M12 3v12m-5-5 5 5 5-5M4 18v3h16v-3"/>'}
- return '<svg viewBox="0 0 24 24" aria-hidden="true">'+paths[name]+'</svg>'
+ return json.loads(p.read_text(encoding="utf-8"))["version"] if p.exists() else "nova-v1"
+ICONS={"search":'<circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/>',"sun":'<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>',"moon":'<path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11Z"/>',"menu":'<path d="M4 7h16M4 12h16M4 17h10"/>',"close":'<path d="M6 6l12 12M18 6 6 18"/>',"home":'<path d="M3 10.5 12 3l9 7.5"/><path d="M5.5 9v11h13V9"/><path d="M10 20v-6h4v6"/>',"grid":'<rect x="3.5" y="3.5" width="7" height="7" rx="2"/><rect x="13.5" y="3.5" width="7" height="7" rx="2"/><rect x="3.5" y="13.5" width="7" height="7" rx="2"/><rect x="13.5" y="13.5" width="7" height="7" rx="2"/>',"bookmark":'<path d="M6.5 3.5h11v17l-5.5-4-5.5 4z"/>',"pdf":'<path d="M12 3.5v11"/><path d="m7.5 10 4.5 4.5 4.5-4.5"/><path d="M4.5 16.5v3h15v-3"/>',"list":'<path d="M9 6h11M9 12h11M9 18h11"/><circle cx="4.5" cy="6" r="1"/><circle cx="4.5" cy="12" r="1"/><circle cx="4.5" cy="18" r="1"/>',"read":'<path d="M3 5.5c3.5-1 6.5-.5 9 1.5 2.5-2 5.5-2.5 9-1.5v13c-3.5-1-6.5-.5-9 1.5-2.5-2-5.5-2.5-9-1.5z"/><path d="M12 7v13"/>',"more":'<circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/>',"share":'<circle cx="18" cy="5.5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="18.5" r="2.5"/><path d="m8.2 10.8 7.6-4M8.2 13.2l7.6 4"/>',"text":'<path d="M4 18 9 6l5 12M5.7 14h6.6"/><path d="M15 18l3-7 3 7M15.8 16h4.4"/>',"clock":'<circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/>',"arrow-left":'<path d="M19 12H5M11 6l-6 6 6 6"/>',"arrow-right":'<path d="M5 12h14M13 6l6 6-6 6"/>',"arrow-up":'<path d="M12 19V5M6 11l6-6 6 6"/>',"user":'<circle cx="12" cy="8" r="4"/><path d="M4.5 20.5c1.2-3.8 4-5.5 7.5-5.5s6.3 1.7 7.5 5.5"/>',"external":'<path d="M14 4h6v6M20 4l-9 9"/><path d="M18 14v6H4V6h6"/>',"filter":'<path d="M4 6h16M7 12h10M10 18h4"/>',"spark":'<path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M6 18l2.5-2.5M15.5 8.5 18 6"/>'}
+def icon(name):return '<svg class="ev-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">'+ICONS[name]+'</svg>'
+INTERNAL=("Cardiología","Cirugía","Endocrinología","Enfermedades Infecciosas","Gastroenterología","Geriatría","Hematología","Infectología","Medicina de Urgencias","Medicina Física y Rehabilitación","Nefrología","Neumología","Neurología","Oncología","Oftalmología","Reumatología","VIH")
+def area_of(r):
+ p=plain(r.get("especialidad_principal")).strip();s=plain(r.get("especialidad_secundaria")).strip()
+ if p in ("Medicina Crítica","Medicina Interna"):return p
+ if p in INTERNAL:return "Medicina Interna"
+ if s in ("Medicina Crítica","Medicina Interna"):return s
+ return p or "Evidencia clínica"
+def tone(area):return {"Medicina Crítica":"critica","Medicina Interna":"interna"}.get(area,"neutral")
+def minutes(value):return max(1,round(len(re.findall(r"\w+",plain(value)))/230))
+def readtime(r):
+ full=minutes(r.get("cuerpo"));brief=minutes(r.get("corto")) if r.get("corto") else 0
+ return f'{icon("clock")}<span>Completo {full} min</span>'+(f'<span>Breve {brief} min</span>' if brief else '')
+NAV=[("/","Inicio"),("/medicina-critica/","Medicina Crítica"),("/medicina-interna/","Medicina Interna"),("/biblioteca.html","Mi biblioteca")]
+INFO=[("/metodologia/","Metodología"),("/equipo-editorial/","Equipo editorial"),("/privacidad/","Privacidad"),("/terminos/","Términos")]
+SOCIAL=[("https://t.me/ResumenesTrials","Telegram"),("https://x.com/resumenestrials","X · @resumenestrials")]
+def brand(small=False):return '<a class="ev-brand" href="/" aria-label="Resúmenes Trials, ir al inicio"><span class="ev-brand-mark"><img src="/logo.png" width="40" height="40" alt=""></span><span class="ev-brand-name" aria-hidden="true">Resúmenes<b>Trials</b></span></a>'
 def header():
- links=[("/","Explorar"),("/medicina-critica/","Medicina Crítica"),("/medicina-interna/","Medicina Interna"),("/biblioteca.html","Mi biblioteca"),("/cuenta.html","Cuenta")]
- return '<a class="ev-skip ev-button" href="#ev-main">Saltar al contenido</a><header class="ev-header"><div class="ev-header-inner"><a class="ev-brand" href="/"><img src="/logo.png" width="44" height="44" alt="Resúmenes Trials"><span>Resúmenes<br>Trials</span></a><nav id="ev-navigation" class="ev-header-nav" aria-label="Navegación principal">'+''.join(f'<a href="{url}">{label}</a>' for url,label in links)+'</nav><div class="ev-utilities"><button class="ev-icon" type="button" data-ev-search aria-label="Buscar ensayos">'+icon("search")+'</button><button class="ev-icon" type="button" data-ev-theme aria-label="Cambiar tema">'+icon("theme")+'</button><button class="ev-icon ev-menu-toggle" type="button" data-ev-menu aria-controls="ev-navigation" aria-expanded="false" aria-label="Abrir navegación">'+icon("menu")+'</button></div></div></header>'
+ search=('<form class="ev-search" role="search" action="/" method="get" data-ev-search-form>'
+  '<label class="ev-sr" for="ev-q">Buscar resúmenes de ensayos clínicos</label>'+icon("search")+
+  '<input id="ev-q" name="q" type="search" placeholder="Busca un ensayo, enfermedad o fármaco" autocomplete="off" autocapitalize="none" spellcheck="false" enterkeyhint="search" aria-controls="ev-search-panel">'
+  '<button type="button" class="ev-search-clear" data-ev-search-clear aria-label="Borrar búsqueda" hidden>'+icon("close")+'</button>'
+  '<kbd class="ev-kbd" aria-hidden="true">/</kbd>'
+  '<div id="ev-search-panel" class="ev-search-panel" hidden><p id="ev-search-status" class="ev-search-status" role="status"></p><ul id="ev-search-results" class="ev-results"></ul><a id="ev-search-all" class="ev-search-all" href="/">Ver todos los resultados en el archivo'+icon("arrow-right")+'</a></div>'
+  '</form>')
+ nav='<nav class="ev-header-nav" aria-label="Navegación principal">'+''.join(f'<a href="{u}">{l}</a>' for u,l in NAV)+'</nav>'
+ utilities=('<div class="ev-utilities"><button class="ev-icon-btn" type="button" data-ev-theme aria-label="Cambiar tema">'+'<span class="ev-theme-sun">'+icon("sun")+'</span><span class="ev-theme-moon">'+icon("moon")+'</span></button>'
+  '<a class="ev-account-link" href="/cuenta.html">'+icon("user")+'<span>Cuenta</span></a>'
+  '<button class="ev-icon-btn ev-menu-toggle" type="button" data-ev-menu aria-controls="ev-menu" aria-expanded="false" aria-label="Abrir menú">'+icon("menu")+'</button></div>')
+ return '<a class="ev-skip" href="#ev-main">Saltar al contenido</a><header class="ev-header"><div class="ev-header-inner">'+brand()+nav+search+utilities+'</div></header>'
 def footer(home=False):
- links=[("/metodologia/","Metodología"),("/equipo-editorial/","Equipo editorial"),("/privacidad/","Privacidad"),("/terminos/","Términos"),("/registro.html","Crear cuenta"),("https://t.me/ResumenesTrials","Telegram"),("https://x.com/resumenestrials","X")]
- return '<footer class="ev-footer"><div class="ev-eyebrow">Resúmenes Trials · Evidencia sin ruido</div><nav aria-label="Información y comunidad">'+''.join(f'<a href="{url}">{label}</a>' for url,label in links)+'</nav>'+((ROOT/'templates/home-disclosure.html').read_text(encoding='utf-8') if home else '<p>Google Search Console se utiliza en modo de solo lectura para revisar la visibilidad del sitio. <a href="/privacidad/">Consulta la política de privacidad</a>.</p>')+'<p>Para médicos y profesionales de la salud. No sustituye el artículo original ni el juicio clínico.</p></footer><nav class="ev-mobile-nav" aria-label="Navegación móvil"><a href="/">'+icon("home")+'Inicio</a><button type="button" data-ev-search>'+icon("search")+'Buscar</button><button type="button" data-ev-specialties>'+icon("grid")+'Especialidades</button><a href="/biblioteca.html">'+icon("book")+'Biblioteca</a></nav>'
+ col=lambda title,links:'<nav class="ev-footer-col" aria-label="'+title+'"><p class="ev-footer-title">'+title+'</p>'+''.join(f'<a href="{u}">{l}</a>' for u,l in links)+'</nav>'
+ notice=(ROOT/'templates/home-disclosure.html').read_text(encoding='utf-8') if home else '<p>Google Search Console se utiliza en modo de solo lectura para revisar la visibilidad del sitio. <a href="/privacidad/">Consulta la política de privacidad</a>.</p>'
+ return ('<footer class="ev-footer"><div class="ev-footer-inner"><div class="ev-footer-brand">'+brand()+'<p class="ev-footer-claim">Evidencia sin ruido.</p><p class="ev-footer-about">Resúmenes críticos en español de ensayos clínicos de Medicina Crítica y Medicina Interna.</p></div>'
+  +col("Explorar",NAV+[("/cuenta.html","Cuenta")])+col("Transparencia",INFO)+col("Comunidad",SOCIAL+[("/registro.html","Crear cuenta")])+
+  '</div><div class="ev-footer-legal">'+notice+'<p>Para médicos y profesionales de la salud. No sustituye el artículo original ni el juicio clínico.</p></div></footer>'
+  '<nav class="ev-mobile-nav" aria-label="Navegación móvil"><a href="/">'+icon("home")+'<span>Inicio</span></a><button type="button" data-ev-specialties>'+icon("grid")+'<span>Especialidades</span></button><a href="/biblioteca.html">'+icon("bookmark")+'<span>Biblioteca</span></a><button type="button" data-ev-menu aria-controls="ev-menu" aria-expanded="false">'+icon("menu")+'<span>Menú</span></button></nav>'
+  '<button class="ev-top" type="button" data-ev-top aria-label="Volver arriba" hidden>'+icon("arrow-up")+'</button>')
 def dialogs():
  clusters=json.loads((ROOT/"seo-cluster-manifest.json").read_text(encoding="utf-8")) if (ROOT/"seo-cluster-manifest.json").exists() else {}
- groups='<a href="/medicina-critica/">Medicina Crítica</a><a href="/medicina-interna/">Medicina Interna</a>'+''.join(f'<a href="{esc(c["path"])}">{esc(c["name"])}</a>' for c in clusters.values())
- def dialog(id,title,content):return f'<dialog id="{id}" class="ev-dialog" aria-labelledby="{id}-title"><div class="ev-dialog-head"><h2 id="{id}-title">{title}</h2><button class="ev-icon" type="button" data-ev-close aria-label="Cerrar">'+icon("close")+'</button></div><div class="ev-dialog-body">'+content+'</div></dialog>'
- return dialog("ev-search","Buscar evidencia",'<label class="ev-sr" for="ev-search-input">Buscar por título, autor, revista, año, DOI o tema</label><input id="ev-search-input" type="search" placeholder="Ensayo, autor, DOI o especialidad…" autocomplete="off" aria-controls="ev-search-results"><p class="ev-meta">/ · Ctrl/Cmd+K · ↑↓ · Enter · Esc</p><p id="ev-search-status" class="ev-meta" role="status"></p><ul id="ev-search-results" class="ev-results"></ul>')+dialog("ev-specialties","Explorar especialidades",'<div class="ev-dialog-list">'+groups+'</div>')
+ def dialog(id,title,content,kind="sheet"):return f'<dialog id="{id}" class="ev-dialog ev-{kind}" aria-labelledby="{id}-title"><div class="ev-dialog-head"><h2 id="{id}-title">{title}</h2><button class="ev-icon-btn" type="button" data-ev-close aria-label="Cerrar">'+icon("close")+'</button></div><div class="ev-dialog-body">'+content+'</div></dialog>'
+ tiles='<div class="ev-tiles"><a class="ev-tile" data-tone="critica" href="/medicina-critica/"><b>Medicina Crítica</b><span>Sepsis, ventilación, choque, neurocríticos y más</span></a><a class="ev-tile" data-tone="interna" href="/medicina-interna/"><b>Medicina Interna</b><span>Cardiología, renal, infecciosas, neumología y más</span></a></div>'
+ topics='<p class="ev-dialog-label">Subtemas</p><div class="ev-dialog-chips">'+''.join(f'<a class="ev-chip" href="{esc(c["path"])}">{esc(c["name"])}</a>' for c in clusters.values())+'</div>'
+ menu='<nav class="ev-menu-list" aria-label="Menú">'+''.join(f'<a href="{u}">{l}</a>' for u,l in NAV+[("/cuenta.html","Cuenta")])+'</nav><p class="ev-dialog-label">Transparencia</p><nav class="ev-menu-list ev-menu-minor" aria-label="Transparencia">'+''.join(f'<a href="{u}">{l}</a>' for u,l in INFO)+'</nav><p class="ev-dialog-label">Síguenos</p><nav class="ev-menu-list ev-menu-minor" aria-label="Redes">'+''.join(f'<a href="{u}">{l}</a>' for u,l in SOCIAL)+'</nav>'
+ return dialog("ev-specialties","Especialidades",tiles+topics)+dialog("ev-menu","Menú",menu,"drawer")
+HEAD_SCRIPT=('<script>window.evNavigatingAway=false;for(const e of ["beforeunload","pagehide"])addEventListener(e,()=>window.evNavigatingAway=true);addEventListener("pageshow",e=>{if(e.persisted)window.evNavigatingAway=false});'
+ '(()=>{const d=document.documentElement;try{const t=localStorage.getItem("rt-tema");d.dataset.evTheme=t==="claro"||t==="oscuro"?t:matchMedia("(prefers-color-scheme:light)").matches?"claro":"oscuro"}catch{}'
+ 'try{const w=innerWidth,c=matchMedia("(pointer:coarse)").matches;d.dataset.evDevice=w<720?"movil":w<1100?"tableta":"escritorio";d.dataset.evPointer=c?"tactil":"raton"}catch{}'
+ 'try{if(/^\\/(trials\\/|resumen(\\.html|\\/))/.test(location.pathname)&&localStorage.getItem("ev-focus")==="true")d.dataset.evReadingMode="on"}catch{}})()</script>')
 def clean_head(source,title=None):
  h=re.search(r"<head[^>]*>([\s\S]*?)</head>",source,re.I)
  head=h[1] if h else '<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
@@ -52,33 +88,77 @@ def clean_head(source,title=None):
  if not re.search(r'<meta\b[^>]*charset=',head,re.I):head='<meta charset="UTF-8">'+head
  if not re.search(r'<meta\b[^>]*name=["\']viewport["\']',head,re.I):head+='<meta name="viewport" content="width=device-width,initial-scale=1">'
  if not re.search(r'<title>',head,re.I):head+=f'<title>{esc(title or "Resúmenes Trials")}</title>'
- head+='<script>window.evNavigatingAway=false;for(const e of ["beforeunload","pagehide"])addEventListener(e,()=>window.evNavigatingAway=true);addEventListener("pageshow",e=>{if(e.persisted)window.evNavigatingAway=false});try{const t=localStorage.getItem("rt-tema");document.documentElement.dataset.evTheme=t==="claro"||t==="oscuro"?t:matchMedia("(prefers-color-scheme:light)").matches?"claro":"oscuro"}catch{}</script>'
+ head+='<meta name="theme-color" content="#070b16" media="(prefers-color-scheme: dark)"><meta name="theme-color" content="#f3f5fb" media="(prefers-color-scheme: light)">'+HEAD_SCRIPT
  head+=f'<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="{FONT_URL}"><link rel="stylesheet" href="/site-runtime.css?v={version()}">'
  return head
 def document(source,body,route,kind="document",scripts="",title=None):
  head=clean_head(source,title)
- if route=="/":scripts+='<script type="module" src="/recommendations.js?v=20261003-laboratorio-v1"></script>'
+ if route=="/":scripts+='<script type="module" src="/recommendations.js?v=20261010-nova-v1"></script>'
  if route not in EXCLUDED and route!="/resumen.html" and not route.startswith("/resumen/"):head+=ADSENSE_SCRIPT
- return '<!DOCTYPE html><html lang="es-MX"><head>'+head+'</head><body class="'+("ev-reader" if kind=="reader" else "ev-"+kind)+'">'+header()+'<main id="ev-main" class="ev-main">'+body+'</main>'+footer(route=="/")+dialogs()+scripts+f'<script src="/site-runtime.js?v={version()}" defer></script></body></html>\n'
+ mode="list" if kind=="archive" or route=="/biblioteca.html" else "quick"
+ return '<!DOCTYPE html><html lang="es-MX"><head>'+head+'</head><body class="'+("ev-reader" if kind=="reader" else "ev-"+kind)+'" data-ev-search-mode="'+mode+'"><div class="ev-aurora" aria-hidden="true"></div>'+header()+'<main id="ev-main" class="ev-main" tabindex="-1">'+body+'</main>'+footer(route=="/")+dialogs()+scripts+f'<script src="/site-runtime.js?v={version()}" defer></script></body></html>\n'
+FACTS=[("revista","Revista"),("anio","Año"),("fecha","Fecha"),("tipo_estudio","Tipo de estudio"),("especialidad_principal","Especialidad"),("especialidad_secundaria","Especialidad secundaria"),("temas","Temas"),("registro","Registro"),("doi","DOI"),("financiacion","Financiación")]
 def facts(r):
- fields=[("revista","Revista"),("anio","Año"),("fecha","Fecha"),("tipo_estudio","Tipo de estudio"),("especialidad_principal","Especialidad"),("especialidad_secundaria","Especialidad secundaria"),("temas","Temas"),("registro","Registro"),("doi","DOI"),("financiacion","Financiación")]
- return '<dl class="ev-study-facts">'+''.join(f'<div><dt>{label}</dt><dd data-ev-field="{key}">{esc(" · ".join(map(str,r[key])) if isinstance(r.get(key),list) else r.get(key))}</dd></div>' for key,label in fields if r.get(key) not in ("",None,[]))+'</dl>'
+ return '<dl class="ev-study-facts">'+''.join(f'<div><dt>{label}</dt><dd data-ev-field="{key}">{esc(" · ".join(map(str,r[key])) if isinstance(r.get(key),list) else r.get(key))}</dd></div>' for key,label in FACTS if r.get(key) not in ("",None,[]))+'</dl>'
 def card(r,manifest):
- path=manifest[trial_id(r["id"])]["path"]
- return f'<li class="ev-card" data-id="{trial_id(r["id"])}"><div><a href="{esc(path)}" data-ev-read="{trial_id(r["id"])}"><h2>{esc(r["titulo"])}</h2></a></div><div class="ev-meta"><span>{esc(r["revista"])} · {esc(r["fecha"])}</span><br><span>{esc(r["especialidad_principal"])}</span><br><span>{esc(" · ".join(r.get("temas") or []))}</span><details><summary>Ficha del estudio</summary>{facts(r)}</details></div><div class="ev-card-foot"><a href="{esc(path)}" data-ev-read="{trial_id(r["id"])}">Leer ensayo →</a><button class="ev-icon" type="button" data-ev-card-pdf="{trial_id(r["id"])}" aria-label="Descargar resumen completo PDF de {esc(r["titulo"])}">{icon("pdf")}</button></div></li>'
+ id=trial_id(r["id"]);path=esc(manifest[id]["path"]);area=area_of(r);t=esc(r["titulo"]);topics=" · ".join(r.get("temas") or [])
+ return (f'<li class="ev-card" data-id="{id}" data-tone="{tone(area)}"><a class="ev-card-title" href="{path}" data-ev-read="{id}"><h2>{t}</h2></a>'
+  f'<p class="ev-card-meta"><span>{esc(r["revista"])}</span><span>{esc(human_date(r["fecha"]))}</span></p>'
+  f'<div class="ev-card-tags"><span class="ev-area" data-tone="{tone(area)}">{esc(area)}</span></div>'
+  +(f'<p class="ev-card-topics">{esc(topics)}</p>' if topics else '')+'<details class="ev-card-facts"><summary>Ficha del estudio</summary>'+facts(r)+'</details>'+
+  f'<div class="ev-card-foot"><p class="ev-readtime">{readtime(r)}</p><div class="ev-card-actions"><a class="ev-btn ev-btn-primary" href="{path}" data-ev-read="{id}" aria-label="Leer resumen: {t}">Leer</a>'
+  f'<details class="ev-pdf-menu"><summary class="ev-btn" aria-label="Descargar PDF de {t}">{icon("pdf")}<span>PDF</span></summary><div class="ev-pdf-pop"><button type="button" data-ev-card-pdf="{id}" data-ev-version="completo" aria-label="Descargar resumen completo PDF de {t}">PDF completo</button><button type="button" data-ev-card-pdf="{id}" data-ev-version="breve" aria-label="Descargar resumen breve PDF de {t}">PDF breve</button></div></details></div></div></li>')
 def archive(items,manifest,title="Archivo de evidencia",scope=""):
- hero='<section class="ev-hero"><div><p class="ev-eyebrow">Laboratorio de evidencia / Archivo clínico</p><h1>'+("Evidencia clínica.<br>Lectura de precisión." if not scope else esc(title))+'</h1><p class="ev-lead">Ensayos clínicos y lectura crítica para encontrar, interpretar y conservar la evidencia que necesitas.</p></div><aside class="ev-instrument"><div><strong>'+str(len(items))+'</strong><span>RESÚMENES DISPONIBLES</span></div><div class="ev-signal"></div><p class="ev-meta">Medicina Crítica<br>Medicina Interna</p></aside></section>'
- fields=[("area","Especialidad"),("topic","Subtema"),("year","Año"),("journal","Revista"),("type","Tipo de estudio")]
- tools='<div class="ev-tools"><div class="ev-field"><label for="ev-q">Buscar en el archivo</label><input id="ev-q" type="search" placeholder="Ensayo, autor, DOI…" autocomplete="off"></div>'+''.join(f'<div class="ev-field"><label for="ev-{key}">{label}</label><select id="ev-{key}" data-ev-filter="{key}"><option value="">Todos</option></select></div>' for key,label in fields)+'</div>'
+ import generar_seo as base
+ from collections import Counter
+ crit=sum(1 for r in items if "Medicina Crítica" in base.categorias(r));inter=sum(1 for r in items if "Medicina Interna" in base.categorias(r))
+ if not scope:
+  hero=('<section class="ev-hero"><div class="ev-hero-copy"><p class="ev-eyebrow"><span class="ev-pulse" aria-hidden="true"></span>Resúmenes críticos de ensayos clínicos · en español</p>'
+   '<h1>Evidencia clínica, <span class="ev-grad-text">clara y al instante.</span></h1>'
+   '<p class="ev-lead">Encuentra un ensayo, léelo completo o en versión breve y descárgalo en PDF. Escribe en el buscador una enfermedad, un fármaco o el nombre del estudio.</p></div>'
+   f'<ul class="ev-stats" aria-label="Contenido del archivo"><li><strong>{len(items)}</strong><span>resúmenes</span></li><li data-tone="critica"><strong>{crit}</strong><span>Medicina Crítica</span></li><li data-tone="interna"><strong>{inter}</strong><span>Medicina Interna</span></li></ul>'
+   '<ol class="ev-steps" aria-label="Cómo usar Resúmenes Trials"><li><b>1</b><span>Busca o elige una especialidad</span></li><li><b>2</b><span>Abre el resumen completo o breve</span></li><li><b>3</b><span>Descárgalo en PDF o guárdalo</span></li></ol></section>')
+ else:
+  kind="Especialidad" if scope in ("medicina-critica","medicina-interna") else "Subtema"
+  hero=(f'<section class="ev-hero ev-hero-compact"><div class="ev-hero-copy"><nav class="ev-breadcrumb" aria-label="Ruta"><a href="/">{icon("arrow-left")}Inicio</a></nav><p class="ev-eyebrow"><span class="ev-pulse" aria-hidden="true"></span>{kind}</p><h1>{esc(title)}</h1>'
+   f'<p class="ev-lead">{len(items)} resúmenes críticos de ensayos clínicos. Elige uno para leerlo completo o en versión breve y descargarlo en PDF.</p></div></section>')
+ segment=''
+ if not scope:
+  segment=('<div class="ev-segment" role="radiogroup" aria-label="Especialidad">'
+   +''.join(f'<label><input type="radio" name="ev-area" value="{v}"{" checked" if not v else ""}><span>{l}<small>{n}</small></span></label>' for v,l,n in [("","Todas",len(items)),("Medicina Crítica","Medicina Crítica",crit),("Medicina Interna","Medicina Interna",inter)])+'</div>')
  quick_year=max((int(r["anio"]) for r in items if "Medicina Crítica" in [r.get("especialidad_principal"),r.get("especialidad_secundaria")] and str(r.get("anio","")).isdigit()),default=0)
- quick=f'<div class="ev-options"><span class="ev-eyebrow">Acceso rápido</span><button class="ev-chip" type="button" data-ev-preset="{quick_year}">Medicina Crítica · {quick_year}</button></div>' if quick_year else ""
- return hero+f'<section class="ev-archive" data-ev-ids="{",".join(trial_id(r["id"]) for r in items)}"><div class="ev-archive-head"><h2>{esc(title)}</h2><span id="ev-count" class="ev-count" role="status">{len(items)} resúmenes</span></div>'+quick+tools+'<div class="ev-options"><div class="ev-chips" id="ev-chips" role="group" aria-label="Filtros activos"></div><div><label for="ev-sort">Orden </label><select id="ev-sort"><option value="date">Fecha</option><option value="title">Título</option><option value="journal">Revista</option></select> <button type="button" id="ev-view" aria-pressed="false">Lista densa</button></div></div><ul class="ev-list" id="ev-list">'+''.join(card(r,manifest) for r in items)+'</ul><p id="ev-empty" class="ev-notice" hidden>No encontramos coincidencias. Prueba «sepsis», un acrónimo o restablece los filtros.</p><button id="ev-more" type="button" class="ev-more" hidden>Mostrar más</button></section>'
+ top=[t for t,_ in Counter(t for r in items for t in (r.get("temas") or [])).most_common(5)]
+ quick=('<div class="ev-quick"><span class="ev-quick-label">Atajos</span><div class="ev-quick-row">'+(f'<button class="ev-chip ev-chip-strong" type="button" data-ev-preset="{quick_year}">Medicina Crítica · {quick_year}</button>' if quick_year and not scope else '')
+  +''.join(f'<button class="ev-chip" type="button" data-ev-topic="{esc(t)}">{esc(t)}</button>' for t in top)+'</div></div>') if (top or quick_year) else ''
+ fields=[("sub","Subespecialidad"),("topic","Tema"),("year","Año"),("journal","Revista"),("type","Tipo de estudio")]
+ filters=('<div id="ev-filters" class="ev-filters" hidden><div class="ev-filters-grid">'+''.join(f'<div class="ev-field"><label for="ev-{k}">{l}</label><select id="ev-{k}" data-ev-filter="{k}"><option value="">Todos</option></select></div>' for k,l in fields)
+  +'<div class="ev-field"><label for="ev-sort">Ordenar por</label><select id="ev-sort"><option value="date">Más recientes</option><option value="title">Título (A–Z)</option><option value="journal">Revista</option></select></div></div></div>')
+ heading="Biblioteca de ensayos" if not scope else "Resúmenes de "+esc(title)
+ return (hero+f'<section class="ev-archive" id="ev-archivo" data-ev-ids="{",".join(trial_id(r["id"]) for r in items)}"><div class="ev-archive-head"><h2>{heading}</h2><p id="ev-count" class="ev-count" role="status">{len(items)} resúmenes</p></div>'
+  +segment+quick+'<div class="ev-archive-bar"><button type="button" class="ev-btn ev-filter-toggle" data-ev-filters aria-expanded="false" aria-controls="ev-filters">'+icon("filter")+'<span>Filtros</span><b class="ev-badge" data-ev-filter-count hidden></b></button><div class="ev-chips" id="ev-chips" role="group" aria-label="Filtros activos"></div><button type="button" class="ev-btn ev-view-toggle" id="ev-view" aria-pressed="false" aria-label="Vista compacta">'+icon("list")+'<span>Vista compacta</span></button></div>'
+  +filters+'<ul class="ev-list" id="ev-list">'+''.join(card(r,manifest) for r in items)+'</ul>'
+  '<div id="ev-empty" class="ev-empty" hidden><p class="ev-empty-title">No encontramos coincidencias</p><p>Prueba con otra palabra, por ejemplo «sepsis», el nombre corto del estudio o el año.</p><button type="button" class="ev-btn ev-btn-primary" data-ev-reset>Ver todos los resúmenes</button></div>'
+  '<button id="ev-more" type="button" class="ev-btn ev-more" hidden>Mostrar más</button></section>')
 def reading(r,manifest,brief=False,legacy=False):
  id=trial_id(r["id"]);body=r["corto" if brief else "cuerpo"];body=re.sub(r"<(?=\d)","&lt;",body)
- route=manifest[id]["path"];full=f"/resumen.html?id={id}" if legacy else route;short=f"/resumen.html?id={id}&amp;v=corto"
- toolbar=f'<div class="ev-toolbar" role="region" aria-label="Controles de lectura"><div class="ev-version"><a href="{full}"'+(' aria-current="page"' if not brief else '')+f'>Completo</a><a href="{short}"'+(' aria-current="page"' if brief else '')+'>Breve</a></div><button type="button" data-ev-sections>Secciones</button><button type="button" data-ev-pdf>'+icon("pdf")+'PDF</button><button type="button" data-ev-format aria-label="Elegir formato de PDF">Formato</button><button type="button" data-ev-save>Guardar</button><button type="button" data-ev-focus aria-pressed="false">Modo lectura</button><button type="button" data-ev-font aria-label="Cambiar tamaño de letra">A+</button></div>'
+ route=manifest[id]["path"];full=f"/resumen.html?id={id}" if legacy else route;short=f"/resumen.html?id={id}&amp;v=corto";area=area_of(r)
+ toolbar=(f'<div class="ev-toolbar" role="region" aria-label="Controles de lectura"><div class="ev-version" role="group" aria-label="Versión del resumen"><a href="{full}"'+(' aria-current="page"' if not brief else '')+f'>Completo</a><a href="{short}"'+(' aria-current="page"' if brief else '')+'>Breve</a></div>'
+  '<button type="button" class="ev-tool" data-ev-sections>'+icon("list")+'<span>Índice</span></button>'
+  '<button type="button" class="ev-tool" data-ev-pdf aria-haspopup="dialog">'+icon("pdf")+'<span>PDF</span></button>'
+  '<button type="button" class="ev-tool" data-ev-focus aria-pressed="false">'+icon("read")+'<span>Modo lectura</span></button>'
+  '<button type="button" class="ev-tool ev-more-toggle" data-ev-more aria-expanded="false" aria-controls="ev-more-tools">'+icon("more")+'<span>Más</span></button>'
+  '<div class="ev-more-tools" id="ev-more-tools"><button type="button" class="ev-tool" data-ev-save>'+icon("bookmark")+'<span>Guardar</span></button><button type="button" class="ev-tool" data-ev-share>'+icon("share")+'<span>Compartir</span></button><button type="button" class="ev-tool" data-ev-font aria-label="Cambiar tamaño de letra">'+icon("text")+'<span>Letra</span></button></div></div>')
  article='<article class="ev-body">'+body+'</article>' if brief or legacy else '<article class="articulo">'+body+'</article>'
- return f'<section data-ev-reader="{id}" data-ev-brief="{str(brief).lower()}"><nav class="ev-breadcrumb" aria-label="Ruta"><a href="/" data-ev-return>← Volver a la lista</a><a href="/metodologia/">Metodología</a></nav><header class="ev-reading-head"><span class="ev-eyebrow">{esc(r["tipo_estudio"])} / {esc(r["anio"])}</span><h1 data-ev-field="titulo">{esc(r["titulo"])}</h1><p class="ev-meta"><span data-ev-field="autor">{esc(r["autor"])}</span> · <span data-ev-field="revista">{esc(r["revista"])}</span> · <span data-ev-field="fecha">{esc(human_date(r["fecha"]))}</span></p><p data-ev-field="hallazgo" class="ev-lead">{r["hallazgo"]}</p>{editorial_dates(r)}</header>'+facts(r)+toolbar+'<progress class="ev-progress" max="100" value="0" aria-label="Progreso de lectura"></progress><div class="ev-reader-grid">'+article+'<aside class="ev-rail"><p class="ev-eyebrow">En esta página</p><nav data-ev-toc aria-label="Secciones del artículo"></nav></aside></div><div class="ev-endmatter"><p class="ev-original">Artículo original: '+(f'<a href="{esc(r["original"])}" target="_blank" rel="noopener noreferrer">{esc(r["original"])}</a>' if str(r["original"]).startswith("https://") else esc(r["original"]))+'</p><nav class="ev-neighbors" aria-label="Continuidad de lectura" data-ev-neighbors></nav><section class="ev-related"><h2>Evidencia relacionada</h2><ul class="ev-list" data-ev-related></ul></section><p class="ev-meta" id="ev-reader-status" role="status"></p></div></section>'
+ original=(f'<a href="{esc(r["original"])}" target="_blank" rel="noopener noreferrer">{esc(r["original"])}{icon("external")}</a>' if str(r["original"]).startswith("https://") else esc(r["original"]))
+ return (f'<section class="ev-reading" data-ev-reader="{id}" data-ev-brief="{str(brief).lower()}"><nav class="ev-breadcrumb" aria-label="Ruta"><a href="/" data-ev-return>{icon("arrow-left")}Volver a la lista</a><a href="/metodologia/">Metodología</a></nav>'
+  f'<header class="ev-reading-head"><div class="ev-card-tags"><span class="ev-area" data-tone="{tone(area)}">{esc(area)}</span><span class="ev-type">{esc(r["tipo_estudio"])} · {esc(r["anio"])}</span></div><h1 data-ev-field="titulo">{esc(r["titulo"])}</h1>'
+  f'<p class="ev-byline"><span data-ev-field="autor">{esc(r["autor"])}</span><span data-ev-field="revista">{esc(r["revista"])}</span><span data-ev-field="fecha">{esc(human_date(r["fecha"]))}</span></p>'
+  f'<div class="ev-keyfinding"><p class="ev-keyfinding-label">{icon("spark")}Hallazgo principal</p><p data-ev-field="hallazgo" class="ev-lead">{r["hallazgo"]}</p></div>'
+  f'<p class="ev-readtime">{readtime(r)}</p>{editorial_dates(r)}</header>'
+  '<details class="ev-facts" open><summary>Ficha técnica del estudio</summary>'+facts(r)+'</details>'+toolbar+'<progress class="ev-progress" max="100" value="0" aria-label="Progreso de lectura"></progress>'
+  '<div class="ev-reader-grid">'+article+'<aside class="ev-rail"><p class="ev-rail-title">En esta página</p><nav data-ev-toc aria-label="Secciones del artículo"></nav></aside></div>'
+  f'<div class="ev-endmatter"><p class="ev-original"><span class="ev-original-label">Artículo original</span>{original}</p><nav class="ev-neighbors" aria-label="Continuidad de lectura" data-ev-neighbors></nav><section class="ev-related"><h2>Evidencia relacionada</h2><ul class="ev-list" data-ev-related></ul></section><p class="ev-status" id="ev-reader-status" role="status"></p></div></section>')
+def doc_page(eyebrow,h1,date_html,content):return '<div class="ev-doc"><p class="ev-eyebrow"><span class="ev-pulse" aria-hidden="true"></span>'+eyebrow+'</p><h1>'+h1+'</h1>'+date_html+'<article class="ev-prose">'+content+'</article></div>'
 def write(path,text):path.parent.mkdir(parents=True,exist_ok=True);path.write_text(text,encoding="utf-8")
 def render_all():
  items=json.loads((ROOT/"resumenes.json").read_text(encoding="utf-8"));manifest=json.loads((ROOT/"seo-manifest.json").read_text(encoding="utf-8"));clusters=json.loads((ROOT/"seo-cluster-manifest.json").read_text(encoding="utf-8"))
@@ -97,8 +177,8 @@ def render_all():
   content=re.sub(r'<(?:header|nav)\b[^>]*>[\s\S]*?</(?:header|nav)>',"",content)
   content=re.sub(r'\sclass=["\'][^"\']*["\']',"",content)
   date=re.search(r"<p[^>]*>(Última actualización:[^<]+)</p>",content_source)
-  date_html='<p class="ev-meta">'+date[1]+'</p>' if date else ""
-  write(path,document(source,'<p class="ev-eyebrow">Transparencia editorial</p><h1>'+h1+'</h1>'+date_html+'<article class="ev-prose">'+content+'</article>',"/"+name+"/"))
+  date_html='<p class="ev-doc-date">'+date[1]+'</p>' if date else ""
+  write(path,document(source,doc_page('Transparencia editorial',h1,date_html,content),"/"+name+"/"))
  # Existing inactive subtopic route stays available with its own empty archive.
  path=ROOT/"medicina-interna/hematologia-oncologia/index.html"
  if path.exists():
@@ -108,7 +188,7 @@ def render_all():
   if name=="agregar":
    # The section container owns its rows; collection must not depend on legacy CSS names.
    body=body.replace('seccionesEl.querySelectorAll(".sec-row")', "seccionesEl.children")
-   body='<p class="ev-eyebrow">Herramienta interna</p><h1>Panel editorial</h1>'+body
+   body='<div class="ev-doc ev-doc-wide"><p class="ev-eyebrow"><span class="ev-pulse" aria-hidden="true"></span>Herramienta interna</p><h1>Panel editorial</h1>'+body+'</div>'
   write(ROOT/(name+".html"),document(source,body,"/"+name+".html","internal" if name=="agregar" else "document"))
  templates=ROOT/"templates/account"
  for name in ["login","registro","recuperar","cuenta","biblioteca"]:
@@ -120,9 +200,9 @@ def render_all():
               r"\1setTimeout(()=>{if(!window.evNavigatingAway){\2}},50);\3",body)
   write(ROOT/(name+".html"),document(source,body,"/"+name+".html","member"))
  source=(ROOT/"templates/reader-head.html").read_text(encoding="utf-8")
- fallback='<noscript><section class="ev-notice"><h1>Leer un ensayo</h1><p>Selecciona el ensayo para abrir su página con contenido disponible sin JavaScript.</p><ul>'+''.join(f'<li><a href="{esc(manifest[trial_id(r["id"])]["path"])}">{esc(r["titulo"])}</a></li>' for r in items)+'</ul></section></noscript>'
- write(ROOT/"resumen.html",document(source,'<div id="ev-dynamic-reader" aria-live="polite"><p class="ev-notice">Cargando ensayo…</p></div>'+fallback,"/resumen.html","reader"))
- write(ROOT/"404.html",document('<head><title>Página no encontrada | Resúmenes Trials</title><meta name="robots" content="noindex,follow"></head>','<p class="ev-eyebrow">Error 404</p><h1>Página no encontrada</h1><p class="ev-lead">Puedes encontrar el ensayo en el archivo o explorar las áreas clínicas.</p><a class="ev-button ev-primary" href="/">Volver al archivo</a>',"/404.html"))
+ fallback='<noscript><section class="ev-notice ev-doc"><h1>Leer un ensayo</h1><p>Selecciona el ensayo para abrir su página con contenido disponible sin JavaScript.</p><ul>'+''.join(f'<li><a href="{esc(manifest[trial_id(r["id"])]["path"])}">{esc(r["titulo"])}</a></li>' for r in items)+'</ul></section></noscript>'
+ write(ROOT/"resumen.html",document(source,'<div id="ev-dynamic-reader" aria-live="polite"><div class="ev-loading"><span class="ev-loading-bar"></span><p>Cargando ensayo…</p></div></div>'+fallback,"/resumen.html","reader"))
+ write(ROOT/"404.html",document('<head><title>Página no encontrada | Resúmenes Trials</title><meta name="robots" content="noindex,follow"></head>','<div class="ev-doc ev-notfound"><p class="ev-eyebrow"><span class="ev-pulse" aria-hidden="true"></span>Error 404</p><h1>Página no encontrada</h1><p class="ev-lead">Puedes encontrar el ensayo con el buscador de arriba, en el archivo o en las áreas clínicas.</p><div class="ev-actions-row"><a class="ev-btn ev-btn-primary" href="/">Volver al archivo</a><a class="ev-btn" href="/medicina-critica/">Medicina Crítica</a><a class="ev-btn" href="/medicina-interna/">Medicina Interna</a></div></div>',"/404.html"))
  # Static index also runs without a local Jekyll process; SEO is identical to the include.
  write(ROOT/"index.html",home.read_text(encoding="utf-8"))
  print(f"DESIGN TEMPLATES PASS: {len(items)} trials, {len(clusters)} subtemas, archivo, cuenta, lector y documentos")

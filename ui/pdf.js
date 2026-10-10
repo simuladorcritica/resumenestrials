@@ -25,12 +25,13 @@ export async function generatePDF(item,{brief=false,format='a4',download=true}={
  const routes=await (routePending??=fetch('/seo-manifest.json').then(r=>{if(!r.ok)throw Error('Rutas PDF no disponibles');return r.json()}));const canonical='https://resumenestrials.com'+routes[String(item.id)].path;
  const width=doc.internal.pageSize.getWidth(),height=doc.internal.pageSize.getHeight(),margin=mobile?26:48,usable=width-margin*2,bottom=height-62,bodyFont=mobile?13:10.5,leading=mobile?19:15;
  let y=82;
- function stamp(){doc.saveGraphicsState();doc.setGState(new doc.GState({opacity:.045}));const w=width*.68,h=w*props.height/props.width;doc.addImage(image,'PNG',(width-w)/2,(height-h)/2,w,h,'ev-logo','FAST');doc.restoreGraphicsState();doc.addImage(image,'PNG',margin,24,32,32,'ev-logo','FAST');doc.setFont('helvetica','bold');doc.setFontSize(mobile?8:10);doc.setTextColor(14,68,73);doc.text('RESUMENES TRIALS',margin+42,36);doc.setFont('helvetica','normal');doc.setFontSize(7.5);doc.setTextColor(45,63,83);doc.text('ID '+item.id+' / '+(brief?'BREVE':'COMPLETO')+' / '+(mobile?'CELULAR':'A4'),margin+42,49);doc.setDrawColor(25,119,117);doc.setLineWidth(.7);doc.line(margin,64,width-margin,64)}
+ // Nova visual identity: indigo/violet header band, logo, hairline and the same text as before.
+ function stamp(){doc.saveGraphicsState();doc.setGState(new doc.GState({opacity:.045}));const w=width*.68,h=w*props.height/props.width;doc.addImage(image,'PNG',(width-w)/2,(height-h)/2,w,h,'ev-logo','FAST');doc.restoreGraphicsState();doc.setFillColor(31,86,209);doc.rect(0,0,width*.62,5,'F');doc.setFillColor(98,54,204);doc.rect(width*.62,0,width*.38,5,'F');doc.addImage(image,'PNG',margin,20,34,34,'ev-logo','FAST');doc.setFont('helvetica','bold');doc.setFontSize(mobile?8:10);doc.setTextColor(31,86,209);doc.text('RESUMENES TRIALS',margin+44,34);doc.setFont('helvetica','normal');doc.setFontSize(7.5);doc.setTextColor(74,85,115);doc.text('ID '+item.id+' / '+(brief?'BREVE':'COMPLETO')+' / '+(mobile?'CELULAR':'A4'),margin+44,47);doc.setDrawColor(214,221,236);doc.setLineWidth(.8);doc.line(margin,64,width-margin,64);doc.setDrawColor(98,54,204);doc.setLineWidth(1.6);doc.line(margin,64,margin+42,64)}
  stamp();
  function page(){doc.addPage();stamp();y=82}
  function ensure(h){if(y+h>bottom)page()}
- function text(value,{font='times',bold=false,size=bodyFont,line=leading,gap=8,justify=false}={}){
-  doc.setFont(font,bold?'bold':'normal');doc.setFontSize(size);doc.setTextColor(20,35,53);
+ function text(value,{font='times',bold=false,size=bodyFont,line=leading,gap=8,justify=false,color=[22,26,40]}={}){
+  doc.setFont(font,bold?'bold':'normal');doc.setFontSize(size);doc.setTextColor(...color);
   const lines=doc.splitTextToSize(sanPDF(value),usable);
   for(let i=0;i<lines.length;i++){
    const l=lines[i];ensure(line);
@@ -45,13 +46,13 @@ export async function generatePDF(item,{brief=false,format='a4',download=true}={
   }
   y+=gap;
  }
- text(plain(item.titulo),{font:'helvetica',bold:true,size:mobile?17:19,line:mobile?23:25,gap:10});
- text([item.autor,item.revista,item.anio,item.fecha].filter(Boolean).join(' · '),{font:'helvetica',size:mobile?10:9,line:mobile?15:13});
- for(const[k,label]of[['tipo_estudio','Tipo'],['especialidad_principal','Especialidad'],['especialidad_secundaria','Especialidad secundaria'],['temas','Temas'],['registro','Registro'],['doi','DOI'],['financiacion','Financiacion']]){if(item[k]!==''&&item[k]!=null&&(!Array.isArray(item[k])||item[k].length))text(label+': '+plain(Array.isArray(item[k])?item[k].join(' · '):item[k]),{font:'helvetica',size:mobile?10:8.5,line:mobile?15:12,gap:4})}
+ text(plain(item.titulo),{font:'helvetica',bold:true,size:mobile?17:19,line:mobile?23:25,gap:10,color:[12,20,40]});
+ text([item.autor,item.revista,item.anio,item.fecha].filter(Boolean).join(' · '),{font:'helvetica',size:mobile?10:9,line:mobile?15:13,color:[74,85,115]});
+ for(const[k,label]of[['tipo_estudio','Tipo'],['especialidad_principal','Especialidad'],['especialidad_secundaria','Especialidad secundaria'],['temas','Temas'],['registro','Registro'],['doi','DOI'],['financiacion','Financiacion']]){if(item[k]!==''&&item[k]!=null&&(!Array.isArray(item[k])||item[k].length))text(label+': '+plain(Array.isArray(item[k])?item[k].join(' · '):item[k]),{font:'helvetica',size:mobile?10:8.5,line:mobile?15:12,gap:4,color:[56,64,92]})}
  y+=12;
  const source=document.createElement('div');source.innerHTML=brief?item.corto:item.cuerpo;
- for(const node of [...source.children]){const t=node.textContent.replace(/\s+/g,' ').trim();if(!t)continue;if(node.tagName==='H2'){ensure(60);y+=10;text(t,{font:'helvetica',bold:true,size:mobile?14:12,line:mobile?20:17,gap:8})}else text(t,{justify:node.tagName==='P'})}
- const count=doc.getNumberOfPages();for(let i=1;i<=count;i++){doc.setPage(i);doc.setFont('helvetica','normal');doc.setFontSize(6.5);doc.setTextColor(45,63,83);doc.textWithLink('resumenestrials.com / ID '+item.id+' / '+i+' de '+count,margin,height-40,{url:canonical});doc.text('X: @resumenestrials | Telegram: @ResumenesTrials',margin,height-29);doc.text('resumenestrials@outlook.com',margin,height-18)}
+ for(const node of [...source.children]){const t=node.textContent.replace(/\s+/g,' ').trim();if(!t)continue;if(node.tagName==='H2'){ensure(60);y+=10;doc.setFillColor(98,54,204);doc.rect(margin-(mobile?12:16),y-(mobile?12:10),3,mobile?15:13,'F');text(t,{font:'helvetica',bold:true,size:mobile?14:12,line:mobile?20:17,gap:8,color:[31,86,209]})}else text(t,{justify:node.tagName==='P'})}
+ const count=doc.getNumberOfPages();for(let i=1;i<=count;i++){doc.setPage(i);doc.setDrawColor(214,221,236);doc.setLineWidth(.6);doc.line(margin,height-50,width-margin,height-50);doc.setFont('helvetica','normal');doc.setFontSize(6.5);doc.setTextColor(74,85,115);doc.textWithLink('resumenestrials.com / ID '+item.id+' / '+i+' de '+count,margin,height-40,{url:canonical});doc.text('X: @resumenestrials | Telegram: @ResumenesTrials',margin,height-29);doc.text('resumenestrials@outlook.com',margin,height-18)}
  doc.setProperties({title:plain(item.titulo),subject:'Resumen '+item.id+' · '+(brief?'breve':'completo')+' · '+format,author:'Resúmenes Trials',creator:'Resúmenes Trials / jsPDF '+JSPDF_VERSION});
  const filename='Resumen_'+item.id+'_'+(brief?'breve':'completo')+'_'+format+'.pdf';if(download)doc.save(filename);return {doc,filename,pages:count,format,id:item.id,brief}
 }

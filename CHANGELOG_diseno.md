@@ -358,3 +358,17 @@ La insignia utiliza directamente el clasificador clínico vigente, que reconoce 
 
 ### F-001 — salida de Modo lectura con Escape (5-oct-2026)
 La auditoría con teclado confirmó que Escape no salía del modo lectura en ninguno de los dieciséis casos de motor, ancho y tema, tanto local como en producción. El manejador global reutiliza el botón existente para salir y persistir el estado. Si hay un diálogo o menú abierto, Escape lo cierra primero y conserva el modo lectura. La regresión mantiene la salida por clic y añade cierre del diálogo, salida con Escape y persistencia después de recargar.
+
+
+## 2026-10-10 — Rediseño estético total «Nova»
+Sustituye por completo la presentación «Laboratorio de evidencia»: paleta (noche índigo / blanco frío, acento azul eléctrico, degradado azul→violeta, coral para Medicina Crítica y violeta para Medicina Interna), tipografías (Sora + Literata, se retiran Inter Tight, JetBrains Mono y Source Serif 4), cabecera de vidrio, aurora de fondo, tarjetas, lector, diálogos, pie y PDF. `resumenes.json` queda byte-idéntico y el texto clínico renderizado no cambia.
+
+- **Un solo buscador** en la cabecera de todas las páginas: filtra la lista en portada, especialidades, subtemas y biblioteca; en el resto muestra resultados instantáneos. Se retiran el diálogo de búsqueda y el campo duplicado del archivo y de la biblioteca.
+- **Archivo**: selector segmentado de especialidad, atajos (Medicina Crítica + año y temas frecuentes), panel plegable de filtros con chips y «Limpiar todo», nuevo parámetro `sub` (subespecialidad) compatible con enlaces `?esp=` anteriores.
+- **Tarjetas**: siguen empezando por el título; añaden categoría, tiempo estimado de lectura (completo y breve) y menú PDF completo/breve.
+- **Lector**: hallazgo principal destacado, barra de lectura con Completo/Breve, Índice, PDF, Modo lectura, Guardar, **Compartir** y Letra (18/20/22 px); en celular la barra va abajo con «Más». Modo lectura con superficie cálida que oculta todo salvo el texto.
+- **PDF**: un panel con versión y formato (Celular / A4); el formato del dispositivo se recomienda primero. Nuevo estilo visual del PDF sin cambiar su texto, logo, marca de agua ni justificado.
+- **Detección de dispositivo**: `data-ev-device` y `data-ev-pointer` desde `<head>`.
+- **Justificado**: toda la prosa del sitio y del PDF; metadatos, etiquetas y controles al inicio. Guion ASCII y puntuación final fuera de los tokens técnicos.
+- Pruebas reescritas a los nuevos contratos sin retirar cobertura: buscador único, filtros segmentados, panel PDF (6 rutas × 2 versiones/formatos), modo lectura, rejilla del lector (rail desde 1100 px), tareas en ≤ 3 toques y axe en ambos temas.
+

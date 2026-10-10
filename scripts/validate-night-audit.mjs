@@ -10,7 +10,7 @@ const contact=read('ui/pdf.js'),layout=read('ui/site.css');
 const workflow=read('.github/workflows/revision-nocturna.yml'),prompt=read('PROMPT_AUDITORIA_NOCTURNA_RESUMENES_TRIALS.md'),deepAudit=read('tools/auditoria_sitio_profunda.mjs');
 for(const [name,html] of [['index',index],['resumen',resumen]])if(!html.includes('/site-runtime.js?v='))fail(name+' sin runtime versionado');
 for(const token of ['resumenestrials.com','X: @resumenestrials','Telegram: @ResumenesTrials','resumenestrials@outlook.com','item.corto','item.cuerpo','generatePDF','JSPDF_SRI','opacity:.045'])if(!contact.includes(token))fail('PDF sin '+token);
-if(!layout.includes('.ev-tools')||!layout.includes('repeat(5,minmax(110px,1fr))'))fail('Filtros sin alineación escritorio');
+if(!layout.includes('.ev-filters-grid')||!layout.includes('.ev-filters-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))'))fail('Filtros sin alineación escritorio');
 for (const token of ['auditoria_editorial_profunda.py', 'auditoria_sitio_profunda.mjs', 'revisar_pagina_pdf.mjs', 'informe_editorial.json', 'informe_sitio_profundo.json', 'poppler-utils']) {
   if (!workflow.includes(token)) fail(`revision-nocturna.yml no integra ${token}`);
 }

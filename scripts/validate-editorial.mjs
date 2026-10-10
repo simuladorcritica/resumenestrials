@@ -4,13 +4,16 @@ const fail=m=>{console.error('EDITORIAL FAIL: '+m);process.exitCode=1};
 const ok=m=>console.log('EDITORIAL PASS: '+m);
 const index=read('index.html'),privacy=read('privacidad/index.html'),account=read('cuenta.html'),auth=read('auth.js'),login=read('login.html'),register=read('registro.html'),recovery=read('recuperar.html'),runtime=read('site-runtime.js'),css=read('site-runtime.css'),classifier=read('specialty-classification.js');
 for(const [name,html] of [['index',index],['cuenta',account],['login',login],['registro',register],['recuperar',recovery],['privacidad',privacy]]){
- for(const font of ['Inter+Tight','JetBrains+Mono','Source+Serif+4'])if(!html.includes(font))fail(name+' no carga '+font);
+ for(const font of ['Sora','Literata'])if(!html.includes('family='+font))fail(name+' no carga '+font);
+ for(const font of ['Inter+Tight','JetBrains+Mono','Source+Serif+4'])if(html.includes(font))fail(name+' conserva la tipografía anterior '+font);
  if(!html.includes('/site-runtime.js?v=')||!html.includes('/site-runtime.css?v='))fail(name+' no carga runtime versionado');
  if((html.match(/<header class="ev-header">/g)||[]).length!==1)fail(name+' no tiene exactamente una cabecera');
  if(/Fraunces|Newsreader|IBM.Plex.Mono|<style\b/.test(html))fail(name+' conserva presentación anterior o CSS inline');
 }
 if((login.match(/href="registro\.html"/g)||[]).length!==1)fail('Login debe tener un enlace a registro');
-for(const key of ['area','topic','year','journal','type'])if(!index.includes('data-ev-filter="'+key+'"'))fail('Falta filtro '+key);
+for(const key of ['sub','topic','year','journal','type'])if(!index.includes('data-ev-filter="'+key+'"'))fail('Falta filtro '+key);
+if((index.match(/name="ev-area"/g)||[]).length!==3)fail('Falta el selector segmentado de especialidad');
+if((index.match(/<input\b[^>]*type="search"/g)||[]).length!==1||!index.includes('id="ev-q"'))fail('La portada debe tener un único buscador');
 if(!index.includes('data-ev-card-pdf=')||!runtime.includes('SpecialtyClassification'))fail('Portada sin PDF o taxonomía');
 if(!classifier.includes('Hematolog')||!classifier.includes('Neumolog')||classifier.includes('Medicina Interna General'))fail('Taxonomía canónica incompleta');
 if(!css.includes('minmax(0,1fr)')||!css.includes('ev-mobile-nav'))fail('Contrato responsive incompleto');
