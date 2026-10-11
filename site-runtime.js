@@ -204,7 +204,8 @@ E.ready(()=>{
  // Menus and dialogs
  const menuButtons=[...document.querySelectorAll('[data-ev-menu]')],menu=document.getElementById('ev-menu');
  menuButtons.forEach(b=>b.onclick=()=>{E.open('ev-menu');menuButtons.forEach(x=>x.setAttribute('aria-expanded','true'))});
- menu?.addEventListener('close',()=>menuButtons.forEach(x=>x.setAttribute('aria-expanded','false')));
+ // Escape fires 'cancel' synchronously; 'close' is queued. Reset the state on both.
+ for(const type of ['cancel','close'])menu?.addEventListener(type,()=>menuButtons.forEach(x=>x.setAttribute('aria-expanded','false')));
  document.querySelectorAll('[data-ev-close]').forEach(b=>b.onclick=()=>b.closest('dialog').close());
  document.querySelectorAll('dialog').forEach(d=>d.addEventListener('click',e=>{if(e.target===d){const r=d.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)d.close()}}));
  document.querySelectorAll('[data-ev-specialties]').forEach(b=>b.onclick=()=>E.open('ev-specialties'));
