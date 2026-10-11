@@ -1,63 +1,59 @@
-# Sistema de diseño: Laboratorio de evidencia
+# Sistema de diseño: Nova
 
-## Objetivo y decisiones
-Una publicación clínica con la precisión visual de un instrumento: superficies técnicas, jerarquía clara, datos bibliográficos completos y lectura sin distracciones. El logo original se conserva sin transformaciones. No se generan ni se infieren datos clínicos.
+## Objetivo
+Una publicación de evidencia clínica futurista pero práctica: cualquier persona, aunque no conozca el tema ni use páginas web con frecuencia, debe poder encontrar un ensayo, leerlo completo o breve, descargarlo en PDF y volver a la lista sin explicación previa. El contenido clínico de `resumenes.json` no se modifica: solo cambia la presentación. El logo original se conserva sin transformaciones.
 
-## Tokens
-| Familia | Oscuro | Claro |
+Prioridad: integridad del contenido → funcionalidad → facilidad de uso → estética.
+
+## Tokens (`ui/tokens.css`)
+Los literales de color viven exclusivamente en `ui/tokens.css`; las reglas de `ui/site.css` usan variables. Los temas claro y oscuro se diseñan por separado.
+
+| Familia | Oscuro («noche índigo») | Claro («blanco frío») |
 |---|---|---|
-| Fondo | grafito azulado #0b111a | blanco frío #f5f8fc |
-| Superficie | #111c29 | #ffffff |
-| Superficie secundaria | #182637 | #eaf0f7 |
-| Texto | #edf4fc | #142335 |
-| Texto secundario | #a7bacf | #43566e |
-| Línea | #304358 | #c6d3e2 |
-| Acento | cian teal #55dfd1 | teal #006d68 |
-| Señal | ámbar #f0bd62 | ámbar oscuro #865400 |
-| Error | #ff9caa | #a51f3d |
+| Fondo | #070b16 | #f3f5fb |
+| Superficie | #0f172b | #ffffff |
+| Superficie elevada | #16203a | #eef2fa |
+| Texto | #edf1ff | #0c1428 |
+| Texto secundario | #a6b0cf | #4a5573 |
+| Línea | #233154 | #d6ddec |
+| Acento (enlaces, activo) | azul eléctrico #7ab8ff | #1f56d1 |
+| Botón principal | #4c8dff + texto #050a16 | #1f56d1 + texto blanco |
+| Degradado de marca | azul → violeta → magenta | azul → violeta |
+| Medicina Crítica (categoría) | coral #ff9f80 | #b23c10 |
+| Medicina Interna (categoría) | violeta #b9a2ff | #6236cc |
+| Superficie de modo lectura | #0d0f17 | #fbf8f2 |
 
-Los literales de color viven exclusivamente en ui/tokens.css; las reglas usan variables. Contraste previsto mínimo 4,5:1, sujeto a comprobación automática en cada tema.
-Tipografías: Inter Tight para interfaz y titulares; Source Serif 4 para texto largo; JetBrains Mono para datos. Google Fonts con display=swap y fallbacks del sistema.
-Escala: 4, 8, 12, 16, 24, 32, 48, 64 y 96 px. Radios: 4/8/12 px. Bordes: 1 px. Sombras suaves definidas mediante tokens. Movimiento: 180/220 ms; reducido desactiva animaciones. Fuente de lectura 18–22 px y 70ch.
-Responsive: 360–719 px móvil; 720–1099 tablet; 1100+ escritorio. Cabecera 72 px escritorio /64 px móvil. Controles de 44 px mínimo.
+Los colores de categoría identifican especialidades; nunca valoran resultados. Contraste mínimo 4,5:1 comprobado con axe en ambos temas.
+
+Tipografías (Google Fonts, `display=swap`): **Sora** para interfaz y titulares; **Literata** para lectura larga. Lectura: 20 px por defecto (18/22 con el botón Letra), interlineado 1,78 y máximo 70 caracteres por línea. Radios 10/16/24 px y píldoras; sombras suaves; movimiento 160/220 ms, desactivado con `prefers-reduced-motion`. Fondo con aurora tenue y vidrio translúcido en cabecera y barras.
+
+## Responsive y dispositivo
+- Celular < 720 px · tableta 720–1099 px · escritorio ≥ 1100 px; navegación completa en cabecera desde 1240 px.
+- `data-ev-device` (`movil|tableta|escritorio`) y `data-ev-pointer` (`tactil|raton`) se fijan en `<head>` antes de pintar y se actualizan al redimensionar. Se usan para el formato PDF recomendado, ocultar atajos de teclado en pantallas táctiles y el texto de ayuda del buscador.
+- Controles de 44 px mínimo. Sin desbordamiento horizontal desde 320 px.
 
 ## Componentes
-- ev-header: una fuente Python común, logo, navegación completa, cuenta, biblioteca, búsqueda y tema.
-- ev-mobile-nav: Inicio/Buscar/Especialidades/Biblioteca; sustituida por controles en el lector.
-- ev-search: diálogo accesible, atajos, resultados con coincidencias, teclado y cierre Esc.
-- ev-archive: mismo motor para archivo y hubs, filtros combinables, chips, orden, lista/tarjetas y Mostrar más. Estado en URL e historial.
-- ev-card: título original y ficha con campos existentes. Sin cifras inferidas.
-- ev-reader: artículo, ficha técnica, índice, progreso y barra persistente; el cuerpo clínico no se reestructura.
-- ev-panel: diálogos de secciones y formato PDF; foco atrapado y restaurado.
-- ev-form: formularios y cuenta; conserva IDs funcionales y lógica Auth/Turnstile.
-- ev-notice: carga/error/vacío/sin sesión.
-- ev-footer: metodología, equipo, privacidad, términos y contacto.
-- ev-pdf: único generador jsPDF4.2.1 para A4/celular, logo en cabecera y marca de agua en cada página.
+- **ev-header**: logo, navegación (Inicio, Medicina Crítica, Medicina Interna, Mi biblioteca), **buscador único**, tema claro/oscuro y Cuenta. En tableta y en páginas de formulario, botón Menú.
+- **Buscador único (`#ev-q`)**: un solo campo por página, siempre en la cabecera. En portada, especialidades, subtemas y biblioteca filtra la lista de la página mientras se escribe (estado en `?q=`). En el resto muestra resultados instantáneos con coincidencias resaltadas, teclado (↑ ↓ Enter Esc) y «Ver todos los resultados». Atajos `/` y Ctrl/Cmd+K en escritorio. Sin JavaScript, el formulario envía a `/?q=`.
+- **ev-mobile-nav**: barra inferior en celular con Inicio · Especialidades · Biblioteca · Menú; en lectura la sustituye la barra de lectura.
+- **ev-hero**: portada con título, cifras del archivo y franja «Cómo usar» en 3 pasos; versión compacta en especialidades y subtemas.
+- **ev-archive**: selector segmentado de especialidad con contadores, atajos (Medicina Crítica + año y temas frecuentes), panel plegable «Filtros» (subespecialidad, tema, año, revista, tipo de estudio, orden), chips removibles, «Limpiar todo», vista compacta y «Mostrar más». Estado en la URL (`q`, `esp`, `sub`, `tema`, `anio`, `revista`, `tipo`, `orden`, `vista`, `n`); `?esp=` heredado con una subespecialidad sigue funcionando.
+- **ev-card**: empieza por el título; después revista y fecha, categoría y subespecialidad, temas, ficha del estudio plegable, tiempo estimado de lectura (completo y breve), «Leer» y menú PDF (completo o breve). Solo campos existentes; el tiempo de lectura se calcula por número de palabras (230 por minuto).
+- **ev-reader**: hallazgo principal destacado, ficha técnica plegable, barra de lectura (Completo/Breve · Índice · PDF · Modo lectura · Guardar · Compartir · Letra), índice lateral con sección activa en escritorio, progreso, Anterior/Siguiente, evidencia relacionada y «Volver a la lista». En celular la barra va abajo y Guardar, Compartir y Letra quedan en «Más».
+- **Modo lectura**: oculta cabecera, pie, ficha, índice lateral y relacionados; superficie de lectura cálida; persiste (`ev-focus`) y se cierra con Esc (después de cerrar diálogos).
+- **Panel PDF (`#ev-pdf-dialog`)**: versión (Completo/Breve, preseleccionada la actual) y dos botones directos de formato (Celular / Computadora A4); el recomendado para el dispositivo aparece primero y resaltado.
+- **ev-dialog**: hojas inferiores en celular y diálogos/cajón en escritorio; foco atrapado y restaurado, Esc y clic fuera cierran.
+- **ev-footer**: marca, Explorar, Transparencia, Comunidad, aviso de privacidad/AdSense y aviso clínico.
+- **Botón «Volver arriba»** tras dos pantallas de desplazamiento.
 
-## Maquetas previas
-Las maquetas de cada tipo (portada, hub, subtema, lector completo/breve, registro/login/recuperar/2FA/cuenta/biblioteca, documentos legales/editoriales,404yagregar) están en las evidencias privadas fuera del repositorio, a390y1440px. El prototipo muestra disposición y jerarquía; los textos bibliográficos proceden del JSON y no se editan.
+## Texto justificado
+Todo párrafo de prosa (cuerpo, breve, documentos, avisos, textos de apoyo) y las listas largas se justifican con partición `es-MX`, guion ASCII y última línea al inicio. Títulos, metadatos (revista, fecha, tiempo de lectura), etiquetas, estados y controles conservan alineación al inicio. `ui/core.js` añade cortes visuales vacíos que no alteran `textContent`, selección ni el HTML clínico; la puntuación final no convierte una palabra en token técnico.
 
-## Arquitectura y protección
-Una presentación: ui/tokens.css + ui/site.css, agrupados en site-runtime.css. UI modular agrupada en site-runtime.js. PDF único cargado a demanda. Nada de style inyectado ni nuevas dependencias de producción.
-Fuentes y generadores generan todas las páginas, con SEO existente y URLs invariables. Se retiran capas antiguas y sus cargas. El build añade versión por hash de contenido.
-No se cambia resumenes.json, el logo, sitemap/feed/robots ni imágenes sociales. Auth, RLS, secretos y funciones servidor se conservan; las pruebas usan dobles locales.
-Presupuestos sin comprimir: CSS≤70KB, JS propio≤90KB. LCP móvil<2,5s; CLS<0,1. Medir con sesión independiente.
+## PDF (`ui/pdf.js`)
+Generador único jsPDF 4.2.1 con SRI y `sanPDF()`. Banda superior azul/violeta, logo en la cabecera y marca de agua en todas las páginas, títulos de sección con barra violeta, cuerpo Times justificado, pie con enlace canónico, redes y correo. El texto y el orden de los PDF no cambian.
 
-## Equivalencia de verificación
-Los tests antiguos de navegación, controles, future-experience, lectura unificada y descargas se portan a contratos funcionales ev-. Se conserva cobertura de contenido, búsqueda, filtros, URL, navegación, Auth/Turnstile, versiones, PDFs y AdSense; ningún skip ni umbral más débil. La tabla detallada se completa con las comprobaciones ejecutadas.
-Las comprobaciones de integridad clínica no se debilitan. Se retiene article.articulo como único selector de compatibilidad del guard de cuerpo hasta poder mantener lectura de ambas versiones del esquema.
+## Arquitectura
+Una sola capa: `ui/tokens.css` + `ui/site.css` → `site-runtime.css`; `ui/core.js`, `ui/archive.js`, `ui/reader.js`, `ui/forms.js` (más el clasificador y el contexto de lectura) → `site-runtime.js`. Las páginas salen de `site_templates.py`. Los IDs y atributos `data-ev-*` son contratos funcionales con las pruebas. Sin `<style>` inyectados, ≤ 10 `!important`, CSS ≤ 70 KB y JS propio ≤ 90 KB.
 
 ## Criterios obligatorios
-Texto renderizado y datos: diferencia cero. 672PDF con título,ID,seccionesylogo. ChromiumyWebKit,390/1440,claroyoscuro. Axe: cero serias/críticas. Sin desborde, foco visible, Esc y movimiento reducido. Presupuestos cumplidos. PR verde, publicación de Pages y recorrido de producción.
-
-
-## 2026-10-04 — Tarjetas y prosa (T1 / T2)
-Las tarjetas empiezan por el título, sin la línea de tipo/año. Estos datos permanecen en la ficha y el filtro. Las insignias de subespecialidad y biblioteca se conservan.
-Los párrafos de prosa y listas largas se justifican en todos los anchos, con última línea al inicio, partición automática es-MX y corte de tokens largos. Encabezados, metadatos, controles, navegación, formularios y tablas conservan alineación al inicio. Los textos breves ocupan una última línea sin estirarse.
-En PDF, únicamente los párrafos P del cuerpo completo/breve se justifican; el índice de línea pertenece al párrafo entero aunque cruce páginas. La última línea conserva su posición original. En celular, una línea concreta permanece al inicio si tiene una sola palabra o si justificarla ensancharía el espacio a más de 2,5 veces su ancho natural. No se añaden guiones ni se modifica la secuencia de palabras. Logo, marca de agua, márgenes, saneado, carga diferida y jsPDF 4.2.1/SRI conservan su contrato.
-
-
-### T2-MOBILE — cortes visuales de prosa
-Los párrafos mantienen justify e hyphens:auto. ui/core.js ofrece cortes visuales conservadores entre sílabas y wbr en tokens técnicos largos; ui/reader.js los aplica al lector dinámico. Los marcadores son vacíos: el guion opcional se dibuja con CSS y aria-hidden. textContent, selección, HTML clínico de origen y PDF permanecen intactos. La última línea conserva start. Es un apoyo a los diccionarios nativos (WebKit Windows no incluye partición española efectiva); sin JavaScript se conserva la propiedad nativa y el contenido prerenderizado.
-
-La fuente principal Source Serif 4 se conserva. Si no está disponible, se usa Times New Roman/Times/serif como respaldo: sus métricas permiten mantener el límite móvil de2em también cuando las fuentes de Google están bloqueadas. Los grupos dr y tl se mantienen unidos en los puntos opcionales de corte.
+Texto renderizado y datos sin cambios; un único buscador por página; claro, oscuro y modo lectura persistentes; PDF completo y breve en Celular y A4; Chromium y WebKit a 390/1440 en ambos temas; axe sin infracciones serias o críticas; sin desbordamiento; ≤ 3 toques para las tareas principales.

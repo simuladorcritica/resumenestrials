@@ -61,10 +61,15 @@ async function basicA11y(page, label) {
 async function downloadPDF(page, selector, filename) {
   const button = page.locator(selector).filter({ visible: true }).first();
   if (!(await button.count())) throw new Error(`no existe un control visible ${selector}`);
+  // The reader opens one PDF panel; the current version is preselected.
+  await button.click();
+  const go = page.locator('#ev-pdf-dialog [data-ev-pdf-go][data-format="a4"]');
+  await go.waitFor({ state: 'visible', timeout: 10000 });
   const [download] = await Promise.all([
     page.waitForEvent('download', { timeout: 25000 }),
-    button.click(),
+    go.click(),
   ]);
+  await page.keyboard.press('Escape').catch(() => {});
   const dir = mkdtempSync(join(tmpdir(), 'rt-audit-'));
   const target = join(dir, filename);
   await download.saveAs(target);
@@ -184,16 +189,14 @@ async function main() {
   const cards = await page.locator('#ev-list>.ev-card').count();
   if (cards !== data.length) add('ALTO', 'index', 'integridad', `la portada muestra ${cards} filas para ${data.length} registros`);
 
-  const align = await page.evaluate(() => {
-    const search = document.querySelector('#ev-q');
-    const year = document.querySelector('#ev-year');
-    const journal = document.querySelector('#ev-journal');
-    if (!search || !year || !journal) return null;
-    const s = search.getBoundingClientRect(), y = year.getBoundingClientRect(), j = journal.getBoundingClientRect();
-    return { searchTop: s.top, yearTop: y.top, journalTop: j.top, maxDelta: Math.max(Math.abs(s.top-y.top), Math.abs(s.top-j.top)) };
-  });
-  if (!align) add('ALTO', 'index', 'filtros', 'faltan buscador o filtros de año/revista');
-  else if (align.maxDelta > 10) add('MEDIO', 'index', 'UX', 'buscador, año y revista no están en el mismo renglón en escritorio', JSON.stringify(align));
+  const align = await page.evaluate(() => ({
+    searches: document.querySelectorAll('input[type=search]').length,
+    searchVisible: Boolean(document.querySelector('.ev-header #ev-q')?.getClientRects().length),
+    year: Boolean(document.querySelector('#ev-year')),
+    journal: Boolean(document.querySelector('#ev-journal')),
+  }));
+  if (!align.year || !align.journal) add('ALTO', 'index', 'filtros', 'faltan filtros de año/revista');
+  if (align.searches !== 1 || !align.searchVisible) add('MEDIO', 'index', 'UX', 'el sitio debe mostrar un único buscador visible en la cabecera', JSON.stringify(align));
 
   const fullIndexText=await page.locator('[data-ev-card-pdf]').first().getAttribute('aria-label').catch(()=>'');
   if(!/Descargar resumen completo PDF/i.test(fullIndexText))add('MEDIO','index','UX','PDF completo no identificado',fullIndexText);

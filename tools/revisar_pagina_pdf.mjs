@@ -93,9 +93,12 @@ async function main() {
     const boton = page.locator("[data-ev-pdf]").first();
     if (jspdfOk && await boton.count()) {
       try {
+        await boton.click();
+        const descargar = page.locator('#ev-pdf-dialog [data-ev-pdf-go]').first();
+        await descargar.waitFor({ state: "visible", timeout: PDF_TIMEOUT });
         const [download] = await Promise.all([
           page.waitForEvent("download", { timeout: PDF_TIMEOUT }),
-          boton.click(),
+          descargar.click(),
         ]);
         const dir = mkdtempSync(join(tmpdir(), "pdf-"));
         const ruta = join(dir, "salida.pdf");

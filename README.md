@@ -17,7 +17,7 @@ Sitio estático de lectura crítica de ensayos clínicos. La rama `main` de este
 
 ## Interfaz
 
-El sistema «Laboratorio de evidencia» tiene una sola capa de presentación. `site_templates.py` genera la cabecera, archivo, lector y documentos; `templates/account/` conserva los formularios y su lógica. `ui/tokens.css` y `ui/site.css` son las fuentes CSS. `ui/core.js`, `ui/archive.js`, `ui/reader.js` y `ui/forms.js` son módulos de interfaz; `ui/pdf.js` es el único generador PDF. El build incluye el clasificador canónico y el contexto de lectura existente.
+El sistema «Nova» tiene una sola capa de presentación (un solo buscador en la cabecera, temas claro/oscuro, modo lectura y PDF completo/breve en formato celular o A4). `site_templates.py` genera la cabecera, archivo, lector y documentos; `templates/account/` conserva los formularios y su lógica. `ui/tokens.css` y `ui/site.css` son las fuentes CSS. `ui/core.js`, `ui/archive.js`, `ui/reader.js` y `ui/forms.js` son módulos de interfaz; `ui/pdf.js` es el único generador PDF. El build incluye el clasificador canónico y el contexto de lectura existente.
 
 No editar `site-runtime.*` ni páginas generadas. Consulte `docs/DESIGN_SYSTEM.md`, `docs/ARCHITECTURE.md` y `docs/TESTING.md`.
 

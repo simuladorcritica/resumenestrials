@@ -8,7 +8,8 @@ const routes=JSON.parse(fs.readFileSync('seo-manifest.json','utf8'));
 const clusters=JSON.parse(fs.readFileSync('seo-cluster-manifest.json','utf8'));
 const clinical=JSON.parse(fs.readFileSync('resumenes.json','utf8'));
 const paths=['/','/medicina-critica/','/medicina-interna/',...Object.values(clusters).map(c=>c.path),'/medicina-interna/hematologia-oncologia/',routes['168'].path,'/resumen.html?id=168','/resumen.html?id=168&v=corto','/resumen/168.html','/metodologia/','/equipo-editorial/','/privacidad.html','/privacidad/','/terminos/','/404.html','/cuenta.html','/biblioteca.html','/registro.html','/login.html','/recuperar.html'];
-const excluded=':where(.ev-meta,.ev-count,.ev-eyebrow,.ev-kicker,.ev-trust,.ev-state,.ev-estado,.ev-strength,.ev-hint,.ev-field-error,.ev-pill,.ev-editorial-dates,.ev-turnstile-status,.ev-safe)';
+// Metadata lines, labels and status messages keep start alignment; every other paragraph is prose.
+const excluded=':where(.ev-meta,.ev-count,.ev-eyebrow,.ev-kicker,.ev-trust,.ev-state,.ev-estado,.ev-strength,.ev-hint,.ev-field-error,.ev-pill,.ev-editorial-dates,.ev-turnstile-status,.ev-safe,.ev-card-meta,.ev-card-topics,.ev-readtime,.ev-byline,.ev-keyfinding-label,.ev-search-status,.ev-footer-claim,.ev-footer-title,.ev-dialog-label,.ev-dialog-note,.ev-rail-title,.ev-original,.ev-status,.ev-doc-date,.ev-empty-title,.ev-tools-hint)';
 const results=[];
 const accountSource=fs.readFileSync('scripts/account-safe-smoke.mjs','utf8'),mockStart=accountSource.indexOf('const mock='),mockEnd=accountSource.indexOf('const map=');assert(mockStart>=0&&mockEnd>mockStart);
 const accountMock=vm.runInNewContext(accountSource.slice(mockStart,mockEnd).replace('const mock=','globalThis.mock=')+';mock');
@@ -67,7 +68,7 @@ for(const engine of [chromium,webkit]){
        assert.equal(reading.align,'justify');assert.equal(reading.hyphens,'auto');assert.equal(reading.last,'start');assert(reading.scroll<=reading.viewport&&reading.body<=reading.viewport,JSON.stringify(reading));assert([18,20,22].includes(reading.size));sizes.add(reading.size);
        results.push({path,width:readingWidth,theme,engine:engine.name(),focus,size:reading.size,status:'OK'});
       }
-      await page.locator('[data-ev-font]').click();
+      if(!(await page.locator('[data-ev-font]').isVisible()))await page.locator('[data-ev-more]').click();await page.locator('[data-ev-font]').click();
      }
      assert.deepEqual([...sizes].sort((a,b)=>a-b),[18,20,22]);
     }

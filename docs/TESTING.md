@@ -10,13 +10,13 @@ La portada conserva en templates/home-disclosure.html los dos párrafos original
 
 | Entrada anterior | Verificación actual | Contratos conservados |
 |---|---|---|
-| navigation-ux-smoke | navigation | Cabecera, destinos, búsqueda, atajos, teclado, tema, menú móvil |
+| navigation-ux-smoke | navigation | Cabecera, buscador único en cada familia de páginas, resultados instantáneos, atajos, teclado, Enter a `/?q=`, tema, dispositivo, menú y especialidades móviles |
 | browser-smoke | sweep | Todos los IDs, ambas versiones, título, contenido, controles, overflow y errores |
-| home-controls-smoke / library-filter-smoke / future-final-smoke | archive | Todos los filtros, pertenencia, orden, chips, paginación explícita, recarga e historial |
+| home-controls-smoke / library-filter-smoke / future-final-smoke | archive | Selector segmentado, panel de filtros (subespecialidad, tema, año, revista, tipo), `?esp=` heredado, atajos, pertenencia, orden, chips, «Limpiar todo», paginación explícita, recarga e historial, hubs |
 | future-experience-smoke | shell | Todas las superficies, formularios, privacidad/publicidad, estilos y accesibilidad |
-| unified-reader-v4-smoke / reader-controls-v5-smoke | reader | Cuerpo íntegro, variantes, secciones, progreso, foco, tamaño, guardado, continuidad y retorno |
-| editorial-reader-smoke | Matriz de lectura en 12 tamaños y ambos motores/temas | Títulos largos, overflow, alineación justificada, ancho legible, navegación activa y ausencia de recorte |
-| download-contract-smoke | downloads | Descarga física, seis rutas, nombres, contenido PDF y logo |
+| unified-reader-v4-smoke / reader-controls-v5-smoke | reader | Cuerpo íntegro, variantes, índice, progreso, modo lectura, tamaño, «Más» en celular, compartir, panel PDF con formato del dispositivo, guardado, continuidad y retorno |
+| editorial-reader-smoke | Matriz de lectura en 12 tamaños y ambos motores/temas | Títulos largos, overflow, justificado, ancho legible, versión activa, rail lateral desde 1100 px e índice en hoja por debajo |
+| download-contract-smoke | downloads | Descarga física en seis rutas: tarjeta (completo y breve) y panel del lector (versión actual en A4 y la otra en celular), nombres, contenido PDF y logo |
 | full-site-audit | Crawl estático original + shell | Recursos, enlaces, IDs, spam, captcha, biblioteca, preferencias, MFA, avisos y datos de perfil |
 | validate-editorial / validate-resumen-page / validate-night-audit | Validadores portados | Biblioteca, Auth, MFA, preferencias, PDF/SRI, fechas, cuerpos, workflow nocturno y estados |
 | Comprobaciones Python de workflows | validate-design.py | Prerender de todos los trials, canonicals, imágenes/JSON-LD, taxonomía, exclusiones y generación consistente |
@@ -63,3 +63,7 @@ La comparación PDF usa pdftotext -layout, como la auditoría profunda existente
 Los párrafos mantienen justify e hyphens:auto. ui/core.js ofrece cortes visuales conservadores entre sílabas y wbr en tokens técnicos largos; ui/reader.js los aplica al lector dinámico. Los marcadores son vacíos: el guion opcional se dibuja con CSS y aria-hidden. textContent, selección, HTML clínico de origen y PDF permanecen intactos. La última línea conserva start. Es un apoyo a los diccionarios nativos (WebKit Windows no incluye partición española efectiva); sin JavaScript se conserva la propiedad nativa y el contenido prerenderizado.
 
 La fuente principal Source Serif 4 se conserva. Si no está disponible, se usa Times New Roman/Times/serif como respaldo: sus métricas permiten mantener el límite móvil de2em también cuando las fuentes de Google están bloqueadas. Los grupos dr y tl se mantienen unidos en los puntos opcionales de corte.
+
+## Rediseño Nova (2026-10-10)
+Las suites conservan sus nombres y ejecutan los mismos grupos. Cambian los contratos de interfaz, no la cobertura: el buscador es único (`#ev-q` en la cabecera; en listas filtra, en el resto muestra resultados), la especialidad es un selector segmentado (`input[name=ev-area]`) y el resto de filtros vive en `#ev-filters`; el PDF del lector se descarga desde `#ev-pdf-dialog` con `[data-ev-pdf-go][data-format]`; el modo lectura se marca en `<html data-ev-reading-mode="on">`. `design-usability-smoke` añade «Buscar sepsis desde un ensayo» y mantiene ≤ 3 toques por tarea. Las auditorías nocturnas (`tools/`) usan el panel PDF y comprueban el buscador único.
+
