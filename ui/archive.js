@@ -44,7 +44,9 @@
   });
   for(const s of selects)s.onchange=update;for(const r of radios)r.onchange=update;sort.onchange=()=>render(true);
   view.onclick=()=>{const on=root.classList.toggle('ev-dense');syncView(on);render(true)};
-  more.onclick=()=>{limit+=pageSize;render(true)};
+  // Un doble clic en «Mostrar más» no debe abrir la tarjeta que aparece bajo el puntero.
+  let moreAt=0;more.onclick=()=>{moreAt=Date.now();limit+=pageSize;render(true)};
+  list.addEventListener('click',e=>{if(Date.now()-moreAt<600&&e.target.closest('a,button,summary')){e.preventDefault();e.stopPropagation()}},true);
   toggle?.addEventListener('click',()=>{const open=panel.hidden;panel.hidden=!open;toggle.setAttribute('aria-expanded',String(open));if(open)panel.querySelector('select')?.focus()});
   root.addEventListener('click',e=>{
    const clear=e.target.closest('[data-ev-clear]');if(clear){const id=clear.dataset.evClear;if(id==='ev-q'){q.value='';q.dispatchEvent(new Event('ev-sync'))}else{const f=filters.find(f=>f.id===id);if(f)f.value=''}update();(chips.querySelector('button')||q).focus();return}

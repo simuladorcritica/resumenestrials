@@ -351,7 +351,9 @@ E.ready(()=>{
   });
   for(const s of selects)s.onchange=update;for(const r of radios)r.onchange=update;sort.onchange=()=>render(true);
   view.onclick=()=>{const on=root.classList.toggle('ev-dense');syncView(on);render(true)};
-  more.onclick=()=>{limit+=pageSize;render(true)};
+  // Un doble clic en «Mostrar más» no debe abrir la tarjeta que aparece bajo el puntero.
+  let moreAt=0;more.onclick=()=>{moreAt=Date.now();limit+=pageSize;render(true)};
+  list.addEventListener('click',e=>{if(Date.now()-moreAt<600&&e.target.closest('a,button,summary')){e.preventDefault();e.stopPropagation()}},true);
   toggle?.addEventListener('click',()=>{const open=panel.hidden;panel.hidden=!open;toggle.setAttribute('aria-expanded',String(open));if(open)panel.querySelector('select')?.focus()});
   root.addEventListener('click',e=>{
    const clear=e.target.closest('[data-ev-clear]');if(clear){const id=clear.dataset.evClear;if(id==='ev-q'){q.value='';q.dispatchEvent(new Event('ev-sync'))}else{const f=filters.find(f=>f.id===id);if(f)f.value=''}update();(chips.querySelector('button')||q).focus();return}
@@ -431,7 +433,7 @@ E.ready(async()=>{
   const pdfDialog=dialog('ev-pdf-dialog','Descargar PDF','<fieldset class="ev-options"><legend>1 · Elige la versión</legend>'+radio('ev-pdf-version','completo','Completo','Todas las secciones · '+E.minutes(r.cuerpo)+' min',!brief)+(r.corto?radio('ev-pdf-version','breve','Breve','Lo esencial · '+E.minutes(r.corto)+' min',brief):'')+'</fieldset><fieldset class="ev-options ev-formats"><legend>2 · Descarga en el formato que prefieras</legend>'+formats.map(f=>fmtBtn(...f)).join('')+'</fieldset><p class="ev-dialog-note">Recomendado para este dispositivo: '+(device==='mobile'?'Celular':'Computadora (A4)')+'.</p><p class="ev-status" role="status" data-ev-pdf-status></p>');
   const pdfStatus=pdfDialog.querySelector('[data-ev-pdf-status]');
   pdfBtn.onclick=()=>E.open('ev-pdf-dialog');
-  for(const go of pdfDialog.querySelectorAll('[data-ev-pdf-go]'))go.onclick=async()=>{const version=pdfDialog.querySelector('[name=ev-pdf-version]:checked')?.value||'completo';go.disabled=true;E.status(pdfStatus,'Preparando PDF…');try{await E.pdf(r,version==='breve',go.dataset.format);E.status(pdfStatus,'PDF descargado.');E.status(status,'PDF descargado.');setTimeout(()=>pdfDialog.open&&pdfDialog.close(),900)}catch{E.status(pdfStatus,'No pudimos descargar el PDF. Intenta de nuevo.')}finally{go.disabled=false}};
+  for(const go of pdfDialog.querySelectorAll('[data-ev-pdf-go]'))go.onclick=async()=>{const version=pdfDialog.querySelector('[name=ev-pdf-version]:checked')?.value||'completo';go.disabled=true;E.status(pdfStatus,'Preparando PDF…');try{await E.pdf(r,version==='breve',go.dataset.format);E.status(pdfStatus,'');E.status(status,'PDF descargado.');if(pdfDialog.open)pdfDialog.close()}catch{E.status(pdfStatus,'No pudimos descargar el PDF. Intenta de nuevo.')}finally{go.disabled=false}};
   pdfBtn.setAttribute('aria-label',brief?'Descargar resumen breve PDF o elegir el completo':'Descargar resumen completo PDF o elegir el breve');pdfBtn.dataset.pdfVersion=brief?'breve':'completo';
   // Save
   const save=reader.querySelector('[data-ev-save]'),saveLabel=save.querySelector('span');let busy=false;
