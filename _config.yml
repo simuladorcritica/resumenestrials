@@ -8,6 +8,7 @@ exclude:
   - supabase
   - .github
   - README.md
+  - CLAUDE.md
   - CONTENT_POLICY.md
   - SECURITY.md
   - CHANGELOG_diseno.md

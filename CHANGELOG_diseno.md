@@ -372,3 +372,8 @@ Sustituye por completo la presentación «Laboratorio de evidencia»: paleta (no
 - **Justificado**: toda la prosa del sitio y del PDF; metadatos, etiquetas y controles al inicio. Guion ASCII y puntuación final fuera de los tokens técnicos.
 - Pruebas reescritas a los nuevos contratos sin retirar cobertura: buscador único, filtros segmentados, panel PDF (6 rutas × 2 versiones/formatos), modo lectura, rejilla del lector (rail desde 1100 px), tareas en ≤ 3 toques y axe en ambos temas.
 
+
+## 2026-10-11 — Separadores «·» sin puntos sueltos
+
+- Autor, revista y fecha del lector, revista y fecha de las tarjetas y los tiempos de lectura: el separador «·» se recorta cuando el dato siguiente pasa al renglón de abajo, así no queda un punto suelto al inicio de la línea en celular. Solo CSS; textos, datos y PDF sin cambios.
+- `CLAUDE.md` documenta el flujo de trabajo para sesiones de Claude (rama `claude/`, regeneración completa de salidas, pruebas y PR listo para «Enable auto-merge»). Excluido de Jekyll.
