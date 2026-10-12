@@ -31,7 +31,7 @@ async function openFilters(p){if(!(await p.locator('#ev-filters').isVisible()))a
 async function archive(p,base){
  await ready(p,'/',base);await singleSearch(p,'/');assert.equal(await p.locator('#ev-list>.ev-card').count(),data.length);assert.equal((await visibleIds(p)).length,24);
  for(const dense of [false,true]){if(dense)await p.locator('#ev-view').click();const boxes=await p.locator('#ev-list>.ev-card:visible>a.ev-card-title[data-ev-read]').evaluateAll(ns=>ns.map(n=>{const b=n.getBoundingClientRect(),h=n.querySelector('h2').getBoundingClientRect();return {width:b.width,height:b.height,titleOffset:h.top-b.top}}));assert.equal(boxes.length,24);assert(boxes.every(b=>b.width>=44&&b.height>=44&&Math.abs(b.titleOffset)<1),'Card title hit area >=44px and upper alignment, dense='+dense)}await p.locator('#ev-view').click();
- await p.locator('#ev-more').click();assert.equal((await visibleIds(p)).length,48);assert(new URL(p.url()).searchParams.get('n')==='48');
+ const listPath=new URL(p.url()).pathname;await p.locator('#ev-more').dblclick();await p.waitForTimeout(300);assert.equal(new URL(p.url()).pathname,listPath,'Double click on Mostrar más must not open a card');assert.equal((await visibleIds(p)).length,48);assert(new URL(p.url()).searchParams.get('n')==='48');
  await p.locator('#ev-view').click();assert.equal(await p.locator('#ev-view').getAttribute('aria-pressed'),'true');await p.reload();await p.waitForFunction(()=>document.querySelector('#ev-count').textContent.includes(' de '));assert.equal((await visibleIds(p)).length,48);assert.equal(await p.locator('#ev-view').getAttribute('aria-pressed'),'true');
  for(const [key,param]of [['year','anio'],['journal','revista'],['type','tipo'],['topic','tema'],['sub','sub']]){
   await ready(p,'/',base);await openFilters(p);const option=await p.locator('#ev-'+key+' option').nth(1).getAttribute('value');await p.selectOption('#ev-'+key,option);assert.equal(new URL(p.url()).searchParams.get(param),option);
@@ -108,7 +108,7 @@ async function downloads(p,base){
   const brief=route.includes('corto');
   for(const [version,format]of [[brief?'breve':'completo','a4'],[brief?'completo':'breve','mobile']]){
    await p.locator('[data-ev-pdf]').click();assert.equal(await p.locator('[name=ev-pdf-version]:checked').getAttribute('value'),brief?'breve':'completo','Current version preselected');await p.locator('#ev-pdf-dialog label.ev-option').filter({has:p.locator('input[value="'+version+'"]')}).click();
-   const [download]=await Promise.all([p.waitForEvent('download'),p.locator('#ev-pdf-dialog [data-ev-pdf-go][data-format="'+format+'"]').click()]);await pdfCheck(download,{brief:version==='breve',format});await p.waitForFunction(()=>!document.querySelector('#ev-pdf-dialog').open);
+   const [download]=await Promise.all([p.waitForEvent('download'),p.locator('#ev-pdf-dialog [data-ev-pdf-go][data-format="'+format+'"]').click()]);await p.waitForFunction(()=>!document.querySelector('#ev-pdf-dialog').open,null,{timeout:600});await p.locator('.ev-version a').first().scrollIntoViewIfNeeded();assert(await p.evaluate(()=>{const a=document.querySelector('.ev-version a'),r=a.getBoundingClientRect();return document.elementFromPoint(r.x+r.width/2,r.y+r.height/2)?.closest('a')===a}),'Reader controls reachable right after a PDF download');await pdfCheck(download,{brief:version==='breve',format});
   }
   await geometry(p);
  }

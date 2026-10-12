@@ -14,3 +14,12 @@ exclude:
   - CHANGELOG_diseno.md
   - package.json
   - pnpm-lock.yaml
+  # Archivos internos de trabajo: no forman parte del sitio publicado.
+  - "PROMPT_*.md"
+  - UX_TIPOGRAFIA_CONTROLES_v1.md
+  - "*.py"
+  - __pycache__
+  - shot.mjs
+  - deno.json
+  - deno.lock
+  - pnpm-workspace.yaml
