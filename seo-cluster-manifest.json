@@ -26,7 +26,7 @@
     "category": "Medicina Crítica",
     "path": "/medicina-critica/ventilacion-respiratoria/",
     "url": "https://resumenestrials.com/medicina-critica/ventilacion-respiratoria/",
-    "count": 27,
+    "count": 30,
     "trial_ids": [
       "1",
       "3",
@@ -54,7 +54,10 @@
       "131",
       "139",
       "143",
-      "150"
+      "150",
+      "170",
+      "171",
+      "174"
     ]
   },
   "sdra-ecmo": {
@@ -78,7 +81,7 @@
     "category": "Medicina Crítica",
     "path": "/medicina-critica/neurocriticos/",
     "url": "https://resumenestrials.com/medicina-critica/neurocriticos/",
-    "count": 10,
+    "count": 11,
     "trial_ids": [
       "19",
       "40",
@@ -89,7 +92,8 @@
       "90",
       "128",
       "134",
-      "148"
+      "148",
+      "174"
     ]
   },
   "renal-acido-base": {
@@ -97,7 +101,7 @@
     "category": "Medicina Crítica",
     "path": "/medicina-critica/renal-acido-base/",
     "url": "https://resumenestrials.com/medicina-critica/renal-acido-base/",
-    "count": 10,
+    "count": 11,
     "trial_ids": [
       "6",
       "9",
@@ -108,7 +112,8 @@
       "53",
       "55",
       "82",
-      "128"
+      "128",
+      "178"
     ]
   },
   "hemodinamica-cardiovascular": {
@@ -116,14 +121,15 @@
     "category": "Medicina Crítica",
     "path": "/medicina-critica/hemodinamica-cardiovascular/",
     "url": "https://resumenestrials.com/medicina-critica/hemodinamica-cardiovascular/",
-    "count": 6,
+    "count": 7,
     "trial_ids": [
       "2",
       "9",
       "56",
       "69",
       "129",
-      "168"
+      "168",
+      "178"
     ]
   },
   "paro-resucitacion": {
@@ -166,7 +172,7 @@
     "category": "Medicina Interna",
     "path": "/medicina-interna/cardiovascular/",
     "url": "https://resumenestrials.com/medicina-interna/cardiovascular/",
-    "count": 53,
+    "count": 54,
     "trial_ids": [
       "15",
       "18",
@@ -220,7 +226,8 @@
       "161",
       "164",
       "166",
-      "167"
+      "167",
+      "169"
     ]
   },
   "infecciosas": {
@@ -245,7 +252,7 @@
     "category": "Medicina Interna",
     "path": "/medicina-interna/renal-metabolica/",
     "url": "https://resumenestrials.com/medicina-interna/renal-metabolica/",
-    "count": 27,
+    "count": 28,
     "trial_ids": [
       "35",
       "46",
@@ -273,7 +280,8 @@
       "146",
       "147",
       "151",
-      "157"
+      "157",
+      "175"
     ]
   },
   "neurologia": {
