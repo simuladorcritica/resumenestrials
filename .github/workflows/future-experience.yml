@@ -95,7 +95,7 @@ jobs:
         run: node scripts/future-visual-capture.mjs
       - name: Guardar capturas
         if: success()
-        uses: actions/upload-artifact@v7.0.1
+        uses: actions/upload-artifact@v7.0.2
         with:
           name: future-experience-screenshots
           path: future-screenshots/*.png
