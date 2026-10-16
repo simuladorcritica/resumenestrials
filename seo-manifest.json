@@ -4311,5 +4311,572 @@
       "answer": "La renina plasmática descendió más rápido con la estrategia multimodal ( 2.61%/h frente a 1.67%/h ; p=0.015), sin diferencias significativas en mortalidad.",
       "population": "Población. Adultos con shock séptico que persistían con hipotensión pese a resucitación adecuada con volumen (20-30 ml/kg en 3 horas), que requerían al menos 0.15 µg/kg/min de noradrenalina base equivalente para mantener una presión arterial media ≥65 mmHg, con lactato sérico >2 mmol/l, acceso venoso central, línea arterial y catéter urinario, y un índice cardiaco >2.3 l/min/m². Reclutados en tres unidades de cuidados…"
     }
+  },
+  "169": {
+    "slug": "tric-i-hf-dzhk24-reparacion-transcateter-valvula-tricuspide-mas-tratamiento-medico-tratamiento",
+    "path": "/trials/tric-i-hf-dzhk24-reparacion-transcateter-valvula-tricuspide-mas-tratamiento-medico-tratamiento/",
+    "url": "https://resumenestrials.com/trials/tric-i-hf-dzhk24-reparacion-transcateter-valvula-tricuspide-mas-tratamiento-medico-tratamiento/",
+    "title": "TRIC-I-HF-DZHK24: reparación transcatéter de la válvula tricúspide más tratamiento médico frente a tratamiento médico solo en la insuficiencia tricuspídea grave con alto riesgo de insuficiencia cardiaca",
+    "seo_title": "TRIC-I-HF-DZHK24 trial: reparación transcatéter de la válvula tricúspide más tratamiento médico frente a tratamiento médico solo en la insuficiencia tricuspídea grave con alto riesgo de insuficiencia cardiaca | Resúmenes Trials",
+    "description": "TRIC-I-HF-DZHK24: La reparación fue superior en el compuesto jerárquico, con una razón de victorias de 2.42 (IC 95%, 1.76 a 3.33; p<0.001) , y redujo la…",
+    "clusters": [
+      {
+        "name": "Cardiología y prevención cardiovascular",
+        "path": "/medicina-interna/cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-interna/cardiovascular/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/tric-i-hf-dzhk24-reparacion-transcateter-valvula-tricuspide-mas-tratamiento-medico-tratamiento-16x9.jpg",
+      "https://resumenestrials.com/images/trials/tric-i-hf-dzhk24-reparacion-transcateter-valvula-tricuspide-mas-tratamiento-medico-tratamiento-4x3.jpg",
+      "https://resumenestrials.com/images/trials/tric-i-hf-dzhk24-reparacion-transcateter-valvula-tricuspide-mas-tratamiento-medico-tratamiento-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si añadir la reparación transcatéter de la válvula tricúspide al tratamiento médico mejora un compuesto jerárquico de muerte, hospitalización por insuficiencia cardiaca y calidad de vida, frente al tratamiento médico solo, en pacientes con insuficiencia tricuspídea grave y alto riesgo de descompensación.",
+      "answer": "La reparación fue superior en el compuesto jerárquico, con una razón de victorias de 2.42 (IC 95%, 1.76 a 3.33; p<0.001) , y redujo la muerte u hospitalización por insuficiencia cardiaca a 3 años ( razón de riesgos 0.40; IC 95%, 0.29 a 0.55; p<0.001 ).",
+      "population": "La población fueron adultos con insuficiencia tricuspídea al menos grave y síntomas pese a un tratamiento médico estable de 30 días o más, con el diurético ajustado a la dosis óptima, y con riesgo avanzado de nuevos eventos de insuficiencia cardiaca. Ese riesgo se definió por una descompensación en los 12 meses previos, un síndrome cardiorrenal, es decir, una filtración glomerular estimada menor de 60 ml/min/1.73 m², o un…"
+    }
+  },
+  "170": {
+    "slug": "loco2-oxigeno-conservador-oxigeno-liberal-sindrome-dificultad-respiratoria-aguda-temprano",
+    "path": "/trials/loco2-oxigeno-conservador-oxigeno-liberal-sindrome-dificultad-respiratoria-aguda-temprano/",
+    "url": "https://resumenestrials.com/trials/loco2-oxigeno-conservador-oxigeno-liberal-sindrome-dificultad-respiratoria-aguda-temprano/",
+    "title": "LOCO2: oxígeno conservador frente a oxígeno liberal en el síndrome de dificultad respiratoria aguda temprano",
+    "seo_title": "LOCO2 trial: oxígeno conservador frente a oxígeno liberal en el síndrome de dificultad respiratoria aguda temprano | Resúmenes Trials",
+    "description": "LOCO2: Sin beneficio del oxígeno conservador: la mortalidad a 28 días fue del 34.3% frente al 26.5%, una diferencia de 7.8 puntos porcentuales (IC 95%, −4.8 a…",
+    "clusters": [
+      {
+        "name": "Ventilación e insuficiencia respiratoria",
+        "path": "/medicina-critica/ventilacion-respiratoria/",
+        "url": "https://resumenestrials.com/medicina-critica/ventilacion-respiratoria/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/loco2-oxigeno-conservador-oxigeno-liberal-sindrome-dificultad-respiratoria-aguda-temprano-16x9.jpg",
+      "https://resumenestrials.com/images/trials/loco2-oxigeno-conservador-oxigeno-liberal-sindrome-dificultad-respiratoria-aguda-temprano-4x3.jpg",
+      "https://resumenestrials.com/images/trials/loco2-oxigeno-conservador-oxigeno-liberal-sindrome-dificultad-respiratoria-aguda-temprano-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si una estrategia de oxígeno conservador, con una PaO2 de 55 a 70 mmHg, reduce la mortalidad a los 28 días frente a una estrategia liberal en adultos con síndrome de dificultad respiratoria aguda temprano.",
+      "answer": "Sin beneficio del oxígeno conservador: la mortalidad a 28 días fue del 34.3% frente al 26.5%, una diferencia de 7.8 puntos porcentuales (IC 95%, −4.8 a 20.6; valor p: No reportado) , y a los 90 días fue mayor con la estrategia conservadora (44.4% frente a 30.4%; diferencia 14.0 puntos; IC 95%, 0.7 a 27.2).",
+      "population": "La población fueron adultos con síndrome de dificultad respiratoria aguda según la definición de Berlín, intubados y ventilados desde hacía menos de 12 horas, con un cociente entre presión arterial de oxígeno y fracción inspirada de oxígeno (PaO2/FiO2) de 300 mmHg o menos con una PEEP de al menos 5 cmH2O, menos de 7 días entre la agresión pulmonar y los síntomas, opacidades bilaterales y una insuficiencia respiratoria no…"
+    }
+  },
+  "171": {
+    "slug": "oscillate-ventilacion-oscilatoria-alta-frecuencia-temprana-ventilacion-convencional-pulmon",
+    "path": "/trials/oscillate-ventilacion-oscilatoria-alta-frecuencia-temprana-ventilacion-convencional-pulmon/",
+    "url": "https://resumenestrials.com/trials/oscillate-ventilacion-oscilatoria-alta-frecuencia-temprana-ventilacion-convencional-pulmon/",
+    "title": "OSCILLATE: ventilación oscilatoria de alta frecuencia temprana frente a ventilación convencional de pulmón abierto en el síndrome de dificultad respiratoria aguda moderado a grave",
+    "seo_title": "OSCILLATE trial: ventilación oscilatoria de alta frecuencia temprana frente a ventilación convencional de pulmón abierto en el síndrome de dificultad respiratoria aguda moderado a grave | Resúmenes Trials",
+    "description": "OSCILLATE: La oscilación temprana aumentó la mortalidad hospitalaria: 47% frente a 35% (riesgo relativo 1.33; IC 95%, 1.09 a 1.64; p=0.005) , con más uso de…",
+    "clusters": [
+      {
+        "name": "Ventilación e insuficiencia respiratoria",
+        "path": "/medicina-critica/ventilacion-respiratoria/",
+        "url": "https://resumenestrials.com/medicina-critica/ventilacion-respiratoria/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/oscillate-ventilacion-oscilatoria-alta-frecuencia-temprana-ventilacion-convencional-pulmon-16x9.jpg",
+      "https://resumenestrials.com/images/trials/oscillate-ventilacion-oscilatoria-alta-frecuencia-temprana-ventilacion-convencional-pulmon-4x3.jpg",
+      "https://resumenestrials.com/images/trials/oscillate-ventilacion-oscilatoria-alta-frecuencia-temprana-ventilacion-convencional-pulmon-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si la ventilación oscilatoria de alta frecuencia aplicada de forma temprana reduce la mortalidad hospitalaria frente a una ventilación convencional con volumen corriente bajo y PEEP alta en adultos con síndrome de dificultad respiratoria aguda moderado a grave.",
+      "answer": "La oscilación temprana aumentó la mortalidad hospitalaria: 47% frente a 35% (riesgo relativo 1.33; IC 95%, 1.09 a 1.64; p=0.005) , con más uso de vasopresores, sedantes y bloqueo neuromuscular.",
+      "population": "La población fueron adultos de 16 a 85 años con síndrome de dificultad respiratoria aguda de inicio reciente, moderado a grave: síntomas pulmonares de menos de 2 semanas, intubación, opacidades bilaterales e hipoxemia con un cociente PaO2/FiO2 de 200 o menos con una FiO2 de al menos 0.5, que persistía tras 30 minutos con un ajuste estandarizado del ventilador. Procedían de 39 unidades de cuidados intensivos de Canadá, Estados…"
+    }
+  },
+  "173": {
+    "slug": "prodige-4-accord-11-folfirinox-gemcitabina-primera-linea-cancer-pancreas-metastasico",
+    "path": "/trials/prodige-4-accord-11-folfirinox-gemcitabina-primera-linea-cancer-pancreas-metastasico/",
+    "url": "https://resumenestrials.com/trials/prodige-4-accord-11-folfirinox-gemcitabina-primera-linea-cancer-pancreas-metastasico/",
+    "title": "PRODIGE 4-ACCORD 11: FOLFIRINOX frente a gemcitabina en primera línea del cáncer de páncreas metastásico",
+    "seo_title": "PRODIGE 4-ACCORD 11 trial: FOLFIRINOX frente a gemcitabina en primera línea del cáncer de páncreas metastásico | Resúmenes Trials",
+    "description": "PRODIGE 4-ACCORD 11: FOLFIRINOX prolongó la mediana de supervivencia global: 11.1 frente a 6.8 meses (razón de riesgos para la muerte 0.57; IC 95%, 0.45 a…",
+    "clusters": [],
+    "images": [
+      "https://resumenestrials.com/images/trials/prodige-4-accord-11-folfirinox-gemcitabina-primera-linea-cancer-pancreas-metastasico-16x9.jpg",
+      "https://resumenestrials.com/images/trials/prodige-4-accord-11-folfirinox-gemcitabina-primera-linea-cancer-pancreas-metastasico-4x3.jpg",
+      "https://resumenestrials.com/images/trials/prodige-4-accord-11-folfirinox-gemcitabina-primera-linea-cancer-pancreas-metastasico-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si FOLFIRINOX, frente a gemcitabina, prolonga la supervivencia global como tratamiento de primera línea en pacientes con cáncer de páncreas metastásico y buen estado funcional.",
+      "answer": "FOLFIRINOX prolongó la mediana de supervivencia global: 11.1 frente a 6.8 meses (razón de riesgos para la muerte 0.57; IC 95%, 0.45 a 0.73; p<0.001) , a costa de más toxicidad, como la neutropenia febril, 5.4% frente a 1.2% (p=0.03) .",
+      "population": "La población fueron adultos de 18 a 75 años con adenocarcinoma de páncreas metastásico, confirmado por histología o citología, con enfermedad medible y sin quimioterapia previa, todos en buen estado funcional. La raza o etnia: No reportado. Todos procedían de Francia."
+    }
+  },
+  "174": {
+    "slug": "acurasys-bloqueo-neuromuscular-temprano-cisatracurio-48-horas-placebo-sindrome-dificultad",
+    "path": "/trials/acurasys-bloqueo-neuromuscular-temprano-cisatracurio-48-horas-placebo-sindrome-dificultad/",
+    "url": "https://resumenestrials.com/trials/acurasys-bloqueo-neuromuscular-temprano-cisatracurio-48-horas-placebo-sindrome-dificultad/",
+    "title": "ACURASYS: bloqueo neuromuscular temprano con cisatracurio durante 48 horas frente a placebo en el síndrome de dificultad respiratoria aguda grave",
+    "seo_title": "ACURASYS trial: bloqueo neuromuscular temprano con cisatracurio durante 48 horas frente a placebo en el síndrome de dificultad respiratoria aguda grave | Resúmenes Trials",
+    "description": "ACURASYS: En el análisis primario ajustado, el cisatracurio redujo el riesgo de muerte a 90 días: HR 0.68 (IC 95%, 0.48 a 0.98; p=0.04) . La mortalidad cruda…",
+    "clusters": [
+      {
+        "name": "Ventilación e insuficiencia respiratoria",
+        "path": "/medicina-critica/ventilacion-respiratoria/",
+        "url": "https://resumenestrials.com/medicina-critica/ventilacion-respiratoria/"
+      },
+      {
+        "name": "Neurocríticos",
+        "path": "/medicina-critica/neurocriticos/",
+        "url": "https://resumenestrials.com/medicina-critica/neurocriticos/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/acurasys-bloqueo-neuromuscular-temprano-cisatracurio-48-horas-placebo-sindrome-dificultad-16x9.jpg",
+      "https://resumenestrials.com/images/trials/acurasys-bloqueo-neuromuscular-temprano-cisatracurio-48-horas-placebo-sindrome-dificultad-4x3.jpg",
+      "https://resumenestrials.com/images/trials/acurasys-bloqueo-neuromuscular-temprano-cisatracurio-48-horas-placebo-sindrome-dificultad-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si dos días de bloqueo neuromuscular con cisatracurio al inicio del síndrome de dificultad respiratoria aguda grave reducen la mortalidad a 90 días frente a placebo.",
+      "answer": "En el análisis primario ajustado, el cisatracurio redujo el riesgo de muerte a 90 días: HR 0.68 (IC 95%, 0.48 a 0.98; p=0.04) .",
+      "population": "La población fueron adultos ventilados por insuficiencia respiratoria hipoxémica aguda que cumplían, desde hacía no más de 48 horas, todas estas condiciones: un cociente PaO2/FiO2 menor de 150 con una PEEP de 5 cmH2O o más y un volumen corriente de 6 a 8 ml/kg de peso predicho, infiltrados bilaterales compatibles con edema y ausencia de signos de hipertensión de la aurícula izquierda, con una presión de enclavamiento menor de…"
+    }
+  },
+  "175": {
+    "slug": "connect-monitoreo-continuo-glucosa-cuidado-habitual-diabetes-tipo-2-no",
+    "path": "/trials/connect-monitoreo-continuo-glucosa-cuidado-habitual-diabetes-tipo-2-no/",
+    "url": "https://resumenestrials.com/trials/connect-monitoreo-continuo-glucosa-cuidado-habitual-diabetes-tipo-2-no/",
+    "title": "CONNECT: monitoreo continuo de glucosa frente a cuidado habitual en la diabetes tipo 2 no tratada con insulina en atención primaria",
+    "seo_title": "CONNECT trial: monitoreo continuo de glucosa frente a cuidado habitual en la diabetes tipo 2 no tratada con insulina en atención primaria | Resúmenes Trials",
+    "description": "CONNECT: El monitoreo continuo de glucosa redujo la hemoglobina glucosilada a las 26 semanas frente al cuidado habitual, con una diferencia ajustada de −0.9…",
+    "clusters": [
+      {
+        "name": "Renal y metabolismo",
+        "path": "/medicina-interna/renal-metabolica/",
+        "url": "https://resumenestrials.com/medicina-interna/renal-metabolica/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/connect-monitoreo-continuo-glucosa-cuidado-habitual-diabetes-tipo-2-no-16x9.jpg",
+      "https://resumenestrials.com/images/trials/connect-monitoreo-continuo-glucosa-cuidado-habitual-diabetes-tipo-2-no-4x3.jpg",
+      "https://resumenestrials.com/images/trials/connect-monitoreo-continuo-glucosa-cuidado-habitual-diabetes-tipo-2-no-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Evaluar si el monitoreo continuo de glucosa en tiempo real reduce la hemoglobina glucosilada a las 26 semanas, frente al cuidado habitual con glucómetro, en adultos con diabetes tipo 2 no tratada con insulina atendidos en atención primaria.",
+      "answer": "El monitoreo continuo de glucosa redujo la hemoglobina glucosilada a las 26 semanas frente al cuidado habitual, con una diferencia ajustada de −0.9 puntos porcentuales (IC 95%, −1.1 a −0.6; p .",
+      "population": "La población fueron adultos con diabetes tipo 2 de al menos 6 meses de evolución, atendidos en atención primaria por un médico de atención primaria, una enfermera de práctica avanzada o un asistente médico, con una hemoglobina glucosilada de cribado de 7.5% o más, sin insulina en los 12 meses previos, sin sensor continuo personal en los 6 meses previos y con fármacos hipoglucemiantes o para bajar de peso estables durante el…"
+    }
+  },
+  "177": {
+    "slug": "patch-trauma-acido-tranexamico-prehospitalario-placebo-traumatismo-grave-riesgo-coagulopatia",
+    "path": "/trials/patch-trauma-acido-tranexamico-prehospitalario-placebo-traumatismo-grave-riesgo-coagulopatia/",
+    "url": "https://resumenestrials.com/trials/patch-trauma-acido-tranexamico-prehospitalario-placebo-traumatismo-grave-riesgo-coagulopatia/",
+    "title": "PATCH-Trauma: ácido tranexámico prehospitalario frente a placebo en el traumatismo grave con riesgo de coagulopatía",
+    "seo_title": "PATCH-Trauma trial: ácido tranexámico prehospitalario frente a placebo en el traumatismo grave con riesgo de coagulopatía | Resúmenes Trials",
+    "description": "PATCH-Trauma: La supervivencia con buena función a los 6 meses fue prácticamente idéntica: 53.7% frente a 53.5% , con un riesgo relativo de 1.00 (IC 95%, 0.90…",
+    "clusters": [],
+    "images": [
+      "https://resumenestrials.com/images/trials/patch-trauma-acido-tranexamico-prehospitalario-placebo-traumatismo-grave-riesgo-coagulopatia-16x9.jpg",
+      "https://resumenestrials.com/images/trials/patch-trauma-acido-tranexamico-prehospitalario-placebo-traumatismo-grave-riesgo-coagulopatia-4x3.jpg",
+      "https://resumenestrials.com/images/trials/patch-trauma-acido-tranexamico-prehospitalario-placebo-traumatismo-grave-riesgo-coagulopatia-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si el ácido tranexámico iniciado antes del ingreso hospitalario aumenta la supervivencia con un resultado funcional favorable a los 6 meses en adultos con traumatismo grave y riesgo de coagulopatía.",
+      "answer": "La supervivencia con buena función a los 6 meses fue prácticamente idéntica: 53.7% frente a 53.5% , con un riesgo relativo de 1.00 (IC 95%, 0.90 a 1.12; p = 0.95).",
+      "population": "La población fueron adultos de 18 años o más con un traumatismo grave sospechado, atendidos en el lugar del accidente por paramédicos o médicos y trasladados por ambulancia terrestre o aérea a centros de trauma participantes de Australia, Nueva Zelanda y Alemania, todos sistemas de trauma avanzados. La raza o etnia fue No reportado. Para entrar debían tener un alto riesgo de coagulopatía inducida por el trauma, estimado con la…"
+    }
+  },
+  "178": {
+    "slug": "doremi-milrinona-dobutamina-choque-cardiogenico",
+    "path": "/trials/doremi-milrinona-dobutamina-choque-cardiogenico/",
+    "url": "https://resumenestrials.com/trials/doremi-milrinona-dobutamina-choque-cardiogenico/",
+    "title": "DOREMI: milrinona frente a dobutamina en el choque cardiogénico",
+    "seo_title": "DOREMI trial: milrinona frente a dobutamina en el choque cardiogénico | Resúmenes Trials",
+    "description": "DOREMI: El compuesto de muerte y complicaciones mayores durante el ingreso ocurrió en el 49% con milrinona frente al 54% con dobutamina , con un riesgo…",
+    "clusters": [
+      {
+        "name": "Renal y ácido-base",
+        "path": "/medicina-critica/renal-acido-base/",
+        "url": "https://resumenestrials.com/medicina-critica/renal-acido-base/"
+      },
+      {
+        "name": "Hemodinámica y cardiovascular",
+        "path": "/medicina-critica/hemodinamica-cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-critica/hemodinamica-cardiovascular/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/doremi-milrinona-dobutamina-choque-cardiogenico-16x9.jpg",
+      "https://resumenestrials.com/images/trials/doremi-milrinona-dobutamina-choque-cardiogenico-4x3.jpg",
+      "https://resumenestrials.com/images/trials/doremi-milrinona-dobutamina-choque-cardiogenico-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si la milrinona reduce el compuesto hospitalario de muerte y complicaciones mayores frente a la dobutamina en pacientes con choque cardiogénico.",
+      "answer": "El compuesto de muerte y complicaciones mayores durante el ingreso ocurrió en el 49% con milrinona frente al 54% con dobutamina , con un riesgo relativo de 0.90 (IC 95%, 0.69 a 1.19; p = 0.47), sin diferencia significativa.",
+      "population": "La población fueron adultos de 18 años o más ingresados en la unidad de cuidados intensivos cardiacos de un solo centro canadiense con choque cardiogénico en los estadios B, C, D o E de la clasificación de la Society for Cardiovascular Angiography and Interventions, conocida como SCAI. Esta escala va de la A a la E: A es el paciente en riesgo sin signos de choque, B el choque incipiente con hipotensión relativa sin…"
+    }
+  },
+  "180": {
+    "slug": "prevent-ventilacion-bolsa-mascarilla-intubacion-traqueal-adulto-estado-critico",
+    "path": "/trials/prevent-ventilacion-bolsa-mascarilla-intubacion-traqueal-adulto-estado-critico/",
+    "url": "https://resumenestrials.com/trials/prevent-ventilacion-bolsa-mascarilla-intubacion-traqueal-adulto-estado-critico/",
+    "title": "PreVent: ventilación con bolsa-mascarilla durante la intubación traqueal del adulto en estado crítico",
+    "seo_title": "PreVent trial: ventilación con bolsa-mascarilla durante la intubación traqueal del adulto en estado crítico | Resúmenes Trials",
+    "description": "PreVent: Saturación más baja con mediana de 96% (RIC, 87 a 99) frente a 93% (RIC, 81 a 99) (diferencia de medias 3.9 puntos; IC 95%, 1.4 a 6.5; p = 0.01 ) y…",
+    "clusters": [
+      {
+        "name": "Ventilación e insuficiencia respiratoria",
+        "path": "/medicina-critica/ventilacion-respiratoria/",
+        "url": "https://resumenestrials.com/medicina-critica/ventilacion-respiratoria/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/prevent-ventilacion-bolsa-mascarilla-intubacion-traqueal-adulto-estado-critico-16x9.jpg",
+      "https://resumenestrials.com/images/trials/prevent-ventilacion-bolsa-mascarilla-intubacion-traqueal-adulto-estado-critico-4x3.jpg",
+      "https://resumenestrials.com/images/trials/prevent-ventilacion-bolsa-mascarilla-intubacion-traqueal-adulto-estado-critico-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si la ventilación con bolsa-mascarilla entre la inducción y la laringoscopia aumenta la saturación de oxígeno más baja durante la intubación traqueal del adulto crítico.",
+      "answer": "Saturación más baja con mediana de 96% (RIC, 87 a 99) frente a 93% (RIC, 81 a 99) (diferencia de medias 3.9 puntos; IC 95%, 1.4 a 6.5; p = 0.01 ) y menos hipoxemia grave (10.9% frente a 22.8%; RR 0.48; IC 95%, 0.30 a 0.77).",
+      "population": "Población. Adultos de 18 años o más, en estado crítico, sometidos a inducción e intubación traqueal en siete unidades de cuidados intensivos académicas de Estados Unidos. La raza se registró a partir de lo reportado por el paciente o su representante: el 70.9% del grupo de bolsa-mascarilla y el 66.3% del grupo sin ventilación eran de raza blanca; la etnia no se reportó. Intervención. Ventilación con bolsa-mascarilla…"
+    }
+  },
+  "181": {
+    "slug": "sepsispam-objetivo-presion-arterial-media-alto-shock-septico",
+    "path": "/trials/sepsispam-objetivo-presion-arterial-media-alto-shock-septico/",
+    "url": "https://resumenestrials.com/trials/sepsispam-objetivo-presion-arterial-media-alto-shock-septico/",
+    "title": "SEPSISPAM: objetivo de presión arterial media alto frente a bajo en el shock séptico",
+    "seo_title": "SEPSISPAM trial: objetivo de presión arterial media alto frente a bajo en el shock séptico | Resúmenes Trials",
+    "description": "SEPSISPAM: Sin diferencia en la mortalidad a 28 días ( 36.6% frente a 34.0% ; hazard ratio 1.07; IC 95%, 0.84 a 1.38; p = 0.57 ), con más fibrilación…",
+    "clusters": [
+      {
+        "name": "Sepsis y shock",
+        "path": "/medicina-critica/sepsis-shock/",
+        "url": "https://resumenestrials.com/medicina-critica/sepsis-shock/"
+      },
+      {
+        "name": "Hemodinámica y cardiovascular",
+        "path": "/medicina-critica/hemodinamica-cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-critica/hemodinamica-cardiovascular/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/sepsispam-objetivo-presion-arterial-media-alto-shock-septico-16x9.jpg",
+      "https://resumenestrials.com/images/trials/sepsispam-objetivo-presion-arterial-media-alto-shock-septico-4x3.jpg",
+      "https://resumenestrials.com/images/trials/sepsispam-objetivo-presion-arterial-media-alto-shock-septico-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si un objetivo de presión arterial media de 80 a 85 mm Hg, frente a 65 a 70 mm Hg, reduce la mortalidad a 28 días en el shock séptico.",
+      "answer": "Sin diferencia en la mortalidad a 28 días ( 36.6% frente a 34.0% ; hazard ratio 1.07; IC 95%, 0.84 a 1.38; p = 0.57 ), con más fibrilación auricular nueva en el objetivo alto (6.7% frente a 2.8%).",
+      "population": "Población. Adultos mayores de 18 años con shock séptico refractario a líquidos que requerían vasopresores, incluidos en las primeras 6 horas tras iniciarlos, en 29 centros de Francia. La raza y la etnia no se reportaron. Intervención. Ajustar los vasopresores para mantener una presión arterial media de 80 a 85 mm Hg, el objetivo alto. Se usó noradrenalina como vasopresor de primera línea, salvo en un centro que empleó…"
+    }
+  },
+  "182": {
+    "slug": "bano-diario-con-clorhexidina-para-prevenir-la-adquisicion-de-germenes-multirresistentes",
+    "path": "/trials/bano-diario-con-clorhexidina-para-prevenir-la-adquisicion-de-germenes-multirresistentes/",
+    "url": "https://resumenestrials.com/trials/bano-diario-con-clorhexidina-para-prevenir-la-adquisicion-de-germenes-multirresistentes/",
+    "title": "Baño diario con clorhexidina para prevenir la adquisición de gérmenes multirresistentes y la bacteriemia intrahospitalaria",
+    "seo_title": "Baño diario con clorhexidina para prevenir la adquisición de gérmenes multirresistentes y la bacteriemia intrahospitalaria | Resúmenes Trials",
+    "description": "Baño diario con clorhexidina para prevenir la adquisición de gérmenes multirresistentes y la bacteriemia intrahospitalaria: Menor adquisición de gérmenes…",
+    "clusters": [
+      {
+        "name": "Infecciones y antibióticos",
+        "path": "/medicina-critica/infecciones-antibioticos/",
+        "url": "https://resumenestrials.com/medicina-critica/infecciones-antibioticos/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/bano-diario-con-clorhexidina-para-prevenir-la-adquisicion-de-germenes-multirresistentes-16x9.jpg",
+      "https://resumenestrials.com/images/trials/bano-diario-con-clorhexidina-para-prevenir-la-adquisicion-de-germenes-multirresistentes-4x3.jpg",
+      "https://resumenestrials.com/images/trials/bano-diario-con-clorhexidina-para-prevenir-la-adquisicion-de-germenes-multirresistentes-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si el baño diario con toallitas de clorhexidina reduce la adquisición de gérmenes multirresistentes y las bacteriemias intrahospitalarias en unidades de alto riesgo.",
+      "answer": "Menor adquisición de gérmenes multirresistentes ( 5.10 frente a 6.60 casos por 1000 pacientes-día; p = 0.03 ) y de bacteriemia intrahospitalaria ( 4.78 frente a 6.60 casos por 1000 pacientes-día; p = 0.007 ) con clorhexidina.",
+      "population": "Población. Pacientes ingresados en nueve unidades de alto riesgo de infección intrahospitalaria, ocho unidades de cuidados intensivos y una de trasplante de médula ósea, de seis hospitales de Estados Unidos. La raza, la etnia y las características individuales de los pacientes no se reportaron. Intervención. Baño diario con toallitas desechables impregnadas con gluconato de clorhexidina al 2%, sin enjuague, aplicado por…"
+    }
+  },
+  "183": {
+    "slug": "oscar-ventilacion-oscilatoria-alta-frecuencia-ventilacion-convencional-sindrome-dificultad",
+    "path": "/trials/oscar-ventilacion-oscilatoria-alta-frecuencia-ventilacion-convencional-sindrome-dificultad/",
+    "url": "https://resumenestrials.com/trials/oscar-ventilacion-oscilatoria-alta-frecuencia-ventilacion-convencional-sindrome-dificultad/",
+    "title": "OSCAR: ventilación oscilatoria de alta frecuencia frente a ventilación convencional en el síndrome de dificultad respiratoria aguda",
+    "seo_title": "OSCAR trial: ventilación oscilatoria de alta frecuencia frente a ventilación convencional en el síndrome de dificultad respiratoria aguda | Resúmenes Trials",
+    "description": "OSCAR: Sin diferencia en la mortalidad a 30 días ( 41.7% frente a 41.1% ; p = 0.85 ; odds ratio ajustada de supervivencia del grupo convencional frente al de…",
+    "clusters": [
+      {
+        "name": "Ventilación e insuficiencia respiratoria",
+        "path": "/medicina-critica/ventilacion-respiratoria/",
+        "url": "https://resumenestrials.com/medicina-critica/ventilacion-respiratoria/"
+      },
+      {
+        "name": "SDRA y ECMO",
+        "path": "/medicina-critica/sdra-ecmo/",
+        "url": "https://resumenestrials.com/medicina-critica/sdra-ecmo/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/oscar-ventilacion-oscilatoria-alta-frecuencia-ventilacion-convencional-sindrome-dificultad-16x9.jpg",
+      "https://resumenestrials.com/images/trials/oscar-ventilacion-oscilatoria-alta-frecuencia-ventilacion-convencional-sindrome-dificultad-4x3.jpg",
+      "https://resumenestrials.com/images/trials/oscar-ventilacion-oscilatoria-alta-frecuencia-ventilacion-convencional-sindrome-dificultad-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si la ventilación oscilatoria de alta frecuencia, frente a la ventilación convencional, reduce la mortalidad a 30 días en adultos con síndrome de dificultad respiratoria aguda.",
+      "answer": "Sin diferencia en la mortalidad a 30 días ( 41.7% frente a 41.1% ; p = 0.85 ; odds ratio ajustada de supervivencia del grupo convencional frente al de oscilación 1.03; IC 95%, 0.75 a 1.40; p = 0.87), con más días de bloqueo neuromuscular en el grupo de oscilación (2.5 frente a 2.0; p = 0.02).",
+      "population": "La población fueron adultos con síndrome de dificultad respiratoria aguda (SDRA) bajo ventilación mecánica, con una relación entre la presión arterial de oxígeno y la fracción inspirada de oxígeno (PaO2:FiO2) de 200 mm Hg (26.7 kPa) o menos con una presión positiva al final de la espiración (PEEP) de al menos 5 cm de agua, infiltrados pulmonares bilaterales sin signos de hipertensión auricular izquierda y una previsión de al…"
+    }
+  },
+  "184": {
+    "slug": "iabp-shock-ii-balon-contrapulsacion-intraaortico-infarto-agudo-miocardio-shock-cardiogenico",
+    "path": "/trials/iabp-shock-ii-balon-contrapulsacion-intraaortico-infarto-agudo-miocardio-shock-cardiogenico/",
+    "url": "https://resumenestrials.com/trials/iabp-shock-ii-balon-contrapulsacion-intraaortico-infarto-agudo-miocardio-shock-cardiogenico/",
+    "title": "IABP-SHOCK II: balón de contrapulsación intraaórtico en el infarto agudo de miocardio con shock cardiogénico",
+    "seo_title": "IABP-SHOCK II trial: balón de contrapulsación intraaórtico en el infarto agudo de miocardio con shock cardiogénico | Resúmenes Trials",
+    "description": "IABP-SHOCK II: Sin diferencia en la mortalidad a 30 días ( 39.7% frente a 41.3% ; riesgo relativo 0.96; IC 95%, 0.79 a 1.17; p = 0.69 ), sin diferencias…",
+    "clusters": [
+      {
+        "name": "Hemodinámica y cardiovascular",
+        "path": "/medicina-critica/hemodinamica-cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-critica/hemodinamica-cardiovascular/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/iabp-shock-ii-balon-contrapulsacion-intraaortico-infarto-agudo-miocardio-shock-cardiogenico-16x9.jpg",
+      "https://resumenestrials.com/images/trials/iabp-shock-ii-balon-contrapulsacion-intraaortico-infarto-agudo-miocardio-shock-cardiogenico-4x3.jpg",
+      "https://resumenestrials.com/images/trials/iabp-shock-ii-balon-contrapulsacion-intraaortico-infarto-agudo-miocardio-shock-cardiogenico-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si la contrapulsación con balón intraaórtico, añadida a la revascularización temprana, reduce la mortalidad a 30 días en el infarto agudo de miocardio con shock cardiogénico.",
+      "answer": "Sin diferencia en la mortalidad a 30 días ( 39.7% frente a 41.3% ; riesgo relativo 0.96; IC 95%, 0.79 a 1.17; p = 0.69 ), sin diferencias significativas en hemorragia grave, isquemia periférica, sepsis ni ictus.",
+      "population": "La población fueron pacientes con infarto agudo de miocardio, con o sin elevación del segmento ST, complicado con shock cardiogénico y en quienes se planeaba una revascularización temprana, por intervención coronaria percutánea (ICP) o cirugía de revascularización. El shock se definió por la suma de tres elementos: presión sistólica menor de 90 mm Hg durante más de 30 minutos o necesidad de catecolaminas para mantenerla por…"
+    }
+  },
+  "185": {
+    "slug": "sonic-infliximab-azatioprina-ambos-enfermedad-crohn-tratamiento-inmunosupresor-previo",
+    "path": "/trials/sonic-infliximab-azatioprina-ambos-enfermedad-crohn-tratamiento-inmunosupresor-previo/",
+    "url": "https://resumenestrials.com/trials/sonic-infliximab-azatioprina-ambos-enfermedad-crohn-tratamiento-inmunosupresor-previo/",
+    "title": "SONIC: infliximab, azatioprina o ambos en la enfermedad de Crohn sin tratamiento inmunosupresor previo",
+    "seo_title": "SONIC trial: infliximab, azatioprina o ambos en la enfermedad de Crohn sin tratamiento inmunosupresor previo | Resúmenes Trials",
+    "description": "SONIC: Remisión sin corticoides en la semana 26 de 56.8% con la combinación, 44.4% con infliximab y 30.0% con azatioprina ( p menor de 0.001 para la…",
+    "clusters": [],
+    "images": [
+      "https://resumenestrials.com/images/trials/sonic-infliximab-azatioprina-ambos-enfermedad-crohn-tratamiento-inmunosupresor-previo-16x9.jpg",
+      "https://resumenestrials.com/images/trials/sonic-infliximab-azatioprina-ambos-enfermedad-crohn-tratamiento-inmunosupresor-previo-4x3.jpg",
+      "https://resumenestrials.com/images/trials/sonic-infliximab-azatioprina-ambos-enfermedad-crohn-tratamiento-inmunosupresor-previo-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Comparar la eficacia del infliximab, la azatioprina y su combinación para lograr la remisión clínica sin corticoides en la semana 26 en la enfermedad de Crohn moderada a grave sin tratamiento inmunosupresor previo.",
+      "answer": "Remisión sin corticoides en la semana 26 de 56.8% con la combinación, 44.4% con infliximab y 30.0% con azatioprina ( p menor de 0.001 para la combinación frente a azatioprina; p = 0.02 frente a infliximab; p = 0.006 para infliximab frente a azatioprina).",
+      "population": "La población fueron adultos con enfermedad de Crohn moderada a grave que nunca habían recibido inmunosupresores ni biológicos. Debían tener al menos 21 años, una enfermedad de al menos 6 semanas de evolución y una puntuación de 220 a 450 en el índice de actividad de la enfermedad de Crohn (CDAI). Este índice suma ocho factores ponderados, con un total posible de unos 600 puntos; una cifra menor de 150 define la remisión y una…"
+    }
+  },
+  "186": {
+    "slug": "soap-ii-dopamina-noradrenalina-como-primer-vasopresor-shock",
+    "path": "/trials/soap-ii-dopamina-noradrenalina-como-primer-vasopresor-shock/",
+    "url": "https://resumenestrials.com/trials/soap-ii-dopamina-noradrenalina-como-primer-vasopresor-shock/",
+    "title": "SOAP II: dopamina frente a noradrenalina como primer vasopresor en el shock",
+    "seo_title": "SOAP II trial: dopamina frente a noradrenalina como primer vasopresor en el shock | Resúmenes Trials",
+    "description": "SOAP II: Sin diferencia significativa en la mortalidad a 28 días ( 52.5% con dopamina frente a 48.5% con noradrenalina ; razón de momios 1.17; IC 95%, 0.97 a…",
+    "clusters": [
+      {
+        "name": "Renal y ácido-base",
+        "path": "/medicina-critica/renal-acido-base/",
+        "url": "https://resumenestrials.com/medicina-critica/renal-acido-base/"
+      },
+      {
+        "name": "Hemodinámica y cardiovascular",
+        "path": "/medicina-critica/hemodinamica-cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-critica/hemodinamica-cardiovascular/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/soap-ii-dopamina-noradrenalina-como-primer-vasopresor-shock-16x9.jpg",
+      "https://resumenestrials.com/images/trials/soap-ii-dopamina-noradrenalina-como-primer-vasopresor-shock-4x3.jpg",
+      "https://resumenestrials.com/images/trials/soap-ii-dopamina-noradrenalina-como-primer-vasopresor-shock-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si usar noradrenalina en lugar de dopamina como primer vasopresor reduce la mortalidad a 28 días en los pacientes con shock.",
+      "answer": "Sin diferencia significativa en la mortalidad a 28 días ( 52.5% con dopamina frente a 48.5% con noradrenalina ; razón de momios 1.17; IC 95%, 0.97 a 1.42; p = 0.10 ), con casi el doble de arritmias con dopamina (24.1% frente a 12.4%; p menor de 0.001).",
+      "population": "Población. Adultos de 18 años o más con shock que necesitaban un vasopresor, atendidos en las unidades de cuidados intensivos de ocho centros de Bélgica, Austria y España. Se incluyeron todos los tipos de shock: séptico, cardiogénico, hipovolémico y otros. La raza y la etnia no se reportaron. Intervención. Dopamina como vasopresor de primera línea, en infusión intravenosa ajustada al peso. La preparación llevaba 800 mg de…"
+    }
+  },
+  "187": {
+    "slug": "epvent-peep-guiada-presion-esofagica-lesion-pulmonar-aguda-sdra",
+    "path": "/trials/epvent-peep-guiada-presion-esofagica-lesion-pulmonar-aguda-sdra/",
+    "url": "https://resumenestrials.com/trials/epvent-peep-guiada-presion-esofagica-lesion-pulmonar-aguda-sdra/",
+    "title": "EPVent: PEEP guiada por presión esofágica en la lesión pulmonar aguda y el SDRA",
+    "seo_title": "EPVent trial: PEEP guiada por presión esofágica en la lesión pulmonar aguda y el SDRA | Resúmenes Trials",
+    "description": "EPVent: La relación PaO2/FiO2 a las 72 horas fue 88 mm Hg mayor con la PEEP guiada por presión esofágica (IC 95%, 78.1 a 98.3; p = 0.002 ), sin diferencia…",
+    "clusters": [
+      {
+        "name": "Ventilación e insuficiencia respiratoria",
+        "path": "/medicina-critica/ventilacion-respiratoria/",
+        "url": "https://resumenestrials.com/medicina-critica/ventilacion-respiratoria/"
+      },
+      {
+        "name": "SDRA y ECMO",
+        "path": "/medicina-critica/sdra-ecmo/",
+        "url": "https://resumenestrials.com/medicina-critica/sdra-ecmo/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/epvent-peep-guiada-presion-esofagica-lesion-pulmonar-aguda-sdra-16x9.jpg",
+      "https://resumenestrials.com/images/trials/epvent-peep-guiada-presion-esofagica-lesion-pulmonar-aguda-sdra-4x3.jpg",
+      "https://resumenestrials.com/images/trials/epvent-peep-guiada-presion-esofagica-lesion-pulmonar-aguda-sdra-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si ajustar la PEEP según la presión esofágica mejora la oxigenación a las 72 horas frente a la estrategia de la red ARDSNet en la lesión pulmonar aguda y el SDRA.",
+      "answer": "La relación PaO2/FiO2 a las 72 horas fue 88 mm Hg mayor con la PEEP guiada por presión esofágica (IC 95%, 78.1 a 98.3; p = 0.002 ), sin diferencia significativa en la mortalidad a 28 días (17% frente a 39%; p = 0.055; riesgo relativo 0.43; IC 95%, 0.17 a 1.07).",
+      "population": "Población. Adultos con lesión pulmonar aguda o síndrome de dificultad respiratoria aguda (SDRA) según las definiciones de la Conferencia de Consenso Americano-Europea, en ventilación mecánica en las unidades de cuidados intensivos médica y quirúrgica de un hospital universitario de Boston, Estados Unidos. El 87% de ambos grupos era de raza blanca, según la clasificación de los investigadores. Intervención. Ajustar la presión…"
+    }
+  },
+  "188": {
+    "slug": "vasst-vasopresina-noradrenalina-shock-septico",
+    "path": "/trials/vasst-vasopresina-noradrenalina-shock-septico/",
+    "url": "https://resumenestrials.com/trials/vasst-vasopresina-noradrenalina-shock-septico/",
+    "title": "VASST: vasopresina frente a noradrenalina en el shock séptico",
+    "seo_title": "VASST trial: vasopresina frente a noradrenalina en el shock séptico | Resúmenes Trials",
+    "description": "VASST: Sin diferencia significativa en la mortalidad a 28 días ( 35.4% con vasopresina frente a 39.3% con noradrenalina ; riesgo relativo 0.90; IC 95%, 0.75 a…",
+    "clusters": [
+      {
+        "name": "Sepsis y shock",
+        "path": "/medicina-critica/sepsis-shock/",
+        "url": "https://resumenestrials.com/medicina-critica/sepsis-shock/"
+      },
+      {
+        "name": "Renal y ácido-base",
+        "path": "/medicina-critica/renal-acido-base/",
+        "url": "https://resumenestrials.com/medicina-critica/renal-acido-base/"
+      },
+      {
+        "name": "Hemodinámica y cardiovascular",
+        "path": "/medicina-critica/hemodinamica-cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-critica/hemodinamica-cardiovascular/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/vasst-vasopresina-noradrenalina-shock-septico-16x9.jpg",
+      "https://resumenestrials.com/images/trials/vasst-vasopresina-noradrenalina-shock-septico-4x3.jpg",
+      "https://resumenestrials.com/images/trials/vasst-vasopresina-noradrenalina-shock-septico-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si añadir vasopresina en dosis baja, frente a noradrenalina, reduce la mortalidad a 28 días en el shock séptico tratado con catecolaminas.",
+      "answer": "Sin diferencia significativa en la mortalidad a 28 días ( 35.4% con vasopresina frente a 39.3% con noradrenalina ; riesgo relativo 0.90; IC 95%, 0.75 a 1.08; p = 0.26 ), con eventos adversos graves similares (10.3% frente a 10.5%).",
+      "population": "Población. Pacientes mayores de 16 años con shock séptico que seguían necesitando noradrenalina pese a la reanimación con líquidos, atendidos en 27 unidades de cuidados intensivos de Canadá, Australia y Estados Unidos. La raza la registraron los coordinadores locales: era blanca en el 84.6% del grupo vasopresina y en el 83.8% del grupo noradrenalina. Intervención. Vasopresina en dosis baja, añadida a los vasopresores abiertos…"
+    }
+  },
+  "189": {
+    "slug": "corticus-hidrocortisona-shock-septico",
+    "path": "/trials/corticus-hidrocortisona-shock-septico/",
+    "url": "https://resumenestrials.com/trials/corticus-hidrocortisona-shock-septico/",
+    "title": "CORTICUS: hidrocortisona en el shock séptico",
+    "seo_title": "CORTICUS trial: hidrocortisona en el shock séptico | Resúmenes Trials",
+    "description": "CORTICUS: Sin diferencia significativa en la mortalidad a 28 días de los pacientes sin respuesta a la corticotropina ( 39.2% con hidrocortisona frente a 36.1%…",
+    "clusters": [
+      {
+        "name": "Sepsis y shock",
+        "path": "/medicina-critica/sepsis-shock/",
+        "url": "https://resumenestrials.com/medicina-critica/sepsis-shock/"
+      },
+      {
+        "name": "Renal y ácido-base",
+        "path": "/medicina-critica/renal-acido-base/",
+        "url": "https://resumenestrials.com/medicina-critica/renal-acido-base/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/corticus-hidrocortisona-shock-septico-16x9.jpg",
+      "https://resumenestrials.com/images/trials/corticus-hidrocortisona-shock-septico-4x3.jpg",
+      "https://resumenestrials.com/images/trials/corticus-hidrocortisona-shock-septico-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si la hidrocortisona en dosis baja, frente a placebo, reduce la mortalidad a 28 días en el shock séptico, en especial en los pacientes sin respuesta a la corticotropina.",
+      "answer": "Sin diferencia significativa en la mortalidad a 28 días de los pacientes sin respuesta a la corticotropina ( 39.2% con hidrocortisona frente a 36.1% con placebo ; riesgo relativo 1.09; IC 95%, 0.77 a 1.52; p = 0.69 ).",
+      "population": "Población. Adultos de 18 años o más ingresados en 52 unidades de cuidados intensivos de nueve países: Austria, Bélgica, Francia, Alemania, Israel, Italia, Países Bajos, Portugal y Reino Unido. Tenían shock séptico de inicio en las 72 horas previas y debían seguir hipotensos o con vasopresores en el momento de entrar. La raza la registraron los investigadores: era blanca en el 94% del grupo hidrocortisona y en el 92% del grupo…"
+    }
+  },
+  "190": {
+    "slug": "metilprednisolona-en-el-sindrome-de-dificultad-respiratoria-aguda-persistente",
+    "path": "/trials/metilprednisolona-en-el-sindrome-de-dificultad-respiratoria-aguda-persistente/",
+    "url": "https://resumenestrials.com/trials/metilprednisolona-en-el-sindrome-de-dificultad-respiratoria-aguda-persistente/",
+    "title": "Metilprednisolona en el síndrome de dificultad respiratoria aguda persistente",
+    "seo_title": "Metilprednisolona en el síndrome de dificultad respiratoria aguda persistente | Resúmenes Trials",
+    "description": "Metilprednisolona en el síndrome de dificultad respiratoria aguda persistente: Sin diferencia en la mortalidad a 60 días ( 28.6% con placebo frente a 29.2%…",
+    "clusters": [
+      {
+        "name": "Ventilación e insuficiencia respiratoria",
+        "path": "/medicina-critica/ventilacion-respiratoria/",
+        "url": "https://resumenestrials.com/medicina-critica/ventilacion-respiratoria/"
+      },
+      {
+        "name": "SDRA y ECMO",
+        "path": "/medicina-critica/sdra-ecmo/",
+        "url": "https://resumenestrials.com/medicina-critica/sdra-ecmo/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/metilprednisolona-en-el-sindrome-de-dificultad-respiratoria-aguda-persistente-16x9.jpg",
+      "https://resumenestrials.com/images/trials/metilprednisolona-en-el-sindrome-de-dificultad-respiratoria-aguda-persistente-4x3.jpg",
+      "https://resumenestrials.com/images/trials/metilprednisolona-en-el-sindrome-de-dificultad-respiratoria-aguda-persistente-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si la metilprednisolona en dosis moderada, frente a placebo, reduce la mortalidad a 60 días en el síndrome de dificultad respiratoria aguda persistente.",
+      "answer": "Sin diferencia en la mortalidad a 60 días ( 28.6% con placebo frente a 29.2% con metilprednisolona ; diferencia 0.6 puntos; IC 95%, −12.6 a 13.9; p = 1.0 ), pese a más días sin ventilación en el primer mes (11.2 frente a 6.8; p menor de 0.001).",
+      "population": "Población. Pacientes de 13 años o más, intubados y en ventilación mecánica con un síndrome de dificultad respiratoria aguda (SDRA) persistente, es decir, de 7 a 28 días de evolución, atendidos en 25 hospitales de la red, en ciudades de Estados Unidos como Seattle, Denver o Salt Lake City. Raza o etnia: No reportado. Intervención. Succinato sódico de metilprednisolona intravenoso, diluido en 50 ml de dextrosa al 5%. Se daba una…"
+    }
+  },
+  "191": {
+    "slug": "alveoli-peep-alta-peep-baja-sdra-ventilado-volumen-corriente",
+    "path": "/trials/alveoli-peep-alta-peep-baja-sdra-ventilado-volumen-corriente/",
+    "url": "https://resumenestrials.com/trials/alveoli-peep-alta-peep-baja-sdra-ventilado-volumen-corriente/",
+    "title": "ALVEOLI: PEEP alta frente a PEEP baja en el SDRA ventilado con volumen corriente bajo",
+    "seo_title": "ALVEOLI trial: PEEP alta frente a PEEP baja en el SDRA ventilado con volumen corriente bajo | Resúmenes Trials",
+    "description": "ALVEOLI: Sin diferencia significativa en la muerte antes del alta ( 24.9% con PEEP baja frente a 27.5% con PEEP alta ; IC 95% de la diferencia, −10.0 a 4.7; p…",
+    "clusters": [
+      {
+        "name": "Ventilación e insuficiencia respiratoria",
+        "path": "/medicina-critica/ventilacion-respiratoria/",
+        "url": "https://resumenestrials.com/medicina-critica/ventilacion-respiratoria/"
+      },
+      {
+        "name": "SDRA y ECMO",
+        "path": "/medicina-critica/sdra-ecmo/",
+        "url": "https://resumenestrials.com/medicina-critica/sdra-ecmo/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/alveoli-peep-alta-peep-baja-sdra-ventilado-volumen-corriente-16x9.jpg",
+      "https://resumenestrials.com/images/trials/alveoli-peep-alta-peep-baja-sdra-ventilado-volumen-corriente-4x3.jpg",
+      "https://resumenestrials.com/images/trials/alveoli-peep-alta-peep-baja-sdra-ventilado-volumen-corriente-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si una estrategia de PEEP alta, frente a una de PEEP baja, reduce la mortalidad en la lesión pulmonar aguda y el SDRA ventilados con volumen corriente bajo.",
+      "answer": "Sin diferencia significativa en la muerte antes del alta ( 24.9% con PEEP baja frente a 27.5% con PEEP alta ; IC 95% de la diferencia, −10.0 a 4.7; p = 0.48 ), pese a una PEEP media de 13.2 frente a 8.3 cm de agua y mejor oxigenación.",
+      "population": "Población. Pacientes de 13 años o más, intubados y en ventilación mecánica, con lesión pulmonar aguda o síndrome de dificultad respiratoria aguda (SDRA) de inicio reciente, atendidos en 23 hospitales de la red en Estados Unidos. Según la asignación de los investigadores, el 73% del grupo con PEEP baja y el 77% del grupo con PEEP alta eran de raza blanca, el 14% de ambos de raza negra, y el 6% y el 7% hispanos. Ventilación…"
+    }
+  },
+  "192": {
+    "slug": "volumen-corriente-bajo-frente-a-tradicional-en-la-lesion-pulmonar-aguda-y-el-sdra",
+    "path": "/trials/volumen-corriente-bajo-frente-a-tradicional-en-la-lesion-pulmonar-aguda-y-el-sdra/",
+    "url": "https://resumenestrials.com/trials/volumen-corriente-bajo-frente-a-tradicional-en-la-lesion-pulmonar-aguda-y-el-sdra/",
+    "title": "Volumen corriente bajo frente a tradicional en la lesión pulmonar aguda y el SDRA",
+    "seo_title": "Volumen corriente bajo frente a tradicional en la lesión pulmonar aguda y el SDRA | Resúmenes Trials",
+    "description": "Volumen corriente bajo frente a tradicional en la lesión pulmonar aguda y el SDRA: La mortalidad antes del alta a domicilio respirando sin ayuda fue menor con…",
+    "clusters": [
+      {
+        "name": "Ventilación e insuficiencia respiratoria",
+        "path": "/medicina-critica/ventilacion-respiratoria/",
+        "url": "https://resumenestrials.com/medicina-critica/ventilacion-respiratoria/"
+      },
+      {
+        "name": "SDRA y ECMO",
+        "path": "/medicina-critica/sdra-ecmo/",
+        "url": "https://resumenestrials.com/medicina-critica/sdra-ecmo/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/volumen-corriente-bajo-frente-a-tradicional-en-la-lesion-pulmonar-aguda-y-el-sdra-16x9.jpg",
+      "https://resumenestrials.com/images/trials/volumen-corriente-bajo-frente-a-tradicional-en-la-lesion-pulmonar-aguda-y-el-sdra-4x3.jpg",
+      "https://resumenestrials.com/images/trials/volumen-corriente-bajo-frente-a-tradicional-en-la-lesion-pulmonar-aguda-y-el-sdra-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si ventilar con un volumen corriente bajo, frente a uno tradicional, reduce la mortalidad y aumenta los días sin ventilación en la lesión pulmonar aguda y el SDRA.",
+      "answer": "La mortalidad antes del alta a domicilio respirando sin ayuda fue menor con volumen corriente bajo ( 31.0% frente a 39.8% ; IC 95% de la diferencia, 2.4 a 15.3 puntos; p = 0.007 ), con más días sin ventilación (12 frente a 10; p = 0.007).",
+      "population": "Población. Adultos intubados y en ventilación mecánica con lesión pulmonar aguda o síndrome de dificultad respiratoria aguda (SDRA), atendidos en 10 centros universitarios de la red del National Heart, Lung, and Blood Institute en Estados Unidos. En el grupo con volumen bajo y en el tradicional, respectivamente, el 75% y el 71% eran de raza blanca, el 16% y el 19% de raza negra, el 5% y el 7% hispanos, y el 4% y el 3% de otro…"
+    }
   }
 }
