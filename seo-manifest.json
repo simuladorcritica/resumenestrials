@@ -5123,5 +5123,90 @@
       "answer": "El inicio temprano de la terapia de reemplazo renal redujo la mortalidad a 90 días, 39.3% frente a 54.7% (HR 0.66; IC 95%, 0.45 a 0.97; p = 0.03 ), con una diferencia absoluta de −15.4% (IC 95%, −28.1% a −2.6%).",
       "population": "La población fueron pacientes críticos de 18 a 90 años con lesión renal aguda en estadio 2 de la clasificación KDIGO, es decir, con la creatinina duplicada respecto a la basal o una diuresis menor de 0.5 mL/kg/h durante al menos 12 horas, pese a una reanimación optimizada, atendidos en un hospital universitario de Alemania. Además debían tener una lipocalina asociada a la gelatinasa de neutrófilos, la NGAL, por encima de 150…"
     }
+  },
+  "205": {
+    "slug": "ventilacion-de-pulmon-abierto-con-reclutamiento-y-peep-alta-frente-a-volumen-corriente",
+    "path": "/trials/ventilacion-de-pulmon-abierto-con-reclutamiento-y-peep-alta-frente-a-volumen-corriente/",
+    "url": "https://resumenestrials.com/trials/ventilacion-de-pulmon-abierto-con-reclutamiento-y-peep-alta-frente-a-volumen-corriente/",
+    "title": "Ventilación de pulmón abierto con reclutamiento y PEEP alta frente a volumen corriente bajo en la lesión pulmonar aguda y el SDRA",
+    "seo_title": "Ventilación de pulmón abierto con reclutamiento y PEEP alta frente a volumen corriente bajo en la lesión pulmonar aguda y el SDRA | Resúmenes Trials",
+    "description": "Ventilación de pulmón abierto con reclutamiento y PEEP alta frente a volumen corriente bajo en la lesión pulmonar aguda y el SDRA: La mortalidad hospitalaria…",
+    "clusters": [
+      {
+        "name": "Ventilación e insuficiencia respiratoria",
+        "path": "/medicina-critica/ventilacion-respiratoria/",
+        "url": "https://resumenestrials.com/medicina-critica/ventilacion-respiratoria/"
+      },
+      {
+        "name": "SDRA y ECMO",
+        "path": "/medicina-critica/sdra-ecmo/",
+        "url": "https://resumenestrials.com/medicina-critica/sdra-ecmo/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/ventilacion-de-pulmon-abierto-con-reclutamiento-y-peep-alta-frente-a-volumen-corriente-16x9.jpg",
+      "https://resumenestrials.com/images/trials/ventilacion-de-pulmon-abierto-con-reclutamiento-y-peep-alta-frente-a-volumen-corriente-4x3.jpg",
+      "https://resumenestrials.com/images/trials/ventilacion-de-pulmon-abierto-con-reclutamiento-y-peep-alta-frente-a-volumen-corriente-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Comparar una estrategia de ventilación de pulmón abierto, con volumen corriente bajo, maniobras de reclutamiento y PEEP alta, frente a una estrategia establecida de volumen corriente bajo, para reducir la mortalidad hospitalaria en la lesión pulmonar aguda y el síndrome de dificultad respiratoria aguda.",
+      "answer": "La mortalidad hospitalaria fue del 36.4% con la ventilación de pulmón abierto frente al 40.4% con el volumen corriente bajo (riesgo relativo 0.90; IC 95%, 0.77 a 1.05; p = 0.19) , sin diferencia significativa; la hipoxemia refractaria fue menos frecuente, 4.6% frente a 10.2% .",
+      "population": "La población fueron pacientes con ventilación mecánica invasiva, con una edad media de alrededor de 55 años, y lesión pulmonar aguda, definida por síntomas respiratorios nuevos en los 28 días previos, opacidades bilaterales en la radiografía de tórax y una PaO2/FIO2 de 250 o menos. El umbral incluía tanto la lesión pulmonar aguda como su forma más grave, el síndrome de dificultad respiratoria aguda (SDRA). Procedían de 30…"
+    }
+  },
+  "206": {
+    "slug": "express-peep-alta-titulada-presion-meseta-peep-moderada-lesion-pulmonar",
+    "path": "/trials/express-peep-alta-titulada-presion-meseta-peep-moderada-lesion-pulmonar/",
+    "url": "https://resumenestrials.com/trials/express-peep-alta-titulada-presion-meseta-peep-moderada-lesion-pulmonar/",
+    "title": "Express: PEEP alta titulada por la presión meseta frente a PEEP moderada en la lesión pulmonar aguda y el SDRA",
+    "seo_title": "Express trial: PEEP alta titulada por la presión meseta frente a PEEP moderada en la lesión pulmonar aguda y el SDRA | Resúmenes Trials",
+    "description": "Express: La mortalidad a 28 días fue del 31.2% con distensión mínima frente al 27.8% con reclutamiento aumentado (riesgo relativo 1.12; IC 95%, 0.90 a 1.40; p…",
+    "clusters": [
+      {
+        "name": "Ventilación e insuficiencia respiratoria",
+        "path": "/medicina-critica/ventilacion-respiratoria/",
+        "url": "https://resumenestrials.com/medicina-critica/ventilacion-respiratoria/"
+      },
+      {
+        "name": "SDRA y ECMO",
+        "path": "/medicina-critica/sdra-ecmo/",
+        "url": "https://resumenestrials.com/medicina-critica/sdra-ecmo/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/express-peep-alta-titulada-presion-meseta-peep-moderada-lesion-pulmonar-16x9.jpg",
+      "https://resumenestrials.com/images/trials/express-peep-alta-titulada-presion-meseta-peep-moderada-lesion-pulmonar-4x3.jpg",
+      "https://resumenestrials.com/images/trials/express-peep-alta-titulada-presion-meseta-peep-moderada-lesion-pulmonar-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Comparar una estrategia de PEEP alta titulada hasta una presión meseta de 28 a 30 cm H2O frente a una PEEP moderada, ambas con volumen corriente bajo, para reducir la mortalidad a 28 días en la lesión pulmonar aguda y el síndrome de dificultad respiratoria aguda.",
+      "answer": "La mortalidad a 28 días fue del 31.2% con distensión mínima frente al 27.8% con reclutamiento aumentado (riesgo relativo 1.12; IC 95%, 0.90 a 1.40; p = 0.31) , sin diferencia significativa; los días libres de ventilador fueron 7 frente a 3 (p = 0.04) a favor del reclutamiento aumentado.",
+      "population": "La población fueron adultos con ventilación mecánica endotraqueal por insuficiencia respiratoria hipoxémica y lesión pulmonar aguda, con una PaO2:FIO2 de 300 mm Hg o menos, infiltrados pulmonares bilaterales recientes compatibles con edema y sin evidencia clínica de hipertensión auricular izquierda, con una presión de enclavamiento de 18 mm Hg o menos cuando se medía. Estos criterios debían cumplirse desde no más de 48 horas…"
+    }
+  },
+  "207": {
+    "slug": "survive-levosimendan-dobutamina-insuficiencia-cardiaca-aguda-descompensada",
+    "path": "/trials/survive-levosimendan-dobutamina-insuficiencia-cardiaca-aguda-descompensada/",
+    "url": "https://resumenestrials.com/trials/survive-levosimendan-dobutamina-insuficiencia-cardiaca-aguda-descompensada/",
+    "title": "SURVIVE: levosimendán frente a dobutamina en la insuficiencia cardiaca aguda descompensada",
+    "seo_title": "SURVIVE trial: levosimendán frente a dobutamina en la insuficiencia cardiaca aguda descompensada | Resúmenes Trials",
+    "description": "SURVIVE: La mortalidad a 180 días fue del 26% con levosimendán frente al 28% con dobutamina (hazard ratio 0.91; IC 95%, 0.74 a 1.13; p = 0.40) , sin…",
+    "clusters": [
+      {
+        "name": "Hemodinámica y cardiovascular",
+        "path": "/medicina-critica/hemodinamica-cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-critica/hemodinamica-cardiovascular/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/survive-levosimendan-dobutamina-insuficiencia-cardiaca-aguda-descompensada-16x9.jpg",
+      "https://resumenestrials.com/images/trials/survive-levosimendan-dobutamina-insuficiencia-cardiaca-aguda-descompensada-4x3.jpg",
+      "https://resumenestrials.com/images/trials/survive-levosimendan-dobutamina-insuficiencia-cardiaca-aguda-descompensada-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Comparar una infusión corta de levosimendán frente a dobutamina en la insuficiencia cardiaca aguda descompensada que requiere un inotrópico, para reducir la mortalidad por cualquier causa a 180 días.",
+      "answer": "La mortalidad a 180 días fue del 26% con levosimendán frente al 28% con dobutamina (hazard ratio 0.91; IC 95%, 0.74 a 1.13; p = 0.40) , sin diferencia significativa; el BNP bajó más con levosimendán a las 24 horas, 631 frente a 397 pg/ml (p menor de 0.001) .",
+      "population": "La población fueron adultos de 18 años o más hospitalizados por insuficiencia cardiaca aguda descompensada, con una fracción de eyección del 30% o menos en los 12 meses previos y necesidad de un inotrópico intravenoso por respuesta insuficiente a diuréticos o vasodilatadores intravenosos. Además debían tener al menos uno de tres criterios: disnea en reposo o ventilación mecánica por la descompensación; oliguria no debida a…"
+    }
   }
 }

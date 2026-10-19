@@ -32,7 +32,7 @@
     "category": "Medicina Crítica",
     "path": "/medicina-critica/ventilacion-respiratoria/",
     "url": "https://resumenestrials.com/medicina-critica/ventilacion-respiratoria/",
-    "count": 39,
+    "count": 41,
     "trial_ids": [
       "1",
       "3",
@@ -72,7 +72,9 @@
       "192",
       "194",
       "197",
-      "199"
+      "199",
+      "205",
+      "206"
     ]
   },
   "sdra-ecmo": {
@@ -80,7 +82,7 @@
     "category": "Medicina Crítica",
     "path": "/medicina-critica/sdra-ecmo/",
     "url": "https://resumenestrials.com/medicina-critica/sdra-ecmo/",
-    "count": 12,
+    "count": 14,
     "trial_ids": [
       "21",
       "56",
@@ -93,7 +95,9 @@
       "187",
       "190",
       "191",
-      "192"
+      "192",
+      "205",
+      "206"
     ]
   },
   "neurocriticos": {
@@ -148,7 +152,7 @@
     "category": "Medicina Crítica",
     "path": "/medicina-critica/hemodinamica-cardiovascular/",
     "url": "https://resumenestrials.com/medicina-critica/hemodinamica-cardiovascular/",
-    "count": 14,
+    "count": 15,
     "trial_ids": [
       "2",
       "9",
@@ -163,7 +167,8 @@
       "188",
       "195",
       "198",
-      "203"
+      "203",
+      "207"
     ]
   },
   "paro-resucitacion": {
