@@ -5063,5 +5063,65 @@
       "answer": "La probabilidad de un desenlace más favorable con la PEEP guiada por presión esofágica fue del 49.6% (IC 95%, 41.7% a 57.5%; p = 0.92) , sin diferencia frente a la tabla empírica; la mortalidad a 28 días fue del 32.4% frente al 30.6% .",
       "population": "La población fueron pacientes de 16 años o más, con ventilación mecánica invasiva y síndrome de dificultad respiratoria aguda moderado o grave según la definición de Berlín, es decir, con una PaO2:FIO2 de 200 mm Hg o menos, iniciado en las 36 horas previas. Procedían de 14 hospitales de Estados Unidos y Canadá. Raza o etnia: No reportado."
     }
+  },
+  "203": {
+    "slug": "vanish-vasopresina-temprana-norepinefrina-prevenir-insuficiencia-renal-shock-septico",
+    "path": "/trials/vanish-vasopresina-temprana-norepinefrina-prevenir-insuficiencia-renal-shock-septico/",
+    "url": "https://resumenestrials.com/trials/vanish-vasopresina-temprana-norepinefrina-prevenir-insuficiencia-renal-shock-septico/",
+    "title": "VANISH: vasopresina temprana frente a norepinefrina para prevenir la insuficiencia renal en el shock séptico",
+    "seo_title": "VANISH trial: vasopresina temprana frente a norepinefrina para prevenir la insuficiencia renal en el shock séptico | Resúmenes Trials",
+    "description": "VANISH: Los días libres de insuficiencia renal no difirieron entre vasopresina y norepinefrina ( p = 0.88 ): de los pacientes sin insuficiencia renal al…",
+    "clusters": [
+      {
+        "name": "Sepsis y shock",
+        "path": "/medicina-critica/sepsis-shock/",
+        "url": "https://resumenestrials.com/medicina-critica/sepsis-shock/"
+      },
+      {
+        "name": "Renal y ácido-base",
+        "path": "/medicina-critica/renal-acido-base/",
+        "url": "https://resumenestrials.com/medicina-critica/renal-acido-base/"
+      },
+      {
+        "name": "Hemodinámica y cardiovascular",
+        "path": "/medicina-critica/hemodinamica-cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-critica/hemodinamica-cardiovascular/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/vanish-vasopresina-temprana-norepinefrina-prevenir-insuficiencia-renal-shock-septico-16x9.jpg",
+      "https://resumenestrials.com/images/trials/vanish-vasopresina-temprana-norepinefrina-prevenir-insuficiencia-renal-shock-septico-4x3.jpg",
+      "https://resumenestrials.com/images/trials/vanish-vasopresina-temprana-norepinefrina-prevenir-insuficiencia-renal-shock-septico-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Comparar el efecto de la vasopresina temprana frente a la norepinefrina sobre la insuficiencia renal en pacientes con shock séptico.",
+      "answer": "Los días libres de insuficiencia renal no difirieron entre vasopresina y norepinefrina ( p = 0.88 ): de los pacientes sin insuficiencia renal al inicio, sobrevivieron 28 días sin desarrollarla el 57.0% frente al 59.2% (diferencia, −2.3%; IC 95%, −13.0% a 8.5%); el reemplazo renal, un desenlace secundario, se usó menos con…",
+      "population": "La población fueron adultos de 16 años o más con shock séptico, es decir, sepsis con al menos 2 de los 4 criterios de respuesta inflamatoria sistémica por una infección conocida o sospechada, que seguían necesitando vasopresores pese a una reanimación con líquidos adecuada, atendidos en 18 unidades de cuidados intensivos generales del Reino Unido. La etnia se tomó de la historia clínica: el 85% era de etnia blanca."
+    }
+  },
+  "204": {
+    "slug": "elain-inicio-temprano-diferido-terapia-reemplazo-renal-lesion-renal-aguda",
+    "path": "/trials/elain-inicio-temprano-diferido-terapia-reemplazo-renal-lesion-renal-aguda/",
+    "url": "https://resumenestrials.com/trials/elain-inicio-temprano-diferido-terapia-reemplazo-renal-lesion-renal-aguda/",
+    "title": "ELAIN: inicio temprano frente a diferido de la terapia de reemplazo renal en la lesión renal aguda del paciente crítico",
+    "seo_title": "ELAIN trial: inicio temprano frente a diferido de la terapia de reemplazo renal en la lesión renal aguda del paciente crítico | Resúmenes Trials",
+    "description": "ELAIN: El inicio temprano de la terapia de reemplazo renal redujo la mortalidad a 90 días, 39.3% frente a 54.7% (HR 0.66; IC 95%, 0.45 a 0.97; p = 0.03 ), con…",
+    "clusters": [
+      {
+        "name": "Renal y ácido-base",
+        "path": "/medicina-critica/renal-acido-base/",
+        "url": "https://resumenestrials.com/medicina-critica/renal-acido-base/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/elain-inicio-temprano-diferido-terapia-reemplazo-renal-lesion-renal-aguda-16x9.jpg",
+      "https://resumenestrials.com/images/trials/elain-inicio-temprano-diferido-terapia-reemplazo-renal-lesion-renal-aguda-4x3.jpg",
+      "https://resumenestrials.com/images/trials/elain-inicio-temprano-diferido-terapia-reemplazo-renal-lesion-renal-aguda-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si el inicio temprano de la terapia de reemplazo renal reduce la mortalidad a 90 días en pacientes críticos con lesión renal aguda.",
+      "answer": "El inicio temprano de la terapia de reemplazo renal redujo la mortalidad a 90 días, 39.3% frente a 54.7% (HR 0.66; IC 95%, 0.45 a 0.97; p = 0.03 ), con una diferencia absoluta de −15.4% (IC 95%, −28.1% a −2.6%).",
+      "population": "La población fueron pacientes críticos de 18 a 90 años con lesión renal aguda en estadio 2 de la clasificación KDIGO, es decir, con la creatinina duplicada respecto a la basal o una diuresis menor de 0.5 mL/kg/h durante al menos 12 horas, pese a una reanimación optimizada, atendidos en un hospital universitario de Alemania. Además debían tener una lipocalina asociada a la gelatinasa de neutrófilos, la NGAL, por encima de 150…"
+    }
   }
 }
