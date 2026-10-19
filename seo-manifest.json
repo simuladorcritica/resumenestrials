@@ -4998,9 +4998,9 @@
     "description": "SAVE-O2 AI: Los pacientes con titulación autónoma pasaron el 85% del tiempo en normoxemia frente al 63% con titulación manual, una diferencia ajustada de 21…",
     "clusters": [
       {
-        "name": "Neumología",
-        "path": "/medicina-interna/neumologia/",
-        "url": "https://resumenestrials.com/medicina-interna/neumologia/"
+        "name": "Ventilación e insuficiencia respiratoria",
+        "path": "/medicina-critica/ventilacion-respiratoria/",
+        "url": "https://resumenestrials.com/medicina-critica/ventilacion-respiratoria/"
       }
     ],
     "images": [
