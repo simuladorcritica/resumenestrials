@@ -5038,5 +5038,30 @@
       "answer": "La mortalidad a 90 días fue del 41.0% con hipotensión permisiva frente al 43.8% con atención habitual , con una diferencia absoluta de −2.85 puntos (IC 95%, −6.75 a 1.05; p = 0.15) , sin diferencia significativa, pese a una menor exposición a vasopresores.",
       "population": "La población fueron pacientes de 65 años o más ingresados en 65 unidades de cuidados intensivos generales del Servicio Nacional de Salud del Reino Unido, en Inglaterra, Gales e Irlanda del Norte, que recibían vasopresores por hipotensión vasodilatadora según el criterio del clínico. La raza o etnia de los participantes no se reportó."
     }
+  },
+  "199": {
+    "slug": "epvent-2-peep-guiada-presion-esofagica-tabla-empirica-peep-alta-sindrome",
+    "path": "/trials/epvent-2-peep-guiada-presion-esofagica-tabla-empirica-peep-alta-sindrome/",
+    "url": "https://resumenestrials.com/trials/epvent-2-peep-guiada-presion-esofagica-tabla-empirica-peep-alta-sindrome/",
+    "title": "EPVent-2: PEEP guiada por presión esofágica frente a tabla empírica de PEEP alta en el síndrome de dificultad respiratoria aguda",
+    "seo_title": "EPVent-2 trial: PEEP guiada por presión esofágica frente a tabla empírica de PEEP alta en el síndrome de dificultad respiratoria aguda | Resúmenes Trials",
+    "description": "EPVent-2: La probabilidad de un desenlace más favorable con la PEEP guiada por presión esofágica fue del 49.6% (IC 95%, 41.7% a 57.5%; p = 0.92) , sin…",
+    "clusters": [
+      {
+        "name": "Ventilación e insuficiencia respiratoria",
+        "path": "/medicina-critica/ventilacion-respiratoria/",
+        "url": "https://resumenestrials.com/medicina-critica/ventilacion-respiratoria/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/epvent-2-peep-guiada-presion-esofagica-tabla-empirica-peep-alta-sindrome-16x9.jpg",
+      "https://resumenestrials.com/images/trials/epvent-2-peep-guiada-presion-esofagica-tabla-empirica-peep-alta-sindrome-4x3.jpg",
+      "https://resumenestrials.com/images/trials/epvent-2-peep-guiada-presion-esofagica-tabla-empirica-peep-alta-sindrome-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si ajustar la PEEP según la presión esofágica, frente a una tabla empírica de PEEP alta, mejora un desenlace compuesto de muerte y días libres de ventilación mecánica en el síndrome de dificultad respiratoria aguda moderado o grave.",
+      "answer": "La probabilidad de un desenlace más favorable con la PEEP guiada por presión esofágica fue del 49.6% (IC 95%, 41.7% a 57.5%; p = 0.92) , sin diferencia frente a la tabla empírica; la mortalidad a 28 días fue del 32.4% frente al 30.6% .",
+      "population": "La población fueron pacientes de 16 años o más, con ventilación mecánica invasiva y síndrome de dificultad respiratoria aguda moderado o grave según la definición de Berlín, es decir, con una PaO2:FIO2 de 200 mm Hg o menos, iniciado en las 36 horas previas. Procedían de 14 hospitales de Estados Unidos y Canadá. Raza o etnia: No reportado."
+    }
   }
 }
