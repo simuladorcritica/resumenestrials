@@ -169,11 +169,15 @@ E.prose=scope=>{
 };
 
 let records,routes,library;const recordCache=new Map();
+// Requests in flight are cancelled when the page is left: WebKit otherwise reports the
+// interrupted fetch as an uncaught "access control checks" error (same rule as trial-data.js).
+let nav=new AbortController();for(const ev of ['beforeunload','pagehide'])addEventListener(ev,()=>nav.abort());addEventListener('pageshow',e=>{if(e.persisted)nav=new AbortController()});
+const get=url=>window.evNavigatingAway||nav.signal.aborted?Promise.reject(new DOMException('La navegación finalizó','AbortError')):fetch(url,{signal:nav.signal});
 // A failed load must not stay cached: the next action retries (mobile networks drop requests).
 E.data=()=>records??=import('/trial-data.js?v=20261003-laboratorio-v1').then(m=>m.loadTrials()).catch(e=>{records=undefined;throw e});
-E.routes=()=>routes??=fetch('/seo-manifest.json').then(r=>{if(!r.ok)throw Error('No se pudo cargar el índice');return r.json()}).catch(e=>{routes=undefined;throw e});
+E.routes=()=>routes??=get('/seo-manifest.json').then(r=>{if(!r.ok)throw Error('No se pudo cargar el índice');return r.json()}).catch(e=>{routes=undefined;throw e});
 // One small file per trial (~20 KB) so reading, PDF and controls never wait for the full archive.
-E.record=id=>{id=String(id??'').trim();if(!/^\d+$/.test(id))return Promise.resolve(null);if(!recordCache.has(id))recordCache.set(id,fetch('/datos/ensayos/'+id+'.json').then(r=>{if(r.status===404)return null;if(!r.ok)throw Error('HTTP '+r.status);return r.json()}).then(r=>r&&typeof r==='object'&&!Array.isArray(r)&&String(r.id)===id?r:null).catch(e=>{recordCache.delete(id);return E.data().then(all=>all.find(x=>String(x.id)===id)||null).catch(()=>{throw e})}));return recordCache.get(id)};
+E.record=id=>{id=String(id??'').trim();if(!/^\d+$/.test(id))return Promise.resolve(null);if(!recordCache.has(id))recordCache.set(id,get('/datos/ensayos/'+id+'.json').then(r=>{if(r.status===404)return null;if(!r.ok)throw Error('HTTP '+r.status);return r.json()}).then(r=>r&&typeof r==='object'&&!Array.isArray(r)&&String(r.id)===id?r:null).catch(e=>{recordCache.delete(id);if(e?.name==='AbortError')throw e;return E.data().then(all=>all.find(x=>String(x.id)===id)||null).catch(()=>{throw e})}));return recordCache.get(id)};
 E.library=()=>library??=import('/library-store.js?v=20261003-laboratorio-v1');
 E.inferSubspecialty=r=>{const result=globalThis.SpecialtyClassification?.classify(r);return result?.specialty===globalThis.SpecialtyClassification?.REVIEW?'':result?.specialty||''};
 E.ready=f=>document.readyState==='loading'?document.addEventListener('DOMContentLoaded',f,{once:true}):f();
