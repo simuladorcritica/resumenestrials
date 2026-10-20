@@ -158,6 +158,30 @@ test('una autorización no puede reutilizarse sobre otro baseline', () => {
   }
 });
 
+test('un manifest caducado heredado de main sin cambios no bloquea ni autoriza nada', () => {
+  const { fixture } = createFixture('resumenestrials-clinical-inherited-');
+  try {
+    writeAuthorization(fixture, '0000000000000000000000000000000000000000', [
+      { id: 1, fields: ['objetivo'], reason: 'Autorización ya consumida en un PR anterior.' },
+    ]);
+    runGit(fixture, ['add', '.']);
+    runGit(fixture, ['commit', '--quiet', '-m', 'main con manifest consumido']);
+    const base = runGit(fixture, ['rev-parse', 'HEAD']);
+
+    write(join(fixture, 'resumenes.json'), `${JSON.stringify([article(1), article(2)], null, 2)}\n`);
+    const addition = runGuard(clinicalGuard, fixture, base);
+    assert.equal(addition.status, 0, addition.stderr);
+    assert.match(addition.stdout, /0 cambios explícitamente autorizados/);
+
+    write(join(fixture, 'resumenes.json'), `${JSON.stringify([article(1, { objetivo: 'Cambio no autorizado' })], null, 2)}\n`);
+    const modified = runGuard(clinicalGuard, fixture, base);
+    assert.notEqual(modified.status, 0);
+    assert.match(modified.stderr, /Cambio editorial no autorizado|Cambio de datos no autorizado/);
+  } finally {
+    rmSync(fixture, { recursive: true, force: true });
+  }
+});
+
 test('el manifest rechaza comodines y autorizaciones más amplias que el diff real', () => {
   const { fixture, base } = createFixture('resumenestrials-clinical-exact-');
   try {

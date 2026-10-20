@@ -17,6 +17,19 @@ function resolveCommit(ref) {
   }
 }
 
+function inheritedUnchanged(baseRef, manifestPath) {
+  try {
+    const inBase = execFileSync(
+      'git',
+      ['-c', 'safe.directory=*', 'show', `${baseRef}:${manifestPath}`],
+      { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] },
+    );
+    return inBase === readFileSync(manifestPath, 'utf8');
+  } catch {
+    return false;
+  }
+}
+
 export function loadClinicalCorrectionAuthorizations({
   baseRef = process.env.CLINICAL_BASE_REF || 'origin/main',
   manifestPath = process.env.CLINICAL_CORRECTION_MANIFEST || DEFAULT_MANIFEST_PATH,
@@ -49,6 +62,17 @@ export function loadClinicalCorrectionAuthorizations({
   const declaredBaseSha = String(manifest.base_sha || '').trim().toLowerCase();
   if (!SHA_RE.test(declaredBaseSha)) {
     throw new Error('base_sha del manifest debe ser un SHA-1 completo de 40 caracteres.');
+  }
+  if (declaredBaseSha !== resolvedBaseSha && inheritedUnchanged(baseRef, manifestPath)) {
+    // Manifest caducado heredado de main tal cual: ya se consumió en el PR que
+    // lo introdujo. No autoriza nada y no bloquea: rige la congelación estricta.
+    console.log(`Manifest clínico caducado (${declaredBaseSha.slice(0, 7)}) heredado sin cambios: se ignora y rige la congelación estricta.`);
+    return {
+      manifestPath: null,
+      baseSha: resolvedBaseSha,
+      byId: new Map(),
+      pairs: new Set(),
+    };
   }
   if (declaredBaseSha !== resolvedBaseSha) {
     throw new Error(

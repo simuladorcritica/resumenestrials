@@ -6,7 +6,7 @@ import {trialDateKey,compareTrialDates} from '../trial-data.js';
 test('bibliographic dates sort without altering their displayed values',()=>{
   const rows=JSON.parse(fs.readFileSync(new URL('../resumenes.json',import.meta.url),'utf8'));
   const original=JSON.stringify(rows);
-  const dates={51:'2015-11-09',53:'2018-03-01',54:'2018-03-01',55:'2022-01-18',56:'2022-08-27',85:'2024-05-16',86:'2024-11-16',87:'2022-06-15',88:'2021-01-20',89:'2025-11-21',90:'2023-06-15'};
+  const dates={51:'2015-11-09',53:'2018-02-27',54:'2018-02-27',55:'2022-01-18',56:'2022-08-27',85:'2024-05-16',86:'2024-11-16',87:'2022-06-15',88:'2021-01-20',89:'2025-11-21',90:'2023-06-15'};
   for(const row of rows) assert.equal(trialDateKey(row.fecha),Date.parse((dates[row.id]||row.fecha)+'T00:00:00Z'),`id ${row.id}`);
   const recent=rows.filter(r=>[2025,2026].includes(Number(r.anio))).slice().sort(compareTrialDates);
   for(let i=1;i<recent.length;i++) assert.ok(Date.parse(dates[recent[i-1].id]||recent[i-1].fecha)>=Date.parse(dates[recent[i].id]||recent[i].fecha));

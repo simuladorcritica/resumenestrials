@@ -1971,7 +1971,7 @@
     "url": "https://resumenestrials.com/trials/empa-reg-outcome-empagliflozina-progresion-enfermedad-renal-diabetes-tipo-2/",
     "title": "EMPA-REG OUTCOME: empagliflozina y progresión de la enfermedad renal en la diabetes tipo 2",
     "seo_title": "EMPA-REG OUTCOME trial: empagliflozina y progresión de la enfermedad renal en la diabetes tipo 2 | Resúmenes Trials",
-    "description": "EMPA-REG OUTCOME: La empagliflozina redujo la nefropatía incidente o en progresión frente a placebo ( 12.7% vs 18.8%; razón de riesgo 0.61; IC 95%, 0.53 a…",
+    "description": "EMPA-REG OUTCOME: En este desenlace secundario preespecificado, analizado con valores de p nominales sin corrección por multiplicidad, la empagliflozina se…",
     "clusters": [
       {
         "name": "Renal y metabolismo",
@@ -1986,7 +1986,7 @@
     ],
     "intent": {
       "question": "Determinar el efecto a largo plazo de la empagliflozina sobre desenlaces renales en pacientes con diabetes tipo 2 y alto riesgo cardiovascular, como componente preespecificado del desenlace microvascular secundario del ensayo EMPA-REG OUTCOME.",
-      "answer": "La empagliflozina redujo la nefropatía incidente o en progresión frente a placebo ( 12.7% vs 18.8%; razón de riesgo 0.61; IC 95%, 0.53 a 0.70; p<0.001 ), con menos duplicación de creatinina y menos inicio de terapia de reemplazo renal, sin diferencia en la albuminuria incidente.",
+      "answer": "En este desenlace secundario preespecificado, analizado con valores de p nominales sin corrección por multiplicidad, la empagliflozina se asoció con menos nefropatía incidente o en progresión frente a placebo ( 12.7% vs 18.8%; razón de riesgo 0.61; IC 95%, 0.53 a 0.70; p<0.001 ), con menos duplicación de creatinina y menos…",
       "population": "Población. Adultos con diabetes tipo 2, enfermedad cardiovascular establecida y una tasa de filtración glomerular estimada (eGFR) de al menos 30 ml/min/1.73 m2, reclutados en 590 centros de 42 países para el ensayo EMPA-REG OUTCOME. Intervención. Empagliflozina, en dosis de 10 mg o 25 mg por vía oral una vez al día, añadida al tratamiento habitual. Comparador. Placebo una vez al día, añadido al tratamiento habitual. Desenlace…"
     }
   },
@@ -1996,7 +1996,7 @@
     "url": "https://resumenestrials.com/trials/empa-reg-outcome-empagliflozina-desenlaces-cardiovasculares-mortalidad-diabetes-tipo-2/",
     "title": "EMPA-REG OUTCOME: empagliflozina, desenlaces cardiovasculares y mortalidad en la diabetes tipo 2",
     "seo_title": "EMPA-REG OUTCOME trial: empagliflozina, desenlaces cardiovasculares y mortalidad en la diabetes tipo 2 | Resúmenes Trials",
-    "description": "EMPA-REG OUTCOME: La empagliflozina redujo el desenlace cardiovascular compuesto frente a placebo ( 10.5% vs 12.1%; razón de riesgo 0.86; IC 95%, 0.74 a 0.99…",
+    "description": "EMPA-REG OUTCOME: La empagliflozina redujo el desenlace cardiovascular compuesto frente a placebo ( 10.5% vs 12.1%; razón de riesgo 0.86; IC 95.02%, 0.74 a…",
     "clusters": [
       {
         "name": "Cardiología y prevención cardiovascular",
@@ -2016,7 +2016,7 @@
     ],
     "intent": {
       "question": "Determinar el efecto de la empagliflozina, añadida al tratamiento habitual, sobre la morbimortalidad cardiovascular en pacientes con diabetes tipo 2 y alto riesgo cardiovascular.",
-      "answer": "La empagliflozina redujo el desenlace cardiovascular compuesto frente a placebo ( 10.5% vs 12.1%; razón de riesgo 0.86; IC 95%, 0.74 a 0.99; p=0.04 para superioridad ), impulsado por menos muerte cardiovascular, menos hospitalización por insuficiencia cardiaca y menos mortalidad total, sin diferencia en infarto ni en accidente…",
+      "answer": "La empagliflozina redujo el desenlace cardiovascular compuesto frente a placebo ( 10.5% vs 12.1%; razón de riesgo 0.86; IC 95.02%, 0.74 a 0.99; p=0.04 para superioridad ), impulsado por menos muerte cardiovascular, sin diferencia en infarto ni en accidente cerebrovascular.",
       "population": "Población. Adultos de 18 años o más con diabetes tipo 2, enfermedad cardiovascular establecida, índice de masa corporal de 45 o menos y eGFR de al menos 30 ml/min/1.73 m2, sin tratamiento hipoglucemiante reciente o con terapia estable, y hemoglobina glucosilada entre 7.0% y 9.0% o 10.0% según el caso, reclutados en 590 centros de 42 países. Intervención. Empagliflozina, 10 mg o 25 mg por vía oral una vez al día, añadida al…"
     }
   },
@@ -2071,7 +2071,7 @@
     ],
     "intent": {
       "question": "Determinar si el inicio temprano de la oxigenación por membrana extracorpórea (ECMO) venovenosa reduce la mortalidad a 60 días frente al tratamiento convencional con ECMO de rescate, en pacientes con síndrome de dificultad respiratoria aguda muy grave.",
-      "answer": "La mortalidad a 60 días no difirió significativamente entre ECMO temprano y tratamiento convencional ( 35% vs 46%; riesgo relativo 0.76; IC 95%, 0.55 a 1.04; p=0.09 ), aunque el reclutamiento se detuvo antes de lo previsto por futilidad; el ECMO sí redujo significativamente el fracaso del tratamiento (muerte o necesidad de ECMO…",
+      "answer": "La mortalidad a 60 días no difirió significativamente entre ECMO temprano y tratamiento convencional ( 35% vs 46%; riesgo relativo 0.76; IC 95%, 0.55 a 1.04; p=0.09 ), aunque el reclutamiento se detuvo antes de lo previsto por futilidad; el fracaso del tratamiento (muerte o necesidad de ECMO de rescate) fue menor con ECMO, en un…",
       "population": "Población. Adultos con síndrome de dificultad respiratoria aguda (SDRA) muy grave, definido por una relación PaO2:FiO2 menor de 50 mmHg por más de 3 horas, menor de 80 mmHg por más de 6 horas, o un pH arterial menor de 7.25 con PaCO2 de al menos 60 mmHg por más de 6 horas, con menos de 7 días de ventilación mecánica y a pesar de optimización del ventilador, reclutados en centros internacionales, la mayoría en Francia…"
     }
   },
@@ -2096,8 +2096,8 @@
     ],
     "intent": {
       "question": "Determinar si el oxígeno de alto flujo o la ventilación no invasiva, comparados con el oxígeno estándar, reducen la tasa de intubación en adultos con insuficiencia respiratoria hipoxémica aguda sin hipercapnia.",
-      "answer": "Sin diferencia en la intubación entre las tres estrategias ( 38% alto flujo vs 47% oxígeno estándar vs 50% ventilación no invasiva; p=0.18 ), pero la mortalidad a 90 días fue significativamente menor con alto flujo (razón de riesgo 2.01 frente a oxígeno estándar y 2.50 frente a ventilación no invasiva).",
-      "population": "Población. Adultos de 18 años o más con insuficiencia respiratoria hipoxémica aguda sin hipercapnia, ingresados en 23 unidades de cuidados intensivos de Francia y Bélgica. No reportado por normativa la raza o etnia de los participantes. Intervención. Oxígeno de alto flujo administrado por cánula nasal binasal de gran calibre (sistema Optiflow, Fisher and Paykel), con el gas calentado y humidificado mediante un humidificador…"
+      "answer": "Sin diferencia en la intubación entre las tres estrategias ( 38% alto flujo vs 47% oxígeno estándar vs 50% ventilación no invasiva; p=0.18 ), pero la mortalidad a 90 días, un desenlace secundario, fue significativamente menor con alto flujo (razón de riesgo de muerte de 2.01 con oxígeno estándar y de 2.50 con ventilación no…",
+      "population": "Población. Adultos de 18 años o más con insuficiencia respiratoria hipoxémica aguda sin hipercapnia, ingresados en 23 unidades de cuidados intensivos de Francia y Bélgica. No se reportó la raza o etnia de los participantes. Intervención. Oxígeno de alto flujo administrado por cánula nasal binasal de gran calibre (sistema Optiflow, Fisher and Paykel), con el gas calentado y humidificado mediante un humidificador activo (MR850)…"
     }
   },
   "80": {
@@ -2121,8 +2121,8 @@
     ],
     "intent": {
       "question": "Determinar si basar la decanulación de la traqueostomía en la frecuencia de aspiración de secreciones, con oxígeno de alto flujo continuo, acorta el tiempo hasta la decanulación frente a las pruebas de capado de 24 horas con alto flujo intermitente.",
-      "answer": "La decanulación fue el doble de rápida con el protocolo de succión que con el de capado ( mediana de 6 vs 13 días; diferencia absoluta de 7 días, IC 95%, 5 a 9; p<0.001 ), sin aumentar el fracaso de la decanulación.",
-      "population": "Población. Adultos críticos, conscientes, con una primera traqueostomía realizada durante su estancia en cuidados intensivos, elegibles tras completar el destete de la ventilación mecánica, en cinco unidades de cuidados intensivos de España. No reportado por normativa la raza o etnia de los participantes. Intervención. Decanulación guiada por la frecuencia de aspiración de secreciones: se decanulaba al paciente cuando había…"
+      "answer": "La decanulación fue el doble de rápida con el protocolo de succión que con el de capado ( mediana de 6 vs 13 días; diferencia absoluta de 7 días, IC 95%, 5 a 9; p<0.001 ), sin evidencia de diferencia en el fracaso de la decanulación.",
+      "population": "Población. Adultos críticos, conscientes, con una primera traqueostomía realizada durante su estancia en cuidados intensivos, elegibles tras completar el destete de la ventilación mecánica, en cinco unidades de cuidados intensivos de España. No se reportó la raza o etnia de los participantes. Intervención. Decanulación guiada por la frecuencia de aspiración de secreciones: se decanulaba al paciente cuando había recibido dos o…"
     }
   },
   "81": {
@@ -3921,7 +3921,7 @@
     "intent": {
       "question": "Determinar si tirzepatida es no inferior a dulaglutida respecto al riesgo de muerte cardiovascular, infarto de miocardio o accidente cerebrovascular en pacientes con diabetes tipo 2 y enfermedad cardiovascular aterosclerótica establecida, y explorar si ofrece además un beneficio cardiovascular superior.",
       "answer": "El desenlace primario, el compuesto de muerte cardiovascular, infarto de miocardio o accidente cerebrovascular, ocurrió en el 12.2% de los pacientes con tirzepatida frente al 13.1% con dulaglutida (HR 0.92; IC 95.3%, 0.83 a 1.01; P=0.003 para no inferioridad; P=0.09 para superioridad) .",
-      "population": "De los 13,299 pacientes aleatorizados, 6648 fueron asignados a tirzepatida y 6651 a dulaglutida; tras excluir a los 134 aleatorizados por error (62 y 72, respectivamente), la población analizada quedó en 6586 pacientes con tirzepatida y 6579 con dulaglutida. Los criterios de inclusión exigían diabetes tipo 2 diagnosticada según la OMS, hemoglobina glucosilada entre 7.0% y 10.5%, índice de masa corporal de al menos 25, y…"
+      "population": "La población del estudio fueron hombres y mujeres de al menos 40 años, con diabetes tipo 2 y enfermedad cardiovascular aterosclerótica ya establecida (coronaria, cerebrovascular o arterial periférica, confirmada con criterios objetivos como estenosis significativa, antecedente de infarto o ictus, o revascularización previa), reclutados en 30 países de América, Europa y la región Asia-Pacífico; el 81.5% se identificó como de…"
     }
   },
   "152": {
@@ -4015,7 +4015,7 @@
     "intent": {
       "question": "Determinar si el tratamiento con un betabloqueador reduce la muerte por cualquier causa, el infarto de miocardio o la insuficiencia cardiaca en pacientes con un infarto reciente y una fracción de eyección ventricular izquierda conservada, de al menos 50%, sin otra indicación para el fármaco.",
       "answer": "El desenlace primario compuesto ocurrió en el 8.1% frente al 8.3% de los pacientes (hazard ratio, 0.97; IC 95%, 0.87 a 1.07; P=0.54), sin diferencia entre grupos.",
-      "population": "Se incluyeron 17,801 pacientes: 8831 (49.6%) asignados a recibir un betabloqueador y 8970 (50.4%) a no recibirlo. Los criterios de inclusión, comunes a los cinco ensayos, exigían un infarto de miocardio reciente, con o sin elevación del segmento ST, y una fracción de eyección conservada; el umbral exacto varió entre ensayos, de al menos 40% en REBOOT, BETAMI, DANBLOCK y CAPITAL-RCT, y de al menos 50% exclusivamente en…"
+      "population": "La población fueron adultos con un infarto de miocardio reciente, dentro de los 14 días previos a la aleatorización aunque el límite varió entre 7 y 14 días según el ensayo, y una fracción de eyección ventricular izquierda conservada, de al menos 50%, sin ninguna otra indicación para recibir un betabloqueador. Los pacientes procedían de España, Suecia, Noruega, Dinamarca, Italia, Japón, Estonia y Nueva Zelanda; no se recogió…"
     }
   },
   "156": {
@@ -4034,7 +4034,7 @@
     "intent": {
       "question": "Evaluar si el olezarsén, en dosis de 50 mg u 80 mg mensuales, reduce más que el placebo los triglicéridos a los 6 meses y la incidencia de pancreatitis aguda en personas con hipertrigliceridemia grave.",
       "answer": "El olezarsén redujo los triglicéridos a los 6 meses 72.2 puntos porcentuales más que el placebo (IC 95%, -81.4 a -63.1; P<0.001) en el ensayo CORE-TIMI 72a, con un efecto similar y también significativo en el segundo ensayo y con la dosis de 50 mg, y además disminuyó la incidencia de pancreatitis aguda de 6.23 a 1.01 episodios…",
-      "population": "En total, 1061 pacientes conformaron el análisis primario de eficacia: 617 en CORE-TIMI 72a y 444 en CORE2-TIMI 72b. En CORE-TIMI 72a: 208 con placebo, 205 con olezarsén 50 mg y 204 con olezarsén 80 mg. En CORE2-TIMI 72b se aleatorizaron 446 pacientes (148 placebo, 149 con 50 mg y 147 con 80 mg), aunque 2 del grupo placebo nunca recibieron ninguna dosis y quedaron fuera del análisis primario. Criterios de inclusión: mayores de…"
+      "population": "Población: adultos de al menos 18 años con hipertrigliceridemia grave, definida como un triglicérido en ayunas de 500 mg/dl (5.65 mmol/l) o más, confirmado en dos visitas mientras recibían tratamiento hipolipemiante estable según el estándar local de atención. Fueron mayoritariamente de raza blanca (88.4%), con un 5.4% de raza asiática y un 2.1% de raza negra, y un 12.3% se identificó como hispano o latino, datos…"
     }
   },
   "157": {
@@ -4059,7 +4059,7 @@
     "intent": {
       "question": "Determinar si finerenona, añadida a un inhibidor de la ECA o un antagonista del receptor de angiotensina II, reduce más que el placebo el cociente albúmina-creatinina urinario en adultos con diabetes tipo 1 y enfermedad renal crónica.",
       "answer": "El cociente albúmina-creatinina urinario se redujo 34% con finerenona frente a 12% con placebo a los 6 meses (razón de medias geométricas 0.75; IC 95% 0.65-0.87; P<0.001), una reducción 25% mayor con el fármaco activo.",
-      "population": "Se aleatorizaron 242 participantes, 120 a finerenona y 122 a placebo. Los criterios de inclusión fueron edad de 18 años o más, diabetes tipo 1 tratada con insulina desde el diagnóstico o desde el año siguiente a él, hemoglobina glucosilada menor de 10% al cribado, cociente albúmina-creatinina de 200 a menos de 5000 mg/g, filtrado glomerular de 25 a menos de 90 ml por minuto por 1.73 m2, dosis estable de inhibidor de la ECA o…"
+      "population": "La población fueron adultos de 18 años o más con diabetes tipo 1 y enfermedad renal crónica, definida por un filtrado glomerular estimado de 25 a menos de 90 ml por minuto por 1.73 m2 y albuminuria de 200 a menos de 5000 mg de albúmina por gramo de creatinina, documentada durante al menos 3 meses, y que ya recibían un inhibidor de la enzima convertidora de angiotensina o un antagonista del receptor de angiotensina II. Los…"
     }
   },
   "158": {
@@ -4084,7 +4084,7 @@
     "intent": {
       "question": "Determinar si la suplementación oral diaria con aceite de pescado reduce la tasa de eventos cardiovasculares graves frente a placebo en pacientes con enfermedad renal terminal en hemodiálisis de mantenimiento.",
       "answer": "La tasa de eventos cardiovasculares graves fue 0.31 frente a 0.61 por 1000 días-paciente (razón de riesgo 0.57; IC 95%, 0.47-0.70; P con aceite de pescado frente a placebo.",
-      "population": "Se aleatorizaron 1228 participantes: 610 al grupo de aceite de pescado y 618 al de placebo. Los criterios de inclusión exigían tener 18 años o más, enfermedad renal terminal en hemodiálisis tres o cuatro veces por semana y estabilidad clínica previa al ingreso; se excluyó a quienes ya tomaban suplementos de ácidos grasos n-3 o tenían alergia al pescado, la soya, el maíz o sus derivados. El diagrama de reclutamiento reporta…"
+      "population": "El estudio incluyó a adultos de 18 años o más con enfermedad renal terminal en hemodiálisis de mantenimiento, tres o cuatro veces por semana, clínicamente estables al momento de la inclusión, reclutados en 16 centros principales y 10 satélites de Canadá y Australia. La composición racial y étnica, declarada por los propios participantes, fue mayoritariamente blanca (40.0% en el grupo de aceite de pescado y 39.5% en el de…"
     }
   },
   "159": {

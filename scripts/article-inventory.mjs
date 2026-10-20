@@ -176,6 +176,8 @@ export function auditArticleData(data) {
   if (duplicateTitles.length) errors.push('títulos duplicados');
   if (duplicateSlugs.length) errors.push('slugs duplicados');
   if (invalidDates.length) errors.push(`fechas bibliográficas irreconocibles: ${invalidDates.join(',')}`);
+  if (nonIsoBibliographicDates.length) errors.push(`fechas fuera de formato AAAA-MM-DD: ${nonIsoBibliographicDates.join(',')}`);
+  if (nonUrlOriginals.length) errors.push(`enlaces originales que no son URL HTTPS: ${nonUrlOriginals.join(',')}`);
 
   return {
     records,
