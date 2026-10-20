@@ -20,7 +20,7 @@
     "slug": "sdra-ecmo",
     "name": "SDRA y ECMO",
     "description": "Evidencia clínica sobre síndrome de dificultad respiratoria aguda, ventilación protectora, prono y ECMO.",
-    "keywords": ["sdra", "ards", "ecmo", "extracorporea", "extracorpórea", "prono", "prone"],
+    "keywords": ["sdra", "ards", "dificultad respiratoria aguda", "ecmo", "extracorporea", "extracorpórea", "prono", "prone"],
     "min_items": 2
   },
   {

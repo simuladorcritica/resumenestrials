@@ -20,6 +20,8 @@ STRONG_REQUIRED = {
 # ausencia/antecedente y no convierten al ensayo en evidencia del área.
 TITLE_EXCLUSIONS = {
     "neurologia": ["ni ictus", "sin ictus", "ictus previos"],
+    # DAWN: "infarto" se refiere al infarto cerebral, no al miocárdico.
+    "cardiovascular": ["entre el deficit y el infarto"],
 }
 
 

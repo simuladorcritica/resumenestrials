@@ -84,11 +84,43 @@ def id_texto(valor: object) -> str:
     return str(valor if valor is not None else "").strip()
 
 
+SLUGS_CONGELADOS_PATH = ROOT / "seo-slugs.json"
+_SLUGS_CONGELADOS: dict | None = None
+
+
+def slugs_congelados() -> dict:
+    """URLs públicas ya publicadas: no cambian aunque se corrija el título."""
+    global _SLUGS_CONGELADOS
+    if _SLUGS_CONGELADOS is None:
+        try:
+            datos = json.loads(SLUGS_CONGELADOS_PATH.read_text(encoding="utf-8"))
+        except FileNotFoundError:
+            datos = {}
+        _SLUGS_CONGELADOS = {
+            str(k): (str(v.get("doi") or "").strip().lower(), slugify(v.get("slug"), 110))
+            for k, v in datos.items()
+            if isinstance(v, dict) and slugify(v.get("slug"), 110)
+        }
+    return _SLUGS_CONGELADOS
+
+
+def slug_congelado(item: dict) -> str:
+    """Solo aplica si el ID y el DOI coinciden con el artículo ya publicado."""
+    entrada = slugs_congelados().get(id_texto(item.get("id")))
+    if not entrada:
+        return ""
+    doi, slug = entrada
+    return slug if doi and doi == str(item.get("doi") or "").strip().lower() else ""
+
+
 def slug_para_item(item: dict) -> str:
     manual = slugify(item.get("slug"), 110)
     if manual:
         return manual
     trial_id = id_texto(item.get("id"))
+    congelado = slug_congelado(item)
+    if congelado:
+        return congelado
     titulo = texto_plano(item.get("titulo"))
     if not titulo:
         return f"trial-{trial_id or 'sin-id'}"

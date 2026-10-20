@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "titulo": "SOHO: oxígeno de alto flujo frente a oxígeno estándar en la insuficiencia respiratoria hipoxémica aguda",
+    "titulo": "SOHO: oxígeno de alto flujo u oxígeno estándar en la insuficiencia respiratoria hipoxémica aguda",
     "autor": "Frat JP",
     "revista": "NEJM",
     "anio": 2026,
@@ -24,7 +24,7 @@
   },
   {
     "id": 2,
-    "titulo": "ARISE FLUIDS: vasopresores frente a líquidos en el shock séptico temprano",
+    "titulo": "ARISE FLUIDS: vasopresores o líquidos en el shock séptico temprano",
     "autor": "Peake SL",
     "revista": "NEJM",
     "anio": 2026,
@@ -48,7 +48,7 @@
   },
   {
     "id": 3,
-    "titulo": "RSI: ketamina o etomidato para la intubación traqueal del adulto en estado crítico",
+    "titulo": "RSI: ketamina o etomidato para la intubación traqueal de adultos en estado crítico",
     "autor": "Casey JD",
     "revista": "NEJM",
     "anio": 2025,
@@ -71,7 +71,7 @@
   },
   {
     "id": 4,
-    "titulo": "LOGICAL: oxígeno conservador frente a oxígeno liberal en el paciente inconsciente tras un paro cardiaco",
+    "titulo": "LOGICAL: oxígeno conservador en pacientes sin respuesta tras un paro cardiaco",
     "autor": "Hodgson CL",
     "revista": "NEJM",
     "anio": 2026,
@@ -117,7 +117,7 @@
   },
   {
     "id": 6,
-    "titulo": "SODa-BIC: bicarbonato de sodio frente a placebo en el adulto crítico con acidosis metabólica y shock",
+    "titulo": "SODa-BIC: bicarbonato de sodio en adultos en estado crítico con acidosis metabólica y shock",
     "autor": "Serpa Neto A",
     "revista": "NEJM",
     "anio": 2026,
@@ -140,7 +140,7 @@
   },
   {
     "id": 7,
-    "titulo": "SuDDICU: descontaminación selectiva del tubo digestivo durante la ventilación mecánica en cuidados intensivos",
+    "titulo": "SuDDICU: descontaminación selectiva del tubo digestivo durante la ventilación en la UCI",
     "autor": "Cuthbertson BH",
     "revista": "NEJM",
     "anio": 2025,
@@ -163,7 +163,7 @@
   },
   {
     "id": 8,
-    "titulo": "ExPreS: puntaje predictivo de extubación para reducir la reintubación en cuidados intensivos",
+    "titulo": "ExPreS: efecto de la puntuación predictiva de extubación sobre la reintubación en la UCI",
     "autor": "Oliveira JA",
     "revista": "Critical Care",
     "anio": 2026,
@@ -209,7 +209,7 @@
   },
   {
     "id": 10,
-    "titulo": "DigiSep: secuenciación metagenómica añadida a la microbiología estándar en la sepsis y el shock séptico",
+    "titulo": "DigiSep: efectos de una intervención de metagenómica clínica sobre los desenlaces clínicos, los costos sanitarios y la calidad de vida relacionada con la salud en pacientes con sepsis o shock séptico",
     "autor": "Brenner T",
     "revista": "Intensive Care Med",
     "anio": 2026,
@@ -232,7 +232,7 @@
   },
   {
     "id": 11,
-    "titulo": "PROMINE: propofol frente a ketamina en la intubación de secuencia rápida del paciente crítico",
+    "titulo": "PROMINE: propofol frente a ketamina en la intubación de secuencia rápida de pacientes en estado crítico",
     "autor": "Schmidt RC",
     "revista": "Intensive Care Med",
     "anio": 2026,
@@ -255,7 +255,7 @@
   },
   {
     "id": 12,
-    "titulo": "RELIEVE-AKI: ultrafiltración neta restrictiva frente a liberal en la lesión renal aguda",
+    "titulo": "RELIEVE-AKI: estrategias alternativas de tasa de ultrafiltración neta en la lesión renal aguda: ensayo clínico aleatorizado de factibilidad",
     "autor": "Murugan R",
     "revista": "Critical Care",
     "anio": 2026,
@@ -278,7 +278,7 @@
   },
   {
     "id": 13,
-    "titulo": "SWiFT: sangre total prehospitalaria frente a hemocomponentes en la hemorragia traumática grave",
+    "titulo": "SWiFT: sangre total prehospitalaria en la hemorragia traumática",
     "autor": "Smith JE",
     "revista": "NEJM",
     "anio": 2026,
@@ -301,7 +301,7 @@
   },
   {
     "id": 14,
-    "titulo": "TOWAR: sangre total tipo O prehospitalaria frente a hemocomponentes en el trauma con hemorragia",
+    "titulo": "TOWAR: reanimación prehospitalaria con sangre total tipo O en el trauma y la hemorragia",
     "autor": "Sperry JL",
     "revista": "NEJM",
     "anio": 2026,
@@ -324,7 +324,7 @@
   },
   {
     "id": 15,
-    "titulo": "SMART-DECISION: suspensión frente a continuación del betabloqueador tras el infarto de miocardio",
+    "titulo": "SMART-DECISION: suspensión del tratamiento con betabloqueadores tras un infarto de miocardio",
     "autor": "Choi KH",
     "revista": "NEJM",
     "anio": 2026,
@@ -347,7 +347,7 @@
   },
   {
     "id": 16,
-    "titulo": "TRIDENT: tres antihipertensivos a dosis bajas en una sola píldora tras la hemorragia intracerebral",
+    "titulo": "TRIDENT: tres antihipertensivos a dosis bajas en una sola píldora tras una hemorragia intracerebral",
     "autor": "Anderson CS",
     "revista": "NEJM",
     "anio": 2026,
@@ -371,7 +371,7 @@
   },
   {
     "id": 17,
-    "titulo": "HI-PEITHO: fibrinólisis dirigida por catéter y facilitada por ultrasonido en la embolia pulmonar aguda de riesgo intermedio",
+    "titulo": "HI-PEITHO: fibrinólisis dirigida por catéter y facilitada por ultrasonido en la embolia pulmonar aguda",
     "autor": "Rosenfield K",
     "revista": "NEJM",
     "anio": 2026,
@@ -417,7 +417,7 @@
   },
   {
     "id": 19,
-    "titulo": "ORIENTAL-MeVO: trombectomia endovascular en el ictus por oclusion de vaso mediano",
+    "titulo": "ORIENTAL-MeVO: tratamiento endovascular del ictus por oclusión de vaso mediano",
     "autor": "Hu W",
     "revista": "NEJM",
     "anio": 2026,
@@ -440,7 +440,7 @@
   },
   {
     "id": 20,
-    "titulo": "TIGRIS: hemoadsorción con polimixina B en el shock séptico endotóxico",
+    "titulo": "Tigris: hemoadsorción con polimixina B en el shock séptico endotóxico",
     "autor": "Neyra JA",
     "revista": "Lancet Respir Med",
     "anio": 2026,
@@ -463,7 +463,7 @@
   },
   {
     "id": 21,
-    "titulo": "E-CRRT: integración frente a separación del circuito de depuración renal continua en el paciente con ECMO",
+    "titulo": "E-CRRT: comparación de la duración del circuito entre los abordajes de integración y de separación en pacientes con oxigenación por membrana extracorpórea que requieren terapia de reemplazo renal continua",
     "autor": "Tangjitaree P",
     "revista": "Intensive Care Med",
     "anio": 2026,
@@ -486,7 +486,7 @@
   },
   {
     "id": 22,
-    "titulo": "SHOSREB: remimazolam besilato frente a propofol para la sedación ligera de corta duración en la UCI",
+    "titulo": "SHOSREB: sedación ligera de corta duración con besilato de remimazolam frente a propofol en la UCI",
     "autor": "Yang X",
     "revista": "Intensive Care Med",
     "anio": 2026,
@@ -508,7 +508,7 @@
   },
   {
     "id": 23,
-    "titulo": "VITaCCA: vitamina C intravenosa temprana a dosis altas tras el paro cardiaco extrahospitalario",
+    "titulo": "VITaCCA: vitamina C temprana a dosis altas en el paro cardiaco extrahospitalario",
     "autor": "Rozemeijer S",
     "revista": "Intensive Care Med",
     "anio": 2026,
@@ -530,7 +530,7 @@
   },
   {
     "id": 24,
-    "titulo": "REBOARREST: oclusión aórtica con balón (REBOA) prehospitalaria en el paro cardiaco extrahospitalario no traumático",
+    "titulo": "REBOARREST: oclusión endovascular aórtica con balón para reanimación prehospitalaria en el paro cardiaco extrahospitalario no traumático",
     "autor": "Brede JR",
     "revista": "Critical Care",
     "anio": 2026,
@@ -553,7 +553,7 @@
   },
   {
     "id": 25,
-    "titulo": "VentSetFib: ajustes del ventilador optimizados para la broncoscopia flexible durante la ventilación mecánica",
+    "titulo": "VentSetFib: ajustes del ventilador para la fibrobroncoscopia durante la ventilación mecánica",
     "autor": "Lemyze M",
     "revista": "Critical Care",
     "anio": 2026,
@@ -576,7 +576,7 @@
   },
   {
     "id": 26,
-    "titulo": "iMODERN: revascularización coronaria inmediata guiada por iFR frente a diferida guiada por resonancia de estrés en las lesiones no culpables del infarto con elevación del ST",
+    "titulo": "iMODERN: intervención coronaria percutánea inmediata o diferida de las lesiones no culpables en el infarto de miocardio",
     "autor": "Nijveldt R",
     "revista": "NEJM",
     "anio": 2025,
@@ -599,7 +599,7 @@
   },
   {
     "id": 27,
-    "titulo": "COBRRA: apixabán frente a rivaroxabán y riesgo de hemorragia en la enfermedad tromboembólica venosa aguda",
+    "titulo": "COBRRA: riesgo de hemorragia con apixabán frente a rivaroxabán en la tromboembolia venosa aguda",
     "autor": "Castellucci LA",
     "revista": "NEJM",
     "anio": 2026,
@@ -622,7 +622,7 @@
   },
   {
     "id": 28,
-    "titulo": "CLOSURE-AF: cierre percutáneo de la orejuela izquierda frente al mejor tratamiento médico en la fibrilación auricular de alto riesgo",
+    "titulo": "CLOSURE-AF: cierre de la orejuela auricular izquierda o tratamiento médico en la fibrilación auricular",
     "autor": "Landmesser U",
     "revista": "NEJM",
     "anio": 2026,
@@ -645,7 +645,7 @@
   },
   {
     "id": 29,
-    "titulo": "CHAMPION-AF: cierre percutáneo de la orejuela izquierda frente a anticoagulantes orales directos en la fibrilación auricular apta para anticoagular",
+    "titulo": "CHAMPION-AF: cierre de la orejuela auricular izquierda o anticoagulación en la fibrilación auricular",
     "autor": "Doshi SK",
     "revista": "NEJM",
     "anio": 2026,
@@ -668,7 +668,7 @@
   },
   {
     "id": 30,
-    "titulo": "Ez-PAVE: objetivo intensivo de colesterol LDL menor de 55 mg/dl frente a menor de 70 mg/dl en la enfermedad cardiovascular aterosclerótica",
+    "titulo": "Ez-PAVE: objetivo intensivo de colesterol LDL en la enfermedad cardiovascular aterosclerótica",
     "autor": "Lee YJ",
     "revista": "NEJM",
     "anio": 2026,
@@ -691,7 +691,7 @@
   },
   {
     "id": 31,
-    "titulo": "SNAP: cefazolina frente a penicilinas antiestafilocócicas en la bacteriemia por Staphylococcus aureus sensible a meticilina",
+    "titulo": "SNAP: cefazolina en la bacteriemia por Staphylococcus aureus sensible a meticilina",
     "autor": "SNAP Trial Group",
     "revista": "NEJM",
     "anio": 2026,
@@ -714,7 +714,7 @@
   },
   {
     "id": 32,
-    "titulo": "PANORAMIC y CanTreatCOVID: nirmatrelvir-ritonavir oral en pacientes ambulatorios vacunados de mayor riesgo con Covid-19",
+    "titulo": "PANORAMIC y CanTreatCOVID: nirmatrelvir-ritonavir oral para la Covid-19 en pacientes ambulatorios de mayor riesgo",
     "autor": "Butler CC",
     "revista": "NEJM",
     "anio": 2026,
@@ -737,7 +737,7 @@
   },
   {
     "id": 33,
-    "titulo": "FAST III: vFFR obtenido de la angiografía frente a FFR con guía de presión para guiar la revascularización coronaria",
+    "titulo": "FAST III: fisiología basada en angiografía para guiar la revascularización coronaria",
     "autor": "Daemen J",
     "revista": "NEJM",
     "anio": 2026,
@@ -760,7 +760,7 @@
   },
   {
     "id": 34,
-    "titulo": "CHIP-BCIS3: descarga del ventrículo izquierdo con bomba de flujo microaxial frente a cuidado estándar en la intervención coronaria percutánea compleja de alto riesgo",
+    "titulo": "CHIP-BCIS3: descarga del ventrículo izquierdo en la intervención coronaria percutánea de alto riesgo",
     "autor": "Perera D",
     "revista": "NEJM",
     "anio": 2026,
@@ -783,7 +783,7 @@
   },
   {
     "id": 35,
-    "titulo": "FIND-CKD: finerenona frente a placebo en la enfermedad renal crónica sin diabetes",
+    "titulo": "FIND-CKD: finerenona en personas con enfermedad renal crónica sin diabetes",
     "autor": "Heerspink HJL",
     "revista": "NEJM",
     "anio": 2026,
@@ -806,7 +806,7 @@
   },
   {
     "id": 36,
-    "titulo": "ADAPT AF-DES: monoterapia con anticoagulante frente a anticoagulante más clopidogrel en la fibrilación auricular con stent liberador de fármaco",
+    "titulo": "ADAPT AF-DES: tratamiento de la fibrilación auricular en pacientes con stents liberadores de fármaco",
     "autor": "Lee SJ",
     "revista": "NEJM",
     "anio": 2025,
@@ -829,7 +829,7 @@
   },
   {
     "id": 37,
-    "titulo": "OCEAN: rivaroxabán frente a aspirina tras una ablación exitosa de fibrilación auricular",
+    "titulo": "OCEAN: tratamiento antitrombótico tras una ablación con catéter exitosa de la fibrilación auricular",
     "autor": "Verma A",
     "revista": "NEJM",
     "anio": 2025,
@@ -852,7 +852,7 @@
   },
   {
     "id": 38,
-    "titulo": "BEAT Tuberculosis: estrategia de seis meses frente al tratamiento estándar en la tuberculosis resistente a rifampicina",
+    "titulo": "BEAT Tuberculosis: ensayo pragmático de una estrategia de 6 meses en la tuberculosis resistente a rifampicina",
     "autor": "Conradie F",
     "revista": "NEJM",
     "anio": 2026,
@@ -875,7 +875,7 @@
   },
   {
     "id": 39,
-    "titulo": "LATITUDE: cabotegravir-rilpivirina inyectable mensual frente al tratamiento oral en personas con VIH y dificultades de adherencia",
+    "titulo": "LATITUDE: cabotegravir más rilpivirina en personas con VIH y dificultades de adherencia",
     "autor": "Rana AI",
     "revista": "NEJM",
     "anio": 2026,
@@ -898,7 +898,7 @@
   },
   {
     "id": 40,
-    "titulo": "Alimentación oro-esofágica intermitente frente a sonda nasogástrica para acelerar la decanulación en la disfagia neurogénica postraqueostomía",
+    "titulo": "Aceleración de la decanulación de la traqueostomía con alimentación oroesofágica intermitente en la disfagia neurogénica",
     "autor": "Qing Li",
     "revista": "Critical Care",
     "anio": 2026,
@@ -921,7 +921,7 @@
   },
   {
     "id": 41,
-    "titulo": "Posición en sillón fuera de la cama frente a posición semiincorporada en la cama para mejorar la oxigenación en pacientes de UCI con respiración espontánea",
+    "titulo": "Efectos de la sedestación en sillón fuera de la cama sobre la oxigenación en pacientes de UCI con respiración espontánea que reciben soporte respiratorio",
     "autor": "Guillaume Fossat",
     "revista": "Intensive Care Med",
     "anio": 2026,
@@ -944,7 +944,7 @@
   },
   {
     "id": 42,
-    "titulo": "HORIZON-IC: realidad virtual específica de la UCI para la salud mental tras la enfermedad crítica, ensayo internacional de tres brazos",
+    "titulo": "HORIZON-IC: realidad virtual específica de la UCI para la salud mental tras una enfermedad crítica: ensayo clínico aleatorizado internacional de tres brazos",
     "autor": "Denzel L. Q. Drop",
     "revista": "Critical Care",
     "anio": 2026,
@@ -967,7 +967,7 @@
   },
   {
     "id": 43,
-    "titulo": "Penetración intrapulmonar de ceftolozano/tazobactam y ceftazidima/avibactam en infusión continua en la neumonía nosocomial crítica",
+    "titulo": "Penetración intrapulmonar de ceftolozano/tazobactam y ceftazidima/avibactam administrados en infusión continua en pacientes en estado crítico con neumonía nosocomial: ensayo farmacocinético aleatorizado",
     "autor": "Adela Benítez-Cano",
     "revista": "Critical Care",
     "anio": 2026,
@@ -990,7 +990,7 @@
   },
   {
     "id": 44,
-    "titulo": "MICROINHALO: gestión automatizada de la presión del neumotaponamiento y el drenaje de secreciones subglóticas para prevenir la neumonía en pacientes intubados",
+    "titulo": "MICROINHALO: manejo automático personalizado de la presión del neumotaponamiento traqueal y del drenaje de secreciones subglóticas para prevenir la neumonía en pacientes intubados en estado crítico",
     "autor": "Gennaro De Pascale",
     "revista": "Intensive Care Med",
     "anio": 2026,
@@ -1013,7 +1013,7 @@
   },
   {
     "id": 45,
-    "titulo": "NEURO-CONDA: sedación temprana con isoflurano inhalado en pacientes neurocríticos con monitorización de la presión intracraneal",
+    "titulo": "NEURO-CONDA: sedación temprana con isoflurano inhalado en pacientes neurocríticos con monitorización invasiva de la presión intracraneal: ensayo piloto aleatorizado",
     "autor": "Cristina Murcia-Gubianas",
     "revista": "Critical Care",
     "anio": 2026,
@@ -1036,7 +1036,7 @@
   },
   {
     "id": 46,
-    "titulo": "Titulación de la presión venosa central guiada por Doppler de la vena renal en la sepsis: ensayo piloto aleatorizado",
+    "titulo": "Impacto de la titulación de la presión venosa central guiada por ecografía Doppler de la vena renal en la sepsis: ensayo piloto controlado aleatorizado",
     "autor": "Yan Huo",
     "revista": "Critical Care",
     "anio": 2026,
@@ -1059,7 +1059,7 @@
   },
   {
     "id": 47,
-    "titulo": "Eficacia de un dispositivo de rehabilitación de miembro inferior basado en suspensión en la debilidad adquirida en la UCI: ensayo autocontrolado",
+    "titulo": "Eficacia de un dispositivo de rehabilitación de miembros inferiores basado en suspensión para mejorar la función de los miembros inferiores en pacientes con debilidad adquirida en la UCI: ensayo clínico aleatorizado autocontrolado",
     "autor": "Lifan Xu",
     "revista": "Critical Care",
     "anio": 2026,
@@ -1082,7 +1082,7 @@
   },
   {
     "id": 48,
-    "titulo": "Impacto de la broncoscopia en la seguridad de la traqueostomía percutánea: ensayo clínico aleatorizado",
+    "titulo": "Impacto de la broncoscopia en la seguridad de la traqueostomía percutánea",
     "autor": "Akiva Nachshon",
     "revista": "Critical Care",
     "anio": 2026,
@@ -1105,7 +1105,7 @@
   },
   {
     "id": 49,
-    "titulo": "SONIA: glucocorticoides orales en dosis bajas frente a atención estándar en la neumonía adquirida en la comunidad en hospitales de bajos recursos",
+    "titulo": "SONIA: ensayo pragmático de glucocorticoides en la neumonía adquirida en la comunidad",
     "autor": "Lucinde RK",
     "revista": "NEJM",
     "anio": 2025,
@@ -1130,7 +1130,7 @@
   },
   {
     "id": 50,
-    "titulo": "PlasmAr: el plasma convalesciente no mejora el estado clínico ni reduce la mortalidad en la neumonía grave por covid-19",
+    "titulo": "PlasmAr: ensayo aleatorizado de plasma de convalecientes en la neumonía grave por Covid-19",
     "autor": "Simonovich VA",
     "revista": "NEJM",
     "anio": 2021,
@@ -1155,7 +1155,7 @@
   },
   {
     "id": 51,
-    "titulo": "SPRINT: control intensivo versus estándar de la presión arterial sistólica",
+    "titulo": "SPRINT: ensayo aleatorizado de control intensivo frente a estándar de la presión arterial",
     "autor": "Wright JT",
     "revista": "NEJM",
     "anio": 2015,
@@ -1180,7 +1180,7 @@
   },
   {
     "id": 52,
-    "titulo": "ADRENAL: la hidrocortisona en el shock séptico no reduce la mortalidad a 90 días",
+    "titulo": "ADRENAL: tratamiento coadyuvante con glucocorticoides en pacientes con shock séptico",
     "autor": "Venkatesh B",
     "revista": "NEJM",
     "anio": "2018",
@@ -1205,7 +1205,7 @@
   },
   {
     "id": 53,
-    "titulo": "SMART: cristaloides balanceados frente a solución salina en adultos críticamente enfermos",
+    "titulo": "SMART: cristaloides balanceados frente a solución salina en adultos en estado crítico",
     "autor": "Semler MW",
     "revista": "NEJM",
     "anio": 2018,
@@ -1230,7 +1230,7 @@
   },
   {
     "id": 54,
-    "titulo": "SALT-ED: cristaloides balanceados frente a solución salina en adultos no críticamente enfermos",
+    "titulo": "SALT-ED: cristaloides balanceados frente a solución salina en adultos que no están en estado crítico",
     "autor": "Self WH",
     "revista": "NEJM",
     "anio": 2018,
@@ -1255,7 +1255,7 @@
   },
   {
     "id": 55,
-    "titulo": "PLUS: solución multielectrolítica balanceada frente a solución salina en adultos críticamente enfermos",
+    "titulo": "PLUS: solución multielectrolítica balanceada frente a solución salina en adultos en estado crítico",
     "autor": "Finfer S",
     "revista": "NEJM",
     "anio": 2022,
@@ -1280,7 +1280,7 @@
   },
   {
     "id": 56,
-    "titulo": "BOX: objetivos de presión arterial media tras un paro cardiaco en pacientes comatosos",
+    "titulo": "BOX: objetivos de presión arterial en supervivientes comatosos de un paro cardiaco",
     "autor": "Kjaergaard J",
     "revista": "NEJM",
     "anio": "2022",
@@ -1305,7 +1305,7 @@
   },
   {
     "id": 57,
-    "titulo": "DECODE-CKD: la dapagliflozina reduce la masa ventricular izquierda en la enfermedad renal crónica",
+    "titulo": "DECODE-CKD: efectos cardiacos de la dapagliflozina en personas con enfermedad renal crónica",
     "autor": "Bartholdy K",
     "revista": "NEJM Evidence",
     "anio": 2025,
@@ -1331,7 +1331,7 @@
   },
   {
     "id": 58,
-    "titulo": "FIGARO-DKD: la finerenona reduce los eventos cardiovasculares en la diabetes tipo 2 con enfermedad renal crónica",
+    "titulo": "FIGARO-DKD: eventos cardiovasculares con finerenona en la enfermedad renal y la diabetes tipo 2",
     "autor": "Pitt B",
     "revista": "NEJM",
     "anio": 2021,
@@ -1357,7 +1357,7 @@
   },
   {
     "id": 59,
-    "titulo": "EMPEROR-Reduced: la empagliflozina reduce las hospitalizaciones por insuficiencia cardíaca",
+    "titulo": "EMPEROR-Reduced: desenlaces cardiovasculares y renales con empagliflozina en la insuficiencia cardiaca",
     "autor": "Packer M",
     "revista": "NEJM",
     "anio": 2020,
@@ -1382,7 +1382,7 @@
   },
   {
     "id": 60,
-    "titulo": "ICU-ROX: la oxigenoterapia conservadora no mejora los días libres de ventilador",
+    "titulo": "ICU-ROX: oxigenoterapia conservadora durante la ventilación mecánica en la UCI",
     "autor": "Mackle D",
     "revista": "NEJM",
     "anio": 2019,
@@ -1407,7 +1407,7 @@
   },
   {
     "id": 61,
-    "titulo": "DECLARE-TIMI 58: la dapagliflozina no reduce los eventos cardiovasculares mayores, pero sí evita hospitalizaciones por insuficiencia cardiaca",
+    "titulo": "DECLARE-TIMI 58: dapagliflozina y desenlaces cardiovasculares en la diabetes tipo 2",
     "autor": "Wiviott S",
     "revista": "NEJM",
     "anio": 2018,
@@ -1433,7 +1433,7 @@
   },
   {
     "id": 62,
-    "titulo": "DELIVER: la dapagliflozina reduce el empeoramiento de la insuficiencia cardiaca con fracción de eyección mayor del 40%",
+    "titulo": "DELIVER: dapagliflozina en la insuficiencia cardiaca con fracción de eyección levemente reducida o preservada",
     "autor": "Solomon S",
     "revista": "NEJM",
     "anio": 2022,
@@ -1458,7 +1458,7 @@
   },
   {
     "id": 63,
-    "titulo": "EVERDAC: diferir el catéter arterial en el shock es tan seguro como colocarlo de inmediato",
+    "titulo": "EVERDAC: aplazamiento del cateterismo arterial en pacientes en estado crítico con shock",
     "autor": "Muller G",
     "revista": "NEJM",
     "anio": 2025,
@@ -1483,7 +1483,7 @@
   },
   {
     "id": 64,
-    "titulo": "RECOVERY: la dexametasona reduce la mortalidad en Covid-19 grave, pero no sin oxígeno",
+    "titulo": "RECOVERY: dexametasona en pacientes hospitalizados con Covid-19",
     "autor": "Horby P",
     "revista": "NEJM",
     "anio": 2021,
@@ -1508,7 +1508,7 @@
   },
   {
     "id": 65,
-    "titulo": "MENDS2: la dexmedetomidina no supera al propofol en la sedación de pacientes con sepsis",
+    "titulo": "MENDS2: dexmedetomidina o propofol para la sedación de adultos con sepsis en ventilación mecánica",
     "autor": "Hughes C",
     "revista": "NEJM",
     "anio": 2021,
@@ -1534,7 +1534,7 @@
   },
   {
     "id": 66,
-    "titulo": "DIGIT-HF: el digitoxin reduce el riesgo combinado de muerte u hospitalización por insuficiencia cardiaca",
+    "titulo": "DIGIT-HF: digitoxina en pacientes con insuficiencia cardiaca y fracción de eyección reducida",
     "autor": "Bavendiek U",
     "revista": "NEJM",
     "anio": 2025,
@@ -1559,7 +1559,7 @@
   },
   {
     "id": 67,
-    "titulo": "BOX (fiebre): prolongar la prevención de fiebre tras un paro cardiaco no cambia el pronóstico",
+    "titulo": "BOX: duración de la prevención de la fiebre con dispositivo tras un paro cardiaco",
     "autor": "Hassager C",
     "revista": "NEJM",
     "anio": 2023,
@@ -1584,7 +1584,7 @@
   },
   {
     "id": 68,
-    "titulo": "ROSE: el bloqueo neuromuscular temprano en el SDRA no reduce la mortalidad",
+    "titulo": "ROSE: bloqueo neuromuscular temprano en el síndrome de dificultad respiratoria aguda",
     "autor": "Moss M",
     "revista": "NEJM",
     "anio": 2019,
@@ -1609,7 +1609,7 @@
   },
   {
     "id": 69,
-    "titulo": "CLOVERS: restringir fluidos o priorizar vasopresores no cambia la mortalidad en la hipotensión séptica",
+    "titulo": "CLOVERS: manejo restrictivo o liberal temprano de líquidos en la hipotensión inducida por sepsis",
     "autor": "Shapiro N",
     "revista": "NEJM",
     "anio": 2023,
@@ -1634,7 +1634,7 @@
   },
   {
     "id": 70,
-    "titulo": "EPaNIC: retrasar la nutrición parenteral hasta el octavo día reduce las infecciones y acorta la estancia en cuidados intensivos",
+    "titulo": "EPaNIC: nutrición parenteral temprana frente a tardía en adultos en estado crítico",
     "autor": "Casaer M",
     "revista": "NEJM",
     "anio": 2011,
@@ -1659,7 +1659,7 @@
   },
   {
     "id": 71,
-    "titulo": "EXSCEL: el exenatide semanal es seguro a nivel cardiovascular, pero no reduce los eventos mayores frente a placebo",
+    "titulo": "EXSCEL: efectos de la exenatida semanal sobre los desenlaces cardiovasculares en la diabetes tipo 2",
     "autor": "Holman RR",
     "revista": "NEJM",
     "anio": 2017,
@@ -1684,7 +1684,7 @@
   },
   {
     "id": 72,
-    "titulo": "EMPACT-MI: la empagliflozina tras un infarto agudo no reduce la insuficiencia cardiaca ni la muerte",
+    "titulo": "EMPACT-MI: empagliflozina tras un infarto agudo de miocardio",
     "autor": "Butler J",
     "revista": "NEJM",
     "anio": 2024,
@@ -1801,7 +1801,7 @@
   },
   {
     "id": 77,
-    "titulo": "ECLS-SHOCK: soporte vital extracorpóreo en el shock cardiogénico por infarto",
+    "titulo": "ECLS-SHOCK: soporte vital extracorpóreo en el shock cardiogénico relacionado con infarto",
     "autor": "Thiele H",
     "revista": "NEJM",
     "anio": 2023,
@@ -1847,7 +1847,7 @@
   },
   {
     "id": 79,
-    "titulo": "FLORALI: oxígeno de alto flujo en la insuficiencia respiratoria hipoxémica aguda",
+    "titulo": "FLORALI: oxígeno de alto flujo por cánula nasal en la insuficiencia respiratoria hipoxémica aguda",
     "autor": "Frat JP",
     "revista": "NEJM",
     "anio": 2015,
@@ -1870,7 +1870,7 @@
   },
   {
     "id": 80,
-    "titulo": "REDECAP: alto flujo con capado o succión para la decanulación de la traqueostomía",
+    "titulo": "REDECAP: oxígeno de alto flujo con oclusión de la cánula o con aspiración para la decanulación de la traqueostomía",
     "autor": "Hernández Martínez G",
     "revista": "NEJM",
     "anio": 2020,
@@ -1893,7 +1893,7 @@
   },
   {
     "id": 81,
-    "titulo": "APROCCHSS: hidrocortisona más fludrocortisona en el shock séptico",
+    "titulo": "APROCCHSS: hidrocortisona más fludrocortisona en adultos con shock séptico",
     "autor": "Annane D",
     "revista": "NEJM",
     "anio": 2018,
@@ -1939,7 +1939,7 @@
   },
   {
     "id": 83,
-    "titulo": "TTM2: hipotermia o normotermia tras el paro cardiaco extrahospitalario",
+    "titulo": "TTM2: hipotermia frente a normotermia tras un paro cardiaco extrahospitalario",
     "autor": "Dankiewicz J",
     "revista": "NEJM",
     "anio": 2021,
@@ -1962,7 +1962,7 @@
   },
   {
     "id": 84,
-    "titulo": "ACTIV-6: furoato de fluticasona inhalado para el tratamiento ambulatorio de covid-19",
+    "titulo": "ACTIV-6: furoato de fluticasona inhalado para el tratamiento ambulatorio de la Covid-19",
     "autor": "Boulware DR",
     "revista": "NEJM",
     "anio": 2023,
@@ -1985,7 +1985,7 @@
   },
   {
     "id": 85,
-    "titulo": "INTERACT4: reducción intensiva de la presión arterial en ambulancia en el accidente cerebrovascular hiperagudo",
+    "titulo": "INTERACT4: reducción intensiva de la presión arterial en la ambulancia en el ictus hiperagudo",
     "autor": "Li G",
     "revista": "NEJM",
     "anio": 2024,
@@ -2057,7 +2057,7 @@
   },
   {
     "id": 88,
-    "titulo": "HOT-ICU: objetivos de oxigenación bajos o altos en la insuficiencia respiratoria hipoxémica aguda",
+    "titulo": "HOT-ICU: objetivos de oxigenación más bajos o más altos en la insuficiencia respiratoria hipoxémica aguda",
     "autor": "Schjørring OL",
     "revista": "NEJM",
     "anio": 2021,
@@ -2081,7 +2081,7 @@
   },
   {
     "id": 89,
-    "titulo": "CREST-2: manejo médico intensivo con o sin revascularización carotídea en la estenosis carotídea asintomática",
+    "titulo": "CREST-2: tratamiento médico y revascularización en la estenosis carotídea asintomática",
     "autor": "Brott TG",
     "revista": "NEJM",
     "anio": 2025,
@@ -2105,7 +2105,7 @@
   },
   {
     "id": 90,
-    "titulo": "TAME: hipercapnia leve o normocapnia tras el paro cardiaco extrahospitalario",
+    "titulo": "TAME: hipercapnia leve o normocapnia tras un paro cardiaco extrahospitalario",
     "autor": "Eastwood G",
     "revista": "NEJM",
     "anio": 2023,
@@ -2129,7 +2129,7 @@
   },
   {
     "id": 91,
-    "titulo": "MR CLEAN: tratamiento intraarterial en el ictus isquémico agudo por oclusión proximal",
+    "titulo": "MR CLEAN: ensayo aleatorizado de tratamiento intraarterial en el ictus isquémico agudo",
     "autor": "Berkhemer OA",
     "revista": "NEJM",
     "anio": 2014,
@@ -2152,7 +2152,7 @@
   },
   {
     "id": 92,
-    "titulo": "PARADIGM-HF: sacubitrilo-valsartán frente a enalapril en la insuficiencia cardiaca con fracción de eyección reducida",
+    "titulo": "PARADIGM-HF: inhibición de la angiotensina y la neprilisina frente a enalapril en la insuficiencia cardiaca",
     "autor": "McMurray JJ",
     "revista": "NEJM",
     "anio": 2014,
@@ -2175,7 +2175,7 @@
   },
   {
     "id": 93,
-    "titulo": "ARISTOTLE: apixabán frente a warfarina en la fibrilación auricular",
+    "titulo": "ARISTOTLE: apixabán frente a warfarina en pacientes con fibrilación auricular",
     "autor": "Granger CB",
     "revista": "NEJM",
     "anio": 2011,
@@ -2198,7 +2198,7 @@
   },
   {
     "id": 94,
-    "titulo": "PREMIUM: monoterapia con prasugrel frente a doble antiagregación en el infarto con elevación del ST tratado con angioplastia primaria",
+    "titulo": "PREMIUM: omisión del ácido acetilsalicílico en el momento de la intervención coronaria percutánea primaria en el infarto con elevación del ST",
     "autor": "Takahashi K",
     "revista": "NEJM",
     "anio": 2026,
@@ -2244,7 +2244,7 @@
   },
   {
     "id": 96,
-    "titulo": "CREDENCE: canagliflozina en la enfermedad renal crónica por diabetes tipo 2",
+    "titulo": "CREDENCE: canagliflozina y desenlaces renales en la diabetes tipo 2 con nefropatía",
     "autor": "Perkovic V",
     "revista": "NEJM",
     "anio": 2019,
@@ -2267,7 +2267,7 @@
   },
   {
     "id": 97,
-    "titulo": "REDUCE-IT: etil-icosapento en la hipertrigliceridemia con riesgo cardiovascular",
+    "titulo": "REDUCE-IT: reducción del riesgo cardiovascular con icosapento de etilo en la hipertrigliceridemia",
     "autor": "Bhatt DL",
     "revista": "NEJM",
     "anio": 2018,
@@ -2290,7 +2290,7 @@
   },
   {
     "id": 98,
-    "titulo": "PRAGUE-26: trombolisis dirigida por catéter en el tromboembolismo pulmonar de riesgo intermedio-alto",
+    "titulo": "PRAGUE-26: trombólisis dirigida por catéter en la embolia pulmonar de riesgo intermedio-alto",
     "autor": "Kroupa J",
     "revista": "NEJM",
     "anio": 2026,
@@ -2313,7 +2313,7 @@
   },
   {
     "id": 99,
-    "titulo": "A-CLOSE: clopidogrel en monoterapia frente a doble antiagregación prolongada tras stent farmacoactivo",
+    "titulo": "A-CLOSE: clopidogrel o doble antiagregación plaquetaria en pacientes con alto riesgo isquémico",
     "autor": "Lee SJ",
     "revista": "NEJM",
     "anio": 2026,
@@ -2336,7 +2336,7 @@
   },
   {
     "id": 100,
-    "titulo": "DAPA-CKD: dapagliflozina en la enfermedad renal crónica",
+    "titulo": "DAPA-CKD: dapagliflozina en pacientes con enfermedad renal crónica",
     "autor": "Heerspink HJL",
     "revista": "NEJM",
     "anio": 2020,
@@ -2359,7 +2359,7 @@
   },
   {
     "id": 101,
-    "titulo": "DAPA-HF: dapagliflozina en la insuficiencia cardiaca con fracción de eyección reducida",
+    "titulo": "DAPA-HF: dapagliflozina en pacientes con insuficiencia cardiaca y fracción de eyección reducida",
     "autor": "McMurray JJV",
     "revista": "NEJM",
     "anio": 2019,
@@ -2382,7 +2382,7 @@
   },
   {
     "id": 102,
-    "titulo": "FOURIER: evolocumab en la enfermedad cardiovascular aterosclerótica",
+    "titulo": "FOURIER: evolocumab y desenlaces clínicos en pacientes con enfermedad cardiovascular",
     "autor": "Sabatine MS",
     "revista": "NEJM",
     "anio": 2017,
@@ -2405,7 +2405,7 @@
   },
   {
     "id": 103,
-    "titulo": "IMPROVE-IT: ezetimiba añadida a estatinas tras un síndrome coronario agudo",
+    "titulo": "IMPROVE-IT: ezetimiba añadida al tratamiento con estatinas tras síndromes coronarios agudos",
     "autor": "Cannon CP",
     "revista": "NEJM",
     "anio": 2015,
@@ -2451,7 +2451,7 @@
   },
   {
     "id": 105,
-    "titulo": "PIpELINe: rehabilitación multidominio en pacientes mayores tras un infarto de miocardio",
+    "titulo": "PIpELINe: rehabilitación multidominio en pacientes mayores con infarto de miocardio",
     "autor": "Tonet E",
     "revista": "NEJM",
     "anio": 2025,
@@ -2497,7 +2497,7 @@
   },
   {
     "id": 107,
-    "titulo": "SWITCH-SWEDEHEART: prasugrel frente a ticagrelor en síndromes coronarios agudos",
+    "titulo": "SWITCH-SWEDEHEART: prasugrel frente a ticagrelor en los síndromes coronarios agudos",
     "autor": "Omerovic E",
     "revista": "NEJM",
     "anio": 2026,
@@ -2520,7 +2520,7 @@
   },
   {
     "id": 108,
-    "titulo": "iPrEx: profilaxis preexposición con emtricitabina y tenofovir para la prevención del VIH en hombres que tienen sexo con hombres",
+    "titulo": "iPrEx: quimioprofilaxis preexposición para la prevención del VIH en hombres que tienen sexo con hombres",
     "autor": "Grant RM",
     "revista": "NEJM",
     "anio": 2010,
@@ -2543,7 +2543,7 @@
   },
   {
     "id": 109,
-    "titulo": "HPTN 052: inicio temprano del tratamiento antirretroviral para prevenir la transmisión del VIH-1 en parejas serodiscordantes",
+    "titulo": "HPTN 052: prevención de la infección por VIH-1 con tratamiento antirretroviral temprano",
     "autor": "Cohen MS",
     "revista": "NEJM",
     "anio": 2011,
@@ -2566,7 +2566,7 @@
   },
   {
     "id": 110,
-    "titulo": "PROSEVA: posición prona prolongada y temprana en el síndrome de dificultad respiratoria aguda grave",
+    "titulo": "PROSEVA: posición prona en el síndrome de dificultad respiratoria aguda grave",
     "autor": "Guérin C",
     "revista": "NEJM",
     "anio": 2013,
@@ -2589,7 +2589,7 @@
   },
   {
     "id": 111,
-    "titulo": "PADN-HF-PH: denervación de la arteria pulmonar para la hipertensión pulmonar asociada a insuficiencia cardiaca",
+    "titulo": "PADN-HF-PH: denervación pulmonar en la hipertensión pulmonar relacionada con insuficiencia cardiaca",
     "autor": "Zhang H",
     "revista": "NEJM",
     "anio": 2026,
@@ -2613,7 +2613,7 @@
   },
   {
     "id": 112,
-    "titulo": "NLST: cribado de cáncer de pulmón con tomografía computarizada de baja dosis",
+    "titulo": "NLST: reducción de la mortalidad por cáncer de pulmón con el cribado mediante tomografía computarizada de baja dosis",
     "autor": "The National Lung Screening Trial Research Team",
     "revista": "NEJM",
     "anio": 2011,
@@ -2637,7 +2637,7 @@
   },
   {
     "id": 113,
-    "titulo": "CLASSIC: restricción de fluidos intravenosos en pacientes de UCI con shock séptico",
+    "titulo": "CLASSIC: restricción de líquidos intravenosos en pacientes de UCI con shock séptico",
     "autor": "Meyhoff TS",
     "revista": "NEJM",
     "anio": 2022,
@@ -2707,7 +2707,7 @@
   },
   {
     "id": 116,
-    "titulo": "BROADWAY: seguridad y eficacia del obicetrapib en pacientes de alto riesgo cardiovascular",
+    "titulo": "BROADWAY: seguridad y eficacia del obicetrapib en pacientes con alto riesgo cardiovascular",
     "autor": "Nicholls SJ",
     "revista": "NEJM",
     "anio": 2025,
@@ -2730,7 +2730,7 @@
   },
   {
     "id": 117,
-    "titulo": "TARGET-CTCA: angiografía coronaria por tomografía computarizada dirigida en el dolor torácico agudo",
+    "titulo": "TARGET-CTCA: uso dirigido de la angiografía coronaria por tomografía computarizada en el dolor torácico agudo",
     "autor": "Lee KK",
     "revista": "NEJM",
     "anio": 2026,
@@ -2754,7 +2754,7 @@
   },
   {
     "id": 118,
-    "titulo": "DAWN: trombectomía de 6 a 24 horas tras el ictus frente al cuidado estándar",
+    "titulo": "DAWN: trombectomía de 6 a 24 horas tras un ictus con discordancia entre el déficit y el infarto",
     "autor": "Nogueira RG",
     "revista": "NEJM",
     "anio": 2017,
@@ -2778,7 +2778,7 @@
   },
   {
     "id": 119,
-    "titulo": "DEFUSE 3: trombectomía de 6 a 16 horas tras el ictus con selección por imagen de perfusión",
+    "titulo": "DEFUSE 3: trombectomía en el ictus de 6 a 16 horas con selección por imagen de perfusión",
     "autor": "Albers GW",
     "revista": "NEJM",
     "anio": 2018,
@@ -2802,7 +2802,7 @@
   },
   {
     "id": 120,
-    "titulo": "TAVI PCI: momento óptimo de la intervención coronaria percutánea en el implante valvular aórtico transcatéter",
+    "titulo": "TAVI PCI: momento de la intervención coronaria percutánea en pacientes sometidos a implante percutáneo de válvula aórtica",
     "autor": "Stähli BE",
     "revista": "NEJM",
     "anio": 2026,
@@ -2852,7 +2852,7 @@
   },
   {
     "id": 122,
-    "titulo": "COVACTA: tocilizumab en pacientes hospitalizados con neumonía grave por covid-19",
+    "titulo": "COVACTA: tocilizumab en pacientes hospitalizados con neumonía grave por Covid-19",
     "autor": "Rosas IO",
     "revista": "NEJM",
     "anio": 2021,
@@ -2877,7 +2877,7 @@
   },
   {
     "id": 123,
-    "titulo": "PARTNER: implante percutáneo de válvula aórtica frente al tratamiento estándar en la estenosis aórtica inoperable",
+    "titulo": "PARTNER: implante percutáneo de válvula aórtica en la estenosis aórtica de pacientes que no pueden someterse a cirugía",
     "autor": "Leon MB",
     "revista": "NEJM",
     "anio": 2010,
@@ -2900,7 +2900,7 @@
   },
   {
     "id": 124,
-    "titulo": "PARTNER 3: reemplazo percutáneo frente a reemplazo quirúrgico de la válvula aórtica en pacientes de bajo riesgo",
+    "titulo": "PARTNER 3: reemplazo percutáneo de válvula aórtica con válvula expandible con balón en pacientes de bajo riesgo",
     "autor": "Mack MJ",
     "revista": "NEJM",
     "anio": 2019,
@@ -2926,7 +2926,7 @@
     "id": 125,
     "titulo": "LEADER: liraglutida y desenlaces cardiovasculares en la diabetes tipo 2",
     "autor": "Marso SP",
-    "revista": "The New England Journal of Medicine",
+    "revista": "NEJM",
     "anio": 2016,
     "fecha": "2016-06-13",
     "registro": "NCT01179048",
@@ -2949,9 +2949,9 @@
   },
   {
     "id": 126,
-    "titulo": "PILOT: objetivos de saturación de oxígeno en adultos críticamente enfermos con ventilación mecánica",
+    "titulo": "PILOT: objetivos de saturación de oxígeno en adultos en estado crítico que reciben ventilación mecánica",
     "autor": "Semler MW",
-    "revista": "The New England Journal of Medicine",
+    "revista": "NEJM",
     "anio": 2022,
     "fecha": "2022-10-24",
     "registro": "NCT03537937",
@@ -2973,9 +2973,9 @@
   },
   {
     "id": 127,
-    "titulo": "Simvastatina en pacientes críticos con Covid-19 (REMAP-CAP)",
+    "titulo": "REMAP-CAP: simvastatina en pacientes en estado crítico con Covid-19",
     "autor": "Hills TE",
-    "revista": "New England Journal of Medicine",
+    "revista": "NEJM",
     "anio": 2023,
     "fecha": "2023-10-25",
     "registro": "ClinicalTrials.gov, NCT02735707",
@@ -2998,9 +2998,9 @@
   },
   {
     "id": 128,
-    "titulo": "PARAMEDIC2: adrenalina en el paro cardiaco extrahospitalario",
+    "titulo": "PARAMEDIC2: ensayo aleatorizado de adrenalina en el paro cardiaco extrahospitalario",
     "autor": "Perkins GD",
-    "revista": "New England Journal of Medicine",
+    "revista": "NEJM",
     "anio": 2018,
     "fecha": "2018-07-18",
     "registro": "ISRCTN73485024",
@@ -3023,9 +3023,9 @@
   },
   {
     "id": 129,
-    "titulo": "ATHOS-3: angiotensina II en el shock vasodilatador",
+    "titulo": "ATHOS-3: angiotensina II para el tratamiento del shock vasodilatador",
     "autor": "Khanna A",
-    "revista": "New England Journal of Medicine",
+    "revista": "NEJM",
     "anio": 2017,
     "fecha": "2017-05-21",
     "registro": "NCT02338843",
@@ -3048,9 +3048,9 @@
   },
   {
     "id": 130,
-    "titulo": "COACT: angiografía coronaria tras el paro cardiaco sin elevación del ST",
+    "titulo": "COACT: angiografía coronaria tras un paro cardiaco sin elevación del segmento ST",
     "autor": "Lemkes JS",
-    "revista": "New England Journal of Medicine",
+    "revista": "NEJM",
     "anio": 2019,
     "fecha": "2019-03-18",
     "registro": "NTR4973",
@@ -3073,9 +3073,9 @@
   },
   {
     "id": 131,
-    "titulo": "INCEPTION: reanimación cardiopulmonar extracorpórea temprana para el paro cardiaco extrahospitalario refractario",
+    "titulo": "INCEPTION: reanimación cardiopulmonar extracorpórea temprana en el paro cardiaco extrahospitalario refractario",
     "autor": "Suverein M",
-    "revista": "New England Journal of Medicine",
+    "revista": "NEJM",
     "anio": 2023,
     "fecha": "2023-01-26",
     "registro": "NCT03101787",
@@ -3098,9 +3098,9 @@
   },
   {
     "id": 132,
-    "titulo": "MIND-USA: haloperidol y ziprasidona para el tratamiento del delirium en pacientes críticos",
+    "titulo": "MIND-USA: haloperidol y ziprasidona para el tratamiento del delirium en la enfermedad crítica",
     "autor": "Girard T",
-    "revista": "New England Journal of Medicine",
+    "revista": "NEJM",
     "anio": 2018,
     "fecha": "2018-10-22",
     "registro": "NCT01211522",
@@ -3125,7 +3125,7 @@
     "id": 133,
     "titulo": "CAPE COD: hidrocortisona en la neumonía grave adquirida en la comunidad",
     "autor": "Dequin PF",
-    "revista": "New England Journal of Medicine",
+    "revista": "NEJM",
     "anio": 2023,
     "fecha": "2023-03-21",
     "registro": "NCT02517489",
@@ -3148,7 +3148,7 @@
   },
   {
     "id": 134,
-    "titulo": "Eurotherm3235: hipotermia terapéutica para la hipertensión intracraneal tras traumatismo craneoencefálico",
+    "titulo": "Eurotherm3235: hipotermia para la hipertensión intracraneal tras un traumatismo craneoencefálico",
     "autor": "Andrews PJ",
     "revista": "NEJM",
     "anio": 2015,
@@ -3172,7 +3172,7 @@
   },
   {
     "id": 135,
-    "titulo": "AKIKI: momento de inicio de la terapia de reemplazo renal en cuidados intensivos",
+    "titulo": "AKIKI: estrategias de inicio de la terapia de reemplazo renal en la unidad de cuidados intensivos",
     "autor": "Gaudry S",
     "revista": "NEJM",
     "anio": 2016,
@@ -3196,9 +3196,9 @@
   },
   {
     "id": 136,
-    "titulo": "REMAP-CAP: tocilizumab y sarilumab, antagonistas del receptor de interleucina-6, en pacientes críticamente enfermos con Covid-19",
+    "titulo": "REMAP-CAP: antagonistas del receptor de interleucina-6 en pacientes en estado crítico con Covid-19",
     "autor": "Gordon A.",
-    "revista": "New England Journal of Medicine",
+    "revista": "NEJM",
     "anio": 2021,
     "fecha": "2021-02-25",
     "registro": "NCT02735707",
@@ -3221,9 +3221,9 @@
   },
   {
     "id": 137,
-    "titulo": "DanGer-Shock: bomba de flujo microaxial frente a atención estándar en el shock cardiogénico por infarto",
+    "titulo": "DanGer-Shock: bomba de flujo microaxial o atención estándar en el shock cardiogénico relacionado con infarto",
     "autor": "Møller J.",
-    "revista": "New England Journal of Medicine",
+    "revista": "NEJM",
     "anio": 2024,
     "fecha": "2024-04-07",
     "registro": "NCT01633502",
@@ -3246,9 +3246,9 @@
   },
   {
     "id": 138,
-    "titulo": "LIBREXIA ACS: milvexian añadido a la terapia antiplaquetaria tras un síndrome coronario agudo",
+    "titulo": "LIBREXIA ACS: milvexian con tratamiento antiplaquetario tras un síndrome coronario agudo",
     "autor": "Gibson C.",
-    "revista": "New England Journal of Medicine",
+    "revista": "NEJM",
     "anio": 2026,
     "fecha": "2026-08-29",
     "registro": "NCT05754957",
@@ -3271,9 +3271,9 @@
   },
   {
     "id": 139,
-    "titulo": "PREOXI: ventilación no invasiva para la preoxigenación antes de la intubación de emergencia",
+    "titulo": "PREOXI: ventilación no invasiva para la preoxigenación durante la intubación de urgencia",
     "autor": "Gibbs KW",
-    "revista": "The New England Journal of Medicine",
+    "revista": "NEJM",
     "anio": 2024,
     "fecha": "2024-06-13",
     "registro": "NCT05267652",
@@ -3295,9 +3295,9 @@
   },
   {
     "id": 140,
-    "titulo": "SUP-ICU: pantoprazol en pacientes con riesgo de sangrado digestivo en la unidad de cuidados intensivos",
+    "titulo": "SUP-ICU: pantoprazol en pacientes con riesgo de hemorragia digestiva en la UCI",
     "autor": "Krag M",
-    "revista": "The New England Journal of Medicine",
+    "revista": "NEJM",
     "anio": 2018,
     "fecha": "2018-10-24",
     "registro": "NCT02467621",
@@ -3319,9 +3319,9 @@
   },
   {
     "id": 141,
-    "titulo": "CULPRIT-SHOCK: estrategias de angioplastia en el infarto de miocardio con choque cardiogénico",
+    "titulo": "CULPRIT-SHOCK: estrategias de intervención coronaria percutánea en pacientes con infarto agudo de miocardio y shock cardiogénico",
     "autor": "Thiele H",
-    "revista": "The New England Journal of Medicine",
+    "revista": "NEJM",
     "anio": 2017,
     "fecha": "2017-10-30",
     "registro": "NCT01927549",
@@ -3343,9 +3343,9 @@
   },
   {
     "id": 142,
-    "titulo": "PAMPer: plasma prehospitalario en pacientes traumáticos con riesgo de choque hemorrágico",
+    "titulo": "PAMPer: plasma prehospitalario durante el transporte médico aéreo en pacientes traumatizados con riesgo de shock hemorrágico",
     "autor": "Sperry JL",
-    "revista": "The New England Journal of Medicine",
+    "revista": "NEJM",
     "anio": 2018,
     "fecha": "2018-07-26",
     "registro": "NCT01818427",
@@ -3368,9 +3368,9 @@
   },
   {
     "id": 143,
-    "titulo": "REVISE: profilaxis de úlceras de estrés durante la ventilación mecánica invasiva",
+    "titulo": "REVISE: profilaxis de la úlcera de estrés durante la ventilación mecánica invasiva",
     "autor": "Cook D",
-    "revista": "The New England Journal of Medicine",
+    "revista": "NEJM",
     "anio": 2024,
     "fecha": "2024-06-14",
     "registro": "NCT03374800",
@@ -3393,9 +3393,9 @@
   },
   {
     "id": 144,
-    "titulo": "HYPERION: manejo específico de temperatura en el paro cardiaco con ritmo no desfibrilable",
+    "titulo": "HYPERION: manejo específico de la temperatura en el paro cardiaco con ritmo no desfibrilable",
     "autor": "Lascarrou JB",
-    "revista": "The New England Journal of Medicine",
+    "revista": "NEJM",
     "anio": 2019,
     "fecha": "2019-10-02",
     "registro": "NCT01994772",
@@ -3418,9 +3418,9 @@
   },
   {
     "id": 145,
-    "titulo": "ATTACC, ACTIV-4a y REMAP-CAP: anticoagulación terapéutica con heparina en pacientes críticos con Covid-19",
+    "titulo": "ATTACC, ACTIV-4a y REMAP-CAP: anticoagulación terapéutica con heparina en pacientes en estado crítico con Covid-19",
     "autor": "REMAP-CAP, ACTIV-4a, and ATTACC Investigators",
-    "revista": "The New England Journal of Medicine",
+    "revista": "NEJM",
     "anio": 2021,
     "fecha": "2021-08-04",
     "registro": "NCT02735707 (REMAP-CAP); NCT04505774, NCT04359277 y NCT04372589 (ACTIV-4a y ATTACC)",
@@ -3445,7 +3445,7 @@
     "id": 146,
     "titulo": "STARRT-AKI: momento de inicio de la terapia de reemplazo renal en la lesión renal aguda",
     "autor": "STARRT-AKI Investigators",
-    "revista": "The New England Journal of Medicine",
+    "revista": "NEJM",
     "anio": 2020,
     "fecha": "2020-07-16",
     "registro": "NCT02568722",
@@ -3468,9 +3468,9 @@
   },
   {
     "id": 147,
-    "titulo": "IDEAL-ICU: inicio temprano o diferido de la depuración renal en el choque séptico",
+    "titulo": "IDEAL-ICU: momento de la terapia de reemplazo renal en pacientes con lesión renal aguda y sepsis",
     "autor": "Barbar SD",
-    "revista": "The New England Journal of Medicine",
+    "revista": "NEJM",
     "anio": 2018,
     "fecha": "2018-10-11",
     "registro": "NCT01682590",
@@ -3493,9 +3493,9 @@
   },
   {
     "id": 148,
-    "titulo": "RESCUEicp: craniectomía descompresiva para la hipertensión intracraneal traumática refractaria",
+    "titulo": "RESCUEicp: ensayo de craniectomía descompresiva en la hipertensión intracraneal traumática",
     "autor": "Hutchinson PJ",
-    "revista": "New England Journal of Medicine",
+    "revista": "NEJM",
     "anio": 2016,
     "fecha": "2016-09-07",
     "registro": "ISRCTN66202560",
@@ -3518,9 +3518,9 @@
   },
   {
     "id": 149,
-    "titulo": "ProMISe: reanimación temprana dirigida por objetivos en el shock séptico",
+    "titulo": "ProMISe: ensayo de reanimación temprana dirigida por objetivos en el shock séptico",
     "autor": "Mouncey PR",
-    "revista": "New England Journal of Medicine",
+    "revista": "NEJM",
     "anio": 2015,
     "fecha": "2015-03-17",
     "registro": "ISRCTN36307479",
@@ -3543,9 +3543,9 @@
   },
   {
     "id": 150,
-    "titulo": "DEVICE: videolaringoscopia frente a laringoscopia directa para la intubación traqueal en adultos críticos",
+    "titulo": "DEVICE: videolaringoscopia frente a laringoscopia directa para la intubación traqueal de adultos en estado crítico",
     "autor": "Prekker ME",
-    "revista": "New England Journal of Medicine",
+    "revista": "NEJM",
     "anio": 2023,
     "fecha": "2023-06-16",
     "registro": "NCT05239195",
@@ -3568,7 +3568,7 @@
   },
   {
     "id": 151,
-    "titulo": "SURPASS-CVOT: tirzepatida frente a dulaglutida en desenlaces cardiovasculares de la diabetes tipo 2",
+    "titulo": "SURPASS-CVOT: desenlaces cardiovasculares con tirzepatida frente a dulaglutida en la diabetes tipo 2",
     "autor": "Nicholls SJ",
     "revista": "NEJM",
     "anio": 2025,
@@ -3592,7 +3592,7 @@
   },
   {
     "id": 152,
-    "titulo": "TenCRAOS: tenecteplasa en la oclusión aguda de la arteria central de la retina",
+    "titulo": "TenCRAOS: ensayo aleatorizado de tenecteplasa en la oclusión aguda de la arteria central de la retina",
     "autor": "Ryan SJ",
     "revista": "NEJM",
     "anio": 2026,
@@ -3616,7 +3616,7 @@
   },
   {
     "id": 153,
-    "titulo": "CORALreef Lipids: enlicitide oral frente a placebo para reducir el colesterol LDL",
+    "titulo": "CORALreef Lipids: ensayo controlado con placebo del inhibidor oral de PCSK9 enlicitide",
     "autor": "Navar AM",
     "revista": "NEJM",
     "anio": 2026,
@@ -3640,7 +3640,7 @@
   },
   {
     "id": 154,
-    "titulo": "RECOVERY: cirugía temprana frente a tratamiento conservador en la estenosis aórtica asintomática a 10 años",
+    "titulo": "RECOVERY: cirugía temprana o tratamiento conservador en la estenosis aórtica asintomática a 10 años",
     "autor": "Kang DH",
     "revista": "NEJM",
     "anio": 2026,
@@ -3664,7 +3664,7 @@
   },
   {
     "id": 155,
-    "titulo": "Betabloqueadores después de un infarto de miocardio con fracción de eyección normal",
+    "titulo": "Betabloqueadores tras un infarto de miocardio con fracción de eyección normal",
     "autor": "Kristensen AMD",
     "revista": "NEJM",
     "anio": 2025,
@@ -3688,7 +3688,7 @@
   },
   {
     "id": 156,
-    "titulo": "CORE-TIMI 72a y CORE2-TIMI 72b: olezarsén para la hipertrigliceridemia grave y el riesgo de pancreatitis",
+    "titulo": "CORE-TIMI 72a y CORE2-TIMI 72b: olezarsén para el manejo de la hipertrigliceridemia grave y del riesgo de pancreatitis",
     "autor": "Marston NA",
     "revista": "NEJM",
     "anio": 2025,
@@ -3736,7 +3736,7 @@
   },
   {
     "id": 158,
-    "titulo": "PISCES: aceite de pescado y eventos cardiovasculares en pacientes en hemodiálisis",
+    "titulo": "PISCES: suplementación con aceite de pescado y eventos cardiovasculares en pacientes en hemodiálisis",
     "autor": "Lok CE",
     "revista": "NEJM",
     "anio": 2025,
@@ -3784,7 +3784,7 @@
   },
   {
     "id": 160,
-    "titulo": "C-TRACT: terapia endovascular para el síndrome postrombótico",
+    "titulo": "C-TRACT: tratamiento endovascular del síndrome postrombótico",
     "autor": "Vedantham S",
     "revista": "NEJM",
     "anio": 2026,
@@ -3808,7 +3808,7 @@
   },
   {
     "id": 161,
-    "titulo": "OPTIMAL: ultrasonido intravascular frente a angiografía para guiar la intervención del tronco coronario izquierdo",
+    "titulo": "OPTIMAL: intervención coronaria percutánea guiada por ultrasonido intravascular frente a guiada por angiografía en la enfermedad del tronco coronario izquierdo no protegido",
     "autor": "Testa L",
     "revista": "NEJM",
     "anio": 2026,
@@ -3832,7 +3832,7 @@
   },
   {
     "id": 162,
-    "titulo": "MAJESTY: obinutuzumab frente a tacrolimus en la nefropatía membranosa primaria",
+    "titulo": "MAJESTY: obinutuzumab o tacrolimus en la nefropatía membranosa primaria",
     "autor": "Fervenza FC",
     "revista": "NEJM",
     "anio": 2026,
@@ -3856,7 +3856,7 @@
   },
   {
     "id": 163,
-    "titulo": "EPCAT III: ácido acetilsalicílico solo frente a rivaroxabán seguido de ácido acetilsalicílico tras artroplastia de cadera o rodilla",
+    "titulo": "EPCAT III: rivaroxabán seguido de ácido acetilsalicílico frente a ácido acetilsalicílico solo tras artroplastia total de cadera o de rodilla",
     "autor": "Shivakumar S",
     "revista": "NEJM",
     "anio": 2026,
@@ -3904,7 +3904,7 @@
   },
   {
     "id": 165,
-    "titulo": "OBERON y TITANIA: tozorakimab para prevenir exacerbaciones de EPOC",
+    "titulo": "OBERON y TITANIA: tozorakimab para prevenir las exacerbaciones de la EPOC",
     "autor": "Sciurba FC",
     "revista": "NEJM",
     "anio": 2026,
@@ -3952,7 +3952,7 @@
   },
   {
     "id": 167,
-    "titulo": "SINGLE-AF: anticoagulación oral directa en fibrilación auricular con riesgo intermedio de accidente cerebrovascular",
+    "titulo": "SINGLE-AF: anticoagulación en la fibrilación auricular con riesgo intermedio de ictus",
     "autor": "Kim D",
     "revista": "NEJM",
     "anio": 2026,
@@ -4000,7 +4000,7 @@
   },
   {
     "id": 169,
-    "titulo": "TRIC-I-HF-DZHK24: reparación transcatéter de la válvula tricúspide más tratamiento médico frente a tratamiento médico solo en la insuficiencia tricuspídea grave con alto riesgo de insuficiencia cardiaca",
+    "titulo": "TRIC-I-HF-DZHK24: intervención sobre la válvula tricúspide en la insuficiencia cardiaca",
     "autor": "Hausleiter J",
     "revista": "NEJM",
     "anio": 2026,
@@ -4024,7 +4024,7 @@
   },
   {
     "id": 170,
-    "titulo": "LOCO2: oxígeno conservador frente a oxígeno liberal en el síndrome de dificultad respiratoria aguda temprano",
+    "titulo": "LOCO2: oxigenoterapia liberal o conservadora en el síndrome de dificultad respiratoria aguda",
     "autor": "Barrot L",
     "revista": "NEJM",
     "anio": 2020,
@@ -4048,7 +4048,7 @@
   },
   {
     "id": 171,
-    "titulo": "OSCILLATE: ventilación oscilatoria de alta frecuencia temprana frente a ventilación convencional de pulmón abierto en el síndrome de dificultad respiratoria aguda moderado a grave",
+    "titulo": "OSCILLATE: ventilación oscilatoria de alta frecuencia en el síndrome de dificultad respiratoria aguda temprano",
     "autor": "Ferguson ND",
     "revista": "NEJM",
     "anio": 2013,
@@ -4072,7 +4072,7 @@
   },
   {
     "id": 173,
-    "titulo": "PRODIGE 4-ACCORD 11: FOLFIRINOX frente a gemcitabina en primera línea del cáncer de páncreas metastásico",
+    "titulo": "PRODIGE 4-ACCORD 11: FOLFIRINOX frente a gemcitabina en el cáncer de páncreas metastásico",
     "autor": "Conroy T",
     "revista": "NEJM",
     "anio": 2011,
@@ -4096,7 +4096,7 @@
   },
   {
     "id": 174,
-    "titulo": "ACURASYS: bloqueo neuromuscular temprano con cisatracurio durante 48 horas frente a placebo en el síndrome de dificultad respiratoria aguda grave",
+    "titulo": "ACURASYS: bloqueantes neuromusculares en el síndrome de dificultad respiratoria aguda temprano",
     "autor": "Papazian L",
     "revista": "NEJM",
     "anio": 2010,
@@ -4120,7 +4120,7 @@
   },
   {
     "id": 175,
-    "titulo": "CONNECT: monitoreo continuo de glucosa frente a cuidado habitual en la diabetes tipo 2 no tratada con insulina en atención primaria",
+    "titulo": "CONNECT: monitorización continua de glucosa en la diabetes tipo 2 no tratada con insulina",
     "autor": "Oser TK",
     "revista": "NEJM",
     "anio": 2026,
@@ -4144,7 +4144,7 @@
   },
   {
     "id": 177,
-    "titulo": "PATCH-Trauma: ácido tranexámico prehospitalario frente a placebo en el traumatismo grave con riesgo de coagulopatía",
+    "titulo": "PATCH-Trauma: ácido tranexámico prehospitalario en el traumatismo grave",
     "autor": "Gruen RL",
     "revista": "NEJM",
     "anio": 2023,
@@ -4169,7 +4169,7 @@
   },
   {
     "id": 178,
-    "titulo": "DOREMI: milrinona frente a dobutamina en el choque cardiogénico",
+    "titulo": "DOREMI: milrinona en comparación con dobutamina en el tratamiento del shock cardiogénico",
     "autor": "Mathew R",
     "revista": "NEJM",
     "anio": 2021,
@@ -4194,7 +4194,7 @@
   },
   {
     "id": 179,
-    "titulo": "Dobutamina intraoperatoria en el shock séptico: prevención de la lesión renal aguda tras la cirugía de control del foco",
+    "titulo": "Dobutamina intraoperatoria más noradrenalina para prevenir la lesión renal aguda postoperatoria en el shock séptico",
     "autor": "Chu L",
     "revista": "JAMA",
     "anio": 2026,
@@ -4219,7 +4219,7 @@
   },
   {
     "id": 180,
-    "titulo": "PreVent: ventilación con bolsa-mascarilla durante la intubación traqueal del adulto en estado crítico",
+    "titulo": "PreVent: ventilación con bolsa-mascarilla durante la intubación traqueal de adultos en estado crítico",
     "autor": "Casey JD",
     "revista": "NEJM",
     "anio": 2019,
@@ -4243,7 +4243,7 @@
   },
   {
     "id": 181,
-    "titulo": "SEPSISPAM: objetivo de presión arterial media alto frente a bajo en el shock séptico",
+    "titulo": "SEPSISPAM: objetivo de presión arterial alto frente a bajo en pacientes con shock séptico",
     "autor": "Asfar P",
     "revista": "NEJM",
     "anio": 2014,
@@ -4267,7 +4267,7 @@
   },
   {
     "id": 182,
-    "titulo": "Baño diario con clorhexidina para prevenir la adquisición de gérmenes multirresistentes y la bacteriemia intrahospitalaria",
+    "titulo": "Efecto del baño diario con clorhexidina sobre la infección adquirida en el hospital",
     "autor": "Climo MW",
     "revista": "NEJM",
     "anio": 2013,
@@ -4292,7 +4292,7 @@
   },
   {
     "id": 183,
-    "titulo": "OSCAR: ventilación oscilatoria de alta frecuencia frente a ventilación convencional en el síndrome de dificultad respiratoria aguda",
+    "titulo": "OSCAR: ventilación oscilatoria de alta frecuencia en el síndrome de dificultad respiratoria aguda",
     "autor": "Young D",
     "revista": "NEJM",
     "anio": 2013,
@@ -4316,7 +4316,7 @@
   },
   {
     "id": 184,
-    "titulo": "IABP-SHOCK II: balón de contrapulsación intraaórtico en el infarto agudo de miocardio con shock cardiogénico",
+    "titulo": "IABP-SHOCK II: soporte con balón intraaórtico en el infarto de miocardio con shock cardiogénico",
     "autor": "Thiele H",
     "revista": "NEJM",
     "anio": 2012,
@@ -4340,7 +4340,7 @@
   },
   {
     "id": 185,
-    "titulo": "SONIC: infliximab, azatioprina o ambos en la enfermedad de Crohn sin tratamiento inmunosupresor previo",
+    "titulo": "SONIC: infliximab, azatioprina o tratamiento combinado en la enfermedad de Crohn",
     "autor": "Colombel JF",
     "revista": "NEJM",
     "anio": 2010,
@@ -4365,7 +4365,7 @@
   },
   {
     "id": 186,
-    "titulo": "SOAP II: dopamina frente a noradrenalina como primer vasopresor en el shock",
+    "titulo": "SOAP II: comparación de dopamina y noradrenalina en el tratamiento del shock",
     "autor": "De Backer D",
     "revista": "NEJM",
     "anio": 2010,
@@ -4391,7 +4391,7 @@
   },
   {
     "id": 187,
-    "titulo": "EPVent: PEEP guiada por presión esofágica en la lesión pulmonar aguda y el SDRA",
+    "titulo": "EPVent: ventilación mecánica guiada por presión esofágica en la lesión pulmonar aguda",
     "autor": "Talmor D",
     "revista": "NEJM",
     "anio": 2008,
@@ -4416,7 +4416,7 @@
   },
   {
     "id": 188,
-    "titulo": "VASST: vasopresina frente a noradrenalina en el shock séptico",
+    "titulo": "VASST: infusión de vasopresina frente a noradrenalina en pacientes con shock séptico",
     "autor": "Russell JA",
     "revista": "NEJM",
     "anio": 2008,
@@ -4441,7 +4441,7 @@
   },
   {
     "id": 189,
-    "titulo": "CORTICUS: hidrocortisona en el shock séptico",
+    "titulo": "CORTICUS: tratamiento con hidrocortisona en pacientes con shock séptico",
     "autor": "Sprung CL",
     "revista": "NEJM",
     "anio": 2008,
@@ -4466,7 +4466,7 @@
   },
   {
     "id": 190,
-    "titulo": "Metilprednisolona en el síndrome de dificultad respiratoria aguda persistente",
+    "titulo": "Eficacia y seguridad de los corticosteroides en el síndrome de dificultad respiratoria aguda persistente",
     "autor": "Steinberg KP",
     "revista": "NEJM",
     "anio": 2006,
@@ -4491,7 +4491,7 @@
   },
   {
     "id": 191,
-    "titulo": "ALVEOLI: PEEP alta frente a PEEP baja en el SDRA ventilado con volumen corriente bajo",
+    "titulo": "ALVEOLI: presiones positivas al final de la espiración más altas frente a más bajas en pacientes con síndrome de dificultad respiratoria aguda",
     "autor": "Brower RG",
     "revista": "NEJM",
     "anio": 2004,
@@ -4516,7 +4516,7 @@
   },
   {
     "id": 192,
-    "titulo": "Volumen corriente bajo frente a tradicional en la lesión pulmonar aguda y el SDRA",
+    "titulo": "Ventilación con volúmenes corrientes más bajos en comparación con volúmenes corrientes tradicionales en la lesión pulmonar aguda y el síndrome de dificultad respiratoria aguda",
     "autor": "Brower RG",
     "revista": "NEJM",
     "anio": 2000,
@@ -4541,7 +4541,7 @@
   },
   {
     "id": 193,
-    "titulo": "ICRAKI: hemodiálisis intermitente frente a terapia de reemplazo renal continua en la lesión renal aguda del paciente crítico",
+    "titulo": "ICRAKI: terapia de reemplazo renal intermitente o continua en la lesión renal aguda",
     "autor": "Gaudry S",
     "revista": "NEJM",
     "anio": 2026,
@@ -4566,7 +4566,7 @@
   },
   {
     "id": 194,
-    "titulo": "SAVE-ICU: sedación inhalada con isoflurano frente a sedación intravenosa en la insuficiencia respiratoria hipoxémica aguda",
+    "titulo": "SAVE-ICU: sedación inhalada con isoflurano en adultos con insuficiencia respiratoria hipoxémica aguda en ventilación mecánica",
     "autor": "Jerath A",
     "revista": "JAMA",
     "anio": 2026,
@@ -4591,7 +4591,7 @@
   },
   {
     "id": 195,
-    "titulo": "VASSPR: umbral bajo frente a umbral alto para iniciar vasopresina en el shock séptico",
+    "titulo": "VASSPR: efecto del umbral de inicio de la vasopresina sobre la mortalidad en el shock séptico",
     "autor": "Peltan ID",
     "revista": "JAMA",
     "anio": 2026,
@@ -4616,7 +4616,7 @@
   },
   {
     "id": 197,
-    "titulo": "SAVE-O2 AI: titulación autónoma del oxígeno frente a titulación manual en adultos hospitalizados",
+    "titulo": "SAVE-O2 AI: titulación autónoma del oxígeno para mantener la normoxemia en adultos con enfermedad aguda",
     "autor": "Douin DJ",
     "revista": "JAMA Intern Med",
     "anio": 2026,
@@ -4641,7 +4641,7 @@
   },
   {
     "id": 198,
-    "titulo": "65: hipotensión permisiva frente a atención habitual en mayores de 65 años con hipotensión vasodilatadora",
+    "titulo": "65: efecto de la menor exposición a vasopresores sobre la mortalidad a 90 días en pacientes mayores en estado crítico con hipotensión vasodilatadora",
     "autor": "Lamontagne F",
     "revista": "JAMA",
     "anio": 2020,
@@ -4666,7 +4666,7 @@
   },
   {
     "id": 199,
-    "titulo": "EPVent-2: PEEP guiada por presión esofágica frente a tabla empírica de PEEP alta en el síndrome de dificultad respiratoria aguda",
+    "titulo": "EPVent-2: efecto de la titulación de la PEEP con una estrategia guiada por presión esofágica frente a una estrategia empírica de PEEP alta-FiO2 sobre la muerte y los días libres de ventilación mecánica en pacientes con síndrome de dificultad respiratoria aguda",
     "autor": "Beitler JR",
     "revista": "JAMA",
     "anio": 2019,
@@ -4691,7 +4691,7 @@
   },
   {
     "id": 203,
-    "titulo": "VANISH: vasopresina temprana frente a norepinefrina para prevenir la insuficiencia renal en el shock séptico",
+    "titulo": "VANISH: efecto de la vasopresina temprana frente a la noradrenalina sobre la insuficiencia renal en pacientes con shock séptico",
     "autor": "Gordon AC",
     "revista": "JAMA",
     "anio": 2016,
@@ -4717,7 +4717,7 @@
   },
   {
     "id": 204,
-    "titulo": "ELAIN: inicio temprano frente a diferido de la terapia de reemplazo renal en la lesión renal aguda del paciente crítico",
+    "titulo": "ELAIN: efecto del inicio temprano frente a diferido de la terapia de reemplazo renal sobre la mortalidad en pacientes en estado crítico con lesión renal aguda",
     "autor": "Zarbock A",
     "revista": "JAMA",
     "anio": 2016,
@@ -4742,7 +4742,7 @@
   },
   {
     "id": 205,
-    "titulo": "Ventilación de pulmón abierto con reclutamiento y PEEP alta frente a volumen corriente bajo en la lesión pulmonar aguda y el SDRA",
+    "titulo": "Estrategia de ventilación con volúmenes corrientes bajos, maniobras de reclutamiento y presión positiva al final de la espiración alta en la lesión pulmonar aguda y el síndrome de dificultad respiratoria aguda",
     "autor": "Meade MO",
     "revista": "JAMA",
     "anio": 2008,
@@ -4767,7 +4767,7 @@
   },
   {
     "id": 206,
-    "titulo": "Express: PEEP alta titulada por la presión meseta frente a PEEP moderada en la lesión pulmonar aguda y el SDRA",
+    "titulo": "Express: ajuste de la presión positiva al final de la espiración en adultos con lesión pulmonar aguda y síndrome de dificultad respiratoria aguda",
     "autor": "Mercat A",
     "revista": "JAMA",
     "anio": 2008,
@@ -4792,7 +4792,7 @@
   },
   {
     "id": 207,
-    "titulo": "SURVIVE: levosimendán frente a dobutamina en la insuficiencia cardiaca aguda descompensada",
+    "titulo": "SURVIVE: levosimendán frente a dobutamina en pacientes con insuficiencia cardiaca aguda descompensada",
     "autor": "Mebazaa A",
     "revista": "JAMA",
     "anio": 2007,
@@ -4817,7 +4817,7 @@
   },
   {
     "id": 208,
-    "titulo": "Hidrocortisona y fludrocortisona en dosis bajas en el shock séptico con insuficiencia suprarrenal relativa",
+    "titulo": "Efecto del tratamiento con dosis bajas de hidrocortisona y fludrocortisona sobre la mortalidad en pacientes con shock séptico",
     "autor": "Annane D",
     "revista": "JAMA",
     "anio": 2002,

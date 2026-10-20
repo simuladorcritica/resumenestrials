@@ -277,11 +277,18 @@ def validar_entrada(e, H, if_vistos):
     if doi and (" " in doi or not doi.lower().startswith("10.")):
         H.aviso(idn, f"'doi' con forma inusual: {doi!r}")
 
-    # --- Título: ACRÓNIMO: descripción en minúsculas ---
+    # --- Revista: abreviatura canónica (NEJM, nunca el nombre largo) ---
+    if re.search(r"new england journal", str(e.get("revista", "")), re.I):
+        H.error(idn, f"'revista' debe ser la abreviatura 'NEJM', no {e.get('revista')!r}")
+
+    # --- Título: "ACRÓNIMO: traducción fiel del título oficial" ---
+    # Sin acrónimo reportado por el artículo, el título es solo la traducción
+    # fiel del título oficial (no se inventa acrónimo).
     tit = str(e.get("titulo", ""))
     m = re.match(r"^([^:]+):\s+(.+)$", tit)
     if not m:
-        H.aviso(idn, f"'titulo' no sigue 'ACRÓNIMO: descripción': {tit!r}")
+        if not tit[:1].isupper():
+            H.aviso(idn, f"'titulo' sin acrónimo debe empezar en mayúscula: {tit!r}")
     else:
         desc = m.group(2)
         primera = desc.lstrip()[:1]
