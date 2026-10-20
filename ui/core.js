@@ -39,9 +39,16 @@ E.prose=scope=>{
  }
 };
 
-let records,routes,library;
-E.data=()=>records??=import('/trial-data.js?v=20261003-laboratorio-v1').then(m=>m.loadTrials());
-E.routes=()=>routes??=fetch('/seo-manifest.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('No se pudo cargar el índice');return r.json()});
+let records,routes,library;const recordCache=new Map();
+// Requests in flight are cancelled when the page is left: WebKit otherwise reports the
+// interrupted fetch as an uncaught "access control checks" error (same rule as trial-data.js).
+let nav=new AbortController();for(const ev of ['beforeunload','pagehide'])addEventListener(ev,()=>nav.abort());addEventListener('pageshow',e=>{if(e.persisted)nav=new AbortController()});
+const get=url=>window.evNavigatingAway||nav.signal.aborted?Promise.reject(new DOMException('La navegación finalizó','AbortError')):fetch(url,{signal:nav.signal});
+// A failed load must not stay cached: the next action retries (mobile networks drop requests).
+E.data=()=>records??=import('/trial-data.js?v=20261003-laboratorio-v1').then(m=>m.loadTrials()).catch(e=>{records=undefined;throw e});
+E.routes=()=>routes??=get('/seo-manifest.json').then(r=>{if(!r.ok)throw Error('No se pudo cargar el índice');return r.json()}).catch(e=>{routes=undefined;throw e});
+// One small file per trial (~20 KB) so reading, PDF and controls never wait for the full archive.
+E.record=id=>{id=String(id??'').trim();if(!/^\d+$/.test(id))return Promise.resolve(null);if(!recordCache.has(id))recordCache.set(id,get('/datos/ensayos/'+id+'.json').then(r=>{if(r.status===404)return null;if(!r.ok)throw Error('HTTP '+r.status);return r.json()}).then(r=>r&&typeof r==='object'&&!Array.isArray(r)&&String(r.id)===id?r:null).catch(e=>{recordCache.delete(id);if(e?.name==='AbortError')throw e;return E.data().then(all=>all.find(x=>String(x.id)===id)||null).catch(()=>{throw e})}));return recordCache.get(id)};
 E.library=()=>library??=import('/library-store.js?v=20261003-laboratorio-v1');
 E.inferSubspecialty=r=>{const result=globalThis.SpecialtyClassification?.classify(r);return result?.specialty===globalThis.SpecialtyClassification?.REVIEW?'':result?.specialty||''};
 E.ready=f=>document.readyState==='loading'?document.addEventListener('DOMContentLoaded',f,{once:true}):f();
@@ -124,7 +131,7 @@ E.ready(()=>{
  document.addEventListener('click',async e=>{
   for(const d of document.querySelectorAll('details.ev-pdf-menu[open]'))if(!d.contains(e.target))d.open=false;
   const b=e.target.closest('[data-ev-card-pdf]');if(!b)return;b.disabled=true;const label=b.textContent;b.textContent='Preparando…';
-  try{const r=(await E.data()).find(r=>String(r.id)===b.dataset.evCardPdf);await E.pdf(r,b.dataset.evVersion==='breve');b.textContent=label;b.closest('details')?.removeAttribute('open')}catch{b.textContent='No se pudo descargar'}finally{b.disabled=false;setTimeout(()=>{b.textContent=label},2500)}
+  try{const r=await E.record(b.dataset.evCardPdf);if(!r)throw Error('Resumen no disponible');await E.pdf(r,b.dataset.evVersion==='breve');b.textContent=label;b.closest('details')?.removeAttribute('open')}catch{b.textContent='No se pudo descargar'}finally{b.disabled=false;setTimeout(()=>{b.textContent=label},2500)}
  });
  // Back to top and header elevation
  const top=document.querySelector('[data-ev-top]');let ticking=false;
