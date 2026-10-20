@@ -5274,5 +5274,79 @@
       "answer": "En los no respondedores a la corticotropina, la mortalidad a 28 días fue del 53% con corticoides frente al 63% con placebo (HR 0.67; IC 95%, 0.47 a 0.95; p = 0.02) ; en los respondedores no hubo diferencia (p = 0.81).",
       "population": "La población fueron adultos de 18 años o más con shock séptico, ingresados en 19 unidades de cuidados intensivos de Francia, que debían cumplir siete criterios a la vez: una infección documentada o con sospecha fuerte; temperatura mayor de 38.3 °C o menor de 35.6 °C; frecuencia cardiaca mayor de 90 latidos por minuto; presión sistólica menor de 90 mm Hg durante al menos 1 hora pese a una reposición adecuada de líquidos y más…"
     }
+  },
+  "209": {
+    "slug": "pelican-terapia-hemodinamica-individualizada-guiada-indice-cardiaco-pacientes-alto-riesgo",
+    "path": "/trials/pelican-terapia-hemodinamica-individualizada-guiada-indice-cardiaco-pacientes-alto-riesgo/",
+    "url": "https://resumenestrials.com/trials/pelican-terapia-hemodinamica-individualizada-guiada-indice-cardiaco-pacientes-alto-riesgo/",
+    "title": "PELICAN: terapia hemodinámica individualizada guiada por el índice cardiaco en pacientes de alto riesgo sometidos a cirugía abdominal mayor electiva",
+    "seo_title": "PELICAN trial: terapia hemodinámica individualizada guiada por el índice cardiaco en pacientes de alto riesgo sometidos a cirugía abdominal mayor electiva | Resúmenes Trials",
+    "description": "PELICAN: El compuesto de complicaciones a 7 días ocurrió en el 44.3% con la terapia individualizada frente al 46.9% con la habitual (riesgo relativo 0.94; IC…",
+    "clusters": [
+      {
+        "name": "Hemodinámica y cardiovascular",
+        "path": "/medicina-critica/hemodinamica-cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-critica/hemodinamica-cardiovascular/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/pelican-terapia-hemodinamica-individualizada-guiada-indice-cardiaco-pacientes-alto-riesgo-16x9.jpg",
+      "https://resumenestrials.com/images/trials/pelican-terapia-hemodinamica-individualizada-guiada-indice-cardiaco-pacientes-alto-riesgo-4x3.jpg",
+      "https://resumenestrials.com/images/trials/pelican-terapia-hemodinamica-individualizada-guiada-indice-cardiaco-pacientes-alto-riesgo-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Evaluar si la terapia hemodinámica que mantiene el índice cardiaco intraoperatorio en el valor basal en reposo de cada paciente reduce las complicaciones a 7 días frente a la terapia hemodinámica habitual en la cirugía abdominal mayor electiva de alto riesgo.",
+      "answer": "El compuesto de complicaciones a 7 días ocurrió en el 44.3% con la terapia individualizada frente al 46.9% con la habitual (riesgo relativo 0.94; IC 95.1%, 0.83 a 1.08; p = 0.38) , sin diferencias en ninguno de sus componentes.",
+      "population": "La población fueron adultos de 45 años o más programados para cirugía abdominal mayor electiva sobre órganos viscerales, con anestesia general y una duración prevista de al menos 90 minutos, con al menos un criterio de alto riesgo: capacidad de ejercicio menor de 4 equivalentes metabólicos, insuficiencia renal (creatinina de 1.3 mg/dL o más, o filtrado glomerular estimado menor de 90 mL/min/1.73 m2), cardiopatía coronaria…"
+    }
+  },
+  "210": {
+    "slug": "fluid-ensayo-cruzado-solucion-ringer-lactato-solucion-salina-normal-todo",
+    "path": "/trials/fluid-ensayo-cruzado-solucion-ringer-lactato-solucion-salina-normal-todo/",
+    "url": "https://resumenestrials.com/trials/fluid-ensayo-cruzado-solucion-ringer-lactato-solucion-salina-normal-todo/",
+    "title": "FLUID: ensayo cruzado de solución de Ringer lactato frente a solución salina normal en todo el hospital",
+    "seo_title": "FLUID trial: ensayo cruzado de solución de Ringer lactato frente a solución salina normal en todo el hospital | Resúmenes Trials",
+    "description": "FLUID: La incidencia media por hospital de muerte o reingreso a 90 días fue del 20.3% con Ringer lactato frente al 21.4% con solución salina (diferencia…",
+    "clusters": [],
+    "images": [
+      "https://resumenestrials.com/images/trials/fluid-ensayo-cruzado-solucion-ringer-lactato-solucion-salina-normal-todo-16x9.jpg",
+      "https://resumenestrials.com/images/trials/fluid-ensayo-cruzado-solucion-ringer-lactato-solucion-salina-normal-todo-4x3.jpg",
+      "https://resumenestrials.com/images/trials/fluid-ensayo-cruzado-solucion-ringer-lactato-solucion-salina-normal-todo-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si una política hospitalaria de usar solución de Ringer lactato en lugar de solución salina normal reduce la muerte o el reingreso hospitalario a 90 días tras el ingreso índice.",
+      "answer": "La incidencia media por hospital de muerte o reingreso a 90 días fue del 20.3% con Ringer lactato frente al 21.4% con solución salina (diferencia ajustada −0.53 puntos; IC 95%, −1.85 a 0.79; p = 0.35) , con secundarios coherentes con ese resultado.",
+      "population": "La población fueron todos los pacientes ingresados en siete hospitales académicos y comunitarios de Ontario, en Canadá, durante los periodos del ensayo, siempre que se tratara de un ingreso índice, es decir, sin otra hospitalización en los 90 días previos. No se reclutó a nadie de forma individual: los datos clínicos se obtuvieron de las bases administrativas de salud de la provincia, y se aprobó una dispensa del…"
+    }
+  },
+  "211": {
+    "slug": "protection-ensayo-aleatorizado-aminoacidos-intravenosos-proteccion-renal",
+    "path": "/trials/protection-ensayo-aleatorizado-aminoacidos-intravenosos-proteccion-renal/",
+    "url": "https://resumenestrials.com/trials/protection-ensayo-aleatorizado-aminoacidos-intravenosos-proteccion-renal/",
+    "title": "PROTECTION: ensayo aleatorizado de aminoácidos intravenosos para la protección renal",
+    "seo_title": "PROTECTION trial: ensayo aleatorizado de aminoácidos intravenosos para la protección renal | Resúmenes Trials",
+    "description": "PROTECTION: La lesión renal aguda apareció en el 26.9% con aminoácidos frente al 31.7% con placebo (riesgo relativo 0.85; IC 95%, 0.77 a 0.94; p = 0.002)…",
+    "clusters": [
+      {
+        "name": "SDRA y ECMO",
+        "path": "/medicina-critica/sdra-ecmo/",
+        "url": "https://resumenestrials.com/medicina-critica/sdra-ecmo/"
+      },
+      {
+        "name": "Renal y ácido-base",
+        "path": "/medicina-critica/renal-acido-base/",
+        "url": "https://resumenestrials.com/medicina-critica/renal-acido-base/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/protection-ensayo-aleatorizado-aminoacidos-intravenosos-proteccion-renal-16x9.jpg",
+      "https://resumenestrials.com/images/trials/protection-ensayo-aleatorizado-aminoacidos-intravenosos-proteccion-renal-4x3.jpg",
+      "https://resumenestrials.com/images/trials/protection-ensayo-aleatorizado-aminoacidos-intravenosos-proteccion-renal-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si una infusión intravenosa de aminoácidos reduce la lesión renal aguda en la primera semana tras la cirugía cardiaca con circulación extracorpórea, frente a placebo.",
+      "answer": "La lesión renal aguda apareció en el 26.9% con aminoácidos frente al 31.7% con placebo (riesgo relativo 0.85; IC 95%, 0.77 a 0.94; p = 0.002) , sin diferencia significativa en la terapia de reemplazo renal y con la misma mortalidad a 30 días, 2.8% en ambos grupos.",
+      "population": "La población fueron adultos de 18 años o más programados para cirugía cardiaca electiva con circulación extracorpórea, con una estancia prevista en cuidados intensivos de al menos una noche y una creatinina basal disponible. Procedían de 22 centros de Italia, Singapur y Croacia, la gran mayoría italianos, y el 98.4% y el 98.1% de los pacientes se identificaron como blancos."
+    }
   }
 }

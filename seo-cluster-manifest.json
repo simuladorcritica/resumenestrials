@@ -84,7 +84,7 @@
     "category": "Medicina Crítica",
     "path": "/medicina-critica/sdra-ecmo/",
     "url": "https://resumenestrials.com/medicina-critica/sdra-ecmo/",
-    "count": 19,
+    "count": 20,
     "trial_ids": [
       "21",
       "56",
@@ -104,7 +104,8 @@
       "192",
       "199",
       "205",
-      "206"
+      "206",
+      "211"
     ]
   },
   "neurocriticos": {
@@ -132,7 +133,7 @@
     "category": "Medicina Crítica",
     "path": "/medicina-critica/renal-acido-base/",
     "url": "https://resumenestrials.com/medicina-critica/renal-acido-base/",
-    "count": 19,
+    "count": 20,
     "trial_ids": [
       "6",
       "9",
@@ -152,7 +153,8 @@
       "193",
       "203",
       "204",
-      "208"
+      "208",
+      "211"
     ]
   },
   "hemodinamica-cardiovascular": {
@@ -160,7 +162,7 @@
     "category": "Medicina Crítica",
     "path": "/medicina-critica/hemodinamica-cardiovascular/",
     "url": "https://resumenestrials.com/medicina-critica/hemodinamica-cardiovascular/",
-    "count": 16,
+    "count": 17,
     "trial_ids": [
       "2",
       "9",
@@ -177,7 +179,8 @@
       "195",
       "198",
       "203",
-      "207"
+      "207",
+      "209"
     ]
   },
   "paro-resucitacion": {
