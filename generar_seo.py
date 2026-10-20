@@ -387,6 +387,32 @@ def generar_feed(items: list[dict]) -> None:
     FEED_PATH.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
+DATOS_ENSAYOS_DIR = ROOT / "datos" / "ensayos"
+
+
+def generar_datos_por_ensayo(items: list[dict]) -> None:
+    """Un JSON pequeño por ensayo para que el lector no descargue el archivo completo.
+
+    El lector y el PDF solo necesitan el registro que se está leyendo; en celular
+    esperar resumenes.json completo dejaba los controles inactivos.
+    """
+    DATOS_ENSAYOS_DIR.mkdir(parents=True, exist_ok=True)
+    esperados = set()
+    for item in items:
+        trial_id = id_texto(item.get("id"))
+        nombre = f"{trial_id}.json"
+        esperados.add(nombre)
+        registro = dict(item)
+        registro["ruta"] = ruta_trial(item)
+        contenido = json.dumps(registro, ensure_ascii=False, separators=(",", ":")) + "\n"
+        destino = DATOS_ENSAYOS_DIR / nombre
+        if not destino.exists() or destino.read_text(encoding="utf-8") != contenido:
+            destino.write_text(contenido, encoding="utf-8")
+    for viejo in DATOS_ENSAYOS_DIR.glob("*.json"):
+        if viejo.name not in esperados:
+            viejo.unlink()
+
+
 def validar(items: object) -> list[dict]:
     if not isinstance(items, list):
         raise ValueError("resumenes.json debe contener una lista")
@@ -453,6 +479,7 @@ def main() -> None:
         (out / "index.html").write_text(pagina_categoria(nombre, categorias_contenido[nombre]), encoding="utf-8")
 
     MANIFEST_PATH.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    generar_datos_por_ensayo(items)
     generar_sitemap(items, categorias_contenido)
     generar_feed(items)
     print(f"SEO generado: {len(items)} trials, {sum(bool(v) for v in categorias_contenido.values())} categorías, sitemap.xml y feed.xml.")

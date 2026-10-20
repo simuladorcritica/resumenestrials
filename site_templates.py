@@ -109,6 +109,15 @@ def card(r,manifest):
   +'<details class="ev-card-facts"><summary>Ficha del estudio</summary>'+facts(r)+'</details>'+
   f'<div class="ev-card-foot"><p class="ev-readtime">{readtime(r)}</p><div class="ev-card-actions"><a class="ev-btn ev-btn-primary" href="{path}" data-ev-read="{id}" aria-label="Leer resumen: {t}">Leer</a>'
   f'<details class="ev-pdf-menu"><summary class="ev-btn" aria-label="Descargar PDF de {t}">{icon("pdf")}<span>PDF</span></summary><div class="ev-pdf-pop"><button type="button" data-ev-card-pdf="{id}" data-ev-version="completo" aria-label="Descargar resumen completo PDF de {t}">PDF completo</button><button type="button" data-ev-card-pdf="{id}" data-ev-version="breve" aria-label="Descargar resumen breve PDF de {t}">PDF breve</button></div></details></div></div></li>')
+def by_date(items):
+ """Mismo orden inicial que el archivo en el navegador (más recientes primero, empates estables).
+
+ Así la portada no muestra primero los ensayos más antiguos y luego se reordena.
+ """
+ def key(r):
+  m=re.fullmatch(r"(\d{4})-(\d{2})-(\d{2})",str(r.get("fecha") or "").strip())
+  return (0,-int(m[1]+m[2]+m[3])) if m else (1,0)
+ return sorted(items,key=key)
 def archive(items,manifest,title="Archivo de evidencia",scope=""):
  import generar_seo as base
  from collections import Counter
@@ -137,7 +146,7 @@ def archive(items,manifest,title="Archivo de evidencia",scope=""):
  heading="Biblioteca de ensayos" if not scope else "Resúmenes de "+esc(title)
  return (hero+f'<section class="ev-archive" id="ev-archivo" data-ev-ids="{",".join(trial_id(r["id"]) for r in items)}"><div class="ev-archive-head"><h2>{heading}</h2><p id="ev-count" class="ev-count" role="status">{len(items)} resúmenes</p></div>'
   +segment+quick+'<div class="ev-archive-bar"><button type="button" class="ev-btn ev-filter-toggle" data-ev-filters aria-expanded="false" aria-controls="ev-filters">'+icon("filter")+'<span>Filtros</span><b class="ev-badge" data-ev-filter-count hidden></b></button><div class="ev-chips" id="ev-chips" role="group" aria-label="Filtros activos"></div><button type="button" class="ev-btn ev-view-toggle" id="ev-view" aria-pressed="false" aria-label="Vista compacta">'+icon("list")+'<span>Vista compacta</span></button></div>'
-  +filters+'<ul class="ev-list" id="ev-list">'+''.join(card(r,manifest) for r in items)+'</ul>'
+  +filters+'<ul class="ev-list" id="ev-list">'+''.join(card(r,manifest) for r in by_date(items))+'</ul>'
   '<div id="ev-empty" class="ev-empty" hidden><p class="ev-empty-title">No encontramos coincidencias</p><p>Prueba con otra palabra, por ejemplo «sepsis», el nombre corto del estudio o el año.</p><button type="button" class="ev-btn ev-btn-primary" data-ev-reset>Ver todos los resúmenes</button></div>'
   '<button id="ev-more" type="button" class="ev-btn ev-more" hidden>Mostrar más</button></section>')
 def reading(r,manifest,brief=False,legacy=False):
