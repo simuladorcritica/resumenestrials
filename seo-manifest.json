@@ -5208,5 +5208,35 @@
       "answer": "La mortalidad a 180 días fue del 26% con levosimendán frente al 28% con dobutamina (hazard ratio 0.91; IC 95%, 0.74 a 1.13; p = 0.40) , sin diferencia significativa; el BNP bajó más con levosimendán a las 24 horas, 631 frente a 397 pg/ml (p menor de 0.001) .",
       "population": "La población fueron adultos de 18 años o más hospitalizados por insuficiencia cardiaca aguda descompensada, con una fracción de eyección del 30% o menos en los 12 meses previos y necesidad de un inotrópico intravenoso por respuesta insuficiente a diuréticos o vasodilatadores intravenosos. Además debían tener al menos uno de tres criterios: disnea en reposo o ventilación mecánica por la descompensación; oliguria no debida a…"
     }
+  },
+  "208": {
+    "slug": "hidrocortisona-y-fludrocortisona-en-dosis-bajas-en-el-shock-septico-con-insuficiencia",
+    "path": "/trials/hidrocortisona-y-fludrocortisona-en-dosis-bajas-en-el-shock-septico-con-insuficiencia/",
+    "url": "https://resumenestrials.com/trials/hidrocortisona-y-fludrocortisona-en-dosis-bajas-en-el-shock-septico-con-insuficiencia/",
+    "title": "Hidrocortisona y fludrocortisona en dosis bajas en el shock séptico con insuficiencia suprarrenal relativa",
+    "seo_title": "Hidrocortisona y fludrocortisona en dosis bajas en el shock séptico con insuficiencia suprarrenal relativa | Resúmenes Trials",
+    "description": "Hidrocortisona y fludrocortisona en dosis bajas en el shock séptico con insuficiencia suprarrenal relativa: En los no respondedores a la corticotropina, la…",
+    "clusters": [
+      {
+        "name": "Sepsis y shock",
+        "path": "/medicina-critica/sepsis-shock/",
+        "url": "https://resumenestrials.com/medicina-critica/sepsis-shock/"
+      },
+      {
+        "name": "Renal y ácido-base",
+        "path": "/medicina-critica/renal-acido-base/",
+        "url": "https://resumenestrials.com/medicina-critica/renal-acido-base/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/hidrocortisona-y-fludrocortisona-en-dosis-bajas-en-el-shock-septico-con-insuficiencia-16x9.jpg",
+      "https://resumenestrials.com/images/trials/hidrocortisona-y-fludrocortisona-en-dosis-bajas-en-el-shock-septico-con-insuficiencia-4x3.jpg",
+      "https://resumenestrials.com/images/trials/hidrocortisona-y-fludrocortisona-en-dosis-bajas-en-el-shock-septico-con-insuficiencia-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Evaluar si la hidrocortisona y la fludrocortisona en dosis bajas durante 7 días mejoran la supervivencia a 28 días en el shock séptico con insuficiencia suprarrenal relativa.",
+      "answer": "En los no respondedores a la corticotropina, la mortalidad a 28 días fue del 53% con corticoides frente al 63% con placebo (HR 0.67; IC 95%, 0.47 a 0.95; p = 0.02) ; en los respondedores no hubo diferencia (p = 0.81).",
+      "population": "La población fueron adultos de 18 años o más con shock séptico, ingresados en 19 unidades de cuidados intensivos de Francia, que debían cumplir siete criterios a la vez: una infección documentada o con sospecha fuerte; temperatura mayor de 38.3 °C o menor de 35.6 °C; frecuencia cardiaca mayor de 90 latidos por minuto; presión sistólica menor de 90 mm Hg durante al menos 1 hora pese a una reposición adecuada de líquidos y más…"
+    }
   }
 }
