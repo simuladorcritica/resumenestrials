@@ -1,0 +1,1287 @@
+{
+  "schema_version": 1,
+  "base_sha": "90d77e9376084177191ed3f3f2d7dc06cc93758e",
+  "authorizations": [
+    {
+      "id": 1,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2516087), a petición expresa del editor."
+    },
+    {
+      "id": 2,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2516225), a petición expresa del editor."
+    },
+    {
+      "id": 3,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2511420), a petición expresa del editor."
+    },
+    {
+      "id": 4,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2513814), a petición expresa del editor."
+    },
+    {
+      "id": 6,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2600526), a petición expresa del editor."
+    },
+    {
+      "id": 7,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2506398), a petición expresa del editor."
+    },
+    {
+      "id": 8,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1186/s13054-026-05861-w), a petición expresa del editor."
+    },
+    {
+      "id": 10,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1007/s00134-026-08521-3), a petición expresa del editor."
+    },
+    {
+      "id": 11,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1007/s00134-026-08351-3), a petición expresa del editor."
+    },
+    {
+      "id": 12,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1186/s13054-026-06040-7), a petición expresa del editor."
+    },
+    {
+      "id": 13,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2516043), a petición expresa del editor."
+    },
+    {
+      "id": 14,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2602167), a petición expresa del editor."
+    },
+    {
+      "id": 15,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2601005), a petición expresa del editor."
+    },
+    {
+      "id": 16,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2515043), a petición expresa del editor."
+    },
+    {
+      "id": 17,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2516567), a petición expresa del editor."
+    },
+    {
+      "id": 19,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2514120), a petición expresa del editor."
+    },
+    {
+      "id": 20,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1016/S2213-2600(26)00047-0), a petición expresa del editor."
+    },
+    {
+      "id": 21,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1007/s00134-026-08302-y), a petición expresa del editor."
+    },
+    {
+      "id": 22,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1007/s00134-026-08381-x), a petición expresa del editor."
+    },
+    {
+      "id": 23,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1007/s00134-026-08492-5), a petición expresa del editor."
+    },
+    {
+      "id": 24,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1186/s13054-026-06057-y), a petición expresa del editor."
+    },
+    {
+      "id": 25,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1186/s13054-026-05847-8), a petición expresa del editor."
+    },
+    {
+      "id": 26,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2512918), a petición expresa del editor."
+    },
+    {
+      "id": 27,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2510703), a petición expresa del editor."
+    },
+    {
+      "id": 28,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2513310), a petición expresa del editor."
+    },
+    {
+      "id": 29,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2517213), a petición expresa del editor."
+    },
+    {
+      "id": 30,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2600283), a petición expresa del editor."
+    },
+    {
+      "id": 31,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2506905), a petición expresa del editor."
+    },
+    {
+      "id": 32,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2502457), a petición expresa del editor."
+    },
+    {
+      "id": 33,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2601841), a petición expresa del editor."
+    },
+    {
+      "id": 34,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2515704), a petición expresa del editor."
+    },
+    {
+      "id": 35,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2604625), a petición expresa del editor."
+    },
+    {
+      "id": 36,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2512091), a petición expresa del editor."
+    },
+    {
+      "id": 37,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2509688), a petición expresa del editor."
+    },
+    {
+      "id": 38,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2503687), a petición expresa del editor."
+    },
+    {
+      "id": 39,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2508228), a petición expresa del editor."
+    },
+    {
+      "id": 40,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1186/s13054-026-06235-y), a petición expresa del editor."
+    },
+    {
+      "id": 41,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1007/s00134-026-08453-y), a petición expresa del editor."
+    },
+    {
+      "id": 42,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1186/s13054-026-06186-4), a petición expresa del editor."
+    },
+    {
+      "id": 43,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1186/s13054-026-06075-w), a petición expresa del editor."
+    },
+    {
+      "id": 44,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1007/s00134-026-08459-6), a petición expresa del editor."
+    },
+    {
+      "id": 45,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1186/s13054-026-06101-x), a petición expresa del editor."
+    },
+    {
+      "id": 46,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1186/s13054-026-05842-z), a petición expresa del editor."
+    },
+    {
+      "id": 47,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1186/s13054-026-05840-1), a petición expresa del editor."
+    },
+    {
+      "id": 48,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1186/s13054-026-05912-2), a petición expresa del editor."
+    },
+    {
+      "id": 49,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2507100), a petición expresa del editor."
+    },
+    {
+      "id": 50,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2031304), a petición expresa del editor."
+    },
+    {
+      "id": 51,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa1511939), a petición expresa del editor."
+    },
+    {
+      "id": 52,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa1705835), a petición expresa del editor."
+    },
+    {
+      "id": 53,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa1711584), a petición expresa del editor."
+    },
+    {
+      "id": 54,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa1711586), a petición expresa del editor."
+    },
+    {
+      "id": 55,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2114464), a petición expresa del editor."
+    },
+    {
+      "id": 56,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2208687), a petición expresa del editor."
+    },
+    {
+      "id": 57,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/EVIDoa2500158), a petición expresa del editor."
+    },
+    {
+      "id": 58,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2110956), a petición expresa del editor."
+    },
+    {
+      "id": 59,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2022190), a petición expresa del editor."
+    },
+    {
+      "id": 60,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa1903297), a petición expresa del editor."
+    },
+    {
+      "id": 61,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa1812389), a petición expresa del editor."
+    },
+    {
+      "id": 62,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2206286), a petición expresa del editor."
+    },
+    {
+      "id": 63,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2502136), a petición expresa del editor."
+    },
+    {
+      "id": 64,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2021436), a petición expresa del editor."
+    },
+    {
+      "id": 65,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2024922), a petición expresa del editor."
+    },
+    {
+      "id": 66,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2415471), a petición expresa del editor."
+    },
+    {
+      "id": 67,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2212528), a petición expresa del editor."
+    },
+    {
+      "id": 68,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa1901686), a petición expresa del editor."
+    },
+    {
+      "id": 69,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2212663), a petición expresa del editor."
+    },
+    {
+      "id": 70,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa1102662), a petición expresa del editor."
+    },
+    {
+      "id": 71,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa1612917), a petición expresa del editor."
+    },
+    {
+      "id": 72,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2314051), a petición expresa del editor."
+    },
+    {
+      "id": 77,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2307227), a petición expresa del editor."
+    },
+    {
+      "id": 79,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa1503326), a petición expresa del editor."
+    },
+    {
+      "id": 80,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2010834), a petición expresa del editor."
+    },
+    {
+      "id": 81,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa1705716), a petición expresa del editor."
+    },
+    {
+      "id": 83,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2100591), a petición expresa del editor."
+    },
+    {
+      "id": 84,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2209421), a petición expresa del editor."
+    },
+    {
+      "id": 85,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2314741), a petición expresa del editor."
+    },
+    {
+      "id": 88,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2032510), a petición expresa del editor."
+    },
+    {
+      "id": 89,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2508800), a petición expresa del editor."
+    },
+    {
+      "id": 90,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2214552), a petición expresa del editor."
+    },
+    {
+      "id": 91,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa1411587), a petición expresa del editor."
+    },
+    {
+      "id": 92,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa1409077), a petición expresa del editor."
+    },
+    {
+      "id": 93,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa1107039), a petición expresa del editor."
+    },
+    {
+      "id": 94,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2606997), a petición expresa del editor."
+    },
+    {
+      "id": 96,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa1811744), a petición expresa del editor."
+    },
+    {
+      "id": 97,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa1812792), a petición expresa del editor."
+    },
+    {
+      "id": 98,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2608012), a petición expresa del editor."
+    },
+    {
+      "id": 99,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2608533), a petición expresa del editor."
+    },
+    {
+      "id": 100,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2024816), a petición expresa del editor."
+    },
+    {
+      "id": 101,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa1911303), a petición expresa del editor."
+    },
+    {
+      "id": 102,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa1615664), a petición expresa del editor."
+    },
+    {
+      "id": 103,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa1410489), a petición expresa del editor."
+    },
+    {
+      "id": 105,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2502799), a petición expresa del editor."
+    },
+    {
+      "id": 107,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2609057), a petición expresa del editor."
+    },
+    {
+      "id": 108,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa1011205), a petición expresa del editor."
+    },
+    {
+      "id": 109,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa1105243), a petición expresa del editor."
+    },
+    {
+      "id": 110,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa1214103), a petición expresa del editor."
+    },
+    {
+      "id": 111,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2609056), a petición expresa del editor."
+    },
+    {
+      "id": 112,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa1102873), a petición expresa del editor."
+    },
+    {
+      "id": 113,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2202707), a petición expresa del editor."
+    },
+    {
+      "id": 116,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2415820), a petición expresa del editor."
+    },
+    {
+      "id": 117,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2608903), a petición expresa del editor."
+    },
+    {
+      "id": 118,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa1706442), a petición expresa del editor."
+    },
+    {
+      "id": 119,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa1713973), a petición expresa del editor."
+    },
+    {
+      "id": 120,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2606924), a petición expresa del editor."
+    },
+    {
+      "id": 122,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2028700), a petición expresa del editor."
+    },
+    {
+      "id": 123,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa1008232), a petición expresa del editor."
+    },
+    {
+      "id": 124,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa1814052), a petición expresa del editor."
+    },
+    {
+      "id": 125,
+      "fields": [
+        "revista"
+      ],
+      "reason": "revista normalizada a la abreviatura canónica NEJM."
+    },
+    {
+      "id": 126,
+      "fields": [
+        "titulo",
+        "revista"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2208415), a petición expresa del editor; revista normalizada a la abreviatura canónica NEJM."
+    },
+    {
+      "id": 127,
+      "fields": [
+        "titulo",
+        "revista"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2309995), a petición expresa del editor; revista normalizada a la abreviatura canónica NEJM."
+    },
+    {
+      "id": 128,
+      "fields": [
+        "titulo",
+        "revista"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa1806842), a petición expresa del editor; revista normalizada a la abreviatura canónica NEJM."
+    },
+    {
+      "id": 129,
+      "fields": [
+        "titulo",
+        "revista"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa1704154), a petición expresa del editor; revista normalizada a la abreviatura canónica NEJM."
+    },
+    {
+      "id": 130,
+      "fields": [
+        "titulo",
+        "revista"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa1816897), a petición expresa del editor; revista normalizada a la abreviatura canónica NEJM."
+    },
+    {
+      "id": 131,
+      "fields": [
+        "titulo",
+        "revista"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2204511), a petición expresa del editor; revista normalizada a la abreviatura canónica NEJM."
+    },
+    {
+      "id": 132,
+      "fields": [
+        "titulo",
+        "revista"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa1808217), a petición expresa del editor; revista normalizada a la abreviatura canónica NEJM."
+    },
+    {
+      "id": 133,
+      "fields": [
+        "revista"
+      ],
+      "reason": "revista normalizada a la abreviatura canónica NEJM."
+    },
+    {
+      "id": 134,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa1507581), a petición expresa del editor."
+    },
+    {
+      "id": 135,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa1603017), a petición expresa del editor."
+    },
+    {
+      "id": 136,
+      "fields": [
+        "titulo",
+        "revista"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2100433), a petición expresa del editor; revista normalizada a la abreviatura canónica NEJM."
+    },
+    {
+      "id": 137,
+      "fields": [
+        "titulo",
+        "revista"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2312572), a petición expresa del editor; revista normalizada a la abreviatura canónica NEJM."
+    },
+    {
+      "id": 138,
+      "fields": [
+        "titulo",
+        "revista"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2608717), a petición expresa del editor; revista normalizada a la abreviatura canónica NEJM."
+    },
+    {
+      "id": 139,
+      "fields": [
+        "titulo",
+        "revista"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2313680), a petición expresa del editor; revista normalizada a la abreviatura canónica NEJM."
+    },
+    {
+      "id": 140,
+      "fields": [
+        "titulo",
+        "revista"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa1714919), a petición expresa del editor; revista normalizada a la abreviatura canónica NEJM."
+    },
+    {
+      "id": 141,
+      "fields": [
+        "titulo",
+        "revista"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa1710261), a petición expresa del editor; revista normalizada a la abreviatura canónica NEJM."
+    },
+    {
+      "id": 142,
+      "fields": [
+        "titulo",
+        "revista"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa1802345), a petición expresa del editor; revista normalizada a la abreviatura canónica NEJM."
+    },
+    {
+      "id": 143,
+      "fields": [
+        "titulo",
+        "revista"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2404245), a petición expresa del editor; revista normalizada a la abreviatura canónica NEJM."
+    },
+    {
+      "id": 144,
+      "fields": [
+        "titulo",
+        "revista"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa1906661), a petición expresa del editor; revista normalizada a la abreviatura canónica NEJM."
+    },
+    {
+      "id": 145,
+      "fields": [
+        "titulo",
+        "revista"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2103417), a petición expresa del editor; revista normalizada a la abreviatura canónica NEJM."
+    },
+    {
+      "id": 146,
+      "fields": [
+        "revista"
+      ],
+      "reason": "revista normalizada a la abreviatura canónica NEJM."
+    },
+    {
+      "id": 147,
+      "fields": [
+        "titulo",
+        "revista"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa1803213), a petición expresa del editor; revista normalizada a la abreviatura canónica NEJM."
+    },
+    {
+      "id": 148,
+      "fields": [
+        "titulo",
+        "revista"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa1605215), a petición expresa del editor; revista normalizada a la abreviatura canónica NEJM."
+    },
+    {
+      "id": 149,
+      "fields": [
+        "titulo",
+        "revista"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa1500896), a petición expresa del editor; revista normalizada a la abreviatura canónica NEJM."
+    },
+    {
+      "id": 150,
+      "fields": [
+        "titulo",
+        "revista"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2301601), a petición expresa del editor; revista normalizada a la abreviatura canónica NEJM."
+    },
+    {
+      "id": 151,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2505928), a petición expresa del editor."
+    },
+    {
+      "id": 152,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2508515), a petición expresa del editor."
+    },
+    {
+      "id": 153,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2511002), a petición expresa del editor."
+    },
+    {
+      "id": 154,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2511920), a petición expresa del editor."
+    },
+    {
+      "id": 155,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2512686), a petición expresa del editor."
+    },
+    {
+      "id": 156,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2512761), a petición expresa del editor."
+    },
+    {
+      "id": 158,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2513032), a petición expresa del editor."
+    },
+    {
+      "id": 160,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2519001), a petición expresa del editor."
+    },
+    {
+      "id": 161,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2600440), a petición expresa del editor."
+    },
+    {
+      "id": 162,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2602678), a petición expresa del editor."
+    },
+    {
+      "id": 163,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2603649), a petición expresa del editor."
+    },
+    {
+      "id": 165,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2606998), a petición expresa del editor."
+    },
+    {
+      "id": 167,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2607978), a petición expresa del editor."
+    },
+    {
+      "id": 169,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2606934), a petición expresa del editor."
+    },
+    {
+      "id": 170,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa1916431), a petición expresa del editor."
+    },
+    {
+      "id": 171,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa1215554), a petición expresa del editor."
+    },
+    {
+      "id": 173,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa1011923), a petición expresa del editor."
+    },
+    {
+      "id": 174,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa1005372), a petición expresa del editor."
+    },
+    {
+      "id": 175,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2608571), a petición expresa del editor."
+    },
+    {
+      "id": 177,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2215457), a petición expresa del editor."
+    },
+    {
+      "id": 178,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2026845), a petición expresa del editor."
+    },
+    {
+      "id": 179,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1001/jama.2026.21322), a petición expresa del editor."
+    },
+    {
+      "id": 180,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa1812405), a petición expresa del editor."
+    },
+    {
+      "id": 181,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa1312173), a petición expresa del editor."
+    },
+    {
+      "id": 182,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa1113849), a petición expresa del editor."
+    },
+    {
+      "id": 183,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa1215716), a petición expresa del editor."
+    },
+    {
+      "id": 184,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa1208410), a petición expresa del editor."
+    },
+    {
+      "id": 185,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa0904492), a petición expresa del editor."
+    },
+    {
+      "id": 186,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa0907118), a petición expresa del editor."
+    },
+    {
+      "id": 187,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa0708638), a petición expresa del editor."
+    },
+    {
+      "id": 188,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa067373), a petición expresa del editor."
+    },
+    {
+      "id": 189,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa071366), a petición expresa del editor."
+    },
+    {
+      "id": 190,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa051693), a petición expresa del editor."
+    },
+    {
+      "id": 191,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa032193), a petición expresa del editor."
+    },
+    {
+      "id": 192,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJM200005043421801), a petición expresa del editor."
+    },
+    {
+      "id": 193,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1056/NEJMoa2608397), a petición expresa del editor."
+    },
+    {
+      "id": 194,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1001/jama.2026.18471), a petición expresa del editor."
+    },
+    {
+      "id": 195,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1001/jama.2026.21333), a petición expresa del editor."
+    },
+    {
+      "id": 197,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1001/jamainternmed.2026.4023), a petición expresa del editor."
+    },
+    {
+      "id": 198,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1001/jama.2020.0930), a petición expresa del editor."
+    },
+    {
+      "id": 199,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1001/jama.2019.0555), a petición expresa del editor."
+    },
+    {
+      "id": 203,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1001/jama.2016.10485), a petición expresa del editor."
+    },
+    {
+      "id": 204,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1001/jama.2016.5828), a petición expresa del editor."
+    },
+    {
+      "id": 205,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1001/jama.299.6.637), a petición expresa del editor."
+    },
+    {
+      "id": 206,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1001/jama.299.6.646), a petición expresa del editor."
+    },
+    {
+      "id": 207,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1001/jama.297.17.1883), a petición expresa del editor."
+    },
+    {
+      "id": 208,
+      "fields": [
+        "titulo"
+      ],
+      "reason": "título sustituido por la traducción fiel del título oficial del artículo (Crossref, DOI 10.1001/jama.288.7.862), a petición expresa del editor."
+    }
+  ]
+}

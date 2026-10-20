@@ -4,7 +4,7 @@
     "category": "Medicina Crítica",
     "path": "/medicina-critica/sepsis-shock/",
     "url": "https://resumenestrials.com/medicina-critica/sepsis-shock/",
-    "count": 20,
+    "count": 21,
     "trial_ids": [
       "2",
       "9",
@@ -13,6 +13,7 @@
       "46",
       "52",
       "65",
+      "69",
       "81",
       "87",
       "113",
@@ -83,20 +84,25 @@
     "category": "Medicina Crítica",
     "path": "/medicina-critica/sdra-ecmo/",
     "url": "https://resumenestrials.com/medicina-critica/sdra-ecmo/",
-    "count": 14,
+    "count": 19,
     "trial_ids": [
       "21",
       "56",
       "67",
       "68",
       "78",
+      "110",
       "128",
       "131",
+      "170",
+      "171",
+      "174",
       "183",
       "187",
       "190",
       "191",
       "192",
+      "199",
       "205",
       "206"
     ]
@@ -154,7 +160,7 @@
     "category": "Medicina Crítica",
     "path": "/medicina-critica/hemodinamica-cardiovascular/",
     "url": "https://resumenestrials.com/medicina-critica/hemodinamica-cardiovascular/",
-    "count": 15,
+    "count": 16,
     "trial_ids": [
       "2",
       "9",
@@ -163,6 +169,7 @@
       "129",
       "168",
       "178",
+      "179",
       "181",
       "184",
       "186",
@@ -277,7 +284,7 @@
     "category": "Medicina Interna",
     "path": "/medicina-interna/infecciosas/",
     "url": "https://resumenestrials.com/medicina-interna/infecciosas/",
-    "count": 8,
+    "count": 9,
     "trial_ids": [
       "31",
       "32",
@@ -286,7 +293,8 @@
       "49",
       "50",
       "64",
-      "84"
+      "84",
+      "109"
     ]
   },
   "renal-metabolica": {
@@ -350,13 +358,12 @@
     "category": "Medicina Interna",
     "path": "/medicina-interna/neumologia/",
     "url": "https://resumenestrials.com/medicina-interna/neumologia/",
-    "count": 8,
+    "count": 7,
     "trial_ids": [
       "17",
       "43",
       "49",
       "50",
-      "64",
       "98",
       "111",
       "165"

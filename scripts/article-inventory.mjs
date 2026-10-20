@@ -1,3 +1,5 @@
+import { existsSync, readFileSync } from 'node:fs';
+
 const BASE_URL = 'https://resumenestrials.com';
 
 export const INTERNAL_SPECIALTIES = Object.freeze([
@@ -49,10 +51,32 @@ export function slugify(value, limit = 92) {
   return base.replace(/^-|-$/g, '');
 }
 
+const FROZEN_SLUGS_URL = new URL('../seo-slugs.json', import.meta.url);
+let frozenSlugs = null;
+
+// URLs públicas ya publicadas: no cambian aunque se corrija el título.
+// Solo se aplican cuando el ID y el DOI coinciden con el artículo publicado.
+export function frozenSlugFor(record) {
+  if (frozenSlugs === null) {
+    frozenSlugs = new Map();
+    if (existsSync(FROZEN_SLUGS_URL)) {
+      for (const [key, value] of Object.entries(JSON.parse(readFileSync(FROZEN_SLUGS_URL, 'utf8')))) {
+        const slug = slugify(value?.slug, 110);
+        const doi = String(value?.doi ?? '').trim().toLowerCase();
+        if (slug && doi) frozenSlugs.set(String(key), { doi, slug });
+      }
+    }
+  }
+  const entry = frozenSlugs.get(String(record?.id ?? '').trim());
+  return entry && entry.doi === String(record?.doi ?? '').trim().toLowerCase() ? entry.slug : '';
+}
+
 export function slugForRecord(record) {
   const manual = slugify(record?.slug, 110);
   if (manual) return manual;
   const id = String(record?.id ?? '').trim();
+  const frozen = frozenSlugFor(record);
+  if (frozen) return frozen;
   const title = plainText(record?.titulo);
   if (!title) return `trial-${id || 'sin-id'}`;
   let base;

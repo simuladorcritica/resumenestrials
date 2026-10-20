@@ -102,10 +102,11 @@ def facts(r):
  return '<dl class="ev-study-facts">'+''.join(f'<div><dt>{label}</dt><dd data-ev-field="{key}">{esc(" · ".join(map(str,r[key])) if isinstance(r.get(key),list) else r.get(key))}</dd></div>' for key,label in FACTS if r.get(key) not in ("",None,[]))+'</dl>'
 def card(r,manifest):
  id=trial_id(r["id"]);path=esc(manifest[id]["path"]);area=area_of(r);t=esc(r["titulo"]);topics=" · ".join(r.get("temas") or [])
- return (f'<li class="ev-card" data-id="{id}" data-tone="{tone(area)}"><a class="ev-card-title" href="{path}" data-ev-read="{id}"><h2>{t}</h2></a>'
+ topics_attr=f' data-ev-topics="{esc(topics)}"' if topics else ''
+ return (f'<li class="ev-card" data-id="{id}" data-tone="{tone(area)}"{topics_attr}><a class="ev-card-title" href="{path}" data-ev-read="{id}"><h2>{t}</h2></a>'
   f'<p class="ev-card-meta"><span>{esc(r["revista"])}</span><span>{esc(human_date(r["fecha"]))}</span></p>'
   f'<div class="ev-card-tags"><span class="ev-area" data-tone="{tone(area)}">{esc(area)}</span></div>'
-  +(f'<p class="ev-card-topics">{esc(topics)}</p>' if topics else '')+'<details class="ev-card-facts"><summary>Ficha del estudio</summary>'+facts(r)+'</details>'+
+  +'<details class="ev-card-facts"><summary>Ficha del estudio</summary>'+facts(r)+'</details>'+
   f'<div class="ev-card-foot"><p class="ev-readtime">{readtime(r)}</p><div class="ev-card-actions"><a class="ev-btn ev-btn-primary" href="{path}" data-ev-read="{id}" aria-label="Leer resumen: {t}">Leer</a>'
   f'<details class="ev-pdf-menu"><summary class="ev-btn" aria-label="Descargar PDF de {t}">{icon("pdf")}<span>PDF</span></summary><div class="ev-pdf-pop"><button type="button" data-ev-card-pdf="{id}" data-ev-version="completo" aria-label="Descargar resumen completo PDF de {t}">PDF completo</button><button type="button" data-ev-card-pdf="{id}" data-ev-version="breve" aria-label="Descargar resumen breve PDF de {t}">PDF breve</button></div></details></div></div></li>')
 def archive(items,manifest,title="Archivo de evidencia",scope=""):

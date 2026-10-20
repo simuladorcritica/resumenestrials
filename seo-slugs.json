@@ -1,0 +1,810 @@
+{
+  "1": {
+    "doi": "10.1056/NEJMoa2516087",
+    "slug": "soho-oxigeno-alto-flujo-oxigeno-estandar-insuficiencia-respiratoria-hipoxemica-aguda"
+  },
+  "2": {
+    "doi": "10.1056/NEJMoa2516225",
+    "slug": "arise-fluids-vasopresores-liquidos-shock-septico-temprano"
+  },
+  "3": {
+    "doi": "10.1056/NEJMoa2511420",
+    "slug": "rsi-ketamina-etomidato-intubacion-traqueal-adulto-estado-critico"
+  },
+  "4": {
+    "doi": "10.1056/NEJMoa2513814",
+    "slug": "logical-oxigeno-conservador-oxigeno-liberal-paciente-inconsciente-tras-paro-cardiaco"
+  },
+  "5": {
+    "doi": "10.1056/NEJMoa2603406",
+    "slug": "march-carbocisteina-solucion-salina-hipertonica-insuficiencia-respiratoria-aguda"
+  },
+  "6": {
+    "doi": "10.1056/NEJMoa2600526",
+    "slug": "soda-bic-bicarbonato-sodio-placebo-adulto-critico-acidosis-metabolica-shock"
+  },
+  "7": {
+    "doi": "10.1056/NEJMoa2506398",
+    "slug": "suddicu-descontaminacion-selectiva-tubo-digestivo-ventilacion-mecanica-cuidados-intensivos"
+  },
+  "8": {
+    "doi": "10.1186/s13054-026-05861-w",
+    "slug": "expres-puntaje-predictivo-extubacion-reducir-reintubacion-cuidados-intensivos"
+  },
+  "9": {
+    "doi": "10.1186/s13054-026-06121-7",
+    "slug": "cleanse-hemoadsorcion-ha-330-shock-septico-requiere-dosis-altas-noradrenalina"
+  },
+  "10": {
+    "doi": "10.1007/s00134-026-08521-3",
+    "slug": "digisep-secuenciacion-metagenomica-anadida-microbiologia-estandar-sepsis-shock-septico"
+  },
+  "11": {
+    "doi": "10.1007/s00134-026-08351-3",
+    "slug": "promine-propofol-ketamina-intubacion-secuencia-rapida-paciente-critico"
+  },
+  "12": {
+    "doi": "10.1186/s13054-026-06040-7",
+    "slug": "relieve-aki-ultrafiltracion-neta-restrictiva-liberal-lesion-renal-aguda"
+  },
+  "13": {
+    "doi": "10.1056/NEJMoa2516043",
+    "slug": "swift-sangre-total-prehospitalaria-hemocomponentes-hemorragia-traumatica-grave"
+  },
+  "14": {
+    "doi": "10.1056/NEJMoa2602167",
+    "slug": "towar-sangre-total-tipo-prehospitalaria-hemocomponentes-trauma-hemorragia"
+  },
+  "15": {
+    "doi": "10.1056/NEJMoa2601005",
+    "slug": "smart-decision-suspension-continuacion-betabloqueador-tras-infarto-miocardio"
+  },
+  "16": {
+    "doi": "10.1056/NEJMoa2515043",
+    "slug": "trident-tres-antihipertensivos-dosis-bajas-sola-pildora-tras-hemorragia-intracerebral"
+  },
+  "17": {
+    "doi": "10.1056/NEJMoa2516567",
+    "slug": "hi-peitho-fibrinolisis-dirigida-cateter-facilitada-ultrasonido-embolia-pulmonar-aguda-riesgo"
+  },
+  "18": {
+    "doi": "10.1056/NEJMoa2514428",
+    "slug": "vesalius-cv-evolocumab-pacientes-infarto-miocardio-ni-ictus-previos"
+  },
+  "19": {
+    "doi": "10.1056/NEJMoa2514120",
+    "slug": "oriental-mevo-trombectomia-endovascular-ictus-oclusion-vaso-mediano"
+  },
+  "20": {
+    "doi": "10.1016/S2213-2600(26)00047-0",
+    "slug": "tigris-hemoadsorcion-polimixina-b-shock-septico-endotoxico"
+  },
+  "21": {
+    "doi": "10.1007/s00134-026-08302-y",
+    "slug": "e-crrt-integracion-separacion-circuito-depuracion-renal-continua-paciente-ecmo"
+  },
+  "22": {
+    "doi": "10.1007/s00134-026-08381-x",
+    "slug": "shosreb-remimazolam-besilato-propofol-sedacion-ligera-corta-duracion-uci"
+  },
+  "23": {
+    "doi": "10.1007/s00134-026-08492-5",
+    "slug": "vitacca-vitamina-c-intravenosa-temprana-dosis-altas-tras-paro-cardiaco"
+  },
+  "24": {
+    "doi": "10.1186/s13054-026-06057-y",
+    "slug": "reboarrest-oclusion-aortica-balon-reboa-prehospitalaria-paro-cardiaco-extrahospitalario-no"
+  },
+  "25": {
+    "doi": "10.1186/s13054-026-05847-8",
+    "slug": "ventsetfib-ajustes-ventilador-optimizados-broncoscopia-flexible-ventilacion-mecanica"
+  },
+  "26": {
+    "doi": "10.1056/NEJMoa2512918",
+    "slug": "imodern-revascularizacion-coronaria-inmediata-guiada-ifr-diferida-guiada-resonancia-estres"
+  },
+  "27": {
+    "doi": "10.1056/NEJMoa2510703",
+    "slug": "cobrra-apixaban-rivaroxaban-riesgo-hemorragia-enfermedad-tromboembolica-venosa-aguda"
+  },
+  "28": {
+    "doi": "10.1056/NEJMoa2513310",
+    "slug": "closure-af-cierre-percutaneo-orejuela-izquierda-mejor-tratamiento-medico-fibrilacion-auricular"
+  },
+  "29": {
+    "doi": "10.1056/NEJMoa2517213",
+    "slug": "champion-af-cierre-percutaneo-orejuela-izquierda-anticoagulantes-orales-directos-fibrilacion"
+  },
+  "30": {
+    "doi": "10.1056/NEJMoa2600283",
+    "slug": "ez-pave-objetivo-intensivo-colesterol-ldl-menor-55-mg-dl-menor"
+  },
+  "31": {
+    "doi": "10.1056/NEJMoa2506905",
+    "slug": "snap-cefazolina-penicilinas-antiestafilococicas-bacteriemia-staphylococcus-aureus-sensible"
+  },
+  "32": {
+    "doi": "10.1056/NEJMoa2502457",
+    "slug": "panoramic-y-cantreatcovid-nirmatrelvir-ritonavir-oral-pacientes-ambulatorios-vacunados-mayor"
+  },
+  "33": {
+    "doi": "10.1056/NEJMoa2601841",
+    "slug": "fast-iii-vffr-obtenido-angiografia-ffr-guia-presion-guiar-revascularizacion-coronaria"
+  },
+  "34": {
+    "doi": "10.1056/NEJMoa2515704",
+    "slug": "chip-bcis3-descarga-ventriculo-izquierdo-bomba-flujo-microaxial-cuidado-estandar-intervencion"
+  },
+  "35": {
+    "doi": "10.1056/NEJMoa2604625",
+    "slug": "find-ckd-finerenona-placebo-enfermedad-renal-cronica-diabetes"
+  },
+  "36": {
+    "doi": "10.1056/NEJMoa2512091",
+    "slug": "adapt-af-des-monoterapia-anticoagulante-anticoagulante-mas-clopidogrel-fibrilacion-auricular"
+  },
+  "37": {
+    "doi": "10.1056/NEJMoa2509688",
+    "slug": "ocean-rivaroxaban-aspirina-tras-ablacion-exitosa-fibrilacion-auricular"
+  },
+  "38": {
+    "doi": "10.1056/NEJMoa2503687",
+    "slug": "beat-tuberculosis-estrategia-seis-meses-tratamiento-estandar-tuberculosis-resistente-rifampicina"
+  },
+  "39": {
+    "doi": "10.1056/NEJMoa2508228",
+    "slug": "latitude-cabotegravir-rilpivirina-inyectable-mensual-tratamiento-oral-personas-vih-dificultades"
+  },
+  "40": {
+    "doi": "10.1186/s13054-026-06235-y",
+    "slug": "alimentacion-oro-esofagica-intermitente-frente-a-sonda-nasogastrica-para-acelerar-la"
+  },
+  "41": {
+    "doi": "10.1007/s00134-026-08453-y",
+    "slug": "posicion-en-sillon-fuera-de-la-cama-frente-a-posicion-semiincorporada-en-la-cama-para"
+  },
+  "42": {
+    "doi": "10.1186/s13054-026-06186-4",
+    "slug": "horizon-ic-realidad-virtual-especifica-uci-salud-mental-tras-enfermedad-critica"
+  },
+  "43": {
+    "doi": "10.1186/s13054-026-06075-w",
+    "slug": "penetracion-intrapulmonar-de-ceftolozano-tazobactam-y-ceftazidima-avibactam-en-infusion"
+  },
+  "44": {
+    "doi": "10.1007/s00134-026-08459-6",
+    "slug": "microinhalo-gestion-automatizada-presion-neumotaponamiento-drenaje-secreciones-subgloticas"
+  },
+  "45": {
+    "doi": "10.1186/s13054-026-06101-x",
+    "slug": "neuro-conda-sedacion-temprana-isoflurano-inhalado-pacientes-neurocriticos-monitorizacion-presion"
+  },
+  "46": {
+    "doi": "10.1186/s13054-026-05842-z",
+    "slug": "titulacion-de-la-presion-ensayo-piloto-aleatorizado"
+  },
+  "47": {
+    "doi": "10.1186/s13054-026-05840-1",
+    "slug": "eficacia-de-un-dispositivo-ensayo-autocontrolado"
+  },
+  "48": {
+    "doi": "10.1186/s13054-026-05912-2",
+    "slug": "impacto-de-la-broncoscopia-ensayo-clinico-aleatorizado"
+  },
+  "49": {
+    "doi": "10.1056/NEJMoa2507100",
+    "slug": "sonia-glucocorticoides-orales-dosis-bajas-atencion-estandar-neumonia-adquirida-comunidad"
+  },
+  "50": {
+    "doi": "10.1056/NEJMoa2031304",
+    "slug": "plasmar-plasma-convalesciente-no-mejora-estado-clinico-ni-reduce-mortalidad"
+  },
+  "51": {
+    "doi": "10.1056/NEJMoa1511939",
+    "slug": "sprint-control-intensivo-versus-estandar-presion-arterial-sistolica"
+  },
+  "52": {
+    "doi": "10.1056/NEJMoa1705835",
+    "slug": "adrenal-hidrocortisona-shock-septico-no-reduce-mortalidad-90-dias"
+  },
+  "53": {
+    "doi": "10.1056/NEJMoa1711584",
+    "slug": "smart-cristaloides-balanceados-solucion-salina-adultos-criticamente-enfermos"
+  },
+  "54": {
+    "doi": "10.1056/NEJMoa1711586",
+    "slug": "salt-ed-cristaloides-balanceados-solucion-salina-adultos-no-criticamente-enfermos"
+  },
+  "55": {
+    "doi": "10.1056/NEJMoa2114464",
+    "slug": "plus-solucion-multielectrolitica-balanceada-solucion-salina-adultos-criticamente-enfermos"
+  },
+  "56": {
+    "doi": "10.1056/NEJMoa2208687",
+    "slug": "box-objetivos-presion-arterial-media-tras-paro-cardiaco-pacientes-comatosos"
+  },
+  "57": {
+    "doi": "10.1056/EVIDoa2500158",
+    "slug": "decode-ckd-dapagliflozina-reduce-masa-ventricular-izquierda-enfermedad-renal-cronica"
+  },
+  "58": {
+    "doi": "10.1056/NEJMoa2110956",
+    "slug": "figaro-dkd-finerenona-reduce-eventos-cardiovasculares-diabetes-tipo-2-enfermedad-renal"
+  },
+  "59": {
+    "doi": "10.1056/NEJMoa2022190",
+    "slug": "emperor-reduced-empagliflozina-reduce-hospitalizaciones-insuficiencia-cardiaca"
+  },
+  "60": {
+    "doi": "10.1056/NEJMoa1903297",
+    "slug": "icu-rox-oxigenoterapia-conservadora-no-mejora-dias-libres-ventilador"
+  },
+  "61": {
+    "doi": "10.1056/NEJMoa1812389",
+    "slug": "declare-timi-58-dapagliflozina-no-reduce-eventos-cardiovasculares-mayores-pero-si-evita"
+  },
+  "62": {
+    "doi": "10.1056/NEJMoa2206286",
+    "slug": "deliver-dapagliflozina-reduce-empeoramiento-insuficiencia-cardiaca-fraccion-eyeccion-mayor-40"
+  },
+  "63": {
+    "doi": "10.1056/NEJMoa2502136",
+    "slug": "everdac-diferir-cateter-arterial-shock-es-tan-seguro-como-colocarlo"
+  },
+  "64": {
+    "doi": "10.1056/NEJMoa2021436",
+    "slug": "recovery-dexametasona-reduce-mortalidad-covid-19-grave-pero-no-oxigeno"
+  },
+  "65": {
+    "doi": "10.1056/NEJMoa2024922",
+    "slug": "mends2-dexmedetomidina-no-supera-propofol-sedacion-pacientes-sepsis"
+  },
+  "66": {
+    "doi": "10.1056/NEJMoa2415471",
+    "slug": "digit-hf-digitoxin-reduce-riesgo-combinado-muerte-u-hospitalizacion-insuficiencia-cardiaca"
+  },
+  "67": {
+    "doi": "10.1056/NEJMoa2212528",
+    "slug": "box-fiebre-prolongar-prevencion-fiebre-tras-paro-cardiaco-no-cambia-pronostico"
+  },
+  "68": {
+    "doi": "10.1056/NEJMoa1901686",
+    "slug": "rose-bloqueo-neuromuscular-temprano-sdra-no-reduce-mortalidad"
+  },
+  "69": {
+    "doi": "10.1056/NEJMoa2212663",
+    "slug": "clovers-restringir-fluidos-priorizar-vasopresores-no-cambia-mortalidad-hipotension-septica"
+  },
+  "70": {
+    "doi": "10.1056/NEJMoa1102662",
+    "slug": "epanic-retrasar-nutricion-parenteral-octavo-dia-reduce-infecciones-acorta-estancia"
+  },
+  "71": {
+    "doi": "10.1056/NEJMoa1612917",
+    "slug": "exscel-exenatide-semanal-es-seguro-nivel-cardiovascular-pero-no-reduce"
+  },
+  "72": {
+    "doi": "10.1056/NEJMoa2314051",
+    "slug": "empact-mi-empagliflozina-tras-infarto-agudo-no-reduce-insuficiencia-cardiaca-ni"
+  },
+  "73": {
+    "doi": "10.1056/NEJMoa2107038",
+    "slug": "emperor-preserved-empagliflozina-insuficiencia-cardiaca-fraccion-eyeccion-preservada"
+  },
+  "74": {
+    "doi": "10.1056/NEJMoa2204233",
+    "slug": "empa-kidney-empagliflozina-pacientes-enfermedad-renal-cronica"
+  },
+  "75": {
+    "doi": "10.1056/NEJMoa1515920",
+    "slug": "empa-reg-outcome-empagliflozina-progresion-enfermedad-renal-diabetes-tipo-2"
+  },
+  "76": {
+    "doi": "10.1056/NEJMoa1504720",
+    "slug": "empa-reg-outcome-empagliflozina-desenlaces-cardiovasculares-mortalidad-diabetes-tipo-2"
+  },
+  "77": {
+    "doi": "10.1056/NEJMoa2307227",
+    "slug": "ecls-shock-soporte-vital-extracorporeo-shock-cardiogenico-infarto"
+  },
+  "78": {
+    "doi": "10.1056/NEJMoa1800385",
+    "slug": "eolia-oxigenacion-membrana-extracorporea-sindrome-dificultad-respiratoria-aguda-grave"
+  },
+  "79": {
+    "doi": "10.1056/NEJMoa1503326",
+    "slug": "florali-oxigeno-alto-flujo-insuficiencia-respiratoria-hipoxemica-aguda"
+  },
+  "80": {
+    "doi": "10.1056/NEJMoa2010834",
+    "slug": "redecap-alto-flujo-capado-succion-decanulacion-traqueostomia"
+  },
+  "81": {
+    "doi": "10.1056/NEJMoa1705716",
+    "slug": "aprocchss-hidrocortisona-mas-fludrocortisona-shock-septico"
+  },
+  "82": {
+    "doi": "10.1056/NEJMoa1209759",
+    "slug": "chest-hidroxietil-almidon-solucion-salina-reanimacion-liquidos-cuidados-intensivos"
+  },
+  "83": {
+    "doi": "10.1056/NEJMoa2100591",
+    "slug": "ttm2-hipotermia-normotermia-tras-paro-cardiaco-extrahospitalario"
+  },
+  "84": {
+    "doi": "10.1056/NEJMoa2209421",
+    "slug": "activ-6-furoato-fluticasona-inhalado-tratamiento-ambulatorio-covid-19"
+  },
+  "85": {
+    "doi": "10.1056/NEJMoa2314741",
+    "slug": "interact4-reduccion-intensiva-presion-arterial-ambulancia-accidente-cerebrovascular-hiperagudo"
+  },
+  "86": {
+    "doi": "10.1056/NEJMoa2412006",
+    "slug": "bproad-control-intensivo-presion-arterial-pacientes-diabetes-tipo-2"
+  },
+  "87": {
+    "doi": "10.1056/NEJMoa2200644",
+    "slug": "lovit-vitamina-c-intravenosa-adultos-sepsis-unidad-cuidados-intensivos"
+  },
+  "88": {
+    "doi": "10.1056/NEJMoa2032510",
+    "slug": "hot-icu-objetivos-oxigenacion-bajos-altos-insuficiencia-respiratoria-hipoxemica-aguda"
+  },
+  "89": {
+    "doi": "10.1056/NEJMoa2508800",
+    "slug": "crest-2-manejo-medico-intensivo-revascularizacion-carotidea-estenosis-carotidea-asintomatica"
+  },
+  "90": {
+    "doi": "10.1056/NEJMoa2214552",
+    "slug": "tame-hipercapnia-leve-normocapnia-tras-paro-cardiaco-extrahospitalario"
+  },
+  "91": {
+    "doi": "10.1056/NEJMoa1411587",
+    "slug": "mr-clean-tratamiento-intraarterial-ictus-isquemico-agudo-oclusion-proximal"
+  },
+  "92": {
+    "doi": "10.1056/NEJMoa1409077",
+    "slug": "paradigm-hf-sacubitrilo-valsartan-enalapril-insuficiencia-cardiaca-fraccion-eyeccion-reducida"
+  },
+  "93": {
+    "doi": "10.1056/NEJMoa1107039",
+    "slug": "aristotle-apixaban-warfarina-fibrilacion-auricular"
+  },
+  "94": {
+    "doi": "10.1056/NEJMoa2606997",
+    "slug": "premium-monoterapia-prasugrel-doble-antiagregacion-infarto-elevacion-st-tratado-angioplastia"
+  },
+  "95": {
+    "doi": "10.1056/NEJMoa1611925",
+    "slug": "canvas-program-canagliflozina-eventos-cardiovasculares-renales-diabetes-tipo-2"
+  },
+  "96": {
+    "doi": "10.1056/NEJMoa1811744",
+    "slug": "credence-canagliflozina-enfermedad-renal-cronica-diabetes-tipo-2"
+  },
+  "97": {
+    "doi": "10.1056/NEJMoa1812792",
+    "slug": "reduce-it-etil-icosapento-hipertrigliceridemia-riesgo-cardiovascular"
+  },
+  "98": {
+    "doi": "10.1056/NEJMoa2608012",
+    "slug": "prague-26-trombolisis-dirigida-cateter-tromboembolismo-pulmonar-riesgo-intermedio-alto"
+  },
+  "99": {
+    "doi": "10.1056/NEJMoa2608533",
+    "slug": "a-close-clopidogrel-monoterapia-doble-antiagregacion-prolongada-tras-stent-farmacoactivo"
+  },
+  "100": {
+    "doi": "10.1056/NEJMoa2024816",
+    "slug": "dapa-ckd-dapagliflozina-enfermedad-renal-cronica"
+  },
+  "101": {
+    "doi": "10.1056/NEJMoa1911303",
+    "slug": "dapa-hf-dapagliflozina-insuficiencia-cardiaca-fraccion-eyeccion-reducida"
+  },
+  "102": {
+    "doi": "10.1056/NEJMoa1615664",
+    "slug": "fourier-evolocumab-enfermedad-cardiovascular-aterosclerotica"
+  },
+  "103": {
+    "doi": "10.1056/NEJMoa1410489",
+    "slug": "improve-it-ezetimiba-anadida-estatinas-tras-sindrome-coronario-agudo"
+  },
+  "104": {
+    "doi": "10.1056/NEJMoa2605812",
+    "slug": "aspired-monitorizacion-electrocardiografica-ambulatoria-inmediata-sincope"
+  },
+  "105": {
+    "doi": "10.1056/NEJMoa2502799",
+    "slug": "pipeline-rehabilitacion-multidominio-pacientes-mayores-tras-infarto-miocardio"
+  },
+  "106": {
+    "doi": "10.1056/NEJMoa2032183",
+    "slug": "step-1-semaglutida-semanal-adultos-sobrepeso-u-obesidad"
+  },
+  "107": {
+    "doi": "10.1056/NEJMoa2609057",
+    "slug": "switch-swedeheart-prasugrel-ticagrelor-sindromes-coronarios-agudos"
+  },
+  "108": {
+    "doi": "10.1056/NEJMoa1011205",
+    "slug": "iprex-profilaxis-preexposicion-emtricitabina-tenofovir-prevencion-vih-hombres-tienen-sexo"
+  },
+  "109": {
+    "doi": "10.1056/NEJMoa1105243",
+    "slug": "hptn-052-inicio-temprano-tratamiento-antirretroviral-prevenir-transmision-vih-1-parejas"
+  },
+  "110": {
+    "doi": "10.1056/NEJMoa1214103",
+    "slug": "proseva-posicion-prona-prolongada-temprana-sindrome-dificultad-respiratoria-aguda-grave"
+  },
+  "111": {
+    "doi": "10.1056/NEJMoa2609056",
+    "slug": "padn-hf-ph-denervacion-arteria-pulmonar-hipertension-pulmonar-asociada-insuficiencia-cardiaca"
+  },
+  "112": {
+    "doi": "10.1056/NEJMoa1102873",
+    "slug": "nlst-cribado-cancer-pulmon-tomografia-computarizada-baja-dosis"
+  },
+  "113": {
+    "doi": "10.1056/NEJMoa2202707",
+    "slug": "classic-restriccion-fluidos-intravenosos-pacientes-uci-shock-septico"
+  },
+  "114": {
+    "doi": "10.1056/NEJMoa1009638",
+    "slug": "rocket-af-rivaroxaban-warfarina-fibrilacion-auricular-no-valvular"
+  },
+  "115": {
+    "doi": "10.1056/NEJMoa2405923",
+    "slug": "clear-espironolactona-sistematica-infarto-agudo-miocardio"
+  },
+  "116": {
+    "doi": "10.1056/NEJMoa2415820",
+    "slug": "broadway-seguridad-eficacia-obicetrapib-pacientes-alto-riesgo-cardiovascular"
+  },
+  "117": {
+    "doi": "10.1056/NEJMoa2608903",
+    "slug": "target-ctca-angiografia-coronaria-tomografia-computarizada-dirigida-dolor-toracico-agudo"
+  },
+  "118": {
+    "doi": "10.1056/NEJMoa1706442",
+    "slug": "dawn-trombectomia-6-24-horas-tras-ictus-cuidado-estandar"
+  },
+  "119": {
+    "doi": "10.1056/NEJMoa1713973",
+    "slug": "defuse-3-trombectomia-6-16-horas-tras-ictus-seleccion-imagen-perfusion"
+  },
+  "120": {
+    "doi": "10.1056/NEJMoa2606924",
+    "slug": "tavi-pci-momento-optimo-intervencion-coronaria-percutanea-implante-valvular-aortico-transcateter"
+  },
+  "121": {
+    "doi": "10.1056/NEJMoa2206038",
+    "slug": "surmount-1-tirzepatida-semanal-tratamiento-obesidad"
+  },
+  "122": {
+    "doi": "10.1056/NEJMoa2028700",
+    "slug": "covacta-tocilizumab-pacientes-hospitalizados-neumonia-grave-covid-19"
+  },
+  "123": {
+    "doi": "10.1056/NEJMoa1008232",
+    "slug": "partner-implante-percutaneo-valvula-aortica-tratamiento-estandar-estenosis-aortica-inoperable"
+  },
+  "124": {
+    "doi": "10.1056/NEJMoa1814052",
+    "slug": "partner-3-reemplazo-percutaneo-reemplazo-quirurgico-valvula-aortica-pacientes-riesgo"
+  },
+  "125": {
+    "doi": "10.1056/NEJMoa1603827",
+    "slug": "leader-liraglutida-desenlaces-cardiovasculares-diabetes-tipo-2"
+  },
+  "126": {
+    "doi": "10.1056/NEJMoa2208415",
+    "slug": "pilot-objetivos-saturacion-oxigeno-adultos-criticamente-enfermos-ventilacion-mecanica"
+  },
+  "127": {
+    "doi": "10.1056/NEJMoa2309995",
+    "slug": "simvastatina-en-pacientes-criticos-con-covid-19-remap-cap"
+  },
+  "128": {
+    "doi": "10.1056/NEJMoa1806842",
+    "slug": "paramedic2-adrenalina-paro-cardiaco-extrahospitalario"
+  },
+  "129": {
+    "doi": "10.1056/NEJMoa1704154",
+    "slug": "athos-3-angiotensina-ii-shock-vasodilatador"
+  },
+  "130": {
+    "doi": "10.1056/NEJMoa1816897",
+    "slug": "coact-angiografia-coronaria-tras-paro-cardiaco-elevacion-st"
+  },
+  "131": {
+    "doi": "10.1056/NEJMoa2204511",
+    "slug": "inception-reanimacion-cardiopulmonar-extracorporea-temprana-paro-cardiaco-extrahospitalario"
+  },
+  "132": {
+    "doi": "10.1056/NEJMoa1808217",
+    "slug": "mind-usa-haloperidol-ziprasidona-tratamiento-delirium-pacientes-criticos"
+  },
+  "133": {
+    "doi": "10.1056/NEJMoa2215145",
+    "slug": "cape-cod-hidrocortisona-neumonia-grave-adquirida-comunidad"
+  },
+  "134": {
+    "doi": "10.1056/NEJMoa1507581",
+    "slug": "eurotherm3235-hipotermia-terapeutica-hipertension-intracraneal-tras-traumatismo-craneoencefalico"
+  },
+  "135": {
+    "doi": "10.1056/NEJMoa1603017",
+    "slug": "akiki-momento-inicio-terapia-reemplazo-renal-cuidados-intensivos"
+  },
+  "136": {
+    "doi": "10.1056/NEJMoa2100433",
+    "slug": "remap-cap-tocilizumab-sarilumab-antagonistas-receptor-interleucina-6-pacientes-criticamente"
+  },
+  "137": {
+    "doi": "10.1056/NEJMoa2312572",
+    "slug": "danger-shock-bomba-flujo-microaxial-atencion-estandar-shock-cardiogenico-infarto"
+  },
+  "138": {
+    "doi": "10.1056/NEJMoa2608717",
+    "slug": "librexia-acs-milvexian-anadido-terapia-antiplaquetaria-tras-sindrome-coronario-agudo"
+  },
+  "139": {
+    "doi": "10.1056/NEJMoa2313680",
+    "slug": "preoxi-ventilacion-no-invasiva-preoxigenacion-antes-intubacion-emergencia"
+  },
+  "140": {
+    "doi": "10.1056/NEJMoa1714919",
+    "slug": "sup-icu-pantoprazol-pacientes-riesgo-sangrado-digestivo-unidad-cuidados-intensivos"
+  },
+  "141": {
+    "doi": "10.1056/NEJMoa1710261",
+    "slug": "culprit-shock-estrategias-angioplastia-infarto-miocardio-choque-cardiogenico"
+  },
+  "142": {
+    "doi": "10.1056/NEJMoa1802345",
+    "slug": "pamper-plasma-prehospitalario-pacientes-traumaticos-riesgo-choque-hemorragico"
+  },
+  "143": {
+    "doi": "10.1056/NEJMoa2404245",
+    "slug": "revise-profilaxis-ulceras-estres-ventilacion-mecanica-invasiva"
+  },
+  "144": {
+    "doi": "10.1056/NEJMoa1906661",
+    "slug": "hyperion-manejo-especifico-temperatura-paro-cardiaco-ritmo-no-desfibrilable"
+  },
+  "145": {
+    "doi": "10.1056/NEJMoa2103417",
+    "slug": "attacc-activ-4a-y-remap-cap-anticoagulacion-terapeutica-heparina-pacientes-criticos-covid-19"
+  },
+  "146": {
+    "doi": "10.1056/NEJMoa2000741",
+    "slug": "starrt-aki-momento-inicio-terapia-reemplazo-renal-lesion-renal-aguda"
+  },
+  "147": {
+    "doi": "10.1056/NEJMoa1803213",
+    "slug": "ideal-icu-inicio-temprano-diferido-depuracion-renal-choque-septico"
+  },
+  "148": {
+    "doi": "10.1056/NEJMoa1605215",
+    "slug": "rescueicp-craniectomia-descompresiva-hipertension-intracraneal-traumatica-refractaria"
+  },
+  "149": {
+    "doi": "10.1056/NEJMoa1500896",
+    "slug": "promise-reanimacion-temprana-dirigida-objetivos-shock-septico"
+  },
+  "150": {
+    "doi": "10.1056/NEJMoa2301601",
+    "slug": "device-videolaringoscopia-laringoscopia-directa-intubacion-traqueal-adultos-criticos"
+  },
+  "151": {
+    "doi": "10.1056/NEJMoa2505928",
+    "slug": "surpass-cvot-tirzepatida-dulaglutida-desenlaces-cardiovasculares-diabetes-tipo-2"
+  },
+  "152": {
+    "doi": "10.1056/NEJMoa2508515",
+    "slug": "tencraos-tenecteplasa-oclusion-aguda-arteria-central-retina"
+  },
+  "153": {
+    "doi": "10.1056/NEJMoa2511002",
+    "slug": "coralreef-lipids-enlicitide-oral-placebo-reducir-colesterol-ldl"
+  },
+  "154": {
+    "doi": "10.1056/NEJMoa2511920",
+    "slug": "recovery-cirugia-temprana-tratamiento-conservador-estenosis-aortica-asintomatica-10-anos"
+  },
+  "155": {
+    "doi": "10.1056/NEJMoa2512686",
+    "slug": "betabloqueadores-despues-de-un-infarto-de-miocardio-con-fraccion-de-eyeccion-normal"
+  },
+  "156": {
+    "doi": "10.1056/NEJMoa2512761",
+    "slug": "core-timi-72a-y-core2-timi-olezarsen-hipertrigliceridemia-grave-riesgo-pancreatitis"
+  },
+  "157": {
+    "doi": "10.1056/NEJMoa2512854",
+    "slug": "fine-one-finerenona-diabetes-tipo-1-enfermedad-renal-cronica"
+  },
+  "158": {
+    "doi": "10.1056/NEJMoa2513032",
+    "slug": "pisces-aceite-pescado-eventos-cardiovasculares-pacientes-hemodialisis"
+  },
+  "159": {
+    "doi": "10.1056/NEJMoa2515820",
+    "slug": "traction-politica-hospitalaria-acido-tranexamico-reducir-transfusion-cirugia-mayor-no"
+  },
+  "160": {
+    "doi": "10.1056/NEJMoa2519001",
+    "slug": "c-tract-terapia-endovascular-sindrome-postrombotico"
+  },
+  "161": {
+    "doi": "10.1056/NEJMoa2600440",
+    "slug": "optimal-ultrasonido-intravascular-angiografia-guiar-intervencion-tronco-coronario-izquierdo"
+  },
+  "162": {
+    "doi": "10.1056/NEJMoa2602678",
+    "slug": "majesty-obinutuzumab-tacrolimus-nefropatia-membranosa-primaria"
+  },
+  "163": {
+    "doi": "10.1056/NEJMoa2603649",
+    "slug": "epcat-iii-acido-acetilsalicilico-solo-rivaroxaban-seguido-acido-acetilsalicilico-tras"
+  },
+  "164": {
+    "doi": "10.1056/NEJMoa2605373",
+    "slug": "air-stemi-revascularizacion-completa-guiada-angiografia-coronaria-funcional-infarto-elevacion-st"
+  },
+  "165": {
+    "doi": "10.1056/NEJMoa2606998",
+    "slug": "oberon-y-titania-tozorakimab-prevenir-exacerbaciones-epoc"
+  },
+  "166": {
+    "doi": "10.1056/NEJMoa2607314",
+    "slug": "staree-atorvastatina-eventos-cardiovasculares-supervivencia-libre-discapacidad-adultos-mayores"
+  },
+  "167": {
+    "doi": "10.1056/NEJMoa2607978",
+    "slug": "single-af-anticoagulacion-oral-directa-fibrilacion-auricular-riesgo-intermedio-accidente"
+  },
+  "168": {
+    "doi": "10.1186/s13054-026-06323-z",
+    "slug": "tricycle-estrategia-multimodal-temprana-vasopresores-shock-septico"
+  },
+  "169": {
+    "doi": "10.1056/NEJMoa2606934",
+    "slug": "tric-i-hf-dzhk24-reparacion-transcateter-valvula-tricuspide-mas-tratamiento-medico-tratamiento"
+  },
+  "170": {
+    "doi": "10.1056/NEJMoa1916431",
+    "slug": "loco2-oxigeno-conservador-oxigeno-liberal-sindrome-dificultad-respiratoria-aguda-temprano"
+  },
+  "171": {
+    "doi": "10.1056/NEJMoa1215554",
+    "slug": "oscillate-ventilacion-oscilatoria-alta-frecuencia-temprana-ventilacion-convencional-pulmon"
+  },
+  "173": {
+    "doi": "10.1056/NEJMoa1011923",
+    "slug": "prodige-4-accord-11-folfirinox-gemcitabina-primera-linea-cancer-pancreas-metastasico"
+  },
+  "174": {
+    "doi": "10.1056/NEJMoa1005372",
+    "slug": "acurasys-bloqueo-neuromuscular-temprano-cisatracurio-48-horas-placebo-sindrome-dificultad"
+  },
+  "175": {
+    "doi": "10.1056/NEJMoa2608571",
+    "slug": "connect-monitoreo-continuo-glucosa-cuidado-habitual-diabetes-tipo-2-no"
+  },
+  "177": {
+    "doi": "10.1056/NEJMoa2215457",
+    "slug": "patch-trauma-acido-tranexamico-prehospitalario-placebo-traumatismo-grave-riesgo-coagulopatia"
+  },
+  "178": {
+    "doi": "10.1056/NEJMoa2026845",
+    "slug": "doremi-milrinona-dobutamina-choque-cardiogenico"
+  },
+  "179": {
+    "doi": "10.1001/jama.2026.21322",
+    "slug": "dobutamina-intraoperatoria-prevencion-lesion-renal-aguda-tras-cirugia-control-foco"
+  },
+  "180": {
+    "doi": "10.1056/NEJMoa1812405",
+    "slug": "prevent-ventilacion-bolsa-mascarilla-intubacion-traqueal-adulto-estado-critico"
+  },
+  "181": {
+    "doi": "10.1056/NEJMoa1312173",
+    "slug": "sepsispam-objetivo-presion-arterial-media-alto-shock-septico"
+  },
+  "182": {
+    "doi": "10.1056/NEJMoa1113849",
+    "slug": "bano-diario-con-clorhexidina-para-prevenir-la-adquisicion-de-germenes-multirresistentes"
+  },
+  "183": {
+    "doi": "10.1056/NEJMoa1215716",
+    "slug": "oscar-ventilacion-oscilatoria-alta-frecuencia-ventilacion-convencional-sindrome-dificultad"
+  },
+  "184": {
+    "doi": "10.1056/NEJMoa1208410",
+    "slug": "iabp-shock-ii-balon-contrapulsacion-intraaortico-infarto-agudo-miocardio-shock-cardiogenico"
+  },
+  "185": {
+    "doi": "10.1056/NEJMoa0904492",
+    "slug": "sonic-infliximab-azatioprina-ambos-enfermedad-crohn-tratamiento-inmunosupresor-previo"
+  },
+  "186": {
+    "doi": "10.1056/NEJMoa0907118",
+    "slug": "soap-ii-dopamina-noradrenalina-como-primer-vasopresor-shock"
+  },
+  "187": {
+    "doi": "10.1056/NEJMoa0708638",
+    "slug": "epvent-peep-guiada-presion-esofagica-lesion-pulmonar-aguda-sdra"
+  },
+  "188": {
+    "doi": "10.1056/NEJMoa067373",
+    "slug": "vasst-vasopresina-noradrenalina-shock-septico"
+  },
+  "189": {
+    "doi": "10.1056/NEJMoa071366",
+    "slug": "corticus-hidrocortisona-shock-septico"
+  },
+  "190": {
+    "doi": "10.1056/NEJMoa051693",
+    "slug": "metilprednisolona-en-el-sindrome-de-dificultad-respiratoria-aguda-persistente"
+  },
+  "191": {
+    "doi": "10.1056/NEJMoa032193",
+    "slug": "alveoli-peep-alta-peep-baja-sdra-ventilado-volumen-corriente"
+  },
+  "192": {
+    "doi": "10.1056/NEJM200005043421801",
+    "slug": "volumen-corriente-bajo-frente-a-tradicional-en-la-lesion-pulmonar-aguda-y-el-sdra"
+  },
+  "193": {
+    "doi": "10.1056/NEJMoa2608397",
+    "slug": "icraki-hemodialisis-intermitente-terapia-reemplazo-renal-continua-lesion-renal-aguda"
+  },
+  "194": {
+    "doi": "10.1001/jama.2026.18471",
+    "slug": "save-icu-sedacion-inhalada-isoflurano-sedacion-intravenosa-insuficiencia-respiratoria-hipoxemica"
+  },
+  "195": {
+    "doi": "10.1001/jama.2026.21333",
+    "slug": "vasspr-umbral-umbral-alto-iniciar-vasopresina-shock-septico"
+  },
+  "197": {
+    "doi": "10.1001/jamainternmed.2026.4023",
+    "slug": "save-o2-ai-titulacion-autonoma-oxigeno-titulacion-manual-adultos-hospitalizados"
+  },
+  "198": {
+    "doi": "10.1001/jama.2020.0930",
+    "slug": "65-hipotension-permisiva-atencion-habitual-mayores-65-anos-hipotension-vasodilatadora"
+  },
+  "199": {
+    "doi": "10.1001/jama.2019.0555",
+    "slug": "epvent-2-peep-guiada-presion-esofagica-tabla-empirica-peep-alta-sindrome"
+  },
+  "203": {
+    "doi": "10.1001/jama.2016.10485",
+    "slug": "vanish-vasopresina-temprana-norepinefrina-prevenir-insuficiencia-renal-shock-septico"
+  },
+  "204": {
+    "doi": "10.1001/jama.2016.5828",
+    "slug": "elain-inicio-temprano-diferido-terapia-reemplazo-renal-lesion-renal-aguda"
+  },
+  "205": {
+    "doi": "10.1001/jama.299.6.637",
+    "slug": "ventilacion-de-pulmon-abierto-con-reclutamiento-y-peep-alta-frente-a-volumen-corriente"
+  },
+  "206": {
+    "doi": "10.1001/jama.299.6.646",
+    "slug": "express-peep-alta-titulada-presion-meseta-peep-moderada-lesion-pulmonar"
+  },
+  "207": {
+    "doi": "10.1001/jama.297.17.1883",
+    "slug": "survive-levosimendan-dobutamina-insuficiencia-cardiaca-aguda-descompensada"
+  },
+  "208": {
+    "doi": "10.1001/jama.288.7.862",
+    "slug": "hidrocortisona-y-fludrocortisona-en-dosis-bajas-en-el-shock-septico-con-insuficiencia"
+  }
+}
