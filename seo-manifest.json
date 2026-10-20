@@ -5441,5 +5441,68 @@
       "answer": "La mortalidad a 28 días fue del 25.3% con crioprecipitado frente al 26.1% con atención estándar (razón de momios 0.96; IC 95%, 0.75 a 1.23; p = 0.74) , sin diferencia significativa ni en los eventos trombóticos.",
       "population": "La población fueron pacientes de 16 años o más con un traumatismo grave y una hemorragia activa que obligó a activar el protocolo local de hemorragia masiva, y que ya habían empezado a recibir al menos 1 unidad de algún componente sanguíneo. En todos los centros, uno de los criterios de activación era una presión sistólica menor de 90 mm Hg en algún momento. Se atendieron en 25 centros de trauma mayor del Reino Unido y 1 de…"
     }
+  },
+  "218": {
+    "slug": "procoag-eficacia-seguridad-administracion-temprana-concentrado-complejo-protrombinico-4-factores",
+    "path": "/trials/procoag-eficacia-seguridad-administracion-temprana-concentrado-complejo-protrombinico-4-factores/",
+    "url": "https://resumenestrials.com/trials/procoag-eficacia-seguridad-administracion-temprana-concentrado-complejo-protrombinico-4-factores/",
+    "title": "PROCOAG: eficacia y seguridad de la administración temprana de concentrado de complejo protrombínico de 4 factores en pacientes con trauma en riesgo de transfusión masiva",
+    "seo_title": "PROCOAG trial: eficacia y seguridad de la administración temprana de concentrado de complejo protrombínico de 4 factores en pacientes con trauma en riesgo de transfusión masiva | Resúmenes Trials",
+    "description": "PROCOAG: La mediana de consumo total en 24 horas fue de 12 unidades con el concentrado frente a 11 con placebo (diferencia absoluta de medias 0.2 unidades; IC…",
+    "clusters": [],
+    "images": [
+      "https://resumenestrials.com/images/trials/procoag-eficacia-seguridad-administracion-temprana-concentrado-complejo-protrombinico-4-factores-16x9.jpg",
+      "https://resumenestrials.com/images/trials/procoag-eficacia-seguridad-administracion-temprana-concentrado-complejo-protrombinico-4-factores-4x3.jpg",
+      "https://resumenestrials.com/images/trials/procoag-eficacia-seguridad-administracion-temprana-concentrado-complejo-protrombinico-4-factores-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Evaluar si añadir concentrado de complejo protrombínico de 4 factores a una transfusión guiada por proporciones reduce el consumo total de componentes sanguíneos en 24 horas en pacientes con trauma en riesgo de transfusión masiva.",
+      "answer": "La mediana de consumo total en 24 horas fue de 12 unidades con el concentrado frente a 11 con placebo (diferencia absoluta de medias 0.2 unidades; IC 95%, −2.99 a 3.33; p = 0.72) , sin diferencia; como desenlace secundario de seguridad sin ajuste por multiplicidad, los eventos tromboembólicos fueron más frecuentes con el…",
+      "population": "La población fueron adultos de 18 años o más con un traumatismo grave, llevados directamente desde el lugar de la lesión a uno de 12 centros de trauma de nivel I en Francia con la activación de trauma de máximo nivel, que se reserva para pacientes con una puntuación de Glasgow menor de 9, una presión sistólica menor de 90 mm Hg o dificultad respiratoria aguda. Además, debían estar en riesgo de transfusión masiva: haber…"
+    }
+  },
+  "219": {
+    "slug": "prevent-clot-aspirina-heparina-peso-molecular-tromboprofilaxis-despues-fractura",
+    "path": "/trials/prevent-clot-aspirina-heparina-peso-molecular-tromboprofilaxis-despues-fractura/",
+    "url": "https://resumenestrials.com/trials/prevent-clot-aspirina-heparina-peso-molecular-tromboprofilaxis-despues-fractura/",
+    "title": "PREVENT CLOT: aspirina o heparina de bajo peso molecular para la tromboprofilaxis después de una fractura",
+    "seo_title": "PREVENT CLOT trial: aspirina o heparina de bajo peso molecular para la tromboprofilaxis después de una fractura | Resúmenes Trials",
+    "description": "PREVENT CLOT: La mortalidad a 90 días fue del 0.78% con aspirina frente al 0.73% con heparina de bajo peso molecular (diferencia 0.05 puntos porcentuales; IC…",
+    "clusters": [
+      {
+        "name": "Cardiología y prevención cardiovascular",
+        "path": "/medicina-interna/cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-interna/cardiovascular/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/prevent-clot-aspirina-heparina-peso-molecular-tromboprofilaxis-despues-fractura-16x9.jpg",
+      "https://resumenestrials.com/images/trials/prevent-clot-aspirina-heparina-peso-molecular-tromboprofilaxis-despues-fractura-4x3.jpg",
+      "https://resumenestrials.com/images/trials/prevent-clot-aspirina-heparina-peso-molecular-tromboprofilaxis-despues-fractura-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Evaluar si la aspirina no es inferior a la heparina de bajo peso molecular como tromboprofilaxis para prevenir la muerte por cualquier causa a 90 días en pacientes con fracturas de extremidades operadas o de pelvis o acetábulo.",
+      "answer": "La mortalidad a 90 días fue del 0.78% con aspirina frente al 0.73% con heparina de bajo peso molecular (diferencia 0.05 puntos porcentuales; IC 96.2%, −0.27 a 0.38; p < 0.001 para no inferioridad) , por lo que la aspirina no fue inferior, aunque la trombosis venosa profunda, un secundario sin ajuste por multiplicidad, fue más…",
+      "population": "La población fueron adultos de 18 años o más con una fractura de una extremidad tratada con cirugía, desde la cadera hasta el mediopié o desde el hombro hasta la muñeca, o con cualquier fractura de pelvis o de acetábulo, operada o no. Se atendieron en 21 centros de trauma de Estados Unidos y Canadá. La raza o etnia la informó el paciente o su representante: el 63.2% eran blancos no hispanos, el 20.1% negros no hispanos y el…"
+    }
+  },
+  "220": {
+    "slug": "avert-shock-efecto-suplementacion-dosis-bajas-arginina-vasopresina-necesidad-transfusiones",
+    "path": "/trials/avert-shock-efecto-suplementacion-dosis-bajas-arginina-vasopresina-necesidad-transfusiones/",
+    "url": "https://resumenestrials.com/trials/avert-shock-efecto-suplementacion-dosis-bajas-arginina-vasopresina-necesidad-transfusiones/",
+    "title": "AVERT Shock: efecto de la suplementación con dosis bajas de arginina vasopresina sobre la necesidad de transfusiones de hemoderivados en pacientes con trauma y shock hemorrágico",
+    "seo_title": "AVERT Shock trial: efecto de la suplementación con dosis bajas de arginina vasopresina sobre la necesidad de transfusiones de hemoderivados en pacientes con trauma y shock hemorrágico | Resúmenes Trials",
+    "description": "AVERT Shock: La mediana de hemoderivados en 48 horas fue de 1.7 L con vasopresina frente a 3.0 L con placebo (diferencia −1.00 L; IC 95%, −2.03 a 0.00; p =…",
+    "clusters": [],
+    "images": [
+      "https://resumenestrials.com/images/trials/avert-shock-efecto-suplementacion-dosis-bajas-arginina-vasopresina-necesidad-transfusiones-16x9.jpg",
+      "https://resumenestrials.com/images/trials/avert-shock-efecto-suplementacion-dosis-bajas-arginina-vasopresina-necesidad-transfusiones-4x3.jpg",
+      "https://resumenestrials.com/images/trials/avert-shock-efecto-suplementacion-dosis-bajas-arginina-vasopresina-necesidad-transfusiones-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Evaluar si la suplementación con dosis bajas de arginina vasopresina durante la reanimación reduce el volumen de hemoderivados transfundidos en 48 horas en pacientes con trauma y shock hemorrágico.",
+      "answer": "La mediana de hemoderivados en 48 horas fue de 1.7 L con vasopresina frente a 3.0 L con placebo (diferencia −1.00 L; IC 95%, −2.03 a 0.00; p = 0.03) en el análisis por intención de tratar, con una mortalidad similar ( 12% en ambos grupos; p = 0.94 ) en un estudio sin poder para ese desenlace.",
+      "population": "La población fueron pacientes con trauma de 18 a 65 años en shock hemorrágico que habían recibido al menos 6 unidades de cualquier hemoderivado en las 12 horas siguientes a la lesión, atendidos en un único centro de trauma urbano de nivel 1 en Filadelfia, Estados Unidos. Se incluían en cuanto se terminaba de infundir la sexta unidad. La mayoría eran varones jóvenes negros con heridas penetrantes: el 86% del grupo de…"
+    }
   }
 }
