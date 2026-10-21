@@ -48,6 +48,10 @@ Tipografías (Google Fonts, `display=swap`): **Sora** para interfaz y titulares;
 
 ## Texto justificado
 Todo párrafo de prosa (cuerpo, breve, documentos, avisos, textos de apoyo) y las listas largas se justifican con partición `es-MX`, guion ASCII y última línea al inicio. Títulos, metadatos (revista, fecha, tiempo de lectura), etiquetas, estados y controles conservan alineación al inicio. `ui/core.js` añade cortes visuales vacíos que no alteran `textContent`, selección ni el HTML clínico; la puntuación final no convierte una palabra en token técnico.
+En celular (pantallas de hasta 480 px) la prosa se alinea a la izquierda con la misma partición: en columnas tan angostas el justificado abría huecos de más de 2em entre palabras (139 de 231 resúmenes con letra grande). Tablet, escritorio y PDF siguen justificados. Decisión del editor, octubre de 2026.
+
+## Tipografía
+Literata y Sora se sirven desde `/fonts/` (WOFF2, latin y latin-ext, licencia OFL) con `font-display: swap`. Ninguna página depende de Google Fonts: una hoja de estilos externa bloquea el primer render y dejaba la pantalla en blanco en redes móviles. `validate-editorial.mjs` falla si vuelve a aparecer.
 
 ## PDF (`ui/pdf.js`)
 Generador único jsPDF 4.2.1 con SRI y `sanPDF()`. Banda superior azul/violeta, logo en la cabecera y marca de agua en todas las páginas, títulos de sección con barra violeta, cuerpo Times justificado, pie con enlace canónico, redes y correo. El texto y el orden de los PDF no cambian.
