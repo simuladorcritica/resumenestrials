@@ -1,6 +1,6 @@
 import fs from 'node:fs';import crypto from 'node:crypto';import {writeIndex} from './build-data-index.mjs';
 const jsSources=['specialty-classification.js','ui/core.js','reading-context.js','ui/archive.js','ui/reader.js','ui/forms.js'];
-const cssSources=['ui/tokens.css','ui/site.css'];
+const cssSources=['ui/fonts.css','ui/tokens.css','ui/site.css'];
 const bundle=sources=>'/* GENERATED FILE. Run: node scripts/build-site-runtime.mjs */\n'+sources.map(p=>'/* source: '+p+' */\n'+fs.readFileSync(p,'utf8').replace(/\r\n/g,'\n').trim()).join('\n\n')+'\n';
 const js=bundle(jsSources),css=bundle(cssSources);
 if(Buffer.byteLength(css)>70000)throw Error('CSS supera 70 KB');

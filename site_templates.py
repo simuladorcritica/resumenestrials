@@ -3,7 +3,6 @@ from pathlib import Path
 import json, re, html
 ROOT=Path(__file__).resolve().parent
 BASE="https://resumenestrials.com"
-FONT_URL="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=Sora:wght@400;500;600;700&display=swap"
 EXCLUDED=frozenset({"/login.html","/registro.html","/recuperar.html","/cuenta.html","/biblioteca.html","/privacidad.html","/privacidad/","/privacidad/index.html","/terminos/","/terminos/index.html","/agregar.html","/medicina-interna/hematologia-oncologia/","/medicina-interna/hematologia-oncologia/index.html","/404.html"})
 ADSENSE_CLIENT="ca-pub-3132744538918477"
 ADSENSE_URL=f"https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={ADSENSE_CLIENT}"
@@ -82,14 +81,15 @@ def clean_head(source,title=None):
  h=re.search(r"<head[^>]*>([\s\S]*?)</head>",source,re.I)
  head=h[1] if h else '<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
  head=re.sub(r"<style\b[^>]*>[\s\S]*?</style>","",head,flags=re.I)
- head=re.sub(r'<link\b[^>]*(?:rel=["\'](?:stylesheet|preconnect)["\']|fonts\.google)[^>]*>',"",head,flags=re.I)
+ head=re.sub(r'<link\b[^>]*(?:rel=["\'](?:stylesheet|preconnect)["\']|fonts\.google|/fonts/)[^>]*>',"",head,flags=re.I)
  head=re.sub(r"<script\b([^>]*)>[\s\S]*?</script>",lambda m:m[0] if "application/ld+json" in m[1] else "",head,flags=re.I)
  head=re.sub(r'<meta\b[^>]*name=["\']theme-color["\'][^>]*>',"",head,flags=re.I)
  if not re.search(r'<meta\b[^>]*charset=',head,re.I):head='<meta charset="UTF-8">'+head
  if not re.search(r'<meta\b[^>]*name=["\']viewport["\']',head,re.I):head+='<meta name="viewport" content="width=device-width,initial-scale=1">'
  if not re.search(r'<title>',head,re.I):head+=f'<title>{esc(title or "Resúmenes Trials")}</title>'
  head+='<meta name="theme-color" content="#070b16" media="(prefers-color-scheme: dark)"><meta name="theme-color" content="#f3f5fb" media="(prefers-color-scheme: light)">'+HEAD_SCRIPT
- head+=f'<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="{FONT_URL}"><link rel="stylesheet" href="/site-runtime.css?v={version()}">'
+ # Fuentes propias (/fonts): ninguna dependencia externa bloquea el primer render.
+ head+=f'<link rel="preload" href="/fonts/sora-normal-latin.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="/site-runtime.css?v={version()}">'
  return head
 def document(source,body,route,kind="document",scripts="",title=None):
  head=clean_head(source,title)

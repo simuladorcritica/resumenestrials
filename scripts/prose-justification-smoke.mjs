@@ -43,7 +43,7 @@ for(const engine of [chromium,webkit]){
     const controls=[...document.querySelectorAll('a,h1,h2,h3,.ev-meta,.ev-tag,.ev-chip,button,input,select,textarea,label,th,td,summary,nav,.ev-rail')].filter(visible);
     return {lang:document.documentElement.lang,prose:prose.map(n=>{const s=getComputedStyle(n);return {text:n.textContent.slice(0,80),align:s.textAlign,last:s.textAlignLast,hyphens:s.hyphens}}),controls:controls.filter(n=>getComputedStyle(n).textAlign==='justify').map(n=>n.outerHTML.slice(0,140)),topTags:[...document.querySelectorAll('.ev-card>div:first-child>.ev-tag')].length};
    },excluded);
-   assert.equal(m.lang,'es-MX',path);assert.ok(m.prose.length,path+' missing prose coverage');for(const p of m.prose){assert.equal(p.align,'justify',path+JSON.stringify(p));assert.equal(p.hyphens,'auto',path+JSON.stringify(p));assert.equal(p.last,'start',path+JSON.stringify(p))}assert.deepEqual(m.controls,[],path);assert.equal(m.topTags,0,path);
+   assert.equal(m.lang,'es-MX',path);assert.ok(m.prose.length,path+' missing prose coverage');for(const p of m.prose){assert.equal(p.align,width<=480?'start':'justify',path+JSON.stringify(p));assert.equal(p.hyphens,'auto',path+JSON.stringify(p));assert.equal(p.last,'start',path+JSON.stringify(p))}assert.deepEqual(m.controls,[],path);assert.equal(m.topTags,0,path);
    results.push({path,width,theme,engine:engine.name(),paragraphs:m.prose.length,status:'OK'});
    if(await page.locator('[data-ev-reader]').count()){
     await page.waitForFunction(()=>document.querySelector('[data-ev-font]')?.onclick);
@@ -65,7 +65,7 @@ for(const engine of [chromium,webkit]){
         const spacing=await page.evaluate(()=>{let max=0;for(const paragraph of document.querySelectorAll('article p')){const words=[],walker=document.createTreeWalker(paragraph,NodeFilter.SHOW_TEXT);while(walker.nextNode()){const node=walker.currentNode;for(const match of node.data.matchAll(/\S+/g)){const range=document.createRange();range.setStart(node,match.index);range.setEnd(node,match.index+match[0].length);for(const rect of range.getClientRects())if(rect.width>0)words.push({x:rect.x,right:rect.right,y:rect.y});}}for(let i=1;i<words.length;i++){const a=words[i-1],b=words[i];if(Math.abs(a.y-b.y)<2&&b.x>=a.right)max=Math.max(max,b.x-a.right);}}return max;});
         assert(spacing<=reading.size*2+.5,`${path} ${engine.name()} ${readingWidth}px font ${reading.size} focus ${focus}: space ${spacing}px exceeds 2em`);
        }
-       assert.equal(reading.align,'justify');assert.equal(reading.hyphens,'auto');assert.equal(reading.last,'start');assert(reading.scroll<=reading.viewport&&reading.body<=reading.viewport,JSON.stringify(reading));assert([18,20,22].includes(reading.size));sizes.add(reading.size);
+       assert.equal(reading.align,readingWidth<=480?'start':'justify');assert.equal(reading.hyphens,'auto');assert.equal(reading.last,'start');assert(reading.scroll<=reading.viewport&&reading.body<=reading.viewport,JSON.stringify(reading));assert([18,20,22].includes(reading.size));sizes.add(reading.size);
        results.push({path,width:readingWidth,theme,engine:engine.name(),focus,size:reading.size,status:'OK'});
       }
       if(!(await page.locator('[data-ev-font]').isVisible()))await page.locator('[data-ev-more]').click();await page.locator('[data-ev-font]').click();
