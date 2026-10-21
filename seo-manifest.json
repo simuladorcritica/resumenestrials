@@ -5697,5 +5697,173 @@
       "answer": "La colonización del catéter fue de 40.8 frente a 35.7 por 1000 días-catéter con femoral y yugular (HR 0.85; IC 95%, 0.62 a 1.16; p = 0.31) , sin diferencias en la bacteriemia relacionada con el catéter; la yugular tuvo más hematomas (3.6% frente a 1.1%; p = 0.03).",
       "population": "La población fueron adultos de 18 años o más, críticamente enfermos y encamados, ingresados en UCI de 12 hospitales franceses, que iban a necesitar terapia de reemplazo renal aguda y recibían por primera vez un catéter venoso para ese fin. La raza o etnia no se reporta. La pregunta es de las que se plantean a diario junto a la cama: dónde colocar el catéter de diálisis temporal."
     }
+  },
+  "196": {
+    "slug": "hero-19-anticoagulacion-profilactica-terapeutica-pacientes-hospitalizados-covid-19",
+    "path": "/trials/hero-19-anticoagulacion-profilactica-terapeutica-pacientes-hospitalizados-covid-19/",
+    "url": "https://resumenestrials.com/trials/hero-19-anticoagulacion-profilactica-terapeutica-pacientes-hospitalizados-covid-19/",
+    "title": "HERO-19: anticoagulación profiláctica frente a terapéutica en pacientes hospitalizados con COVID-19",
+    "seo_title": "HERO-19 trial: anticoagulación profiláctica frente a terapéutica en pacientes hospitalizados con COVID-19 | Resúmenes Trials",
+    "description": "HERO-19: El desenlace primario ocurrió en el 21% con anticoagulación terapéutica frente al 29% con profiláctica , con un cociente de riesgos de 0.74 (IC 95%…",
+    "clusters": [],
+    "images": [
+      "https://resumenestrials.com/images/trials/hero-19-anticoagulacion-profilactica-terapeutica-pacientes-hospitalizados-covid-19-16x9.jpg",
+      "https://resumenestrials.com/images/trials/hero-19-anticoagulacion-profilactica-terapeutica-pacientes-hospitalizados-covid-19-4x3.jpg",
+      "https://resumenestrials.com/images/trials/hero-19-anticoagulacion-profilactica-terapeutica-pacientes-hospitalizados-covid-19-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si la anticoagulación a dosis terapéutica, frente a la profilaxis habitual, reduce la combinación de muerte y eventos tromboembólicos a 42 días en pacientes hospitalizados con COVID-19.",
+      "answer": "El desenlace primario ocurrió en el 21% con anticoagulación terapéutica frente al 29% con profiláctica , con un cociente de riesgos de 0.74 (IC 95%, 0.38 a 1.48; p = 0.40) , sin diferencia significativa; ninguno de sus componentes difirió de forma significativa entre grupos.",
+      "population": "La población fueron adultos con COVID-19 confirmada e ingresados en una unidad de cuidados intensivos o en una sala de hospitalización convencional de 10 hospitales universitarios de Alemania. La raza o etnia de los participantes no se reportó."
+    }
+  },
+  "200": {
+    "slug": "optimacc-epinefrina-norepinefrina-shock-cardiogenico-tras-infarto-agudo-miocardio",
+    "path": "/trials/optimacc-epinefrina-norepinefrina-shock-cardiogenico-tras-infarto-agudo-miocardio/",
+    "url": "https://resumenestrials.com/trials/optimacc-epinefrina-norepinefrina-shock-cardiogenico-tras-infarto-agudo-miocardio/",
+    "title": "OptimaCC: epinefrina frente a norepinefrina en el shock cardiogénico tras un infarto agudo de miocardio",
+    "seo_title": "OptimaCC trial: epinefrina frente a norepinefrina en el shock cardiogénico tras un infarto agudo de miocardio | Resúmenes Trials",
+    "description": "OptimaCC: La evolución del índice cardiaco no difirió entre epinefrina y norepinefrina ( p = 0.43 ; efecto e IC 95% no reportados), pero el shock refractario…",
+    "clusters": [
+      {
+        "name": "Hemodinámica y cardiovascular",
+        "path": "/medicina-critica/hemodinamica-cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-critica/hemodinamica-cardiovascular/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/optimacc-epinefrina-norepinefrina-shock-cardiogenico-tras-infarto-agudo-miocardio-16x9.jpg",
+      "https://resumenestrials.com/images/trials/optimacc-epinefrina-norepinefrina-shock-cardiogenico-tras-infarto-agudo-miocardio-4x3.jpg",
+      "https://resumenestrials.com/images/trials/optimacc-epinefrina-norepinefrina-shock-cardiogenico-tras-infarto-agudo-miocardio-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Comparar la eficacia hemodinámica y la seguridad de la epinefrina y la norepinefrina en el shock cardiogénico por infarto agudo de miocardio revascularizado.",
+      "answer": "La evolución del índice cardiaco no difirió entre epinefrina y norepinefrina ( p = 0.43 ; efecto e IC 95% no reportados), pero el shock refractario fue más frecuente con epinefrina, 37% frente a 7% (OR 8.24; IC 95%, 1.61 a 42.18).",
+      "population": "La población fueron adultos mayores de 18 años con shock cardiogénico por infarto agudo de miocardio ya revascularizado con éxito mediante intervención coronaria percutánea, atendidos en 9 unidades de cuidados intensivos de Francia. La raza o etnia: No reportado."
+    }
+  },
+  "201": {
+    "slug": "art-efecto-reclutamiento-pulmonar-peep-titulada-peep-baja-mortalidad-pacientes",
+    "path": "/trials/art-efecto-reclutamiento-pulmonar-peep-titulada-peep-baja-mortalidad-pacientes/",
+    "url": "https://resumenestrials.com/trials/art-efecto-reclutamiento-pulmonar-peep-titulada-peep-baja-mortalidad-pacientes/",
+    "title": "ART: efecto del reclutamiento pulmonar y la PEEP titulada frente a PEEP baja sobre la mortalidad en pacientes con síndrome de dificultad respiratoria aguda",
+    "seo_title": "ART trial: efecto del reclutamiento pulmonar y la PEEP titulada frente a PEEP baja sobre la mortalidad en pacientes con síndrome de dificultad respiratoria aguda | Resúmenes Trials",
+    "description": "ART: La mortalidad a 28 días fue mayor con reclutamiento y PEEP titulada, 55.3% frente a 49.3% (HR 1.20; IC 95%, 1.01 a 1.42; p = 0.041) , con más barotrauma…",
+    "clusters": [
+      {
+        "name": "Ventilación e insuficiencia respiratoria",
+        "path": "/medicina-critica/ventilacion-respiratoria/",
+        "url": "https://resumenestrials.com/medicina-critica/ventilacion-respiratoria/"
+      },
+      {
+        "name": "SDRA y ECMO",
+        "path": "/medicina-critica/sdra-ecmo/",
+        "url": "https://resumenestrials.com/medicina-critica/sdra-ecmo/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/art-efecto-reclutamiento-pulmonar-peep-titulada-peep-baja-mortalidad-pacientes-16x9.jpg",
+      "https://resumenestrials.com/images/trials/art-efecto-reclutamiento-pulmonar-peep-titulada-peep-baja-mortalidad-pacientes-4x3.jpg",
+      "https://resumenestrials.com/images/trials/art-efecto-reclutamiento-pulmonar-peep-titulada-peep-baja-mortalidad-pacientes-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si el reclutamiento alveolar con PEEP titulada según la mejor distensibilidad reduce la mortalidad a 28 días frente a una estrategia de PEEP baja en el síndrome de dificultad respiratoria aguda moderado o grave.",
+      "answer": "La mortalidad a 28 días fue mayor con reclutamiento y PEEP titulada, 55.3% frente a 49.3% (HR 1.20; IC 95%, 1.01 a 1.42; p = 0.041) , con más barotrauma y menos días sin ventilador como desenlaces secundarios exploratorios.",
+      "population": "La población fueron adultos con ventilación mecánica invasiva y síndrome de dificultad respiratoria aguda moderado o grave de menos de 72 horas de evolución, atendidos en 120 unidades de cuidados intensivos de 9 países: Brasil, Argentina, Colombia, Italia, Polonia, Portugal, Malasia, España y Uruguay. La raza o etnia: No reportado."
+    }
+  },
+  "202": {
+    "slug": "impress-in-severe-shock-soporte-circulatorio-mecanico-percutaneo-balon-contrapulsacion",
+    "path": "/trials/impress-in-severe-shock-soporte-circulatorio-mecanico-percutaneo-balon-contrapulsacion/",
+    "url": "https://resumenestrials.com/trials/impress-in-severe-shock-soporte-circulatorio-mecanico-percutaneo-balon-contrapulsacion/",
+    "title": "IMPRESS in Severe Shock: soporte circulatorio mecánico percutáneo frente a balón de contrapulsación intraaórtico en el shock cardiogénico tras un infarto agudo de miocardio",
+    "seo_title": "IMPRESS in Severe Shock trial: soporte circulatorio mecánico percutáneo frente a balón de contrapulsación intraaórtico en el shock cardiogénico tras un infarto agudo de miocardio | Resúmenes Trials",
+    "description": "IMPRESS in Severe Shock: La mortalidad a 30 días fue similar con el Impella CP y con el balón de contrapulsación, 46% frente a 50% (HR 0.96; IC 95%, 0.42 a…",
+    "clusters": [
+      {
+        "name": "Hemodinámica y cardiovascular",
+        "path": "/medicina-critica/hemodinamica-cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-critica/hemodinamica-cardiovascular/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/impress-in-severe-shock-soporte-circulatorio-mecanico-percutaneo-balon-contrapulsacion-16x9.jpg",
+      "https://resumenestrials.com/images/trials/impress-in-severe-shock-soporte-circulatorio-mecanico-percutaneo-balon-contrapulsacion-4x3.jpg",
+      "https://resumenestrials.com/images/trials/impress-in-severe-shock-soporte-circulatorio-mecanico-percutaneo-balon-contrapulsacion-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si el soporte circulatorio percutáneo con Impella CP reduce la mortalidad a 30 días frente al balón de contrapulsación intraaórtico en el shock cardiogénico grave por infarto agudo de miocardio.",
+      "answer": "La mortalidad a 30 días fue similar con el Impella CP y con el balón de contrapulsación, 46% frente a 50% (HR 0.96; IC 95%, 0.42 a 2.18; p = 0.92 ), y a los 6 meses fue del 50% en ambos grupos.",
+      "population": "La población fueron pacientes con infarto agudo de miocardio con elevación del ST complicado con shock cardiogénico grave, atendidos con angioplastia primaria inmediata en dos hospitales universitarios: el Academic Medical Center de Ámsterdam, en Países Bajos, y el Haukeland University Hospital de Bergen, en Noruega. La raza o etnia: No reportado."
+    }
+  },
+  "215": {
+    "slug": "fiirst-2-factores-reanimacion-inicial-pacientes-traumatismo-grave",
+    "path": "/trials/fiirst-2-factores-reanimacion-inicial-pacientes-traumatismo-grave/",
+    "url": "https://resumenestrials.com/trials/fiirst-2-factores-reanimacion-inicial-pacientes-traumatismo-grave/",
+    "title": "FiiRST-2: factores en la reanimación inicial de pacientes con traumatismo grave",
+    "seo_title": "FiiRST-2 trial: factores en la reanimación inicial de pacientes con traumatismo grave | Resúmenes Trials",
+    "description": "FiiRST-2: La media de hemoderivados transfundidos en 24 horas fue de 20.8 unidades con concentrados de fibrinógeno y complejo protrombínico frente a 23.8 con…",
+    "clusters": [],
+    "images": [
+      "https://resumenestrials.com/images/trials/fiirst-2-factores-reanimacion-inicial-pacientes-traumatismo-grave-16x9.jpg",
+      "https://resumenestrials.com/images/trials/fiirst-2-factores-reanimacion-inicial-pacientes-traumatismo-grave-4x3.jpg",
+      "https://resumenestrials.com/images/trials/fiirst-2-factores-reanimacion-inicial-pacientes-traumatismo-grave-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Evaluar si sustituir el plasma congelado por concentrados de fibrinógeno y de complejo protrombínico en la reanimación inicial de pacientes con traumatismo grave reduce los hemoderivados alogénicos transfundidos en 24 horas.",
+      "answer": "La media de hemoderivados transfundidos en 24 horas fue de 20.8 unidades con concentrados de fibrinógeno y complejo protrombínico frente a 23.8 con plasma (cociente 0.87; IC unilateral 97.5%, 0.00 a 1.19; p = 0.20) , sin diferencia significativa; el ensayo se detuvo por futilidad.",
+      "population": "La población fueron pacientes de 16 años o más con un traumatismo que obligó a activar el protocolo de hemorragia masiva en la primera hora tras su llegada, atendidos en 6 centros de trauma de nivel I de Canadá, cada uno con sus propios criterios de activación. La raza y la etnia se recogieron según lo que declaraban el paciente o su representante: el 30.7% era de raza blanca, el 17.5% del sur de Asia, el 7.3% de raza negra…"
+    }
+  },
+  "221": {
+    "slug": "verrou-rea-citrato-trisodico-4-heparina-como-solucion-sellado-cateteres-hemodialisis",
+    "path": "/trials/verrou-rea-citrato-trisodico-4-heparina-como-solucion-sellado-cateteres-hemodialisis/",
+    "url": "https://resumenestrials.com/trials/verrou-rea-citrato-trisodico-4-heparina-como-solucion-sellado-cateteres-hemodialisis/",
+    "title": "VERROU-REA: citrato trisódico al 4% frente a heparina como solución de sellado de catéteres de hemodiálisis no tunelizados en pacientes en estado crítico",
+    "seo_title": "VERROU-REA trial: citrato trisódico al 4% frente a heparina como solución de sellado de catéteres de hemodiálisis no tunelizados en pacientes en estado crítico | Resúmenes Trials",
+    "description": "VERROU-REA: La supervivencia libre de eventos del primer catéter no difirió de forma significativa: mediana de 7 días con citrato frente a 5 días con heparina…",
+    "clusters": [
+      {
+        "name": "Renal y ácido-base",
+        "path": "/medicina-critica/renal-acido-base/",
+        "url": "https://resumenestrials.com/medicina-critica/renal-acido-base/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/verrou-rea-citrato-trisodico-4-heparina-como-solucion-sellado-cateteres-hemodialisis-16x9.jpg",
+      "https://resumenestrials.com/images/trials/verrou-rea-citrato-trisodico-4-heparina-como-solucion-sellado-cateteres-hemodialisis-4x3.jpg",
+      "https://resumenestrials.com/images/trials/verrou-rea-citrato-trisodico-4-heparina-como-solucion-sellado-cateteres-hemodialisis-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Comparar el sellado con citrato trisódico al 4% frente a la heparina no fraccionada sobre la supervivencia libre de eventos del primer catéter de hemodiálisis no tunelizado en pacientes críticos con lesión renal aguda.",
+      "answer": "La supervivencia libre de eventos del primer catéter no difirió de forma significativa: mediana de 7 días con citrato frente a 5 días con heparina (p=0.51), sin intervalo de confianza reportado.",
+      "population": "La población fueron adultos de 18 años o más, ingresados en cuidados intensivos en Francia, con lesión renal aguda que requería terapia de reemplazo renal y a quienes se iba a colocar un primer catéter de hemodiálisis no tunelizado por vía yugular o femoral. La raza o etnia no se reporta."
+    }
+  },
+  "226": {
+    "slug": "rescue-dialisis-sostenida-baja-eficiencia-sistema-lote-paso-unico-lesion",
+    "path": "/trials/rescue-dialisis-sostenida-baja-eficiencia-sistema-lote-paso-unico-lesion/",
+    "url": "https://resumenestrials.com/trials/rescue-dialisis-sostenida-baja-eficiencia-sistema-lote-paso-unico-lesion/",
+    "title": "RESCUE: diálisis sostenida de baja eficiencia con un sistema de lote de paso único en la lesión renal aguda",
+    "seo_title": "RESCUE trial: diálisis sostenida de baja eficiencia con un sistema de lote de paso único en la lesión renal aguda | Resúmenes Trials",
+    "description": "RESCUE: La mortalidad a 90 días fue del 49.6% con diálisis sostenida de baja eficiencia frente al 55.6% con hemofiltración continua (p = 0.43; IC 95% no…",
+    "clusters": [
+      {
+        "name": "Renal y ácido-base",
+        "path": "/medicina-critica/renal-acido-base/",
+        "url": "https://resumenestrials.com/medicina-critica/renal-acido-base/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/rescue-dialisis-sostenida-baja-eficiencia-sistema-lote-paso-unico-lesion-16x9.jpg",
+      "https://resumenestrials.com/images/trials/rescue-dialisis-sostenida-baja-eficiencia-sistema-lote-paso-unico-lesion-4x3.jpg",
+      "https://resumenestrials.com/images/trials/rescue-dialisis-sostenida-baja-eficiencia-sistema-lote-paso-unico-lesion-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Comparar la diálisis sostenida de baja eficiencia con sistema de lote de paso único frente a la hemofiltración venovenosa continua en la mortalidad a 90 días de pacientes de UCI con lesión renal aguda que requieren terapia de reemplazo renal.",
+      "answer": "La mortalidad a 90 días fue del 49.6% con diálisis sostenida de baja eficiencia frente al 55.6% con hemofiltración continua (p = 0.43; IC 95% no reportado) , sin diferencias significativas en la mortalidad hospitalaria ni en la UCI.",
+      "population": "La población fueron adultos de 18 años o más ingresados en la UCI quirúrgica de un hospital universitario de Heidelberg, Alemania, con lesión renal aguda que requería terapia de reemplazo renal. La raza o etnia no se reporta. La sepsis fue la principal causa de la lesión renal, y cerca de 1 de cada 5 pacientes era un trasplantado hepático."
+    }
   }
 }
