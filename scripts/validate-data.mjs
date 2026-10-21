@@ -18,6 +18,24 @@ for (const record of audit.records) {
   }
 }
 
+// Derived data the reader and lists load instead of the full archive: one file per trial
+// and the light index must exist and match resumenes.json (the routine must commit datos/).
+const { buildIndex } = await import('./build-data-index.mjs');
+const missingTrialFiles = [], staleTrialFiles = [];
+for (const record of audit.records) {
+  const path = `datos/ensayos/${record.id}.json`;
+  if (!fs.existsSync(path)) { missingTrialFiles.push(record.id); continue; }
+  try {
+    const stored = JSON.parse(fs.readFileSync(path, 'utf8'));
+    const { ruta, ...rest } = stored;
+    if (JSON.stringify(rest) !== JSON.stringify(record) || !String(ruta || '').startsWith('/trials/')) staleTrialFiles.push(record.id);
+  } catch { staleTrialFiles.push(record.id); }
+}
+if (missingTrialFiles.length) errors.push(`faltan datos/ensayos/<id>.json (ejecuta generar_seo.py y versiona datos/): ${missingTrialFiles.join(',')}`);
+if (staleTrialFiles.length) errors.push(`datos/ensayos desactualizados respecto de resumenes.json: ${staleTrialFiles.join(',')}`);
+if (!fs.existsSync('datos/indice.json')) errors.push('falta datos/indice.json (ejecuta node scripts/build-site-runtime.mjs y versiona datos/)');
+else if (fs.readFileSync('datos/indice.json', 'utf8') !== JSON.stringify(buildIndex(audit.records)) + '\n') errors.push('datos/indice.json desactualizado respecto de resumenes.json (ejecuta node scripts/build-site-runtime.mjs)');
+
 const warnings = [];
 if (audit.emptyValues) warnings.push(`${audit.emptyValues} valores vacíos presentes (incluye campos opcionales)`);
 if (audit.nonIsoBibliographicDates.length) {
