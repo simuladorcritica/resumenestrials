@@ -135,7 +135,7 @@
     "category": "Medicina Crítica",
     "path": "/medicina-critica/renal-acido-base/",
     "url": "https://resumenestrials.com/medicina-critica/renal-acido-base/",
-    "count": 21,
+    "count": 24,
     "trial_ids": [
       "6",
       "9",
@@ -157,7 +157,10 @@
       "204",
       "208",
       "211",
-      "225"
+      "225",
+      "227",
+      "228",
+      "229"
     ]
   },
   "hemodinamica-cardiovascular": {
@@ -210,7 +213,7 @@
     "category": "Medicina Crítica",
     "path": "/medicina-critica/infecciones-antibioticos/",
     "url": "https://resumenestrials.com/medicina-critica/infecciones-antibioticos/",
-    "count": 9,
+    "count": 10,
     "trial_ids": [
       "7",
       "31",
@@ -220,7 +223,8 @@
       "122",
       "133",
       "182",
-      "212"
+      "212",
+      "229"
     ]
   },
   "cardiovascular": {
