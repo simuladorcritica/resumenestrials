@@ -233,6 +233,7 @@ function buildPullRequestBody({ comparison, mainSha, localSha }) {
 }
 
 export const INGESTION_PREFLIGHT_STEPS = Object.freeze([
+  ['Runtime e índice ligero', 'node', ['scripts/build-site-runtime.mjs']],
   ['Generación SEO', 'python', ['generar_seo.py']],
   ['Generación semántica', 'python', ['generar_seo_semantico.py']],
   ['Generación avanzada', 'python', ['generar_seo_avanzado.py']],
