@@ -1,260 +1,60 @@
 {
   "schema_version": 1,
-  "base_sha": "49e1dd513ad6ca454d645bd5fa9b16f91e7e072c",
+  "base_sha": "e1471e41726c360d46089a95bb2e7e2bf2533c89",
   "authorizations": [
     {
-      "id": 40,
+      "id": 81,
       "fields": [
-        "fecha",
-        "cuerpo"
-      ],
-      "reason": "fecha en AAAA-MM-DD con la fecha electrónica según Crossref (created o published-online); frase de publicación actualizada con la fecha en línea."
-    },
-    {
-      "id": 42,
-      "fields": [
-        "fecha",
-        "cuerpo"
-      ],
-      "reason": "fecha en AAAA-MM-DD con la fecha electrónica según Crossref (created o published-online); frase de publicación actualizada con la fecha en línea."
-    },
-    {
-      "id": 43,
-      "fields": [
-        "fecha"
-      ],
-      "reason": "fecha en AAAA-MM-DD con la fecha electrónica según Crossref (created o published-online)."
-    },
-    {
-      "id": 48,
-      "fields": [
-        "fecha"
-      ],
-      "reason": "fecha en AAAA-MM-DD con la fecha electrónica según Crossref (created o published-online)."
-    },
-    {
-      "id": 49,
-      "fields": [
+        "financiacion",
+        "cuerpo",
         "corto"
       ],
-      "reason": "corto ajustado al tope de 350 palabras sin cambiar datos."
+      "reason": "Revisión nocturna 2026-10-20: corrección de los errores verificados 1, 2, 3, 4, 5, 6, 7, 8, 9 de ERRORES_RESUMENES.md contra el artículo, el suplemento y los formularios de conflicto de interés; cambios mínimos con cifras del PDF y verificación independiente APROBADA."
     },
     {
-      "id": 50,
-      "fields": [
-        "corto"
-      ],
-      "reason": "corto ajustado al tope de 350 palabras sin cambiar datos."
-    },
-    {
-      "id": 51,
-      "fields": [
-        "fecha"
-      ],
-      "reason": "fecha en AAAA-MM-DD con la fecha electrónica según Crossref (created o published-online)."
-    },
-    {
-      "id": 52,
-      "fields": [
-        "anio"
-      ],
-      "reason": "anio como entero coherente con la fecha."
-    },
-    {
-      "id": 53,
-      "fields": [
-        "fecha",
-        "corto"
-      ],
-      "reason": "fecha en AAAA-MM-DD con la fecha electrónica según Crossref (created o published-online); corto ajustado al tope de 350 palabras sin cambiar datos."
-    },
-    {
-      "id": 54,
-      "fields": [
-        "fecha"
-      ],
-      "reason": "fecha en AAAA-MM-DD con la fecha electrónica según Crossref (created o published-online)."
-    },
-    {
-      "id": 55,
-      "fields": [
-        "fecha"
-      ],
-      "reason": "fecha en AAAA-MM-DD con la fecha electrónica según Crossref (created o published-online)."
-    },
-    {
-      "id": 56,
-      "fields": [
-        "anio",
-        "fecha"
-      ],
-      "reason": "fecha en AAAA-MM-DD con la fecha electrónica según Crossref (created o published-online); anio como entero coherente con la fecha."
-    },
-    {
-      "id": 57,
-      "fields": [
-        "cuerpo"
-      ],
-      "reason": "se sustituye \"consultar aparte\" por el factor de impacto oficial de NEJM Evidence (11.6, JCR 2026, puesto 13 de 336; evidence.nejm.org/about)."
-    },
-    {
-      "id": 73,
+      "id": 83,
       "fields": [
         "cuerpo",
         "corto"
       ],
-      "reason": "Corrección verificada contra los PDF de los errores de la revisión nocturna del 2026-10-19 (ERRORES_RESUMENES.md, Parte C), más los que encontró la verificación independiente posterior; a petición expresa del editor.."
+      "reason": "Revisión nocturna 2026-10-20: corrección de los errores verificados 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 de ERRORES_RESUMENES.md contra el artículo, el suplemento y los formularios de conflicto de interés; cambios mínimos con cifras del PDF y verificación independiente APROBADA."
     },
     {
-      "id": 74,
+      "id": 84,
       "fields": [
+        "financiacion",
         "cuerpo",
         "corto"
       ],
-      "reason": "Corrección verificada contra los PDF de los errores de la revisión nocturna del 2026-10-19 (ERRORES_RESUMENES.md, Parte C), más los que encontró la verificación independiente posterior; a petición expresa del editor.."
-    },
-    {
-      "id": 75,
-      "fields": [
-        "hallazgo",
-        "cuerpo",
-        "corto"
-      ],
-      "reason": "Corrección verificada contra los PDF de los errores de la revisión nocturna del 2026-10-19 (ERRORES_RESUMENES.md, Parte C), más los que encontró la verificación independiente posterior; a petición expresa del editor.."
-    },
-    {
-      "id": 76,
-      "fields": [
-        "hallazgo",
-        "cuerpo",
-        "corto"
-      ],
-      "reason": "Corrección verificada contra los PDF de los errores de la revisión nocturna del 2026-10-19 (ERRORES_RESUMENES.md, Parte C), más los que encontró la verificación independiente posterior; a petición expresa del editor.."
-    },
-    {
-      "id": 77,
-      "fields": [
-        "cuerpo",
-        "corto"
-      ],
-      "reason": "Corrección verificada contra los PDF de los errores de la revisión nocturna del 2026-10-19 (ERRORES_RESUMENES.md, Parte C), más los que encontró la verificación independiente posterior; a petición expresa del editor.."
-    },
-    {
-      "id": 78,
-      "fields": [
-        "hallazgo",
-        "cuerpo",
-        "corto"
-      ],
-      "reason": "Corrección verificada contra los PDF de los errores de la revisión nocturna del 2026-10-19 (ERRORES_RESUMENES.md, Parte C), más los que encontró la verificación independiente posterior; a petición expresa del editor.."
-    },
-    {
-      "id": 79,
-      "fields": [
-        "hallazgo",
-        "cuerpo",
-        "corto"
-      ],
-      "reason": "Corrección verificada contra los PDF de los errores de la revisión nocturna del 2026-10-19 (ERRORES_RESUMENES.md, Parte C), más los que encontró la verificación independiente posterior; a petición expresa del editor.."
-    },
-    {
-      "id": 80,
-      "fields": [
-        "hallazgo",
-        "cuerpo",
-        "corto"
-      ],
-      "reason": "Corrección verificada contra los PDF de los errores de la revisión nocturna del 2026-10-19 (ERRORES_RESUMENES.md, Parte C), más los que encontró la verificación independiente posterior; a petición expresa del editor.."
+      "reason": "Revisión nocturna 2026-10-20: corrección de los errores verificados 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 de ERRORES_RESUMENES.md contra el artículo, el suplemento y los formularios de conflicto de interés; cambios mínimos con cifras del PDF y verificación independiente APROBADA."
     },
     {
       "id": 85,
       "fields": [
-        "fecha",
-        "original"
+        "financiacion",
+        "cuerpo",
+        "corto"
       ],
-      "reason": "fecha en AAAA-MM-DD con la fecha electrónica según Crossref (created o published-online); enlace original como URL HTTPS del artículo (nejm.org/doi/full/<DOI>)."
+      "reason": "Revisión nocturna 2026-10-20: corrección de los errores verificados 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 de ERRORES_RESUMENES.md contra el artículo, el suplemento y los formularios de conflicto de interés; cambios mínimos con cifras del PDF y verificación independiente APROBADA."
     },
     {
       "id": 86,
       "fields": [
-        "fecha",
-        "original"
+        "financiacion",
+        "hallazgo",
+        "cuerpo",
+        "corto"
       ],
-      "reason": "fecha en AAAA-MM-DD con la fecha electrónica según Crossref (created o published-online); enlace original como URL HTTPS del artículo (nejm.org/doi/full/<DOI>)."
-    },
-    {
-      "id": 87,
-      "fields": [
-        "fecha",
-        "original"
-      ],
-      "reason": "fecha en AAAA-MM-DD con la fecha electrónica según Crossref (created o published-online); enlace original como URL HTTPS del artículo (nejm.org/doi/full/<DOI>)."
+      "reason": "Revisión nocturna 2026-10-20: corrección de los errores verificados 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 de ERRORES_RESUMENES.md contra el artículo, el suplemento y los formularios de conflicto de interés; cambios mínimos con cifras del PDF y verificación independiente APROBADA."
     },
     {
       "id": 88,
       "fields": [
-        "fecha",
-        "original"
+        "financiacion",
+        "cuerpo",
+        "corto"
       ],
-      "reason": "fecha en AAAA-MM-DD con la fecha electrónica según Crossref (created o published-online); enlace original como URL HTTPS del artículo (nejm.org/doi/full/<DOI>)."
-    },
-    {
-      "id": 89,
-      "fields": [
-        "fecha",
-        "original"
-      ],
-      "reason": "fecha en AAAA-MM-DD con la fecha electrónica según Crossref (created o published-online); enlace original como URL HTTPS del artículo (nejm.org/doi/full/<DOI>)."
-    },
-    {
-      "id": 90,
-      "fields": [
-        "fecha",
-        "original"
-      ],
-      "reason": "fecha en AAAA-MM-DD con la fecha electrónica según Crossref (created o published-online); enlace original como URL HTTPS del artículo (nejm.org/doi/full/<DOI>)."
-    },
-    {
-      "id": 127,
-      "fields": [
-        "cuerpo"
-      ],
-      "reason": "factor de impacto con punto decimal (84.5), igual que el resto de NEJM."
-    },
-    {
-      "id": 151,
-      "fields": [
-        "cuerpo"
-      ],
-      "reason": "encabezado canónico \"Pregunta de investigación\"."
-    },
-    {
-      "id": 155,
-      "fields": [
-        "cuerpo"
-      ],
-      "reason": "encabezado canónico \"Pregunta de investigación\"."
-    },
-    {
-      "id": 156,
-      "fields": [
-        "cuerpo"
-      ],
-      "reason": "encabezado canónico \"Pregunta de investigación\"."
-    },
-    {
-      "id": 157,
-      "fields": [
-        "cuerpo"
-      ],
-      "reason": "encabezado canónico \"Pregunta de investigación\"."
-    },
-    {
-      "id": 158,
-      "fields": [
-        "cuerpo"
-      ],
-      "reason": "encabezado canónico \"Pregunta de investigación\"."
+      "reason": "Revisión nocturna 2026-10-20: corrección de los errores verificados 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21 de ERRORES_RESUMENES.md contra el artículo, el suplemento y los formularios de conflicto de interés; cambios mínimos con cifras del PDF y verificación independiente APROBADA."
     }
   ]
 }

@@ -2197,7 +2197,7 @@
     "intent": {
       "question": "Determinar si la hipotermia dirigida a 33°C, comparada con normotermia con tratamiento temprano de la fiebre, reduce la mortalidad a 6 meses en pacientes en coma tras un paro cardiaco extrahospitalario.",
       "answer": "La hipotermia no redujo la mortalidad a 6 meses frente a la normotermia ( 50% vs 48%; riesgo relativo 1.04; IC 95%, 0.94 a 1.14; p=0.37 ) ni mejoró el resultado funcional, y se asoció a más arritmias con compromiso hemodinámico.",
-      "population": "Población. Adultos en coma tras un paro cardiaco extrahospitalario de causa presumiblemente cardiaca o desconocida, sin respuesta motora relevante ni verbal al dolor, con más de 20 minutos de circulación espontánea sostenida tras la reanimación, independientemente del ritmo inicial. Intervención. Hipotermia dirigida a 33°C durante 28 horas desde la aleatorización, seguida de recalentamiento controlado a razón de un tercio de…"
+      "population": "Población. Adultos en coma tras un paro cardiaco extrahospitalario de causa presumiblemente cardiaca o desconocida, incapaces de obedecer órdenes verbales (puntuación motora FOUR menor de 4) y sin respuesta verbal al dolor, con más de 20 minutos de circulación espontánea sostenida tras la reanimación, independientemente del ritmo inicial. Intervención. Hipotermia dirigida a 33°C durante 28 horas desde la aleatorización…"
     }
   },
   "84": {
@@ -2276,7 +2276,7 @@
     ],
     "intent": {
       "question": "Determinar si un objetivo intensivo de presión arterial sistólica, menor de 120 mm Hg, reduce el riesgo de eventos cardiovasculares mayores frente a un objetivo estándar menor de 140 mm Hg, en pacientes con diabetes tipo 2 y riesgo cardiovascular aumentado.",
-      "answer": "El control intensivo de la presión arterial redujo el desenlace primario compuesto de ictus, infarto, insuficiencia cardiaca y muerte cardiovascular frente al control estándar (razón de riesgo 0.79; IC 95%, 0.69 a 0.90; p menor de 0.001), a costa de más hipotensión sintomática e hiperpotasemia.",
+      "answer": "El control intensivo de la presión arterial redujo el desenlace primario compuesto de ictus, infarto, insuficiencia cardiaca y muerte cardiovascular frente al control estándar (razón de riesgo 0.79; IC 95%, 0.69 a 0.90; p menor de 0.001), a costa de más casos de potasio sérico elevado y de una mayor frecuencia de hipotensión…",
       "population": "Población. Adultos de 50 años o más con diabetes tipo 2, presión arterial sistólica elevada (de 130 a 180 mm Hg si tomaban antihipertensivos, o de 140 mm Hg o más si no los tomaban) y riesgo cardiovascular aumentado, definido por antecedente de enfermedad cardiovascular clínica, enfermedad cardiovascular subclínica reciente, dos o más factores de riesgo cardiovascular, o enfermedad renal crónica con una tasa de filtración…"
     }
   },
