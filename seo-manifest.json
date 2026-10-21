@@ -5865,5 +5865,115 @@
       "answer": "La mortalidad a 90 días fue del 49.6% con diálisis sostenida de baja eficiencia frente al 55.6% con hemofiltración continua (p = 0.43; IC 95% no reportado) , sin diferencias significativas en la mortalidad hospitalaria ni en la UCI.",
       "population": "La población fueron adultos de 18 años o más ingresados en la UCI quirúrgica de un hospital universitario de Heidelberg, Alemania, con lesión renal aguda que requería terapia de reemplazo renal. La raza o etnia no se reporta. La sepsis fue la principal causa de la lesión renal, y cerca de 1 de cada 5 pacientes era un trasplantado hepático."
     }
+  },
+  "230": {
+    "slug": "andromeda-shock-2-reanimacion-hemodinamica-personalizada-dirigida-tiempo-llenado-capilar-shock",
+    "path": "/trials/andromeda-shock-2-reanimacion-hemodinamica-personalizada-dirigida-tiempo-llenado-capilar-shock/",
+    "url": "https://resumenestrials.com/trials/andromeda-shock-2-reanimacion-hemodinamica-personalizada-dirigida-tiempo-llenado-capilar-shock/",
+    "title": "ANDROMEDA-SHOCK-2: reanimación hemodinámica personalizada dirigida al tiempo de llenado capilar en el shock séptico temprano",
+    "seo_title": "ANDROMEDA-SHOCK-2 trial: reanimación hemodinámica personalizada dirigida al tiempo de llenado capilar en el shock séptico temprano | Resúmenes Trials",
+    "description": "ANDROMEDA-SHOCK-2: La reanimación personalizada guiada por el llenado capilar fue superior en el compuesto jerárquico a 28 días, con una razón de victorias de…",
+    "clusters": [
+      {
+        "name": "Sepsis y shock",
+        "path": "/medicina-critica/sepsis-shock/",
+        "url": "https://resumenestrials.com/medicina-critica/sepsis-shock/"
+      },
+      {
+        "name": "Hemodinámica y cardiovascular",
+        "path": "/medicina-critica/hemodinamica-cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-critica/hemodinamica-cardiovascular/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/andromeda-shock-2-reanimacion-hemodinamica-personalizada-dirigida-tiempo-llenado-capilar-shock-16x9.jpg",
+      "https://resumenestrials.com/images/trials/andromeda-shock-2-reanimacion-hemodinamica-personalizada-dirigida-tiempo-llenado-capilar-shock-4x3.jpg",
+      "https://resumenestrials.com/images/trials/andromeda-shock-2-reanimacion-hemodinamica-personalizada-dirigida-tiempo-llenado-capilar-shock-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si un protocolo de reanimación hemodinámica personalizada dirigido a normalizar el tiempo de llenado capilar mejora un compuesto jerárquico de mortalidad, duración del soporte vital y estancia hospitalaria a 28 días frente a la atención habitual en el shock séptico temprano.",
+      "answer": "La reanimación personalizada guiada por el llenado capilar fue superior en el compuesto jerárquico a 28 días, con una razón de victorias de 1.16 (IC 95%, 1.02 a 1.33; p = 0.04) , sobre todo por menor duración del soporte vital; la mortalidad a 28 días no difirió, 26.5% frente a 26.6% .",
+      "population": "La población fueron adultos con shock séptico en sus primeras 4 horas, definido como infección sospechada o confirmada, lactato de 2.0 mmol/l o más y necesidad de noradrenalina para mantener una presión arterial media de al menos 65 mmHg tras recibir como mínimo 1000 ml de líquidos intravenosos. Participaron 86 unidades de cuidados intensivos de 19 países; de los aleatorizados, 816 procedían de América, 609 de Europa y 76 de…"
+    }
+  },
+  "232": {
+    "slug": "rest-efecto-ventilacion-volumen-corriente-mas-facilitada-extraccion-extracorporea-dioxido",
+    "path": "/trials/rest-efecto-ventilacion-volumen-corriente-mas-facilitada-extraccion-extracorporea-dioxido/",
+    "url": "https://resumenestrials.com/trials/rest-efecto-ventilacion-volumen-corriente-mas-facilitada-extraccion-extracorporea-dioxido/",
+    "title": "REST: efecto de la ventilación con volumen corriente más bajo facilitada por extracción extracorpórea de dióxido de carbono frente a la ventilación estándar sobre la mortalidad a 90 días en pacientes con insuficiencia respiratoria hipoxémica aguda",
+    "seo_title": "REST trial: efecto de la ventilación con volumen corriente más bajo facilitada por extracción extracorpórea de dióxido de carbono frente a la ventilación estándar sobre la mortalidad a 90 días en pacientes con insuficiencia respiratoria hipoxémica aguda | Resúmenes Trials",
+    "description": "REST: La mortalidad a 90 días fue del 41.5% con ECCO2R frente al 39.5% con ventilación estándar , sin diferencia significativa (riesgo relativo 1.05; IC 95%…",
+    "clusters": [
+      {
+        "name": "Ventilación e insuficiencia respiratoria",
+        "path": "/medicina-critica/ventilacion-respiratoria/",
+        "url": "https://resumenestrials.com/medicina-critica/ventilacion-respiratoria/"
+      },
+      {
+        "name": "SDRA y ECMO",
+        "path": "/medicina-critica/sdra-ecmo/",
+        "url": "https://resumenestrials.com/medicina-critica/sdra-ecmo/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/rest-efecto-ventilacion-volumen-corriente-mas-facilitada-extraccion-extracorporea-dioxido-16x9.jpg",
+      "https://resumenestrials.com/images/trials/rest-efecto-ventilacion-volumen-corriente-mas-facilitada-extraccion-extracorporea-dioxido-4x3.jpg",
+      "https://resumenestrials.com/images/trials/rest-efecto-ventilacion-volumen-corriente-mas-facilitada-extraccion-extracorporea-dioxido-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si la ventilación con volumen corriente más bajo facilitada por extracción extracorpórea de dióxido de carbono reduce la mortalidad a 90 días frente a la ventilación protectora convencional en adultos con insuficiencia respiratoria hipoxémica aguda.",
+      "answer": "La mortalidad a 90 días fue del 41.5% con ECCO2R frente al 39.5% con ventilación estándar , sin diferencia significativa (riesgo relativo 1.05; IC 95%, 0.83 a 1.33; p = 0.68), con más eventos adversos graves en el grupo del dispositivo (30.7% frente a 8.6%, sin prueba estadística informada).",
+      "population": "La población fueron pacientes de 16 años o más ingresados en UCI con insuficiencia respiratoria hipoxémica aguda moderada a grave de causa potencialmente reversible, con ventilación mecánica invasiva y una PEEP de al menos 5 cmH2O, dentro de las 48 horas siguientes al inicio de una hipoxemia definida por una PaO2/FiO2 menor de 150 mmHg. Participaron 51 UCI generales del Servicio Nacional de Salud del Reino Unido. La raza o…"
+    }
+  },
+  "233": {
+    "slug": "ovation-objetivos-presion-arterial-mas-altos-mas-bajos-tratamiento-vasopresor",
+    "path": "/trials/ovation-objetivos-presion-arterial-mas-altos-mas-bajos-tratamiento-vasopresor/",
+    "url": "https://resumenestrials.com/trials/ovation-objetivos-presion-arterial-mas-altos-mas-bajos-tratamiento-vasopresor/",
+    "title": "OVATION: objetivos de presión arterial más altos frente a más bajos para el tratamiento vasopresor en el shock, ensayo piloto multicéntrico",
+    "seo_title": "OVATION trial: objetivos de presión arterial más altos frente a más bajos para el tratamiento vasopresor en el shock, ensayo piloto multicéntrico | Resúmenes Trials",
+    "description": "OVATION: La separación en la presión arterial media fue de 9 mmHg (IC 95%, 7 a 11) , por encima del umbral de viabilidad de 5 mmHg, sin valor p reportado. La…",
+    "clusters": [
+      {
+        "name": "Hemodinámica y cardiovascular",
+        "path": "/medicina-critica/hemodinamica-cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-critica/hemodinamica-cardiovascular/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/ovation-objetivos-presion-arterial-mas-altos-mas-bajos-tratamiento-vasopresor-16x9.jpg",
+      "https://resumenestrials.com/images/trials/ovation-objetivos-presion-arterial-mas-altos-mas-bajos-tratamiento-vasopresor-4x3.jpg",
+      "https://resumenestrials.com/images/trials/ovation-objetivos-presion-arterial-mas-altos-mas-bajos-tratamiento-vasopresor-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Evaluar si una meta de presión arterial media de 60 a 65 mmHg frente a una de 75 a 80 mmHg durante el tratamiento vasopresor del shock logra una separación suficiente entre grupos para justificar un ensayo definitivo.",
+      "answer": "La separación en la presión arterial media fue de 9 mmHg (IC 95%, 7 a 11) , por encima del umbral de viabilidad de 5 mmHg, sin valor p reportado.",
+      "population": "La población fueron adultos de más de 16 años que recibían vasopresores en la UCI por un shock que se suponía vasodilatador, cualquiera que fuera el diagnóstico de ingreso, siempre que el médico tratante considerara que ya estaban bien reanimados con líquidos y esperara mantener el vasopresor al menos 6 horas; no se exigió un volumen mínimo de líquidos antes de la inclusión. La raza o etnia de los pacientes: No reportado…"
+    }
+  },
+  "234": {
+    "slug": "atn-intensidad-soporte-renal-pacientes-estado-critico-lesion-renal-aguda",
+    "path": "/trials/atn-intensidad-soporte-renal-pacientes-estado-critico-lesion-renal-aguda/",
+    "url": "https://resumenestrials.com/trials/atn-intensidad-soporte-renal-pacientes-estado-critico-lesion-renal-aguda/",
+    "title": "ATN: intensidad del soporte renal en pacientes en estado crítico con lesión renal aguda",
+    "seo_title": "ATN trial: intensidad del soporte renal en pacientes en estado crítico con lesión renal aguda | Resúmenes Trials",
+    "description": "ATN: La mortalidad a 60 días fue del 53.6% con la estrategia intensiva frente al 51.5% con la menos intensiva , sin diferencia significativa (razón de momios…",
+    "clusters": [
+      {
+        "name": "Renal y ácido-base",
+        "path": "/medicina-critica/renal-acido-base/",
+        "url": "https://resumenestrials.com/medicina-critica/renal-acido-base/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/atn-intensidad-soporte-renal-pacientes-estado-critico-lesion-renal-aguda-16x9.jpg",
+      "https://resumenestrials.com/images/trials/atn-intensidad-soporte-renal-pacientes-estado-critico-lesion-renal-aguda-4x3.jpg",
+      "https://resumenestrials.com/images/trials/atn-intensidad-soporte-renal-pacientes-estado-critico-lesion-renal-aguda-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si una estrategia intensiva de reemplazo renal reduce la mortalidad a 60 días frente a una estrategia menos intensiva en adultos en estado crítico con lesión renal aguda.",
+      "answer": "La mortalidad a 60 días fue del 53.6% con la estrategia intensiva frente al 51.5% con la menos intensiva , sin diferencia significativa (razón de momios 1.09; IC 95%, 0.86 a 1.40; p = 0.47), y la recuperación renal tampoco mejoró.",
+      "population": "La población fueron adultos de 18 años o más, en estado crítico y atendidos en una unidad de cuidados críticos, con una lesión renal aguda compatible con necrosis tubular aguda en un contexto isquémico o nefrotóxico, para la que el equipo planeaba iniciar reemplazo renal, y con falla de al menos un órgano no renal, definida como una puntuación de la escala SOFA de 2 o más en ese órgano, o con sepsis. No podían haber recibido…"
+    }
   }
 }
