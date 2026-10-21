@@ -5617,5 +5617,85 @@
       "answer": "La supervivencia a los 14 días del final de la terapia fue del 39.5% con hemodiálisis intermitente frente al 43.9% con hemofiltración continua (razón de momios 0.84; IC 95%, 0.49 a 1.41; p = 0.50) , sin diferencias en la mortalidad a 30 días ni intrahospitalaria.",
       "population": "La población fueron adultos mayores de 18 años ingresados en las UCI médicas de un hospital universitario de Berlín, Alemania, con insuficiencia renal aguda que requería terapia de reemplazo renal. La raza o etnia no se reporta."
     }
+  },
+  "227": {
+    "slug": "citrato-de-sodio-frente-a-solucion-salina-para-el-sellado-de-cateteres-venosos-centrales",
+    "path": "/trials/citrato-de-sodio-frente-a-solucion-salina-para-el-sellado-de-cateteres-venosos-centrales/",
+    "url": "https://resumenestrials.com/trials/citrato-de-sodio-frente-a-solucion-salina-para-el-sellado-de-cateteres-venosos-centrales/",
+    "title": "Citrato de sodio frente a solución salina para el sellado de catéteres venosos centrales de hemodiálisis no tunelizados en adultos en estado crítico",
+    "seo_title": "Citrato de sodio frente a solución salina para el sellado de catéteres venosos centrales de hemodiálisis no tunelizados en adultos en estado crítico | Resúmenes Trials",
+    "description": "Citrato de sodio frente a solución salina para el sellado de catéteres venosos centrales de hemodiálisis no tunelizados en adultos en estado crítico: La vida…",
+    "clusters": [
+      {
+        "name": "Renal y ácido-base",
+        "path": "/medicina-critica/renal-acido-base/",
+        "url": "https://resumenestrials.com/medicina-critica/renal-acido-base/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/citrato-de-sodio-frente-a-solucion-salina-para-el-sellado-de-cateteres-venosos-centrales-16x9.jpg",
+      "https://resumenestrials.com/images/trials/citrato-de-sodio-frente-a-solucion-salina-para-el-sellado-de-cateteres-venosos-centrales-4x3.jpg",
+      "https://resumenestrials.com/images/trials/citrato-de-sodio-frente-a-solucion-salina-para-el-sellado-de-cateteres-venosos-centrales-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Comparar el sellado con citrato de sodio frente al sellado con solución salina en la vida sin complicaciones de los catéteres de hemodiálisis no tunelizados en adultos críticos con insuficiencia renal aguda.",
+      "answer": "La vida mediana del catéter sin complicaciones fue de 12 días con citrato frente a 6 días con solución salina (HR 2.12; IC 95%, 1.32 a 3.4; p = 0.0019) , sin diferencias significativas en la tasa de bacteriemia relacionada con el catéter ni en la mortalidad.",
+      "population": "La población fueron adultos mayores de 18 años, ingresados en cuidados intensivos con insuficiencia renal aguda, que necesitaban hemodiálisis continua o intermitente por un catéter venoso central no tunelizado. La raza o etnia no se reporta, y todos procedían de dos UCI de un hospital universitario francés."
+    }
+  },
+  "228": {
+    "slug": "renal-intensidad-terapia-reemplazo-renal-continua-pacientes-estado-critico",
+    "path": "/trials/renal-intensidad-terapia-reemplazo-renal-continua-pacientes-estado-critico/",
+    "url": "https://resumenestrials.com/trials/renal-intensidad-terapia-reemplazo-renal-continua-pacientes-estado-critico/",
+    "title": "RENAL: intensidad de la terapia de reemplazo renal continua en pacientes en estado crítico",
+    "seo_title": "RENAL trial: intensidad de la terapia de reemplazo renal continua en pacientes en estado crítico | Resúmenes Trials",
+    "description": "RENAL: La mortalidad a 90 días fue del 44.7% en ambos grupos (OR 1.00; IC 95%, 0.81 a 1.23; P = 0.99) , sin diferencias significativas en la dependencia de…",
+    "clusters": [
+      {
+        "name": "Renal y ácido-base",
+        "path": "/medicina-critica/renal-acido-base/",
+        "url": "https://resumenestrials.com/medicina-critica/renal-acido-base/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/renal-intensidad-terapia-reemplazo-renal-continua-pacientes-estado-critico-16x9.jpg",
+      "https://resumenestrials.com/images/trials/renal-intensidad-terapia-reemplazo-renal-continua-pacientes-estado-critico-4x3.jpg",
+      "https://resumenestrials.com/images/trials/renal-intensidad-terapia-reemplazo-renal-continua-pacientes-estado-critico-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Comparar una intensidad mayor (40 ml/kg/h) frente a una menor (25 ml/kg/h) de hemodiafiltración venovenosa continua en la mortalidad a 90 días de pacientes críticos con lesión renal aguda.",
+      "answer": "La mortalidad a 90 días fue del 44.7% en ambos grupos (OR 1.00; IC 95%, 0.81 a 1.23; P = 0.99) , sin diferencias significativas en la dependencia de diálisis; la hipofosfatemia fue más frecuente con la dosis alta (65.1% frente a 54.0%; P < 0.0001).",
+      "population": "La población fueron adultos en estado crítico de 35 UCI de Australia y Nueva Zelanda, con lesión renal aguda que el médico tratante consideraba candidata a terapia de reemplazo renal. La raza o etnia no se reporta."
+    }
+  },
+  "229": {
+    "slug": "cathedia-cateterizacion-venosa-femoral-yugular-riesgo-eventos-nosocomiales-adultos-requieren",
+    "path": "/trials/cathedia-cateterizacion-venosa-femoral-yugular-riesgo-eventos-nosocomiales-adultos-requieren/",
+    "url": "https://resumenestrials.com/trials/cathedia-cateterizacion-venosa-femoral-yugular-riesgo-eventos-nosocomiales-adultos-requieren/",
+    "title": "Cathedia: cateterización venosa femoral frente a yugular y riesgo de eventos nosocomiales en adultos que requieren terapia de reemplazo renal aguda",
+    "seo_title": "Cathedia trial: cateterización venosa femoral frente a yugular y riesgo de eventos nosocomiales en adultos que requieren terapia de reemplazo renal aguda | Resúmenes Trials",
+    "description": "Cathedia: La colonización del catéter fue de 40.8 frente a 35.7 por 1000 días-catéter con femoral y yugular (HR 0.85; IC 95%, 0.62 a 1.16; p = 0.31) , sin…",
+    "clusters": [
+      {
+        "name": "Renal y ácido-base",
+        "path": "/medicina-critica/renal-acido-base/",
+        "url": "https://resumenestrials.com/medicina-critica/renal-acido-base/"
+      },
+      {
+        "name": "Infecciones y antibióticos",
+        "path": "/medicina-critica/infecciones-antibioticos/",
+        "url": "https://resumenestrials.com/medicina-critica/infecciones-antibioticos/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/cathedia-cateterizacion-venosa-femoral-yugular-riesgo-eventos-nosocomiales-adultos-requieren-16x9.jpg",
+      "https://resumenestrials.com/images/trials/cathedia-cateterizacion-venosa-femoral-yugular-riesgo-eventos-nosocomiales-adultos-requieren-4x3.jpg",
+      "https://resumenestrials.com/images/trials/cathedia-cateterizacion-venosa-femoral-yugular-riesgo-eventos-nosocomiales-adultos-requieren-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Comparar la cateterización yugular frente a la femoral para la terapia de reemplazo renal aguda en la colonización del catéter al retirarlo en adultos críticos.",
+      "answer": "La colonización del catéter fue de 40.8 frente a 35.7 por 1000 días-catéter con femoral y yugular (HR 0.85; IC 95%, 0.62 a 1.16; p = 0.31) , sin diferencias en la bacteriemia relacionada con el catéter; la yugular tuvo más hematomas (3.6% frente a 1.1%; p = 0.03).",
+      "population": "La población fueron adultos de 18 años o más, críticamente enfermos y encamados, ingresados en UCI de 12 hospitales franceses, que iban a necesitar terapia de reemplazo renal aguda y recibían por primera vez un catéter venoso para ese fin. La raza o etnia no se reporta. La pregunta es de las que se plantean a diario junto a la cama: dónde colocar el catéter de diálisis temporal."
+    }
   }
 }
