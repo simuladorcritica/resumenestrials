@@ -5975,5 +5975,74 @@
       "answer": "La mortalidad a 60 días fue del 53.6% con la estrategia intensiva frente al 51.5% con la menos intensiva , sin diferencia significativa (razón de momios 1.09; IC 95%, 0.86 a 1.40; p = 0.47), y la recuperación renal tampoco mejoró.",
       "population": "La población fueron adultos de 18 años o más, en estado crítico y atendidos en una unidad de cuidados críticos, con una lesión renal aguda compatible con necrosis tubular aguda en un contexto isquémico o nefrotóxico, para la que el equipo planeaba iniciar reemplazo renal, y con falla de al menos un órgano no renal, definida como una puntuación de la escala SOFA de 2 o más en ese órgano, o con sepsis. No podían haber recibido…"
     }
+  },
+  "235": {
+    "slug": "i-can-ravulizumab-nefropatia-iga-analisis-interino-ensayo-fase-3",
+    "path": "/trials/i-can-ravulizumab-nefropatia-iga-analisis-interino-ensayo-fase-3/",
+    "url": "https://resumenestrials.com/trials/i-can-ravulizumab-nefropatia-iga-analisis-interino-ensayo-fase-3/",
+    "title": "I CAN: ravulizumab en la nefropatía por IgA, análisis interino de un ensayo de fase 3",
+    "seo_title": "I CAN trial: ravulizumab en la nefropatía por IgA, análisis interino de un ensayo de fase 3 | Resúmenes Trials",
+    "description": "I CAN: En la semana 34, el cociente proteína/creatinina en orina fue 43.4% menor con ravulizumab que con placebo (IC 95%, 33.5 a 51.8; IC 99%, 30.1 a 54.2…",
+    "clusters": [],
+    "images": [
+      "https://resumenestrials.com/images/trials/i-can-ravulizumab-nefropatia-iga-analisis-interino-ensayo-fase-3-16x9.jpg",
+      "https://resumenestrials.com/images/trials/i-can-ravulizumab-nefropatia-iga-analisis-interino-ensayo-fase-3-4x3.jpg",
+      "https://resumenestrials.com/images/trials/i-can-ravulizumab-nefropatia-iga-analisis-interino-ensayo-fase-3-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si el ravulizumab reduce el cociente proteína/creatinina en orina de 24 horas a las 34 semanas frente a placebo en adultos con nefropatía por IgA y proteinuria persistente.",
+      "answer": "En la semana 34, el cociente proteína/creatinina en orina fue 43.4% menor con ravulizumab que con placebo (IC 95%, 33.5 a 51.8; IC 99%, 30.1 a 54.2; p<0.001), sin más eventos adversos graves que con placebo.",
+      "population": "La población fueron adultos con nefropatía por IgA confirmada por biopsia y en riesgo de progresión, definida por proteinuria persistente: un cociente proteína/creatinina en orina de 24 horas de al menos 0.75 o una excreción de proteínas de al menos 1.0 gramos al día, con una tasa de filtración glomerular estimada de 30 ml por minuto por 1.73 m2 o más. Todos debían llevar al menos 3 meses con un inhibidor del sistema…"
+    }
+  },
+  "236": {
+    "slug": "mild-mt-ensayo-terapia-endovascular-ictus-leve-oclusion-gran-vaso",
+    "path": "/trials/mild-mt-ensayo-terapia-endovascular-ictus-leve-oclusion-gran-vaso/",
+    "url": "https://resumenestrials.com/trials/mild-mt-ensayo-terapia-endovascular-ictus-leve-oclusion-gran-vaso/",
+    "title": "MILD-MT: ensayo de terapia endovascular en el ictus leve por oclusión de un gran vaso",
+    "seo_title": "MILD-MT trial: ensayo de terapia endovascular en el ictus leve por oclusión de un gran vaso | Resúmenes Trials",
+    "description": "MILD-MT: Una escala de Rankin de 0 o 1 a los 90 días se alcanzó en el 69.4% con trombectomía frente al 50.0% con tratamiento médico solo (razón de momios…",
+    "clusters": [
+      {
+        "name": "Neurología",
+        "path": "/medicina-interna/neurologia/",
+        "url": "https://resumenestrials.com/medicina-interna/neurologia/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/mild-mt-ensayo-terapia-endovascular-ictus-leve-oclusion-gran-vaso-16x9.jpg",
+      "https://resumenestrials.com/images/trials/mild-mt-ensayo-terapia-endovascular-ictus-leve-oclusion-gran-vaso-4x3.jpg",
+      "https://resumenestrials.com/images/trials/mild-mt-ensayo-terapia-endovascular-ictus-leve-oclusion-gran-vaso-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si añadir terapia endovascular al tratamiento médico aumenta la proporción de pacientes con evolución funcional excelente a 90 días en el ictus isquémico leve por oclusión de un gran vaso de la circulación anterior con tejido salvable en la perfusión.",
+      "answer": "Una escala de Rankin de 0 o 1 a los 90 días se alcanzó en el 69.4% con trombectomía frente al 50.0% con tratamiento médico solo (razón de momios 2.32; IC 95%, 1.41 a 3.81; p<0.001), sin más hemorragias sintomáticas pero con complicaciones graves del procedimiento en el 13.2%.",
+      "population": "La población fueron adultos de 18 a 80 años con un ictus isquémico agudo leve, definido por una puntuación menor de 6 en la escala NIHSS, causado por la oclusión de una arteria grande de la circulación anterior: la carótida interna intracraneal o los segmentos M1 o M2 de la arteria cerebral media. La NIHSS mide el déficit neurológico de 0 a 42 puntos, y cuanto más alta, más grave. Además, todos debían tener mucho tejido en…"
+    }
+  },
+  "237": {
+    "slug": "late-mt-trombectomia-mecanica-24-72-horas-despues-ictus-isquemico-oclusion",
+    "path": "/trials/late-mt-trombectomia-mecanica-24-72-horas-despues-ictus-isquemico-oclusion/",
+    "url": "https://resumenestrials.com/trials/late-mt-trombectomia-mecanica-24-72-horas-despues-ictus-isquemico-oclusion/",
+    "title": "LATE-MT: trombectomía mecánica de 24 a 72 horas después de un ictus isquémico por oclusión de gran vaso",
+    "seo_title": "LATE-MT trial: trombectomía mecánica de 24 a 72 horas después de un ictus isquémico por oclusión de gran vaso | Resúmenes Trials",
+    "description": "LATE-MT: La trombectomía desplazó la escala de Rankin a 90 días hacia una mejor función, con una razón de momios común de 1.74 (IC 95%, 1.19 a 2.55; p =…",
+    "clusters": [
+      {
+        "name": "Neurología",
+        "path": "/medicina-interna/neurologia/",
+        "url": "https://resumenestrials.com/medicina-interna/neurologia/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/late-mt-trombectomia-mecanica-24-72-horas-despues-ictus-isquemico-oclusion-16x9.jpg",
+      "https://resumenestrials.com/images/trials/late-mt-trombectomia-mecanica-24-72-horas-despues-ictus-isquemico-oclusion-4x3.jpg",
+      "https://resumenestrials.com/images/trials/late-mt-trombectomia-mecanica-24-72-horas-despues-ictus-isquemico-oclusion-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si la trombectomía endovascular sumada al tratamiento médico mejora la función a 90 días frente al tratamiento médico solo en pacientes con ictus por oclusión de un gran vaso anterior y tejido salvable que llegan entre 24 y 72 horas después del inicio.",
+      "answer": "La trombectomía desplazó la escala de Rankin a 90 días hacia una mejor función, con una razón de momios común de 1.74 (IC 95%, 1.19 a 2.55; p = 0.005), pero la hemorragia sintomática fue del 4.8% frente a ninguna en el control.",
+      "population": "La población fueron adultos con un ictus isquémico agudo por oclusión de una arteria grande de la circulación anterior, desde la carótida interna extracraneal hasta el segmento M2 de la arteria cerebral media, que llegaban entre 24 y 72 horas después del inicio de los síntomas o de la última vez que se les vio bien. Debían tener un déficit al menos moderado, con 6 puntos o más en la escala NIHSS, que mide el déficit…"
+    }
   }
 }
