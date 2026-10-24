@@ -6044,5 +6044,55 @@
       "answer": "La trombectomía desplazó la escala de Rankin a 90 días hacia una mejor función, con una razón de momios común de 1.74 (IC 95%, 1.19 a 2.55; p = 0.005), pero la hemorragia sintomática fue del 4.8% frente a ninguna en el control.",
       "population": "La población fueron adultos con un ictus isquémico agudo por oclusión de una arteria grande de la circulación anterior, desde la carótida interna extracraneal hasta el segmento M2 de la arteria cerebral media, que llegaban entre 24 y 72 horas después del inicio de los síntomas o de la última vez que se les vio bien. Debían tener un déficit al menos moderado, con 6 puntos o más en la escala NIHSS, que mide el déficit…"
     }
+  },
+  "238": {
+    "slug": "triumph-1-osa-y-triumph-2-retatrutida-vez-semana-tratamiento-apnea-obstructiva-sueno",
+    "path": "/trials/triumph-1-osa-y-triumph-2-retatrutida-vez-semana-tratamiento-apnea-obstructiva-sueno/",
+    "url": "https://resumenestrials.com/trials/triumph-1-osa-y-triumph-2-retatrutida-vez-semana-tratamiento-apnea-obstructiva-sueno/",
+    "title": "TRIUMPH-1-OSA y TRIUMPH-2-OSA: retatrutida una vez por semana para el tratamiento de la apnea obstructiva del sueño",
+    "seo_title": "TRIUMPH-1-OSA y TRIUMPH-2-OSA trial: retatrutida una vez por semana para el tratamiento de la apnea obstructiva del sueño | Resúmenes Trials",
+    "description": "TRIUMPH-1-OSA y TRIUMPH-2-OSA: Con 9 mg de retatrutida, la diferencia frente al placebo en el cambio del índice de apnea-hipopnea a las 80 semanas fue de…",
+    "clusters": [
+      {
+        "name": "Renal y metabolismo",
+        "path": "/medicina-interna/renal-metabolica/",
+        "url": "https://resumenestrials.com/medicina-interna/renal-metabolica/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/triumph-1-osa-y-triumph-2-retatrutida-vez-semana-tratamiento-apnea-obstructiva-sueno-16x9.jpg",
+      "https://resumenestrials.com/images/trials/triumph-1-osa-y-triumph-2-retatrutida-vez-semana-tratamiento-apnea-obstructiva-sueno-4x3.jpg",
+      "https://resumenestrials.com/images/trials/triumph-1-osa-y-triumph-2-retatrutida-vez-semana-tratamiento-apnea-obstructiva-sueno-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si la retatrutida subcutánea semanal reduce el índice de apnea-hipopnea a las 80 semanas frente al placebo en adultos con apnea obstructiva del sueño de moderada a grave y sobrepeso u obesidad, sin diabetes tipo 2 o con ella.",
+      "answer": "Con 9 mg de retatrutida, la diferencia frente al placebo en el cambio del índice de apnea-hipopnea a las 80 semanas fue de −24.4 eventos por hora (IC 95%, −34.1 a −14.7; p<0.001) en adultos sin diabetes y de −14.4 (IC 95%, −21.6 a −7.2; p<0.001) en adultos con diabetes tipo 2.",
+      "population": "La población fueron adultos con apnea obstructiva del sueño de moderada a grave, definida por un índice de apnea-hipopnea, el número de apneas e hipopneas por hora de sueño, de al menos 15 en una polisomnografía de cribado, con un índice de masa corporal de 27 o más. TRIUMPH-1-OSA incluyó a personas sin diabetes tipo 2, y TRIUMPH-2-OSA, a personas con diabetes tipo 2 con una hemoglobina glucosilada de 6.5 a 10.5%. Podían…"
+    }
+  },
+  "239": {
+    "slug": "tich-2-acido-tranexamico-hemorragia-intracerebral-primaria-hiperaguda",
+    "path": "/trials/tich-2-acido-tranexamico-hemorragia-intracerebral-primaria-hiperaguda/",
+    "url": "https://resumenestrials.com/trials/tich-2-acido-tranexamico-hemorragia-intracerebral-primaria-hiperaguda/",
+    "title": "TICH-2: ácido tranexámico para la hemorragia intracerebral primaria hiperaguda",
+    "seo_title": "TICH-2 trial: ácido tranexámico para la hemorragia intracerebral primaria hiperaguda | Resúmenes Trials",
+    "description": "TICH-2: El ácido tranexámico no mejoró el estado funcional a los 90 días: la razón de momios ajustada del desplazamiento en la escala de Rankin fue de 0.88…",
+    "clusters": [
+      {
+        "name": "Neurología",
+        "path": "/medicina-interna/neurologia/",
+        "url": "https://resumenestrials.com/medicina-interna/neurologia/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/tich-2-acido-tranexamico-hemorragia-intracerebral-primaria-hiperaguda-16x9.jpg",
+      "https://resumenestrials.com/images/trials/tich-2-acido-tranexamico-hemorragia-intracerebral-primaria-hiperaguda-4x3.jpg",
+      "https://resumenestrials.com/images/trials/tich-2-acido-tranexamico-hemorragia-intracerebral-primaria-hiperaguda-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si el ácido tranexámico intravenoso administrado en las primeras 8 horas reduce la expansión del hematoma y mejora el estado funcional a los 90 días frente al placebo en adultos con hemorragia intracerebral espontánea.",
+      "answer": "El ácido tranexámico no mejoró el estado funcional a los 90 días: la razón de momios ajustada del desplazamiento en la escala de Rankin fue de 0.88 (IC 95%, 0.76 a 1.03; p=0.11) , con una mortalidad a 90 días del 22% frente al 21%.",
+      "population": "La población fueron adultos con una hemorragia intracerebral espontánea aguda, es decir, no traumática, que ingresaban en un hospital participante dentro de las 8 horas siguientes al inicio de los síntomas o a la última vez que se les vio bien. La mayoría era de raza blanca, un 85%, y el resto se agrupó como de otro origen. El estudio se hizo en 124 hospitales de 12 países de Europa, el Cáucaso, Turquía y Malasia, aunque el…"
+    }
   }
 }
