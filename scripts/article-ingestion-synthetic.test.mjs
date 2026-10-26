@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import { spawnSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
-import { copyFileSync, existsSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { copyFileSync, existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import test from 'node:test';
@@ -16,6 +16,9 @@ test('una alta sintética N+1 genera página, canonical, sitemap, schema, hub y 
   try {
     copyFileSync(new URL('../generar_seo.py', import.meta.url), join(temporary, 'generar_seo.py'));
     copyFileSync(new URL('../site_templates.py', import.meta.url), join(temporary, 'site_templates.py'));
+    // Fuente editorial que site_templates.py lee para la introducción de cada especialidad y subtema.
+    mkdirSync(join(temporary, 'templates'), { recursive: true });
+    copyFileSync(new URL('../templates/textos-temas.json', import.meta.url), join(temporary, 'templates', 'textos-temas.json'));
     const data = JSON.parse(before.toString('utf8'));
     const nextId = Math.max(...data.map((item) => Number(item.id))) + 1;
     // La alta sintética debe ser la más reciente para entrar en el feed (las 50 últimas por fecha editorial).
