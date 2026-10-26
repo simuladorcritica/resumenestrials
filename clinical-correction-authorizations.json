@@ -1,260 +1,1658 @@
 {
   "schema_version": 1,
-  "base_sha": "49e1dd513ad6ca454d645bd5fa9b16f91e7e072c",
+  "base_sha": "d7fe5f66f1ae63c2b475ad0503ec9e547e19e77c",
   "authorizations": [
+    {
+      "id": 1,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 2,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 3,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 4,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 5,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 6,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 7,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 8,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 9,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 10,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 11,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 12,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 13,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 14,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 15,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 16,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 17,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 18,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 19,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 20,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 21,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 22,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 23,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 24,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 25,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 26,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 27,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 28,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 29,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 30,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 31,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 32,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 33,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 34,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 35,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 36,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 37,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 38,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 39,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
     {
       "id": 40,
       "fields": [
-        "fecha",
-        "cuerpo"
+        "fecha_publicacion_resumen"
       ],
-      "reason": "fecha en AAAA-MM-DD con la fecha electrónica según Crossref (created o published-online); frase de publicación actualizada con la fecha en línea."
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 41,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
     },
     {
       "id": 42,
       "fields": [
-        "fecha",
-        "cuerpo"
+        "fecha_publicacion_resumen"
       ],
-      "reason": "fecha en AAAA-MM-DD con la fecha electrónica según Crossref (created o published-online); frase de publicación actualizada con la fecha en línea."
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
     },
     {
       "id": 43,
       "fields": [
-        "fecha"
+        "fecha_publicacion_resumen"
       ],
-      "reason": "fecha en AAAA-MM-DD con la fecha electrónica según Crossref (created o published-online)."
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 44,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 45,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 46,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 47,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
     },
     {
       "id": 48,
       "fields": [
-        "fecha"
+        "fecha_publicacion_resumen"
       ],
-      "reason": "fecha en AAAA-MM-DD con la fecha electrónica según Crossref (created o published-online)."
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
     },
     {
       "id": 49,
       "fields": [
-        "corto"
+        "fecha_publicacion_resumen"
       ],
-      "reason": "corto ajustado al tope de 350 palabras sin cambiar datos."
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
     },
     {
       "id": 50,
       "fields": [
-        "corto"
+        "fecha_publicacion_resumen"
       ],
-      "reason": "corto ajustado al tope de 350 palabras sin cambiar datos."
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
     },
     {
       "id": 51,
       "fields": [
-        "fecha"
+        "fecha_publicacion_resumen"
       ],
-      "reason": "fecha en AAAA-MM-DD con la fecha electrónica según Crossref (created o published-online)."
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
     },
     {
       "id": 52,
       "fields": [
-        "anio"
+        "fecha_publicacion_resumen"
       ],
-      "reason": "anio como entero coherente con la fecha."
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
     },
     {
       "id": 53,
       "fields": [
-        "fecha",
-        "corto"
+        "fecha_publicacion_resumen"
       ],
-      "reason": "fecha en AAAA-MM-DD con la fecha electrónica según Crossref (created o published-online); corto ajustado al tope de 350 palabras sin cambiar datos."
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
     },
     {
       "id": 54,
       "fields": [
-        "fecha"
+        "fecha_publicacion_resumen"
       ],
-      "reason": "fecha en AAAA-MM-DD con la fecha electrónica según Crossref (created o published-online)."
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
     },
     {
       "id": 55,
       "fields": [
-        "fecha"
+        "fecha_publicacion_resumen"
       ],
-      "reason": "fecha en AAAA-MM-DD con la fecha electrónica según Crossref (created o published-online)."
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
     },
     {
       "id": 56,
       "fields": [
-        "anio",
-        "fecha"
+        "fecha_publicacion_resumen"
       ],
-      "reason": "fecha en AAAA-MM-DD con la fecha electrónica según Crossref (created o published-online); anio como entero coherente con la fecha."
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
     },
     {
       "id": 57,
       "fields": [
-        "cuerpo"
+        "fecha_publicacion_resumen"
       ],
-      "reason": "se sustituye \"consultar aparte\" por el factor de impacto oficial de NEJM Evidence (11.6, JCR 2026, puesto 13 de 336; evidence.nejm.org/about)."
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 58,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 59,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 60,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 61,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 62,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 63,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 64,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 65,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 66,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 67,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 68,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 69,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 70,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 71,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 72,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
     },
     {
       "id": 73,
       "fields": [
-        "cuerpo",
-        "corto"
+        "fecha_publicacion_resumen"
       ],
-      "reason": "Corrección verificada contra los PDF de los errores de la revisión nocturna del 2026-10-19 (ERRORES_RESUMENES.md, Parte C), más los que encontró la verificación independiente posterior; a petición expresa del editor.."
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
     },
     {
       "id": 74,
       "fields": [
-        "cuerpo",
-        "corto"
+        "fecha_publicacion_resumen"
       ],
-      "reason": "Corrección verificada contra los PDF de los errores de la revisión nocturna del 2026-10-19 (ERRORES_RESUMENES.md, Parte C), más los que encontró la verificación independiente posterior; a petición expresa del editor.."
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
     },
     {
       "id": 75,
       "fields": [
-        "hallazgo",
-        "cuerpo",
-        "corto"
+        "fecha_publicacion_resumen"
       ],
-      "reason": "Corrección verificada contra los PDF de los errores de la revisión nocturna del 2026-10-19 (ERRORES_RESUMENES.md, Parte C), más los que encontró la verificación independiente posterior; a petición expresa del editor.."
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
     },
     {
       "id": 76,
       "fields": [
-        "hallazgo",
-        "cuerpo",
-        "corto"
+        "fecha_publicacion_resumen"
       ],
-      "reason": "Corrección verificada contra los PDF de los errores de la revisión nocturna del 2026-10-19 (ERRORES_RESUMENES.md, Parte C), más los que encontró la verificación independiente posterior; a petición expresa del editor.."
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
     },
     {
       "id": 77,
       "fields": [
-        "cuerpo",
-        "corto"
+        "fecha_publicacion_resumen"
       ],
-      "reason": "Corrección verificada contra los PDF de los errores de la revisión nocturna del 2026-10-19 (ERRORES_RESUMENES.md, Parte C), más los que encontró la verificación independiente posterior; a petición expresa del editor.."
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
     },
     {
       "id": 78,
       "fields": [
-        "hallazgo",
-        "cuerpo",
-        "corto"
+        "fecha_publicacion_resumen"
       ],
-      "reason": "Corrección verificada contra los PDF de los errores de la revisión nocturna del 2026-10-19 (ERRORES_RESUMENES.md, Parte C), más los que encontró la verificación independiente posterior; a petición expresa del editor.."
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
     },
     {
       "id": 79,
       "fields": [
-        "hallazgo",
-        "cuerpo",
-        "corto"
+        "fecha_publicacion_resumen"
       ],
-      "reason": "Corrección verificada contra los PDF de los errores de la revisión nocturna del 2026-10-19 (ERRORES_RESUMENES.md, Parte C), más los que encontró la verificación independiente posterior; a petición expresa del editor.."
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
     },
     {
       "id": 80,
       "fields": [
-        "hallazgo",
-        "cuerpo",
-        "corto"
+        "fecha_publicacion_resumen"
       ],
-      "reason": "Corrección verificada contra los PDF de los errores de la revisión nocturna del 2026-10-19 (ERRORES_RESUMENES.md, Parte C), más los que encontró la verificación independiente posterior; a petición expresa del editor.."
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 81,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 82,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 83,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 84,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
     },
     {
       "id": 85,
       "fields": [
-        "fecha",
-        "original"
+        "fecha_publicacion_resumen"
       ],
-      "reason": "fecha en AAAA-MM-DD con la fecha electrónica según Crossref (created o published-online); enlace original como URL HTTPS del artículo (nejm.org/doi/full/<DOI>)."
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
     },
     {
       "id": 86,
       "fields": [
-        "fecha",
-        "original"
+        "fecha_publicacion_resumen"
       ],
-      "reason": "fecha en AAAA-MM-DD con la fecha electrónica según Crossref (created o published-online); enlace original como URL HTTPS del artículo (nejm.org/doi/full/<DOI>)."
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
     },
     {
       "id": 87,
       "fields": [
-        "fecha",
-        "original"
+        "fecha_publicacion_resumen"
       ],
-      "reason": "fecha en AAAA-MM-DD con la fecha electrónica según Crossref (created o published-online); enlace original como URL HTTPS del artículo (nejm.org/doi/full/<DOI>)."
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
     },
     {
       "id": 88,
       "fields": [
-        "fecha",
-        "original"
+        "fecha_publicacion_resumen"
       ],
-      "reason": "fecha en AAAA-MM-DD con la fecha electrónica según Crossref (created o published-online); enlace original como URL HTTPS del artículo (nejm.org/doi/full/<DOI>)."
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
     },
     {
       "id": 89,
       "fields": [
-        "fecha",
-        "original"
+        "fecha_publicacion_resumen"
       ],
-      "reason": "fecha en AAAA-MM-DD con la fecha electrónica según Crossref (created o published-online); enlace original como URL HTTPS del artículo (nejm.org/doi/full/<DOI>)."
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
     },
     {
       "id": 90,
       "fields": [
-        "fecha",
-        "original"
+        "fecha_publicacion_resumen"
       ],
-      "reason": "fecha en AAAA-MM-DD con la fecha electrónica según Crossref (created o published-online); enlace original como URL HTTPS del artículo (nejm.org/doi/full/<DOI>)."
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 91,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 92,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 93,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 94,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 95,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 96,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 97,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 98,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 99,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 100,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 101,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 102,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 103,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 104,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 105,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 106,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 107,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 108,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 109,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 110,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 111,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 112,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 113,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 114,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 115,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 116,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 117,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 118,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 119,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 120,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 121,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 122,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 123,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 124,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 125,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 126,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
     },
     {
       "id": 127,
       "fields": [
-        "cuerpo"
+        "fecha_publicacion_resumen"
       ],
-      "reason": "factor de impacto con punto decimal (84.5), igual que el resto de NEJM."
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 128,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 129,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 130,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 131,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 132,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 133,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 134,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 135,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 136,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 137,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 138,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 139,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 140,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 141,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 142,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 143,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 144,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 145,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 146,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 147,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 148,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 149,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 150,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
     },
     {
       "id": 151,
       "fields": [
-        "cuerpo"
+        "fecha_publicacion_resumen"
       ],
-      "reason": "encabezado canónico \"Pregunta de investigación\"."
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 152,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 153,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 154,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
     },
     {
       "id": 155,
       "fields": [
-        "cuerpo"
+        "fecha_publicacion_resumen"
       ],
-      "reason": "encabezado canónico \"Pregunta de investigación\"."
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
     },
     {
       "id": 156,
       "fields": [
-        "cuerpo"
+        "fecha_publicacion_resumen"
       ],
-      "reason": "encabezado canónico \"Pregunta de investigación\"."
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
     },
     {
       "id": 157,
       "fields": [
-        "cuerpo"
+        "fecha_publicacion_resumen"
       ],
-      "reason": "encabezado canónico \"Pregunta de investigación\"."
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
     },
     {
       "id": 158,
       "fields": [
-        "cuerpo"
+        "fecha_publicacion_resumen"
       ],
-      "reason": "encabezado canónico \"Pregunta de investigación\"."
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 159,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 160,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 161,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 162,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 163,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 164,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 165,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 166,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 167,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 168,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 169,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 170,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 171,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 173,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 174,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 175,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 177,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 178,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 179,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 180,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 181,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 182,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 183,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 184,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 185,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 186,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 187,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 188,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 189,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 190,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 191,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 192,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 193,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 194,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 195,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 197,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 198,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 199,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 203,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 204,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 205,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 206,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 207,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 208,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 209,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 210,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 211,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 212,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 213,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 216,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 217,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 218,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 219,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 220,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 214,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 222,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 223,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 224,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 225,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 227,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 228,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 229,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 196,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 200,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 201,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 202,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 215,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 221,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 226,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 230,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 232,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 233,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 234,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 235,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 236,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 237,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 238,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
+    },
+    {
+      "id": 239,
+      "fields": [
+        "fecha_publicacion_resumen"
+      ],
+      "reason": "Fecha de alta del resumen en la web (merge a main según el historial de git, hora del centro de México). Metadato editorial para datePublished, sitemap y feed; no cambia texto clínico. Autorizado por el editor el 2026-10-25."
     }
   ]
 }

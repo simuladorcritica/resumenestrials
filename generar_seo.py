@@ -358,7 +358,8 @@ def fecha_editorial(item: dict) -> str:
 def generar_feed(items: list[dict]) -> None:
     dated = [(fecha_editorial(item), item) for item in items]
     dated = [(date, item) for date, item in dated if date]
-    dated.sort(key=lambda pair: (pair[0], str(pair[1].get("id") or "")), reverse=True)
+    # Orden estable por fecha (empates en el orden de resumenes.json), igual que scripts/validate-feed.mjs.
+    dated.sort(key=lambda pair: pair[0], reverse=True)
     updated = dated[0][0] if dated else "1970-01-01"
     lines = [
         '<?xml version="1.0" encoding="UTF-8"?>',
