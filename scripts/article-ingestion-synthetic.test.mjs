@@ -18,6 +18,10 @@ test('una alta sintética N+1 genera página, canonical, sitemap, schema, hub y 
     copyFileSync(new URL('../site_templates.py', import.meta.url), join(temporary, 'site_templates.py'));
     const data = JSON.parse(before.toString('utf8'));
     const nextId = Math.max(...data.map((item) => Number(item.id))) + 1;
+    // La alta sintética debe ser la más reciente para entrar en el feed (las 50 últimas por fecha editorial).
+    const fechas = data.map((item) => item.fecha_publicacion_resumen).filter((value) => /^\d{4}-\d{2}-\d{2}$/.test(value || '')).sort();
+    const ultima = fechas.at(-1) || '2026-09-03';
+    const fechaAlta = new Date(Date.parse(`${ultima}T12:00:00Z`) + 864e5).toISOString().slice(0, 10);
     const synthetic = {
       ...data.at(-1),
       id: nextId,
@@ -38,7 +42,7 @@ test('una alta sintética N+1 genera página, canonical, sitemap, schema, hub y 
       hallazgo: 'La alta sintética solo existe dentro del directorio temporal de la prueba.',
       cuerpo: '<h2>Fixture</h2><p>Contenido técnico temporal.</p>',
       corto: '<p>Fixture técnico temporal.</p>',
-      fecha_publicacion_resumen: '2026-09-04',
+      fecha_publicacion_resumen: fechaAlta,
     };
     const serialized = JSON.stringify([...data, synthetic], null, 2)
       .replace(`"id": ${nextId},`, `"id": ${nextId}.0,`);

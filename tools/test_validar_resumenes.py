@@ -98,5 +98,33 @@ class ContratoEditorialContextualTests(unittest.TestCase):
         self.assertIn("Oftalmología", SUBESPECIALIDADES)
 
 
+class FechaPublicacionResumenTests(unittest.TestCase):
+    def setUp(self):
+        import json
+        from pathlib import Path
+        datos = json.loads((Path(__file__).resolve().parent.parent / "resumenes.json").read_text(encoding="utf-8"))
+        self.base = {k: v for k, v in datos[0].items() if k != "fecha_publicacion_resumen"}
+
+    def errores(self, entrada):
+        from validar_resumenes import validar_entrada
+        hallazgos = Hallazgos()
+        validar_entrada(entrada, hallazgos, {})
+        return [m for _, m in hallazgos.errores if "campo" in m or "fecha_publicacion_resumen" in m]
+
+    def test_campo_opcional_al_final_es_valido(self):
+        self.assertEqual(self.errores(self.base), [])
+        self.assertEqual(self.errores({**self.base, "fecha_publicacion_resumen": "2026-10-24"}), [])
+
+    def test_formato_y_fecha_futura_se_rechazan(self):
+        self.assertTrue(self.errores({**self.base, "fecha_publicacion_resumen": "24/10/2026"}))
+        self.assertTrue(self.errores({**self.base, "fecha_publicacion_resumen": "2026-02-30"}))
+        self.assertTrue(self.errores({**self.base, "fecha_publicacion_resumen": "2999-01-01"}))
+
+    def test_campo_fuera_de_lugar_o_desconocido_se_rechaza(self):
+        movido = {"fecha_publicacion_resumen": "2026-10-24", **self.base}
+        self.assertTrue(any("orden" in m or "no esperados" in m for m in self.errores(movido)))
+        self.assertTrue(any("no esperados" in m for m in self.errores({**self.base, "otro": 1})))
+
+
 if __name__ == "__main__":
     unittest.main()
