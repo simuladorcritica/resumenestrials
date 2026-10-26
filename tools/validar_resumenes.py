@@ -28,6 +28,10 @@ CAMPOS = [
     "objetivo", "hallazgo", "cuerpo", "corto",
 ]
 
+# Campo opcional al final de cada entrada: fecha (AAAA-MM-DD, hora del centro de México)
+# en que el resumen se publicó en la web. Alimenta datePublished, sitemap y feed.
+CAMPOS_OPCIONALES_FINALES = ["fecha_publicacion_resumen"]
+
 SECCIONES_CUERPO = [
     "Referencia y registro",
     "Pregunta de investigación",
@@ -235,6 +239,8 @@ def validar_entrada(e, H, if_vistos):
 
     # --- Esquema: campos exactos y en orden ---
     claves = list(e.keys())
+    if claves[len(CAMPOS):] == CAMPOS_OPCIONALES_FINALES[:len(claves) - len(CAMPOS)]:
+        claves = claves[:len(CAMPOS)]
     if claves != CAMPOS:
         faltan = [c for c in CAMPOS if c not in claves]
         sobran = [c for c in claves if c not in CAMPOS]
@@ -242,6 +248,17 @@ def validar_entrada(e, H, if_vistos):
         if sobran: H.error(idn, f"campos no esperados: {sobran}")
         if not faltan and not sobran:
             H.error(idn, f"orden de campos incorrecto: {claves}")
+
+    if "fecha_publicacion_resumen" in e:
+        fp = e.get("fecha_publicacion_resumen")
+        if not isinstance(fp, str) or not re.fullmatch(r"\d{4}-\d{2}-\d{2}", fp):
+            H.error(idn, f"'fecha_publicacion_resumen' debe ser AAAA-MM-DD: {fp!r}")
+        else:
+            try:
+                if date.fromisoformat(fp) > date.today():
+                    H.error(idn, f"'fecha_publicacion_resumen' está en el futuro: {fp}")
+            except ValueError:
+                H.error(idn, f"'fecha_publicacion_resumen' no es una fecha válida: {fp!r}")
 
     # --- Tipos y coherencia de fechas ---
     if not isinstance(e.get("anio"), int):
