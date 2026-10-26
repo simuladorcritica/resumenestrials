@@ -244,7 +244,7 @@ def update_trial_jsonld(source: str, item: dict, images: list[str]) -> str:
         publisher.update({"name": "Resúmenes Trials", "url": f"{base.BASE_URL}/equipo-editorial/", "sameAs": SOCIAL_URLS})
         publisher.setdefault("logo", {"@type": "ImageObject", "url": f"{base.BASE_URL}/logo.png"})
         author = article.setdefault("author", {"@type": "Organization"})
-        author.update({"name": "Equipo editorial de Resúmenes Trials", "url": f"{base.BASE_URL}/equipo-editorial/"})
+        author.update({"name": EDITORIAL_NOMBRE, "url": f"{base.BASE_URL}/equipo-editorial/"})
         pub = item.get("fecha_publicacion_resumen")
         mod = item.get("fecha_revision") or item.get("actualizado")
         if pub:
@@ -290,6 +290,23 @@ def update_clusters(items: list[dict]) -> None:
     return
 
 
+# Sello editorial que firma los resúmenes (decisión del editor, 2026-10-25). La dirección médica no publica su nombre.
+EDITORIAL_NOMBRE = "Editorial EMEICRÍTICA"
+EDITORIAL_DESCRIPCION = ("Editorial EMEICRÍTICA, sello que publica Resúmenes Trials: dirección médica especializada en Medicina Interna "
+                         "y Medicina Crítica, proceso de elaboración, verificación, financiación y correcciones.")
+
+
+def editorial_head(source: str) -> str:
+    """Título, descripción y datos estructurados de /equipo-editorial/ para el sello editorial."""
+    titulo = f"{EDITORIAL_NOMBRE} | Resúmenes Trials"
+    source = re.sub(r"<title>[^<]*</title>", f"<title>{esc(titulo)}</title>", source, count=1)
+    for patron in (r'(<meta name="description" content=")[^"]*(")', r'(<meta property="og:description" content=")[^"]*(")', r'(<meta name="twitter:description" content=")[^"]*(")'):
+        source = re.sub(patron, lambda m: m.group(1) + esc(EDITORIAL_DESCRIPCION) + m.group(2), source, count=1)
+    for patron in (r'(<meta property="og:title" content=")[^"]*(")', r'(<meta name="twitter:title" content=")[^"]*(")'):
+        source = re.sub(patron, lambda m: m.group(1) + esc(titulo) + m.group(2), source, count=1)
+    return source
+
+
 def update_organization_pages() -> None:
     for rel in ["equipo-editorial/index.html", "metodologia/index.html"]:
         path = ROOT / rel
@@ -297,10 +314,24 @@ def update_organization_pages() -> None:
             continue
         source = ensure_css(path.read_text(encoding="utf-8"))
         source = source.replace("Resumenes Trials", "Resúmenes Trials")
+        es_editorial = rel.startswith("equipo-editorial/")
+        if es_editorial:
+            source = editorial_head(source)
         def updater(data):
             if not isinstance(data, dict):
                 return
-            if data.get("@type") == "Organization":
+            if data.get("@type") == "Organization" and es_editorial:
+                data.update({
+                    "name": EDITORIAL_NOMBRE,
+                    "url": f"{base.BASE_URL}/equipo-editorial/",
+                    "description": EDITORIAL_DESCRIPCION,
+                    "email": "resumenestrials@outlook.com",
+                    "knowsAbout": ["Medicina Crítica", "Medicina Interna", "Ensayos clínicos aleatorizados", "Medicina basada en evidencia"],
+                    "publishingPrinciples": f"{base.BASE_URL}/metodologia/",
+                    "brand": {"@type": "Brand", "name": "Resúmenes Trials", "url": f"{base.BASE_URL}/"},
+                    "sameAs": SOCIAL_URLS,
+                })
+            elif data.get("@type") == "Organization":
                 data["name"] = "Resúmenes Trials"
                 data["sameAs"] = SOCIAL_URLS
             publisher = data.get("publisher")

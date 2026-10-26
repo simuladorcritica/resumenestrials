@@ -42,7 +42,7 @@ def readtime(r):
  full=minutes(r.get("cuerpo"));brief=minutes(r.get("corto")) if r.get("corto") else 0
  return f'{icon("clock")}<span>Completo {full} min</span>'+(f'<span>Breve {brief} min</span>' if brief else '')
 NAV=[("/","Inicio"),("/medicina-critica/","Medicina Crítica"),("/medicina-interna/","Medicina Interna"),("/biblioteca.html","Mi biblioteca")]
-INFO=[("/metodologia/","Metodología"),("/equipo-editorial/","Equipo editorial"),("/privacidad/","Privacidad"),("/terminos/","Términos")]
+INFO=[("/metodologia/","Metodología"),("/equipo-editorial/","Editorial"),("/privacidad/","Privacidad"),("/terminos/","Términos")]
 SOCIAL=[("https://t.me/ResumenesTrials","Telegram"),("https://x.com/resumenestrials","X · @resumenestrials")]
 def brand(small=False):return '<a class="ev-brand" href="/" aria-label="Resúmenes Trials, ir al inicio"><span class="ev-brand-mark"><img src="/logo.png" width="40" height="40" alt=""></span><span class="ev-brand-name" aria-hidden="true">Resúmenes<b>Trials</b></span></a>'
 def header():
