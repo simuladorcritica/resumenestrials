@@ -29,9 +29,11 @@ E.ready(async()=>{
  if(!document.body.classList.contains('ev-reader'))return;
  let all,map,r,reader,brief=false;const dynamic=document.getElementById('ev-dynamic-reader');
  try{
-  [all,map]=await Promise.all([E.data(),E.routes()]);
-  if(dynamic){const p=new URLSearchParams(location.search),id=p.get('id');r=all.find(r=>String(r.id)===id);if(!r){delete root.dataset.evReadingMode;document.title='Resumen no encontrado · Resúmenes Trials';dynamic.innerHTML='<section class="ev-notice ev-doc"><p class="ev-eyebrow">Enlace no válido</p><h1>Resumen no encontrado</h1><p>El identificador no corresponde a un ensayo disponible. Usa el buscador de arriba o vuelve al archivo.</p><a class="ev-btn ev-btn-primary" href="/">Volver al archivo</a></section>';return}brief=p.get('v')==='corto'&&!!r.corto;dynamic.innerHTML=markup(r,map[String(r.id)].path,brief);updateMetadata(r,map[String(r.id)].path,brief)}
-  reader=document.querySelector('[data-ev-reader]');if(!reader)return;r??=all.find(x=>String(x.id)===reader.dataset.evReader);brief=reader.dataset.evBrief==='true';if(!r)throw Error('Resumen no disponible');
+  // Only the trial being read is needed to render and wire the controls; the full
+  // archive (neighbours, related) loads afterwards and never blocks reading.
+  const pathOf=async rec=>rec.ruta||(await E.routes())[String(rec.id)].path;let path;
+  if(dynamic){const p=new URLSearchParams(location.search),id=p.get('id');r=await E.record(id);if(!r){delete root.dataset.evReadingMode;document.title='Resumen no encontrado · Resúmenes Trials';dynamic.innerHTML='<section class="ev-notice ev-doc"><p class="ev-eyebrow">Enlace no válido</p><h1>Resumen no encontrado</h1><p>El identificador no corresponde a un ensayo disponible. Usa el buscador de arriba o vuelve al archivo.</p><a class="ev-btn ev-btn-primary" href="/">Volver al archivo</a></section>';return}brief=p.get('v')==='corto'&&!!r.corto;path=await pathOf(r);dynamic.innerHTML=markup(r,path,brief);updateMetadata(r,path,brief)}
+  reader=document.querySelector('[data-ev-reader]');if(!reader)return;r??=await E.record(reader.dataset.evReader);brief=reader.dataset.evBrief==='true';if(!r)throw Error('Resumen no disponible');path??=await pathOf(r).catch(()=>location.pathname);
   const article=reader.querySelector('article'),headings=[...article.querySelectorAll('h2')],toc=reader.querySelector('[data-ev-toc]'),progress=reader.querySelector('progress'),status=document.getElementById('ev-reader-status'),toolbar=reader.querySelector('.ev-toolbar');
   E.prose(reader);
   // Section index: rail on desktop, sheet everywhere.
@@ -64,7 +66,7 @@ E.ready(async()=>{
   const pdfDialog=dialog('ev-pdf-dialog','Descargar PDF','<fieldset class="ev-options"><legend>1 · Elige la versión</legend>'+radio('ev-pdf-version','completo','Completo','Todas las secciones · '+E.minutes(r.cuerpo)+' min',!brief)+(r.corto?radio('ev-pdf-version','breve','Breve','Lo esencial · '+E.minutes(r.corto)+' min',brief):'')+'</fieldset><fieldset class="ev-options ev-formats"><legend>2 · Descarga en el formato que prefieras</legend>'+formats.map(f=>fmtBtn(...f)).join('')+'</fieldset><p class="ev-dialog-note">Recomendado para este dispositivo: '+(device==='mobile'?'Celular':'Computadora (A4)')+'.</p><p class="ev-status" role="status" data-ev-pdf-status></p>');
   const pdfStatus=pdfDialog.querySelector('[data-ev-pdf-status]');
   pdfBtn.onclick=()=>E.open('ev-pdf-dialog');
-  for(const go of pdfDialog.querySelectorAll('[data-ev-pdf-go]'))go.onclick=async()=>{const version=pdfDialog.querySelector('[name=ev-pdf-version]:checked')?.value||'completo';go.disabled=true;E.status(pdfStatus,'Preparando PDF…');try{await E.pdf(r,version==='breve',go.dataset.format);E.status(pdfStatus,'PDF descargado.');E.status(status,'PDF descargado.');setTimeout(()=>pdfDialog.open&&pdfDialog.close(),900)}catch{E.status(pdfStatus,'No pudimos descargar el PDF. Intenta de nuevo.')}finally{go.disabled=false}};
+  for(const go of pdfDialog.querySelectorAll('[data-ev-pdf-go]'))go.onclick=async()=>{const version=pdfDialog.querySelector('[name=ev-pdf-version]:checked')?.value||'completo';go.disabled=true;E.status(pdfStatus,'Preparando PDF…');try{await E.pdf(r,version==='breve',go.dataset.format);E.status(pdfStatus,'');E.status(status,'PDF descargado.');if(pdfDialog.open)pdfDialog.close()}catch{E.status(pdfStatus,'No pudimos descargar el PDF. Intenta de nuevo.')}finally{go.disabled=false}};
   pdfBtn.setAttribute('aria-label',brief?'Descargar resumen breve PDF o elegir el completo':'Descargar resumen completo PDF o elegir el breve');pdfBtn.dataset.pdfVersion=brief?'breve':'completo';
   // Save
   const save=reader.querySelector('[data-ev-save]'),saveLabel=save.querySelector('span');let busy=false;
@@ -72,18 +74,23 @@ E.ready(async()=>{
   save.onclick=async()=>{if(busy)return;busy=true;save.disabled=true;try{const lib=await E.library(),state=await lib.getLibraryState();if(!state.signedIn){location.href='/login.html?next='+encodeURIComponent(location.pathname+location.search);return}const added=await lib.toggleFavorite(r.id);syncSave(added);E.status(status,added?'Ensayo guardado en tu biblioteca.':'Ensayo retirado de tu biblioteca.')}catch{E.status(status,'No pudimos actualizar tu biblioteca. Intenta de nuevo.')}finally{busy=false;save.disabled=false}};
   E.library().then(lib=>lib.getLibraryState()).then(state=>syncSave(state.signedIn&&state.favorites.includes(String(r.id)))).catch(()=>{});
   // Share
-  const share=reader.querySelector('[data-ev-share]'),shareUrl='https://resumenestrials.com'+map[String(r.id)].path;
+  const share=reader.querySelector('[data-ev-share]'),shareUrl='https://resumenestrials.com'+path;
   share.onclick=async()=>{const data={title:E.plain(r.titulo),text:E.plain(r.titulo)+' · Resúmenes Trials',url:shareUrl};try{if(navigator.share&&root.dataset.evPointer==='tactil'){await navigator.share(data);return}await navigator.clipboard.writeText(shareUrl);E.status(status,'Enlace copiado. Ya puedes pegarlo donde quieras.')}catch(e){if(e?.name!=='AbortError')E.status(status,'Copia este enlace: '+shareUrl)}};
-  // Continuity
+  if(dynamic)import('/reader-advertising.js').then(m=>m.loadReaderAdvertising(r,article)).catch(()=>{});
+  const inferred=E.inferSubspecialty(r);if(inferred){const tag=document.createElement('span');tag.className='ev-tag';tag.dataset.evSubspecialty='true';tag.textContent=inferred;reader.querySelector('.ev-reading-head .ev-card-tags').append(tag)}
+  for(const a of reader.querySelectorAll('[data-ev-return]')){a.href=window.RTReadingContext?.destination()||'/';a.onclick=()=>window.RTReadingContext?.requestReturn()}
+  // Continuity and related evidence: background, non-blocking.
+  (async()=>{try{
+  [all,map]=await Promise.all([E.data(),E.routes()]);
   const dates=await import('/trial-data.js?v=20261003-laboratorio-v1'),ordered=all.slice().sort(dates.compareTrialDates),index=ordered.findIndex(x=>x.id===r.id);
   const neighbor=(item,dir)=>'<a class="ev-neighbor" data-dir="'+dir+'" href="'+map[String(item.id)].path+'"><small>'+(dir==='prev'?E.icon('left')+'Ensayo anterior':'Ensayo siguiente'+E.icon('right'))+'</small><b>'+E.esc(item.titulo)+'</b></a>';
   reader.querySelector('[data-ev-neighbors]').innerHTML=(index>0?neighbor(ordered[index-1],'prev'):'')+'<a class="ev-btn ev-neighbor-back" href="/" data-ev-return>'+E.icon('list')+'<span>Volver a la lista</span></a>'+(index<ordered.length-1?neighbor(ordered[index+1],'next'):'');
   for(const a of reader.querySelectorAll('[data-ev-return]')){a.href=window.RTReadingContext?.destination()||'/';a.onclick=()=>window.RTReadingContext?.requestReturn()}
-  const inferred=E.inferSubspecialty(r);if(inferred){const tag=document.createElement('span');tag.className='ev-tag';tag.dataset.evSubspecialty='true';tag.textContent=inferred;reader.querySelector('.ev-reading-head .ev-card-tags').append(tag)}
   const categories=record=>E.areas(record).filter(s=>E.MAIN.includes(s)),specialty=categories(r),topics=new Set((r.temas||[]).map(E.norm)),clusters=new Set((map[String(r.id)].clusters||[]).map(c=>c.path));
   const rank=all.filter(x=>String(x.id)!==String(r.id)).map(x=>({r:x,s:(map[String(x.id)].clusters||[]).filter(c=>clusters.has(c.path)).length*4+(x.temas||[]).filter(t=>topics.has(E.norm(t))).length*2+categories(x).filter(s=>specialty.includes(s)).length})).filter(x=>x.s>0).sort((a,b)=>b.s-a.s||String(b.r.fecha||'').localeCompare(String(a.r.fecha||''))).slice(0,3);
   reader.querySelector('[data-ev-related]').innerHTML=rank.map(x=>E.card(x.r,map[String(x.r.id)].path)).join('');
-  if(dynamic)import('/reader-advertising.js').then(m=>m.loadReaderAdvertising(r,article)).catch(()=>{});
+  reader.dataset.evContinuity='ready';
+  }catch(error){E.readerContinuityError=error;reader.dataset.evContinuity='error'}})();
  }catch(error){E.readerError=error;if(dynamic)dynamic.innerHTML='<section class="ev-notice ev-doc"><h1>No pudimos cargar el ensayo</h1><p>Revisa tu conexión e inténtalo de nuevo.</p><div class="ev-actions-row"><a class="ev-btn ev-btn-primary" href="">Reintentar</a><a class="ev-btn" href="/">Volver al archivo</a></div></section>'}
 });
 })();

@@ -372,3 +372,14 @@ Sustituye por completo la presentación «Laboratorio de evidencia»: paleta (no
 - **Justificado**: toda la prosa del sitio y del PDF; metadatos, etiquetas y controles al inicio. Guion ASCII y puntuación final fuera de los tokens técnicos.
 - Pruebas reescritas a los nuevos contratos sin retirar cobertura: buscador único, filtros segmentados, panel PDF (6 rutas × 2 versiones/formatos), modo lectura, rejilla del lector (rail desde 1100 px), tareas en ≤ 3 toques y axe en ambos temas.
 
+
+## 2026-10-11 — Separadores «·» sin puntos sueltos
+
+- Autor, revista y fecha del lector, revista y fecha de las tarjetas y los tiempos de lectura: el separador «·» se recorta cuando el dato siguiente pasa al renglón de abajo, así no queda un punto suelto al inicio de la línea en celular. Solo CSS; textos, datos y PDF sin cambios.
+- `CLAUDE.md` documenta el flujo de trabajo para sesiones de Claude (rama `claude/`, regeneración completa de salidas, pruebas y PR listo para «Enable auto-merge»). Excluido de Jekyll.
+
+## 2026-10-11 — Auditoría funcional total
+
+- Panel «Descargar PDF»: se cierra en cuanto empieza la descarga y el aviso «PDF descargado» queda en la página. Antes seguía abierto 0,9 s sobre la barra de lectura y, en celular, un toque inmediato caía en el panel. Esto hacía fallar desde el rediseño Nova las verificaciones de producción del lector (`reader-buttons-production`, `future-production` y la del lector unificado). Regresión añadida en la suite de descargas.
+- Doble clic en «Mostrar más»: ya no abre la tarjeta que queda bajo el puntero al aparecer los 24 resultados nuevos. Regresión añadida en la suite de archivo.
+- Los prompts, notas internas, generadores Python y archivos de configuración de desarrollo ya no se publican en el sitio (exclusiones de Jekyll).

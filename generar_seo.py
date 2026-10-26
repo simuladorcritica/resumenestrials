@@ -84,11 +84,43 @@ def id_texto(valor: object) -> str:
     return str(valor if valor is not None else "").strip()
 
 
+SLUGS_CONGELADOS_PATH = ROOT / "seo-slugs.json"
+_SLUGS_CONGELADOS: dict | None = None
+
+
+def slugs_congelados() -> dict:
+    """URLs públicas ya publicadas: no cambian aunque se corrija el título."""
+    global _SLUGS_CONGELADOS
+    if _SLUGS_CONGELADOS is None:
+        try:
+            datos = json.loads(SLUGS_CONGELADOS_PATH.read_text(encoding="utf-8"))
+        except FileNotFoundError:
+            datos = {}
+        _SLUGS_CONGELADOS = {
+            str(k): (str(v.get("doi") or "").strip().lower(), slugify(v.get("slug"), 110))
+            for k, v in datos.items()
+            if isinstance(v, dict) and slugify(v.get("slug"), 110)
+        }
+    return _SLUGS_CONGELADOS
+
+
+def slug_congelado(item: dict) -> str:
+    """Solo aplica si el ID y el DOI coinciden con el artículo ya publicado."""
+    entrada = slugs_congelados().get(id_texto(item.get("id")))
+    if not entrada:
+        return ""
+    doi, slug = entrada
+    return slug if doi and doi == str(item.get("doi") or "").strip().lower() else ""
+
+
 def slug_para_item(item: dict) -> str:
     manual = slugify(item.get("slug"), 110)
     if manual:
         return manual
     trial_id = id_texto(item.get("id"))
+    congelado = slug_congelado(item)
+    if congelado:
+        return congelado
     titulo = texto_plano(item.get("titulo"))
     if not titulo:
         return f"trial-{trial_id or 'sin-id'}"
@@ -326,7 +358,8 @@ def fecha_editorial(item: dict) -> str:
 def generar_feed(items: list[dict]) -> None:
     dated = [(fecha_editorial(item), item) for item in items]
     dated = [(date, item) for date, item in dated if date]
-    dated.sort(key=lambda pair: (pair[0], str(pair[1].get("id") or "")), reverse=True)
+    # Orden estable por fecha (empates en el orden de resumenes.json), igual que scripts/validate-feed.mjs.
+    dated.sort(key=lambda pair: pair[0], reverse=True)
     updated = dated[0][0] if dated else "1970-01-01"
     lines = [
         '<?xml version="1.0" encoding="UTF-8"?>',
@@ -353,6 +386,32 @@ def generar_feed(items: list[dict]) -> None:
         ])
     lines.append('</feed>')
     FEED_PATH.write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+
+DATOS_ENSAYOS_DIR = ROOT / "datos" / "ensayos"
+
+
+def generar_datos_por_ensayo(items: list[dict]) -> None:
+    """Un JSON pequeño por ensayo para que el lector no descargue el archivo completo.
+
+    El lector y el PDF solo necesitan el registro que se está leyendo; en celular
+    esperar resumenes.json completo dejaba los controles inactivos.
+    """
+    DATOS_ENSAYOS_DIR.mkdir(parents=True, exist_ok=True)
+    esperados = set()
+    for item in items:
+        trial_id = id_texto(item.get("id"))
+        nombre = f"{trial_id}.json"
+        esperados.add(nombre)
+        registro = dict(item)
+        registro["ruta"] = ruta_trial(item)
+        contenido = json.dumps(registro, ensure_ascii=False, separators=(",", ":")) + "\n"
+        destino = DATOS_ENSAYOS_DIR / nombre
+        if not destino.exists() or destino.read_text(encoding="utf-8") != contenido:
+            destino.write_text(contenido, encoding="utf-8")
+    for viejo in DATOS_ENSAYOS_DIR.glob("*.json"):
+        if viejo.name not in esperados:
+            viejo.unlink()
 
 
 def validar(items: object) -> list[dict]:
@@ -421,6 +480,7 @@ def main() -> None:
         (out / "index.html").write_text(pagina_categoria(nombre, categorias_contenido[nombre]), encoding="utf-8")
 
     MANIFEST_PATH.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    generar_datos_por_ensayo(items)
     generar_sitemap(items, categorias_contenido)
     generar_feed(items)
     print(f"SEO generado: {len(items)} trials, {sum(bool(v) for v in categorias_contenido.values())} categorías, sitemap.xml y feed.xml.")

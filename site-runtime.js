@@ -139,7 +139,8 @@ E.reduced=()=>matchMedia('(prefers-reduced-motion: reduce)').matches;
 // Optional visual breaks preserve textContent, selection and the source clinical HTML.
 E.prose=scope=>{
  for(const paragraph of scope.querySelectorAll('p,:where(.ev-prose,.ev-body,article.articulo) li,.ev-justify')){
-  if(paragraph.matches('.ev-hero .ev-lead'))continue;
+  // Institutional pages (.ev-doc-text) and summary pages (body.ev-reader) keep whole words: no syllable breaks.
+  if(paragraph.matches('.ev-hero .ev-lead')||paragraph.closest('.ev-doc-text,body.ev-reader'))continue;
   if(paragraph.dataset.evProseReady||getComputedStyle(paragraph).textAlign!=='justify')continue;
   const walker=document.createTreeWalker(paragraph,NodeFilter.SHOW_TEXT),nodes=[];
   while(walker.nextNode())if(!walker.currentNode.parentElement.closest('a,button,label,input,select,textarea,h1,h2,h3,th,td,summary'))nodes.push(walker.currentNode);
@@ -168,11 +169,21 @@ E.prose=scope=>{
  }
 };
 
-let records,routes,library;
-E.data=()=>records??=import('/trial-data.js?v=20261003-laboratorio-v1').then(m=>m.loadTrials());
-E.routes=()=>routes??=fetch('/seo-manifest.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('No se pudo cargar el índice');return r.json()});
+let records,routes,library;const recordCache=new Map();
+// Requests in flight are cancelled when the page is left: WebKit otherwise reports the
+// interrupted fetch as an uncaught "access control checks" error (same rule as trial-data.js).
+let nav=new AbortController();for(const ev of ['beforeunload','pagehide'])addEventListener(ev,()=>nav.abort());addEventListener('pageshow',e=>{if(e.persisted)nav=new AbortController()});
+const get=url=>window.evNavigatingAway||nav.signal.aborted?Promise.reject(new DOMException('La navegación finalizó','AbortError')):fetch(url,{signal:nav.signal});
+// A failed load must not stay cached: the next action retries (mobile networks drop requests).
+E.data=()=>records??=import('/trial-data.js?v=20261003-laboratorio-v1').then(m=>m.loadTrials()).catch(e=>{records=undefined;throw e});
+// Full archive (with cuerpo/corto) only as a fallback for a missing trial file.
+E.full=()=>import('/trial-data.js?v=20261003-laboratorio-v1').then(m=>m.loadFullTrials());
+E.routes=()=>routes??=get('/seo-manifest.json').then(r=>{if(!r.ok)throw Error('No se pudo cargar el índice');return r.json()}).catch(e=>{routes=undefined;throw e});
+// One small file per trial (~20 KB) so reading, PDF and controls never wait for the full archive.
+// If that file is missing or fails, the full archive is the fallback (unknown ids resolve to null).
+E.record=id=>{id=String(id??'').trim();if(!/^\d+$/.test(id))return Promise.resolve(null);if(!recordCache.has(id))recordCache.set(id,get('/datos/ensayos/'+id+'.json').then(r=>{if(!r.ok)throw Error('HTTP '+r.status);return r.json()}).then(r=>r&&typeof r==='object'&&!Array.isArray(r)&&String(r.id)===id?r:null).catch(e=>{recordCache.delete(id);if(e?.name==='AbortError')throw e;return E.full().then(all=>all.find(x=>String(x.id)===id)||null).catch(()=>{throw e})}));return recordCache.get(id)};
 E.library=()=>library??=import('/library-store.js?v=20261003-laboratorio-v1');
-E.inferSubspecialty=r=>{const result=globalThis.SpecialtyClassification?.classify(r);return result?.specialty===globalThis.SpecialtyClassification?.REVIEW?'':result?.specialty||''};
+E.inferSubspecialty=r=>{if(r&&typeof r._sub==='string')return r._sub;const result=globalThis.SpecialtyClassification?.classify(r);return result?.specialty===globalThis.SpecialtyClassification?.REVIEW?'':result?.specialty||''};
 E.ready=f=>document.readyState==='loading'?document.addEventListener('DOMContentLoaded',f,{once:true}):f();
 const dialogOpeners=new WeakMap();
 E.open=id=>{const d=document.getElementById(id);if(d&&!d.open){if(!dialogOpeners.has(d))d.addEventListener('close',()=>{const opener=dialogOpeners.get(d);if(!d.open&&opener?.isConnected&&opener.getClientRects().length)opener.focus()});const active=document.activeElement;dialogOpeners.set(d,active&&!['BODY','HTML'].includes(active.tagName)&&active.getClientRects().length?active:null);d.showModal()}return d};
@@ -187,9 +198,9 @@ E.minutes=html=>Math.max(1,Math.round((E.plain(html).match(/[\p{L}\p{N}_]+/gu)||
 const ICONS={pdf:'<path d="M12 3.5v11"/><path d="m7.5 10 4.5 4.5 4.5-4.5"/><path d="M4.5 16.5v3h15v-3"/>',clock:'<circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/>',left:'<path d="M19 12H5M11 6l-6 6 6 6"/>',right:'<path d="M5 12h14M13 6l6 6-6 6"/>',list:'<path d="M9 6h11M9 12h11M9 18h11"/><circle cx="4.5" cy="6" r="1"/><circle cx="4.5" cy="12" r="1"/><circle cx="4.5" cy="18" r="1"/>',read:'<path d="M3 5.5c3.5-1 6.5-.5 9 1.5 2.5-2 5.5-2.5 9-1.5v13c-3.5-1-6.5-.5-9 1.5-2.5-2-5.5-2.5-9-1.5z"/><path d="M12 7v13"/>',more:'<circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/>',bookmark:'<path d="M6.5 3.5h11v17l-5.5-4-5.5 4z"/>',share:'<circle cx="18" cy="5.5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="18.5" r="2.5"/><path d="m8.2 10.8 7.6-4M8.2 13.2l7.6 4"/>',text:'<path d="M4 18 9 6l5 12M5.7 14h6.6"/><path d="M15 18l3-7 3 7M15.8 16h4.4"/>',external:'<path d="M14 4h6v6M20 4l-9 9"/><path d="M18 14v6H4V6h6"/>',spark:'<path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M6 18l2.5-2.5M15.5 8.5 18 6"/>',close:'<path d="M6 6l12 12M18 6 6 18"/>'};
 E.icon=name=>'<svg class="ev-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">'+ICONS[name]+'</svg>';
 E.humanDate=value=>{const m=String(value||'').match(/^(\d{4})-(\d{2})-(\d{2})$/),months=['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];return m&&months[Number(m[2])-1]?Number(m[3])+' de '+months[Number(m[2])-1]+' de '+m[1]:String(value||'')};
-E.readtime=r=>E.icon('clock')+'<span>Completo '+E.minutes(r.cuerpo)+' min</span>'+(r.corto?'<span>Breve '+E.minutes(r.corto)+' min</span>':'');
+E.readtime=r=>{const m=r._min&&!r.cuerpo?r._min:{cuerpo:E.minutes(r.cuerpo),corto:r.corto?E.minutes(r.corto):0};return E.icon('clock')+'<span>Completo '+m.cuerpo+' min</span>'+(m.corto?'<span>Breve '+m.corto+' min</span>':'')};
 E.facts=r=>'<dl class="ev-study-facts">'+[['revista','Revista'],['anio','Año'],['fecha','Fecha'],['tipo_estudio','Tipo de estudio'],['especialidad_principal','Especialidad'],['especialidad_secundaria','Especialidad secundaria'],['temas','Temas'],['registro','Registro'],['doi','DOI'],['financiacion','Financiación']].filter(([k])=>r[k]!==''&&r[k]!=null&&(!Array.isArray(r[k])||r[k].length)).map(([k,label])=>'<div><dt>'+label+'</dt><dd data-ev-field="'+k+'">'+E.esc(Array.isArray(r[k])?r[k].join(' · '):r[k])+'</dd></div>').join('')+'</dl>';
-E.card=(r,path)=>{const area=E.area(r),tone=E.tone(area),t=E.esc(r.titulo),p=E.esc(path),topics=(r.temas||[]).join(' · ');return '<li class="ev-card" data-id="'+r.id+'" data-tone="'+tone+'"><a class="ev-card-title" href="'+p+'" data-ev-read="'+r.id+'"><h2>'+t+'</h2></a><p class="ev-card-meta"><span>'+E.esc(r.revista)+'</span><span>'+E.esc(E.humanDate(r.fecha))+'</span></p><div class="ev-card-tags"><span class="ev-area" data-tone="'+tone+'">'+E.esc(area)+'</span></div>'+(topics?'<p class="ev-card-topics">'+E.esc(topics)+'</p>':'')+'<details class="ev-card-facts"><summary>Ficha del estudio</summary>'+E.facts(r)+'</details><div class="ev-card-foot"><p class="ev-readtime">'+E.readtime(r)+'</p><div class="ev-card-actions"><a class="ev-btn ev-btn-primary" href="'+p+'" data-ev-read="'+r.id+'" aria-label="Leer resumen: '+t+'">Leer</a><details class="ev-pdf-menu"><summary class="ev-btn" aria-label="Descargar PDF de '+t+'">'+E.icon('pdf')+'<span>PDF</span></summary><div class="ev-pdf-pop"><button type="button" data-ev-card-pdf="'+r.id+'" data-ev-version="completo" aria-label="Descargar resumen completo PDF de '+t+'">PDF completo</button><button type="button" data-ev-card-pdf="'+r.id+'" data-ev-version="breve" aria-label="Descargar resumen breve PDF de '+t+'">PDF breve</button></div></details></div></div></li>'};
+E.card=(r,path)=>{const area=E.area(r),tone=E.tone(area),t=E.esc(r.titulo),p=E.esc(path),topics=(r.temas||[]).join(' · ');return '<li class="ev-card" data-id="'+r.id+'" data-tone="'+tone+'"'+(topics?' data-ev-topics="'+E.esc(topics)+'"':'')+'><a class="ev-card-title" href="'+p+'" data-ev-read="'+r.id+'"><h2>'+t+'</h2></a><p class="ev-card-meta"><span>'+E.esc(r.revista)+'</span><span>'+E.esc(E.humanDate(r.fecha))+'</span></p><div class="ev-card-tags"><span class="ev-area" data-tone="'+tone+'">'+E.esc(area)+'</span></div>'+'<details class="ev-card-facts"><summary>Ficha del estudio</summary>'+E.facts(r)+'</details><div class="ev-card-foot"><p class="ev-readtime">'+E.readtime(r)+'</p><div class="ev-card-actions"><a class="ev-btn ev-btn-primary" href="'+p+'" data-ev-read="'+r.id+'" aria-label="Leer resumen: '+t+'">Leer</a><details class="ev-pdf-menu"><summary class="ev-btn" aria-label="Descargar PDF de '+t+'">'+E.icon('pdf')+'<span>PDF</span></summary><div class="ev-pdf-pop"><button type="button" data-ev-card-pdf="'+r.id+'" data-ev-version="completo" aria-label="Descargar resumen completo PDF de '+t+'">PDF completo</button><button type="button" data-ev-card-pdf="'+r.id+'" data-ev-version="breve" aria-label="Descargar resumen breve PDF de '+t+'">PDF breve</button></div></details></div></div></li>'};
 E.device=()=>root.dataset.evDevice||(innerWidth<720?'movil':innerWidth<1100?'tableta':'escritorio');
 E.defaultFormat=()=>E.device()==='movil'?'mobile':'a4';
 E.pdf=async(r,brief=false,format=E.defaultFormat())=>{const m=await import('/ui/pdf.js?v='+E.version);return m.generatePDF(r,{brief,format})};
@@ -253,7 +264,7 @@ E.ready(()=>{
  document.addEventListener('click',async e=>{
   for(const d of document.querySelectorAll('details.ev-pdf-menu[open]'))if(!d.contains(e.target))d.open=false;
   const b=e.target.closest('[data-ev-card-pdf]');if(!b)return;b.disabled=true;const label=b.textContent;b.textContent='Preparando…';
-  try{const r=(await E.data()).find(r=>String(r.id)===b.dataset.evCardPdf);await E.pdf(r,b.dataset.evVersion==='breve');b.textContent=label;b.closest('details')?.removeAttribute('open')}catch{b.textContent='No se pudo descargar'}finally{b.disabled=false;setTimeout(()=>{b.textContent=label},2500)}
+  try{const r=await E.record(b.dataset.evCardPdf);if(!r)throw Error('Resumen no disponible');await E.pdf(r,b.dataset.evVersion==='breve');b.textContent=label;b.closest('details')?.removeAttribute('open')}catch{b.textContent='No se pudo descargar'}finally{b.disabled=false;setTimeout(()=>{b.textContent=label},2500)}
  });
  // Back to top and header elevation
  const top=document.querySelector('[data-ev-top]');let ticking=false;
@@ -351,7 +362,9 @@ E.ready(()=>{
   });
   for(const s of selects)s.onchange=update;for(const r of radios)r.onchange=update;sort.onchange=()=>render(true);
   view.onclick=()=>{const on=root.classList.toggle('ev-dense');syncView(on);render(true)};
-  more.onclick=()=>{limit+=pageSize;render(true)};
+  // Un doble clic en «Mostrar más» no debe abrir la tarjeta que aparece bajo el puntero.
+  let moreAt=0;more.onclick=()=>{moreAt=Date.now();limit+=pageSize;render(true)};
+  list.addEventListener('click',e=>{if(Date.now()-moreAt<600&&e.target.closest('a,button,summary')){e.preventDefault();e.stopPropagation()}},true);
   toggle?.addEventListener('click',()=>{const open=panel.hidden;panel.hidden=!open;toggle.setAttribute('aria-expanded',String(open));if(open)panel.querySelector('select')?.focus()});
   root.addEventListener('click',e=>{
    const clear=e.target.closest('[data-ev-clear]');if(clear){const id=clear.dataset.evClear;if(id==='ev-q'){q.value='';q.dispatchEvent(new Event('ev-sync'))}else{const f=filters.find(f=>f.id===id);if(f)f.value=''}update();(chips.querySelector('button')||q).focus();return}
@@ -396,9 +409,11 @@ E.ready(async()=>{
  if(!document.body.classList.contains('ev-reader'))return;
  let all,map,r,reader,brief=false;const dynamic=document.getElementById('ev-dynamic-reader');
  try{
-  [all,map]=await Promise.all([E.data(),E.routes()]);
-  if(dynamic){const p=new URLSearchParams(location.search),id=p.get('id');r=all.find(r=>String(r.id)===id);if(!r){delete root.dataset.evReadingMode;document.title='Resumen no encontrado · Resúmenes Trials';dynamic.innerHTML='<section class="ev-notice ev-doc"><p class="ev-eyebrow">Enlace no válido</p><h1>Resumen no encontrado</h1><p>El identificador no corresponde a un ensayo disponible. Usa el buscador de arriba o vuelve al archivo.</p><a class="ev-btn ev-btn-primary" href="/">Volver al archivo</a></section>';return}brief=p.get('v')==='corto'&&!!r.corto;dynamic.innerHTML=markup(r,map[String(r.id)].path,brief);updateMetadata(r,map[String(r.id)].path,brief)}
-  reader=document.querySelector('[data-ev-reader]');if(!reader)return;r??=all.find(x=>String(x.id)===reader.dataset.evReader);brief=reader.dataset.evBrief==='true';if(!r)throw Error('Resumen no disponible');
+  // Only the trial being read is needed to render and wire the controls; the full
+  // archive (neighbours, related) loads afterwards and never blocks reading.
+  const pathOf=async rec=>rec.ruta||(await E.routes())[String(rec.id)].path;let path;
+  if(dynamic){const p=new URLSearchParams(location.search),id=p.get('id');r=await E.record(id);if(!r){delete root.dataset.evReadingMode;document.title='Resumen no encontrado · Resúmenes Trials';dynamic.innerHTML='<section class="ev-notice ev-doc"><p class="ev-eyebrow">Enlace no válido</p><h1>Resumen no encontrado</h1><p>El identificador no corresponde a un ensayo disponible. Usa el buscador de arriba o vuelve al archivo.</p><a class="ev-btn ev-btn-primary" href="/">Volver al archivo</a></section>';return}brief=p.get('v')==='corto'&&!!r.corto;path=await pathOf(r);dynamic.innerHTML=markup(r,path,brief);updateMetadata(r,path,brief)}
+  reader=document.querySelector('[data-ev-reader]');if(!reader)return;r??=await E.record(reader.dataset.evReader);brief=reader.dataset.evBrief==='true';if(!r)throw Error('Resumen no disponible');path??=await pathOf(r).catch(()=>location.pathname);
   const article=reader.querySelector('article'),headings=[...article.querySelectorAll('h2')],toc=reader.querySelector('[data-ev-toc]'),progress=reader.querySelector('progress'),status=document.getElementById('ev-reader-status'),toolbar=reader.querySelector('.ev-toolbar');
   E.prose(reader);
   // Section index: rail on desktop, sheet everywhere.
@@ -431,7 +446,7 @@ E.ready(async()=>{
   const pdfDialog=dialog('ev-pdf-dialog','Descargar PDF','<fieldset class="ev-options"><legend>1 · Elige la versión</legend>'+radio('ev-pdf-version','completo','Completo','Todas las secciones · '+E.minutes(r.cuerpo)+' min',!brief)+(r.corto?radio('ev-pdf-version','breve','Breve','Lo esencial · '+E.minutes(r.corto)+' min',brief):'')+'</fieldset><fieldset class="ev-options ev-formats"><legend>2 · Descarga en el formato que prefieras</legend>'+formats.map(f=>fmtBtn(...f)).join('')+'</fieldset><p class="ev-dialog-note">Recomendado para este dispositivo: '+(device==='mobile'?'Celular':'Computadora (A4)')+'.</p><p class="ev-status" role="status" data-ev-pdf-status></p>');
   const pdfStatus=pdfDialog.querySelector('[data-ev-pdf-status]');
   pdfBtn.onclick=()=>E.open('ev-pdf-dialog');
-  for(const go of pdfDialog.querySelectorAll('[data-ev-pdf-go]'))go.onclick=async()=>{const version=pdfDialog.querySelector('[name=ev-pdf-version]:checked')?.value||'completo';go.disabled=true;E.status(pdfStatus,'Preparando PDF…');try{await E.pdf(r,version==='breve',go.dataset.format);E.status(pdfStatus,'PDF descargado.');E.status(status,'PDF descargado.');setTimeout(()=>pdfDialog.open&&pdfDialog.close(),900)}catch{E.status(pdfStatus,'No pudimos descargar el PDF. Intenta de nuevo.')}finally{go.disabled=false}};
+  for(const go of pdfDialog.querySelectorAll('[data-ev-pdf-go]'))go.onclick=async()=>{const version=pdfDialog.querySelector('[name=ev-pdf-version]:checked')?.value||'completo';go.disabled=true;E.status(pdfStatus,'Preparando PDF…');try{await E.pdf(r,version==='breve',go.dataset.format);E.status(pdfStatus,'');E.status(status,'PDF descargado.');if(pdfDialog.open)pdfDialog.close()}catch{E.status(pdfStatus,'No pudimos descargar el PDF. Intenta de nuevo.')}finally{go.disabled=false}};
   pdfBtn.setAttribute('aria-label',brief?'Descargar resumen breve PDF o elegir el completo':'Descargar resumen completo PDF o elegir el breve');pdfBtn.dataset.pdfVersion=brief?'breve':'completo';
   // Save
   const save=reader.querySelector('[data-ev-save]'),saveLabel=save.querySelector('span');let busy=false;
@@ -439,18 +454,23 @@ E.ready(async()=>{
   save.onclick=async()=>{if(busy)return;busy=true;save.disabled=true;try{const lib=await E.library(),state=await lib.getLibraryState();if(!state.signedIn){location.href='/login.html?next='+encodeURIComponent(location.pathname+location.search);return}const added=await lib.toggleFavorite(r.id);syncSave(added);E.status(status,added?'Ensayo guardado en tu biblioteca.':'Ensayo retirado de tu biblioteca.')}catch{E.status(status,'No pudimos actualizar tu biblioteca. Intenta de nuevo.')}finally{busy=false;save.disabled=false}};
   E.library().then(lib=>lib.getLibraryState()).then(state=>syncSave(state.signedIn&&state.favorites.includes(String(r.id)))).catch(()=>{});
   // Share
-  const share=reader.querySelector('[data-ev-share]'),shareUrl='https://resumenestrials.com'+map[String(r.id)].path;
+  const share=reader.querySelector('[data-ev-share]'),shareUrl='https://resumenestrials.com'+path;
   share.onclick=async()=>{const data={title:E.plain(r.titulo),text:E.plain(r.titulo)+' · Resúmenes Trials',url:shareUrl};try{if(navigator.share&&root.dataset.evPointer==='tactil'){await navigator.share(data);return}await navigator.clipboard.writeText(shareUrl);E.status(status,'Enlace copiado. Ya puedes pegarlo donde quieras.')}catch(e){if(e?.name!=='AbortError')E.status(status,'Copia este enlace: '+shareUrl)}};
-  // Continuity
+  if(dynamic)import('/reader-advertising.js').then(m=>m.loadReaderAdvertising(r,article)).catch(()=>{});
+  const inferred=E.inferSubspecialty(r);if(inferred){const tag=document.createElement('span');tag.className='ev-tag';tag.dataset.evSubspecialty='true';tag.textContent=inferred;reader.querySelector('.ev-reading-head .ev-card-tags').append(tag)}
+  for(const a of reader.querySelectorAll('[data-ev-return]')){a.href=window.RTReadingContext?.destination()||'/';a.onclick=()=>window.RTReadingContext?.requestReturn()}
+  // Continuity and related evidence: background, non-blocking.
+  (async()=>{try{
+  [all,map]=await Promise.all([E.data(),E.routes()]);
   const dates=await import('/trial-data.js?v=20261003-laboratorio-v1'),ordered=all.slice().sort(dates.compareTrialDates),index=ordered.findIndex(x=>x.id===r.id);
   const neighbor=(item,dir)=>'<a class="ev-neighbor" data-dir="'+dir+'" href="'+map[String(item.id)].path+'"><small>'+(dir==='prev'?E.icon('left')+'Ensayo anterior':'Ensayo siguiente'+E.icon('right'))+'</small><b>'+E.esc(item.titulo)+'</b></a>';
   reader.querySelector('[data-ev-neighbors]').innerHTML=(index>0?neighbor(ordered[index-1],'prev'):'')+'<a class="ev-btn ev-neighbor-back" href="/" data-ev-return>'+E.icon('list')+'<span>Volver a la lista</span></a>'+(index<ordered.length-1?neighbor(ordered[index+1],'next'):'');
   for(const a of reader.querySelectorAll('[data-ev-return]')){a.href=window.RTReadingContext?.destination()||'/';a.onclick=()=>window.RTReadingContext?.requestReturn()}
-  const inferred=E.inferSubspecialty(r);if(inferred){const tag=document.createElement('span');tag.className='ev-tag';tag.dataset.evSubspecialty='true';tag.textContent=inferred;reader.querySelector('.ev-reading-head .ev-card-tags').append(tag)}
   const categories=record=>E.areas(record).filter(s=>E.MAIN.includes(s)),specialty=categories(r),topics=new Set((r.temas||[]).map(E.norm)),clusters=new Set((map[String(r.id)].clusters||[]).map(c=>c.path));
   const rank=all.filter(x=>String(x.id)!==String(r.id)).map(x=>({r:x,s:(map[String(x.id)].clusters||[]).filter(c=>clusters.has(c.path)).length*4+(x.temas||[]).filter(t=>topics.has(E.norm(t))).length*2+categories(x).filter(s=>specialty.includes(s)).length})).filter(x=>x.s>0).sort((a,b)=>b.s-a.s||String(b.r.fecha||'').localeCompare(String(a.r.fecha||''))).slice(0,3);
   reader.querySelector('[data-ev-related]').innerHTML=rank.map(x=>E.card(x.r,map[String(x.r.id)].path)).join('');
-  if(dynamic)import('/reader-advertising.js').then(m=>m.loadReaderAdvertising(r,article)).catch(()=>{});
+  reader.dataset.evContinuity='ready';
+  }catch(error){E.readerContinuityError=error;reader.dataset.evContinuity='error'}})();
  }catch(error){E.readerError=error;if(dynamic)dynamic.innerHTML='<section class="ev-notice ev-doc"><h1>No pudimos cargar el ensayo</h1><p>Revisa tu conexión e inténtalo de nuevo.</p><div class="ev-actions-row"><a class="ev-btn ev-btn-primary" href="">Reintentar</a><a class="ev-btn" href="/">Volver al archivo</a></div></section>'}
 });
 })();

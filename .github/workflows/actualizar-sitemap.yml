@@ -28,6 +28,7 @@ on:
       - "ui/core.js"
       - "ui/reader.js"
       - "scripts/build-site-runtime.mjs"
+      - "scripts/build-data-index.mjs"
       - "seo-clusters.json"
       - "seo-legacy-redirects.json"
       - "scripts/article-inventory.mjs"
@@ -70,6 +71,7 @@ on:
       - "ui/core.js"
       - "ui/reader.js"
       - "scripts/build-site-runtime.mjs"
+      - "scripts/build-data-index.mjs"
       - "seo-clusters.json"
       - "seo-legacy-redirects.json"
       - "scripts/article-inventory.mjs"
@@ -162,7 +164,7 @@ jobs:
 
       - name: Stagear archivos derivados
         run: |
-          git add sitemap.xml seo-manifest.json seo-cluster-manifest.json trials/ medicina-critica/ medicina-interna/ metodologia/ equipo-editorial/ resumen/ images/trials/ _includes/index-source.html ui/runtime-version.json agregar.html index.html resumen.html privacidad.html login.html registro.html recuperar.html cuenta.html biblioteca.html privacidad/ terminos/ 404.html site-runtime.js site-runtime.css
+          git add sitemap.xml seo-manifest.json seo-cluster-manifest.json datos/ trials/ medicina-critica/ medicina-interna/ metodologia/ equipo-editorial/ resumen/ images/trials/ _includes/index-source.html ui/runtime-version.json agregar.html index.html resumen.html privacidad.html login.html registro.html recuperar.html cuenta.html biblioteca.html privacidad/ terminos/ 404.html site-runtime.js site-runtime.css
           python3 scripts/validate-design.py
 
       - name: Guardar archivos derivados en la rama del PR

@@ -35,7 +35,11 @@ export async function checkContentAdvertising(base, output = 'future-screenshots
       let releaseData;
       const dataGate = new Promise(resolve => { releaseData = resolve; });
       if (path.startsWith('/resumen.html')) {
-        await page.route('**/resumenes.json*', async route => { await dataGate; await route.continue(); });
+        // The reader validates the article from its own data file (datos/ensayos/<id>.json) or,
+        // as a fallback, from resumenes.json: hold both until the no-ads-before-validation check.
+        for (const pattern of ['**/resumenes.json*', '**/datos/ensayos/*.json*']) {
+          await page.route(pattern, async route => { await dataGate; await route.continue(); });
+        }
       }
       await page.goto(base + path, { waitUntil: 'domcontentloaded' });
       if (path.startsWith('/resumen.html')) {

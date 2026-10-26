@@ -1,4 +1,13 @@
 /* GENERATED FILE. Run: node scripts/build-site-runtime.mjs */
+/* source: ui/fonts.css */
+/* Fuentes alojadas en el propio sitio (Literata y Sora, licencia SIL OFL 1.1). Sin dependencias externas para mostrar la página. */
+@font-face{font-family:'Literata';font-style:italic;font-weight:400;font-display:swap;src:url('/fonts/literata-italic-latin-ext.woff2') format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:'Literata';font-style:italic;font-weight:400;font-display:swap;src:url('/fonts/literata-italic-latin.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Literata';font-style:normal;font-weight:400 600;font-display:swap;src:url('/fonts/literata-normal-latin-ext.woff2') format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:'Literata';font-style:normal;font-weight:400 600;font-display:swap;src:url('/fonts/literata-normal-latin.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Sora';font-style:normal;font-weight:400 700;font-display:swap;src:url('/fonts/sora-normal-latin-ext.woff2') format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:'Sora';font-style:normal;font-weight:400 700;font-display:swap;src:url('/fonts/sora-normal-latin.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+
 /* source: ui/tokens.css */
 /* Nova design tokens. Color literals live only in this file. */
 :root{color-scheme:dark;--ev-bg:#070b16;--ev-bg-soft:#0b1122;--ev-panel:#0f172b;--ev-raised:#16203a;--ev-glass:rgb(10 16 34 / .76);--ev-line:#233154;--ev-line-strong:#33446e;--ev-text:#edf1ff;--ev-muted:#a6b0cf;--ev-accent:#7ab8ff;--ev-accent-strong:#4c8dff;--ev-on-accent:#050a16;--ev-accent-soft:rgb(76 141 255 / .14);--ev-violet:#b9a2ff;--ev-grad:linear-gradient(120deg,#4c8dff 0%,#8f6bff 58%,#c86bfa 100%);--ev-grad-text:linear-gradient(100deg,#8cc4ff 0%,#b9a2ff 55%,#f0a6ff 100%);--ev-signal:#ffc069;--ev-critica:#ff9f80;--ev-critica-soft:rgb(255 159 128 / .13);--ev-interna:#b9a2ff;--ev-interna-soft:rgb(185 162 255 / .14);--ev-neutral-soft:rgb(166 176 207 / .12);--ev-ok:#6ee7b7;--ev-error:#ff9aae;--ev-aurora-1:rgb(76 141 255 / .20);--ev-aurora-2:rgb(143 107 255 / .16);--ev-aurora-3:rgb(255 159 128 / .07);--ev-shadow:0 1px 0 rgb(255 255 255 / .04) inset,0 18px 48px rgb(0 0 0 / .38);--ev-shadow-hover:0 1px 0 rgb(255 255 255 / .06) inset,0 22px 60px rgb(20 40 110 / .45);--ev-backdrop:rgb(2 4 12 / .66);--ev-reading-bg:#0d0f17;--ev-reading-text:#e8e6f0;--ev-mark:rgb(122 184 255 / .32);--ev-ui:"Sora",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;--ev-reading:"Literata",Georgia,"Times New Roman",serif;--ev-fast:160ms;--ev-normal:220ms;--ev-r-sm:10px;--ev-r:16px;--ev-r-lg:24px;--ev-pill:999px;--ev-reading-size:20px;--ev-on-grad:#ffffff;--ev-header-h:72px}
@@ -36,6 +45,8 @@ mark{background:var(--ev-mark);color:inherit;border-radius:4px;padding:0 2px}
 
 /* ---------- Text & justification ---------- */
 :where(.ev-prose,.ev-body,article.articulo) li,p:not(:where(.ev-meta,.ev-count,.ev-eyebrow,.ev-kicker,.ev-trust,.ev-state,.ev-estado,.ev-strength,.ev-hint,.ev-field-error,.ev-pill,.ev-editorial-dates,.ev-turnstile-status,.ev-safe,.ev-card-meta,.ev-card-topics,.ev-readtime,.ev-byline,.ev-keyfinding-label,.ev-search-status,.ev-footer-claim,.ev-footer-title,.ev-dialog-label,.ev-dialog-note,.ev-rail-title,.ev-original,.ev-status,.ev-doc-date,.ev-empty-title,.ev-tools-hint)),.ev-justify{text-align:justify;text-align-last:start;-webkit-hyphens:auto;hyphens:auto;hyphenate-limit-chars:6 2 2;-webkit-hyphenate-character:"-";hyphenate-character:"-";overflow-wrap:break-word}
+/* Celular: en columnas tan angostas el justificado abre huecos grandes entre palabras; se alinea a la izquierda. Tablet, escritorio y PDF siguen justificados. */
+@media (max-width:480px){:where(.ev-prose,.ev-body,article.articulo) li,p:not(:where(.ev-meta,.ev-count,.ev-eyebrow,.ev-kicker,.ev-trust,.ev-state,.ev-estado,.ev-strength,.ev-hint,.ev-field-error,.ev-pill,.ev-editorial-dates,.ev-turnstile-status,.ev-safe,.ev-card-meta,.ev-card-topics,.ev-readtime,.ev-byline,.ev-keyfinding-label,.ev-search-status,.ev-footer-claim,.ev-footer-title,.ev-dialog-label,.ev-dialog-note,.ev-rail-title,.ev-original,.ev-status,.ev-doc-date,.ev-empty-title,.ev-tools-hint)),.ev-justify{text-align:start}}
 .ev-prose-break::after{content:"\00ad"}
 :where(a,h1,h2,h3,h4,button,input,select,textarea,label,summary,th,td,nav,.ev-tag,.ev-chip,.ev-area){text-align:start;text-align-last:auto;-webkit-hyphens:manual;hyphens:manual}
 .ev-eyebrow{display:inline-flex;align-items:center;gap:10px;margin:0 0 14px;font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ev-accent)}
@@ -187,8 +198,12 @@ section.ev-archive{scroll-margin-top:96px;padding-top:12px}
 .ev-card-title{display:block;min-height:44px;color:var(--ev-text);text-decoration:none}
 .ev-card-title h2{margin:0;font-size:1.12rem;font-weight:600;line-height:1.38;letter-spacing:-.012em;overflow-wrap:break-word}
 .ev-card-title:hover h2{color:var(--ev-accent)}
-.ev-card-meta{display:flex;flex-wrap:wrap;gap:4px 12px;margin:0;color:var(--ev-muted);font-size:.84rem}
-.ev-card-meta span+span::before{content:"·";margin-right:12px;color:var(--ev-line-strong)}
+.ev-card-meta{--ev-sep:28px;display:flex;flex-wrap:wrap;row-gap:4px;margin-top:0;margin-right:0;margin-bottom:0;color:var(--ev-muted);font-size:.84rem}
+/* Separadores «·» entre datos: van delante de cada elemento y se recortan cuando el elemento abre línea, así nunca quedan sueltos al inicio de un renglón. */
+.ev-byline,.ev-card-meta,.ev-readtime{column-gap:0;margin-left:calc(-1 * var(--ev-sep));clip-path:inset(0 0 0 var(--ev-sep))}
+.ev-byline>*,.ev-card-meta>*,.ev-readtime>*{margin-left:var(--ev-sep)}
+:where(.ev-byline,.ev-card-meta,.ev-readtime) span+span{position:relative}
+:where(.ev-byline,.ev-card-meta,.ev-readtime) span+span::before{content:"·";position:absolute;left:calc(-1 * var(--ev-sep));width:var(--ev-sep);text-align:center;color:var(--ev-line-strong)}
 .ev-card-topics{margin:0;color:var(--ev-muted);font-size:.8rem;line-height:1.5}
 .ev-card-facts>summary{display:inline-flex;align-items:center;gap:6px;min-height:44px;color:var(--ev-accent);font-size:.84rem;font-weight:600}
 .ev-card-facts>summary::after{content:"";width:7px;height:7px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translateY(-2px);margin-left:4px}
@@ -196,9 +211,9 @@ section.ev-archive{scroll-margin-top:96px;padding-top:12px}
 .ev-card-facts .ev-study-facts{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 14px;padding:6px 0 4px}
 .ev-dense .ev-card-facts{display:none}
 .ev-card-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:auto;padding-top:14px;border-top:1px solid var(--ev-line)}
-.ev-readtime{display:flex;align-items:center;flex-wrap:wrap;gap:4px 10px;margin:0;color:var(--ev-muted);font-size:.78rem}
+.ev-readtime{--ev-sep:24px;display:flex;align-items:center;flex-wrap:wrap;row-gap:4px;margin-top:0;margin-right:0;margin-bottom:0;color:var(--ev-muted);font-size:.78rem}
 .ev-readtime .ev-svg{width:16px;height:16px}
-.ev-readtime span+span::before{content:"·";margin-right:10px}
+.ev-readtime>.ev-svg+span{margin-left:8px}
 .ev-card-actions{display:flex;align-items:center;gap:8px;margin-left:auto}
 .ev-card-actions .ev-btn{padding:10px 16px}
 .ev-pdf-menu{position:relative}
@@ -299,8 +314,7 @@ section.ev-archive{scroll-margin-top:96px;padding-top:12px}
 .ev-reading-head{max-width:880px}
 .ev-reading-head .ev-card-tags{margin-bottom:16px}
 .ev-reading-head h1{font-size:clamp(1.9rem,1.2rem + 2.6vw,3.1rem);max-width:26ch}
-.ev-byline{display:flex;flex-wrap:wrap;gap:4px 14px;margin:0 0 22px;color:var(--ev-muted);font-size:.95rem}
-.ev-byline span+span::before{content:"·";margin-right:14px;color:var(--ev-line-strong)}
+.ev-byline{--ev-sep:32px;display:flex;flex-wrap:wrap;row-gap:4px;margin-top:0;margin-right:0;margin-bottom:22px;color:var(--ev-muted);font-size:.95rem}
 .ev-keyfinding{position:relative;margin:0 0 18px;padding:20px 22px 20px 26px;border:1px solid var(--ev-line);border-radius:var(--ev-r-lg);background:var(--ev-panel);box-shadow:var(--ev-shadow);overflow:hidden}
 .ev-keyfinding::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--ev-grad)}
 .ev-keyfinding-label{display:flex;align-items:center;gap:8px;margin:0 0 8px;color:var(--ev-accent);font-size:.8rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
@@ -381,6 +395,12 @@ section.ev-archive{scroll-margin-top:96px;padding-top:12px}
 /* ---------- Documents ---------- */
 .ev-doc{max-width:860px;margin:0 auto}
 .ev-doc-wide{max-width:1180px}
+/* Páginas institucionales (Editorial, Metodología, Privacidad, Términos): columna más ancha y sin cortar palabras con guion. */
+.ev-doc-text{max-width:1000px}
+.ev-doc-text .ev-prose{max-width:none}
+.ev-doc-text .ev-prose :where(p,li){-webkit-hyphens:manual;hyphens:manual}
+/* Páginas de resumen: las palabras tampoco se cortan con guion (solicitud del editor). */
+body.ev-reader :where(p,li){-webkit-hyphens:manual;hyphens:manual}
 .ev-doc-date{color:var(--ev-muted);font-size:.9rem}
 .ev-prose{max-width:72ch;color:var(--ev-text);font:400 1.12rem/1.8 var(--ev-reading)}
 .ev-prose h2{margin:44px 0 14px;font:600 1.4rem/1.3 var(--ev-ui)}

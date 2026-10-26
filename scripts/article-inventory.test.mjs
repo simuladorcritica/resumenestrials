@@ -73,6 +73,11 @@ test('el slug no depende de una cifra fija', () => {
   assert.equal(slugForRecord(record(999, 'FUTURE-X: nueva evidencia clínica')), 'future-x-nueva-evidencia-clinica');
 });
 
+test('la URL publicada se conserva al corregir el título si coinciden ID y DOI', () => {
+  assert.equal(slugForRecord(record(1, 'SOHO: título corregido', '10.1056/NEJMoa2516087')), 'soho-oxigeno-alto-flujo-oxigeno-estandar-insuficiencia-respiratoria-hipoxemica-aguda');
+  assert.equal(slugForRecord(record(1, 'SOHO: título corregido', '10.1000/otro')), 'soho-titulo-corregido');
+});
+
 test('las fechas editoriales deben ser ISO y calendariamente válidas', () => {
   assert.equal(isValidIsoDate('2026-09-04'), true);
   assert.equal(isValidIsoDate('2026-02-30'), false);

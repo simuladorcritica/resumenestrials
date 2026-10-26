@@ -28,6 +28,10 @@ CAMPOS = [
     "objetivo", "hallazgo", "cuerpo", "corto",
 ]
 
+# Campo opcional al final de cada entrada: fecha (AAAA-MM-DD, hora del centro de México)
+# en que el resumen se publicó en la web. Alimenta datePublished, sitemap y feed.
+CAMPOS_OPCIONALES_FINALES = ["fecha_publicacion_resumen"]
+
 SECCIONES_CUERPO = [
     "Referencia y registro",
     "Pregunta de investigación",
@@ -208,6 +212,12 @@ def validar_estilo_lexico(campos_texto, H, idn):
         m for m in REFERENCIA_DOCUMENTAL_RE.finditer(blob)
         if not any(_se_superponen(m.span(), span) for span in referencias_validas)
     ]
+    for marcador in ("consultar aparte", "como ya se dijo"):
+        if marcador in low:
+            H.error(idn, f'texto de plantilla publicado: "{marcador}"')
+    for marcador in ("[ID]", "TODO", "XXX", "PENDIENTE"):
+        if re.search(r"(?<![\w\[])" + re.escape(marcador) + r"(?![\w\]])", blob) if marcador != "[ID]" else marcador in blob:
+            H.error(idn, f'texto de plantilla publicado: "{marcador}"')
     if referencias_ambiguas:
         H.error(
             idn,
@@ -229,6 +239,8 @@ def validar_entrada(e, H, if_vistos):
 
     # --- Esquema: campos exactos y en orden ---
     claves = list(e.keys())
+    if claves[len(CAMPOS):] == CAMPOS_OPCIONALES_FINALES[:len(claves) - len(CAMPOS)]:
+        claves = claves[:len(CAMPOS)]
     if claves != CAMPOS:
         faltan = [c for c in CAMPOS if c not in claves]
         sobran = [c for c in claves if c not in CAMPOS]
@@ -237,16 +249,27 @@ def validar_entrada(e, H, if_vistos):
         if not faltan and not sobran:
             H.error(idn, f"orden de campos incorrecto: {claves}")
 
+    if "fecha_publicacion_resumen" in e:
+        fp = e.get("fecha_publicacion_resumen")
+        if not isinstance(fp, str) or not re.fullmatch(r"\d{4}-\d{2}-\d{2}", fp):
+            H.error(idn, f"'fecha_publicacion_resumen' debe ser AAAA-MM-DD: {fp!r}")
+        else:
+            try:
+                if date.fromisoformat(fp) > date.today():
+                    H.error(idn, f"'fecha_publicacion_resumen' está en el futuro: {fp}")
+            except ValueError:
+                H.error(idn, f"'fecha_publicacion_resumen' no es una fecha válida: {fp!r}")
+
     # --- Tipos y coherencia de fechas ---
     if not isinstance(e.get("anio"), int):
         if str(e.get("anio", "")).isdigit():
-            H.aviso(idn, f"'anio' está almacenado como texto: {e.get('anio')!r}")
+            H.error(idn, f"'anio' está almacenado como texto: {e.get('anio')!r}")
         else:
             H.error(idn, f"'anio' no es entero: {e.get('anio')!r}")
     f = e.get("fecha", "")
     if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", f or ""):
         if re.search(r"\b(?:19|20)\d{2}\b", str(f or "")):
-            H.aviso(idn, f"'fecha' bibliográfica legada no está en formato AAAA-MM-DD: {f!r}")
+            H.error(idn, f"'fecha' no está en formato AAAA-MM-DD (usa la fecha electrónica): {f!r}")
         else:
             H.error(idn, f"'fecha' no contiene un año reconocible: {f!r}")
     else:
@@ -277,11 +300,18 @@ def validar_entrada(e, H, if_vistos):
     if doi and (" " in doi or not doi.lower().startswith("10.")):
         H.aviso(idn, f"'doi' con forma inusual: {doi!r}")
 
-    # --- Título: ACRÓNIMO: descripción en minúsculas ---
+    # --- Revista: abreviatura canónica (NEJM, nunca el nombre largo) ---
+    if re.search(r"new england journal", str(e.get("revista", "")), re.I):
+        H.error(idn, f"'revista' debe ser la abreviatura 'NEJM', no {e.get('revista')!r}")
+
+    # --- Título: "ACRÓNIMO: traducción fiel del título oficial" ---
+    # Sin acrónimo reportado por el artículo, el título es solo la traducción
+    # fiel del título oficial (no se inventa acrónimo).
     tit = str(e.get("titulo", ""))
     m = re.match(r"^([^:]+):\s+(.+)$", tit)
     if not m:
-        H.aviso(idn, f"'titulo' no sigue 'ACRÓNIMO: descripción': {tit!r}")
+        if not tit[:1].isupper():
+            H.aviso(idn, f"'titulo' sin acrónimo debe empezar en mayúscula: {tit!r}")
     else:
         desc = m.group(2)
         primera = desc.lstrip()[:1]
@@ -306,9 +336,9 @@ def validar_entrada(e, H, if_vistos):
     # --- Longitud del corto (250–300 objetivo, tope 350) ---
     palabras = len(strip_html(e.get("corto", "")).split())
     if palabras > 350:
-        H.aviso(idn, f"corto legado excede el objetivo de 350 palabras ({palabras})")
+        H.error(idn, f"corto excede el tope de 350 palabras ({palabras})")
     elif palabras < 250:
-        H.aviso(idn, f"corto por debajo de 250 palabras ({palabras})")
+        H.error(idn, f"corto por debajo de 250 palabras ({palabras})")
 
     # --- Frase ancla: fragmento contiguo compartido corto <-> cuerpo ---
     n_ancla, frag = run_comun_mas_largo(
@@ -339,7 +369,7 @@ def validar_entrada(e, H, if_vistos):
 
     original = str(e.get("original", ""))
     if original and not re.fullmatch(r"https://[^\s]+", original):
-        H.aviso(idn, "'original' legado es una referencia textual, no una URL HTTPS absoluta")
+        H.error(idn, "'original' no es una URL HTTPS absoluta (el botón 'Ver artículo original' no funcionaría)")
 
     # --- Factor de impacto: consistencia por revista ---
     for v in re.findall(r"factor de impacto de ([\d.]+)", e.get("cuerpo", "")):

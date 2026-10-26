@@ -3,7 +3,6 @@ from pathlib import Path
 import json, re, html
 ROOT=Path(__file__).resolve().parent
 BASE="https://resumenestrials.com"
-FONT_URL="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=Sora:wght@400;500;600;700&display=swap"
 EXCLUDED=frozenset({"/login.html","/registro.html","/recuperar.html","/cuenta.html","/biblioteca.html","/privacidad.html","/privacidad/","/privacidad/index.html","/terminos/","/terminos/index.html","/agregar.html","/medicina-interna/hematologia-oncologia/","/medicina-interna/hematologia-oncologia/index.html","/404.html"})
 ADSENSE_CLIENT="ca-pub-3132744538918477"
 ADSENSE_URL=f"https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={ADSENSE_CLIENT}"
@@ -43,7 +42,7 @@ def readtime(r):
  full=minutes(r.get("cuerpo"));brief=minutes(r.get("corto")) if r.get("corto") else 0
  return f'{icon("clock")}<span>Completo {full} min</span>'+(f'<span>Breve {brief} min</span>' if brief else '')
 NAV=[("/","Inicio"),("/medicina-critica/","Medicina Crítica"),("/medicina-interna/","Medicina Interna"),("/biblioteca.html","Mi biblioteca")]
-INFO=[("/metodologia/","Metodología"),("/equipo-editorial/","Equipo editorial"),("/privacidad/","Privacidad"),("/terminos/","Términos")]
+INFO=[("/metodologia/","Metodología"),("/equipo-editorial/","Editorial"),("/privacidad/","Privacidad"),("/terminos/","Términos")]
 SOCIAL=[("https://t.me/ResumenesTrials","Telegram"),("https://x.com/resumenestrials","X · @resumenestrials")]
 def brand(small=False):return '<a class="ev-brand" href="/" aria-label="Resúmenes Trials, ir al inicio"><span class="ev-brand-mark"><img src="/logo.png" width="40" height="40" alt=""></span><span class="ev-brand-name" aria-hidden="true">Resúmenes<b>Trials</b></span></a>'
 def header():
@@ -82,14 +81,15 @@ def clean_head(source,title=None):
  h=re.search(r"<head[^>]*>([\s\S]*?)</head>",source,re.I)
  head=h[1] if h else '<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
  head=re.sub(r"<style\b[^>]*>[\s\S]*?</style>","",head,flags=re.I)
- head=re.sub(r'<link\b[^>]*(?:rel=["\'](?:stylesheet|preconnect)["\']|fonts\.google)[^>]*>',"",head,flags=re.I)
+ head=re.sub(r'<link\b[^>]*(?:rel=["\'](?:stylesheet|preconnect)["\']|fonts\.google|/fonts/)[^>]*>',"",head,flags=re.I)
  head=re.sub(r"<script\b([^>]*)>[\s\S]*?</script>",lambda m:m[0] if "application/ld+json" in m[1] else "",head,flags=re.I)
  head=re.sub(r'<meta\b[^>]*name=["\']theme-color["\'][^>]*>',"",head,flags=re.I)
  if not re.search(r'<meta\b[^>]*charset=',head,re.I):head='<meta charset="UTF-8">'+head
  if not re.search(r'<meta\b[^>]*name=["\']viewport["\']',head,re.I):head+='<meta name="viewport" content="width=device-width,initial-scale=1">'
  if not re.search(r'<title>',head,re.I):head+=f'<title>{esc(title or "Resúmenes Trials")}</title>'
  head+='<meta name="theme-color" content="#070b16" media="(prefers-color-scheme: dark)"><meta name="theme-color" content="#f3f5fb" media="(prefers-color-scheme: light)">'+HEAD_SCRIPT
- head+=f'<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="{FONT_URL}"><link rel="stylesheet" href="/site-runtime.css?v={version()}">'
+ # Fuentes propias (/fonts): ninguna dependencia externa bloquea el primer render.
+ head+=f'<link rel="preload" href="/fonts/sora-normal-latin.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="/site-runtime.css?v={version()}">'
  return head
 def document(source,body,route,kind="document",scripts="",title=None):
  head=clean_head(source,title)
@@ -102,12 +102,22 @@ def facts(r):
  return '<dl class="ev-study-facts">'+''.join(f'<div><dt>{label}</dt><dd data-ev-field="{key}">{esc(" · ".join(map(str,r[key])) if isinstance(r.get(key),list) else r.get(key))}</dd></div>' for key,label in FACTS if r.get(key) not in ("",None,[]))+'</dl>'
 def card(r,manifest):
  id=trial_id(r["id"]);path=esc(manifest[id]["path"]);area=area_of(r);t=esc(r["titulo"]);topics=" · ".join(r.get("temas") or [])
- return (f'<li class="ev-card" data-id="{id}" data-tone="{tone(area)}"><a class="ev-card-title" href="{path}" data-ev-read="{id}"><h2>{t}</h2></a>'
+ topics_attr=f' data-ev-topics="{esc(topics)}"' if topics else ''
+ return (f'<li class="ev-card" data-id="{id}" data-tone="{tone(area)}"{topics_attr}><a class="ev-card-title" href="{path}" data-ev-read="{id}"><h2>{t}</h2></a>'
   f'<p class="ev-card-meta"><span>{esc(r["revista"])}</span><span>{esc(human_date(r["fecha"]))}</span></p>'
   f'<div class="ev-card-tags"><span class="ev-area" data-tone="{tone(area)}">{esc(area)}</span></div>'
-  +(f'<p class="ev-card-topics">{esc(topics)}</p>' if topics else '')+'<details class="ev-card-facts"><summary>Ficha del estudio</summary>'+facts(r)+'</details>'+
+  +'<details class="ev-card-facts"><summary>Ficha del estudio</summary>'+facts(r)+'</details>'+
   f'<div class="ev-card-foot"><p class="ev-readtime">{readtime(r)}</p><div class="ev-card-actions"><a class="ev-btn ev-btn-primary" href="{path}" data-ev-read="{id}" aria-label="Leer resumen: {t}">Leer</a>'
   f'<details class="ev-pdf-menu"><summary class="ev-btn" aria-label="Descargar PDF de {t}">{icon("pdf")}<span>PDF</span></summary><div class="ev-pdf-pop"><button type="button" data-ev-card-pdf="{id}" data-ev-version="completo" aria-label="Descargar resumen completo PDF de {t}">PDF completo</button><button type="button" data-ev-card-pdf="{id}" data-ev-version="breve" aria-label="Descargar resumen breve PDF de {t}">PDF breve</button></div></details></div></div></li>')
+def by_date(items):
+ """Mismo orden inicial que el archivo en el navegador (más recientes primero, empates estables).
+
+ Así la portada no muestra primero los ensayos más antiguos y luego se reordena.
+ """
+ def key(r):
+  m=re.fullmatch(r"(\d{4})-(\d{2})-(\d{2})",str(r.get("fecha") or "").strip())
+  return (0,-int(m[1]+m[2]+m[3])) if m else (1,0)
+ return sorted(items,key=key)
 def archive(items,manifest,title="Archivo de evidencia",scope=""):
  import generar_seo as base
  from collections import Counter
@@ -136,7 +146,7 @@ def archive(items,manifest,title="Archivo de evidencia",scope=""):
  heading="Biblioteca de ensayos" if not scope else "Resúmenes de "+esc(title)
  return (hero+f'<section class="ev-archive" id="ev-archivo" data-ev-ids="{",".join(trial_id(r["id"]) for r in items)}"><div class="ev-archive-head"><h2>{heading}</h2><p id="ev-count" class="ev-count" role="status">{len(items)} resúmenes</p></div>'
   +segment+quick+'<div class="ev-archive-bar"><button type="button" class="ev-btn ev-filter-toggle" data-ev-filters aria-expanded="false" aria-controls="ev-filters">'+icon("filter")+'<span>Filtros</span><b class="ev-badge" data-ev-filter-count hidden></b></button><div class="ev-chips" id="ev-chips" role="group" aria-label="Filtros activos"></div><button type="button" class="ev-btn ev-view-toggle" id="ev-view" aria-pressed="false" aria-label="Vista compacta">'+icon("list")+'<span>Vista compacta</span></button></div>'
-  +filters+'<ul class="ev-list" id="ev-list">'+''.join(card(r,manifest) for r in items)+'</ul>'
+  +filters+'<ul class="ev-list" id="ev-list">'+''.join(card(r,manifest) for r in by_date(items))+'</ul>'
   '<div id="ev-empty" class="ev-empty" hidden><p class="ev-empty-title">No encontramos coincidencias</p><p>Prueba con otra palabra, por ejemplo «sepsis», el nombre corto del estudio o el año.</p><button type="button" class="ev-btn ev-btn-primary" data-ev-reset>Ver todos los resúmenes</button></div>'
   '<button id="ev-more" type="button" class="ev-btn ev-more" hidden>Mostrar más</button></section>')
 def reading(r,manifest,brief=False,legacy=False):
@@ -158,7 +168,7 @@ def reading(r,manifest,brief=False,legacy=False):
   '<details class="ev-facts" open><summary>Ficha técnica del estudio</summary>'+facts(r)+'</details>'+toolbar+'<progress class="ev-progress" max="100" value="0" aria-label="Progreso de lectura"></progress>'
   '<div class="ev-reader-grid">'+article+'<aside class="ev-rail"><p class="ev-rail-title">En esta página</p><nav data-ev-toc aria-label="Secciones del artículo"></nav></aside></div>'
   f'<div class="ev-endmatter"><p class="ev-original"><span class="ev-original-label">Artículo original</span>{original}</p><nav class="ev-neighbors" aria-label="Continuidad de lectura" data-ev-neighbors></nav><section class="ev-related"><h2>Evidencia relacionada</h2><ul class="ev-list" data-ev-related></ul></section><p class="ev-status" id="ev-reader-status" role="status"></p></div></section>')
-def doc_page(eyebrow,h1,date_html,content):return '<div class="ev-doc"><p class="ev-eyebrow"><span class="ev-pulse" aria-hidden="true"></span>'+eyebrow+'</p><h1>'+h1+'</h1>'+date_html+'<article class="ev-prose">'+content+'</article></div>'
+def doc_page(eyebrow,h1,date_html,content):return '<div class="ev-doc ev-doc-text"><p class="ev-eyebrow"><span class="ev-pulse" aria-hidden="true"></span>'+eyebrow+'</p><h1>'+h1+'</h1>'+date_html+'<article class="ev-prose">'+content+'</article></div>'
 def write(path,text):path.parent.mkdir(parents=True,exist_ok=True);path.write_text(text,encoding="utf-8")
 def render_all():
  items=json.loads((ROOT/"resumenes.json").read_text(encoding="utf-8"));manifest=json.loads((ROOT/"seo-manifest.json").read_text(encoding="utf-8"));clusters=json.loads((ROOT/"seo-cluster-manifest.json").read_text(encoding="utf-8"))

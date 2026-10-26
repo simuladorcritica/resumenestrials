@@ -10,6 +10,8 @@ const clinical=JSON.parse(fs.readFileSync('resumenes.json','utf8'));
 const paths=['/','/medicina-critica/','/medicina-interna/',...Object.values(clusters).map(c=>c.path),'/medicina-interna/hematologia-oncologia/',routes['168'].path,'/resumen.html?id=168','/resumen.html?id=168&v=corto','/resumen/168.html','/metodologia/','/equipo-editorial/','/privacidad.html','/privacidad/','/terminos/','/404.html','/cuenta.html','/biblioteca.html','/registro.html','/login.html','/recuperar.html'];
 // Metadata lines, labels and status messages keep start alignment; every other paragraph is prose.
 const excluded=':where(.ev-meta,.ev-count,.ev-eyebrow,.ev-kicker,.ev-trust,.ev-state,.ev-estado,.ev-strength,.ev-hint,.ev-field-error,.ev-pill,.ev-editorial-dates,.ev-turnstile-status,.ev-safe,.ev-card-meta,.ev-card-topics,.ev-readtime,.ev-byline,.ev-keyfinding-label,.ev-search-status,.ev-footer-claim,.ev-footer-title,.ev-dialog-label,.ev-dialog-note,.ev-rail-title,.ev-original,.ev-status,.ev-doc-date,.ev-empty-title,.ev-tools-hint)';
+// Institutional pages (.ev-doc-text) use a wider column and, like summary pages (body.ev-reader), never split words with a hyphen (editor request, Oct 2026).
+const TEXT_PAGES=new Set(['/metodologia/','/equipo-editorial/','/privacidad.html','/privacidad/','/terminos/']);
 const results=[];
 const accountSource=fs.readFileSync('scripts/account-safe-smoke.mjs','utf8'),mockStart=accountSource.indexOf('const mock='),mockEnd=accountSource.indexOf('const map=');assert(mockStart>=0&&mockEnd>mockStart);
 const accountMock=vm.runInNewContext(accountSource.slice(mockStart,mockEnd).replace('const mock=','globalThis.mock=')+';mock');
@@ -41,9 +43,9 @@ for(const engine of [chromium,webkit]){
     const visible=n=>n.getClientRects().length&&n.textContent.trim();
     const prose=[...document.querySelectorAll(`p:not(${excluded}),:where(.ev-prose,.ev-body,article.articulo) li`)].filter(visible);
     const controls=[...document.querySelectorAll('a,h1,h2,h3,.ev-meta,.ev-tag,.ev-chip,button,input,select,textarea,label,th,td,summary,nav,.ev-rail')].filter(visible);
-    return {lang:document.documentElement.lang,prose:prose.map(n=>{const s=getComputedStyle(n);return {text:n.textContent.slice(0,80),align:s.textAlign,last:s.textAlignLast,hyphens:s.hyphens}}),controls:controls.filter(n=>getComputedStyle(n).textAlign==='justify').map(n=>n.outerHTML.slice(0,140)),topTags:[...document.querySelectorAll('.ev-card>div:first-child>.ev-tag')].length};
+    return {lang:document.documentElement.lang,prose:prose.map(n=>{const s=getComputedStyle(n);return {text:n.textContent.slice(0,80),align:s.textAlign,last:s.textAlignLast,hyphens:s.hyphens,doc:!!n.closest('.ev-doc-text,body.ev-reader'),breaks:n.querySelectorAll('.ev-prose-break').length}}),controls:controls.filter(n=>getComputedStyle(n).textAlign==='justify').map(n=>n.outerHTML.slice(0,140)),topTags:[...document.querySelectorAll('.ev-card>div:first-child>.ev-tag')].length};
    },excluded);
-   assert.equal(m.lang,'es-MX',path);assert.ok(m.prose.length,path+' missing prose coverage');for(const p of m.prose){assert.equal(p.align,'justify',path+JSON.stringify(p));assert.equal(p.hyphens,'auto',path+JSON.stringify(p));assert.equal(p.last,'start',path+JSON.stringify(p))}assert.deepEqual(m.controls,[],path);assert.equal(m.topTags,0,path);
+   assert.equal(m.lang,'es-MX',path);assert.ok(m.prose.length,path+' missing prose coverage');if(TEXT_PAGES.has(path))assert.ok(m.prose.some(p=>p.doc),path+' must use the institutional text layout');for(const p of m.prose){assert.equal(p.align,width<=480?'start':'justify',path+JSON.stringify(p));assert.equal(p.hyphens,p.doc?'manual':'auto',path+JSON.stringify(p));if(p.doc)assert.equal(p.breaks,0,'Institutional and summary text must keep whole words '+path+JSON.stringify(p));assert.equal(p.last,'start',path+JSON.stringify(p))}assert.deepEqual(m.controls,[],path);assert.equal(m.topTags,0,path);
    results.push({path,width,theme,engine:engine.name(),paragraphs:m.prose.length,status:'OK'});
    if(await page.locator('[data-ev-reader]').count()){
     await page.waitForFunction(()=>document.querySelector('[data-ev-font]')?.onclick);
@@ -59,13 +61,13 @@ for(const engine of [chromium,webkit]){
      for(let step=0;step<3;step++){
       for(const focus of [false,true]){
        const button=page.locator('[data-ev-focus]');if((await button.getAttribute('aria-pressed')==='true')!==focus)await button.click();
-       const reading=await page.locator('article p').first().evaluate(n=>{const s=getComputedStyle(n);return {size:parseFloat(s.fontSize),align:s.textAlign,hyphens:s.hyphens,last:s.textAlignLast,viewport:innerWidth,scroll:document.documentElement.scrollWidth,body:document.body.scrollWidth}});
+       const reading=await page.locator('article p').first().evaluate(n=>{const s=getComputedStyle(n);return {size:parseFloat(s.fontSize),align:s.textAlign,hyphens:s.hyphens,breaks:n.querySelectorAll('.ev-prose-break').length,last:s.textAlignLast,viewport:innerWidth,scroll:document.documentElement.scrollWidth,body:document.body.scrollWidth}});
 
        if(readingWidth<720){
         const spacing=await page.evaluate(()=>{let max=0;for(const paragraph of document.querySelectorAll('article p')){const words=[],walker=document.createTreeWalker(paragraph,NodeFilter.SHOW_TEXT);while(walker.nextNode()){const node=walker.currentNode;for(const match of node.data.matchAll(/\S+/g)){const range=document.createRange();range.setStart(node,match.index);range.setEnd(node,match.index+match[0].length);for(const rect of range.getClientRects())if(rect.width>0)words.push({x:rect.x,right:rect.right,y:rect.y});}}for(let i=1;i<words.length;i++){const a=words[i-1],b=words[i];if(Math.abs(a.y-b.y)<2&&b.x>=a.right)max=Math.max(max,b.x-a.right);}}return max;});
         assert(spacing<=reading.size*2+.5,`${path} ${engine.name()} ${readingWidth}px font ${reading.size} focus ${focus}: space ${spacing}px exceeds 2em`);
        }
-       assert.equal(reading.align,'justify');assert.equal(reading.hyphens,'auto');assert.equal(reading.last,'start');assert(reading.scroll<=reading.viewport&&reading.body<=reading.viewport,JSON.stringify(reading));assert([18,20,22].includes(reading.size));sizes.add(reading.size);
+       assert.equal(reading.align,readingWidth<=480?'start':'justify');assert.equal(reading.hyphens,'manual');assert.equal(reading.breaks,0,'Summary text must keep whole words');assert.equal(reading.last,'start');assert(reading.scroll<=reading.viewport&&reading.body<=reading.viewport,JSON.stringify(reading));assert([18,20,22].includes(reading.size));sizes.add(reading.size);
        results.push({path,width:readingWidth,theme,engine:engine.name(),focus,size:reading.size,status:'OK'});
       }
       if(!(await page.locator('[data-ev-font]').isVisible()))await page.locator('[data-ev-more]').click();await page.locator('[data-ev-font]').click();

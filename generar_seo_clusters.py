@@ -148,7 +148,7 @@ def update_jsonld(source: str, item: dict, item_clusters: list[dict]) -> str:
     article = next((x for x in graph if isinstance(x, dict) and x.get("@type") == "Article"), None)
     crumbs = next((x for x in graph if isinstance(x, dict) and x.get("@type") == "BreadcrumbList"), None)
     if article:
-        article["author"] = {"@type": "Organization", "name": "Equipo editorial de Resúmenes Trials", "url": f"{base.BASE_URL}/equipo-editorial/"}
+        article["author"] = {"@type": "Organization", "name": "Editorial EMEICRÍTICA", "url": f"{base.BASE_URL}/equipo-editorial/"}
         publisher = article.setdefault("publisher", {"@type": "Organization", "name": "Resúmenes Trials"})
         publisher["url"] = f"{base.BASE_URL}/equipo-editorial/"
         configured_cluster_names = {
@@ -304,13 +304,13 @@ def methodology_page() -> str:
 
 def editorial_page() -> str:
     canonical = f"{base.BASE_URL}/equipo-editorial/"
-    desc = "Información editorial de Resúmenes Trials: propósito, autoría organizacional, independencia, transparencia y enfoque de medicina basada en evidencia."
+    desc = "Editorial EMEICRÍTICA, sello que publica Resúmenes Trials: dirección médica especializada en Medicina Interna y Medicina Crítica, proceso de elaboración, verificación, financiación y correcciones."
     schema = json.dumps({"@context":"https://schema.org","@type":"Organization","name":"Resúmenes Trials","url":canonical,"logo":f"{base.BASE_URL}/logo.png","description":desc}, ensure_ascii=False, separators=(",", ":"))
     source=(ROOT/"templates/documents/equipo-editorial.html").read_text(encoding="utf-8")
     h1=re.search(r"<h1[^>]*>(.*?)</h1>",source,re.S)[1]
     article=re.search(r"<article[^>]*>(.*?)</article>",source,re.S)[1]
     body='<h1>'+h1+'</h1><article class="ev-prose">'+article+'</article>'
-    return page_shell("Equipo editorial | Resúmenes Trials", desc, canonical, body, schema)
+    return page_shell("Editorial EMEICRÍTICA | Resúmenes Trials", desc, canonical, body, schema)
 
 
 def write_editorial_pages() -> None:
