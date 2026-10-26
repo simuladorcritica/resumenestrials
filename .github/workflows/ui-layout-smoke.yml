@@ -37,16 +37,17 @@ concurrency:
 jobs:
   controls:
     runs-on: ubuntu-latest
-    timeout-minutes: 8
+    # Contenedor oficial de Playwright (misma versión que package.json): navegadores y
+    # dependencias ya instalados. Instalarlos con apt llegó a tardar 14 min y agotaba el tiempo.
+    container: mcr.microsoft.com/playwright:v1.62.1-noble
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v7.0.1
       - uses: actions/setup-node@v7.0.0
         with:
           node-version: '20'
-      - name: Instalar Playwright
-        run: |
-          npm install
-          npx playwright install --with-deps chromium webkit
+      - name: Instalar paquete de Playwright
+        run: npm install
       - name: Servir sitio local
         run: |
           python3 -m http.server 8000 >/tmp/rt-ui-http.log 2>&1 &
