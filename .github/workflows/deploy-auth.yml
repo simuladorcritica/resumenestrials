@@ -85,7 +85,7 @@ jobs:
         run: deno check --frozen supabase/functions/login-username/index.ts
 
       - name: Preparar navegador para la prueba segura de autenticacion
-        uses: actions/setup-node@v7.0.0
+        uses: actions/setup-node@v7.1.0
         with:
           node-version: '20'
 

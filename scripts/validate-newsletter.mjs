@@ -87,13 +87,15 @@ for (const token of [
   'failed_stage',
   'OUTCOME_HEALTH',
   '"status": "$status"',
-  'actions/upload-artifact@v7.0.1',
   'newsletter-deploy-status-${{ github.run_id }}',
   'contents: read',
   'GITHUB_STEP_SUMMARY',
 ]) {
   if (!deploy.includes(token)) fail(`Workflow de despliegue incompleto: falta ${token}`);
 }
+// El artefacto de estado debe subirse con upload-artifact v7 fijado a una versión exacta
+// (Dependabot actualiza el parche; la validación no debe exigir uno concreto).
+if (!/actions\/upload-artifact@v7\.\d+\.\d+\b/.test(deploy)) fail('Workflow de despliegue incompleto: falta actions/upload-artifact@v7.x.y fijado');
 if (/git\s+push\s+origin\s+HEAD:main/.test(deploy) || /permissions:\s*[\s\S]*?contents:\s*write/.test(deploy)) {
   fail('El workflow de newsletter no debe escribir directamente en main protegido.');
 } else {

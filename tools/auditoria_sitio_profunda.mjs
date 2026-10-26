@@ -11,6 +11,11 @@ const PDF_MIN = 3000;
 const manifest=await fetch(BASE+'/seo-manifest.json').then(r=>r.json());
 const findings = [];
 const resources = new Set();
+// Anuncios de Google (AdSense): sus marcos cargan google.com con una CSP propia en modo
+// «report-only» y abortan pings al cerrar la página. Es ruido de terceros, no un fallo del sitio.
+const AD_HOSTS = /(?:^|\.)(?:googlesyndication\.com|doubleclick\.net|googleadservices\.com|adservice\.google\.com|csp\.withgoogle\.com|fundingchoicesmessages\.google\.com)$/i;
+const isAdNoise = (text) => /Framing 'https:\/\/www\.google\.com\/' violates the following report-only Content Security Policy/i.test(text);
+const isAdRequest = (url) => { try { return AD_HOSTS.test(new URL(url).hostname); } catch { return false; } };
 
 function add(severity, page, area, message, evidence = '') {
   findings.push({ severity, page: String(page), area, message, evidence: String(evidence).slice(0, 700) });
@@ -21,11 +26,11 @@ async function guardedGoto(page, url, label) {
   const onConsole = (msg) => {
     if (msg.type() !== 'error') return;
     const text = msg.text();
-    if (/favicon/i.test(text) || /Failed to load resource.*429/i.test(text)) return;
+    if (/favicon/i.test(text) || /Failed to load resource.*429/i.test(text) || isAdNoise(text)) return;
     errors.push(`console: ${text}`);
   };
   const onPageError = (err) => errors.push(`pageerror: ${err.message || err}`);
-  const onFailed = (req) => resources.add(`${label} :: ${req.url()} :: ${req.failure()?.errorText || 'requestfailed'}`);
+  const onFailed = (req) => isAdRequest(req.url()) || resources.add(`${label} :: ${req.url()} :: ${req.failure()?.errorText || 'requestfailed'}`);
   page.on('console', onConsole);
   page.on('pageerror', onPageError);
   page.on('requestfailed', onFailed);
@@ -112,7 +117,9 @@ async function checkArticle(page, record) {
   if (body.length < 250) add('ALTO', label, 'render', 'cuerpo largo ausente o demasiado corto');
   if (/\bundefined\b|\bNaN\b|\[object Object\]/.test(await page.locator('body').innerText().catch(() => ''))) add('ALTO', label, 'render', 'texto de error/valor JavaScript visible');
 
-  if (record.especialidad_principal === 'Medicina Interna' || record.especialidad_secundaria === 'Medicina Interna') {
+  // Decisión editorial (2026-10-26): si Medicina Interna es solo la especialidad secundaria y no
+  // hay subtema aplicable, el resumen se queda sin subtema. Solo se exige con Interna como principal.
+  if (record.especialidad_principal === 'Medicina Interna') {
     if (!(await page.locator('[data-ev-subspecialty]').count())) add('MEDIO', label, 'clasificación', 'Medicina Interna sin subespecialidad visible');
   }
 
@@ -151,7 +158,7 @@ async function checkArticle(page, record) {
 
     const shortBody = await page.locator('article.ev-body').innerText().catch(() => '');
     if (shortBody.length < 120) add('ALTO', shortLabel, 'render', 'versión breve ausente o demasiado corta');
-    if ((record.especialidad_principal === 'Medicina Interna' || record.especialidad_secundaria === 'Medicina Interna') && !(await page.locator('[data-ev-subspecialty]').count())) add('MEDIO', shortLabel, 'clasificación', 'subespecialidad ausente en la versión breve');
+    if (record.especialidad_principal === 'Medicina Interna' && !(await page.locator('[data-ev-subspecialty]').count())) add('MEDIO', shortLabel, 'clasificación', 'subespecialidad ausente en la versión breve');
 
     const briefVisible = await page.locator('[data-pdf-version="breve"]:visible').count();
     const fullVisibleOnBrief = await page.locator('[data-pdf-version="completo"]:visible').count();
