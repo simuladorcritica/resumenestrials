@@ -39,6 +39,7 @@ DOUBLE_PUNCT_RE = re.compile(r"([,;:.!?])\1+")
 DANGEROUS_HTML_RE = re.compile(r"<(script|iframe|object|embed)\b|\bon\w+\s*=", re.I)
 CONTROL_RE = re.compile(r"[\x00-\x08\x0B\x0C\x0E-\x1F]")
 PERCENT_RE = re.compile(r"(?<!\w)\d+(?:[.,]\d+)?\s*%")
+CONFIDENCE_RE = re.compile(r"(?:\bIC|\bCI|intervalo de confianza(?: del| al)?)\s*(?:del?\s*|al\s*)?\d{2}(?:[.,]\d+)?\s*%|\b\d{2}(?:[.,]\d+)?\s*%\s*(?:IC|CI)\b", re.I)
 EFFECT_RE = re.compile(
     r"\b(?:HR|RR|OR(?:\s+ajustad[ao])?)\s*(?:de\s*)?(?:=|:)?\s*[-−]?\d+(?:[.,]\d+)?",
     re.I,
@@ -66,7 +67,8 @@ def visible(value):
     # el inicio aparente de una etiqueta y oculte texto hasta el siguiente >.
     # Las etiquetas inline no deben introducir espacios antes de puntuación.
     raw = re.sub(r"</?(?:strong|em)\b[^>]*>", "", raw, flags=re.I)
-    raw = re.sub(r"<[^>]+>", " ", raw)
+    # Solo etiquetas reales: un «<» clínico sin escapar («p<0.001») es texto, como en el navegador.
+    raw = re.sub(r"<(?=[A-Za-z/!])[^>]*>", " ", raw)
     raw = html.unescape(raw)
     return re.sub(r"\s+", " ", raw).strip()
 
@@ -189,7 +191,8 @@ def audit_entry(e, A):
     body = visible(e.get("cuerpo", ""))
     finding = visible(e.get("hallazgo", ""))
     if finding and body:
-        finding_numbers = set(PERCENT_RE.findall(finding))
+        # El nivel de confianza («IC 95%», «95% CI») no es un resultado que deba repetirse.
+        finding_numbers = set(PERCENT_RE.findall(CONFIDENCE_RE.sub(" ", finding)))
         missing = [n for n in finding_numbers if n not in body]
         if missing:
             A.add("REVISIÓN HUMANA", idn, "consistencia numérica", "porcentajes del hallazgo no se localizaron literalmente en el cuerpo largo", ", ".join(missing))
