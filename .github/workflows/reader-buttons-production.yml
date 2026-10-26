@@ -98,7 +98,7 @@ jobs:
 
       - name: Guardar estado como artefacto
         if: always()
-        uses: actions/upload-artifact@v7.0.1
+        uses: actions/upload-artifact@v7.0.2
         with:
           name: reader-buttons-production-status-${{ github.run_id }}
           path: runtime/reader-buttons-production-status.json
