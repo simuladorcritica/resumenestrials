@@ -43,5 +43,37 @@ class AuditoriaEditorialRegressionTests(unittest.TestCase):
         self.assertTrue(all(item["area"] == "estilo" for item in variants))
 
 
+    def test_unescaped_less_than_and_confidence_level_are_not_findings(self):
+        entry = {
+            "id": 2,
+            "titulo": "TEST: menor que sin escapar",
+            "hallazgo": "La mortalidad fue del 30% frente al 40% (p<0.001; IC 95% no reportado).",
+            "cuerpo": "<h2>Resultados</h2><p>La mortalidad fue del 30% frente al 40% (p<0.001). Otros datos (n = 12).</p>",
+            "corto": "<p>La mortalidad fue del 30% frente al 40% (P<0.001).</p>",
+        }
+        audit = Audit()
+        audit_entry(entry, audit)
+        messages = "\n".join(item["hallazgo"] + " " + str(item.get("evidencia", "")) for item in audit.items)
+        self.assertNotIn("desbalanceados", messages)
+        self.assertNotIn("95%", messages)
+        self.assertIn("p<0.001). Otros datos", visible(entry["cuerpo"]))
+
+    def test_missing_result_percentage_is_still_reported(self):
+        entry = {
+            "id": 3,
+            "titulo": "TEST: porcentaje ausente",
+            "hallazgo": "La mortalidad fue del 30% frente al 40%.",
+            "cuerpo": "<h2>Resultados</h2><p>La mortalidad fue del 30% en el grupo de intervención.</p>",
+            "corto": "<p>La mortalidad fue del 30% frente al 40%.</p>",
+        }
+        audit = Audit()
+        audit_entry(entry, audit)
+        self.assertTrue(any("40%" in str(item.get("evidencia", "")) for item in audit.items))
+        unbalanced = dict(entry, cuerpo="<p>Un paréntesis sin cerrar (n = 12.</p>")
+        audit = Audit()
+        audit_entry(unbalanced, audit)
+        self.assertTrue(any("desbalanceados" in item["hallazgo"] for item in audit.items))
+
+
 if __name__ == "__main__":
     unittest.main()

@@ -2279,7 +2279,7 @@
     "intent": {
       "question": "Determinar si la hipotermia dirigida a 33°C, comparada con normotermia con tratamiento temprano de la fiebre, reduce la mortalidad a 6 meses en pacientes en coma tras un paro cardiaco extrahospitalario.",
       "answer": "La hipotermia no redujo la mortalidad a 6 meses frente a la normotermia ( 50% vs 48%; riesgo relativo 1.04; IC 95%, 0.94 a 1.14; p=0.37 ) ni mejoró el resultado funcional, y se asoció a más arritmias con compromiso hemodinámico.",
-      "population": "Población. Adultos en coma tras un paro cardiaco extrahospitalario de causa presumiblemente cardiaca o desconocida, sin respuesta motora relevante ni verbal al dolor, con más de 20 minutos de circulación espontánea sostenida tras la reanimación, independientemente del ritmo inicial. Intervención. Hipotermia dirigida a 33°C durante 28 horas desde la aleatorización, seguida de recalentamiento controlado a razón de un tercio de…"
+      "population": "Población. Adultos en coma tras un paro cardiaco extrahospitalario de causa presumiblemente cardiaca o desconocida, incapaces de obedecer órdenes verbales (puntuación motora FOUR menor de 4) y sin respuesta verbal al dolor, con más de 20 minutos de circulación espontánea sostenida tras la reanimación, independientemente del ritmo inicial. Intervención. Hipotermia dirigida a 33°C durante 28 horas desde la aleatorización…"
     },
     "datePublished": "2026-08-31"
   },
@@ -2361,7 +2361,7 @@
     ],
     "intent": {
       "question": "Determinar si un objetivo intensivo de presión arterial sistólica, menor de 120 mm Hg, reduce el riesgo de eventos cardiovasculares mayores frente a un objetivo estándar menor de 140 mm Hg, en pacientes con diabetes tipo 2 y riesgo cardiovascular aumentado.",
-      "answer": "El control intensivo de la presión arterial redujo el desenlace primario compuesto de ictus, infarto, insuficiencia cardiaca y muerte cardiovascular frente al control estándar (razón de riesgo 0.79; IC 95%, 0.69 a 0.90; p menor de 0.001), a costa de más hipotensión sintomática e hiperpotasemia.",
+      "answer": "El control intensivo de la presión arterial redujo el desenlace primario compuesto de ictus, infarto, insuficiencia cardiaca y muerte cardiovascular frente al control estándar (razón de riesgo 0.79; IC 95%, 0.69 a 0.90; p menor de 0.001), a costa de más casos de potasio sérico elevado y de una mayor frecuencia de hipotensión…",
       "population": "Población. Adultos de 50 años o más con diabetes tipo 2, presión arterial sistólica elevada (de 130 a 180 mm Hg si tomaban antihipertensivos, o de 140 mm Hg o más si no los tomaban) y riesgo cardiovascular aumentado, definido por antecedente de enfermedad cardiovascular clínica, enfermedad cardiovascular subclínica reciente, dos o más factores de riesgo cardiovascular, o enfermedad renal crónica con una tasa de filtración…"
     },
     "datePublished": "2026-09-02"
@@ -3112,7 +3112,7 @@
     "url": "https://resumenestrials.com/trials/clear-espironolactona-sistematica-infarto-agudo-miocardio/",
     "title": "CLEAR: espironolactona sistemática en el infarto agudo de miocardio",
     "seo_title": "CLEAR trial: espironolactona sistemática en el infarto agudo de miocardio | Resúmenes Trials",
-    "description": "CLEAR: Sin diferencia en el desenlace primario ( 1.7% vs 2.1% eventos por 100 pacientes-año; HR ajustada 0.91; IC95% 0.69-1.21; p=0.51 ): la espironolactona…",
+    "description": "CLEAR: Sin diferencia en el desenlace primario ( 1.7 vs 2.1 eventos por 100 pacientes-año; HR ajustada 0.91; IC95% 0.69-1.21; p=0.51 ): la espironolactona no…",
     "clusters": [
       {
         "name": "Cardiología y prevención cardiovascular",
@@ -3127,7 +3127,7 @@
     ],
     "intent": {
       "question": "Determinar si la espironolactona añadida al tratamiento habitual reduce la muerte cardiovascular o la insuficiencia cardiaca nueva o que empeora tras un infarto de miocardio tratado con intervención coronaria percutánea.",
-      "answer": "Sin diferencia en el desenlace primario ( 1.7% vs 2.1% eventos por 100 pacientes-año; HR ajustada 0.91; IC95% 0.69-1.21; p=0.51 ): la espironolactona no redujo la muerte cardiovascular ni la insuficiencia cardiaca tras un infarto, y aumentó la hiperpotasemia y la ginecomastia.",
+      "answer": "Sin diferencia en el desenlace primario ( 1.7 vs 2.1 eventos por 100 pacientes-año; HR ajustada 0.91; IC95% 0.69-1.21; p=0.51 ): la espironolactona no redujo la muerte cardiovascular ni la insuficiencia cardiaca tras un infarto, y aumentó la hiperpotasemia y la ginecomastia.",
       "population": "La población fueron adultos con infarto de miocardio sometidos a intervención coronaria percutánea: inicialmente solo pacientes con infarto con elevación del segmento ST, y desde abril de 2020 también pacientes con infarto sin elevación del ST de alto riesgo, definido por al menos uno de los siguientes factores, fracción de eyección ventricular izquierda del 45% o menos, diabetes mellitus, enfermedad coronaria multivaso…"
     },
     "datePublished": "2026-09-03"
