@@ -3,6 +3,7 @@ import { mkdtempSync, statSync, writeFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
+import { installTurnstileTestRoutes } from '../scripts/turnstile-test-helpers.mjs';
 
 const BASE = (process.env.BASE_URL || 'http://localhost:8000').replace(/\/$/, '');
 const OUT = process.env.AUDIT_JSON || 'informe_sitio_profundo.json';
@@ -180,6 +181,9 @@ async function main() {
   const browser = await chromium.launch({ headless: true });
   const ctx = await browser.newContext({ viewport: { width: 1600, height: 1000 }, acceptDownloads: true });
   const page = await ctx.newPage();
+  // En local (CI y revisión nocturna) Cloudflare rechaza el dominio con el error 110200:
+  // se usa la clave de prueba oficial de Turnstile, igual que en las demás suites.
+  if (['localhost', '127.0.0.1', '::1'].includes(new URL(BASE).hostname)) await installTurnstileTestRoutes(page, BASE);
 
   await guardedGoto(page, `${BASE}/index.html`, 'index');
   await page.waitForSelector('#ev-list>.ev-card', { timeout: 15000 }).catch(() => {});
