@@ -10,6 +10,8 @@ const clinical=JSON.parse(fs.readFileSync('resumenes.json','utf8'));
 const paths=['/','/medicina-critica/','/medicina-interna/',...Object.values(clusters).map(c=>c.path),'/medicina-interna/hematologia-oncologia/',routes['168'].path,'/resumen.html?id=168','/resumen.html?id=168&v=corto','/resumen/168.html','/metodologia/','/equipo-editorial/','/privacidad.html','/privacidad/','/terminos/','/404.html','/cuenta.html','/biblioteca.html','/registro.html','/login.html','/recuperar.html'];
 // Metadata lines, labels and status messages keep start alignment; every other paragraph is prose.
 const excluded=':where(.ev-meta,.ev-count,.ev-eyebrow,.ev-kicker,.ev-trust,.ev-state,.ev-estado,.ev-strength,.ev-hint,.ev-field-error,.ev-pill,.ev-editorial-dates,.ev-turnstile-status,.ev-safe,.ev-card-meta,.ev-card-topics,.ev-readtime,.ev-byline,.ev-keyfinding-label,.ev-search-status,.ev-footer-claim,.ev-footer-title,.ev-dialog-label,.ev-dialog-note,.ev-rail-title,.ev-original,.ev-status,.ev-doc-date,.ev-empty-title,.ev-tools-hint)';
+// Institutional pages (.ev-doc-text) use a wider column and never split words with a hyphen (editor request, Oct 2026).
+const TEXT_PAGES=new Set(['/metodologia/','/equipo-editorial/','/privacidad.html','/privacidad/','/terminos/']);
 const results=[];
 const accountSource=fs.readFileSync('scripts/account-safe-smoke.mjs','utf8'),mockStart=accountSource.indexOf('const mock='),mockEnd=accountSource.indexOf('const map=');assert(mockStart>=0&&mockEnd>mockStart);
 const accountMock=vm.runInNewContext(accountSource.slice(mockStart,mockEnd).replace('const mock=','globalThis.mock=')+';mock');
@@ -41,9 +43,9 @@ for(const engine of [chromium,webkit]){
     const visible=n=>n.getClientRects().length&&n.textContent.trim();
     const prose=[...document.querySelectorAll(`p:not(${excluded}),:where(.ev-prose,.ev-body,article.articulo) li`)].filter(visible);
     const controls=[...document.querySelectorAll('a,h1,h2,h3,.ev-meta,.ev-tag,.ev-chip,button,input,select,textarea,label,th,td,summary,nav,.ev-rail')].filter(visible);
-    return {lang:document.documentElement.lang,prose:prose.map(n=>{const s=getComputedStyle(n);return {text:n.textContent.slice(0,80),align:s.textAlign,last:s.textAlignLast,hyphens:s.hyphens}}),controls:controls.filter(n=>getComputedStyle(n).textAlign==='justify').map(n=>n.outerHTML.slice(0,140)),topTags:[...document.querySelectorAll('.ev-card>div:first-child>.ev-tag')].length};
+    return {lang:document.documentElement.lang,prose:prose.map(n=>{const s=getComputedStyle(n);return {text:n.textContent.slice(0,80),align:s.textAlign,last:s.textAlignLast,hyphens:s.hyphens,doc:!!n.closest('.ev-doc-text'),breaks:n.querySelectorAll('.ev-prose-break').length}}),controls:controls.filter(n=>getComputedStyle(n).textAlign==='justify').map(n=>n.outerHTML.slice(0,140)),topTags:[...document.querySelectorAll('.ev-card>div:first-child>.ev-tag')].length};
    },excluded);
-   assert.equal(m.lang,'es-MX',path);assert.ok(m.prose.length,path+' missing prose coverage');for(const p of m.prose){assert.equal(p.align,width<=480?'start':'justify',path+JSON.stringify(p));assert.equal(p.hyphens,'auto',path+JSON.stringify(p));assert.equal(p.last,'start',path+JSON.stringify(p))}assert.deepEqual(m.controls,[],path);assert.equal(m.topTags,0,path);
+   assert.equal(m.lang,'es-MX',path);assert.ok(m.prose.length,path+' missing prose coverage');if(TEXT_PAGES.has(path))assert.ok(m.prose.some(p=>p.doc),path+' must use the institutional text layout');for(const p of m.prose){assert.equal(p.align,width<=480?'start':'justify',path+JSON.stringify(p));assert.equal(p.hyphens,p.doc?'manual':'auto',path+JSON.stringify(p));if(p.doc)assert.equal(p.breaks,0,'Institutional text must keep whole words '+path+JSON.stringify(p));assert.equal(p.last,'start',path+JSON.stringify(p))}assert.deepEqual(m.controls,[],path);assert.equal(m.topTags,0,path);
    results.push({path,width,theme,engine:engine.name(),paragraphs:m.prose.length,status:'OK'});
    if(await page.locator('[data-ev-reader]').count()){
     await page.waitForFunction(()=>document.querySelector('[data-ev-font]')?.onclick);

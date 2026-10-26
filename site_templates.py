@@ -168,7 +168,7 @@ def reading(r,manifest,brief=False,legacy=False):
   '<details class="ev-facts" open><summary>Ficha técnica del estudio</summary>'+facts(r)+'</details>'+toolbar+'<progress class="ev-progress" max="100" value="0" aria-label="Progreso de lectura"></progress>'
   '<div class="ev-reader-grid">'+article+'<aside class="ev-rail"><p class="ev-rail-title">En esta página</p><nav data-ev-toc aria-label="Secciones del artículo"></nav></aside></div>'
   f'<div class="ev-endmatter"><p class="ev-original"><span class="ev-original-label">Artículo original</span>{original}</p><nav class="ev-neighbors" aria-label="Continuidad de lectura" data-ev-neighbors></nav><section class="ev-related"><h2>Evidencia relacionada</h2><ul class="ev-list" data-ev-related></ul></section><p class="ev-status" id="ev-reader-status" role="status"></p></div></section>')
-def doc_page(eyebrow,h1,date_html,content):return '<div class="ev-doc"><p class="ev-eyebrow"><span class="ev-pulse" aria-hidden="true"></span>'+eyebrow+'</p><h1>'+h1+'</h1>'+date_html+'<article class="ev-prose">'+content+'</article></div>'
+def doc_page(eyebrow,h1,date_html,content):return '<div class="ev-doc ev-doc-text"><p class="ev-eyebrow"><span class="ev-pulse" aria-hidden="true"></span>'+eyebrow+'</p><h1>'+h1+'</h1>'+date_html+'<article class="ev-prose">'+content+'</article></div>'
 def write(path,text):path.parent.mkdir(parents=True,exist_ok=True);path.write_text(text,encoding="utf-8")
 def render_all():
  items=json.loads((ROOT/"resumenes.json").read_text(encoding="utf-8"));manifest=json.loads((ROOT/"seo-manifest.json").read_text(encoding="utf-8"));clusters=json.loads((ROOT/"seo-cluster-manifest.json").read_text(encoding="utf-8"))
