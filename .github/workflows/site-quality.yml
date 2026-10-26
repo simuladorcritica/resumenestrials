@@ -235,7 +235,10 @@ jobs:
   download-contract-smoke:
     if: ${{ github.event_name != 'workflow_dispatch' || inputs.confirmation != 'SEND_ONE_QA_EMAIL' }}
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    # Contenedor oficial de Playwright (misma versión que package.json): navegadores y
+    # dependencias ya instalados. Instalarlos con apt llegó a tardar 14 min y agotaba el tiempo.
+    container: mcr.microsoft.com/playwright:v1.62.1-noble
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@v7.0.1
       - uses: actions/setup-node@v7.0.0
@@ -255,12 +258,11 @@ jobs:
           python3 actualizar_agregar_editorial.py
           python3 generar_paginas_sociales.py
           python3 aplicar_experiencia_futura.py
-      - name: Install PDF inspection and Playwright
+      - name: Install PDF inspection and Playwright package
         run: |
-          sudo apt-get update
-          sudo apt-get install -y poppler-utils
+          apt-get update
+          apt-get install -y --no-install-recommends poppler-utils
           npm install jspdf@4.2.1
-          npx playwright install --with-deps chromium webkit
       - name: Serve generated site locally
         run: |
           python3 -m http.server 8000 >/tmp/rt-http.log 2>&1 &

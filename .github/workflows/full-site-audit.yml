@@ -17,7 +17,10 @@ concurrency:
 jobs:
   audit:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    # Contenedor oficial de Playwright (misma versión que package.json): navegadores y
+    # dependencias ya instalados. Instalarlos con apt llegó a tardar 14 min y agotaba el tiempo.
+    container: mcr.microsoft.com/playwright:v1.62.1-noble
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@v7.0.1
       - uses: actions/setup-node@v7.0.0
@@ -37,10 +40,8 @@ jobs:
           python3 actualizar_agregar_editorial.py
           python3 generar_paginas_sociales.py
           python3 aplicar_experiencia_futura.py
-      - name: Instalar navegador de auditoría
-        run: |
-          npm install
-          npx playwright install --with-deps chromium webkit
+      - name: Instalar dependencias de auditoría
+        run: npm install
       - name: Servir sitio localmente
         run: |
           python3 -m http.server 8000 >/tmp/rt-full-audit-http.log 2>&1 &
