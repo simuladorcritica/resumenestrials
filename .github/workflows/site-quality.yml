@@ -237,7 +237,7 @@ jobs:
     runs-on: ubuntu-latest
     # Contenedor oficial de Playwright (misma versión que package.json): navegadores y
     # dependencias ya instalados. Instalarlos con apt llegó a tardar 14 min y agotaba el tiempo.
-    container: mcr.microsoft.com/playwright:v1.62.1-noble
+    container: mcr.microsoft.com/playwright:v1.64.1-noble
     timeout-minutes: 25
     steps:
       - uses: actions/checkout@v7.0.1
@@ -288,7 +288,7 @@ jobs:
   browser-smoke-chromium:
     if: ${{ (github.event_name != 'workflow_dispatch' || inputs.confirmation != 'SEND_ONE_QA_EMAIL') && (github.event_name == 'pull_request' || github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main') }}
     runs-on: ubuntu-latest
-    container: mcr.microsoft.com/playwright:v1.62.1-noble
+    container: mcr.microsoft.com/playwright:v1.64.1-noble
     timeout-minutes: 30
     strategy:
       fail-fast: false
