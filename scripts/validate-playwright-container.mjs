@@ -15,4 +15,11 @@ for (const file of readdirSync('.github/workflows').filter(f => f.endsWith('.yml
   }
 }
 assert.ok(found > 0, 'no se encontró ningún contenedor de Playwright en .github/workflows');
-console.log(`PLAYWRIGHT CONTAINER PASS · ${found} trabajos en v${version}`);
+// deno.lock (función del boletín en Supabase) anota las dependencias de package.json; CI corre
+// `deno check --frozen`, que falla si esa lista no coincide.
+const pkg = JSON.parse(readFileSync('package.json', 'utf8'));
+const expected = Object.entries({ ...pkg.dependencies, ...pkg.devDependencies }).map(([name, v]) => `npm:${name}@${v}`).sort();
+const lock = JSON.parse(readFileSync('deno.lock', 'utf8'));
+const locked = [...(lock.workspace?.packageJson?.dependencies || [])].sort();
+assert.deepEqual(locked, expected, 'deno.lock no coincide con package.json: actualiza workspace.packageJson.dependencies');
+console.log(`PLAYWRIGHT CONTAINER PASS · ${found} trabajos en v${version} · deno.lock al día`);
