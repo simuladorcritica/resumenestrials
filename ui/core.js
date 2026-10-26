@@ -10,8 +10,8 @@ E.reduced=()=>matchMedia('(prefers-reduced-motion: reduce)').matches;
 // Optional visual breaks preserve textContent, selection and the source clinical HTML.
 E.prose=scope=>{
  for(const paragraph of scope.querySelectorAll('p,:where(.ev-prose,.ev-body,article.articulo) li,.ev-justify')){
-  // Institutional pages (.ev-doc-text) keep whole words: no syllable breaks.
-  if(paragraph.matches('.ev-hero .ev-lead')||paragraph.closest('.ev-doc-text'))continue;
+  // Institutional pages (.ev-doc-text) and summary pages (body.ev-reader) keep whole words: no syllable breaks.
+  if(paragraph.matches('.ev-hero .ev-lead')||paragraph.closest('.ev-doc-text,body.ev-reader'))continue;
   if(paragraph.dataset.evProseReady||getComputedStyle(paragraph).textAlign!=='justify')continue;
   const walker=document.createTreeWalker(paragraph,NodeFilter.SHOW_TEXT),nodes=[];
   while(walker.nextNode())if(!walker.currentNode.parentElement.closest('a,button,label,input,select,textarea,h1,h2,h3,th,td,summary'))nodes.push(walker.currentNode);

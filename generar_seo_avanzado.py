@@ -120,18 +120,46 @@ def update_interactive_home() -> None:
     return
 
 
-def font(size: int, bold: bool = False):
+FONTS_DIR = ROOT / "tools" / "fonts"
+# Sora y Literata (OFL), las mismas del sitio y de la tarjeta de X. Si faltan, la
+# generación se detiene: nunca se publica una imagen con la fuente de emergencia de
+# Pillow (diminuta y sin acentos ni eñe).
+FONT_FILES = {"marca": "Sora-700.ttf", "etiqueta": "Sora-600.ttf", "titulo": "Literata-600.ttf", "texto": "Literata-400.ttf"}
+# Subconjunto latino de las fuentes: lo demás se traduce o se quita para que no salgan cuadros vacíos.
+_GLYPH_EXTRA = {0x131, 0x152, 0x153, 0x2C6, 0x2DA, 0x2DC, 0x20AC, 0x2122, 0x2191, 0x2193, 0x2212, 0x2215}
+_GLYPH_EQUIV = {"≥": ">=", "≤": "<=", "→": "->", "←": "<-", "α": "alfa", "β": "beta", "γ": "gamma", "δ": "delta", "κ": "kappa", "μ": "µ", "≈": "~", "≠": "!=", "∼": "~"}
+
+
+def font(kind: str, size: int):
     from PIL import ImageFont
-    candidates = [
-        "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf" if bold else "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
-        "/usr/share/fonts/dejavu/DejaVuSans-Bold.ttf" if bold else "/usr/share/fonts/dejavu/DejaVuSans.ttf",
-    ]
-    for path in candidates:
-        try:
-            return ImageFont.truetype(path, size=size)
-        except OSError:
-            pass
-    return ImageFont.load_default()
+    path = FONTS_DIR / FONT_FILES[kind]
+    if not path.exists():
+        raise SystemExit(f"Falta la fuente {path}; no se generan imágenes sociales sin ella.")
+    return ImageFont.truetype(str(path), size=size)
+
+
+def glyph_safe(text: str) -> str:
+    import unicodedata
+    out = []
+    for ch in str(text or ""):
+        code = ord(ch)
+        if code < 0x100 or 0x2000 <= code <= 0x206F or code in _GLYPH_EXTRA:
+            out.append(ch)
+        elif ch in _GLYPH_EQUIV:
+            out.append(_GLYPH_EQUIV[ch])
+        else:
+            out.append("".join(c for c in unicodedata.normalize("NFKD", ch) if ord(c) < 0x100 and not unicodedata.combining(c)))
+    return "".join(out)
+
+
+def short_journal(name: str) -> str:
+    t = str(name or "").strip()
+    if re.match(r"^NEJM\b|New England", t, re.I):
+        return "NEJM"
+    for pattern, short in ((r"^JAMA\b", "JAMA"), (r"^(The )?Lancet\b", "Lancet"), (r"^BMJ\b", "BMJ"), (r"^J(ournal of the)? Am(erican)? Coll(ege of)? Cardiol", "JACC")):
+        if re.match(pattern, t, re.I):
+            return short
+    return t
 
 
 def wrap_text(draw, text: str, font_obj, max_width: int, max_lines: int = 4) -> list[str]:
@@ -151,8 +179,22 @@ def wrap_text(draw, text: str, font_obj, max_width: int, max_lines: int = 4) -> 
     if current and len(lines) < max_lines:
         lines.append(current)
     if len(lines) == max_lines and len(" ".join(lines)) < len(text):
-        lines[-1] = lines[-1].rstrip(" ,.;:") + "…"
+        last = lines[-1]
+        while last and draw.textbbox((0, 0), last.rstrip(" ,.;:") + "…", font=font_obj)[2] > max_width:
+            last = last.rsplit(" ", 1)[0] if " " in last else last[:-1]
+        lines[-1] = last.rstrip(" ,.;:") + "…"
     return lines
+
+
+def fit_text(draw, text: str, kind: str, size_max: int, size_min: int, max_width: int, max_lines: int):
+    """Mayor tamaño con el que el texto cabe en max_lines; si no cabe, se recorta con «…»."""
+    for size in range(size_max, size_min - 1, -2):
+        font_obj = font(kind, size)
+        lines = wrap_text(draw, text, font_obj, max_width, max_lines + 1)
+        if len(lines) <= max_lines and not lines[-1].endswith("…"):
+            return font_obj, lines
+    font_obj = font(kind, size_min)
+    return font_obj, wrap_text(draw, text, font_obj, max_width, max_lines)
 
 
 def make_image(item: dict, width: int, height: int, suffix: str) -> str:
@@ -168,54 +210,64 @@ def make_image(item: dict, width: int, height: int, suffix: str) -> str:
     if path.exists():
         return public_url
 
+    # Misma familia visual que la tarjeta de X: fondo oscuro, franja de la especialidad,
+    # sigla grande, revista y año, y el título. Solo texto ya publicado del resumen.
     critical = "Medicina Crítica" in base.categorias(item)
-    bg = (247, 246, 242)
-    ink = (18, 35, 59)
-    muted = (56, 80, 110)
-    accent = (15, 95, 95) if critical else (138, 74, 28)
-    amber = (200, 137, 42)
+    bg, ink, muted, brand_blue = (7, 11, 22), (237, 241, 255), (166, 176, 207), (122, 184, 255)
+    accent = (255, 159, 128) if critical else (185, 162, 255)
     image = Image.new("RGB", (width, height), bg)
     draw = ImageDraw.Draw(image)
+    s = width / 1200
+    margin = int(72 * s)
+    inner = width - 2 * margin
 
-    # Geometría original determinista: no usa figuras, logos ni material del artículo.
-    digest = hashlib.sha256(item_id(item).encode()).digest()
-    for i in range(5):
-        x = int((digest[i] / 255) * width * 0.75 + width * 0.1)
-        y = int((digest[i + 5] / 255) * height * 0.55 + height * 0.2)
-        r = int(min(width, height) * (0.055 + digest[i + 10] / 255 * 0.08))
-        shade = tuple(int(c * 0.88 + 255 * 0.12) for c in accent)
-        draw.ellipse((x-r, y-r, x+r, y+r), outline=shade, width=max(2, width // 420))
-    draw.line((width * .07, height * .15, width * .93, height * .15), fill=accent, width=max(3, width // 320))
-    draw.rectangle((0, 0, int(width * .028), height), fill=accent)
+    draw.rectangle((0, 0, width, max(8, int(10 * s))), fill=accent)
+    draw.text((margin, int(52 * s)), "RESÚMENES TRIALS", font=font("marca", int(26 * s)), fill=brand_blue)
+    chip_text = "MEDICINA CRÍTICA" if critical else "MEDICINA INTERNA"
+    chip_font = font("etiqueta", int(19 * s))
+    chip_w = draw.textlength(chip_text, font=chip_font) + int(36 * s)
+    chip_h = int(40 * s)
+    chip_y = int(46 * s)
+    draw.rounded_rectangle((width - margin - chip_w, chip_y, width - margin, chip_y + chip_h), radius=chip_h // 2, outline=accent, width=max(2, int(2 * s)))
+    draw.text((width - margin - chip_w + int(18 * s), chip_y + int(9 * s)), chip_text, font=chip_font, fill=accent)
 
-    pad = int(width * .075)
-    brand_font = font(max(18, int(height * .027)), True)
-    label_font = font(max(18, int(height * .025)), False)
-    acronym_font = font(max(42, int(height * .105)), True)
-    title_font = font(max(25, int(height * .047)), False)
-    topic_font = font(max(18, int(height * .025)), False)
+    title = glyph_safe(plain(item.get("titulo")))
+    split = title.find(": ")
+    acronym, rest = (title[:split], title[split + 2:]) if 0 < split <= 40 else ("", title)
+    footer_y = height - int(84 * s)
+    top, bottom = int(128 * s), footer_y - int(56 * s)
+    acr_font = acr_lines = None
+    if acronym:
+        acr_font, acr_lines = fit_text(draw, acronym, "marca", int(96 * s), int(52 * s), inner, 1)
+    meta = " · ".join(x for x in [glyph_safe(short_journal(item.get("revista"))), str(item.get("anio") or "")] if x)
+    meta_font = font("etiqueta", int(30 * s))
+    acr_h = int(acr_font.size * 1.22) if acr_font else 0
+    meta_h = int(62 * s)
+    lines_room = max(2, int((bottom - top - acr_h - meta_h) // (46 * s * 1.3)))
+    title_font, title_lines = fit_text(draw, rest[:1].upper() + rest[1:], "titulo", int(50 * s), int(34 * s), inner, min(lines_room, 5))
+    line_h = int(title_font.size * 1.3)
+    block_h = acr_h + meta_h + line_h * len(title_lines)
+    y = top + max(0, (bottom - top - block_h) // 2)
+    if acr_font:
+        draw.text((margin, y), acr_lines[0], font=acr_font, fill=ink)
+        y += acr_h
+    draw.text((margin, y), meta, font=meta_font, fill=accent)
+    y += meta_h
+    for line in title_lines:
+        draw.text((margin, y), line, font=title_font, fill=ink)
+        y += line_h
 
-    draw.text((pad, int(height * .07)), "RESÚMENES TRIALS", font=brand_font, fill=accent)
-    category = base.categorias(item)[0] if base.categorias(item) else "Ensayo clínico"
-    cat_box = draw.textbbox((0, 0), category.upper(), font=label_font)
-    draw.text((width - pad - (cat_box[2]-cat_box[0]), int(height * .07)), category.upper(), font=label_font, fill=muted)
+    draw.line((margin, footer_y - int(26 * s), width - margin, footer_y - int(26 * s)), fill=(35, 49, 84), width=max(2, int(2 * s)))
+    foot_font = font("etiqueta", int(24 * s))
+    draw.text((margin, footer_y), "resumenestrials.com", font=foot_font, fill=brand_blue)
+    topics = [glyph_safe(plain(x)) for x in (item.get("temas") or [])]
+    if topics:
+        topic = topics[0]
+        while topic and draw.textlength(topic, font=foot_font) > inner * 0.55:
+            topic = topic[:-2].rstrip() + "…" if len(topic) > 3 else ""
+        draw.text((width - margin - draw.textlength(topic, font=foot_font), footer_y), topic, font=foot_font, fill=muted)
 
-    title = plain(item.get("titulo"))
-    acronym, rest = (title.split(":", 1) + [""])[:2] if ":" in title else (title, "")
-    y = int(height * .24)
-    draw.text((pad, y), cut(acronym, 28), font=acronym_font, fill=ink)
-    y += int(height * .15)
-    main_text = rest.strip() or title
-    for line in wrap_text(draw, main_text, title_font, int(width * .78), 4 if height >= width else 3):
-        draw.text((pad, y), line, font=title_font, fill=ink)
-        y += int(height * .07)
-
-    topics = [plain(x) for x in (item.get("temas") or [])][:3]
-    topic_text = " · ".join(topics) or "Ensayo clínico aleatorizado"
-    draw.text((pad, int(height * .86)), cut(topic_text, 90), font=topic_font, fill=amber)
-    draw.text((pad, int(height * .92)), "Resumen crítico en español · imagen editorial original", font=label_font, fill=muted)
-
-    image.save(path, "JPEG", quality=88, optimize=True, progressive=True)
+    image.save(path, "JPEG", quality=90, optimize=True, progressive=True)
     return public_url
 
 

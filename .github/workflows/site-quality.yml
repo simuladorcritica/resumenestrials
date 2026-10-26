@@ -180,6 +180,7 @@ jobs:
       - name: Validate SEO without visual regressions
         run: |
           python3 -m pip install --disable-pip-version-check pillow==11.3.0
+          python3 tools/test_imagenes_sociales.py
           node scripts/build-site-runtime.mjs
           python3 generar_seo.py
           python3 generar_seo_semantico.py
