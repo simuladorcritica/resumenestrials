@@ -1055,7 +1055,7 @@
     ],
     "intent": {
       "question": "Determinar si la alimentación intermitente por sonda oroesofágica, frente a la sonda nasogástrica, acorta el tiempo hasta la decanulación en pacientes traqueostomizados con disfagia neurogénica manejados bajo un protocolo estandarizado de decanulación.",
-      "answer": "El tiempo hasta la decanulación fue significativamente más corto con la sonda oroesofágica intermitente que con la nasogástrica ( 22.2 frente a 26.3 días ; diferencia 4.17 días, p menor de 0.001), y más pacientes lograron la decanulación a los 30 días (65.7% frente a 47.1%).",
+      "answer": "El tiempo hasta la decanulación fue significativamente más corto con la sonda oroesofágica intermitente que con la nasogástrica ( 22.16 frente a 26.33 días ; diferencia 4.17 días, p menor de 0.001), y más pacientes lograron la decanulación a los 30 días (65.71% frente a 47.14%).",
       "population": "La población fueron adultos traqueostomizados con disfagia neurogénica confirmada por videoendoscopia de la deglución con una puntuación en la escala de penetración-aspiración mayor de 3; además debían estar clínicamente estables, con capacidad cognitiva conservada para cooperar, con motilidad gastrointestinal adecuada, definida como tolerancia a nutrición enteral a 150 mL por hora o más, y con el objetivo clínico de lograr la…"
     },
     "datePublished": "2026-08-24"
@@ -1229,7 +1229,7 @@
     ],
     "intent": {
       "question": "Evaluar la factibilidad y la seguridad de un protocolo de titulación de la presión venosa central guiado por Doppler de la vena renal (RVD-CVP) en pacientes con sepsis, y explorar señales preliminares sobre desenlaces renales y hemodinámicos frente a la atención habitual.",
-      "answer": "El protocolo RVD-CVP se administró con fidelidad casi perfecta (100% de administración completa) , y se asoció de forma exploratoria a un menor uso de terapia de reemplazo renal (9,5% frente a 23,4%), aunque un análisis de supervivencia sobre la incidencia de lesión renal aguda a 28 días mostró una tendencia no significativa en…",
+      "answer": "El protocolo RVD-CVP se administró con fidelidad casi perfecta (100% de administración completa) , y se asoció de forma exploratoria a un menor uso de terapia de reemplazo renal (9,52% frente a 23,44%), aunque un análisis de supervivencia sobre la incidencia de lesión renal aguda a 28 días mostró una tendencia no significativa…",
       "population": "En pacientes adultos con sepsis y monitorización de la presión venosa central (PVC), ¿es factible y segura la titulación de la PVC guiada por Doppler de la vena renal (protocolo RVD-CVP), y qué señales preliminares aporta sobre desenlaces renales y hemodinámicos frente a la atención habitual?"
     },
     "datePublished": "2026-08-24"
@@ -1342,7 +1342,7 @@
     "url": "https://resumenestrials.com/trials/sprint-control-intensivo-versus-estandar-presion-arterial-sistolica/",
     "title": "SPRINT: ensayo aleatorizado de control intensivo frente a estándar de la presión arterial",
     "seo_title": "SPRINT trial: ensayo aleatorizado de control intensivo frente a estándar de la presión arterial | Resúmenes Trials",
-    "description": "SPRINT: El control intensivo de la presión sistólica redujo el desenlace cardiovascular combinado en un 25% (HR 0,75; IC95% 0,64 a 0,89; p 27% (HR 0,73; IC95%…",
+    "description": "SPRINT: El control intensivo de la presión sistólica redujo el desenlace cardiovascular combinado en un 25% (HR 0,75; IC95% 0,64 a 0,89; p<0,001) y la muerte…",
     "clusters": [
       {
         "name": "Cardiología y prevención cardiovascular",
@@ -1362,7 +1362,7 @@
     ],
     "intent": {
       "question": "Determinar si, en adultos sin diabetes con riesgo cardiovascular aumentado, tratar hasta una presión arterial sistólica menor a 120 mmHg reduce los eventos cardiovasculares mayores y la muerte, en comparación con el objetivo estándar de menos de 140 mmHg.",
-      "answer": "El control intensivo de la presión sistólica redujo el desenlace cardiovascular combinado en un 25% (HR 0,75; IC95% 0,64 a 0,89; p 27% (HR 0,73; IC95% 0,60 a 0,90; p=0,003), por lo que el ensayo se detuvo antes de lo previsto, tras una mediana de seguimiento de 3,26 años , aunque también aumentaron algunos eventos adversos…",
+      "answer": "El control intensivo de la presión sistólica redujo el desenlace cardiovascular combinado en un 25% (HR 0,75; IC95% 0,64 a 0,89; p<0,001) y la muerte por cualquier causa en un 27% (HR 0,73; IC95% 0,60 a 0,90; p=0,003), por lo que el ensayo se detuvo antes de lo previsto, tras una mediana de seguimiento de 3,26 años , aunque…",
       "population": "SPRINT buscó responder si, en adultos de 50 años o más con presión sistólica elevada y riesgo cardiovascular aumentado pero sin diabetes, tratar hasta un objetivo de presión sistólica menor a 120 mmHg reduciría la aparición de eventos cardiovasculares mayores y la muerte, frente al objetivo convencional de menos de 140 mmHg. Para entrar al ensayo, los participantes debían tener una presión sistólica basal de entre 130 y 180…"
     },
     "datePublished": "2026-08-27"
@@ -1430,7 +1430,7 @@
     "url": "https://resumenestrials.com/trials/salt-ed-cristaloides-balanceados-solucion-salina-adultos-no-criticamente-enfermos/",
     "title": "SALT-ED: cristaloides balanceados frente a solución salina en adultos que no están en estado crítico",
     "seo_title": "SALT-ED trial: cristaloides balanceados frente a solución salina en adultos que no están en estado crítico | Resúmenes Trials",
-    "description": "SALT-ED: Los cristaloides balanceados no aumentaron los días libres de hospital frente a la solución salina (mediana de 25 días en ambos grupos; odds ratio…",
+    "description": "SALT-ED: Los cristaloides balanceados no mostraron diferencia significativa en los días libres de hospital frente a la solución salina (mediana de 25 días en…",
     "clusters": [
       {
         "name": "Renal y metabolismo",
@@ -1445,7 +1445,7 @@
     ],
     "intent": {
       "question": "Comparar el efecto de los cristaloides balanceados frente a la solución salina sobre los días libres de hospital y sobre la incidencia de eventos adversos renales mayores en adultos no críticamente enfermos tratados con líquidos intravenosos en el servicio de urgencias.",
-      "answer": "Los cristaloides balanceados no aumentaron los días libres de hospital frente a la solución salina (mediana de 25 días en ambos grupos; odds ratio ajustado 0.98 , IC 95% 0.92 a 1.04; P=0.41), pero sí redujeron la incidencia de eventos adversos renales mayores a 30 días ( 4.7% frente a 5.6% ; odds ratio ajustado 0.82 , IC 95%…",
+      "answer": "Los cristaloides balanceados no mostraron diferencia significativa en los días libres de hospital frente a la solución salina (mediana de 25 días en ambos grupos; odds ratio ajustado 0.98 , IC 95% 0.92 a 1.04; P=0.41), pero sí redujeron la incidencia de eventos adversos renales mayores a 30 días ( 4.7% frente a 5.6% ; odds ratio…",
       "population": "La población fueron adultos de 18 años o más, de raza blanca, negra u otra según fue registrada por el propio paciente o su representante en el expediente clínico, atendidos en el servicio de urgencias de un único hospital académico de Nashville, Estados Unidos."
     },
     "datePublished": "2026-08-27"
@@ -1600,7 +1600,7 @@
     ],
     "intent": {
       "question": "Determinar si la empagliflozina, añadida al tratamiento estándar, reduce el riesgo combinado de muerte cardiovascular u hospitalización por insuficiencia cardíaca, frente a placebo, en pacientes con insuficiencia cardíaca crónica y fracción de eyección del 40% o menos, con o sin diabetes.",
-      "answer": "La empagliflozina redujo el desenlace compuesto de muerte cardiovascular u hospitalización por insuficiencia cardíaca frente a placebo ( 19.4% frente a 24.7% ; HR 0.75; IC 95%, 0.65-0.86; P 10.0% frente a 10.8% ; HR 0.92; IC 95%, 0.75-1.12).",
+      "answer": "La empagliflozina redujo el desenlace compuesto de muerte cardiovascular u hospitalización por insuficiencia cardíaca frente a placebo ( 19.4% frente a 24.7% ; HR 0.75; IC 95%, 0.65-0.86; P<0.001), un beneficio explicado sobre todo por menos hospitalizaciones, sin diferencia significativa en la mortalidad cardiovascular aislada…",
       "population": "La población reclutada fueron adultos con insuficiencia cardíaca crónica en clase funcional II, III o IV de la New York Heart Association y fracción de eyección del ventrículo izquierdo del 40% o menos, con o sin diabetes, procedentes de centros de Norteamérica, Latinoamérica, Europa y Asia; en cuanto a la raza, siete de cada diez pacientes se identificaron como blancos, cerca de uno de cada seis como asiáticos y una minoría…"
     },
     "datePublished": "2026-08-27"
@@ -1729,7 +1729,7 @@
     ],
     "intent": {
       "question": "Evaluar si la dexametasona oral o intravenosa, comparada con el tratamiento habitual, reduce la mortalidad por cualquier causa a 28 días en pacientes hospitalizados por Covid-19.",
-      "answer": "La dexametasona redujo la mortalidad a 28 días frente al tratamiento habitual ( 22.9% frente a 25.7% ; razón de tasas ajustada por edad, 0.83; IC 95%, 0.75-0.93; P 29.3% frente a 41.4% ) y sin beneficio demostrado en quienes no recibían soporte respiratorio.",
+      "answer": "La dexametasona redujo la mortalidad a 28 días frente al tratamiento habitual ( 22.9% frente a 25.7% ; razón de tasas ajustada por edad, 0.83; IC 95%, 0.75-0.93; P<0.001), con el mayor beneficio en pacientes con ventilación mecánica invasiva ( 29.3% frente a 41.4% ) y sin beneficio demostrado en quienes no recibían soporte…",
       "population": "La población fueron pacientes adultos hospitalizados por Covid-19 sospechada clínicamente o confirmada por laboratorio en 176 hospitales del Servicio Nacional de Salud del Reino Unido; inicialmente se exigía al menos 18 años, límite que se eliminó a partir del 9 de mayo de 2020, y se permitió incluir a mujeres embarazadas o en lactancia. El 74% de los pacientes analizados era de raza blanca y el 18% pertenecía a un grupo…"
     },
     "datePublished": "2026-08-27"
@@ -4225,7 +4225,7 @@
     "url": "https://resumenestrials.com/trials/pisces-aceite-pescado-eventos-cardiovasculares-pacientes-hemodialisis/",
     "title": "PISCES: suplementación con aceite de pescado y eventos cardiovasculares en pacientes en hemodiálisis",
     "seo_title": "PISCES trial: suplementación con aceite de pescado y eventos cardiovasculares en pacientes en hemodiálisis | Resúmenes Trials",
-    "description": "PISCES: La tasa de eventos cardiovasculares graves fue 0.31 frente a 0.61 por 1000 días-paciente (razón de riesgo 0.57; IC 95%, 0.47-0.70; P con aceite de…",
+    "description": "PISCES: La tasa de eventos cardiovasculares graves fue 0.31 frente a 0.61 por 1000 días-paciente (razón de riesgo 0.57; IC 95%, 0.47-0.70; P<0.001) con aceite…",
     "clusters": [
       {
         "name": "Cardiología y prevención cardiovascular",
@@ -4240,7 +4240,7 @@
     ],
     "intent": {
       "question": "Determinar si la suplementación oral diaria con aceite de pescado reduce la tasa de eventos cardiovasculares graves frente a placebo en pacientes con enfermedad renal terminal en hemodiálisis de mantenimiento.",
-      "answer": "La tasa de eventos cardiovasculares graves fue 0.31 frente a 0.61 por 1000 días-paciente (razón de riesgo 0.57; IC 95%, 0.47-0.70; P con aceite de pescado frente a placebo.",
+      "answer": "La tasa de eventos cardiovasculares graves fue 0.31 frente a 0.61 por 1000 días-paciente (razón de riesgo 0.57; IC 95%, 0.47-0.70; P<0.001) con aceite de pescado frente a placebo.",
       "population": "El estudio incluyó a adultos de 18 años o más con enfermedad renal terminal en hemodiálisis de mantenimiento, tres o cuatro veces por semana, clínicamente estables al momento de la inclusión, reclutados en 16 centros principales y 10 satélites de Canadá y Australia. La composición racial y étnica, declarada por los propios participantes, fue mayoritariamente blanca (40.0% en el grupo de aceite de pescado y 39.5% en el de…"
     },
     "datePublished": "2026-09-14"
@@ -4656,7 +4656,7 @@
     ],
     "intent": {
       "question": "Evaluar si el monitoreo continuo de glucosa en tiempo real reduce la hemoglobina glucosilada a las 26 semanas, frente al cuidado habitual con glucómetro, en adultos con diabetes tipo 2 no tratada con insulina atendidos en atención primaria.",
-      "answer": "El monitoreo continuo de glucosa redujo la hemoglobina glucosilada a las 26 semanas frente al cuidado habitual, con una diferencia ajustada de −0.9 puntos porcentuales (IC 95%, −1.1 a −0.6; p .",
+      "answer": "El monitoreo continuo de glucosa redujo la hemoglobina glucosilada a las 26 semanas frente al cuidado habitual, con una diferencia ajustada de −0.9 puntos porcentuales (IC 95%, −1.1 a −0.6; p < 0.001) .",
       "population": "La población fueron adultos con diabetes tipo 2 de al menos 6 meses de evolución, atendidos en atención primaria por un médico de atención primaria, una enfermera de práctica avanzada o un asistente médico, con una hemoglobina glucosilada de cribado de 7.5% o más, sin insulina en los 12 meses previos, sin sensor continuo personal en los 6 meses previos y con fármacos hipoglucemiantes o para bajar de peso estables durante el…"
     },
     "datePublished": "2026-10-19"
