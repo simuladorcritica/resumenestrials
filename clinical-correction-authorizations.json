@@ -1,240 +1,268 @@
 {
   "schema_version": 1,
-  "base_sha": "ce60acc170a1ee547e896bd7c666869f49813725",
+  "base_sha": "e7f3569d8b363080b6e0ff236058122ee42bafc3",
   "authorizations": [
     {
-      "id": 82,
+      "id": 14,
       "fields": [
-        "objetivo",
-        "cuerpo",
-        "corto"
+        "cuerpo"
       ],
-      "reason": "Revisión nocturna 2026-10-20 a 2026-10-23: corrección autorizada por el editor (2026-10-27) de los errores verificados en ERRORES_RESUMENES.md contra el artículo, el suplemento, el protocolo y los formularios de conflicto de interés; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
+      "reason": "Revisión en lote autorizada por el editor (2026-10-27): coherencia de cifras entre hallazgo, resumen breve y cuerpo, verificada contra el artículo; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
     },
     {
-      "id": 87,
+      "id": 18,
       "fields": [
-        "financiacion",
-        "cuerpo",
-        "corto"
+        "cuerpo"
       ],
-      "reason": "Revisión nocturna 2026-10-20 a 2026-10-23: corrección autorizada por el editor (2026-10-27) de los errores verificados en ERRORES_RESUMENES.md contra el artículo, el suplemento, el protocolo y los formularios de conflicto de interés; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
+      "reason": "Revisión en lote autorizada por el editor (2026-10-27): coherencia de cifras entre hallazgo, resumen breve y cuerpo, verificada contra el artículo; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
     },
     {
-      "id": 89,
+      "id": 27,
       "fields": [
-        "financiacion",
+        "cuerpo"
+      ],
+      "reason": "Revisión en lote autorizada por el editor (2026-10-27): coherencia de cifras entre hallazgo, resumen breve y cuerpo, verificada contra el artículo; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
+    },
+    {
+      "id": 28,
+      "fields": [
         "cuerpo",
         "corto"
       ],
-      "reason": "Revisión nocturna 2026-10-20 a 2026-10-23: corrección autorizada por el editor (2026-10-27) de los errores verificados en ERRORES_RESUMENES.md contra el artículo, el suplemento, el protocolo y los formularios de conflicto de interés; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
+      "reason": "Revisión en lote autorizada por el editor (2026-10-27): coherencia de cifras entre hallazgo, resumen breve y cuerpo, verificada contra el artículo; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
+    },
+    {
+      "id": 30,
+      "fields": [
+        "cuerpo"
+      ],
+      "reason": "Revisión en lote autorizada por el editor (2026-10-27): coherencia de cifras entre hallazgo, resumen breve y cuerpo, verificada contra el artículo; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
+    },
+    {
+      "id": 33,
+      "fields": [
+        "cuerpo",
+        "corto"
+      ],
+      "reason": "Revisión en lote autorizada por el editor (2026-10-27): coherencia de cifras entre hallazgo, resumen breve y cuerpo, verificada contra el artículo; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
+    },
+    {
+      "id": 35,
+      "fields": [
+        "corto"
+      ],
+      "reason": "Revisión en lote autorizada por el editor (2026-10-27): coherencia de cifras entre hallazgo, resumen breve y cuerpo, verificada contra el artículo; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
+    },
+    {
+      "id": 40,
+      "fields": [
+        "hallazgo",
+        "corto"
+      ],
+      "reason": "Revisión en lote autorizada por el editor (2026-10-27): coherencia de cifras entre hallazgo, resumen breve y cuerpo, verificada contra el artículo; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
+    },
+    {
+      "id": 43,
+      "fields": [
+        "cuerpo",
+        "corto"
+      ],
+      "reason": "Revisión en lote autorizada por el editor (2026-10-27): coherencia de cifras entre hallazgo, resumen breve y cuerpo, verificada contra el artículo; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
+    },
+    {
+      "id": 44,
+      "fields": [
+        "cuerpo"
+      ],
+      "reason": "Revisión en lote autorizada por el editor (2026-10-27): coherencia de cifras entre hallazgo, resumen breve y cuerpo, verificada contra el artículo; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
+    },
+    {
+      "id": 46,
+      "fields": [
+        "hallazgo",
+        "corto"
+      ],
+      "reason": "Revisión en lote autorizada por el editor (2026-10-27): coherencia de cifras entre hallazgo, resumen breve y cuerpo, verificada contra el artículo; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
+    },
+    {
+      "id": 51,
+      "fields": [
+        "cuerpo"
+      ],
+      "reason": "Revisión en lote autorizada por el editor (2026-10-27): coherencia de cifras entre hallazgo, resumen breve y cuerpo, verificada contra el artículo; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
+    },
+    {
+      "id": 54,
+      "fields": [
+        "hallazgo",
+        "cuerpo",
+        "corto"
+      ],
+      "reason": "Revisión en lote autorizada por el editor (2026-10-27): coherencia de cifras entre hallazgo, resumen breve y cuerpo, verificada contra el artículo; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
+    },
+    {
+      "id": 61,
+      "fields": [
+        "cuerpo"
+      ],
+      "reason": "Revisión en lote autorizada por el editor (2026-10-27): coherencia de cifras entre hallazgo, resumen breve y cuerpo, verificada contra el artículo; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
+    },
+    {
+      "id": 77,
+      "fields": [
+        "cuerpo"
+      ],
+      "reason": "Revisión en lote autorizada por el editor (2026-10-27): coherencia de cifras entre hallazgo, resumen breve y cuerpo, verificada contra el artículo; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
+    },
+    {
+      "id": 84,
+      "fields": [
+        "cuerpo"
+      ],
+      "reason": "Revisión en lote autorizada por el editor (2026-10-27): coherencia de cifras entre hallazgo, resumen breve y cuerpo, verificada contra el artículo; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
+    },
+    {
+      "id": 88,
+      "fields": [
+        "cuerpo"
+      ],
+      "reason": "Revisión en lote autorizada por el editor (2026-10-27): coherencia de cifras entre hallazgo, resumen breve y cuerpo, verificada contra el artículo; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
     },
     {
       "id": 90,
       "fields": [
-        "cuerpo",
-        "corto"
+        "cuerpo"
       ],
-      "reason": "Revisión nocturna 2026-10-20 a 2026-10-23: corrección autorizada por el editor (2026-10-27) de los errores verificados en ERRORES_RESUMENES.md contra el artículo, el suplemento, el protocolo y los formularios de conflicto de interés; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
+      "reason": "Revisión en lote autorizada por el editor (2026-10-27): coherencia de cifras entre hallazgo, resumen breve y cuerpo, verificada contra el artículo; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
     },
     {
       "id": 91,
       "fields": [
-        "hallazgo",
-        "cuerpo",
-        "corto"
+        "cuerpo"
       ],
-      "reason": "Revisión nocturna 2026-10-20 a 2026-10-23: corrección autorizada por el editor (2026-10-27) de los errores verificados en ERRORES_RESUMENES.md contra el artículo, el suplemento, el protocolo y los formularios de conflicto de interés; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
-    },
-    {
-      "id": 92,
-      "fields": [
-        "cuerpo",
-        "corto"
-      ],
-      "reason": "Revisión nocturna 2026-10-20 a 2026-10-23: corrección autorizada por el editor (2026-10-27) de los errores verificados en ERRORES_RESUMENES.md contra el artículo, el suplemento, el protocolo y los formularios de conflicto de interés; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
+      "reason": "Corrección de formato autorizada por el editor (2026-10-27): el signo menor que de los valores p se escribe como &lt; para que el texto no se pierda al quitar etiquetas; el texto visible no cambia."
     },
     {
       "id": 93,
       "fields": [
-        "financiacion",
-        "cuerpo",
-        "corto"
+        "cuerpo"
       ],
-      "reason": "Revisión nocturna 2026-10-20 a 2026-10-23: corrección autorizada por el editor (2026-10-27) de los errores verificados en ERRORES_RESUMENES.md contra el artículo, el suplemento, el protocolo y los formularios de conflicto de interés; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
+      "reason": "Revisión en lote autorizada por el editor (2026-10-27): coherencia de cifras entre hallazgo, resumen breve y cuerpo, verificada contra el artículo; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
     },
     {
       "id": 94,
       "fields": [
-        "hallazgo",
-        "cuerpo",
-        "corto"
-      ],
-      "reason": "Revisión nocturna 2026-10-20 a 2026-10-23: corrección autorizada por el editor (2026-10-27) de los errores verificados en ERRORES_RESUMENES.md contra el artículo, el suplemento, el protocolo y los formularios de conflicto de interés; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
-    },
-    {
-      "id": 95,
-      "fields": [
-        "hallazgo",
-        "cuerpo",
-        "corto"
-      ],
-      "reason": "Revisión nocturna 2026-10-20 a 2026-10-23: corrección autorizada por el editor (2026-10-27) de los errores verificados en ERRORES_RESUMENES.md contra el artículo, el suplemento, el protocolo y los formularios de conflicto de interés; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
-    },
-    {
-      "id": 96,
-      "fields": [
-        "cuerpo",
-        "corto"
-      ],
-      "reason": "Revisión nocturna 2026-10-20 a 2026-10-23: corrección autorizada por el editor (2026-10-27) de los errores verificados en ERRORES_RESUMENES.md contra el artículo, el suplemento, el protocolo y los formularios de conflicto de interés; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
-    },
-    {
-      "id": 97,
-      "fields": [
-        "financiacion",
-        "cuerpo",
-        "corto"
-      ],
-      "reason": "Revisión nocturna 2026-10-20 a 2026-10-23: corrección autorizada por el editor (2026-10-27) de los errores verificados en ERRORES_RESUMENES.md contra el artículo, el suplemento, el protocolo y los formularios de conflicto de interés; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
-    },
-    {
-      "id": 98,
-      "fields": [
-        "cuerpo",
-        "corto"
-      ],
-      "reason": "Revisión nocturna 2026-10-20 a 2026-10-23: corrección autorizada por el editor (2026-10-27) de los errores verificados en ERRORES_RESUMENES.md contra el artículo, el suplemento, el protocolo y los formularios de conflicto de interés; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
-    },
-    {
-      "id": 99,
-      "fields": [
-        "financiacion",
-        "hallazgo",
-        "cuerpo",
-        "corto"
-      ],
-      "reason": "Revisión nocturna 2026-10-20 a 2026-10-23: corrección autorizada por el editor (2026-10-27) de los errores verificados en ERRORES_RESUMENES.md contra el artículo, el suplemento, el protocolo y los formularios de conflicto de interés; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
-    },
-    {
-      "id": 100,
-      "fields": [
-        "cuerpo",
-        "corto"
-      ],
-      "reason": "Revisión nocturna 2026-10-20 a 2026-10-23: corrección autorizada por el editor (2026-10-27) de los errores verificados en ERRORES_RESUMENES.md contra el artículo, el suplemento, el protocolo y los formularios de conflicto de interés; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
-    },
-    {
-      "id": 101,
-      "fields": [
         "cuerpo"
       ],
-      "reason": "Revisión nocturna 2026-10-20 a 2026-10-23: corrección autorizada por el editor (2026-10-27) de los errores verificados en ERRORES_RESUMENES.md contra el artículo, el suplemento, el protocolo y los formularios de conflicto de interés; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
-    },
-    {
-      "id": 102,
-      "fields": [
-        "hallazgo",
-        "cuerpo",
-        "corto"
-      ],
-      "reason": "Revisión nocturna 2026-10-20 a 2026-10-23: corrección autorizada por el editor (2026-10-27) de los errores verificados en ERRORES_RESUMENES.md contra el artículo, el suplemento, el protocolo y los formularios de conflicto de interés; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
-    },
-    {
-      "id": 103,
-      "fields": [
-        "financiacion",
-        "hallazgo",
-        "cuerpo",
-        "corto"
-      ],
-      "reason": "Revisión nocturna 2026-10-20 a 2026-10-23: corrección autorizada por el editor (2026-10-27) de los errores verificados en ERRORES_RESUMENES.md contra el artículo, el suplemento, el protocolo y los formularios de conflicto de interés; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
-    },
-    {
-      "id": 104,
-      "fields": [
-        "hallazgo",
-        "cuerpo",
-        "corto"
-      ],
-      "reason": "Revisión nocturna 2026-10-20 a 2026-10-23: corrección autorizada por el editor (2026-10-27) de los errores verificados en ERRORES_RESUMENES.md contra el artículo, el suplemento, el protocolo y los formularios de conflicto de interés; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
-    },
-    {
-      "id": 105,
-      "fields": [
-        "financiacion",
-        "cuerpo",
-        "corto"
-      ],
-      "reason": "Revisión nocturna 2026-10-20 a 2026-10-23: corrección autorizada por el editor (2026-10-27) de los errores verificados en ERRORES_RESUMENES.md contra el artículo, el suplemento, el protocolo y los formularios de conflicto de interés; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
-    },
-    {
-      "id": 106,
-      "fields": [
-        "financiacion",
-        "cuerpo",
-        "corto"
-      ],
-      "reason": "Revisión nocturna 2026-10-20 a 2026-10-23: corrección autorizada por el editor (2026-10-27) de los errores verificados en ERRORES_RESUMENES.md contra el artículo, el suplemento, el protocolo y los formularios de conflicto de interés; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
-    },
-    {
-      "id": 107,
-      "fields": [
-        "financiacion",
-        "hallazgo",
-        "cuerpo",
-        "corto"
-      ],
-      "reason": "Revisión nocturna 2026-10-20 a 2026-10-23: corrección autorizada por el editor (2026-10-27) de los errores verificados en ERRORES_RESUMENES.md contra el artículo, el suplemento, el protocolo y los formularios de conflicto de interés; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
-    },
-    {
-      "id": 108,
-      "fields": [
-        "financiacion",
-        "hallazgo",
-        "cuerpo",
-        "corto"
-      ],
-      "reason": "Revisión nocturna 2026-10-20 a 2026-10-23: corrección autorizada por el editor (2026-10-27) de los errores verificados en ERRORES_RESUMENES.md contra el artículo, el suplemento, el protocolo y los formularios de conflicto de interés; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
-    },
-    {
-      "id": 109,
-      "fields": [
-        "financiacion",
-        "objetivo",
-        "hallazgo",
-        "cuerpo",
-        "corto"
-      ],
-      "reason": "Revisión nocturna 2026-10-20 a 2026-10-23: corrección autorizada por el editor (2026-10-27) de los errores verificados en ERRORES_RESUMENES.md contra el artículo, el suplemento, el protocolo y los formularios de conflicto de interés; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
+      "reason": "Revisión en lote autorizada por el editor (2026-10-27): coherencia de cifras entre hallazgo, resumen breve y cuerpo, verificada contra el artículo; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
     },
     {
       "id": 110,
       "fields": [
-        "financiacion",
+        "cuerpo"
+      ],
+      "reason": "Revisión en lote autorizada por el editor (2026-10-27): coherencia de cifras entre hallazgo, resumen breve y cuerpo, verificada contra el artículo; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
+    },
+    {
+      "id": 135,
+      "fields": [
+        "cuerpo"
+      ],
+      "reason": "Revisión en lote autorizada por el editor (2026-10-27): coherencia de cifras entre hallazgo, resumen breve y cuerpo, verificada contra el artículo; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
+    },
+    {
+      "id": 141,
+      "fields": [
+        "cuerpo"
+      ],
+      "reason": "Revisión en lote autorizada por el editor (2026-10-27): coherencia de cifras entre hallazgo, resumen breve y cuerpo, verificada contra el artículo; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
+    },
+    {
+      "id": 151,
+      "fields": [
         "cuerpo",
         "corto"
       ],
-      "reason": "Revisión nocturna 2026-10-20 a 2026-10-23: corrección autorizada por el editor (2026-10-27) de los errores verificados en ERRORES_RESUMENES.md contra el artículo, el suplemento, el protocolo y los formularios de conflicto de interés; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
+      "reason": "Revisión en lote autorizada por el editor (2026-10-27): coherencia de cifras entre hallazgo, resumen breve y cuerpo, verificada contra el artículo; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
     },
     {
-      "id": 111,
+      "id": 158,
       "fields": [
-        "financiacion",
+        "cuerpo"
+      ],
+      "reason": "Revisión en lote autorizada por el editor (2026-10-27): coherencia de cifras entre hallazgo, resumen breve y cuerpo, verificada contra el artículo; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
+    },
+    {
+      "id": 170,
+      "fields": [
+        "cuerpo"
+      ],
+      "reason": "Revisión en lote autorizada por el editor (2026-10-27): coherencia de cifras entre hallazgo, resumen breve y cuerpo, verificada contra el artículo; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
+    },
+    {
+      "id": 175,
+      "fields": [
         "hallazgo",
         "cuerpo",
         "corto"
       ],
-      "reason": "Revisión nocturna 2026-10-20 a 2026-10-23: corrección autorizada por el editor (2026-10-27) de los errores verificados en ERRORES_RESUMENES.md contra el artículo, el suplemento, el protocolo y los formularios de conflicto de interés; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
+      "reason": "Corrección de formato autorizada por el editor (2026-10-27): el signo menor que de los valores p se escribe como &lt; para que el texto no se pierda al quitar etiquetas; el texto visible no cambia."
     },
     {
-      "id": 112,
+      "id": 188,
       "fields": [
-        "financiacion",
-        "cuerpo",
-        "corto"
+        "cuerpo"
       ],
-      "reason": "Revisión nocturna 2026-10-20 a 2026-10-23: corrección autorizada por el editor (2026-10-27) de los errores verificados en ERRORES_RESUMENES.md contra el artículo, el suplemento, el protocolo y los formularios de conflicto de interés; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
+      "reason": "Revisión en lote autorizada por el editor (2026-10-27): coherencia de cifras entre hallazgo, resumen breve y cuerpo, verificada contra el artículo; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
+    },
+    {
+      "id": 198,
+      "fields": [
+        "cuerpo"
+      ],
+      "reason": "Revisión en lote autorizada por el editor (2026-10-27): coherencia de cifras entre hallazgo, resumen breve y cuerpo, verificada contra el artículo; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
+    },
+    {
+      "id": 204,
+      "fields": [
+        "cuerpo"
+      ],
+      "reason": "Corrección de formato autorizada por el editor (2026-10-27): el signo menor que de los valores p se escribe como &lt; para que el texto no se pierda al quitar etiquetas; el texto visible no cambia."
+    },
+    {
+      "id": 212,
+      "fields": [
+        "cuerpo"
+      ],
+      "reason": "Revisión en lote autorizada por el editor (2026-10-27): coherencia de cifras entre hallazgo, resumen breve y cuerpo, verificada contra el artículo; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
+    },
+    {
+      "id": 213,
+      "fields": [
+        "cuerpo"
+      ],
+      "reason": "Revisión en lote autorizada por el editor (2026-10-27): coherencia de cifras entre hallazgo, resumen breve y cuerpo, verificada contra el artículo; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
+    },
+    {
+      "id": 217,
+      "fields": [
+        "cuerpo"
+      ],
+      "reason": "Revisión en lote autorizada por el editor (2026-10-27): coherencia de cifras entre hallazgo, resumen breve y cuerpo, verificada contra el artículo; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
+    },
+    {
+      "id": 200,
+      "fields": [
+        "cuerpo"
+      ],
+      "reason": "Corrección de formato autorizada por el editor (2026-10-27): el signo menor que de los valores p se escribe como &lt; para que el texto no se pierda al quitar etiquetas; el texto visible no cambia."
+    },
+    {
+      "id": 226,
+      "fields": [
+        "cuerpo"
+      ],
+      "reason": "Revisión en lote autorizada por el editor (2026-10-27): coherencia de cifras entre hallazgo, resumen breve y cuerpo, verificada contra el artículo; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
     }
   ]
 }
