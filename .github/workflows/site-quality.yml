@@ -29,7 +29,7 @@ jobs:
       - uses: actions/checkout@v7.0.1
         with:
           fetch-depth: 0
-      - uses: actions/setup-node@v7.0.0
+      - uses: actions/setup-node@v7.1.0
         with:
           node-version: '20'
       - uses: actions/setup-python@v7.0.0
@@ -237,11 +237,11 @@ jobs:
     runs-on: ubuntu-latest
     # Contenedor oficial de Playwright (misma versión que package.json): navegadores y
     # dependencias ya instalados. Instalarlos con apt llegó a tardar 14 min y agotaba el tiempo.
-    container: mcr.microsoft.com/playwright:v1.62.1-noble
+    container: mcr.microsoft.com/playwright:v1.64.1-noble
     timeout-minutes: 25
     steps:
       - uses: actions/checkout@v7.0.1
-      - uses: actions/setup-node@v7.0.0
+      - uses: actions/setup-node@v7.1.0
         with:
           node-version: '20'
       - uses: actions/setup-python@v7.0.0
@@ -277,7 +277,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7.0.1
-      - uses: actions/setup-node@v7.0.0
+      - uses: actions/setup-node@v7.1.0
         with:
           node-version: '20'
       - name: Check production endpoints
@@ -288,7 +288,7 @@ jobs:
   browser-smoke-chromium:
     if: ${{ (github.event_name != 'workflow_dispatch' || inputs.confirmation != 'SEND_ONE_QA_EMAIL') && (github.event_name == 'pull_request' || github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main') }}
     runs-on: ubuntu-latest
-    container: mcr.microsoft.com/playwright:v1.62.1-noble
+    container: mcr.microsoft.com/playwright:v1.64.1-noble
     timeout-minutes: 30
     strategy:
       fail-fast: false
@@ -296,7 +296,7 @@ jobs:
         case: ['chromium:390:oscuro', 'chromium:390:claro', 'chromium:1440:oscuro', 'chromium:1440:claro']
     steps:
       - uses: actions/checkout@v7.0.1
-      - uses: actions/setup-node@v7.0.0
+      - uses: actions/setup-node@v7.1.0
         with:
           node-version: '20'
       - uses: actions/setup-python@v7.0.0
@@ -328,7 +328,7 @@ jobs:
         case: ['webkit:390:oscuro', 'webkit:390:claro', 'webkit:1440:oscuro', 'webkit:1440:claro']
     steps:
       - uses: actions/checkout@v7.0.1
-      - uses: actions/setup-node@v7.0.0
+      - uses: actions/setup-node@v7.1.0
         with:
           node-version: '20'
       - uses: actions/setup-python@v7.0.0
@@ -369,7 +369,7 @@ jobs:
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v7.0.1
-      - uses: actions/setup-node@v7.0.0
+      - uses: actions/setup-node@v7.1.0
         with:
           node-version: '20'
       - name: Install Playwright
@@ -395,7 +395,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7.0.1
-      - uses: actions/setup-node@v7.0.0
+      - uses: actions/setup-node@v7.1.0
         with:
           node-version: '20'
       - name: Build the actual GitHub Pages artifact
@@ -442,7 +442,7 @@ jobs:
         uses: actions/checkout@v7.0.1
 
       - name: Configurar Node.js
-        uses: actions/setup-node@v7.0.0
+        uses: actions/setup-node@v7.1.0
         with:
           node-version: '20'
 

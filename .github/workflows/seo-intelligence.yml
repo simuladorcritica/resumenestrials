@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7.0.1
-      - uses: actions/setup-node@v7.0.0
+      - uses: actions/setup-node@v7.1.0
         with:
           node-version: '20'
       - uses: actions/setup-python@v7.0.0
@@ -137,7 +137,7 @@ jobs:
           if [ -f reports/seo-technical.json ]; then node -e "const r=require('./reports/seo-technical.json'); console.log('P0='+r.severity.P0+' · P1='+r.severity.P1+' · P2='+r.severity.P2)" >> "$GITHUB_STEP_SUMMARY"; fi
       - name: Guardar auditoría SEO estrictamente técnica
         if: always()
-        uses: actions/upload-artifact@v7.0.1
+        uses: actions/upload-artifact@v7.0.2
         with:
           name: seo-technical-${{ github.run_id }}
           path: reports/seo-technical.json

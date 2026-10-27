@@ -106,7 +106,8 @@ def card(r,manifest):
  return (f'<li class="ev-card" data-id="{id}" data-tone="{tone(area)}"{topics_attr}><a class="ev-card-title" href="{path}" data-ev-read="{id}"><h2>{t}</h2></a>'
   f'<p class="ev-card-meta"><span>{esc(r["revista"])}</span><span>{esc(human_date(r["fecha"]))}</span></p>'
   f'<div class="ev-card-tags"><span class="ev-area" data-tone="{tone(area)}">{esc(area)}</span></div>'
-  +'<details class="ev-card-facts"><summary>Ficha del estudio</summary>'+facts(r)+'</details>'+
+  # La ficha de cada tarjeta se rellena al abrirla (ui/core.js): ~9,000 elementos menos en la portada.
+  +f'<details class="ev-card-facts" data-ev-facts="{id}"><summary>Ficha del estudio</summary></details>'+
   f'<div class="ev-card-foot"><p class="ev-readtime">{readtime(r)}</p><div class="ev-card-actions"><a class="ev-btn ev-btn-primary" href="{path}" data-ev-read="{id}" aria-label="Leer resumen: {t}">Leer</a>'
   f'<details class="ev-pdf-menu"><summary class="ev-btn" aria-label="Descargar PDF de {t}">{icon("pdf")}<span>PDF</span></summary><div class="ev-pdf-pop"><button type="button" data-ev-card-pdf="{id}" data-ev-version="completo" aria-label="Descargar resumen completo PDF de {t}">PDF completo</button><button type="button" data-ev-card-pdf="{id}" data-ev-version="breve" aria-label="Descargar resumen breve PDF de {t}">PDF breve</button></div></details></div></div></li>')
 def by_date(items):
@@ -118,6 +119,11 @@ def by_date(items):
   m=re.fullmatch(r"(\d{4})-(\d{2})-(\d{2})",str(r.get("fecha") or "").strip())
   return (0,-int(m[1]+m[2]+m[3])) if m else (1,0)
  return sorted(items,key=key)
+# Texto introductorio de cada especialidad y subtema (fuente editorial: templates/textos-temas.json).
+def topic_intro(scope):
+ texts=json.loads((ROOT/"templates/textos-temas.json").read_text(encoding="utf-8"))
+ text=texts.get(str(scope).strip("/"))
+ return f'<p class="ev-topic-intro">{esc(text)}</p>' if text else ''
 def archive(items,manifest,title="Archivo de evidencia",scope=""):
  import generar_seo as base
  from collections import Counter
@@ -131,7 +137,7 @@ def archive(items,manifest,title="Archivo de evidencia",scope=""):
  else:
   kind="Especialidad" if scope in ("medicina-critica","medicina-interna") else "Subtema"
   hero=(f'<section class="ev-hero ev-hero-compact"><div class="ev-hero-copy"><nav class="ev-breadcrumb" aria-label="Ruta"><a href="/">{icon("arrow-left")}Inicio</a></nav><p class="ev-eyebrow"><span class="ev-pulse" aria-hidden="true"></span>{kind}</p><h1>{esc(title)}</h1>'
-   f'<p class="ev-lead">{len(items)} resúmenes críticos de ensayos clínicos. Elige uno para leerlo completo o en versión breve y descargarlo en PDF.</p></div></section>')
+   f'<p class="ev-lead">{len(items)} resúmenes críticos de ensayos clínicos. Elige uno para leerlo completo o en versión breve y descargarlo en PDF.</p>'+topic_intro(scope)+'</div></section>')
  segment=''
  if not scope:
   segment=('<div class="ev-segment" role="radiogroup" aria-label="Especialidad">'

@@ -51,7 +51,7 @@ jobs:
         continue-on-error: true
 
       - name: Preparar Node
-        uses: actions/setup-node@v7.0.0
+        uses: actions/setup-node@v7.1.0
         with:
           node-version: '20'
 
@@ -209,7 +209,7 @@ jobs:
 
       - name: Guardar informes completos como artefacto
         if: always()
-        uses: actions/upload-artifact@v7.0.1
+        uses: actions/upload-artifact@v7.0.2
         with:
           name: informe-revision-nocturna
           path: |
