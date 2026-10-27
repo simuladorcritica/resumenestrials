@@ -6330,5 +6330,57 @@
       "population": "La población fueron adultos con una hemorragia intracerebral espontánea aguda, es decir, no traumática, que ingresaban en un hospital participante dentro de las 8 horas siguientes al inicio de los síntomas o a la última vez que se les vio bien. La mayoría era de raza blanca, un 85%, y el resto se agrupó como de otro origen. El estudio se hizo en 124 hospitales de 12 países de Europa, el Cáucaso, Turquía y Malasia, aunque el…"
     },
     "datePublished": "2026-10-24"
+  },
+  "240": {
+    "slug": "poet-ii-tratamiento-antibiotico-adaptado-respuesta-duracion-estandar-endocarditis-infecciosa",
+    "path": "/trials/poet-ii-tratamiento-antibiotico-adaptado-respuesta-duracion-estandar-endocarditis-infecciosa/",
+    "url": "https://resumenestrials.com/trials/poet-ii-tratamiento-antibiotico-adaptado-respuesta-duracion-estandar-endocarditis-infecciosa/",
+    "title": "POET II: tratamiento antibiótico adaptado a la respuesta o de duración estándar para la endocarditis infecciosa",
+    "seo_title": "POET II trial: tratamiento antibiótico adaptado a la respuesta o de duración estándar para la endocarditis infecciosa | Resúmenes Trials",
+    "description": "POET II: La estrategia adaptada dio una mediana de 183 frente a 169 días vivos y sin antibiótico en 6 meses (diferencia de 13 días; IC 95%, 12 a 13; p<0.001)…",
+    "clusters": [
+      {
+        "name": "Enfermedades infecciosas",
+        "path": "/medicina-interna/infecciosas/",
+        "url": "https://resumenestrials.com/medicina-interna/infecciosas/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/poet-ii-tratamiento-antibiotico-adaptado-respuesta-duracion-estandar-endocarditis-infecciosa-16x9.jpg",
+      "https://resumenestrials.com/images/trials/poet-ii-tratamiento-antibiotico-adaptado-respuesta-duracion-estandar-endocarditis-infecciosa-4x3.jpg",
+      "https://resumenestrials.com/images/trials/poet-ii-tratamiento-antibiotico-adaptado-respuesta-duracion-estandar-endocarditis-infecciosa-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si suspender el antibiótico según la respuesta clínica, tras una duración mínima, aumenta los días vivo y sin antibiótico sin empeorar la seguridad frente a la duración estándar en la endocarditis infecciosa izquierda estabilizada.",
+      "answer": "La estrategia adaptada dio una mediana de 183 frente a 169 días vivos y sin antibiótico en 6 meses (diferencia de 13 días; IC 95%, 12 a 13; p<0.001) y fue no inferior en muerte, cirugía no planeada o embolia (8.2% frente a 10.7%; diferencia −2.4 puntos; IC 95%, −7.7 a 2.7; p<0.001 para no inferioridad), pero con más recaídas…",
+      "population": "La población fueron adultos con endocarditis infecciosa del lado izquierdo del corazón, sobre válvula nativa o protésica, diagnosticada con los criterios de Duke modificados y causada por Staphylococcus aureus, Enterococcus faecalis o estreptococos. Antes de la aleatorización tenían que haber completado una duración mínima de antibiótico de 2 a 4 semanas y cumplir los seis criterios POET de estabilización: no tener prevista…"
+    },
+    "datePublished": "2026-10-27"
+  },
+  "241": {
+    "slug": "poet-tratamiento-antibiotico-oral-parcial-intravenoso-endocarditis",
+    "path": "/trials/poet-tratamiento-antibiotico-oral-parcial-intravenoso-endocarditis/",
+    "url": "https://resumenestrials.com/trials/poet-tratamiento-antibiotico-oral-parcial-intravenoso-endocarditis/",
+    "title": "POET: tratamiento antibiótico oral parcial frente a intravenoso en la endocarditis",
+    "seo_title": "POET trial: tratamiento antibiótico oral parcial frente a intravenoso en la endocarditis | Resúmenes Trials",
+    "description": "POET: El compuesto de muerte, cirugía no planeada, embolia o recaída ocurrió en el 12.1% con la vía intravenosa frente al 9.0% con la oral (diferencia 3.1…",
+    "clusters": [
+      {
+        "name": "Enfermedades infecciosas",
+        "path": "/medicina-interna/infecciosas/",
+        "url": "https://resumenestrials.com/medicina-interna/infecciosas/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/poet-tratamiento-antibiotico-oral-parcial-intravenoso-endocarditis-16x9.jpg",
+      "https://resumenestrials.com/images/trials/poet-tratamiento-antibiotico-oral-parcial-intravenoso-endocarditis-4x3.jpg",
+      "https://resumenestrials.com/images/trials/poet-tratamiento-antibiotico-oral-parcial-intravenoso-endocarditis-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si pasar a antibióticos orales no es inferior a continuar el tratamiento intravenoso en muerte, cirugía cardiaca no planeada, embolia o recaída de la bacteriemia en adultos estables con endocarditis izquierda.",
+      "answer": "El compuesto de muerte, cirugía no planeada, embolia o recaída ocurrió en el 12.1% con la vía intravenosa frente al 9.0% con la oral (diferencia 3.1 puntos; IC 95%, −3.4 a 9.6; p=0.40), lo que cumplió el criterio de no inferioridad sin demostrar superioridad.",
+      "population": "La población fueron adultos de 18 años o más con endocarditis infecciosa del lado izquierdo del corazón, sobre válvula nativa o protésica, que cumplían los criterios de Duke modificados y tenían hemocultivos positivos para estreptococos, Enterococcus faecalis, Staphylococcus aureus o estafilococos coagulasa negativos. Además debían estar estables, con criterios concretos: al menos 10 días de antibiótico intravenoso adecuado, y…"
+    },
+    "datePublished": "2026-10-27"
   }
 }

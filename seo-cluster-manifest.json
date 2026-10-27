@@ -308,7 +308,7 @@
     "category": "Medicina Interna",
     "path": "/medicina-interna/infecciosas/",
     "url": "https://resumenestrials.com/medicina-interna/infecciosas/",
-    "count": 9,
+    "count": 11,
     "trial_ids": [
       "31",
       "32",
@@ -318,7 +318,9 @@
       "50",
       "64",
       "84",
-      "109"
+      "109",
+      "240",
+      "241"
     ]
   },
   "renal-metabolica": {

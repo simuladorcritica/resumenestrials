@@ -4,8 +4,22 @@
   <id>https://resumenestrials.com/</id>
   <link href="https://resumenestrials.com/"/>
   <link rel="self" type="application/atom+xml" href="https://resumenestrials.com/feed.xml"/>
-  <updated>2026-10-24T00:00:00Z</updated>
+  <updated>2026-10-27T00:00:00Z</updated>
   <subtitle>Resúmenes críticos en español de ensayos clínicos.</subtitle>
+  <entry>
+    <title>POET II: tratamiento antibiótico adaptado a la respuesta o de duración estándar para la endocarditis infecciosa</title>
+    <id>https://resumenestrials.com/trials/poet-ii-tratamiento-antibiotico-adaptado-respuesta-duracion-estandar-endocarditis-infecciosa/</id>
+    <link href="https://resumenestrials.com/trials/poet-ii-tratamiento-antibiotico-adaptado-respuesta-duracion-estandar-endocarditis-infecciosa/"/>
+    <updated>2026-10-27T00:00:00Z</updated>
+    <summary>Determinar si suspender el antibiótico según la respuesta clínica, tras una duración mínima, aumenta los días vivo y sin antibiótico sin empeorar la seguridad frente a la duración estándar en la endocarditis infecciosa izquierda estabilizada.</summary>
+  </entry>
+  <entry>
+    <title>POET: tratamiento antibiótico oral parcial frente a intravenoso en la endocarditis</title>
+    <id>https://resumenestrials.com/trials/poet-tratamiento-antibiotico-oral-parcial-intravenoso-endocarditis/</id>
+    <link href="https://resumenestrials.com/trials/poet-tratamiento-antibiotico-oral-parcial-intravenoso-endocarditis/"/>
+    <updated>2026-10-27T00:00:00Z</updated>
+    <summary>Determinar si pasar a antibióticos orales no es inferior a continuar el tratamiento intravenoso en muerte, cirugía cardiaca no planeada, embolia o recaída de la bacteriemia en adultos estables con endocarditis izquierda.</summary>
+  </entry>
   <entry>
     <title>I CAN: ravulizumab en la nefropatía por IgA, análisis interino de un ensayo de fase 3</title>
     <id>https://resumenestrials.com/trials/i-can-ravulizumab-nefropatia-iga-analisis-interino-ensayo-fase-3/</id>
@@ -341,19 +355,5 @@
     <link href="https://resumenestrials.com/trials/iabp-shock-ii-balon-contrapulsacion-intraaortico-infarto-agudo-miocardio-shock-cardiogenico/"/>
     <updated>2026-10-19T00:00:00Z</updated>
     <summary>Determinar si la contrapulsación con balón intraaórtico, añadida a la revascularización temprana, reduce la mortalidad a 30 días en el infarto agudo de miocardio con shock cardiogénico.</summary>
-  </entry>
-  <entry>
-    <title>SONIC: infliximab, azatioprina o tratamiento combinado en la enfermedad de Crohn</title>
-    <id>https://resumenestrials.com/trials/sonic-infliximab-azatioprina-ambos-enfermedad-crohn-tratamiento-inmunosupresor-previo/</id>
-    <link href="https://resumenestrials.com/trials/sonic-infliximab-azatioprina-ambos-enfermedad-crohn-tratamiento-inmunosupresor-previo/"/>
-    <updated>2026-10-19T00:00:00Z</updated>
-    <summary>Comparar la eficacia del infliximab, la azatioprina y su combinación para lograr la remisión clínica sin corticoides en la semana 26 en la enfermedad de Crohn moderada a grave sin tratamiento inmunosupresor previo.</summary>
-  </entry>
-  <entry>
-    <title>SOAP II: comparación de dopamina y noradrenalina en el tratamiento del shock</title>
-    <id>https://resumenestrials.com/trials/soap-ii-dopamina-noradrenalina-como-primer-vasopresor-shock/</id>
-    <link href="https://resumenestrials.com/trials/soap-ii-dopamina-noradrenalina-como-primer-vasopresor-shock/"/>
-    <updated>2026-10-19T00:00:00Z</updated>
-    <summary>Determinar si usar noradrenalina en lugar de dopamina como primer vasopresor reduce la mortalidad a 28 días en los pacientes con shock.</summary>
   </entry>
 </feed>
