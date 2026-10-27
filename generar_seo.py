@@ -14,6 +14,7 @@ DATA_PATH = ROOT / "resumenes.json"
 MANIFEST_PATH = ROOT / "seo-manifest.json"
 SITEMAP_PATH = ROOT / "sitemap.xml"
 FEED_PATH = ROOT / "feed.xml"
+LLMS_PATH = ROOT / "llms.txt"
 TRIALS_DIR = ROOT / "trials"
 
 CATEGORY_PATHS = {
@@ -342,6 +343,43 @@ def generar_sitemap(items: list[dict], categorias_contenido: dict[str, list[dict
     SITEMAP_PATH.write_text("\n".join(lineas) + "\n", encoding="utf-8")
 
 
+def generar_llms(items: list[dict]) -> None:
+    """Índice en texto plano para buscadores con IA (formato llms.txt).
+
+    Solo enumera páginas y metadatos bibliográficos; no copia texto clínico,
+    para que ningún asistente cite un fragmento recortado fuera de contexto.
+    """
+    lines = [
+        "# Resúmenes Trials",
+        "",
+        "> Resúmenes críticos en español de ensayos clínicos aleatorizados de Medicina Crítica y Medicina Interna, "
+        "publicados por la Editorial EMEICRÍTICA. Cada resumen enlaza el artículo original y su DOI.",
+        "",
+        "Material educativo para profesionales de la salud. La referencia final es siempre el artículo publicado; "
+        "al citar un dato, enlaza la página del resumen y el artículo original.",
+        "",
+        "## Páginas institucionales",
+        "",
+        f"- [Metodología]({BASE_URL}/metodologia/): cómo se seleccionan, estructuran y evalúan los estudios.",
+        f"- [Editorial EMEICRÍTICA]({BASE_URL}/equipo-editorial/): quién firma, controles de verificación y correcciones.",
+        f"- [Medicina Crítica]({BASE_URL}/medicina-critica/): índice de resúmenes de Medicina Crítica.",
+        f"- [Medicina Interna]({BASE_URL}/medicina-interna/): índice de resúmenes de Medicina Interna.",
+        "",
+        "## Resúmenes de ensayos",
+        "",
+    ]
+    def clave(item: dict) -> tuple:
+        try:
+            return (0, -int(str(item.get("id"))))
+        except ValueError:
+            return (1, id_texto(item.get("id")))
+    for item in sorted(items, key=clave):
+        titulo = texto_plano(item.get("titulo")).replace("[", "(").replace("]", ")")
+        fuente = ", ".join(x for x in (texto_plano(item.get("revista")), texto_plano(item.get("anio"))) if x)
+        lines.append(f"- [{titulo}]({url_trial(item)})" + (f": {fuente}." if fuente else ""))
+    LLMS_PATH.write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+
 def fecha_editorial(item: dict) -> str:
     """Return only an explicit site publication/update date, never the study date."""
     for key in ("fecha_revision", "actualizado", "fecha_publicacion_resumen"):
@@ -483,7 +521,8 @@ def main() -> None:
     generar_datos_por_ensayo(items)
     generar_sitemap(items, categorias_contenido)
     generar_feed(items)
-    print(f"SEO generado: {len(items)} trials, {sum(bool(v) for v in categorias_contenido.values())} categorías, sitemap.xml y feed.xml.")
+    generar_llms(items)
+    print(f"SEO generado: {len(items)} trials, {sum(bool(v) for v in categorias_contenido.values())} categorías, sitemap.xml, feed.xml y llms.txt.")
 
 
 if __name__ == "__main__":
