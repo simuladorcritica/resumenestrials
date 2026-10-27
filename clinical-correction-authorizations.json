@@ -1,68 +1,240 @@
 {
   "schema_version": 1,
-  "base_sha": "ce07245132c90632fb268f0e0e869f6e5e1cf294",
+  "base_sha": "ce60acc170a1ee547e896bd7c666869f49813725",
   "authorizations": [
     {
-      "id": 81,
+      "id": 82,
+      "fields": [
+        "objetivo",
+        "cuerpo",
+        "corto"
+      ],
+      "reason": "Revisión nocturna 2026-10-20 a 2026-10-23: corrección autorizada por el editor (2026-10-27) de los errores verificados en ERRORES_RESUMENES.md contra el artículo, el suplemento, el protocolo y los formularios de conflicto de interés; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
+    },
+    {
+      "id": 87,
       "fields": [
         "financiacion",
         "cuerpo",
         "corto"
       ],
-      "reason": "Revisión nocturna 2026-10-20: corrección de los errores verificados 1, 2, 3, 4, 5, 6, 7, 8, 9 de ERRORES_RESUMENES.md contra el artículo, el suplemento y los formularios de conflicto de interés; cambios mínimos con cifras del PDF y verificación independiente APROBADA."
+      "reason": "Revisión nocturna 2026-10-20 a 2026-10-23: corrección autorizada por el editor (2026-10-27) de los errores verificados en ERRORES_RESUMENES.md contra el artículo, el suplemento, el protocolo y los formularios de conflicto de interés; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
     },
     {
-      "id": 83,
-      "fields": [
-        "cuerpo",
-        "corto"
-      ],
-      "reason": "Revisión nocturna 2026-10-20: corrección de los errores verificados 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 de ERRORES_RESUMENES.md contra el artículo, el suplemento y los formularios de conflicto de interés; cambios mínimos con cifras del PDF y verificación independiente APROBADA."
-    },
-    {
-      "id": 84,
+      "id": 89,
       "fields": [
         "financiacion",
         "cuerpo",
         "corto"
       ],
-      "reason": "Revisión nocturna 2026-10-20: corrección de los errores verificados 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 de ERRORES_RESUMENES.md contra el artículo, el suplemento y los formularios de conflicto de interés; cambios mínimos con cifras del PDF y verificación independiente APROBADA."
+      "reason": "Revisión nocturna 2026-10-20 a 2026-10-23: corrección autorizada por el editor (2026-10-27) de los errores verificados en ERRORES_RESUMENES.md contra el artículo, el suplemento, el protocolo y los formularios de conflicto de interés; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
     },
     {
-      "id": 85,
+      "id": 90,
+      "fields": [
+        "cuerpo",
+        "corto"
+      ],
+      "reason": "Revisión nocturna 2026-10-20 a 2026-10-23: corrección autorizada por el editor (2026-10-27) de los errores verificados en ERRORES_RESUMENES.md contra el artículo, el suplemento, el protocolo y los formularios de conflicto de interés; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
+    },
+    {
+      "id": 91,
+      "fields": [
+        "hallazgo",
+        "cuerpo",
+        "corto"
+      ],
+      "reason": "Revisión nocturna 2026-10-20 a 2026-10-23: corrección autorizada por el editor (2026-10-27) de los errores verificados en ERRORES_RESUMENES.md contra el artículo, el suplemento, el protocolo y los formularios de conflicto de interés; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
+    },
+    {
+      "id": 92,
+      "fields": [
+        "cuerpo",
+        "corto"
+      ],
+      "reason": "Revisión nocturna 2026-10-20 a 2026-10-23: corrección autorizada por el editor (2026-10-27) de los errores verificados en ERRORES_RESUMENES.md contra el artículo, el suplemento, el protocolo y los formularios de conflicto de interés; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
+    },
+    {
+      "id": 93,
       "fields": [
         "financiacion",
         "cuerpo",
         "corto"
       ],
-      "reason": "Revisión nocturna 2026-10-20: corrección de los errores verificados 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 de ERRORES_RESUMENES.md contra el artículo, el suplemento y los formularios de conflicto de interés; cambios mínimos con cifras del PDF y verificación independiente APROBADA."
+      "reason": "Revisión nocturna 2026-10-20 a 2026-10-23: corrección autorizada por el editor (2026-10-27) de los errores verificados en ERRORES_RESUMENES.md contra el artículo, el suplemento, el protocolo y los formularios de conflicto de interés; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
     },
     {
-      "id": 86,
+      "id": 94,
+      "fields": [
+        "hallazgo",
+        "cuerpo",
+        "corto"
+      ],
+      "reason": "Revisión nocturna 2026-10-20 a 2026-10-23: corrección autorizada por el editor (2026-10-27) de los errores verificados en ERRORES_RESUMENES.md contra el artículo, el suplemento, el protocolo y los formularios de conflicto de interés; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
+    },
+    {
+      "id": 95,
+      "fields": [
+        "hallazgo",
+        "cuerpo",
+        "corto"
+      ],
+      "reason": "Revisión nocturna 2026-10-20 a 2026-10-23: corrección autorizada por el editor (2026-10-27) de los errores verificados en ERRORES_RESUMENES.md contra el artículo, el suplemento, el protocolo y los formularios de conflicto de interés; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
+    },
+    {
+      "id": 96,
+      "fields": [
+        "cuerpo",
+        "corto"
+      ],
+      "reason": "Revisión nocturna 2026-10-20 a 2026-10-23: corrección autorizada por el editor (2026-10-27) de los errores verificados en ERRORES_RESUMENES.md contra el artículo, el suplemento, el protocolo y los formularios de conflicto de interés; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
+    },
+    {
+      "id": 97,
+      "fields": [
+        "financiacion",
+        "cuerpo",
+        "corto"
+      ],
+      "reason": "Revisión nocturna 2026-10-20 a 2026-10-23: corrección autorizada por el editor (2026-10-27) de los errores verificados en ERRORES_RESUMENES.md contra el artículo, el suplemento, el protocolo y los formularios de conflicto de interés; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
+    },
+    {
+      "id": 98,
+      "fields": [
+        "cuerpo",
+        "corto"
+      ],
+      "reason": "Revisión nocturna 2026-10-20 a 2026-10-23: corrección autorizada por el editor (2026-10-27) de los errores verificados en ERRORES_RESUMENES.md contra el artículo, el suplemento, el protocolo y los formularios de conflicto de interés; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
+    },
+    {
+      "id": 99,
       "fields": [
         "financiacion",
         "hallazgo",
         "cuerpo",
         "corto"
       ],
-      "reason": "Revisión nocturna 2026-10-20: corrección de los errores verificados 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 de ERRORES_RESUMENES.md contra el artículo, el suplemento y los formularios de conflicto de interés; cambios mínimos con cifras del PDF y verificación independiente APROBADA."
+      "reason": "Revisión nocturna 2026-10-20 a 2026-10-23: corrección autorizada por el editor (2026-10-27) de los errores verificados en ERRORES_RESUMENES.md contra el artículo, el suplemento, el protocolo y los formularios de conflicto de interés; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
     },
     {
-      "id": 88,
+      "id": 100,
+      "fields": [
+        "cuerpo",
+        "corto"
+      ],
+      "reason": "Revisión nocturna 2026-10-20 a 2026-10-23: corrección autorizada por el editor (2026-10-27) de los errores verificados en ERRORES_RESUMENES.md contra el artículo, el suplemento, el protocolo y los formularios de conflicto de interés; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
+    },
+    {
+      "id": 101,
+      "fields": [
+        "cuerpo"
+      ],
+      "reason": "Revisión nocturna 2026-10-20 a 2026-10-23: corrección autorizada por el editor (2026-10-27) de los errores verificados en ERRORES_RESUMENES.md contra el artículo, el suplemento, el protocolo y los formularios de conflicto de interés; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
+    },
+    {
+      "id": 102,
+      "fields": [
+        "hallazgo",
+        "cuerpo",
+        "corto"
+      ],
+      "reason": "Revisión nocturna 2026-10-20 a 2026-10-23: corrección autorizada por el editor (2026-10-27) de los errores verificados en ERRORES_RESUMENES.md contra el artículo, el suplemento, el protocolo y los formularios de conflicto de interés; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
+    },
+    {
+      "id": 103,
+      "fields": [
+        "financiacion",
+        "hallazgo",
+        "cuerpo",
+        "corto"
+      ],
+      "reason": "Revisión nocturna 2026-10-20 a 2026-10-23: corrección autorizada por el editor (2026-10-27) de los errores verificados en ERRORES_RESUMENES.md contra el artículo, el suplemento, el protocolo y los formularios de conflicto de interés; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
+    },
+    {
+      "id": 104,
+      "fields": [
+        "hallazgo",
+        "cuerpo",
+        "corto"
+      ],
+      "reason": "Revisión nocturna 2026-10-20 a 2026-10-23: corrección autorizada por el editor (2026-10-27) de los errores verificados en ERRORES_RESUMENES.md contra el artículo, el suplemento, el protocolo y los formularios de conflicto de interés; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
+    },
+    {
+      "id": 105,
       "fields": [
         "financiacion",
         "cuerpo",
         "corto"
       ],
-      "reason": "Revisión nocturna 2026-10-20: corrección de los errores verificados 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21 de ERRORES_RESUMENES.md contra el artículo, el suplemento y los formularios de conflicto de interés; cambios mínimos con cifras del PDF y verificación independiente APROBADA."
+      "reason": "Revisión nocturna 2026-10-20 a 2026-10-23: corrección autorizada por el editor (2026-10-27) de los errores verificados en ERRORES_RESUMENES.md contra el artículo, el suplemento, el protocolo y los formularios de conflicto de interés; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
     },
     {
-      "id": 115,
+      "id": 106,
       "fields": [
-        "hallazgo",
+        "financiacion",
+        "cuerpo",
         "corto"
       ],
-      "reason": "Revisión 2026-10-26 (pedida por el editor): la tasa del desenlace primario es «1.7 frente a 2.1 eventos por 100 pacientes-año» (así figura en el cuerpo y en el artículo: 183 frente a 220 eventos); el hallazgo y la versión breve la escribían como porcentaje. Se quita el signo % sin cambiar ninguna cifra."
+      "reason": "Revisión nocturna 2026-10-20 a 2026-10-23: corrección autorizada por el editor (2026-10-27) de los errores verificados en ERRORES_RESUMENES.md contra el artículo, el suplemento, el protocolo y los formularios de conflicto de interés; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
+    },
+    {
+      "id": 107,
+      "fields": [
+        "financiacion",
+        "hallazgo",
+        "cuerpo",
+        "corto"
+      ],
+      "reason": "Revisión nocturna 2026-10-20 a 2026-10-23: corrección autorizada por el editor (2026-10-27) de los errores verificados en ERRORES_RESUMENES.md contra el artículo, el suplemento, el protocolo y los formularios de conflicto de interés; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
+    },
+    {
+      "id": 108,
+      "fields": [
+        "financiacion",
+        "hallazgo",
+        "cuerpo",
+        "corto"
+      ],
+      "reason": "Revisión nocturna 2026-10-20 a 2026-10-23: corrección autorizada por el editor (2026-10-27) de los errores verificados en ERRORES_RESUMENES.md contra el artículo, el suplemento, el protocolo y los formularios de conflicto de interés; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
+    },
+    {
+      "id": 109,
+      "fields": [
+        "financiacion",
+        "objetivo",
+        "hallazgo",
+        "cuerpo",
+        "corto"
+      ],
+      "reason": "Revisión nocturna 2026-10-20 a 2026-10-23: corrección autorizada por el editor (2026-10-27) de los errores verificados en ERRORES_RESUMENES.md contra el artículo, el suplemento, el protocolo y los formularios de conflicto de interés; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
+    },
+    {
+      "id": 110,
+      "fields": [
+        "financiacion",
+        "cuerpo",
+        "corto"
+      ],
+      "reason": "Revisión nocturna 2026-10-20 a 2026-10-23: corrección autorizada por el editor (2026-10-27) de los errores verificados en ERRORES_RESUMENES.md contra el artículo, el suplemento, el protocolo y los formularios de conflicto de interés; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
+    },
+    {
+      "id": 111,
+      "fields": [
+        "financiacion",
+        "hallazgo",
+        "cuerpo",
+        "corto"
+      ],
+      "reason": "Revisión nocturna 2026-10-20 a 2026-10-23: corrección autorizada por el editor (2026-10-27) de los errores verificados en ERRORES_RESUMENES.md contra el artículo, el suplemento, el protocolo y los formularios de conflicto de interés; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
+    },
+    {
+      "id": 112,
+      "fields": [
+        "financiacion",
+        "cuerpo",
+        "corto"
+      ],
+      "reason": "Revisión nocturna 2026-10-20 a 2026-10-23: corrección autorizada por el editor (2026-10-27) de los errores verificados en ERRORES_RESUMENES.md contra el artículo, el suplemento, el protocolo y los formularios de conflicto de interés; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
     }
   ]
 }

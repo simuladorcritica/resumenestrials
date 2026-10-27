@@ -21,6 +21,27 @@
     <summary>Determinar si pasar a antibióticos orales no es inferior a continuar el tratamiento intravenoso en muerte, cirugía cardiaca no planeada, embolia o recaída de la bacteriemia en adultos estables con endocarditis izquierda.</summary>
   </entry>
   <entry>
+    <title>CROSS: quimiorradioterapia preoperatoria en el cáncer de esófago o de la unión esofagogástrica</title>
+    <id>https://resumenestrials.com/trials/cross-quimiorradioterapia-preoperatoria-cancer-esofago-union-esofagogastrica/</id>
+    <link href="https://resumenestrials.com/trials/cross-quimiorradioterapia-preoperatoria-cancer-esofago-union-esofagogastrica/"/>
+    <updated>2026-10-27T00:00:00Z</updated>
+    <summary>Determinar si la quimiorradioterapia preoperatoria con carboplatino y paclitaxel semanales y 41.4 Gy de radioterapia, seguida de cirugía, mejora la supervivencia global frente a la cirugía sola en el cáncer de esófago o de la unión esofagogástrica resecable.</summary>
+  </entry>
+  <entry>
+    <title>NHS-Galleri: efecto del cribado con una prueba de detección temprana multicáncer sobre el diagnóstico de cáncer en estadio avanzado</title>
+    <id>https://resumenestrials.com/trials/nhs-galleri-efecto-cribado-prueba-deteccion-temprana-multicancer-diagnostico-cancer-estadio/</id>
+    <link href="https://resumenestrials.com/trials/nhs-galleri-efecto-cribado-prueba-deteccion-temprana-multicancer-diagnostico-cancer-estadio/"/>
+    <updated>2026-10-27T00:00:00Z</updated>
+    <summary>Evaluar si añadir una prueba multicáncer de detección temprana en sangre, en tres rondas anuales, a la atención habitual reduce la incidencia de cáncer en estadio III o IV en 12 tipos preespecificados.</summary>
+  </entry>
+  <entry>
+    <title>ICONIC: objetivos de oxigenación conservadores frente a liberales en pacientes de la unidad de cuidados intensivos</title>
+    <id>https://resumenestrials.com/trials/iconic-objetivos-oxigenacion-conservadores-liberales-pacientes-unidad-cuidados-intensivos/</id>
+    <link href="https://resumenestrials.com/trials/iconic-objetivos-oxigenacion-conservadores-liberales-pacientes-unidad-cuidados-intensivos/"/>
+    <updated>2026-10-27T00:00:00Z</updated>
+    <summary>Determinar si una estrategia de oxigenación conservadora, con PaO2 de 55 a 80 mmHg, reduce la mortalidad a 28 días frente a una estrategia liberal, con PaO2 de 110 a 150 mmHg, en adultos con ventilación mecánica en la UCI.</summary>
+  </entry>
+  <entry>
     <title>I CAN: ravulizumab en la nefropatía por IgA, análisis interino de un ensayo de fase 3</title>
     <id>https://resumenestrials.com/trials/i-can-ravulizumab-nefropatia-iga-analisis-interino-ensayo-fase-3/</id>
     <link href="https://resumenestrials.com/trials/i-can-ravulizumab-nefropatia-iga-analisis-interino-ensayo-fase-3/"/>
@@ -334,26 +355,5 @@
     <link href="https://resumenestrials.com/trials/sepsispam-objetivo-presion-arterial-media-alto-shock-septico/"/>
     <updated>2026-10-19T00:00:00Z</updated>
     <summary>Determinar si un objetivo de presión arterial media de 80 a 85 mm Hg, frente a 65 a 70 mm Hg, reduce la mortalidad a 28 días en el shock séptico.</summary>
-  </entry>
-  <entry>
-    <title>Efecto del baño diario con clorhexidina sobre la infección adquirida en el hospital</title>
-    <id>https://resumenestrials.com/trials/bano-diario-con-clorhexidina-para-prevenir-la-adquisicion-de-germenes-multirresistentes/</id>
-    <link href="https://resumenestrials.com/trials/bano-diario-con-clorhexidina-para-prevenir-la-adquisicion-de-germenes-multirresistentes/"/>
-    <updated>2026-10-19T00:00:00Z</updated>
-    <summary>Determinar si el baño diario con toallitas de clorhexidina reduce la adquisición de gérmenes multirresistentes y las bacteriemias intrahospitalarias en unidades de alto riesgo.</summary>
-  </entry>
-  <entry>
-    <title>OSCAR: ventilación oscilatoria de alta frecuencia en el síndrome de dificultad respiratoria aguda</title>
-    <id>https://resumenestrials.com/trials/oscar-ventilacion-oscilatoria-alta-frecuencia-ventilacion-convencional-sindrome-dificultad/</id>
-    <link href="https://resumenestrials.com/trials/oscar-ventilacion-oscilatoria-alta-frecuencia-ventilacion-convencional-sindrome-dificultad/"/>
-    <updated>2026-10-19T00:00:00Z</updated>
-    <summary>Determinar si la ventilación oscilatoria de alta frecuencia, frente a la ventilación convencional, reduce la mortalidad a 30 días en adultos con síndrome de dificultad respiratoria aguda.</summary>
-  </entry>
-  <entry>
-    <title>IABP-SHOCK II: soporte con balón intraaórtico en el infarto de miocardio con shock cardiogénico</title>
-    <id>https://resumenestrials.com/trials/iabp-shock-ii-balon-contrapulsacion-intraaortico-infarto-agudo-miocardio-shock-cardiogenico/</id>
-    <link href="https://resumenestrials.com/trials/iabp-shock-ii-balon-contrapulsacion-intraaortico-infarto-agudo-miocardio-shock-cardiogenico/"/>
-    <updated>2026-10-19T00:00:00Z</updated>
-    <summary>Determinar si la contrapulsación con balón intraaórtico, añadida a la revascularización temprana, reduce la mortalidad a 30 días en el infarto agudo de miocardio con shock cardiogénico.</summary>
   </entry>
 </feed>

@@ -2251,7 +2251,7 @@
       "https://resumenestrials.com/images/trials/chest-hidroxietil-almidon-solucion-salina-reanimacion-liquidos-cuidados-intensivos-1x1.jpg"
     ],
     "intent": {
-      "question": "Determinar si la reanimación con hidroxietil almidón al 6% (130/0.4), comparada con solución salina, aumenta la mortalidad a 90 días en una población heterogénea de pacientes de cuidados intensivos.",
+      "question": "Evaluar la seguridad y la eficacia de la reanimación con hidroxietil almidón al 6% (130/0.4), comparada con solución salina, en una población heterogénea de pacientes de cuidados intensivos, con la mortalidad a 90 días como desenlace primario.",
       "answer": "No hubo diferencia significativa en la mortalidad a 90 días entre hidroxietil almidón y solución salina ( 18.0% vs 17.0%; riesgo relativo 1.06; IC 95%, 0.96 a 1.18; p=0.26 ), pero el almidón se asoció a más uso de terapia de reemplazo renal y más eventos adversos.",
       "population": "Población. Adultos de 18 años o más ingresados en una unidad de cuidados intensivos que, según el criterio del clínico tratante, requerían reanimación con líquidos, definida como la administración de un bolo de líquido intravenoso adicional al de mantenimiento, con al menos un criterio fisiológico objetivo de hipovolemia, reclutados en 32 hospitales de Australia y Nueva Zelanda. Intervención. Hidroxietil almidón al 6% con peso…"
     },
@@ -2486,7 +2486,7 @@
     "url": "https://resumenestrials.com/trials/mr-clean-tratamiento-intraarterial-ictus-isquemico-agudo-oclusion-proximal/",
     "title": "MR CLEAN: ensayo aleatorizado de tratamiento intraarterial en el ictus isquémico agudo",
     "seo_title": "MR CLEAN trial: ensayo aleatorizado de tratamiento intraarterial en el ictus isquémico agudo | Resúmenes Trials",
-    "description": "MR CLEAN: El tratamiento intraarterial dentro de las 6 horas mejoró la independencia funcional a los 90 días ( 32.6% frente a 19.1% ; razón de momios común…",
+    "description": "MR CLEAN: El tratamiento intraarterial dentro de las 6 horas desplazó la escala de Rankin a los 90 días hacia mejores desenlaces (razón de momios común…",
     "clusters": [
       {
         "name": "Neurología",
@@ -2501,7 +2501,7 @@
     ],
     "intent": {
       "question": "Determinar si el tratamiento intraarterial (trombectomía mecánica, trombólisis intraarterial o ambas), añadido al cuidado habitual, mejora el desenlace funcional a los 90 días frente al cuidado habitual solo, en pacientes con ictus isquémico agudo por oclusión arterial intracraneal proximal de la circulación anterior tratable dentro de las 6 horas.",
-      "answer": "El tratamiento intraarterial dentro de las 6 horas mejoró la independencia funcional a los 90 días ( 32.6% frente a 19.1% ; razón de momios común ajustada 1.67; IC 95%, 1.21 a 2.30) sin aumentar la mortalidad ni la hemorragia intracraneal sintomática.",
+      "answer": "El tratamiento intraarterial dentro de las 6 horas desplazó la escala de Rankin a los 90 días hacia mejores desenlaces (razón de momios común ajustada 1.67; IC 95%, 1.21 a 2.30), con independencia funcional en el 32.6% frente a 19.1% (razón de momios ajustada 2.16; IC 95%, 1.39 a 3.38), sin diferencia significativa en la…",
       "population": "Población. Adultos de 18 años o más, sin límite superior de edad, con ictus isquémico agudo causado por una oclusión intracraneal de la circulación anterior (arteria carótida interna distal, segmento M1 o M2 de la arteria cerebral media, o segmento A1 o A2 de la arteria cerebral anterior), confirmada mediante angiotomografía, angiorresonancia o angiografía por sustracción digital. La raza o etnia de los participantes no se…"
     },
     "datePublished": "2026-09-02"
@@ -2554,7 +2554,7 @@
     "intent": {
       "question": "Determinar si apixabán es no inferior, y en un análisis jerárquico posterior superior, a warfarina para reducir el ictus o la embolia sistémica en pacientes con fibrilación auricular y al menos un factor de riesgo adicional de ictus, y comparar además el sangrado mayor y la mortalidad por cualquier causa entre ambos.",
       "answer": "Apixabán redujo el ictus o la embolia sistémica frente a warfarina ( 1.27% frente a 1.60% por año ; razón de riesgo 0.79; IC 95%, 0.66 a 0.95; p=0.01 para superioridad), con menos sangrado mayor y menor mortalidad total.",
-      "population": "Población. Adultos con fibrilación auricular o flutter auricular al momento de la inclusión, o con al menos dos episodios documentados por electrocardiograma en los 12 meses previos, más al menos un factor de riesgo adicional de ictus: edad de 75 años o más, ictus o accidente isquémico transitorio o embolia sistémica previos, insuficiencia cardiaca sintomática en los últimos 3 meses o fracción de eyección del 40% o menos…"
+      "population": "Población. Adultos con fibrilación auricular o flutter auricular al momento de la inclusión, o con al menos dos episodios documentados por electrocardiograma, separados por al menos 2 semanas, en los 12 meses previos, más al menos un factor de riesgo adicional de ictus: edad de 75 años o más, ictus o accidente isquémico transitorio o embolia sistémica previos, insuficiencia cardiaca sintomática en los últimos 3 meses o…"
     },
     "datePublished": "2026-09-02"
   },
@@ -2579,7 +2579,7 @@
     ],
     "intent": {
       "question": "Determinar si la monoterapia con prasugrel a dosis baja, iniciada antes de la angioplastia primaria y sin ácido acetilsalicílico de entrada, es no inferior a la doble antiagregación con ácido acetilsalicílico y prasugrel a dosis baja durante 12 meses, respecto a un compuesto de muerte por cualquier causa, ictus o infarto de miocardio, en pacientes con infarto con elevación del ST sometidos a angioplastia primaria.",
-      "answer": "La monoterapia con prasugrel iniciada antes de la angioplastia primaria no demostró ser no inferior a la doble antiagregación a 12 meses ( 11.0% frente a 8.5% de muerte, ictus o infarto; razón de riesgo 1.34; IC 95%, 1.02 a 1.75), aunque sí redujo el sangrado mayor.",
+      "answer": "La monoterapia con prasugrel iniciada antes de la angioplastia primaria no demostró ser no inferior a la doble antiagregación a 12 meses ( 11.0% frente a 8.5% de muerte, ictus o infarto; razón de riesgo 1.34; IC 95%, 1.02 a 1.75); el sangrado mayor fue menor con monoterapia (5.6% frente a 8.4%), pero esta diferencia no se…",
       "population": "Población. Adultos de 18 años o más con infarto de miocardio con elevación del segmento ST, que se presentaban dentro de las 12 horas posteriores al inicio de los síntomas, eran sometidos a angioplastia primaria con implante planeado del stent Synergy, y eran candidatos a recibir 12 meses de doble antiagregación. La raza o etnia no se reportó; el ensayo se realizó íntegramente en Japón. Intervención. Monoterapia con prasugrel…"
     },
     "datePublished": "2026-09-02"
@@ -2610,7 +2610,7 @@
     ],
     "intent": {
       "question": "Evaluar los efectos de la canagliflozina, un inhibidor del cotransportador de sodio-glucosa tipo 2, sobre los desenlaces cardiovasculares, renales y de seguridad en personas con diabetes tipo 2 y riesgo cardiovascular alto o enfermedad cardiovascular establecida.",
-      "answer": "La canagliflozina redujo el compuesto de muerte cardiovascular, infarto no fatal o ictus no fatal frente a placebo ( 26.9 frente a 31.5 eventos por 1000 pacientes-año ; razón de riesgo 0.86; IC 95%, 0.75 a 0.97), pero casi duplicó el riesgo de amputación.",
+      "answer": "La canagliflozina redujo el compuesto de muerte cardiovascular, infarto no fatal o ictus no fatal frente a placebo ( 26.9 frente a 31.5 participantes con evento por 1000 pacientes-año ; razón de riesgo 0.86; IC 95%, 0.75 a 0.97), pero casi duplicó el riesgo de amputación.",
       "population": "Población. Adultos con diabetes tipo 2 (hemoglobina glucosilada de 7.0% a 10.5%) y alto riesgo cardiovascular: de 30 años o más con antecedente de enfermedad cardiovascular aterosclerótica sintomática, o de 50 años o más con al menos dos factores de riesgo cardiovascular adicionales, como diabetes de al menos 10 años de evolución, presión sistólica mayor de 140 mmHg pese a tratamiento, tabaquismo activo, albuminuria o…"
     },
     "datePublished": "2026-09-02"
@@ -2714,7 +2714,7 @@
     ],
     "intent": {
       "question": "Determinar si el clopidogrel en monoterapia es no inferior a la doble antiagregación prolongada con clopidogrel y aspirina, con respecto a un compuesto de eventos clínicos adversos netos a los 24 meses, en pacientes de alto riesgo isquémico a los 12 meses de la implantación de un stent farmacoactivo.",
-      "answer": "El clopidogrel en monoterapia fue no inferior a la doble antiagregación prolongada en el compuesto de eventos clínicos adversos netos ( 5.0% frente a 5.1% ; diferencia de riesgo -0.1 puntos porcentuales; IC 90%, -1.3 a 1.2; p=0.001 para no inferioridad), aunque este resultado global oculta efectos divergentes: más del doble de…",
+      "answer": "El clopidogrel en monoterapia fue no inferior a la doble antiagregación prolongada en el compuesto de eventos clínicos adversos netos ( 5.0% frente a 5.1% ; diferencia de riesgo -0.1 puntos porcentuales; IC 90%, -1.3 a 1.2; p=0.001 para no inferioridad), aunque este resultado global oculta efectos divergentes en dirección y peso…",
       "population": "Población. Adultos mayores de 19 años a quienes se les había implantado un stent farmacoactivo 12 meses antes (ventana de 11 a 17 meses) y que presentaban al menos una característica clínica o de la lesión asociada a alto riesgo isquémico, como síndrome coronario agudo, diabetes tratada farmacológicamente, enfermedad renal crónica, insuficiencia cardiaca, ictus previo, enfermedad del tronco coronario izquierdo no protegido…"
     },
     "datePublished": "2026-09-02"
@@ -2797,7 +2797,7 @@
     ],
     "intent": {
       "question": "Determinar si el evolocumab, un anticuerpo monoclonal inhibidor de PCSK9, reduce el riesgo de eventos cardiovasculares mayores en pacientes con enfermedad cardiovascular aterosclerótica y colesterol LDL elevado pese al tratamiento con estatinas.",
-      "answer": "El evolocumab redujo el compuesto de muerte cardiovascular, infarto, ictus, hospitalización por angina inestable, o revascularización coronaria, frente a placebo ( 9.8% frente a 11.3% ; razón de riesgo 0.85; IC 95%, 0.79 a 0.92; p<0.001), con un número necesario a tratar de 74 pacientes durante 2 años según reporta el propio…",
+      "answer": "El evolocumab redujo el compuesto de muerte cardiovascular, infarto, ictus, hospitalización por angina inestable, o revascularización coronaria, frente a placebo ( 9.8% frente a 11.3% ; razón de riesgo 0.85; IC 95%, 0.79 a 0.92; p<0.001), y el propio artículo reporta que habría que tratar a 74 pacientes durante 2 años para…",
       "population": "Población. Adultos de 40 a 85 años con enfermedad cardiovascular aterosclerótica clínicamente evidente (infarto de miocardio previo, ictus no hemorrágico, o enfermedad arterial periférica sintomática) y un nivel de colesterol LDL de 70 mg/dl o más (o colesterol no-HDL de 100 mg/dl o más), en tratamiento optimizado con estatinas, preferiblemente de alta intensidad. Reclutados en 1242 centros de 49 países. Intervención…"
     },
     "datePublished": "2026-09-02"
@@ -2823,7 +2823,7 @@
     ],
     "intent": {
       "question": "Determinar si añadir ezetimiba a la simvastatina, en pacientes estables tras un síndrome coronario agudo con un colesterol LDL ya dentro del rango recomendado por las guías, reduce más los eventos cardiovasculares que la simvastatina sola.",
-      "answer": "El desenlace primario compuesto mejoró con la combinación: 32.7% frente a 34.7% a los 7 años (hazard ratio, 0.936; IC 95%, 0.89 a 0.99; p=0.016) , impulsado por menos infartos y menos ictus isquémicos, sin diferencia en la mortalidad por cualquier causa ni en la mortalidad cardiovascular.",
+      "answer": "El desenlace primario compuesto mejoró con la combinación: 32.7% frente a 34.7% a los 7 años (hazard ratio, 0.936; IC 95%, 0.89 a 0.99; p=0.016) , con menos infartos y menos ictus isquémicos en desenlaces terciarios analizados sin ajuste por comparaciones múltiples, y sin diferencia en la mortalidad por cualquier causa ni en la…",
       "population": "La población fueron hombres y mujeres de 50 años o más, hospitalizados en los 10 días previos por un síndrome coronario agudo, ya fuera un infarto de miocardio con o sin elevación del segmento ST o una angina inestable de alto riesgo, y con un colesterol LDL de entre 50 y 100 mg/dl si ya recibían tratamiento hipolipemiante, o de entre 50 y 125 mg/dl si no lo recibían. El 84% se identificó como de raza blanca, según la…"
     },
     "datePublished": "2026-09-02"
@@ -2834,7 +2834,7 @@
     "url": "https://resumenestrials.com/trials/aspired-monitorizacion-electrocardiografica-ambulatoria-inmediata-sincope/",
     "title": "ASPIRED: monitorización electrocardiográfica ambulatoria inmediata en el síncope",
     "seo_title": "ASPIRED trial: monitorización electrocardiográfica ambulatoria inmediata en el síncope | Resúmenes Trials",
-    "description": "ASPIRED: El número de episodios de síncope reportados por el paciente al año no mejoró con la monitorización: 1.37 frente a 1.58 episodios (razón de tasas de…",
+    "description": "ASPIRED: El número de episodios de síncope reportados por el paciente al año no difirió significativamente con la monitorización: 1.37 frente a 1.58 episodios…",
     "clusters": [],
     "images": [
       "https://resumenestrials.com/images/trials/aspired-monitorizacion-electrocardiografica-ambulatoria-inmediata-sincope-16x9.jpg",
@@ -2843,7 +2843,7 @@
     ],
     "intent": {
       "question": "Determinar si la monitorización electrocardiográfica ambulatoria de 14 días, iniciada de inmediato tras la evaluación en urgencias, reduce los episodios de síncope reportados por el paciente al año en personas con síncope sin explicación.",
-      "answer": "El número de episodios de síncope reportados por el paciente al año no mejoró con la monitorización: 1.37 frente a 1.58 episodios (razón de tasas de incidencia, 0.89; IC 95%, 0.68 a 1.18; p=0.42) .",
+      "answer": "El número de episodios de síncope reportados por el paciente al año no difirió significativamente con la monitorización: 1.37 frente a 1.58 episodios (razón de tasas de incidencia, 0.89; IC 95%, 0.68 a 1.18; p=0.42) .",
       "population": "La población fueron adultos de 16 años o más que acudieron a un servicio de urgencias o a una unidad médica de agudos por un síncope que permanecía sin explicación tras la evaluación inicial. El 89.6% de los participantes se identificó como de raza blanca, el 5.1% como asiático o asiático británico, el 2.4% como negro o negro británico, y el resto como de raza mixta u otra, según el propio reporte del paciente."
     },
     "datePublished": "2026-09-02"
@@ -2870,7 +2870,7 @@
     "intent": {
       "question": "Determinar si un programa de rehabilitación multidominio, que combina control de factores de riesgo cardiovascular, asesoría nutricional y ejercicio individualizado, reduce la muerte cardiovascular o la hospitalización cardiovascular no planeada a 1 año en pacientes de 65 años o más con deterioro físico un mes después de un infarto de miocardio, frente a la atención usual.",
       "answer": "El desenlace primario compuesto fue menor con la rehabilitación multidominio: 12.6% frente a 20.6% a 1 año (hazard ratio, 0.57; IC 95%, 0.36 a 0.89; p=0.01) , impulsado sobre todo por menos hospitalizaciones cardiovasculares, sin diferencia significativa en la muerte cardiovascular por separado.",
-      "population": "La población fueron pacientes de 65 años o más, hospitalizados por un infarto de miocardio con o sin elevación del segmento ST, sometidos a revascularización coronaria exitosa, que un mes después del alta obtenían entre 4 y 9 puntos en la Short Physical Performance Battery, un rango que identifica un deterioro físico moderado; el artículo no reporta la raza o etnia de los participantes. Todos procedían de la región italiana de…"
+      "population": "La población fueron pacientes de 65 años o más, hospitalizados por un infarto de miocardio con o sin elevación del segmento ST, sometidos a revascularización coronaria exitosa, que un mes después del alta obtenían entre 4 y 9 puntos en la Short Physical Performance Battery, un rango que identifica un deterioro físico moderado; más del 90% de los participantes eran caucásicos. Todos procedían de la región italiana de…"
     },
     "datePublished": "2026-09-02"
   },
@@ -2966,9 +2966,9 @@
       "https://resumenestrials.com/images/trials/hptn-052-inicio-temprano-tratamiento-antirretroviral-prevenir-transmision-vih-1-parejas-1x1.jpg"
     ],
     "intent": {
-      "question": "Determinar si el inicio inmediato del tratamiento antirretroviral, en comparación con su inicio diferido, reduce la transmisión sexual del VIH-1 a la pareja no infectada y los eventos clínicos graves en la persona infectada, en parejas heterosexuales serodiscordantes con un recuento de CD4 de 350 a 550 células por milímetro cúbico en el miembro infectado.",
-      "answer": "La transmisión del VIH-1 vinculada genéticamente a la pareja infectada fue mucho menor con el tratamiento temprano: 1 transmisión vinculada entre 886 parejas asignadas a terapia temprana frente a 27 entre 877 asignadas a terapia diferida (hazard ratio, 0.04; IC95%, 0.01 a 0.27; p<0.001) .",
-      "population": "La población fueron parejas heterosexuales serodiscordantes para el VIH-1, con una relación estable de al menos 3 meses y al menos tres relaciones sexuales en ese periodo; el 97% de las parejas era heterosexual y el 94% estaba casada o convivía, con el miembro infectado siendo hombre en el 50% de los casos. El artículo no reporta la raza o el grupo étnico de los participantes; procedían de 13 centros en nueve países, con el…"
+      "question": "Determinar si el inicio inmediato del tratamiento antirretroviral, en comparación con su inicio diferido, reduce la transmisión sexual del VIH-1 a la pareja no infectada y los eventos clínicos graves en la persona infectada, en parejas serodiscordantes con un recuento de CD4 de 350 a 550 células por milímetro cúbico en el miembro infectado.",
+      "answer": "La transmisión del VIH-1 vinculada genéticamente a la pareja infectada fue mucho menor con el tratamiento temprano: 1 transmisión vinculada entre 893 parejas no infectadas del grupo de terapia temprana frente a 27 entre 882 del grupo de terapia diferida (hazard ratio, 0.04; IC95%, 0.01 a 0.27; p<0.001) .",
+      "population": "La población fueron parejas serodiscordantes para el VIH-1, con una relación estable de al menos 3 meses y al menos tres relaciones sexuales en ese periodo; el 97% de las parejas era heterosexual y el 94% estaba casada o convivía, con el miembro infectado siendo hombre en el 50% de los casos. El artículo no reporta la raza o el grupo étnico de los participantes; procedían de 13 centros en nueve países, con el 54% en África, el…"
     },
     "datePublished": "2026-09-02"
   },
@@ -6380,6 +6380,72 @@
       "question": "Determinar si pasar a antibióticos orales no es inferior a continuar el tratamiento intravenoso en muerte, cirugía cardiaca no planeada, embolia o recaída de la bacteriemia en adultos estables con endocarditis izquierda.",
       "answer": "El compuesto de muerte, cirugía no planeada, embolia o recaída ocurrió en el 12.1% con la vía intravenosa frente al 9.0% con la oral (diferencia 3.1 puntos; IC 95%, −3.4 a 9.6; p=0.40), lo que cumplió el criterio de no inferioridad sin demostrar superioridad.",
       "population": "La población fueron adultos de 18 años o más con endocarditis infecciosa del lado izquierdo del corazón, sobre válvula nativa o protésica, que cumplían los criterios de Duke modificados y tenían hemocultivos positivos para estreptococos, Enterococcus faecalis, Staphylococcus aureus o estafilococos coagulasa negativos. Además debían estar estables, con criterios concretos: al menos 10 días de antibiótico intravenoso adecuado, y…"
+    },
+    "datePublished": "2026-10-27"
+  },
+  "172": {
+    "slug": "cross-quimiorradioterapia-preoperatoria-cancer-esofago-union-esofagogastrica",
+    "path": "/trials/cross-quimiorradioterapia-preoperatoria-cancer-esofago-union-esofagogastrica/",
+    "url": "https://resumenestrials.com/trials/cross-quimiorradioterapia-preoperatoria-cancer-esofago-union-esofagogastrica/",
+    "title": "CROSS: quimiorradioterapia preoperatoria en el cáncer de esófago o de la unión esofagogástrica",
+    "seo_title": "CROSS trial: quimiorradioterapia preoperatoria en el cáncer de esófago o de la unión esofagogástrica | Resúmenes Trials",
+    "description": "CROSS: La quimiorradioterapia antes de la cirugía alargó la mediana de supervivencia de 24.0 a 49.4 meses, con HR 0.657 (IC 95%, 0.495 a 0.871; p=0.003) , y…",
+    "clusters": [],
+    "images": [
+      "https://resumenestrials.com/images/trials/cross-quimiorradioterapia-preoperatoria-cancer-esofago-union-esofagogastrica-16x9.jpg",
+      "https://resumenestrials.com/images/trials/cross-quimiorradioterapia-preoperatoria-cancer-esofago-union-esofagogastrica-4x3.jpg",
+      "https://resumenestrials.com/images/trials/cross-quimiorradioterapia-preoperatoria-cancer-esofago-union-esofagogastrica-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si la quimiorradioterapia preoperatoria con carboplatino y paclitaxel semanales y 41.4 Gy de radioterapia, seguida de cirugía, mejora la supervivencia global frente a la cirugía sola en el cáncer de esófago o de la unión esofagogástrica resecable.",
+      "answer": "La quimiorradioterapia antes de la cirugía alargó la mediana de supervivencia de 24.0 a 49.4 meses, con HR 0.657 (IC 95%, 0.495 a 0.871; p=0.003) , y elevó la resección completa R0 del 69% al 92%, sin diferencias significativas en la mortalidad hospitalaria.",
+      "population": "La población fueron adultos de 18 a 75 años con un carcinoma de esófago o de la unión esofagogástrica potencialmente curable y confirmado por histología: carcinoma escamoso, adenocarcinoma o carcinoma indiferenciado de células grandes, atendidos en hospitales de los Países Bajos. Raza o etnia: No reportado."
+    },
+    "datePublished": "2026-10-27"
+  },
+  "176": {
+    "slug": "nhs-galleri-efecto-cribado-prueba-deteccion-temprana-multicancer-diagnostico-cancer-estadio",
+    "path": "/trials/nhs-galleri-efecto-cribado-prueba-deteccion-temprana-multicancer-diagnostico-cancer-estadio/",
+    "url": "https://resumenestrials.com/trials/nhs-galleri-efecto-cribado-prueba-deteccion-temprana-multicancer-diagnostico-cancer-estadio/",
+    "title": "NHS-Galleri: efecto del cribado con una prueba de detección temprana multicáncer sobre el diagnóstico de cáncer en estadio avanzado",
+    "seo_title": "NHS-Galleri trial: efecto del cribado con una prueba de detección temprana multicáncer sobre el diagnóstico de cáncer en estadio avanzado | Resúmenes Trials",
+    "description": "NHS-Galleri: El cáncer en estadio III o IV en 12 tipos preespecificados no se redujo tras tres rondas: 706 frente a 688 casos, con una razón de tasas de 1.03…",
+    "clusters": [],
+    "images": [
+      "https://resumenestrials.com/images/trials/nhs-galleri-efecto-cribado-prueba-deteccion-temprana-multicancer-diagnostico-cancer-estadio-16x9.jpg",
+      "https://resumenestrials.com/images/trials/nhs-galleri-efecto-cribado-prueba-deteccion-temprana-multicancer-diagnostico-cancer-estadio-4x3.jpg",
+      "https://resumenestrials.com/images/trials/nhs-galleri-efecto-cribado-prueba-deteccion-temprana-multicancer-diagnostico-cancer-estadio-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Evaluar si añadir una prueba multicáncer de detección temprana en sangre, en tres rondas anuales, a la atención habitual reduce la incidencia de cáncer en estadio III o IV en 12 tipos preespecificados.",
+      "answer": "El cáncer en estadio III o IV en 12 tipos preespecificados no se redujo tras tres rondas: 706 frente a 688 casos, con una razón de tasas de 1.03 (IC 95%, 0.92 a 1.14; p = 0.63) .",
+      "population": "La población fueron personas de 50 a 77 años, sin síntomas que motivaran estudio, residentes en ocho de las 21 regiones de las Cancer Alliances de Inglaterra, elegidas por su mayor mortalidad por cáncer, su peor diagnóstico en estadio temprano y su mayor diversidad étnica. La raza o etnia la declaró cada participante: el 93.6% eran blancos, el 3.3% asiáticos y el 1.4% negros."
+    },
+    "datePublished": "2026-10-27"
+  },
+  "231": {
+    "slug": "iconic-objetivos-oxigenacion-conservadores-liberales-pacientes-unidad-cuidados-intensivos",
+    "path": "/trials/iconic-objetivos-oxigenacion-conservadores-liberales-pacientes-unidad-cuidados-intensivos/",
+    "url": "https://resumenestrials.com/trials/iconic-objetivos-oxigenacion-conservadores-liberales-pacientes-unidad-cuidados-intensivos/",
+    "title": "ICONIC: objetivos de oxigenación conservadores frente a liberales en pacientes de la unidad de cuidados intensivos",
+    "seo_title": "ICONIC trial: objetivos de oxigenación conservadores frente a liberales en pacientes de la unidad de cuidados intensivos | Resúmenes Trials",
+    "description": "ICONIC: La mortalidad a 28 días fue del 38.5% con oxigenación conservadora frente al 34.7% con la liberal , sin diferencia significativa (riesgo relativo…",
+    "clusters": [
+      {
+        "name": "Ventilación e insuficiencia respiratoria",
+        "path": "/medicina-critica/ventilacion-respiratoria/",
+        "url": "https://resumenestrials.com/medicina-critica/ventilacion-respiratoria/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/iconic-objetivos-oxigenacion-conservadores-liberales-pacientes-unidad-cuidados-intensivos-16x9.jpg",
+      "https://resumenestrials.com/images/trials/iconic-objetivos-oxigenacion-conservadores-liberales-pacientes-unidad-cuidados-intensivos-4x3.jpg",
+      "https://resumenestrials.com/images/trials/iconic-objetivos-oxigenacion-conservadores-liberales-pacientes-unidad-cuidados-intensivos-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si una estrategia de oxigenación conservadora, con PaO2 de 55 a 80 mmHg, reduce la mortalidad a 28 días frente a una estrategia liberal, con PaO2 de 110 a 150 mmHg, en adultos con ventilación mecánica en la UCI.",
+      "answer": "La mortalidad a 28 días fue del 38.5% con oxigenación conservadora frente al 34.7% con la liberal , sin diferencia significativa (riesgo relativo 1.11; IC 95%, 0.9 a 1.4; p = 0.30), en un ensayo detenido con menos de la mitad de la muestra prevista.",
+      "population": "La población fueron adultos de 18 años o más ingresados en las unidades de cuidados intensivos participantes, intubados y con ventilación mecánica que se esperaba durara al menos 24 horas, incluidos en las 2 horas siguientes al inicio de la ventilación. Participaron ocho UCI de los Países Bajos y una de Italia. La raza o etnia de los pacientes: No reportado."
     },
     "datePublished": "2026-10-27"
   }

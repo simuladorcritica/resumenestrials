@@ -35,7 +35,7 @@
     "category": "Medicina Crítica",
     "path": "/medicina-critica/ventilacion-respiratoria/",
     "url": "https://resumenestrials.com/medicina-critica/ventilacion-respiratoria/",
-    "count": 44,
+    "count": 45,
     "trial_ids": [
       "1",
       "3",
@@ -80,7 +80,8 @@
       "206",
       "212",
       "201",
-      "232"
+      "232",
+      "231"
     ]
   },
   "sdra-ecmo": {
