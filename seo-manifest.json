@@ -2663,7 +2663,7 @@
     "intent": {
       "question": "Determinar si el etil-icosapento, un éster etílico purificado de ácido eicosapentaenoico, reduce el riesgo de eventos isquémicos cardiovasculares frente a placebo en pacientes con hipertrigliceridemia persistente pese al tratamiento con estatinas.",
       "answer": "El etil-icosapento redujo el compuesto de muerte cardiovascular, infarto no fatal, ictus no fatal, revascularización coronaria o angina inestable frente a placebo ( 17.2% frente a 22.0% ; razón de riesgo 0.75; IC 95%, 0.68 a 0.83; p<0.001), con un número necesario a tratar de 21.",
-      "population": "Población. Adultos de 45 años o más con enfermedad cardiovascular establecida (prevención secundaria) o de 50 años o más con diabetes mellitus y al menos un factor de riesgo cardiovascular adicional (prevención primaria, limitada al 30% de los pacientes inscritos), con un nivel de triglicéridos en ayuno de 135 a 499 mg/dl y un colesterol LDL de 41 a 100 mg/dl, tratados con una dosis estable de estatina durante al menos 4…"
+      "population": "Población. Adultos de 45 años o más con enfermedad cardiovascular establecida (prevención secundaria) o de 50 años o más con diabetes mellitus y al menos un factor de riesgo cardiovascular adicional (prevención primaria, limitada al 30% de los pacientes inscritos), con un nivel de triglicéridos en ayuno de 150 a 499 mg/dl (por la variabilidad individual, el protocolo inicial admitía un valor hasta 10% inferior, es decir, desde…"
     },
     "datePublished": "2026-09-02"
   },
@@ -2906,7 +2906,7 @@
     "url": "https://resumenestrials.com/trials/switch-swedeheart-prasugrel-ticagrelor-sindromes-coronarios-agudos/",
     "title": "SWITCH-SWEDEHEART: prasugrel frente a ticagrelor en los síndromes coronarios agudos",
     "seo_title": "SWITCH-SWEDEHEART trial: prasugrel frente a ticagrelor en los síndromes coronarios agudos | Resúmenes Trials",
-    "description": "SWITCH-SWEDEHEART: El compuesto de muerte, infarto o ictus a 1 año no difirió entre políticas: 11.8% con ticagrelor frente a 11.1% con prasugrel (odds ratio…",
+    "description": "SWITCH-SWEDEHEART: El compuesto de muerte, infarto o ictus a 1 año no difirió significativamente entre políticas: 11.8% con ticagrelor frente a 11.1% con…",
     "clusters": [
       {
         "name": "Cardiología y prevención cardiovascular",
@@ -2921,7 +2921,7 @@
     ],
     "intent": {
       "question": "Determinar si una política regional de prasugrel como inhibidor P2Y12 por defecto, frente a una política de ticagrelor por defecto, reduce el compuesto de muerte, infarto de miocardio o ictus a 1 año en una población no seleccionada de pacientes con un síndrome coronario agudo sometidos a intervención coronaria percutánea.",
-      "answer": "El compuesto de muerte, infarto o ictus a 1 año no difirió entre políticas: 11.8% con ticagrelor frente a 11.1% con prasugrel (odds ratio ajustado, 0.90; IC 95%, 0.77 a 1.06; p=0.22) .",
+      "answer": "El compuesto de muerte, infarto o ictus a 1 año no difirió significativamente entre políticas: 11.8% con ticagrelor frente a 11.1% con prasugrel (odds ratio ajustado, 0.90; IC 95%, 0.77 a 1.06; p=0.22) .",
       "population": "La población fueron adultos de 18 años o más, incluidos sin selección previa (a diferencia de ensayos explicativos anteriores, se retuvo a quienes recibían anticoagulación oral o tenían un ictus previo), inscritos en el registro SWEDEHEART de Suecia por haber sido sometidos a una intervención coronaria percutánea durante la hospitalización índice por un síndrome coronario agudo; el artículo no reporta la raza o etnia de los…"
     },
     "datePublished": "2026-09-02"
@@ -6409,7 +6409,7 @@
     "url": "https://resumenestrials.com/trials/nhs-galleri-efecto-cribado-prueba-deteccion-temprana-multicancer-diagnostico-cancer-estadio/",
     "title": "NHS-Galleri: efecto del cribado con una prueba de detección temprana multicáncer sobre el diagnóstico de cáncer en estadio avanzado",
     "seo_title": "NHS-Galleri trial: efecto del cribado con una prueba de detección temprana multicáncer sobre el diagnóstico de cáncer en estadio avanzado | Resúmenes Trials",
-    "description": "NHS-Galleri: El cáncer en estadio III o IV en 12 tipos preespecificados no se redujo tras tres rondas: 706 frente a 688 casos, con una razón de tasas de 1.03…",
+    "description": "NHS-Galleri: El cáncer en estadio III o IV en 12 tipos preespecificados no se redujo de forma significativa tras tres rondas: 706 frente a 688 casos, con una…",
     "clusters": [],
     "images": [
       "https://resumenestrials.com/images/trials/nhs-galleri-efecto-cribado-prueba-deteccion-temprana-multicancer-diagnostico-cancer-estadio-16x9.jpg",
@@ -6418,7 +6418,7 @@
     ],
     "intent": {
       "question": "Evaluar si añadir una prueba multicáncer de detección temprana en sangre, en tres rondas anuales, a la atención habitual reduce la incidencia de cáncer en estadio III o IV en 12 tipos preespecificados.",
-      "answer": "El cáncer en estadio III o IV en 12 tipos preespecificados no se redujo tras tres rondas: 706 frente a 688 casos, con una razón de tasas de 1.03 (IC 95%, 0.92 a 1.14; p = 0.63) .",
+      "answer": "El cáncer en estadio III o IV en 12 tipos preespecificados no se redujo de forma significativa tras tres rondas: 706 frente a 688 casos, con una razón de tasas de 1.03 (IC 95%, 0.92 a 1.14; p = 0.63) .",
       "population": "La población fueron personas de 50 a 77 años, sin síntomas que motivaran estudio, residentes en ocho de las 21 regiones de las Cancer Alliances de Inglaterra, elegidas por su mayor mortalidad por cáncer, su peor diagnóstico en estadio temprano y su mayor diversidad étnica. La raza o etnia la declaró cada participante: el 93.6% eran blancos, el 3.3% asiáticos y el 1.4% negros."
     },
     "datePublished": "2026-10-27"
