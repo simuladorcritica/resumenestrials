@@ -1,85 +1,13 @@
 {
   "schema_version": 1,
-  "base_sha": "6802dfc4aa6e9f1add399e449eba4e8d5e8e3325",
+  "base_sha": "91ab5b442a198784a1e865302616089db4b88f7a",
   "authorizations": [
-    {
-      "id": 113,
-      "fields": [
-        "financiacion",
-        "hallazgo",
-        "cuerpo",
-        "corto"
-      ],
-      "reason": "Revisión nocturna 2026-10-27 con el equipo editorial: corrección autorizada por el editor (2026-10-28) de los errores verificados contra el artículo, el suplemento, el protocolo y los formularios de conflicto de interés; dos rondas de revisión independiente posteriores sin errores críticos ni mayores pendientes."
-    },
-    {
-      "id": 114,
-      "fields": [
-        "financiacion",
-        "hallazgo",
-        "cuerpo",
-        "corto"
-      ],
-      "reason": "Revisión nocturna 2026-10-27 con el equipo editorial: corrección autorizada por el editor (2026-10-28) de los errores verificados contra el artículo, el suplemento, el protocolo y los formularios de conflicto de interés; dos rondas de revisión independiente posteriores sin errores críticos ni mayores pendientes."
-    },
-    {
-      "id": 115,
-      "fields": [
-        "financiacion",
-        "hallazgo",
-        "cuerpo",
-        "corto"
-      ],
-      "reason": "Revisión nocturna 2026-10-27 con el equipo editorial: corrección autorizada por el editor (2026-10-28) de los errores verificados contra el artículo, el suplemento, el protocolo y los formularios de conflicto de interés; dos rondas de revisión independiente posteriores sin errores críticos ni mayores pendientes."
-    },
-    {
-      "id": 116,
-      "fields": [
-        "financiacion",
-        "hallazgo",
-        "cuerpo",
-        "corto"
-      ],
-      "reason": "Revisión nocturna 2026-10-27 con el equipo editorial: corrección autorizada por el editor (2026-10-28) de los errores verificados contra el artículo, el suplemento, el protocolo y los formularios de conflicto de interés; dos rondas de revisión independiente posteriores sin errores críticos ni mayores pendientes."
-    },
-    {
-      "id": 117,
-      "fields": [
-        "financiacion",
-        "hallazgo",
-        "cuerpo",
-        "corto"
-      ],
-      "reason": "Revisión nocturna 2026-10-27 con el equipo editorial: corrección autorizada por el editor (2026-10-28) de los errores verificados contra el artículo, el suplemento, el protocolo y los formularios de conflicto de interés; dos rondas de revisión independiente posteriores sin errores críticos ni mayores pendientes."
-    },
     {
       "id": 118,
       "fields": [
-        "financiacion",
-        "hallazgo",
-        "cuerpo",
-        "corto"
+        "cuerpo"
       ],
-      "reason": "Revisión nocturna 2026-10-27 con el equipo editorial: corrección autorizada por el editor (2026-10-28) de los errores verificados contra el artículo, el suplemento, el protocolo y los formularios de conflicto de interés; dos rondas de revisión independiente posteriores sin errores críticos ni mayores pendientes."
-    },
-    {
-      "id": 119,
-      "fields": [
-        "financiacion",
-        "hallazgo",
-        "cuerpo",
-        "corto"
-      ],
-      "reason": "Revisión nocturna 2026-10-27 con el equipo editorial: corrección autorizada por el editor (2026-10-28) de los errores verificados contra el artículo, el suplemento, el protocolo y los formularios de conflicto de interés; dos rondas de revisión independiente posteriores sin errores críticos ni mayores pendientes."
-    },
-    {
-      "id": 120,
-      "fields": [
-        "financiacion",
-        "cuerpo",
-        "corto"
-      ],
-      "reason": "Revisión nocturna 2026-10-27 con el equipo editorial: corrección autorizada por el editor (2026-10-28) de los errores verificados contra el artículo, el suplemento, el protocolo y los formularios de conflicto de interés; dos rondas de revisión independiente posteriores sin errores críticos ni mayores pendientes."
+      "reason": "Aclaración pedida por el editor (2026-10-28): el artículo de DAWN da dos cifras para la recanalización a 24 horas del grupo control (39 de 99 en la tabla y 36% en el texto); se añaden los números absolutos y la aclaración."
     }
   ]
 }
