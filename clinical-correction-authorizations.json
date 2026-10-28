@@ -1,268 +1,166 @@
 {
   "schema_version": 1,
-  "base_sha": "e7f3569d8b363080b6e0ff236058122ee42bafc3",
+  "base_sha": "53a4cbf6e735cd63340753b00467132c12d2c994",
   "authorizations": [
     {
-      "id": 14,
+      "id": 16,
       "fields": [
+        "corto",
         "cuerpo"
       ],
-      "reason": "Revisión en lote autorizada por el editor (2026-10-27): coherencia de cifras entre hallazgo, resumen breve y cuerpo, verificada contra el artículo; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
+      "reason": "Revisión nocturna 2026-10-27: corrección solo de formato sin cambiar palabras (puntuación final de la frase ancla fuera de <strong>), con el revisor 4 (estilo) en VERDE."
     },
     {
       "id": 18,
       "fields": [
+        "corto",
         "cuerpo"
       ],
-      "reason": "Revisión en lote autorizada por el editor (2026-10-27): coherencia de cifras entre hallazgo, resumen breve y cuerpo, verificada contra el artículo; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
+      "reason": "Revisión nocturna 2026-10-27: corrección solo de formato sin cambiar palabras (puntuación final de la frase ancla fuera de <strong>), con el revisor 4 (estilo) en VERDE."
     },
     {
-      "id": 27,
+      "id": 19,
       "fields": [
+        "corto",
         "cuerpo"
       ],
-      "reason": "Revisión en lote autorizada por el editor (2026-10-27): coherencia de cifras entre hallazgo, resumen breve y cuerpo, verificada contra el artículo; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
+      "reason": "Revisión nocturna 2026-10-27: corrección solo de formato sin cambiar palabras (puntuación final de la frase ancla fuera de <strong>), con el revisor 4 (estilo) en VERDE."
     },
     {
-      "id": 28,
+      "id": 49,
       "fields": [
-        "cuerpo",
-        "corto"
-      ],
-      "reason": "Revisión en lote autorizada por el editor (2026-10-27): coherencia de cifras entre hallazgo, resumen breve y cuerpo, verificada contra el artículo; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
-    },
-    {
-      "id": 30,
-      "fields": [
+        "corto",
         "cuerpo"
       ],
-      "reason": "Revisión en lote autorizada por el editor (2026-10-27): coherencia de cifras entre hallazgo, resumen breve y cuerpo, verificada contra el artículo; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
+      "reason": "Revisión nocturna 2026-10-27: corrección solo de formato sin cambiar palabras (puntuación final de la frase ancla fuera de <strong>), con el revisor 4 (estilo) en VERDE."
     },
     {
-      "id": 33,
+      "id": 50,
       "fields": [
-        "cuerpo",
-        "corto"
-      ],
-      "reason": "Revisión en lote autorizada por el editor (2026-10-27): coherencia de cifras entre hallazgo, resumen breve y cuerpo, verificada contra el artículo; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
-    },
-    {
-      "id": 35,
-      "fields": [
-        "corto"
-      ],
-      "reason": "Revisión en lote autorizada por el editor (2026-10-27): coherencia de cifras entre hallazgo, resumen breve y cuerpo, verificada contra el artículo; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
-    },
-    {
-      "id": 40,
-      "fields": [
-        "hallazgo",
-        "corto"
-      ],
-      "reason": "Revisión en lote autorizada por el editor (2026-10-27): coherencia de cifras entre hallazgo, resumen breve y cuerpo, verificada contra el artículo; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
-    },
-    {
-      "id": 43,
-      "fields": [
-        "cuerpo",
-        "corto"
-      ],
-      "reason": "Revisión en lote autorizada por el editor (2026-10-27): coherencia de cifras entre hallazgo, resumen breve y cuerpo, verificada contra el artículo; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
-    },
-    {
-      "id": 44,
-      "fields": [
+        "corto",
         "cuerpo"
       ],
-      "reason": "Revisión en lote autorizada por el editor (2026-10-27): coherencia de cifras entre hallazgo, resumen breve y cuerpo, verificada contra el artículo; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
-    },
-    {
-      "id": 46,
-      "fields": [
-        "hallazgo",
-        "corto"
-      ],
-      "reason": "Revisión en lote autorizada por el editor (2026-10-27): coherencia de cifras entre hallazgo, resumen breve y cuerpo, verificada contra el artículo; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
+      "reason": "Revisión nocturna 2026-10-27: corrección solo de formato sin cambiar palabras (puntuación final de la frase ancla fuera de <strong>), con el revisor 4 (estilo) en VERDE."
     },
     {
       "id": 51,
       "fields": [
+        "corto",
         "cuerpo"
       ],
-      "reason": "Revisión en lote autorizada por el editor (2026-10-27): coherencia de cifras entre hallazgo, resumen breve y cuerpo, verificada contra el artículo; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
+      "reason": "Revisión nocturna 2026-10-27: corrección solo de formato sin cambiar palabras (puntuación final de la frase ancla fuera de <strong>), con el revisor 4 (estilo) en VERDE."
     },
     {
-      "id": 54,
+      "id": 53,
       "fields": [
-        "hallazgo",
-        "cuerpo",
-        "corto"
+        "corto",
+        "cuerpo"
       ],
-      "reason": "Revisión en lote autorizada por el editor (2026-10-27): coherencia de cifras entre hallazgo, resumen breve y cuerpo, verificada contra el artículo; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
+      "reason": "Revisión nocturna 2026-10-27: corrección solo de formato sin cambiar palabras (puntuación final de la frase ancla fuera de <strong>), con el revisor 4 (estilo) en VERDE."
+    },
+    {
+      "id": 57,
+      "fields": [
+        "corto",
+        "cuerpo"
+      ],
+      "reason": "Revisión nocturna 2026-10-27: corrección solo de formato sin cambiar palabras (puntuación final de la frase ancla fuera de <strong>), con el revisor 4 (estilo) en VERDE."
+    },
+    {
+      "id": 58,
+      "fields": [
+        "corto",
+        "cuerpo"
+      ],
+      "reason": "Revisión nocturna 2026-10-27: corrección solo de formato sin cambiar palabras (puntuación final de la frase ancla fuera de <strong>), con el revisor 4 (estilo) en VERDE."
+    },
+    {
+      "id": 59,
+      "fields": [
+        "corto",
+        "cuerpo"
+      ],
+      "reason": "Revisión nocturna 2026-10-27: corrección solo de formato sin cambiar palabras (puntuación final de la frase ancla fuera de <strong>), con el revisor 4 (estilo) en VERDE."
+    },
+    {
+      "id": 60,
+      "fields": [
+        "corto",
+        "cuerpo"
+      ],
+      "reason": "Revisión nocturna 2026-10-27: corrección solo de formato sin cambiar palabras (puntuación final de la frase ancla fuera de <strong>), con el revisor 4 (estilo) en VERDE."
     },
     {
       "id": 61,
       "fields": [
+        "corto",
         "cuerpo"
       ],
-      "reason": "Revisión en lote autorizada por el editor (2026-10-27): coherencia de cifras entre hallazgo, resumen breve y cuerpo, verificada contra el artículo; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
+      "reason": "Revisión nocturna 2026-10-27: corrección solo de formato sin cambiar palabras (puntuación final de la frase ancla fuera de <strong>), con el revisor 4 (estilo) en VERDE."
     },
     {
-      "id": 77,
+      "id": 62,
       "fields": [
+        "corto",
         "cuerpo"
       ],
-      "reason": "Revisión en lote autorizada por el editor (2026-10-27): coherencia de cifras entre hallazgo, resumen breve y cuerpo, verificada contra el artículo; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
+      "reason": "Revisión nocturna 2026-10-27: corrección solo de formato sin cambiar palabras (puntuación final de la frase ancla fuera de <strong>), con el revisor 4 (estilo) en VERDE."
     },
     {
-      "id": 84,
+      "id": 63,
       "fields": [
+        "corto",
         "cuerpo"
       ],
-      "reason": "Revisión en lote autorizada por el editor (2026-10-27): coherencia de cifras entre hallazgo, resumen breve y cuerpo, verificada contra el artículo; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
+      "reason": "Revisión nocturna 2026-10-27: corrección solo de formato sin cambiar palabras (puntuación final de la frase ancla fuera de <strong>), con el revisor 4 (estilo) en VERDE."
     },
     {
-      "id": 88,
+      "id": 64,
       "fields": [
+        "corto",
         "cuerpo"
       ],
-      "reason": "Revisión en lote autorizada por el editor (2026-10-27): coherencia de cifras entre hallazgo, resumen breve y cuerpo, verificada contra el artículo; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
+      "reason": "Revisión nocturna 2026-10-27: corrección solo de formato sin cambiar palabras (puntuación final de la frase ancla fuera de <strong>), con el revisor 4 (estilo) en VERDE."
     },
     {
-      "id": 90,
+      "id": 67,
       "fields": [
+        "corto",
         "cuerpo"
       ],
-      "reason": "Revisión en lote autorizada por el editor (2026-10-27): coherencia de cifras entre hallazgo, resumen breve y cuerpo, verificada contra el artículo; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
+      "reason": "Revisión nocturna 2026-10-27: corrección solo de formato sin cambiar palabras (puntuación final de la frase ancla fuera de <strong>), con el revisor 4 (estilo) en VERDE."
     },
     {
-      "id": 91,
+      "id": 68,
       "fields": [
+        "corto",
         "cuerpo"
       ],
-      "reason": "Corrección de formato autorizada por el editor (2026-10-27): el signo menor que de los valores p se escribe como &lt; para que el texto no se pierda al quitar etiquetas; el texto visible no cambia."
+      "reason": "Revisión nocturna 2026-10-27: corrección solo de formato sin cambiar palabras (puntuación final de la frase ancla fuera de <strong>), con el revisor 4 (estilo) en VERDE."
     },
     {
-      "id": 93,
+      "id": 71,
       "fields": [
+        "corto",
         "cuerpo"
       ],
-      "reason": "Revisión en lote autorizada por el editor (2026-10-27): coherencia de cifras entre hallazgo, resumen breve y cuerpo, verificada contra el artículo; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
+      "reason": "Revisión nocturna 2026-10-27: corrección solo de formato sin cambiar palabras (puntuación final de la frase ancla fuera de <strong>), con el revisor 4 (estilo) en VERDE."
     },
     {
-      "id": 94,
+      "id": 72,
       "fields": [
+        "corto",
         "cuerpo"
       ],
-      "reason": "Revisión en lote autorizada por el editor (2026-10-27): coherencia de cifras entre hallazgo, resumen breve y cuerpo, verificada contra el artículo; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
+      "reason": "Revisión nocturna 2026-10-27: corrección solo de formato sin cambiar palabras (puntuación final de la frase ancla fuera de <strong>), con el revisor 4 (estilo) en VERDE."
     },
     {
-      "id": 110,
+      "id": 85,
       "fields": [
+        "corto",
         "cuerpo"
       ],
-      "reason": "Revisión en lote autorizada por el editor (2026-10-27): coherencia de cifras entre hallazgo, resumen breve y cuerpo, verificada contra el artículo; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
-    },
-    {
-      "id": 135,
-      "fields": [
-        "cuerpo"
-      ],
-      "reason": "Revisión en lote autorizada por el editor (2026-10-27): coherencia de cifras entre hallazgo, resumen breve y cuerpo, verificada contra el artículo; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
-    },
-    {
-      "id": 141,
-      "fields": [
-        "cuerpo"
-      ],
-      "reason": "Revisión en lote autorizada por el editor (2026-10-27): coherencia de cifras entre hallazgo, resumen breve y cuerpo, verificada contra el artículo; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
-    },
-    {
-      "id": 151,
-      "fields": [
-        "cuerpo",
-        "corto"
-      ],
-      "reason": "Revisión en lote autorizada por el editor (2026-10-27): coherencia de cifras entre hallazgo, resumen breve y cuerpo, verificada contra el artículo; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
-    },
-    {
-      "id": 158,
-      "fields": [
-        "cuerpo"
-      ],
-      "reason": "Revisión en lote autorizada por el editor (2026-10-27): coherencia de cifras entre hallazgo, resumen breve y cuerpo, verificada contra el artículo; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
-    },
-    {
-      "id": 170,
-      "fields": [
-        "cuerpo"
-      ],
-      "reason": "Revisión en lote autorizada por el editor (2026-10-27): coherencia de cifras entre hallazgo, resumen breve y cuerpo, verificada contra el artículo; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
-    },
-    {
-      "id": 175,
-      "fields": [
-        "hallazgo",
-        "cuerpo",
-        "corto"
-      ],
-      "reason": "Corrección de formato autorizada por el editor (2026-10-27): el signo menor que de los valores p se escribe como &lt; para que el texto no se pierda al quitar etiquetas; el texto visible no cambia."
-    },
-    {
-      "id": 188,
-      "fields": [
-        "cuerpo"
-      ],
-      "reason": "Revisión en lote autorizada por el editor (2026-10-27): coherencia de cifras entre hallazgo, resumen breve y cuerpo, verificada contra el artículo; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
-    },
-    {
-      "id": 198,
-      "fields": [
-        "cuerpo"
-      ],
-      "reason": "Revisión en lote autorizada por el editor (2026-10-27): coherencia de cifras entre hallazgo, resumen breve y cuerpo, verificada contra el artículo; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
-    },
-    {
-      "id": 204,
-      "fields": [
-        "cuerpo"
-      ],
-      "reason": "Corrección de formato autorizada por el editor (2026-10-27): el signo menor que de los valores p se escribe como &lt; para que el texto no se pierda al quitar etiquetas; el texto visible no cambia."
-    },
-    {
-      "id": 212,
-      "fields": [
-        "cuerpo"
-      ],
-      "reason": "Revisión en lote autorizada por el editor (2026-10-27): coherencia de cifras entre hallazgo, resumen breve y cuerpo, verificada contra el artículo; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
-    },
-    {
-      "id": 213,
-      "fields": [
-        "cuerpo"
-      ],
-      "reason": "Revisión en lote autorizada por el editor (2026-10-27): coherencia de cifras entre hallazgo, resumen breve y cuerpo, verificada contra el artículo; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
-    },
-    {
-      "id": 217,
-      "fields": [
-        "cuerpo"
-      ],
-      "reason": "Revisión en lote autorizada por el editor (2026-10-27): coherencia de cifras entre hallazgo, resumen breve y cuerpo, verificada contra el artículo; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
-    },
-    {
-      "id": 200,
-      "fields": [
-        "cuerpo"
-      ],
-      "reason": "Corrección de formato autorizada por el editor (2026-10-27): el signo menor que de los valores p se escribe como &lt; para que el texto no se pierda al quitar etiquetas; el texto visible no cambia."
-    },
-    {
-      "id": 226,
-      "fields": [
-        "cuerpo"
-      ],
-      "reason": "Revisión en lote autorizada por el editor (2026-10-27): coherencia de cifras entre hallazgo, resumen breve y cuerpo, verificada contra el artículo; cambios mínimos con cifras de los PDF y verificación independiente de cada cambio."
+      "reason": "Revisión nocturna 2026-10-27: corrección solo de formato sin cambiar palabras (puntuación final de la frase ancla fuera de <strong>), con el revisor 4 (estilo) en VERDE."
     }
   ]
 }
