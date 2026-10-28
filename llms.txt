@@ -13,6 +13,7 @@ Material educativo para profesionales de la salud. La referencia final es siempr
 
 ## Resúmenes de ensayos
 
+- [ANH: ensayo aleatorizado de hemodilución normovolémica aguda en cirugía cardiaca](https://resumenestrials.com/trials/anh-ensayo-aleatorizado-hemodilucion-normovolemica-aguda-cirugia-cardiaca/): NEJM, 2025.
 - [POET: tratamiento antibiótico oral parcial frente a intravenoso en la endocarditis](https://resumenestrials.com/trials/poet-tratamiento-antibiotico-oral-parcial-intravenoso-endocarditis/): NEJM, 2018.
 - [POET II: tratamiento antibiótico adaptado a la respuesta o de duración estándar para la endocarditis infecciosa](https://resumenestrials.com/trials/poet-ii-tratamiento-antibiotico-adaptado-respuesta-duracion-estandar-endocarditis-infecciosa/): NEJM, 2026.
 - [TICH-2: ácido tranexámico para la hemorragia intracerebral primaria hiperaguda](https://resumenestrials.com/trials/tich-2-acido-tranexamico-hemorragia-intracerebral-primaria-hiperaguda/): Lancet, 2018.

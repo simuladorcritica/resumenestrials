@@ -6448,5 +6448,25 @@
       "population": "La población fueron adultos de 18 años o más ingresados en las unidades de cuidados intensivos participantes, intubados y con ventilación mecánica que se esperaba durara al menos 24 horas, incluidos en las 2 horas siguientes al inicio de la ventilación. Participaron ocho UCI de los Países Bajos y una de Italia. La raza o etnia de los pacientes: No reportado."
     },
     "datePublished": "2026-10-27"
+  },
+  "243": {
+    "slug": "anh-ensayo-aleatorizado-hemodilucion-normovolemica-aguda-cirugia-cardiaca",
+    "path": "/trials/anh-ensayo-aleatorizado-hemodilucion-normovolemica-aguda-cirugia-cardiaca/",
+    "url": "https://resumenestrials.com/trials/anh-ensayo-aleatorizado-hemodilucion-normovolemica-aguda-cirugia-cardiaca/",
+    "title": "ANH: ensayo aleatorizado de hemodilución normovolémica aguda en cirugía cardiaca",
+    "seo_title": "ANH trial: ensayo aleatorizado de hemodilución normovolémica aguda en cirugía cardiaca | Resúmenes Trials",
+    "description": "ANH: La hemodilución normovolémica aguda no redujo de forma significativa la transfusión de glóbulos rojos alogénicos durante la hospitalización: 27.3% frente…",
+    "clusters": [],
+    "images": [
+      "https://resumenestrials.com/images/trials/anh-ensayo-aleatorizado-hemodilucion-normovolemica-aguda-cirugia-cardiaca-16x9.jpg",
+      "https://resumenestrials.com/images/trials/anh-ensayo-aleatorizado-hemodilucion-normovolemica-aguda-cirugia-cardiaca-4x3.jpg",
+      "https://resumenestrials.com/images/trials/anh-ensayo-aleatorizado-hemodilucion-normovolemica-aguda-cirugia-cardiaca-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si la hemodilución normovolémica aguda, frente al cuidado habitual, reduce la proporción de adultos sometidos a cirugía cardiaca con circulación extracorpórea que reciben al menos una unidad de glóbulos rojos alogénicos durante la hospitalización.",
+      "answer": "La hemodilución normovolémica aguda no redujo de forma significativa la transfusión de glóbulos rojos alogénicos durante la hospitalización: 27.3% frente a 29.2% (riesgo relativo 0.93; IC 95%, 0.81 a 1.07; p = 0.34) , sin diferencia significativa frente al cuidado habitual ni en la mortalidad a 30 días o durante la…",
+      "population": "La población fueron adultos programados para cirugía cardiaca electiva con circulación extracorpórea (CEC) de cualquier tipo: revascularización coronaria, cirugía valvular o de aorta ascendente, implante de asistencia ventricular, cierre de comunicación interauricular o combinaciones. La raza fue autorreportada: eran blancos el 78.4% y el 77.8% de cada grupo, y asiáticos el 19.3% y el 19.8%. Procedían de centros de Europa…"
+    },
+    "datePublished": "2026-10-28"
   }
 }

@@ -4,8 +4,15 @@
   <id>https://resumenestrials.com/</id>
   <link href="https://resumenestrials.com/"/>
   <link rel="self" type="application/atom+xml" href="https://resumenestrials.com/feed.xml"/>
-  <updated>2026-10-27T00:00:00Z</updated>
+  <updated>2026-10-28T00:00:00Z</updated>
   <subtitle>Resúmenes críticos en español de ensayos clínicos.</subtitle>
+  <entry>
+    <title>ANH: ensayo aleatorizado de hemodilución normovolémica aguda en cirugía cardiaca</title>
+    <id>https://resumenestrials.com/trials/anh-ensayo-aleatorizado-hemodilucion-normovolemica-aguda-cirugia-cardiaca/</id>
+    <link href="https://resumenestrials.com/trials/anh-ensayo-aleatorizado-hemodilucion-normovolemica-aguda-cirugia-cardiaca/"/>
+    <updated>2026-10-28T00:00:00Z</updated>
+    <summary>Determinar si la hemodilución normovolémica aguda, frente al cuidado habitual, reduce la proporción de adultos sometidos a cirugía cardiaca con circulación extracorpórea que reciben al menos una unidad de glóbulos rojos alogénicos durante la hospitalización.</summary>
+  </entry>
   <entry>
     <title>POET II: tratamiento antibiótico adaptado a la respuesta o de duración estándar para la endocarditis infecciosa</title>
     <id>https://resumenestrials.com/trials/poet-ii-tratamiento-antibiotico-adaptado-respuesta-duracion-estandar-endocarditis-infecciosa/</id>
@@ -348,12 +355,5 @@
     <link href="https://resumenestrials.com/trials/prevent-ventilacion-bolsa-mascarilla-intubacion-traqueal-adulto-estado-critico/"/>
     <updated>2026-10-19T00:00:00Z</updated>
     <summary>Determinar si la ventilación con bolsa-mascarilla entre la inducción y la laringoscopia aumenta la saturación de oxígeno más baja durante la intubación traqueal del adulto crítico.</summary>
-  </entry>
-  <entry>
-    <title>SEPSISPAM: objetivo de presión arterial alto frente a bajo en pacientes con shock séptico</title>
-    <id>https://resumenestrials.com/trials/sepsispam-objetivo-presion-arterial-media-alto-shock-septico/</id>
-    <link href="https://resumenestrials.com/trials/sepsispam-objetivo-presion-arterial-media-alto-shock-septico/"/>
-    <updated>2026-10-19T00:00:00Z</updated>
-    <summary>Determinar si un objetivo de presión arterial media de 80 a 85 mm Hg, frente a 65 a 70 mm Hg, reduce la mortalidad a 28 días en el shock séptico.</summary>
   </entry>
 </feed>
