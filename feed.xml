@@ -4,8 +4,50 @@
   <id>https://resumenestrials.com/</id>
   <link href="https://resumenestrials.com/"/>
   <link rel="self" type="application/atom+xml" href="https://resumenestrials.com/feed.xml"/>
-  <updated>2026-10-27T00:00:00Z</updated>
+  <updated>2026-10-28T00:00:00Z</updated>
   <subtitle>Resúmenes críticos en español de ensayos clínicos.</subtitle>
+  <entry>
+    <title>ANH: ensayo aleatorizado de hemodilución normovolémica aguda en cirugía cardiaca</title>
+    <id>https://resumenestrials.com/trials/anh-ensayo-aleatorizado-hemodilucion-normovolemica-aguda-cirugia-cardiaca/</id>
+    <link href="https://resumenestrials.com/trials/anh-ensayo-aleatorizado-hemodilucion-normovolemica-aguda-cirugia-cardiaca/"/>
+    <updated>2026-10-28T00:00:00Z</updated>
+    <summary>Determinar si la hemodilución normovolémica aguda, frente al cuidado habitual, reduce la proporción de adultos sometidos a cirugía cardiaca con circulación extracorpórea que reciben al menos una unidad de glóbulos rojos alogénicos durante la hospitalización.</summary>
+  </entry>
+  <entry>
+    <title>DeLLphi-305: mantenimiento con tarlatamab-durvalumab en el cáncer de pulmón de células pequeñas en estadio extendido</title>
+    <id>https://resumenestrials.com/trials/dellphi-305-mantenimiento-tarlatamab-durvalumab-cancer-pulmon-celulas-pequenas-estadio-extendido/</id>
+    <link href="https://resumenestrials.com/trials/dellphi-305-mantenimiento-tarlatamab-durvalumab-cancer-pulmon-celulas-pequenas-estadio-extendido/"/>
+    <updated>2026-10-28T00:00:00Z</updated>
+    <summary>Determinar si añadir tarlatamab al mantenimiento con durvalumab prolonga la supervivencia global frente al durvalumab solo en pacientes con cáncer de pulmón de células pequeñas en estadio extendido sin progresión tras la quimioinmunoterapia de primera línea.</summary>
+  </entry>
+  <entry>
+    <title>HEMOTION: estrategia de transfusión liberal o restrictiva en pacientes con traumatismo craneoencefálico</title>
+    <id>https://resumenestrials.com/trials/hemotion-estrategia-transfusion-liberal-restrictiva-pacientes-traumatismo-craneoencefalico/</id>
+    <link href="https://resumenestrials.com/trials/hemotion-estrategia-transfusion-liberal-restrictiva-pacientes-traumatismo-craneoencefalico/"/>
+    <updated>2026-10-28T00:00:00Z</updated>
+    <summary>Determinar si una estrategia de transfusión liberal, con umbral de hemoglobina de 10 g/dl o menos, frente a una restrictiva, con umbral de 7 g/dl o menos, reduce el resultado neurológico desfavorable a los 6 meses en adultos críticos con traumatismo craneoencefálico moderado o grave y anemia.</summary>
+  </entry>
+  <entry>
+    <title>MINT: estrategia de transfusión restrictiva o liberal en el infarto de miocardio y la anemia</title>
+    <id>https://resumenestrials.com/trials/mint-estrategia-transfusion-restrictiva-liberal-infarto-miocardio-anemia/</id>
+    <link href="https://resumenestrials.com/trials/mint-estrategia-transfusion-restrictiva-liberal-infarto-miocardio-anemia/"/>
+    <updated>2026-10-28T00:00:00Z</updated>
+    <summary>Determinar si una estrategia de transfusión liberal, con umbral de hemoglobina menor de 10 g/dl, frente a una restrictiva, con umbral de 7 a 8 g/dl, modifica el riesgo de infarto de miocardio o muerte a 30 días en adultos con infarto agudo de miocardio y anemia.</summary>
+  </entry>
+  <entry>
+    <title>ATTIRE: ensayo aleatorizado de infusiones de albúmina en pacientes hospitalizados con cirrosis</title>
+    <id>https://resumenestrials.com/trials/attire-ensayo-aleatorizado-infusiones-albumina-pacientes-hospitalizados-cirrosis/</id>
+    <link href="https://resumenestrials.com/trials/attire-ensayo-aleatorizado-infusiones-albumina-pacientes-hospitalizados-cirrosis/"/>
+    <updated>2026-10-28T00:00:00Z</updated>
+    <summary>Determinar si las infusiones diarias de albúmina humana al 20% para llevar la albúmina sérica a 30 g/l o más, frente a la atención estándar, reducen el compuesto de infección nueva, disfunción renal o muerte entre los días 3 y 15 en adultos hospitalizados con cirrosis descompensada y albúmina menor…</summary>
+  </entry>
+  <entry>
+    <title>REALITY: efecto de una estrategia de transfusión sanguínea restrictiva frente a una liberal sobre los eventos cardiovasculares mayores en pacientes con infarto agudo de miocardio y anemia</title>
+    <id>https://resumenestrials.com/trials/reality-efecto-estrategia-transfusion-sanguinea-restrictiva-liberal-eventos-cardiovasculares/</id>
+    <link href="https://resumenestrials.com/trials/reality-efecto-estrategia-transfusion-sanguinea-restrictiva-liberal-eventos-cardiovasculares/"/>
+    <updated>2026-10-28T00:00:00Z</updated>
+    <summary>Determinar si una estrategia de transfusión restrictiva, con transfusión solo ante hemoglobina de 8 g/dl o menos, es no inferior a una liberal, con transfusión ante hemoglobina de 10 g/dl o menos, en cuanto a eventos cardiovasculares mayores a 30 días en pacientes hospitalizados por infarto agudo de…</summary>
+  </entry>
   <entry>
     <title>POET II: tratamiento antibiótico adaptado a la respuesta o de duración estándar para la endocarditis infecciosa</title>
     <id>https://resumenestrials.com/trials/poet-ii-tratamiento-antibiotico-adaptado-respuesta-duracion-estandar-endocarditis-infecciosa/</id>
@@ -313,47 +355,5 @@
     <link href="https://resumenestrials.com/trials/acurasys-bloqueo-neuromuscular-temprano-cisatracurio-48-horas-placebo-sindrome-dificultad/"/>
     <updated>2026-10-19T00:00:00Z</updated>
     <summary>Determinar si dos días de bloqueo neuromuscular con cisatracurio al inicio del síndrome de dificultad respiratoria aguda grave reducen la mortalidad a 90 días frente a placebo.</summary>
-  </entry>
-  <entry>
-    <title>CONNECT: monitorización continua de glucosa en la diabetes tipo 2 no tratada con insulina</title>
-    <id>https://resumenestrials.com/trials/connect-monitoreo-continuo-glucosa-cuidado-habitual-diabetes-tipo-2-no/</id>
-    <link href="https://resumenestrials.com/trials/connect-monitoreo-continuo-glucosa-cuidado-habitual-diabetes-tipo-2-no/"/>
-    <updated>2026-10-19T00:00:00Z</updated>
-    <summary>Evaluar si el monitoreo continuo de glucosa en tiempo real reduce la hemoglobina glucosilada a las 26 semanas, frente al cuidado habitual con glucómetro, en adultos con diabetes tipo 2 no tratada con insulina atendidos en atención primaria.</summary>
-  </entry>
-  <entry>
-    <title>PATCH-Trauma: ácido tranexámico prehospitalario en el traumatismo grave</title>
-    <id>https://resumenestrials.com/trials/patch-trauma-acido-tranexamico-prehospitalario-placebo-traumatismo-grave-riesgo-coagulopatia/</id>
-    <link href="https://resumenestrials.com/trials/patch-trauma-acido-tranexamico-prehospitalario-placebo-traumatismo-grave-riesgo-coagulopatia/"/>
-    <updated>2026-10-19T00:00:00Z</updated>
-    <summary>Determinar si el ácido tranexámico iniciado antes del ingreso hospitalario aumenta la supervivencia con un resultado funcional favorable a los 6 meses en adultos con traumatismo grave y riesgo de coagulopatía.</summary>
-  </entry>
-  <entry>
-    <title>DOREMI: milrinona en comparación con dobutamina en el tratamiento del shock cardiogénico</title>
-    <id>https://resumenestrials.com/trials/doremi-milrinona-dobutamina-choque-cardiogenico/</id>
-    <link href="https://resumenestrials.com/trials/doremi-milrinona-dobutamina-choque-cardiogenico/"/>
-    <updated>2026-10-19T00:00:00Z</updated>
-    <summary>Determinar si la milrinona reduce el compuesto hospitalario de muerte y complicaciones mayores frente a la dobutamina en pacientes con choque cardiogénico.</summary>
-  </entry>
-  <entry>
-    <title>Dobutamina intraoperatoria más noradrenalina para prevenir la lesión renal aguda postoperatoria en el shock séptico</title>
-    <id>https://resumenestrials.com/trials/dobutamina-intraoperatoria-prevencion-lesion-renal-aguda-tras-cirugia-control-foco/</id>
-    <link href="https://resumenestrials.com/trials/dobutamina-intraoperatoria-prevencion-lesion-renal-aguda-tras-cirugia-control-foco/"/>
-    <updated>2026-10-19T00:00:00Z</updated>
-    <summary>Determinar si añadir dobutamina a la norepinefrina durante la cirugía de control del foco reduce la lesión renal aguda en los 7 días posteriores en adultos con shock séptico.</summary>
-  </entry>
-  <entry>
-    <title>PreVent: ventilación con bolsa-mascarilla durante la intubación traqueal de adultos en estado crítico</title>
-    <id>https://resumenestrials.com/trials/prevent-ventilacion-bolsa-mascarilla-intubacion-traqueal-adulto-estado-critico/</id>
-    <link href="https://resumenestrials.com/trials/prevent-ventilacion-bolsa-mascarilla-intubacion-traqueal-adulto-estado-critico/"/>
-    <updated>2026-10-19T00:00:00Z</updated>
-    <summary>Determinar si la ventilación con bolsa-mascarilla entre la inducción y la laringoscopia aumenta la saturación de oxígeno más baja durante la intubación traqueal del adulto crítico.</summary>
-  </entry>
-  <entry>
-    <title>SEPSISPAM: objetivo de presión arterial alto frente a bajo en pacientes con shock séptico</title>
-    <id>https://resumenestrials.com/trials/sepsispam-objetivo-presion-arterial-media-alto-shock-septico/</id>
-    <link href="https://resumenestrials.com/trials/sepsispam-objetivo-presion-arterial-media-alto-shock-septico/"/>
-    <updated>2026-10-19T00:00:00Z</updated>
-    <summary>Determinar si un objetivo de presión arterial media de 80 a 85 mm Hg, frente a 65 a 70 mm Hg, reduce la mortalidad a 28 días en el shock séptico.</summary>
   </entry>
 </feed>
