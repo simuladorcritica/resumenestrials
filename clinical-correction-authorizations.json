@@ -1,166 +1,85 @@
 {
   "schema_version": 1,
-  "base_sha": "53a4cbf6e735cd63340753b00467132c12d2c994",
+  "base_sha": "6802dfc4aa6e9f1add399e449eba4e8d5e8e3325",
   "authorizations": [
     {
-      "id": 16,
+      "id": 113,
       "fields": [
-        "corto",
-        "cuerpo"
+        "financiacion",
+        "hallazgo",
+        "cuerpo",
+        "corto"
       ],
-      "reason": "Revisión nocturna 2026-10-27: corrección solo de formato sin cambiar palabras (puntuación final de la frase ancla fuera de <strong>), con el revisor 4 (estilo) en VERDE."
+      "reason": "Revisión nocturna 2026-10-27 con el equipo editorial: corrección autorizada por el editor (2026-10-28) de los errores verificados contra el artículo, el suplemento, el protocolo y los formularios de conflicto de interés; dos rondas de revisión independiente posteriores sin errores críticos ni mayores pendientes."
     },
     {
-      "id": 18,
+      "id": 114,
       "fields": [
-        "corto",
-        "cuerpo"
+        "financiacion",
+        "hallazgo",
+        "cuerpo",
+        "corto"
       ],
-      "reason": "Revisión nocturna 2026-10-27: corrección solo de formato sin cambiar palabras (puntuación final de la frase ancla fuera de <strong>), con el revisor 4 (estilo) en VERDE."
+      "reason": "Revisión nocturna 2026-10-27 con el equipo editorial: corrección autorizada por el editor (2026-10-28) de los errores verificados contra el artículo, el suplemento, el protocolo y los formularios de conflicto de interés; dos rondas de revisión independiente posteriores sin errores críticos ni mayores pendientes."
     },
     {
-      "id": 19,
+      "id": 115,
       "fields": [
-        "corto",
-        "cuerpo"
+        "financiacion",
+        "hallazgo",
+        "cuerpo",
+        "corto"
       ],
-      "reason": "Revisión nocturna 2026-10-27: corrección solo de formato sin cambiar palabras (puntuación final de la frase ancla fuera de <strong>), con el revisor 4 (estilo) en VERDE."
+      "reason": "Revisión nocturna 2026-10-27 con el equipo editorial: corrección autorizada por el editor (2026-10-28) de los errores verificados contra el artículo, el suplemento, el protocolo y los formularios de conflicto de interés; dos rondas de revisión independiente posteriores sin errores críticos ni mayores pendientes."
     },
     {
-      "id": 49,
+      "id": 116,
       "fields": [
-        "corto",
-        "cuerpo"
+        "financiacion",
+        "hallazgo",
+        "cuerpo",
+        "corto"
       ],
-      "reason": "Revisión nocturna 2026-10-27: corrección solo de formato sin cambiar palabras (puntuación final de la frase ancla fuera de <strong>), con el revisor 4 (estilo) en VERDE."
+      "reason": "Revisión nocturna 2026-10-27 con el equipo editorial: corrección autorizada por el editor (2026-10-28) de los errores verificados contra el artículo, el suplemento, el protocolo y los formularios de conflicto de interés; dos rondas de revisión independiente posteriores sin errores críticos ni mayores pendientes."
     },
     {
-      "id": 50,
+      "id": 117,
       "fields": [
-        "corto",
-        "cuerpo"
+        "financiacion",
+        "hallazgo",
+        "cuerpo",
+        "corto"
       ],
-      "reason": "Revisión nocturna 2026-10-27: corrección solo de formato sin cambiar palabras (puntuación final de la frase ancla fuera de <strong>), con el revisor 4 (estilo) en VERDE."
+      "reason": "Revisión nocturna 2026-10-27 con el equipo editorial: corrección autorizada por el editor (2026-10-28) de los errores verificados contra el artículo, el suplemento, el protocolo y los formularios de conflicto de interés; dos rondas de revisión independiente posteriores sin errores críticos ni mayores pendientes."
     },
     {
-      "id": 51,
+      "id": 118,
       "fields": [
-        "corto",
-        "cuerpo"
+        "financiacion",
+        "hallazgo",
+        "cuerpo",
+        "corto"
       ],
-      "reason": "Revisión nocturna 2026-10-27: corrección solo de formato sin cambiar palabras (puntuación final de la frase ancla fuera de <strong>), con el revisor 4 (estilo) en VERDE."
+      "reason": "Revisión nocturna 2026-10-27 con el equipo editorial: corrección autorizada por el editor (2026-10-28) de los errores verificados contra el artículo, el suplemento, el protocolo y los formularios de conflicto de interés; dos rondas de revisión independiente posteriores sin errores críticos ni mayores pendientes."
     },
     {
-      "id": 53,
+      "id": 119,
       "fields": [
-        "corto",
-        "cuerpo"
+        "financiacion",
+        "hallazgo",
+        "cuerpo",
+        "corto"
       ],
-      "reason": "Revisión nocturna 2026-10-27: corrección solo de formato sin cambiar palabras (puntuación final de la frase ancla fuera de <strong>), con el revisor 4 (estilo) en VERDE."
+      "reason": "Revisión nocturna 2026-10-27 con el equipo editorial: corrección autorizada por el editor (2026-10-28) de los errores verificados contra el artículo, el suplemento, el protocolo y los formularios de conflicto de interés; dos rondas de revisión independiente posteriores sin errores críticos ni mayores pendientes."
     },
     {
-      "id": 57,
+      "id": 120,
       "fields": [
-        "corto",
-        "cuerpo"
+        "financiacion",
+        "cuerpo",
+        "corto"
       ],
-      "reason": "Revisión nocturna 2026-10-27: corrección solo de formato sin cambiar palabras (puntuación final de la frase ancla fuera de <strong>), con el revisor 4 (estilo) en VERDE."
-    },
-    {
-      "id": 58,
-      "fields": [
-        "corto",
-        "cuerpo"
-      ],
-      "reason": "Revisión nocturna 2026-10-27: corrección solo de formato sin cambiar palabras (puntuación final de la frase ancla fuera de <strong>), con el revisor 4 (estilo) en VERDE."
-    },
-    {
-      "id": 59,
-      "fields": [
-        "corto",
-        "cuerpo"
-      ],
-      "reason": "Revisión nocturna 2026-10-27: corrección solo de formato sin cambiar palabras (puntuación final de la frase ancla fuera de <strong>), con el revisor 4 (estilo) en VERDE."
-    },
-    {
-      "id": 60,
-      "fields": [
-        "corto",
-        "cuerpo"
-      ],
-      "reason": "Revisión nocturna 2026-10-27: corrección solo de formato sin cambiar palabras (puntuación final de la frase ancla fuera de <strong>), con el revisor 4 (estilo) en VERDE."
-    },
-    {
-      "id": 61,
-      "fields": [
-        "corto",
-        "cuerpo"
-      ],
-      "reason": "Revisión nocturna 2026-10-27: corrección solo de formato sin cambiar palabras (puntuación final de la frase ancla fuera de <strong>), con el revisor 4 (estilo) en VERDE."
-    },
-    {
-      "id": 62,
-      "fields": [
-        "corto",
-        "cuerpo"
-      ],
-      "reason": "Revisión nocturna 2026-10-27: corrección solo de formato sin cambiar palabras (puntuación final de la frase ancla fuera de <strong>), con el revisor 4 (estilo) en VERDE."
-    },
-    {
-      "id": 63,
-      "fields": [
-        "corto",
-        "cuerpo"
-      ],
-      "reason": "Revisión nocturna 2026-10-27: corrección solo de formato sin cambiar palabras (puntuación final de la frase ancla fuera de <strong>), con el revisor 4 (estilo) en VERDE."
-    },
-    {
-      "id": 64,
-      "fields": [
-        "corto",
-        "cuerpo"
-      ],
-      "reason": "Revisión nocturna 2026-10-27: corrección solo de formato sin cambiar palabras (puntuación final de la frase ancla fuera de <strong>), con el revisor 4 (estilo) en VERDE."
-    },
-    {
-      "id": 67,
-      "fields": [
-        "corto",
-        "cuerpo"
-      ],
-      "reason": "Revisión nocturna 2026-10-27: corrección solo de formato sin cambiar palabras (puntuación final de la frase ancla fuera de <strong>), con el revisor 4 (estilo) en VERDE."
-    },
-    {
-      "id": 68,
-      "fields": [
-        "corto",
-        "cuerpo"
-      ],
-      "reason": "Revisión nocturna 2026-10-27: corrección solo de formato sin cambiar palabras (puntuación final de la frase ancla fuera de <strong>), con el revisor 4 (estilo) en VERDE."
-    },
-    {
-      "id": 71,
-      "fields": [
-        "corto",
-        "cuerpo"
-      ],
-      "reason": "Revisión nocturna 2026-10-27: corrección solo de formato sin cambiar palabras (puntuación final de la frase ancla fuera de <strong>), con el revisor 4 (estilo) en VERDE."
-    },
-    {
-      "id": 72,
-      "fields": [
-        "corto",
-        "cuerpo"
-      ],
-      "reason": "Revisión nocturna 2026-10-27: corrección solo de formato sin cambiar palabras (puntuación final de la frase ancla fuera de <strong>), con el revisor 4 (estilo) en VERDE."
-    },
-    {
-      "id": 85,
-      "fields": [
-        "corto",
-        "cuerpo"
-      ],
-      "reason": "Revisión nocturna 2026-10-27: corrección solo de formato sin cambiar palabras (puntuación final de la frase ancla fuera de <strong>), con el revisor 4 (estilo) en VERDE."
+      "reason": "Revisión nocturna 2026-10-27 con el equipo editorial: corrección autorizada por el editor (2026-10-28) de los errores verificados contra el artículo, el suplemento, el protocolo y los formularios de conflicto de interés; dos rondas de revisión independiente posteriores sin errores críticos ni mayores pendientes."
     }
   ]
 }

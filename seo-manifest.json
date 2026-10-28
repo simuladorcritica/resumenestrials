@@ -3060,7 +3060,7 @@
     "url": "https://resumenestrials.com/trials/classic-restriccion-fluidos-intravenosos-pacientes-uci-shock-septico/",
     "title": "CLASSIC: restricción de líquidos intravenosos en pacientes de UCI con shock séptico",
     "seo_title": "CLASSIC trial: restricción de líquidos intravenosos en pacientes de UCI con shock séptico | Resúmenes Trials",
-    "description": "CLASSIC: La mortalidad a los 90 días no fue diferente entre los grupos: 42.3% en el grupo de restricción de fluidos frente a 42.1% en el grupo estándar, una…",
+    "description": "CLASSIC: La mortalidad a los 90 días no mostró diferencia significativa entre los grupos: 42.3% en el grupo de restricción de fluidos frente a 42.1% en el…",
     "clusters": [
       {
         "name": "Sepsis y shock",
@@ -3075,7 +3075,7 @@
     ],
     "intent": {
       "question": "Determinar si restringir los fluidos intravenosos, frente al tratamiento estándar, reduce la mortalidad a los 90 días en pacientes adultos con shock séptico en la unidad de cuidados intensivos.",
-      "answer": "La mortalidad a los 90 días no fue diferente entre los grupos: 42.3% en el grupo de restricción de fluidos frente a 42.1% en el grupo estándar, una diferencia absoluta ajustada de 0.1 puntos porcentuales (IC95%, -4.7 a 4.9; p=0.96) .",
+      "answer": "La mortalidad a los 90 días no mostró diferencia significativa entre los grupos: 42.3% en el grupo de restricción de fluidos frente a 42.1% en el grupo estándar, una diferencia absoluta ajustada de 0.1 puntos porcentuales (IC95%, -4.7 a 4.9; p=0.96) .",
       "population": "La población fueron adultos de 18 años o más, ingresados en la unidad de cuidados intensivos con shock séptico, definido como infección sospechada o confirmada, un nivel de lactato plasmático de 2 mmol por litro o más, el uso de un vasopresor o inotrópico en infusión continua, y haber recibido al menos 1 litro de fluidos intravenosos en las 24 horas previas al cribado, siempre que el inicio del shock hubiera ocurrido en las 12…"
     },
     "datePublished": "2026-09-02"
@@ -3101,7 +3101,7 @@
     ],
     "intent": {
       "question": "Determinar si el rivaroxabán es no inferior a la warfarina para prevenir el ictus o la embolia sistémica en pacientes con fibrilación auricular no valvular en riesgo moderado a alto de ictus.",
-      "answer": "Rivaroxabán fue no inferior a warfarina para prevenir ictus o embolia sistémica ( HR 0.79; IC 95% 0.66-0.96; p<0.001 para no inferioridad ), sin diferencia en el sangrado global, pero con menos hemorragia intracraneal y mortal y más hemorragia digestiva.",
+      "answer": "Rivaroxabán fue no inferior a warfarina para prevenir ictus o embolia sistémica ( HR 0.79; IC 95% 0.66-0.96; p<0.001 para no inferioridad ), sin diferencia significativa en el sangrado mayor y no mayor clínicamente relevante, pero con menos hemorragia intracraneal y mortal y más hemorragia digestiva.",
       "population": "La población fueron adultos con fibrilación auricular no valvular documentada por electrocardiograma, en riesgo moderado a alto de ictus, definido como un antecedente de ictus, ataque isquémico transitorio o embolia sistémica, o al menos dos de los siguientes factores: insuficiencia cardiaca o fracción de eyección ventricular izquierda del 35% o menos, hipertensión, edad de 75 años o más, o diabetes mellitus, es decir, una…"
     },
     "datePublished": "2026-09-03"
@@ -3112,7 +3112,7 @@
     "url": "https://resumenestrials.com/trials/clear-espironolactona-sistematica-infarto-agudo-miocardio/",
     "title": "CLEAR: espironolactona sistemática en el infarto agudo de miocardio",
     "seo_title": "CLEAR trial: espironolactona sistemática en el infarto agudo de miocardio | Resúmenes Trials",
-    "description": "CLEAR: Sin diferencia en el desenlace primario ( 1.7 vs 2.1 eventos por 100 pacientes-año; HR ajustada 0.91; IC95% 0.69-1.21; p=0.51 ): la espironolactona no…",
+    "description": "CLEAR: Sin diferencia significativa en el desenlace primario ( 1.7 vs 2.1 eventos por 100 pacientes-año; HR ajustada 0.91; IC95% 0.69-1.21; p=0.51 ): la…",
     "clusters": [
       {
         "name": "Cardiología y prevención cardiovascular",
@@ -3127,7 +3127,7 @@
     ],
     "intent": {
       "question": "Determinar si la espironolactona añadida al tratamiento habitual reduce la muerte cardiovascular o la insuficiencia cardiaca nueva o que empeora tras un infarto de miocardio tratado con intervención coronaria percutánea.",
-      "answer": "Sin diferencia en el desenlace primario ( 1.7 vs 2.1 eventos por 100 pacientes-año; HR ajustada 0.91; IC95% 0.69-1.21; p=0.51 ): la espironolactona no redujo la muerte cardiovascular ni la insuficiencia cardiaca tras un infarto, y aumentó la hiperpotasemia y la ginecomastia.",
+      "answer": "Sin diferencia significativa en el desenlace primario ( 1.7 vs 2.1 eventos por 100 pacientes-año; HR ajustada 0.91; IC95% 0.69-1.21; p=0.51 ): la espironolactona tras un infarto no mostró diferencia significativa en muerte cardiovascular o insuficiencia cardiaca, sin poder descartarse una reducción relativa de alrededor del 30%…",
       "population": "La población fueron adultos con infarto de miocardio sometidos a intervención coronaria percutánea: inicialmente solo pacientes con infarto con elevación del segmento ST, y desde abril de 2020 también pacientes con infarto sin elevación del ST de alto riesgo, definido por al menos uno de los siguientes factores, fracción de eyección ventricular izquierda del 45% o menos, diabetes mellitus, enfermedad coronaria multivaso…"
     },
     "datePublished": "2026-09-03"
@@ -3153,7 +3153,7 @@
     ],
     "intent": {
       "question": "Determinar la eficacia del obicetrapib para reducir el colesterol LDL, añadido al tratamiento hipolipemiante máximo tolerado, en pacientes de alto riesgo cardiovascular.",
-      "answer": "El obicetrapib redujo el colesterol LDL un 29.9% frente a un aumento de 2.7% con placebo (diferencia -32.6 puntos; IC95% -35.8 a -29.5; p<0.001) , sin que el ensayo evaluara ni demuestre beneficio clínico cardiovascular.",
+      "answer": "El obicetrapib redujo el colesterol LDL un 29.9% frente a un aumento de 2.7% con placebo (diferencia -32.6 puntos; IC95% -35.8 a -29.5; p<0.001) , sin que el ensayo tuviera poder estadístico para evaluar ni demostrara beneficio clínico cardiovascular.",
       "population": "La población fueron adultos de 18 años o más con enfermedad cardiovascular aterosclerótica establecida o hipercolesterolemia familiar heterocigota, en tratamiento con dosis máximas toleradas de terapia hipolipemiante, con un colesterol LDL de 100 mg/dl o más, o un colesterol no HDL de 130 mg/dl o más, o bien con un colesterol LDL de 55 a 100 mg/dl, o un colesterol no HDL de 85 a 130 mg/dl, más al menos un factor de riesgo…"
     },
     "datePublished": "2026-09-03"
@@ -3164,7 +3164,7 @@
     "url": "https://resumenestrials.com/trials/target-ctca-angiografia-coronaria-tomografia-computarizada-dirigida-dolor-toracico-agudo/",
     "title": "TARGET-CTCA: uso dirigido de la angiografía coronaria por tomografía computarizada en el dolor torácico agudo",
     "seo_title": "TARGET-CTCA trial: uso dirigido de la angiografía coronaria por tomografía computarizada en el dolor torácico agudo | Resúmenes Trials",
-    "description": "TARGET-CTCA: Sin diferencia en el desenlace primario: 7.1% frente a 7.3% a una mediana de 3 años (HR ajustado 0.95; IC 95%, 0.73 a 1.23; p=0.71). Mirar más no…",
+    "description": "TARGET-CTCA: Sin diferencia significativa en el desenlace primario: 7.1% frente a 7.3% a una mediana de 3 años (HR ajustado 0.95; IC 95%, 0.73 a 1.23…",
     "clusters": [
       {
         "name": "Cardiología y prevención cardiovascular",
@@ -3179,7 +3179,7 @@
     ],
     "intent": {
       "question": "Determinar si la angiografía coronaria por tomografía computarizada dirigida reduce el infarto de miocardio o la muerte de causa cardiaca, frente al cuidado estándar, en pacientes con sospecha de síndrome coronario agudo en quienes se ha descartado el infarto pero cuya troponina de alta sensibilidad indica riesgo intermedio.",
-      "answer": "Sin diferencia en el desenlace primario: 7.1% frente a 7.3% a una mediana de 3 años (HR ajustado 0.95; IC 95%, 0.73 a 1.23; p=0.71).",
+      "answer": "Sin diferencia significativa en el desenlace primario: 7.1% frente a 7.3% a una mediana de 3 años (HR ajustado 0.95; IC 95%, 0.73 a 1.23; p=0.71).",
       "population": "La población fueron adultos de 18 años o más que acudieron a un servicio de urgencias o de evaluación médica aguda con sospecha de síndrome coronario agudo, en quienes ya se había descartado el infarto de miocardio pero cuya troponina cardiaca de alta sensibilidad indicaba un riesgo intermedio, definido como una concentración máxima de troponina I o T por encima del umbral de bajo riesgo de 5 ng por litro y por debajo del…"
     },
     "datePublished": "2026-09-03"
@@ -3190,7 +3190,7 @@
     "url": "https://resumenestrials.com/trials/dawn-trombectomia-6-24-horas-tras-ictus-cuidado-estandar/",
     "title": "DAWN: trombectomía de 6 a 24 horas tras un ictus con discordancia entre el déficit y el infarto",
     "seo_title": "DAWN trial: trombectomía de 6 a 24 horas tras un ictus con discordancia entre el déficit y el infarto | Resúmenes Trials",
-    "description": "DAWN: Beneficio claro: independencia funcional del 49% frente al 13% a los 90 días (diferencia ajustada 33 puntos; intervalo de credibilidad 95%, 24 a 44…",
+    "description": "DAWN: Beneficio claro: independencia funcional del 49% frente al 13% a los 90 días (diferencia ajustada 33 puntos; intervalo de credibilidad 95%, 21 a 44…",
     "clusters": [
       {
         "name": "Neurología",
@@ -3205,7 +3205,7 @@
     ],
     "intent": {
       "question": "Determinar si la trombectomía mecánica realizada de 6 a 24 horas tras el inicio de un ictus isquémico, en pacientes con una discordancia entre la gravedad del déficit clínico y el tamaño del infarto, mejora la discapacidad funcional a los 90 días frente al cuidado médico estándar.",
-      "answer": "Beneficio claro: independencia funcional del 49% frente al 13% a los 90 días (diferencia ajustada 33 puntos; intervalo de credibilidad 95%, 24 a 44; probabilidad posterior de superioridad mayor de 0.999), sin más muertes ni más hemorragias.",
+      "answer": "Beneficio claro: independencia funcional del 49% frente al 13% a los 90 días (diferencia ajustada 33 puntos; intervalo de credibilidad 95%, 21 a 44; probabilidad posterior de superioridad mayor de 0.999), sin diferencias significativas en la mortalidad (19% frente a 18%) ni en la hemorragia intracraneal sintomática (6% frente a…",
       "population": "La población fueron adultos de 18 años o más con un ictus isquémico agudo por oclusión de la arteria carótida interna intracraneal o del primer segmento de la arteria cerebral media, que habían sido vistos por última vez sin síntomas entre 6 y 24 horas antes, y que presentaban una discordancia entre la gravedad del déficit clínico y el tamaño del infarto cerebral, es decir, un déficit neurológico mucho más grave de lo que el…"
     },
     "datePublished": "2026-09-03"
@@ -3216,7 +3216,7 @@
     "url": "https://resumenestrials.com/trials/defuse-3-trombectomia-6-16-horas-tras-ictus-seleccion-imagen-perfusion/",
     "title": "DEFUSE 3: trombectomía en el ictus de 6 a 16 horas con selección por imagen de perfusión",
     "seo_title": "DEFUSE 3 trial: trombectomía en el ictus de 6 a 16 horas con selección por imagen de perfusión | Resúmenes Trials",
-    "description": "DEFUSE 3: Beneficio claro: independencia funcional del 45% frente al 17% a los 90 días (razón de riesgo 2.67; p menor de 0.001), con un desplazamiento…",
+    "description": "DEFUSE 3: Beneficio claro en el desenlace primario: desplazamiento favorable en toda la escala de discapacidad (razón de momios 2.77; IC 95%, 1.63 a 4.70; p…",
     "clusters": [
       {
         "name": "Neurología",
@@ -3231,7 +3231,7 @@
     ],
     "intent": {
       "question": "Determinar si la trombectomía endovascular, realizada de 6 a 16 horas tras el inicio de un ictus isquémico en pacientes seleccionados por un patrón favorable en la imagen de perfusión, mejora el desenlace funcional a los 90 días frente al tratamiento médico estándar.",
-      "answer": "Beneficio claro: independencia funcional del 45% frente al 17% a los 90 días (razón de riesgo 2.67; p menor de 0.001), con un desplazamiento favorable en toda la escala de discapacidad (razón de momios 2.77; IC 95%, 1.63 a 4.70; p menor de 0.001).",
+      "answer": "Beneficio claro en el desenlace primario: desplazamiento favorable en toda la escala de discapacidad (razón de momios 2.77; IC 95%, 1.63 a 4.70; p menor de 0.001); en el desenlace secundario, independencia funcional del 45% frente al 17% a los 90 días (razón de riesgo 2.67; p menor de 0.001).",
       "population": "La población fueron adultos con un ictus isquémico agudo por oclusión de la arteria cerebral media proximal o de la carótida interna, que podían iniciar el tratamiento endovascular entre 6 y 16 horas después de haber sido vistos por última vez sin síntomas, incluidos los que despertaron ya con el ictus. Debían tener, además, un patrón favorable en la imagen de perfusión: un volumen de infarto ya establecido (núcleo isquémico)…"
     },
     "datePublished": "2026-09-03"
