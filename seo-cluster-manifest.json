@@ -89,7 +89,7 @@
     "category": "Medicina Crítica",
     "path": "/medicina-critica/sdra-ecmo/",
     "url": "https://resumenestrials.com/medicina-critica/sdra-ecmo/",
-    "count": 22,
+    "count": 23,
     "trial_ids": [
       "21",
       "56",
@@ -112,7 +112,8 @@
       "206",
       "211",
       "201",
-      "232"
+      "232",
+      "244"
     ]
   },
   "neurocriticos": {
@@ -120,7 +121,7 @@
     "category": "Medicina Crítica",
     "path": "/medicina-critica/neurocriticos/",
     "url": "https://resumenestrials.com/medicina-critica/neurocriticos/",
-    "count": 12,
+    "count": 13,
     "trial_ids": [
       "19",
       "40",
@@ -133,7 +134,8 @@
       "134",
       "148",
       "174",
-      "214"
+      "214",
+      "244"
     ]
   },
   "renal-acido-base": {
@@ -245,7 +247,7 @@
     "category": "Medicina Interna",
     "path": "/medicina-interna/cardiovascular/",
     "url": "https://resumenestrials.com/medicina-interna/cardiovascular/",
-    "count": 55,
+    "count": 57,
     "trial_ids": [
       "15",
       "18",
@@ -301,7 +303,9 @@
       "166",
       "167",
       "169",
-      "219"
+      "219",
+      "245",
+      "247"
     ]
   },
   "infecciosas": {
@@ -309,7 +313,7 @@
     "category": "Medicina Interna",
     "path": "/medicina-interna/infecciosas/",
     "url": "https://resumenestrials.com/medicina-interna/infecciosas/",
-    "count": 11,
+    "count": 12,
     "trial_ids": [
       "31",
       "32",
@@ -321,7 +325,8 @@
       "84",
       "109",
       "240",
-      "241"
+      "241",
+      "246"
     ]
   },
   "renal-metabolica": {
@@ -329,7 +334,7 @@
     "category": "Medicina Interna",
     "path": "/medicina-interna/renal-metabolica/",
     "url": "https://resumenestrials.com/medicina-interna/renal-metabolica/",
-    "count": 29,
+    "count": 30,
     "trial_ids": [
       "35",
       "46",
@@ -359,7 +364,8 @@
       "151",
       "157",
       "175",
-      "238"
+      "238",
+      "246"
     ]
   },
   "neurologia": {

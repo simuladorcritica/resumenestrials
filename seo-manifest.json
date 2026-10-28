@@ -6468,5 +6468,139 @@
       "population": "La población fueron adultos programados para cirugía cardiaca electiva con circulación extracorpórea (CEC) de cualquier tipo: revascularización coronaria, cirugía valvular o de aorta ascendente, implante de asistencia ventricular, cierre de comunicación interauricular o combinaciones. La raza fue autorreportada: eran blancos el 78.4% y el 77.8% de cada grupo, y asiáticos el 19.3% y el 19.8%. Procedían de centros de Europa…"
     },
     "datePublished": "2026-10-28"
+  },
+  "242": {
+    "slug": "dellphi-305-mantenimiento-tarlatamab-durvalumab-cancer-pulmon-celulas-pequenas-estadio-extendido",
+    "path": "/trials/dellphi-305-mantenimiento-tarlatamab-durvalumab-cancer-pulmon-celulas-pequenas-estadio-extendido/",
+    "url": "https://resumenestrials.com/trials/dellphi-305-mantenimiento-tarlatamab-durvalumab-cancer-pulmon-celulas-pequenas-estadio-extendido/",
+    "title": "DeLLphi-305: mantenimiento con tarlatamab-durvalumab en el cáncer de pulmón de células pequeñas en estadio extendido",
+    "seo_title": "DeLLphi-305 trial: mantenimiento con tarlatamab-durvalumab en el cáncer de pulmón de células pequeñas en estadio extendido | Resúmenes Trials",
+    "description": "DeLLphi-305: En un análisis interino preespecificado, sumar tarlatamab al mantenimiento con durvalumab prolongó la supervivencia global, con una mediana de…",
+    "clusters": [],
+    "images": [
+      "https://resumenestrials.com/images/trials/dellphi-305-mantenimiento-tarlatamab-durvalumab-cancer-pulmon-celulas-pequenas-estadio-extendido-16x9.jpg",
+      "https://resumenestrials.com/images/trials/dellphi-305-mantenimiento-tarlatamab-durvalumab-cancer-pulmon-celulas-pequenas-estadio-extendido-4x3.jpg",
+      "https://resumenestrials.com/images/trials/dellphi-305-mantenimiento-tarlatamab-durvalumab-cancer-pulmon-celulas-pequenas-estadio-extendido-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si añadir tarlatamab al mantenimiento con durvalumab prolonga la supervivencia global frente al durvalumab solo en pacientes con cáncer de pulmón de células pequeñas en estadio extendido sin progresión tras la quimioinmunoterapia de primera línea.",
+      "answer": "En un análisis interino preespecificado, sumar tarlatamab al mantenimiento con durvalumab prolongó la supervivencia global, con una mediana de 21.1 frente a 12.7 meses (HR de muerte 0.42; IC 95%, 0.32 a 0.54; P<0.001) , a costa de un síndrome de liberación de citocinas en el 49.6% de los pacientes, casi siempre de grado 1 o 2.",
+      "population": "La población fueron adultos con cáncer de pulmón de células pequeñas en estadio extendido, confirmado por histología o citología, sin progresión tras la quimioinmunoterapia de primera línea: cuatro ciclos de platino con etopósido, al menos tres de ellos junto con durvalumab. Debían tener un estado funcional ECOG de 0 o 1, y se admitieron metástasis cerebrales asintomáticas, tratadas o no. Por raza autodeclarada, el 38.7% y el…"
+    },
+    "datePublished": "2026-10-28"
+  },
+  "244": {
+    "slug": "hemotion-estrategia-transfusion-liberal-restrictiva-pacientes-traumatismo-craneoencefalico",
+    "path": "/trials/hemotion-estrategia-transfusion-liberal-restrictiva-pacientes-traumatismo-craneoencefalico/",
+    "url": "https://resumenestrials.com/trials/hemotion-estrategia-transfusion-liberal-restrictiva-pacientes-traumatismo-craneoencefalico/",
+    "title": "HEMOTION: estrategia de transfusión liberal o restrictiva en pacientes con traumatismo craneoencefálico",
+    "seo_title": "HEMOTION trial: estrategia de transfusión liberal o restrictiva en pacientes con traumatismo craneoencefálico | Resúmenes Trials",
+    "description": "HEMOTION: La estrategia liberal no redujo de forma significativa el resultado neurológico desfavorable a los 6 meses: 68.4% frente a 73.5% (riesgo relativo…",
+    "clusters": [
+      {
+        "name": "SDRA y ECMO",
+        "path": "/medicina-critica/sdra-ecmo/",
+        "url": "https://resumenestrials.com/medicina-critica/sdra-ecmo/"
+      },
+      {
+        "name": "Neurocríticos",
+        "path": "/medicina-critica/neurocriticos/",
+        "url": "https://resumenestrials.com/medicina-critica/neurocriticos/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/hemotion-estrategia-transfusion-liberal-restrictiva-pacientes-traumatismo-craneoencefalico-16x9.jpg",
+      "https://resumenestrials.com/images/trials/hemotion-estrategia-transfusion-liberal-restrictiva-pacientes-traumatismo-craneoencefalico-4x3.jpg",
+      "https://resumenestrials.com/images/trials/hemotion-estrategia-transfusion-liberal-restrictiva-pacientes-traumatismo-craneoencefalico-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si una estrategia de transfusión liberal, con umbral de hemoglobina de 10 g/dl o menos, frente a una restrictiva, con umbral de 7 g/dl o menos, reduce el resultado neurológico desfavorable a los 6 meses en adultos críticos con traumatismo craneoencefálico moderado o grave y anemia.",
+      "answer": "La estrategia liberal no redujo de forma significativa el resultado neurológico desfavorable a los 6 meses: 68.4% frente a 73.5% (riesgo relativo 0.93; IC 95%, 0.83 a 1.04; valor p no reportado) , con una diferencia absoluta ajustada de 5.4 puntos porcentuales (IC 95%, −2.9 a 13.7) y sin diferencia significativa en la mortalidad…",
+      "population": "La población fueron adultos en cuidados intensivos con traumatismo craneoencefálico cerrado agudo, moderado o grave, con 12 o menos puntos en la escala de coma de Glasgow (de 3 a 15; menos puntos, menor conciencia), y anemia, definida como hemoglobina de 10 g/dl o menos. La raza la informaron pacientes o representantes: eran blancos el 70.7% y el 74.9% de cada grupo."
+    },
+    "datePublished": "2026-10-28"
+  },
+  "245": {
+    "slug": "mint-estrategia-transfusion-restrictiva-liberal-infarto-miocardio-anemia",
+    "path": "/trials/mint-estrategia-transfusion-restrictiva-liberal-infarto-miocardio-anemia/",
+    "url": "https://resumenestrials.com/trials/mint-estrategia-transfusion-restrictiva-liberal-infarto-miocardio-anemia/",
+    "title": "MINT: estrategia de transfusión restrictiva o liberal en el infarto de miocardio y la anemia",
+    "seo_title": "MINT trial: estrategia de transfusión restrictiva o liberal en el infarto de miocardio y la anemia | Resúmenes Trials",
+    "description": "MINT: La estrategia liberal no redujo de forma significativa el infarto o la muerte a 30 días: 16.9% con la restrictiva frente a 14.5% con la liberal (riesgo…",
+    "clusters": [
+      {
+        "name": "Cardiología y prevención cardiovascular",
+        "path": "/medicina-interna/cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-interna/cardiovascular/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/mint-estrategia-transfusion-restrictiva-liberal-infarto-miocardio-anemia-16x9.jpg",
+      "https://resumenestrials.com/images/trials/mint-estrategia-transfusion-restrictiva-liberal-infarto-miocardio-anemia-4x3.jpg",
+      "https://resumenestrials.com/images/trials/mint-estrategia-transfusion-restrictiva-liberal-infarto-miocardio-anemia-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si una estrategia de transfusión liberal, con umbral de hemoglobina menor de 10 g/dl, frente a una restrictiva, con umbral de 7 a 8 g/dl, modifica el riesgo de infarto de miocardio o muerte a 30 días en adultos con infarto agudo de miocardio y anemia.",
+      "answer": "La estrategia liberal no redujo de forma significativa el infarto o la muerte a 30 días: 16.9% con la restrictiva frente a 14.5% con la liberal (riesgo relativo 1.15; IC 95%, 0.99 a 1.34; p = 0.07) , sin diferencia significativa tampoco en la muerte a 30 días (9.9% frente a 8.3%).",
+      "population": "La población fueron adultos hospitalizados con un infarto agudo de miocardio con o sin elevación del ST, de tipo 1, 2, 4b o 4c según la Tercera Definición Universal, y hemoglobina menor de 10 g/dl en las 24 horas previas, procedentes de seis países de América, Europa y Oceanía. La raza fue blanca en el 70.6%, negra en el 12.6% y otra en el 7.0%; faltó en el 9.9%, incluidos los 323 pacientes de Francia, donde según el artículo…"
+    },
+    "datePublished": "2026-10-28"
+  },
+  "246": {
+    "slug": "attire-ensayo-aleatorizado-infusiones-albumina-pacientes-hospitalizados-cirrosis",
+    "path": "/trials/attire-ensayo-aleatorizado-infusiones-albumina-pacientes-hospitalizados-cirrosis/",
+    "url": "https://resumenestrials.com/trials/attire-ensayo-aleatorizado-infusiones-albumina-pacientes-hospitalizados-cirrosis/",
+    "title": "ATTIRE: ensayo aleatorizado de infusiones de albúmina en pacientes hospitalizados con cirrosis",
+    "seo_title": "ATTIRE trial: ensayo aleatorizado de infusiones de albúmina en pacientes hospitalizados con cirrosis | Resúmenes Trials",
+    "description": "ATTIRE: La albúmina dirigida no redujo de forma significativa el compuesto de infección nueva, disfunción renal o muerte entre los días 3 y 15: 29.7% frente a…",
+    "clusters": [
+      {
+        "name": "Enfermedades infecciosas",
+        "path": "/medicina-interna/infecciosas/",
+        "url": "https://resumenestrials.com/medicina-interna/infecciosas/"
+      },
+      {
+        "name": "Renal y metabolismo",
+        "path": "/medicina-interna/renal-metabolica/",
+        "url": "https://resumenestrials.com/medicina-interna/renal-metabolica/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/attire-ensayo-aleatorizado-infusiones-albumina-pacientes-hospitalizados-cirrosis-16x9.jpg",
+      "https://resumenestrials.com/images/trials/attire-ensayo-aleatorizado-infusiones-albumina-pacientes-hospitalizados-cirrosis-4x3.jpg",
+      "https://resumenestrials.com/images/trials/attire-ensayo-aleatorizado-infusiones-albumina-pacientes-hospitalizados-cirrosis-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si las infusiones diarias de albúmina humana al 20% para llevar la albúmina sérica a 30 g/l o más, frente a la atención estándar, reducen el compuesto de infección nueva, disfunción renal o muerte entre los días 3 y 15 en adultos hospitalizados con cirrosis descompensada y albúmina menor de 30 g/l.",
+      "answer": "La albúmina dirigida no redujo de forma significativa el compuesto de infección nueva, disfunción renal o muerte entre los días 3 y 15: 29.7% frente a 30.2% con atención estándar (razón de momios ajustada 0.98; IC 95%, 0.71 a 1.33; p = 0.87) .",
+      "population": "La población fueron adultos hospitalizados en el Reino Unido por complicaciones agudas de una cirrosis descompensada, con albúmina sérica menor de 30 g/l en las primeras 72 horas del ingreso. La raza o etnia: No reportado."
+    },
+    "datePublished": "2026-10-28"
+  },
+  "247": {
+    "slug": "reality-efecto-estrategia-transfusion-sanguinea-restrictiva-liberal-eventos-cardiovasculares",
+    "path": "/trials/reality-efecto-estrategia-transfusion-sanguinea-restrictiva-liberal-eventos-cardiovasculares/",
+    "url": "https://resumenestrials.com/trials/reality-efecto-estrategia-transfusion-sanguinea-restrictiva-liberal-eventos-cardiovasculares/",
+    "title": "REALITY: efecto de una estrategia de transfusión sanguínea restrictiva frente a una liberal sobre los eventos cardiovasculares mayores en pacientes con infarto agudo de miocardio y anemia",
+    "seo_title": "REALITY trial: efecto de una estrategia de transfusión sanguínea restrictiva frente a una liberal sobre los eventos cardiovasculares mayores en pacientes con infarto agudo de miocardio y anemia | Resúmenes Trials",
+    "description": "REALITY: Según los autores, la estrategia restrictiva cumplió el criterio de no inferioridad para los eventos cardiovasculares mayores a 30 días en la…",
+    "clusters": [
+      {
+        "name": "Cardiología y prevención cardiovascular",
+        "path": "/medicina-interna/cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-interna/cardiovascular/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/reality-efecto-estrategia-transfusion-sanguinea-restrictiva-liberal-eventos-cardiovasculares-16x9.jpg",
+      "https://resumenestrials.com/images/trials/reality-efecto-estrategia-transfusion-sanguinea-restrictiva-liberal-eventos-cardiovasculares-4x3.jpg",
+      "https://resumenestrials.com/images/trials/reality-efecto-estrategia-transfusion-sanguinea-restrictiva-liberal-eventos-cardiovasculares-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si una estrategia de transfusión restrictiva, con transfusión solo ante hemoglobina de 8 g/dl o menos, es no inferior a una liberal, con transfusión ante hemoglobina de 10 g/dl o menos, en cuanto a eventos cardiovasculares mayores a 30 días en pacientes hospitalizados por infarto agudo de miocardio con hemoglobina entre 7 y 10 g/dl.",
+      "answer": "Según los autores, la estrategia restrictiva cumplió el criterio de no inferioridad para los eventos cardiovasculares mayores a 30 días en la población según tratamiento: 8.9% frente a 11.3% (riesgo relativo 0.79; IC unilateral 97.5%, 0 a 1.25; margen 1.25) .",
+      "population": "Se estudió a adultos hospitalizados por un infarto agudo de miocardio, con o sin elevación del segmento ST, que en algún momento del ingreso tuvieron una hemoglobina entre 7 y 10 g/dl, en hospitales de Francia y España. La raza se registró por autodeclaración: entre quienes tenían el dato, en el grupo restrictivo y en el liberal se declararon blancos el 88.7% y el 82.6%, y norteafricanos el 8.6% y el 11.2%."
+    },
+    "datePublished": "2026-10-28"
   }
 }
