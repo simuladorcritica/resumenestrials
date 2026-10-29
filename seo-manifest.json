@@ -3325,7 +3325,7 @@
     "url": "https://resumenestrials.com/trials/partner-implante-percutaneo-valvula-aortica-tratamiento-estandar-estenosis-aortica-inoperable/",
     "title": "PARTNER: implante percutáneo de válvula aórtica en la estenosis aórtica de pacientes que no pueden someterse a cirugía",
     "seo_title": "PARTNER trial: implante percutáneo de válvula aórtica en la estenosis aórtica de pacientes que no pueden someterse a cirugía | Resúmenes Trials",
-    "description": "PARTNER: La mortalidad a 1 año fue menor con TAVI que con tratamiento estándar ( 30.7% frente a 50.7%; HR 0.55; IC 95%, 0.40 a 0.74; p<0.001 ), aunque a costa…",
+    "description": "PARTNER: La mortalidad a 1 año fue menor con TAVI que con tratamiento estándar ( 30.7% frente a 50.7%; HR 0.55; IC 95%, 0.40 a 0.74; p<0.001 ), aunque con más…",
     "clusters": [],
     "images": [
       "https://resumenestrials.com/images/trials/partner-implante-percutaneo-valvula-aortica-tratamiento-estandar-estenosis-aortica-inoperable-16x9.jpg",
@@ -3334,7 +3334,7 @@
     ],
     "intent": {
       "question": "Determinar si el implante percutáneo de válvula aórtica (TAVI) reduce la mortalidad por cualquier causa frente al tratamiento estándar en pacientes con estenosis aórtica grave que los cirujanos consideraron no aptos para cirugía.",
-      "answer": "La mortalidad a 1 año fue menor con TAVI que con tratamiento estándar ( 30.7% frente a 50.7%; HR 0.55; IC 95%, 0.40 a 0.74; p<0.001 ), aunque a costa de más ictus y más complicaciones vasculares y hemorrágicas.",
+      "answer": "La mortalidad a 1 año fue menor con TAVI que con tratamiento estándar ( 30.7% frente a 50.7%; HR 0.55; IC 95%, 0.40 a 0.74; p<0.001 ), aunque con más ictus o accidente isquémico transitorio (desenlace secundario, p=0.04 sin ajuste por multiplicidad; ictus mayor sin diferencia significativa) y más complicaciones vasculares y…",
       "population": "La población fueron adultos con estenosis aórtica calcificada grave y síntomas cardiacos, definida por un área valvular menor de 0.8 cm2, un gradiente medio de 40 mmHg o más, o una velocidad del jet aórtico de 4.0 m por segundo o más, con clase funcional de la New York Heart Association (NYHA) II, III o IV. A diferencia de otras cohortes del programa PARTNER, estos pacientes habían sido evaluados por un cardiólogo y dos…"
     },
     "datePublished": "2026-09-03"
@@ -3396,7 +3396,7 @@
     "url": "https://resumenestrials.com/trials/pilot-objetivos-saturacion-oxigeno-adultos-criticamente-enfermos-ventilacion-mecanica/",
     "title": "PILOT: objetivos de saturación de oxígeno en adultos en estado crítico que reciben ventilación mecánica",
     "seo_title": "PILOT trial: objetivos de saturación de oxígeno en adultos en estado crítico que reciben ventilación mecánica | Resúmenes Trials",
-    "description": "PILOT: El número de días libres de ventilador fue similar entre los tres objetivos de saturación: mediana de 20 días con el objetivo bajo, 21 con el…",
+    "description": "PILOT: El número de días libres de ventilador no difirió significativamente entre los tres objetivos de saturación: mediana de 20 días con el objetivo bajo…",
     "clusters": [
       {
         "name": "Ventilación e insuficiencia respiratoria",
@@ -3411,8 +3411,8 @@
     ],
     "intent": {
       "question": "Determinar si un objetivo de saturación de oxígeno bajo, intermedio o alto durante la ventilación mecánica invasiva modifica el número de días libres de ventilador en adultos críticamente enfermos.",
-      "answer": "El número de días libres de ventilador fue similar entre los tres objetivos de saturación: mediana de 20 días con el objetivo bajo, 21 con el intermedio y 21 con el alto (p=0.81) , sin diferencias en la mortalidad.",
-      "population": "La población fueron adultos de 18 años o más que recibían por primera vez ventilación mecánica invasiva, ubicados en el servicio de urgencias con ingreso planeado a cuidados intensivos, o ya en la unidad de cuidados intensivos médica. Se excluyó a las pacientes embarazadas y a las personas privadas de libertad. La raza o el grupo étnico se autorreportó: alrededor de 79% blancos, 15% a 16% negros y el resto de otros grupos, sin…"
+      "answer": "El número de días libres de ventilador no difirió significativamente entre los tres objetivos de saturación: mediana de 20 días con el objetivo bajo, 21 con el intermedio y 21 con el alto (p=0.81) , sin diferencias en la mortalidad.",
+      "population": "La población fueron adultos de 18 años o más que recibían por primera vez ventilación mecánica invasiva, ubicados en el servicio de urgencias con ingreso planeado a cuidados intensivos, o ya en la unidad de cuidados intensivos médica. Se excluyó a las pacientes embarazadas y a las personas privadas de libertad. La raza o el grupo étnico se obtuvo del expediente clínico electrónico: alrededor de 79% blancos, 15% a 16% negros y…"
     },
     "datePublished": "2026-09-03"
   },
@@ -3478,7 +3478,7 @@
     "intent": {
       "question": "Determinar si la administración de adrenalina durante la reanimación de un paro cardiaco extrahospitalario aumenta la supervivencia a 30 días en comparación con placebo.",
       "answer": "La adrenalina aumentó la supervivencia a 30 días frente a placebo ( 3.2% frente a 2.4%; odds ratio 1.39; IC95% 1.06 a 1.82; p=0.02 ), pero no hubo diferencia significativa en la supervivencia con buen estado neurológico al alta hospitalaria, porque entre los sobrevivientes hubo más discapacidad neurológica grave en el grupo de…",
-      "population": "La población fueron adultos que sufrieron un paro cardiaco extrahospitalario y recibieron soporte vital avanzado por paramédicos entrenados para el ensayo. La raza o el grupo étnico no se reportó. El estudio se realizó en el Reino Unido. Se excluyó a quienes tenían embarazo conocido o sospechado, menos de 16 años, paro cardiaco por anafilaxia o asma, o habían recibido adrenalina antes de la llegada del paramédico del estudio…"
+      "population": "La población fueron adultos que sufrieron un paro cardiaco extrahospitalario, recibieron soporte vital avanzado por paramédicos entrenados para el ensayo y no respondieron a los intentos iniciales de reanimación (RCP y desfibrilación). La raza o el grupo étnico no se reportó. El estudio se realizó en el Reino Unido. Se excluyó a quienes tenían embarazo conocido o sospechado, menos de 16 años, paro cardiaco por anafilaxia o…"
     },
     "datePublished": "2026-09-03"
   },
