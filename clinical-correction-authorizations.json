@@ -1,213 +1,226 @@
 {
   "schema_version": 1,
-  "base_sha": "3eb53d1372c3c849cc1b148b1c42e8b830b055d4",
+  "base_sha": "db000508477e07d2b1b453df4b879bc65fa5cbe9",
   "authorizations": [
-    {
-      "id": 55,
-      "fields": [
-        "cuerpo",
-        "corto"
-      ],
-      "reason": "Solo formato (revisar_estilo.py, revisor 4): la puntuación final de la frase ancla pasa fuera de <strong> y se cierran los <p> sin cerrar; sin cambiar ninguna palabra."
-    },
-    {
-      "id": 56,
-      "fields": [
-        "cuerpo",
-        "corto"
-      ],
-      "reason": "Solo formato (revisar_estilo.py, revisor 4): la puntuación final de la frase ancla pasa fuera de <strong> y se cierran los <p> sin cerrar; sin cambiar ninguna palabra."
-    },
-    {
-      "id": 65,
-      "fields": [
-        "cuerpo",
-        "corto"
-      ],
-      "reason": "Solo formato (revisar_estilo.py, revisor 4): la puntuación final de la frase ancla pasa fuera de <strong> y se cierran los <p> sin cerrar; sin cambiar ninguna palabra."
-    },
-    {
-      "id": 66,
-      "fields": [
-        "cuerpo",
-        "corto"
-      ],
-      "reason": "Solo formato (revisar_estilo.py, revisor 4): la puntuación final de la frase ancla pasa fuera de <strong> y se cierran los <p> sin cerrar; sin cambiar ninguna palabra."
-    },
-    {
-      "id": 69,
-      "fields": [
-        "cuerpo",
-        "corto"
-      ],
-      "reason": "Solo formato (revisar_estilo.py, revisor 4): la puntuación final de la frase ancla pasa fuera de <strong> y se cierran los <p> sin cerrar; sin cambiar ninguna palabra."
-    },
-    {
-      "id": 70,
-      "fields": [
-        "cuerpo",
-        "corto"
-      ],
-      "reason": "Solo formato (revisar_estilo.py, revisor 4): la puntuación final de la frase ancla pasa fuera de <strong> y se cierran los <p> sin cerrar; sin cambiar ninguna palabra."
-    },
-    {
-      "id": 86,
-      "fields": [
-        "cuerpo",
-        "corto"
-      ],
-      "reason": "Solo formato (revisar_estilo.py, revisor 4): la puntuación final de la frase ancla pasa fuera de <strong> y se cierran los <p> sin cerrar; sin cambiar ninguna palabra."
-    },
-    {
-      "id": 121,
-      "fields": [
-        "financiacion",
-        "cuerpo",
-        "corto"
-      ],
-      "reason": "Revisión nocturna 2026-10-28 (SURMOUNT-1): corrección de los errores verificados por el equipo editorial contra el artículo, el apéndice, el protocolo y los formularios de conflictos (3 rondas; sin CRÍTICOS ni MAYORES pendientes). Detalle con cita y página en revision_nocturna/equipo/121_SURMOUNT-1/acta.md y ERRORES_RESUMENES.md."
-    },
-    {
-      "id": 123,
-      "fields": [
-        "financiacion",
-        "hallazgo",
-        "cuerpo",
-        "corto"
-      ],
-      "reason": "Revisión nocturna 2026-10-28 (PARTNER): corrección de los errores verificados por el equipo editorial contra el artículo, el apéndice, el protocolo y los formularios de conflictos (3 rondas; sin CRÍTICOS ni MAYORES pendientes). Detalle con cita y página en revision_nocturna/equipo/123_PARTNER/acta.md y ERRORES_RESUMENES.md."
-    },
-    {
-      "id": 126,
-      "fields": [
-        "financiacion",
-        "hallazgo",
-        "cuerpo",
-        "corto"
-      ],
-      "reason": "Revisión nocturna 2026-10-28 (PILOT): corrección de los errores verificados por el equipo editorial contra el artículo, el apéndice, el protocolo y los formularios de conflictos (3 rondas; sin CRÍTICOS ni MAYORES pendientes). Detalle con cita y página en revision_nocturna/equipo/126_PILOT/acta.md y ERRORES_RESUMENES.md."
-    },
-    {
-      "id": 127,
-      "fields": [
-        "financiacion",
-        "cuerpo",
-        "corto"
-      ],
-      "reason": "Revisión nocturna 2026-10-28 (REMAP-CAP): corrección de los errores verificados por el equipo editorial contra el artículo, el apéndice, el protocolo y los formularios de conflictos (3 rondas; sin CRÍTICOS ni MAYORES pendientes). Detalle con cita y página en revision_nocturna/equipo/127_REMAP-CAP/acta.md y ERRORES_RESUMENES.md."
-    },
-    {
-      "id": 128,
-      "fields": [
-        "financiacion",
-        "cuerpo",
-        "corto"
-      ],
-      "reason": "Revisión nocturna 2026-10-28 (PARAMEDIC2): corrección de los errores verificados por el equipo editorial contra el artículo, el apéndice, el protocolo y los formularios de conflictos (3 rondas; sin CRÍTICOS ni MAYORES pendientes). Detalle con cita y página en revision_nocturna/equipo/128_PARAMEDIC2/acta.md y ERRORES_RESUMENES.md."
-    },
     {
       "id": 129,
       "fields": [
+        "financiacion",
         "cuerpo",
         "corto"
       ],
-      "reason": "Solo formato (revisar_estilo.py, revisor 4): la puntuación final de la frase ancla pasa fuera de <strong> y se cierran los <p> sin cerrar; sin cambiar ninguna palabra."
+      "reason": "Corrección nocturna 2026-11-01: errores verificados contra los documentos de la carpeta del artículo (artículo, apéndice, protocolo y formularios ICMJE), con cita y página; equipo editorial en 3 rondas sin CRÍTICOS ni MAYORES pendientes. Acta: revision_nocturna/equipo/129_ATHOS-3/acta.md"
+    },
+    {
+      "id": 130,
+      "fields": [
+        "financiacion",
+        "hallazgo",
+        "cuerpo",
+        "corto"
+      ],
+      "reason": "Corrección nocturna 2026-11-01: errores verificados contra los documentos de la carpeta del artículo (artículo, apéndice, protocolo y formularios ICMJE), con cita y página; equipo editorial en 3 rondas sin CRÍTICOS ni MAYORES pendientes. Acta: revision_nocturna/equipo/130_COACT/acta.md"
     },
     {
       "id": 131,
       "fields": [
+        "financiacion",
+        "temas",
         "cuerpo",
         "corto"
       ],
-      "reason": "Solo formato (revisar_estilo.py, revisor 4): la puntuación final de la frase ancla pasa fuera de <strong> y se cierran los <p> sin cerrar; sin cambiar ninguna palabra."
+      "reason": "Corrección nocturna 2026-11-01: errores verificados contra los documentos de la carpeta del artículo (artículo, apéndice, protocolo y formularios ICMJE), con cita y página; equipo editorial en 3 rondas sin CRÍTICOS ni MAYORES pendientes. Acta: revision_nocturna/equipo/131_INCEPTION/acta.md"
     },
     {
       "id": 132,
       "fields": [
+        "autor",
+        "financiacion",
+        "hallazgo",
         "cuerpo",
         "corto"
       ],
-      "reason": "Solo formato (revisar_estilo.py, revisor 4): la puntuación final de la frase ancla pasa fuera de <strong> y se cierran los <p> sin cerrar; sin cambiar ninguna palabra."
+      "reason": "Corrección nocturna 2026-11-01: errores verificados contra los documentos de la carpeta del artículo (artículo, apéndice, protocolo y formularios ICMJE), con cita y página; equipo editorial en 3 rondas sin CRÍTICOS ni MAYORES pendientes. Acta: revision_nocturna/equipo/132_MIND-USA/acta.md"
     },
     {
       "id": 133,
       "fields": [
+        "financiacion",
         "cuerpo",
         "corto"
       ],
-      "reason": "Solo formato (revisar_estilo.py, revisor 4): la puntuación final de la frase ancla pasa fuera de <strong> y se cierran los <p> sin cerrar; sin cambiar ninguna palabra."
+      "reason": "Corrección nocturna 2026-11-01: errores verificados contra los documentos de la carpeta del artículo (artículo, apéndice, protocolo y formularios ICMJE), con cita y página; equipo editorial en 3 rondas sin CRÍTICOS ni MAYORES pendientes. Acta: revision_nocturna/equipo/133_CAPE_COD/acta.md"
     },
     {
       "id": 134,
       "fields": [
+        "autor",
+        "financiacion",
+        "hallazgo",
         "cuerpo",
         "corto"
       ],
-      "reason": "Solo formato (revisar_estilo.py, revisor 4): la puntuación final de la frase ancla pasa fuera de <strong> y se cierran los <p> sin cerrar; sin cambiar ninguna palabra."
+      "reason": "Corrección nocturna 2026-11-01: errores verificados contra los documentos de la carpeta del artículo (artículo, apéndice, protocolo y formularios ICMJE), con cita y página; equipo editorial en 3 rondas sin CRÍTICOS ni MAYORES pendientes. Acta: revision_nocturna/equipo/134_Eurotherm3235/acta.md"
     },
     {
-      "id": 136,
+      "id": 145,
       "fields": [
         "cuerpo",
         "corto"
       ],
-      "reason": "Solo formato (revisar_estilo.py, revisor 4): la puntuación final de la frase ancla pasa fuera de <strong> y se cierran los <p> sin cerrar; sin cambiar ninguna palabra."
+      "reason": "Corrección solo de formato (revisor 4): puntuación final de la frase ancla fuera de <strong> y cierre de <p> sin cerrar; ninguna palabra cambia."
     },
     {
-      "id": 137,
+      "id": 146,
       "fields": [
         "cuerpo",
         "corto"
       ],
-      "reason": "Solo formato (revisar_estilo.py, revisor 4): la puntuación final de la frase ancla pasa fuera de <strong> y se cierran los <p> sin cerrar; sin cambiar ninguna palabra."
+      "reason": "Corrección solo de formato (revisor 4): puntuación final de la frase ancla fuera de <strong> y cierre de <p> sin cerrar; ninguna palabra cambia."
     },
     {
-      "id": 138,
+      "id": 147,
       "fields": [
         "cuerpo",
         "corto"
       ],
-      "reason": "Solo formato (revisar_estilo.py, revisor 4): la puntuación final de la frase ancla pasa fuera de <strong> y se cierran los <p> sin cerrar; sin cambiar ninguna palabra."
+      "reason": "Corrección solo de formato (revisor 4): puntuación final de la frase ancla fuera de <strong> y cierre de <p> sin cerrar; ninguna palabra cambia."
     },
     {
-      "id": 139,
+      "id": 148,
       "fields": [
         "cuerpo",
         "corto"
       ],
-      "reason": "Solo formato (revisar_estilo.py, revisor 4): la puntuación final de la frase ancla pasa fuera de <strong> y se cierran los <p> sin cerrar; sin cambiar ninguna palabra."
+      "reason": "Corrección solo de formato (revisor 4): puntuación final de la frase ancla fuera de <strong> y cierre de <p> sin cerrar; ninguna palabra cambia."
     },
     {
-      "id": 140,
+      "id": 149,
       "fields": [
         "cuerpo",
         "corto"
       ],
-      "reason": "Solo formato (revisar_estilo.py, revisor 4): la puntuación final de la frase ancla pasa fuera de <strong> y se cierran los <p> sin cerrar; sin cambiar ninguna palabra."
+      "reason": "Corrección solo de formato (revisor 4): puntuación final de la frase ancla fuera de <strong> y cierre de <p> sin cerrar; ninguna palabra cambia."
     },
     {
-      "id": 141,
+      "id": 150,
       "fields": [
         "cuerpo",
         "corto"
       ],
-      "reason": "Solo formato (revisar_estilo.py, revisor 4): la puntuación final de la frase ancla pasa fuera de <strong> y se cierran los <p> sin cerrar; sin cambiar ninguna palabra."
+      "reason": "Corrección solo de formato (revisor 4): puntuación final de la frase ancla fuera de <strong> y cierre de <p> sin cerrar; ninguna palabra cambia."
     },
     {
-      "id": 143,
+      "id": 151,
       "fields": [
         "cuerpo",
         "corto"
       ],
-      "reason": "Solo formato (revisar_estilo.py, revisor 4): la puntuación final de la frase ancla pasa fuera de <strong> y se cierran los <p> sin cerrar; sin cambiar ninguna palabra."
+      "reason": "Corrección solo de formato (revisor 4): puntuación final de la frase ancla fuera de <strong> y cierre de <p> sin cerrar; ninguna palabra cambia."
     },
     {
-      "id": 144,
+      "id": 152,
       "fields": [
         "cuerpo",
         "corto"
       ],
-      "reason": "Solo formato (revisar_estilo.py, revisor 4): la puntuación final de la frase ancla pasa fuera de <strong> y se cierran los <p> sin cerrar; sin cambiar ninguna palabra."
+      "reason": "Corrección solo de formato (revisor 4): puntuación final de la frase ancla fuera de <strong> y cierre de <p> sin cerrar; ninguna palabra cambia."
+    },
+    {
+      "id": 153,
+      "fields": [
+        "cuerpo",
+        "corto"
+      ],
+      "reason": "Corrección solo de formato (revisor 4): puntuación final de la frase ancla fuera de <strong> y cierre de <p> sin cerrar; ninguna palabra cambia."
+    },
+    {
+      "id": 154,
+      "fields": [
+        "cuerpo",
+        "corto"
+      ],
+      "reason": "Corrección solo de formato (revisor 4): puntuación final de la frase ancla fuera de <strong> y cierre de <p> sin cerrar; ninguna palabra cambia."
+    },
+    {
+      "id": 155,
+      "fields": [
+        "cuerpo",
+        "corto"
+      ],
+      "reason": "Corrección solo de formato (revisor 4): puntuación final de la frase ancla fuera de <strong> y cierre de <p> sin cerrar; ninguna palabra cambia."
+    },
+    {
+      "id": 156,
+      "fields": [
+        "cuerpo",
+        "corto"
+      ],
+      "reason": "Corrección solo de formato (revisor 4): puntuación final de la frase ancla fuera de <strong> y cierre de <p> sin cerrar; ninguna palabra cambia."
+    },
+    {
+      "id": 157,
+      "fields": [
+        "cuerpo",
+        "corto"
+      ],
+      "reason": "Corrección solo de formato (revisor 4): puntuación final de la frase ancla fuera de <strong> y cierre de <p> sin cerrar; ninguna palabra cambia."
+    },
+    {
+      "id": 158,
+      "fields": [
+        "cuerpo",
+        "corto"
+      ],
+      "reason": "Corrección solo de formato (revisor 4): puntuación final de la frase ancla fuera de <strong> y cierre de <p> sin cerrar; ninguna palabra cambia."
+    },
+    {
+      "id": 159,
+      "fields": [
+        "cuerpo",
+        "corto"
+      ],
+      "reason": "Corrección solo de formato (revisor 4): puntuación final de la frase ancla fuera de <strong> y cierre de <p> sin cerrar; ninguna palabra cambia."
+    },
+    {
+      "id": 160,
+      "fields": [
+        "cuerpo",
+        "corto"
+      ],
+      "reason": "Corrección solo de formato (revisor 4): puntuación final de la frase ancla fuera de <strong> y cierre de <p> sin cerrar; ninguna palabra cambia."
+    },
+    {
+      "id": 161,
+      "fields": [
+        "cuerpo",
+        "corto"
+      ],
+      "reason": "Corrección solo de formato (revisor 4): puntuación final de la frase ancla fuera de <strong> y cierre de <p> sin cerrar; ninguna palabra cambia."
+    },
+    {
+      "id": 162,
+      "fields": [
+        "cuerpo",
+        "corto"
+      ],
+      "reason": "Corrección solo de formato (revisor 4): puntuación final de la frase ancla fuera de <strong> y cierre de <p> sin cerrar; ninguna palabra cambia."
+    },
+    {
+      "id": 163,
+      "fields": [
+        "cuerpo",
+        "corto"
+      ],
+      "reason": "Corrección solo de formato (revisor 4): puntuación final de la frase ancla fuera de <strong> y cierre de <p> sin cerrar; ninguna palabra cambia."
+    },
+    {
+      "id": 164,
+      "fields": [
+        "cuerpo",
+        "corto"
+      ],
+      "reason": "Corrección solo de formato (revisor 4): puntuación final de la frase ancla fuera de <strong> y cierre de <p> sin cerrar; ninguna palabra cambia."
     }
   ]
 }

@@ -3519,7 +3519,7 @@
     "url": "https://resumenestrials.com/trials/coact-angiografia-coronaria-tras-paro-cardiaco-elevacion-st/",
     "title": "COACT: angiografía coronaria tras un paro cardiaco sin elevación del segmento ST",
     "seo_title": "COACT trial: angiografía coronaria tras un paro cardiaco sin elevación del segmento ST | Resúmenes Trials",
-    "description": "COACT: La estrategia de angiografía coronaria inmediata no mostró diferencia frente a la diferida en la supervivencia a 90 días ( 64.5% frente a 67.2%; odds…",
+    "description": "COACT: La estrategia de angiografía coronaria inmediata no mostró diferencia significativa frente a la diferida en la supervivencia a 90 días ( 64.5% frente a…",
     "clusters": [
       {
         "name": "Cardiología y prevención cardiovascular",
@@ -3539,7 +3539,7 @@
     ],
     "intent": {
       "question": "Comparar una estrategia de angiografía coronaria inmediata frente a una diferida hasta la recuperación neurológica en la supervivencia a 90 días de pacientes reanimados de un paro cardiaco extrahospitalario sin signos de elevación del segmento ST.",
-      "answer": "La estrategia de angiografía coronaria inmediata no mostró diferencia frente a la diferida en la supervivencia a 90 días ( 64.5% frente a 67.2%; odds ratio 0.89; IC95% 0.62 a 1.27; p=0.51 ).",
+      "answer": "La estrategia de angiografía coronaria inmediata no mostró diferencia significativa frente a la diferida en la supervivencia a 90 días ( 64.5% frente a 67.2%; odds ratio 0.89; IC95% 0.62 a 1.27; p=0.51 ).",
       "population": "La población fueron pacientes que habían sufrido un paro cardiaco extrahospitalario con ritmo inicial desfibrilable, que permanecían inconscientes tras el retorno de la circulación espontánea y que no mostraban signos de infarto con elevación del segmento ST en el electrocardiograma; se excluyó a quienes tenían choque hemodinámico persistente, una causa no coronaria evidente o sospechada del paro, disfunción renal grave o…"
     },
     "datePublished": "2026-09-03"
@@ -3586,7 +3586,7 @@
     "url": "https://resumenestrials.com/trials/mind-usa-haloperidol-ziprasidona-tratamiento-delirium-pacientes-criticos/",
     "title": "MIND-USA: haloperidol y ziprasidona para el tratamiento del delirium en la enfermedad crítica",
     "seo_title": "MIND-USA trial: haloperidol y ziprasidona para el tratamiento del delirium en la enfermedad crítica | Resúmenes Trials",
-    "description": "MIND-USA: El número de días vivo y libre de delirium o coma no difirió entre grupos, con una mediana de 8.5 días con placebo, 7.9 con haloperidol y 8.7 con…",
+    "description": "MIND-USA: El número de días vivo y libre de delirium o coma no difirió entre grupos, con una mediana ajustada de 8.5 días con placebo, 7.9 con haloperidol y…",
     "clusters": [],
     "images": [
       "https://resumenestrials.com/images/trials/mind-usa-haloperidol-ziprasidona-tratamiento-delirium-pacientes-criticos-16x9.jpg",
@@ -3595,7 +3595,7 @@
     ],
     "intent": {
       "question": "Evaluar si el haloperidol o la ziprasidona, comparados con placebo, reducen la duración del delirium y el coma en pacientes críticamente enfermos con insuficiencia respiratoria aguda o choque.",
-      "answer": "El número de días vivo y libre de delirium o coma no difirió entre grupos, con una mediana de 8.5 días con placebo, 7.9 con haloperidol y 8.7 con ziprasidona (p=0.26 para el efecto global) , sin significancia estadística.",
+      "answer": "El número de días vivo y libre de delirium o coma no difirió entre grupos, con una mediana ajustada de 8.5 días con placebo, 7.9 con haloperidol y 8.7 con ziprasidona (p=0.26 para el efecto global) , sin significancia estadística.",
       "population": "La población fueron adultos de 18 años o más ingresados en una unidad de cuidados intensivos médica o quirúrgica de Estados Unidos, que recibían ventilación con presión positiva invasiva o no invasiva, vasopresores o un balón de contrapulsación intraaórtico, y que presentaban delirium hipoactivo o hiperactivo detectado con el Método de Evaluación de la Confusión para la unidad de cuidados intensivos. La raza se autorreportó o…"
     },
     "datePublished": "2026-09-03"
@@ -3632,7 +3632,7 @@
     "url": "https://resumenestrials.com/trials/eurotherm3235-hipotermia-terapeutica-hipertension-intracraneal-tras-traumatismo-craneoencefalico/",
     "title": "Eurotherm3235: hipotermia para la hipertensión intracraneal tras un traumatismo craneoencefálico",
     "seo_title": "Eurotherm3235 trial: hipotermia para la hipertensión intracraneal tras un traumatismo craneoencefálico | Resúmenes Trials",
-    "description": "Eurotherm3235: La hipotermia resultó en peores desenlaces funcionales que la atención estándar: razón de momios común ajustada de 1.53 (IC 95%, 1.02 a 2.30…",
+    "description": "Eurotherm3235: La hipotermia se asoció a peores desenlaces funcionales que la atención estándar: razón de momios común ajustada de 1.53 (IC 95%, 1.02 a 2.30…",
     "clusters": [
       {
         "name": "Neurocríticos",
@@ -3647,7 +3647,7 @@
     ],
     "intent": {
       "question": "Determinar si la hipotermia terapéutica (32 a 35°C) añadida al tratamiento estándar mejora el desenlace funcional a los 6 meses, medido con la Escala de Resultados de Glasgow Extendida, en pacientes con traumatismo craneoencefálico e hipertensión intracraneal mayor de 20 mmHg.",
-      "answer": "La hipotermia resultó en peores desenlaces funcionales que la atención estándar: razón de momios común ajustada de 1.53 (IC 95%, 1.02 a 2.30; p=0.04) a favor de peor pronóstico con hipotermia, lo que llevó a detener el ensayo antes de tiempo por posible daño.",
+      "answer": "La hipotermia se asoció a peores desenlaces funcionales que la atención estándar: razón de momios común ajustada de 1.53 (IC 95%, 1.02 a 2.30; p=0.04) a favor de peor pronóstico con hipotermia, en un ensayo cuyo reclutamiento se detuvo antes de tiempo porque el comité directivo concluyó que había signos de daño.",
       "population": "La población fueron adultos con un traumatismo craneoencefálico primario y cerrado, ingresados en cuidados intensivos, con una presión intracraneal mayor de 20 mmHg durante al menos 5 minutos pese a los tratamientos de primera línea (ventilación mecánica, sedación, elevación de la cabecera y manejo de la presión arterial), sin causa reversible evidente, con una lesión ocurrida en los 10 días previos, una tomografía craneal…"
     },
     "datePublished": "2026-09-03"
