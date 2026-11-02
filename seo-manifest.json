@@ -6602,5 +6602,160 @@
       "population": "Se estudió a adultos hospitalizados por un infarto agudo de miocardio, con o sin elevación del segmento ST, que en algún momento del ingreso tuvieron una hemoglobina entre 7 y 10 g/dl, en hospitales de Francia y España. La raza se registró por autodeclaración: entre quienes tenían el dato, en el grupo restrictivo y en el liberal se declararon blancos el 88.7% y el 82.6%, y norteafricanos el 8.6% y el 11.2%."
     },
     "datePublished": "2026-10-28"
+  },
+  "248": {
+    "slug": "annexa-i-andexanet-hemorragia-intracerebral-aguda-asociada-inhibidores-factor-xa",
+    "path": "/trials/annexa-i-andexanet-hemorragia-intracerebral-aguda-asociada-inhibidores-factor-xa/",
+    "url": "https://resumenestrials.com/trials/annexa-i-andexanet-hemorragia-intracerebral-aguda-asociada-inhibidores-factor-xa/",
+    "title": "ANNEXA-I: andexanet en la hemorragia intracerebral aguda asociada a inhibidores del factor Xa",
+    "seo_title": "ANNEXA-I trial: andexanet en la hemorragia intracerebral aguda asociada a inhibidores del factor Xa | Resúmenes Trials",
+    "description": "ANNEXA-I: La eficacia hemostática a las 12 horas se logró en el 67.0% frente al 53.1% (diferencia ajustada 13.4 puntos porcentuales; IC 95% 4.6-22.2…",
+    "clusters": [
+      {
+        "name": "Neurocríticos",
+        "path": "/medicina-critica/neurocriticos/",
+        "url": "https://resumenestrials.com/medicina-critica/neurocriticos/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/annexa-i-andexanet-hemorragia-intracerebral-aguda-asociada-inhibidores-factor-xa-16x9.jpg",
+      "https://resumenestrials.com/images/trials/annexa-i-andexanet-hemorragia-intracerebral-aguda-asociada-inhibidores-factor-xa-4x3.jpg",
+      "https://resumenestrials.com/images/trials/annexa-i-andexanet-hemorragia-intracerebral-aguda-asociada-inhibidores-factor-xa-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Evaluar si el andexanet, frente a la atención habitual, mejora la eficacia hemostática a las 12 horas en pacientes con hemorragia intracerebral aguda que toman inhibidores del factor Xa.",
+      "answer": "La eficacia hemostática a las 12 horas se logró en el 67.0% frente al 53.1% (diferencia ajustada 13.4 puntos porcentuales; IC 95% 4.6-22.2; P=0.003), pero los eventos trombóticos a 30 días fueron más frecuentes con andexanet, 10.3% frente a 5.6% (diferencia 4.6 puntos porcentuales; IC 95% 0.1-9.2; P=0.048).",
+      "population": "La población fueron adultos de 18 años o más con hemorragia intracerebral aguda que tomaban apixabán, rivaroxabán o edoxabán (y 3 con enoxaparina en la población de seguridad, todos con atención habitual), con la última dosis en las 15 horas previas a la aleatorización. La raza la informaron los pacientes y la mayoría eran blancos, 202 de 224 con andexanet y 213 de 228 con atención habitual; casi todos se trataron en Europa y…"
+    },
+    "datePublished": "2026-11-01"
+  },
+  "249": {
+    "slug": "stand-movilizacion-estructurada-pacientes-estado-critico-ensayo-pragmatico-aleatorizado",
+    "path": "/trials/stand-movilizacion-estructurada-pacientes-estado-critico-ensayo-pragmatico-aleatorizado/",
+    "url": "https://resumenestrials.com/trials/stand-movilizacion-estructurada-pacientes-estado-critico-ensayo-pragmatico-aleatorizado/",
+    "title": "STAND: movilización estructurada para pacientes en estado crítico: ensayo pragmático aleatorizado por conglomerados",
+    "seo_title": "STAND trial: movilización estructurada para pacientes en estado crítico: ensayo pragmático aleatorizado por conglomerados | Resúmenes Trials",
+    "description": "STAND: La puntuación máxima ajustada en la escala de movilidad IMS antes del alta de la UCI no difirió de forma significativa (diferencia de 0.16 puntos; IC…",
+    "clusters": [
+      {
+        "name": "Ventilación e insuficiencia respiratoria",
+        "path": "/medicina-critica/ventilacion-respiratoria/",
+        "url": "https://resumenestrials.com/medicina-critica/ventilacion-respiratoria/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/stand-movilizacion-estructurada-pacientes-estado-critico-ensayo-pragmatico-aleatorizado-16x9.jpg",
+      "https://resumenestrials.com/images/trials/stand-movilizacion-estructurada-pacientes-estado-critico-ensayo-pragmatico-aleatorizado-4x3.jpg",
+      "https://resumenestrials.com/images/trials/stand-movilizacion-estructurada-pacientes-estado-critico-ensayo-pragmatico-aleatorizado-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Evaluar si un paquete de movilización estructurada de bajo costo, con metas diarias, comunicación de circuito cerrado y retroalimentación del desempeño, aumenta la puntuación máxima de movilidad antes del alta de la UCI en adultos con ventilación mecánica de 48 horas o más, frente a la atención habitual.",
+      "answer": "La puntuación máxima ajustada en la escala de movilidad IMS antes del alta de la UCI no difirió de forma significativa (diferencia de 0.16 puntos; IC 95%, −0.31 a 0.63; p = 0.51).",
+      "population": "La población fueron pacientes de 18 años o más ingresados en las unidades de cuidados intensivos participantes del Sistema de Salud de la Universidad de Pensilvania, en Estados Unidos. La muestra analítica principal la formaron quienes recibieron ventilación mecánica continua durante 48 horas o más y podían caminar, solos o con ayuda, antes del ingreso hospitalario. En esa muestra, el 55.5% se identificó como blanco, el 32.1%…"
+    },
+    "datePublished": "2026-11-01"
+  },
+  "250": {
+    "slug": "aid-icu-haloperidol-tratamiento-delirium-pacientes-uci",
+    "path": "/trials/aid-icu-haloperidol-tratamiento-delirium-pacientes-uci/",
+    "url": "https://resumenestrials.com/trials/aid-icu-haloperidol-tratamiento-delirium-pacientes-uci/",
+    "title": "AID-ICU: haloperidol para el tratamiento del delirium en pacientes de la UCI",
+    "seo_title": "AID-ICU trial: haloperidol para el tratamiento del delirium en pacientes de la UCI | Resúmenes Trials",
+    "description": "AID-ICU: Sin diferencia significativa en el primario: los días vivos y fuera del hospital a 90 días fueron 35.8 frente a 32.9 (diferencia ajustada 2.9 días…",
+    "clusters": [],
+    "images": [
+      "https://resumenestrials.com/images/trials/aid-icu-haloperidol-tratamiento-delirium-pacientes-uci-16x9.jpg",
+      "https://resumenestrials.com/images/trials/aid-icu-haloperidol-tratamiento-delirium-pacientes-uci-4x3.jpg",
+      "https://resumenestrials.com/images/trials/aid-icu-haloperidol-tratamiento-delirium-pacientes-uci-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si el haloperidol intravenoso, frente a placebo, aumenta los días vivos y fuera del hospital a 90 días en adultos con delirium ingresados en la UCI.",
+      "answer": "Sin diferencia significativa en el primario: los días vivos y fuera del hospital a 90 días fueron 35.8 frente a 32.9 (diferencia ajustada 2.9 días; IC 95%, −1.2 a 7.0; p = 0.22).",
+      "population": "La población fueron adultos de 18 años o más ingresados en una unidad de cuidados intensivos (UCI) por una condición aguda, no programada, y con delirium confirmado por una de dos herramientas de cribado validadas: el CAM-ICU, que da un resultado positivo o negativo, o la ICDSC, una lista de síntomas que va de 0 a 8 puntos, en la que 4 o más indican delirium. La raza o etnia es un dato No reportado: no se recogió porque, según…"
+    },
+    "datePublished": "2026-11-01"
+  },
+  "251": {
+    "slug": "box-objetivos-oxigeno-supervivientes-comatosos-paro-cardiaco",
+    "path": "/trials/box-objetivos-oxigeno-supervivientes-comatosos-paro-cardiaco/",
+    "url": "https://resumenestrials.com/trials/box-objetivos-oxigeno-supervivientes-comatosos-paro-cardiaco/",
+    "title": "BOX: objetivos de oxígeno en supervivientes comatosos de un paro cardiaco",
+    "seo_title": "BOX trial: objetivos de oxígeno en supervivientes comatosos de un paro cardiaco | Resúmenes Trials",
+    "description": "BOX: Sin diferencia significativa en muerte o alta con discapacidad grave o coma a 90 días: 32.0% con la meta restrictiva frente a 33.9% con la liberal…",
+    "clusters": [
+      {
+        "name": "Ventilación e insuficiencia respiratoria",
+        "path": "/medicina-critica/ventilacion-respiratoria/",
+        "url": "https://resumenestrials.com/medicina-critica/ventilacion-respiratoria/"
+      },
+      {
+        "name": "Paro cardiaco y resucitación",
+        "path": "/medicina-critica/paro-resucitacion/",
+        "url": "https://resumenestrials.com/medicina-critica/paro-resucitacion/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/box-objetivos-oxigeno-supervivientes-comatosos-paro-cardiaco-16x9.jpg",
+      "https://resumenestrials.com/images/trials/box-objetivos-oxigeno-supervivientes-comatosos-paro-cardiaco-4x3.jpg",
+      "https://resumenestrials.com/images/trials/box-objetivos-oxigeno-supervivientes-comatosos-paro-cardiaco-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Comparar una meta restrictiva y una liberal de presión arterial de oxígeno en adultos en coma tras un paro cardiaco extrahospitalario, para el desenlace de muerte o alta con discapacidad grave o coma a 90 días.",
+      "answer": "Sin diferencia significativa en muerte o alta con discapacidad grave o coma a 90 días: 32.0% con la meta restrictiva frente a 33.9% con la liberal (hazard ratio 0.95; IC 95%, 0.75 a 1.21; p = 0.69).",
+      "population": "La población fueron adultos de 18 años o más en coma tras un paro cardiaco extrahospitalario de presunta causa cardiaca, con recuperación sostenida de la circulación espontánea, atendidos en dos centros terciarios de Dinamarca. La raza o etnia no se reportó: no formaba parte de la base de datos del ensayo."
+    },
+    "datePublished": "2026-11-01"
+  },
+  "252": {
+    "slug": "tomahawk-angiografia-tras-paro-cardiaco-extrahospitalario-elevacion-segmento-st",
+    "path": "/trials/tomahawk-angiografia-tras-paro-cardiaco-extrahospitalario-elevacion-segmento-st/",
+    "url": "https://resumenestrials.com/trials/tomahawk-angiografia-tras-paro-cardiaco-extrahospitalario-elevacion-segmento-st/",
+    "title": "TOMAHAWK: angiografía tras un paro cardiaco extrahospitalario sin elevación del segmento ST",
+    "seo_title": "TOMAHAWK trial: angiografía tras un paro cardiaco extrahospitalario sin elevación del segmento ST | Resúmenes Trials",
+    "description": "TOMAHAWK: Sin diferencia significativa en la mortalidad a 30 días: 54.0% con angiografía inmediata frente a 46.0% con angiografía diferida o selectiva (hazard…",
+    "clusters": [
+      {
+        "name": "Paro cardiaco y resucitación",
+        "path": "/medicina-critica/paro-resucitacion/",
+        "url": "https://resumenestrials.com/medicina-critica/paro-resucitacion/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/tomahawk-angiografia-tras-paro-cardiaco-extrahospitalario-elevacion-segmento-st-16x9.jpg",
+      "https://resumenestrials.com/images/trials/tomahawk-angiografia-tras-paro-cardiaco-extrahospitalario-elevacion-segmento-st-4x3.jpg",
+      "https://resumenestrials.com/images/trials/tomahawk-angiografia-tras-paro-cardiaco-extrahospitalario-elevacion-segmento-st-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si la angiografía coronaria inmediata, frente a una evaluación inicial en cuidados intensivos con angiografía diferida o selectiva, reduce la mortalidad por cualquier causa a 30 días en adultos reanimados de un paro cardiaco extrahospitalario sin elevación del segmento ST.",
+      "answer": "Sin diferencia significativa en la mortalidad a 30 días: 54.0% con angiografía inmediata frente a 46.0% con angiografía diferida o selectiva (hazard ratio 1.28; IC 95%, 1.00 a 1.63; p = 0.06).",
+      "population": "La población fueron adultos de 30 años o más reanimados con éxito de un paro cardiaco extrahospitalario de posible origen cardiaco y sin elevación del segmento ST en el electrocardiograma posterior a la reanimación, con ritmo inicial desfibrilable o no desfibrilable, atendidos en hospitales de Alemania y Dinamarca. La raza o etnia no se reportó."
+    },
+    "datePublished": "2026-11-01"
+  },
+  "253": {
+    "slug": "basics-efecto-tratamiento-liquidos-intravenosos-solucion-balanceada-solucion-salina-0",
+    "path": "/trials/basics-efecto-tratamiento-liquidos-intravenosos-solucion-balanceada-solucion-salina-0/",
+    "url": "https://resumenestrials.com/trials/basics-efecto-tratamiento-liquidos-intravenosos-solucion-balanceada-solucion-salina-0/",
+    "title": "BaSICS: efecto del tratamiento con líquidos intravenosos con una solución balanceada frente a solución salina al 0.9% sobre la mortalidad en pacientes en estado crítico",
+    "seo_title": "BaSICS trial: efecto del tratamiento con líquidos intravenosos con una solución balanceada frente a solución salina al 0.9% sobre la mortalidad en pacientes en estado crítico | Resúmenes Trials",
+    "description": "BaSICS: La mortalidad a 90 días fue del 26.4% con la solución balanceada frente al 27.2% con la salina al 0.9% (HR ajustado 0.97; IC 95%, 0.90 a 1.05; p =…",
+    "clusters": [
+      {
+        "name": "Renal y ácido-base",
+        "path": "/medicina-critica/renal-acido-base/",
+        "url": "https://resumenestrials.com/medicina-critica/renal-acido-base/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/basics-efecto-tratamiento-liquidos-intravenosos-solucion-balanceada-solucion-salina-0-16x9.jpg",
+      "https://resumenestrials.com/images/trials/basics-efecto-tratamiento-liquidos-intravenosos-solucion-balanceada-solucion-salina-0-4x3.jpg",
+      "https://resumenestrials.com/images/trials/basics-efecto-tratamiento-liquidos-intravenosos-solucion-balanceada-solucion-salina-0-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si una solución balanceada, Plasma-Lyte 148, mejora la supervivencia a 90 días frente a la solución salina al 0.9% en pacientes críticos que requieren cargas de volumen.",
+      "answer": "La mortalidad a 90 días fue del 26.4% con la solución balanceada frente al 27.2% con la salina al 0.9% (HR ajustado 0.97; IC 95%, 0.90 a 1.05; p = 0.47) , sin diferencia significativa.",
+      "population": "La población fueron adultos ingresados en unidades de cuidados intensivos (UCI) de Brasil que necesitaban al menos una expansión de volumen, sin alta prevista al día siguiente y con al menos un factor de riesgo de lesión renal aguda. Raza o etnia: No reportado."
+    },
+    "datePublished": "2026-11-01"
   }
 }

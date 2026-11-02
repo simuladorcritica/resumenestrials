@@ -4,8 +4,50 @@
   <id>https://resumenestrials.com/</id>
   <link href="https://resumenestrials.com/"/>
   <link rel="self" type="application/atom+xml" href="https://resumenestrials.com/feed.xml"/>
-  <updated>2026-10-28T00:00:00Z</updated>
+  <updated>2026-11-01T00:00:00Z</updated>
   <subtitle>Resúmenes críticos en español de ensayos clínicos.</subtitle>
+  <entry>
+    <title>ANNEXA-I: andexanet en la hemorragia intracerebral aguda asociada a inhibidores del factor Xa</title>
+    <id>https://resumenestrials.com/trials/annexa-i-andexanet-hemorragia-intracerebral-aguda-asociada-inhibidores-factor-xa/</id>
+    <link href="https://resumenestrials.com/trials/annexa-i-andexanet-hemorragia-intracerebral-aguda-asociada-inhibidores-factor-xa/"/>
+    <updated>2026-11-01T00:00:00Z</updated>
+    <summary>Evaluar si el andexanet, frente a la atención habitual, mejora la eficacia hemostática a las 12 horas en pacientes con hemorragia intracerebral aguda que toman inhibidores del factor Xa.</summary>
+  </entry>
+  <entry>
+    <title>STAND: movilización estructurada para pacientes en estado crítico: ensayo pragmático aleatorizado por conglomerados</title>
+    <id>https://resumenestrials.com/trials/stand-movilizacion-estructurada-pacientes-estado-critico-ensayo-pragmatico-aleatorizado/</id>
+    <link href="https://resumenestrials.com/trials/stand-movilizacion-estructurada-pacientes-estado-critico-ensayo-pragmatico-aleatorizado/"/>
+    <updated>2026-11-01T00:00:00Z</updated>
+    <summary>Evaluar si un paquete de movilización estructurada de bajo costo, con metas diarias, comunicación de circuito cerrado y retroalimentación del desempeño, aumenta la puntuación máxima de movilidad antes del alta de la UCI en adultos con ventilación mecánica de 48 horas o más, frente a la atención…</summary>
+  </entry>
+  <entry>
+    <title>AID-ICU: haloperidol para el tratamiento del delirium en pacientes de la UCI</title>
+    <id>https://resumenestrials.com/trials/aid-icu-haloperidol-tratamiento-delirium-pacientes-uci/</id>
+    <link href="https://resumenestrials.com/trials/aid-icu-haloperidol-tratamiento-delirium-pacientes-uci/"/>
+    <updated>2026-11-01T00:00:00Z</updated>
+    <summary>Determinar si el haloperidol intravenoso, frente a placebo, aumenta los días vivos y fuera del hospital a 90 días en adultos con delirium ingresados en la UCI.</summary>
+  </entry>
+  <entry>
+    <title>BOX: objetivos de oxígeno en supervivientes comatosos de un paro cardiaco</title>
+    <id>https://resumenestrials.com/trials/box-objetivos-oxigeno-supervivientes-comatosos-paro-cardiaco/</id>
+    <link href="https://resumenestrials.com/trials/box-objetivos-oxigeno-supervivientes-comatosos-paro-cardiaco/"/>
+    <updated>2026-11-01T00:00:00Z</updated>
+    <summary>Comparar una meta restrictiva y una liberal de presión arterial de oxígeno en adultos en coma tras un paro cardiaco extrahospitalario, para el desenlace de muerte o alta con discapacidad grave o coma a 90 días.</summary>
+  </entry>
+  <entry>
+    <title>TOMAHAWK: angiografía tras un paro cardiaco extrahospitalario sin elevación del segmento ST</title>
+    <id>https://resumenestrials.com/trials/tomahawk-angiografia-tras-paro-cardiaco-extrahospitalario-elevacion-segmento-st/</id>
+    <link href="https://resumenestrials.com/trials/tomahawk-angiografia-tras-paro-cardiaco-extrahospitalario-elevacion-segmento-st/"/>
+    <updated>2026-11-01T00:00:00Z</updated>
+    <summary>Determinar si la angiografía coronaria inmediata, frente a una evaluación inicial en cuidados intensivos con angiografía diferida o selectiva, reduce la mortalidad por cualquier causa a 30 días en adultos reanimados de un paro cardiaco extrahospitalario sin elevación del segmento ST.</summary>
+  </entry>
+  <entry>
+    <title>BaSICS: efecto del tratamiento con líquidos intravenosos con una solución balanceada frente a solución salina al 0.9% sobre la mortalidad en pacientes en estado crítico</title>
+    <id>https://resumenestrials.com/trials/basics-efecto-tratamiento-liquidos-intravenosos-solucion-balanceada-solucion-salina-0/</id>
+    <link href="https://resumenestrials.com/trials/basics-efecto-tratamiento-liquidos-intravenosos-solucion-balanceada-solucion-salina-0/"/>
+    <updated>2026-11-01T00:00:00Z</updated>
+    <summary>Determinar si una solución balanceada, Plasma-Lyte 148, mejora la supervivencia a 90 días frente a la solución salina al 0.9% en pacientes críticos que requieren cargas de volumen.</summary>
+  </entry>
   <entry>
     <title>ANH: ensayo aleatorizado de hemodilución normovolémica aguda en cirugía cardiaca</title>
     <id>https://resumenestrials.com/trials/anh-ensayo-aleatorizado-hemodilucion-normovolemica-aguda-cirugia-cardiaca/</id>
@@ -313,47 +355,5 @@
     <link href="https://resumenestrials.com/trials/verrou-rea-citrato-trisodico-4-heparina-como-solucion-sellado-cateteres-hemodialisis/"/>
     <updated>2026-10-20T00:00:00Z</updated>
     <summary>Comparar el sellado con citrato trisódico al 4% frente a la heparina no fraccionada sobre la supervivencia libre de eventos del primer catéter de hemodiálisis no tunelizado en pacientes críticos con lesión renal aguda.</summary>
-  </entry>
-  <entry>
-    <title>RESCUE: diálisis sostenida de baja eficiencia con un sistema de lote de paso único en la lesión renal aguda</title>
-    <id>https://resumenestrials.com/trials/rescue-dialisis-sostenida-baja-eficiencia-sistema-lote-paso-unico-lesion/</id>
-    <link href="https://resumenestrials.com/trials/rescue-dialisis-sostenida-baja-eficiencia-sistema-lote-paso-unico-lesion/"/>
-    <updated>2026-10-20T00:00:00Z</updated>
-    <summary>Comparar la diálisis sostenida de baja eficiencia con sistema de lote de paso único frente a la hemofiltración venovenosa continua en la mortalidad a 90 días de pacientes de UCI con lesión renal aguda que requieren terapia de reemplazo renal.</summary>
-  </entry>
-  <entry>
-    <title>TRIC-I-HF-DZHK24: intervención sobre la válvula tricúspide en la insuficiencia cardiaca</title>
-    <id>https://resumenestrials.com/trials/tric-i-hf-dzhk24-reparacion-transcateter-valvula-tricuspide-mas-tratamiento-medico-tratamiento/</id>
-    <link href="https://resumenestrials.com/trials/tric-i-hf-dzhk24-reparacion-transcateter-valvula-tricuspide-mas-tratamiento-medico-tratamiento/"/>
-    <updated>2026-10-19T00:00:00Z</updated>
-    <summary>Determinar si añadir la reparación transcatéter de la válvula tricúspide al tratamiento médico mejora un compuesto jerárquico de muerte, hospitalización por insuficiencia cardiaca y calidad de vida, frente al tratamiento médico solo, en pacientes con insuficiencia tricuspídea grave y alto riesgo de…</summary>
-  </entry>
-  <entry>
-    <title>LOCO2: oxigenoterapia liberal o conservadora en el síndrome de dificultad respiratoria aguda</title>
-    <id>https://resumenestrials.com/trials/loco2-oxigeno-conservador-oxigeno-liberal-sindrome-dificultad-respiratoria-aguda-temprano/</id>
-    <link href="https://resumenestrials.com/trials/loco2-oxigeno-conservador-oxigeno-liberal-sindrome-dificultad-respiratoria-aguda-temprano/"/>
-    <updated>2026-10-19T00:00:00Z</updated>
-    <summary>Determinar si una estrategia de oxígeno conservador, con una PaO2 de 55 a 70 mmHg, reduce la mortalidad a los 28 días frente a una estrategia liberal en adultos con síndrome de dificultad respiratoria aguda temprano.</summary>
-  </entry>
-  <entry>
-    <title>OSCILLATE: ventilación oscilatoria de alta frecuencia en el síndrome de dificultad respiratoria aguda temprano</title>
-    <id>https://resumenestrials.com/trials/oscillate-ventilacion-oscilatoria-alta-frecuencia-temprana-ventilacion-convencional-pulmon/</id>
-    <link href="https://resumenestrials.com/trials/oscillate-ventilacion-oscilatoria-alta-frecuencia-temprana-ventilacion-convencional-pulmon/"/>
-    <updated>2026-10-19T00:00:00Z</updated>
-    <summary>Determinar si la ventilación oscilatoria de alta frecuencia aplicada de forma temprana reduce la mortalidad hospitalaria frente a una ventilación convencional con volumen corriente bajo y PEEP alta en adultos con síndrome de dificultad respiratoria aguda moderado a grave.</summary>
-  </entry>
-  <entry>
-    <title>PRODIGE 4-ACCORD 11: FOLFIRINOX frente a gemcitabina en el cáncer de páncreas metastásico</title>
-    <id>https://resumenestrials.com/trials/prodige-4-accord-11-folfirinox-gemcitabina-primera-linea-cancer-pancreas-metastasico/</id>
-    <link href="https://resumenestrials.com/trials/prodige-4-accord-11-folfirinox-gemcitabina-primera-linea-cancer-pancreas-metastasico/"/>
-    <updated>2026-10-19T00:00:00Z</updated>
-    <summary>Determinar si FOLFIRINOX, frente a gemcitabina, prolonga la supervivencia global como tratamiento de primera línea en pacientes con cáncer de páncreas metastásico y buen estado funcional.</summary>
-  </entry>
-  <entry>
-    <title>ACURASYS: bloqueantes neuromusculares en el síndrome de dificultad respiratoria aguda temprano</title>
-    <id>https://resumenestrials.com/trials/acurasys-bloqueo-neuromuscular-temprano-cisatracurio-48-horas-placebo-sindrome-dificultad/</id>
-    <link href="https://resumenestrials.com/trials/acurasys-bloqueo-neuromuscular-temprano-cisatracurio-48-horas-placebo-sindrome-dificultad/"/>
-    <updated>2026-10-19T00:00:00Z</updated>
-    <summary>Determinar si dos días de bloqueo neuromuscular con cisatracurio al inicio del síndrome de dificultad respiratoria aguda grave reducen la mortalidad a 90 días frente a placebo.</summary>
   </entry>
 </feed>
