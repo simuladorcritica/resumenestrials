@@ -35,7 +35,7 @@
     "category": "Medicina Crítica",
     "path": "/medicina-critica/ventilacion-respiratoria/",
     "url": "https://resumenestrials.com/medicina-critica/ventilacion-respiratoria/",
-    "count": 45,
+    "count": 47,
     "trial_ids": [
       "1",
       "3",
@@ -81,7 +81,9 @@
       "212",
       "201",
       "232",
-      "231"
+      "231",
+      "249",
+      "251"
     ]
   },
   "sdra-ecmo": {
@@ -121,7 +123,7 @@
     "category": "Medicina Crítica",
     "path": "/medicina-critica/neurocriticos/",
     "url": "https://resumenestrials.com/medicina-critica/neurocriticos/",
-    "count": 13,
+    "count": 14,
     "trial_ids": [
       "19",
       "40",
@@ -135,7 +137,8 @@
       "148",
       "174",
       "214",
-      "244"
+      "244",
+      "248"
     ]
   },
   "renal-acido-base": {
@@ -143,7 +146,7 @@
     "category": "Medicina Crítica",
     "path": "/medicina-critica/renal-acido-base/",
     "url": "https://resumenestrials.com/medicina-critica/renal-acido-base/",
-    "count": 27,
+    "count": 28,
     "trial_ids": [
       "6",
       "9",
@@ -171,7 +174,8 @@
       "229",
       "221",
       "226",
-      "234"
+      "234",
+      "253"
     ]
   },
   "hemodinamica-cardiovascular": {
@@ -209,7 +213,7 @@
     "category": "Medicina Crítica",
     "path": "/medicina-critica/paro-resucitacion/",
     "url": "https://resumenestrials.com/medicina-critica/paro-resucitacion/",
-    "count": 10,
+    "count": 12,
     "trial_ids": [
       "4",
       "23",
@@ -220,7 +224,9 @@
       "90",
       "128",
       "131",
-      "144"
+      "144",
+      "251",
+      "252"
     ]
   },
   "infecciones-antibioticos": {
