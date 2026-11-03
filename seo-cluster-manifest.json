@@ -128,7 +128,7 @@
     "category": "Medicina Crítica",
     "path": "/medicina-critica/neurocriticos/",
     "url": "https://resumenestrials.com/medicina-critica/neurocriticos/",
-    "count": 14,
+    "count": 15,
     "trial_ids": [
       "19",
       "40",
@@ -143,7 +143,8 @@
       "174",
       "214",
       "244",
-      "248"
+      "248",
+      "260"
     ]
   },
   "renal-acido-base": {
@@ -349,7 +350,7 @@
     "category": "Medicina Interna",
     "path": "/medicina-interna/renal-metabolica/",
     "url": "https://resumenestrials.com/medicina-interna/renal-metabolica/",
-    "count": 30,
+    "count": 32,
     "trial_ids": [
       "35",
       "46",
@@ -380,7 +381,9 @@
       "157",
       "175",
       "238",
-      "246"
+      "246",
+      "262",
+      "264"
     ]
   },
   "neurologia": {
@@ -388,7 +391,7 @@
     "category": "Medicina Interna",
     "path": "/medicina-interna/neurologia/",
     "url": "https://resumenestrials.com/medicina-interna/neurologia/",
-    "count": 15,
+    "count": 16,
     "trial_ids": [
       "16",
       "19",
@@ -404,7 +407,8 @@
       "223",
       "236",
       "237",
-      "239"
+      "239",
+      "265"
     ]
   },
   "neumologia": {
@@ -412,7 +416,7 @@
     "category": "Medicina Interna",
     "path": "/medicina-interna/neumologia/",
     "url": "https://resumenestrials.com/medicina-interna/neumologia/",
-    "count": 7,
+    "count": 8,
     "trial_ids": [
       "17",
       "43",
@@ -420,7 +424,8 @@
       "50",
       "98",
       "111",
-      "165"
+      "165",
+      "263"
     ]
   }
 }
