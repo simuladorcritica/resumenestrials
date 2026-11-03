@@ -13,6 +13,17 @@ Material educativo para profesionales de la salud. La referencia final es siempr
 
 ## Resúmenes de ensayos
 
+- [NONSEDA: ausencia de sedación o sedación ligera en pacientes críticos con ventilación mecánica](https://resumenestrials.com/trials/nonseda-ausencia-sedacion-sedacion-ligera-pacientes-criticos-ventilacion-mecanica/): NEJM, 2020.
+- [ISCHEMIA: estrategia inicial invasiva o conservadora en la enfermedad coronaria estable](https://resumenestrials.com/trials/ischemia-estrategia-inicial-invasiva-conservadora-enfermedad-coronaria-estable/): NEJM, 2020.
+- [VICTAS: efecto de la vitamina C, la tiamina y la hidrocortisona sobre los días libres de ventilador y vasopresores en pacientes con sepsis](https://resumenestrials.com/trials/victas-efecto-vitamina-c-tiamina-hidrocortisona-dias-libres-ventilador-vasopresores/): JAMA, 2021.
+- [MERCY: administración continua frente a intermitente de meropenem en pacientes en estado crítico con sepsis](https://resumenestrials.com/trials/mercy-administracion-continua-intermitente-meropenem-pacientes-estado-critico-sepsis/): JAMA, 2023.
+- [BLING III: infusiones continuas frente a intermitentes de antibióticos betalactámicos en pacientes en estado crítico con sepsis](https://resumenestrials.com/trials/bling-iii-infusiones-continuas-intermitentes-antibioticos-betalactamicos-pacientes-estado/): JAMA, 2024.
+- [BaSICS: efecto del tratamiento con líquidos intravenosos con una solución balanceada frente a solución salina al 0.9% sobre la mortalidad en pacientes en estado crítico](https://resumenestrials.com/trials/basics-efecto-tratamiento-liquidos-intravenosos-solucion-balanceada-solucion-salina-0/): JAMA, 2021.
+- [TOMAHAWK: angiografía tras un paro cardiaco extrahospitalario sin elevación del segmento ST](https://resumenestrials.com/trials/tomahawk-angiografia-tras-paro-cardiaco-extrahospitalario-elevacion-segmento-st/): NEJM, 2021.
+- [BOX: objetivos de oxígeno en supervivientes comatosos de un paro cardiaco](https://resumenestrials.com/trials/box-objetivos-oxigeno-supervivientes-comatosos-paro-cardiaco/): NEJM, 2022.
+- [AID-ICU: haloperidol para el tratamiento del delirium en pacientes de la UCI](https://resumenestrials.com/trials/aid-icu-haloperidol-tratamiento-delirium-pacientes-uci/): NEJM, 2022.
+- [STAND: movilización estructurada para pacientes en estado crítico: ensayo pragmático aleatorizado por conglomerados](https://resumenestrials.com/trials/stand-movilizacion-estructurada-pacientes-estado-critico-ensayo-pragmatico-aleatorizado/): Am J Respir Crit Care Med, 2023.
+- [ANNEXA-I: andexanet en la hemorragia intracerebral aguda asociada a inhibidores del factor Xa](https://resumenestrials.com/trials/annexa-i-andexanet-hemorragia-intracerebral-aguda-asociada-inhibidores-factor-xa/): NEJM, 2024.
 - [REALITY: efecto de una estrategia de transfusión sanguínea restrictiva frente a una liberal sobre los eventos cardiovasculares mayores en pacientes con infarto agudo de miocardio y anemia](https://resumenestrials.com/trials/reality-efecto-estrategia-transfusion-sanguinea-restrictiva-liberal-eventos-cardiovasculares/): JAMA, 2021.
 - [ATTIRE: ensayo aleatorizado de infusiones de albúmina en pacientes hospitalizados con cirrosis](https://resumenestrials.com/trials/attire-ensayo-aleatorizado-infusiones-albumina-pacientes-hospitalizados-cirrosis/): NEJM, 2021.
 - [MINT: estrategia de transfusión restrictiva o liberal en el infarto de miocardio y la anemia](https://resumenestrials.com/trials/mint-estrategia-transfusion-restrictiva-liberal-infarto-miocardio-anemia/): NEJM, 2023.

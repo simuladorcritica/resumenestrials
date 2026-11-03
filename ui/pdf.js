@@ -1,59 +1,142 @@
 // One PDF contract for canonical, dynamic, legacy and archive readers.
+// Identidad editorial (docs/DESIGN_SYSTEM.md): papel blanco, tinta, petróleo y la línea de señal
+// del logo, que termina en el único punto ocre, solo en la cabecera de la página 1.
 export const JSPDF_VERSION='4.2.1';
 export const JSPDF_URL='https://cdnjs.cloudflare.com/ajax/libs/jspdf/4.2.1/jspdf.umd.min.js';
 export const JSPDF_SRI='sha384-qovJwSBbRDPP5cEjCp8S0UP66wrvnjaa60XMOGzTNanrThcrGfXfnZkvgY8N1KT3';
-export function sanPDF(s){return String(s==null?'':s).normalize('NFKC').replace(/\u2212/g,'-').replace(/[\u2013\u2014\u2015\u2012\u2011]/g,'-').replace(/[\u2018\u2019\u201B\u2032]/g,"'").replace(/[\u201C\u201D\u201F\u2033]/g,'"').replace(/\u2026/g,'...').replace(/[\u00A0\u2007\u2009\u200A\u202F]/g,' ').replace(/\u200B/g,'').replace(/\u2265/g,'>=').replace(/\u2264/g,'<=').replace(/\u2260/g,'!=').replace(/[\u2248\u2245]/g,'~').replace(/\u2192/g,'->').replace(/\u2190/g,'<-').replace(/[\u2080-\u2089]/g,m=>String(m.charCodeAt(0)-0x2080)).replace(/[αβγδμΔχσ]/g,c=>({α:'alpha',β:'beta',γ:'gamma',δ:'delta',μ:'u',Δ:'Delta',χ:'chi',σ:'sigma'}[c]))}
-// Core PDF font advances in 1/1000 em (Adobe AFM metrics, via ReportLab 4.4.9).
-const PROSE_ADVANCES={"times":{"65":722,"198":889,"193":722,"194":722,"196":722,"192":722,"197":722,"195":722,"66":667,"67":667,"199":667,"68":722,"69":611,"201":611,"202":611,"203":611,"200":611,"208":722,"8364":500,"70":556,"71":722,"72":722,"73":333,"205":333,"206":333,"207":333,"204":333,"74":389,"75":722,"76":611,"321":611,"77":889,"78":722,"209":722,"79":722,"338":889,"211":722,"212":722,"214":722,"210":722,"216":722,"213":722,"80":556,"81":722,"82":667,"83":556,"352":556,"84":611,"222":556,"85":722,"218":722,"219":722,"220":722,"217":722,"86":722,"87":944,"88":722,"89":722,"221":722,"376":722,"90":611,"381":611,"97":444,"225":444,"226":444,"180":333,"228":444,"230":667,"224":444,"38":778,"229":444,"94":469,"126":541,"42":500,"64":921,"227":444,"98":500,"92":278,"124":200,"123":480,"125":480,"91":333,"93":333,"728":333,"166":200,"8226":350,"99":444,"711":333,"231":444,"184":333,"162":500,"710":333,"58":278,"44":250,"169":760,"164":500,"100":500,"8224":500,"8225":500,"176":400,"168":333,"247":564,"36":500,"729":333,"305":278,"101":444,"233":444,"234":444,"235":444,"232":444,"56":500,"8230":1000,"8212":1000,"8211":500,"61":564,"240":500,"33":333,"161":333,"102":333,"64257":556,"53":500,"64258":556,"402":500,"52":500,"8260":167,"103":500,"223":500,"96":333,"62":564,"171":500,"187":500,"8249":333,"8250":333,"104":500,"733":333,"45":333,"105":278,"237":278,"238":278,"239":278,"236":278,"106":278,"107":500,"108":278,"60":564,"172":564,"322":278,"109":778,"175":333,"8722":564,"181":500,"215":564,"110":500,"57":500,"241":500,"35":500,"111":500,"243":500,"244":500,"246":500,"339":722,"731":333,"242":500,"49":500,"189":750,"188":750,"185":300,"170":276,"186":310,"248":500,"245":500,"112":500,"182":453,"40":333,"41":333,"37":833,"46":250,"183":250,"8240":1000,"43":564,"177":564,"113":500,"63":444,"191":444,"34":408,"8222":444,"8220":444,"8221":444,"8216":333,"8217":333,"8218":333,"39":180,"114":333,"174":760,"730":333,"115":389,"353":389,"167":500,"59":278,"55":500,"54":500,"47":278,"32":250,"163":500,"116":278,"254":500,"51":500,"190":750,"179":300,"732":333,"8482":980,"50":500,"178":300,"117":500,"250":500,"251":500,"252":500,"249":500,"95":500,"118":500,"119":722,"120":500,"121":500,"253":500,"255":500,"165":500,"122":444,"382":444,"48":500},"helvetica":{"65":667,"198":1000,"193":667,"194":667,"196":667,"192":667,"197":667,"195":667,"66":667,"67":722,"199":722,"68":722,"69":667,"201":667,"202":667,"203":667,"200":667,"208":722,"8364":556,"70":611,"71":778,"72":722,"73":278,"205":278,"206":278,"207":278,"204":278,"74":500,"75":667,"76":556,"321":556,"77":833,"78":722,"209":722,"79":778,"338":1000,"211":778,"212":778,"214":778,"210":778,"216":778,"213":778,"80":667,"81":778,"82":722,"83":667,"352":667,"84":611,"222":667,"85":722,"218":722,"219":722,"220":722,"217":722,"86":667,"87":944,"88":667,"89":667,"221":667,"376":667,"90":611,"381":611,"97":556,"225":556,"226":556,"180":333,"228":556,"230":889,"224":556,"38":667,"229":556,"94":469,"126":584,"42":389,"64":1015,"227":556,"98":556,"92":278,"124":260,"123":334,"125":334,"91":278,"93":278,"728":333,"166":260,"8226":350,"99":500,"711":333,"231":500,"184":333,"162":556,"710":333,"58":278,"44":278,"169":737,"164":556,"100":556,"8224":556,"8225":556,"176":400,"168":333,"247":584,"36":556,"729":333,"305":278,"101":556,"233":556,"234":556,"235":556,"232":556,"56":556,"8230":1000,"8212":1000,"8211":556,"61":584,"240":556,"33":278,"161":333,"102":278,"64257":500,"53":556,"64258":500,"402":556,"52":556,"8260":167,"103":556,"223":611,"96":333,"62":584,"171":556,"187":556,"8249":333,"8250":333,"104":556,"733":333,"45":333,"105":222,"237":278,"238":278,"239":278,"236":278,"106":222,"107":500,"108":222,"60":584,"172":584,"322":222,"109":833,"175":333,"8722":584,"181":556,"215":584,"110":556,"57":556,"241":556,"35":556,"111":556,"243":556,"244":556,"246":556,"339":944,"731":333,"242":556,"49":556,"189":834,"188":834,"185":333,"170":370,"186":365,"248":611,"245":556,"112":556,"182":537,"40":333,"41":333,"37":889,"46":278,"183":278,"8240":1000,"43":584,"177":584,"113":556,"63":556,"191":611,"34":355,"8222":333,"8220":333,"8221":333,"8216":222,"8217":222,"8218":222,"39":191,"114":333,"174":737,"730":333,"115":500,"353":500,"167":556,"59":278,"55":556,"54":556,"47":278,"32":278,"163":556,"116":278,"254":556,"51":556,"190":834,"179":333,"732":333,"8482":1000,"50":556,"178":333,"117":556,"250":556,"251":556,"252":556,"249":556,"95":556,"118":500,"119":722,"120":500,"121":500,"253":500,"255":500,"165":556,"122":500,"382":500,"48":556}};
-let pending,logoPending,routePending;
+// Safety net for characters the embedded fonts do not cover (and for the core-font fallback).
+export function sanPDF(s){return String(s==null?'':s).normalize('NFKC').replace(/−/g,'-').replace(/[–—―‒‑]/g,'-').replace(/[‘’‛′]/g,"'").replace(/[“”‟″]/g,'"').replace(/…/g,'...').replace(/[     ]/g,' ').replace(/​/g,'').replace(/≥/g,'>=').replace(/≤/g,'<=').replace(/≠/g,'!=').replace(/[≈≅]/g,'~').replace(/→/g,'->').replace(/←/g,'<-').replace(/[₀-₉]/g,m=>String(m.charCodeAt(0)-0x2080)).replace(/[αβγδμΔχσ]/g,c=>({α:'alpha',β:'beta',γ:'gamma',δ:'delta',μ:'u',Δ:'Delta',χ:'chi',σ:'sigma'}[c]))}
+let pending,logoPending,routePending,fontPending;
 export async function loadJsPDF(){if(window.jspdf?.jsPDF)return window.jspdf;if(!pending)pending=new Promise((resolve,reject)=>{const s=document.createElement('script');s.src=JSPDF_URL;s.integrity=JSPDF_SRI;s.crossOrigin='anonymous';s.async=true;s.onload=()=>window.jspdf?.jsPDF?resolve(window.jspdf):reject(Error('jsPDF no disponible'));s.onerror=()=>{pending=undefined;s.remove();reject(Error('No se pudo cargar jsPDF'))};document.head.append(s)});return pending}
 async function logo(){if(!logoPending)logoPending=fetch('/logo.png').then(async r=>{if(!r.ok)throw Error('Logo no disponible');const b=await r.blob();return new Promise((resolve,reject)=>{const f=new FileReader();f.onload=()=>resolve(f.result);f.onerror=reject;f.readAsDataURL(b)})}).catch(e=>{logoPending=undefined;throw e});return logoPending}
+// Self-hosted OFL subsets, fetched only when a PDF is generated and cached in memory.
+const FONT_FILES={title:'newsreader-500',titleB:'newsreader-600',read:'literata-400',readB:'literata-600',readI:'literata-400-italic',ui:'plex-sans-400',cond:'plex-sans-condensed-600'};
+const FONT_NAMES={title:'Newsreader-Medium',titleB:'Newsreader-SemiBold',read:'Literata-Regular',readB:'Literata-SemiBold',readI:'Literata-Italic',ui:'RTSans-Regular',cond:'RTSansCondensed-SemiBold'};
+const CORE={title:['times','bold'],titleB:['times','bold'],read:['times','normal'],readB:['times','bold'],readI:['times','italic'],ui:['helvetica','normal'],cond:['helvetica','bold']};
+const b64=buf=>{const u=new Uint8Array(buf);let s='';for(let i=0;i<u.length;i+=0x8000)s+=String.fromCharCode.apply(null,u.subarray(i,i+0x8000));return btoa(s)};
+async function fonts(){if(!fontPending)fontPending=Promise.all(Object.entries(FONT_FILES).map(async([k,f])=>{const r=await fetch('/fonts/pdf/'+f+'.ttf');if(!r.ok)throw Error('Fuente PDF no disponible: '+f);return [k,b64(await r.arrayBuffer())]})).catch(e=>{fontPending=undefined;throw e});return fontPending}
+// Palette derived from logo.png (light theme tokens in ui/tokens.css of the identity spec).
+const C={ink:[18,35,59],text:[30,39,51],muted:[90,99,114],accent:[20,110,110],brand:[28,138,138],ocre:[200,137,42],line:[221,216,204],alt:[239,235,227],critica:[168,71,42]};
+const MESES=['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+const longDate=v=>{const m=/^(\d{4})-(\d{2})-(\d{2})/.exec(String(v||''));return m?(+m[3])+' de '+MESES[+m[2]-1]+' de '+m[1]:String(v||'')};
 const plain=s=>{const d=document.createElement('div');d.innerHTML=String(s??'');return d.textContent};
+export function studyType(t){t=String(t||'').trim();let m=/^(?:Ensayo cl[ií]nico aleatorizado|ECA)\b\s*(.*)$/i.exec(t),p='ECA';if(!m){m=/^Dos ensayos cl[ií]nicos aleatorizados\b\s*(.*)$/i.exec(t);p='Dos ECA'}if(!m)return t.split(',')[0];const parts=m[1].split(/,\s*|\s+y\s+/).map(x=>x.trim()).filter(Boolean);return parts.length?p+' '+parts.slice(0,3).join(', '):p}
 export async function generatePDF(item,{brief=false,format='a4',download=true}={}){
  if(!item?.id||!item.titulo||!(brief?item.corto:item.cuerpo))throw Error('Ensayo incompleto para PDF');
  if(!['a4','mobile'].includes(format))throw Error('Formato de PDF inválido');
- const{jsPDF}=await loadJsPDF(),mobile=format==='mobile',doc=new jsPDF({unit:'pt',format:mobile?[320,640]:'a4',compress:true}),image=await logo(),props=doc.getImageProperties(image);
- // jsPDF's rounded font table can leave paragraph edges off by several points.
- // Use precise advances only for its justification calculation; font, wrapping,
- // plain text calls, margins and page layout retain their original contract.
- const originalWidth=doc.getStringUnitWidth;
- doc.getStringUnitWidth=function(value,options={}){
-  const font=options.font||doc.internal.getFont(),table=font.fontStyle==='normal'&&PROSE_ADVANCES[font.fontName];
-  if(options.doKerning===false&&table&&[...value].every(c=>table[c.codePointAt(0)]!=null))return [...value].reduce((sum,c)=>sum+table[c.codePointAt(0)],0)/1000;
-  return originalWidth.call(this,value,options);
- };
+ const{jsPDF}=await loadJsPDF(),mobile=format==='mobile',doc=new jsPDF({unit:'pt',format:mobile?[320,640]:'a4',compress:true}),image=await logo();
+ let custom=false;
+ try{for(const[k,data]of await fonts()){doc.addFileToVFS(FONT_NAMES[k]+'.ttf',data);doc.addFont(FONT_NAMES[k]+'.ttf',FONT_NAMES[k],'normal')}custom=true}catch{custom=false}
  const routes=await (routePending??=fetch('/seo-manifest.json').then(r=>{if(!r.ok)throw Error('Rutas PDF no disponibles');return r.json()}));const canonical='https://resumenestrials.com'+routes[String(item.id)].path;
- const width=doc.internal.pageSize.getWidth(),height=doc.internal.pageSize.getHeight(),margin=mobile?26:48,usable=width-margin*2,bottom=height-62,bodyFont=mobile?13:10.5,leading=mobile?19:15;
- let y=82;
- // Nova visual identity: indigo/violet header band, logo, hairline and the same text as before.
- function stamp(){doc.saveGraphicsState();doc.setGState(new doc.GState({opacity:.045}));const w=width*.68,h=w*props.height/props.width;doc.addImage(image,'PNG',(width-w)/2,(height-h)/2,w,h,'ev-logo','FAST');doc.restoreGraphicsState();doc.setFillColor(31,86,209);doc.rect(0,0,width*.62,5,'F');doc.setFillColor(98,54,204);doc.rect(width*.62,0,width*.38,5,'F');doc.addImage(image,'PNG',margin,20,34,34,'ev-logo','FAST');doc.setFont('helvetica','bold');doc.setFontSize(mobile?8:10);doc.setTextColor(31,86,209);doc.text('RESUMENES TRIALS',margin+44,34);doc.setFont('helvetica','normal');doc.setFontSize(7.5);doc.setTextColor(74,85,115);doc.text('ID '+item.id+' / '+(brief?'BREVE':'COMPLETO')+' / '+(mobile?'CELULAR':'A4'),margin+44,47);doc.setDrawColor(214,221,236);doc.setLineWidth(.8);doc.line(margin,64,width-margin,64);doc.setDrawColor(98,54,204);doc.setLineWidth(1.6);doc.line(margin,64,margin+42,64)}
- stamp();
- function page(){doc.addPage();stamp();y=82}
- function ensure(h){if(y+h>bottom)page()}
- function text(value,{font='times',bold=false,size=bodyFont,line=leading,gap=8,justify=false,color=[22,26,40]}={}){
-  doc.setFont(font,bold?'bold':'normal');doc.setFontSize(size);doc.setTextColor(...color);
-  const lines=doc.splitTextToSize(sanPDF(value),usable);
-  for(let i=0;i<lines.length;i++){
-   const l=lines[i];ensure(line);
-   const spaces=(l.match(/ /g)||[]).length,advance=value=>doc.getStringUnitWidth(value,{doKerning:false})*doc.getFontSize(),naturalSpace=advance(' '),extra=spaces?(usable-advance(l))/spaces:0;
-   // Preserve paragraph position across pages. Mobile lines may stretch spaces
-   // to at most 2.5 times their natural width; sparse lines remain at the start.
-   const justified=justify&&i<lines.length-1&&spaces>0&&(!mobile||extra<=naturalSpace*1.5);
-   // jsPDF treats the final array element as the final line. An empty sentinel
-   // lets this physical line use word spacing without adding visible text.
-   if(justified)doc.text([l,''],margin,y,{align:'justify',maxWidth:usable});else doc.text(l,margin,y);
-   y+=line;
-  }
-  y+=gap;
+ const W=doc.internal.pageSize.getWidth(),H=doc.internal.pageSize.getHeight(),M=mobile?22:48,U=W-M*2;
+ // A4 grid: marginal column for section labels + text column (~68 characters per line).
+ const LAB=118,TX=mobile?M:M+134,TW=mobile?U:U-134,bottom=mobile?H-46:H-62,top=mobile?52:78;
+ const critical=/Cr[ií]tica/.test(item.especialidad_principal||''),tone=critical?C.critica:C.accent;
+ const fecha=longDate(item.fecha_publicacion_resumen),folio='Resumen N.º '+item.id+(fecha?' · '+fecha:'');
+ const setF=(k,size)=>{if(custom)doc.setFont(FONT_NAMES[k],'normal');else doc.setFont(...CORE[k]);if(size)doc.setFontSize(size)};
+ const cov=new Map();
+ const covered=(k,cp)=>{if(!custom)return false;let m=cov.get(k);if(!m){m=new Map();cov.set(k,m)}if(!m.has(cp)){setF(k);m.set(cp,doc.getFont().metadata.characterToGlyph(cp)>0)}return m.get(cp)};
+ // Keep every glyph the embedded font has («», −, ≥, µ, ñ…); sanPDF only for the rest.
+ const fit=(k,s)=>{s=String(s??'').normalize('NFC');if(!custom)return sanPDF(s);let o='';for(let ch of s){let cp=ch.codePointAt(0);if(cp<32)continue;if(cp===0x3BC&&!covered(k,cp)){ch='µ';cp=0xB5}o+=covered(k,cp)?ch:sanPDF(ch)}return o};
+ const tw=(k,size,s,cs=0)=>{setF(k,size);return doc.getTextWidth(s)+cs*Math.max(0,[...s].length-1)};
+ const put=(k,size,s,x,y,color,{cs=0,right=false,link}={})=>{s=fit(k,s);setF(k,size);doc.setTextColor(...color);const w=tw(k,size,s,cs);const px=right?x-w:x;doc.text(s,px,y,cs?{charSpace:cs}:undefined);if(link)doc.link(px,y-size*.8,w,size*1.1,{url:link});return w};
+ let y=0;
+ // Rich text: words made of styled segments (bold from <strong>, colour and link per run).
+ function words(input,{r,b},color){
+  const out=[];let cur=null;
+  const push=(ch,k,c,link)=>{if(/\s/.test(ch)){cur=null;return}if(!cur){cur={segs:[]};out.push(cur)}const last=cur.segs[cur.segs.length-1];if(last&&last.k===k&&last.c===c&&last.link===link)last.s+=ch;else cur.segs.push({s:ch,k,c,link})};
+  const walk=(node,bold)=>{for(const n of node.childNodes){if(n.nodeType===3)for(const ch of n.nodeValue)push(ch,bold?b:r,color);else if(n.nodeType===1)walk(n,bold||/^(STRONG|B)$/.test(n.tagName))}};
+  if(Array.isArray(input))for(const run of input)for(const ch of String(run.t))push(ch,run.b?b:r,run.c||color,run.link);
+  else if(typeof input==='string'){const d=document.createElement('div');d.innerHTML=input;walk(d,false)}else walk(input,false);
+  return out;
  }
- text(plain(item.titulo),{font:'helvetica',bold:true,size:mobile?17:19,line:mobile?23:25,gap:10,color:[12,20,40]});
- text([item.autor,item.revista,item.anio,item.fecha].filter(Boolean).join(' · '),{font:'helvetica',size:mobile?10:9,line:mobile?15:13,color:[74,85,115]});
- for(const[k,label]of[['tipo_estudio','Tipo'],['especialidad_principal','Especialidad'],['especialidad_secundaria','Especialidad secundaria'],['temas','Temas'],['registro','Registro'],['doi','DOI'],['financiacion','Financiacion']]){if(item[k]!==''&&item[k]!=null&&(!Array.isArray(item[k])||item[k].length))text(label+': '+plain(Array.isArray(item[k])?item[k].join(' · '):item[k]),{font:'helvetica',size:mobile?10:8.5,line:mobile?15:12,gap:4,color:[56,64,92]})}
- y+=12;
+ function layout(ws,size,width,{indent=0,cs=0}={}){
+  const lines=[];let line={ws:[],w:0};const space=tw(ws[0]?.segs[0]?.k||'read',size,' ');
+  const measure=w=>{w.w=0;for(const s of w.segs){s.w=tw(s.k,size,s.s,cs);w.w+=s.w+(cs&&s!==w.segs[0]?cs:0)}};
+  // Words wider than the column (long URLs) break after «/», «-» or «.»; never with a hyphen.
+  const split=w=>{if(w.segs.length>1||w.w<=width)return [w];const s=w.segs[0],out=[];let rest=s.s;while(rest){let n=rest.length;while(n>1&&tw(s.k,size,rest.slice(0,n),cs)>width)n--;if(n<rest.length){const cut=Math.max(rest.lastIndexOf('/',n-1),rest.lastIndexOf('-',n-1),rest.lastIndexOf('.',n-1));if(cut>0)n=cut+1}const piece={segs:[{...s,s:rest.slice(0,n)}],brk:!!out.length};measure(piece);out.push(piece);rest=rest.slice(n)}return out};
+  const list=[];for(const w of ws){for(const s of w.segs)s.s=fit(s.k,s.s);measure(w);list.push(...split(w))}
+  for(const w of list){
+   const avail=width-(lines.length?0:indent),next=line.ws.length?line.w+space+w.w:w.w;
+   if(line.ws.length&&next>avail){lines.push(line);line={ws:[w],w:w.w}}else{line.ws.push(w);line.w=next}}
+  if(line.ws.length)lines.push(line);lines.space=space;return lines;
+ }
+ function drawLine(line,x,yy,size,width,justify,cs,space){
+  const gaps=line.ws.length-1,gap=justify&&gaps>0?space+(width-line.w)/gaps:space;let px=x;
+  for(const w of line.ws){for(const s of w.segs){setF(s.k,size);doc.setTextColor(...s.c);doc.text(s.s,px,yy,cs?{charSpace:cs}:undefined);if(s.link)doc.link(px,yy-size*.8,s.w,size*1.1,{url:s.link});px+=s.w+cs}px+=gap-cs}
+ }
+ // Flowing paragraph with page breaks; returns the baseline of its last line.
+ function para(input,{x=TX,width=TW,size,lh,fonts:f={r:'read',b:'readB'},color=C.text,justify=false,indent=0,cs=0}){
+  const ws=words(input,f,color);if(!ws.length)return y;const lines=layout(ws,size,width,{indent,cs});
+  lines.forEach((l,i)=>{ensure(lh);const ix=i?0:indent;drawLine(l,x+ix,y,size,width-ix,justify&&i<lines.length-1&&l.ws.length>1,cs,lines.space);y+=lh});
+  return y-lh;
+ }
+ // Small caps label (uppercase + 0.08 em tracking); may wrap inside the marginal column.
+ function label(text,x,yy,width,color,size=mobile?8.4:7.6,lh=10){const lines=layout(words([{t:text.toLocaleUpperCase('es')}],{r:'cond',b:'cond'},color),size,width,{cs:size*.08});lines.forEach((l,i)=>drawLine(l,x,yy+i*lh,size,width,false,size*.08,lines.space));return yy+(lines.length-1)*lh}
+ // The signal line: a hairline that rises softly at its end into the ochre dot, as in the monogram.
+ function signal(x,yb,width,{stroke,r,rise,curve}){const yt=yb-rise,cx=x+width-r,x0=cx-r*.9-curve;doc.setDrawColor(...C.brand);doc.setLineWidth(stroke);doc.setLineCap('round');doc.moveTo(x,yb);doc.lineTo(x0,yb);doc.curveTo(x0+curve*.55,yb,cx-r-curve*.42,yt,cx-r*.9,yt);doc.stroke();doc.setFillColor(...C.ocre);doc.circle(cx,yt,r,'F');doc.setLineCap('butt')}
+ function runningHead(){const s=mobile?9:10;put('titleB',s,'Resúmenes Trials',M,mobile?27:40,C.ink);put('ui',mobile?6.8:7.5,mobile?'N.º '+item.id:folio,W-M,mobile?27:40,C.muted,{right:true});doc.setDrawColor(...C.line);doc.setLineWidth(.6);doc.line(M,mobile?32:46,W-M,mobile?32:46)}
+ function page(){doc.addPage();runningHead();y=top+(mobile?14:0)}
+ function ensure(h){if(y+h>bottom)page()}
+ // Page 1 masthead: monogram + name, folio, then the signal line (the only ochre dot in the document).
+ if(mobile){doc.addImage(image,'PNG',M,16,22,22,'rt-logo','FAST');put('titleB',12.5,'Resúmenes Trials',M+28,31.5,C.ink);put('ui',7.5,'N.º '+item.id,W-M,31,C.muted,{right:true});signal(M,57,U,{stroke:1.2,r:2.9,rise:8,curve:36})}
+ else{doc.addImage(image,'PNG',M,26,26,26,'rt-logo','FAST');put('titleB',14.5,'Resúmenes Trials',M+34,44.5,C.ink);put('ui',7.5,folio,W-M,43,C.muted,{right:true});signal(M,74,U,{stroke:1.3,r:3.3,rise:9,curve:46})}
+ y=mobile?80:100;
+ const kicker=(brief?'Resumen breve · ':'')+(item.especialidad_principal||'')+(brief&&mobile?'':' · '+studyType(item.tipo_estudio));
+ y=label(kicker,M,y,U,tone,mobile?7.4:7.6,10)+(mobile?23:26);
+ const t=plain(item.titulo),cut=t.indexOf(': '),titleRuns=cut>0&&cut<=40?[{t:t.slice(0,cut),b:true},{t:t.slice(cut)}]:[{t}];
+ const tsize=mobile?19:23,tlh=mobile?22:26.2;
+ y=para(titleRuns,{x:M,width:U,size:tsize,lh:tlh,fonts:{r:'title',b:'titleB'},color:C.ink})+(mobile?17:22);
+ const refRuns=[{t:'Artículo original: '+[item.autor&&item.autor+' et al.',item.revista,item.anio].filter(Boolean).join(' ')+'.'}];
+ if(item.doi)refRuns.push({t:' '},{t:'doi:'+item.doi,c:C.accent,link:'https://doi.org/'+item.doi});
+ if(item.registro)refRuns.push({t:' · '+item.registro});
+ const rs=mobile?7.8:8,rlh=mobile?11.3:11.6;
+ y=para(refRuns,{x:M,width:U,size:rs,lh:rlh,fonts:{r:'ui',b:'ui'},color:C.muted});
+ if(mobile){y+=rlh;y=para([{t:folio}],{x:M,width:U,size:rs,lh:rlh,fonts:{r:'ui',b:'ui'},color:C.muted})}
+ // «Puntos clave» (versión completa): only existing text — objetivo, hallazgo and the anchor phrase.
  const source=document.createElement('div');source.innerHTML=brief?item.corto:item.cuerpo;
- for(const node of [...source.children]){const t=node.textContent.replace(/\s+/g,' ').trim();if(!t)continue;if(node.tagName==='H2'){ensure(60);y+=10;doc.setFillColor(98,54,204);doc.rect(margin-(mobile?12:16),y-(mobile?12:10),3,mobile?15:13,'F');text(t,{font:'helvetica',bold:true,size:mobile?14:12,line:mobile?20:17,gap:8,color:[31,86,209]})}else text(t,{justify:node.tagName==='P'})}
- const count=doc.getNumberOfPages();for(let i=1;i<=count;i++){doc.setPage(i);doc.setDrawColor(214,221,236);doc.setLineWidth(.6);doc.line(margin,height-50,width-margin,height-50);doc.setFont('helvetica','normal');doc.setFontSize(6.5);doc.setTextColor(74,85,115);doc.textWithLink('resumenestrials.com / ID '+item.id+' / '+i+' de '+count,margin,height-40,{url:canonical});doc.text('X: @resumenestrials | Telegram: @ResumenesTrials',margin,height-29);doc.text('resumenestrials@outlook.com',margin,height-18)}
- doc.setProperties({title:plain(item.titulo),subject:'Resumen '+item.id+' · '+(brief?'breve':'completo')+' · '+format,author:'Resúmenes Trials',creator:'Resúmenes Trials / jsPDF '+JSPDF_VERSION});
+ if(!brief){
+  let anchor='',inConclusion=false;for(const n of source.children){if(n.tagName==='H2')inConclusion=/^Conclusi/i.test(n.textContent.trim());else if(inConclusion&&!anchor){const s=n.querySelector('strong');if(s)anchor=s.textContent.trim()}}
+  const rows=[['Pregunta',item.objetivo],['Hallazgo',item.hallazgo],['Mensaje',anchor]].filter(r=>r[1]);
+  const pad=mobile?12:14,ks=mobile?11.5:9.2,klh=mobile?16:13.6,kx=mobile?M+pad:TX,kw=mobile?U-pad*2:TW-pad;
+  const laid=rows.map(([k,v])=>{const ls=layout(words(v,{r:'read',b:'readB'},C.text),ks,kw);return{k,ls,h:ls.length*klh}});
+  // Two passes: measure the box, paint paper + 2 pt petroleum rule, then set the rows on top.
+  const place=(top,draw)=>{let by=top+(mobile?17+19:17+20),last=by;laid.forEach((r,i)=>{if(i){const sep=last+7;if(draw){doc.setDrawColor(...C.line);doc.setLineWidth(.5);doc.line(M+pad,sep,M+U-pad,sep)}by=sep+(mobile?15:13)}
+    if(draw)label(r.k,M+pad,by,LAB,C.muted,mobile?7.2:7.4,9.5);if(mobile)by+=13;
+    r.ls.forEach((l,j)=>{if(draw)drawLine(l,kx,by,ks,kw,!mobile&&j<r.ls.length-1&&l.ws.length>1,0,r.ls.space);last=by;by+=klh})});return last+(mobile?12:10)};
+  y+=mobile?14:16;let boxBottom=place(y,false);if(boxBottom>bottom){page();boxBottom=place(y,false)}
+  const boxTop=y;doc.setFillColor(...C.brand);doc.rect(M,boxTop,U,2,'F');doc.setFillColor(...C.alt);doc.rect(M,boxTop+2,U,boxBottom-boxTop-2,'F');
+  label('Puntos clave',M+pad,boxTop+17,U,C.accent,7.6);place(boxTop,true);
+  const boxH=boxBottom-boxTop;
+  y=boxTop+boxH+(mobile?18:20);
+ }else y+=mobile?20:22;
+ // Ficha del estudio: the same fields as before, in the same order.
+ const fields=[['Tipo de estudio',item.tipo_estudio],['Especialidad',[item.especialidad_principal,item.especialidad_secundaria].filter(Boolean).join(' · ')],['Temas',(item.temas||[]).join(' · ')],['Publicación',longDate(item.fecha)]].filter(f=>f[1]);
+ const fs=mobile?8.5:7.8,flh=mobile?12:11.4;
+ for(const[k,v]of fields){ensure(flh*2);if(mobile){label(k,M,y,U,C.muted,7,9);y+=11;y=para([{t:v}],{x:M,width:U,size:fs,lh:flh,fonts:{r:'ui',b:'ui'}})+flh+5}else{label(k,M,y,LAB,C.muted,7.4,9.5);y=para([{t:v}],{x:TX,width:TW,size:fs,lh:flh,fonts:{r:'ui',b:'ui'}})+flh+4}}
+ // Body: marginal section labels on A4, labels above the text on Celular.
+ const bs=mobile?13:10,blh=mobile?19:15.5;
+ function section(title,color,fn,{size=bs,lh=blh}={}){
+  if(mobile){ensure(lh*2+28);y+=14;label(title,M,y,U,color);y+=17;fn();y+=4;return}
+  ensure(lh*3);y+=lh*.6;const pg=doc.getNumberOfPages(),end=label(title,M,y,LAB,color);fn();if(doc.getNumberOfPages()===pg)y=Math.max(y,end+lh)
+ }
+ y+=mobile?0:blh*.6;
+ if(item.financiacion)section('Financiación',C.muted,()=>{para([{t:plain(item.financiacion)}],{size:mobile?10.5:9,lh:mobile?15:13.5,justify:!mobile})});
+ const nodes=[...source.children];
+ for(let i=0;i<nodes.length;i++){
+  const n=nodes[i];if(n.tagName!=='H2'){if(n.textContent.trim())para(n,{size:bs,lh:blh,justify:!mobile&&n.tagName==='P'});continue}
+  const title=n.textContent.replace(/\s+/g,' ').trim(),paras=[];while(nodes[i+1]&&nodes[i+1].tagName!=='H2')paras.push(nodes[++i]);
+  section(title,C.accent,()=>{paras.filter(p=>p.textContent.trim()).forEach((p,j)=>{if(j)y+=mobile?8:0;para(p,{size:bs,lh:blh,justify:!mobile&&p.tagName==='P',indent:!mobile&&j?12:0})})});
+ }
+ // Closing block (last page): how to cite, notice and contacts.
+ y+=mobile?16:blh;ensure(blh*4);doc.setDrawColor(...C.line);doc.setLineWidth(.6);doc.line(M,y-(mobile?6:8),W-M,y-(mobile?6:8));
+ const cs=mobile?10.5:9,clh=mobile?15:13.5,close={size:cs,lh:clh};
+ section('Cómo citar este resumen',C.accent,()=>{para([{t:'Editorial EMEICRÍTICA. '+t+'. '},{t:'Resúmenes Trials',b:true},{t:'. '+folio.replace(' · ',', ')+'. '},{t:canonical,c:C.accent,link:canonical}],{size:cs,lh:clh,fonts:{r:'read',b:'readI'}})},close);
+ section('Aviso',C.muted,()=>{para([{t:'Resumen crítico independiente; no sustituye la lectura del artículo original y puede contener errores; las correcciones se publican en la web.'}],{size:cs,lh:clh})},close);
+ section('Contacto',C.muted,()=>{para([{t:'X: @resumenestrials · Telegram: @ResumenesTrials · '},{t:'resumenestrials@outlook.com',c:C.accent,link:'mailto:resumenestrials@outlook.com'}],{size:cs,lh:clh})},close);
+ // Footer on every page: sand hairline, imprint, page count and the canonical URL.
+ const count=doc.getNumberOfPages();
+ for(let i=1;i<=count;i++){doc.setPage(i);const fy=mobile?H-36:H-50;doc.setDrawColor(...C.line);doc.setLineWidth(.6);doc.line(M,fy,W-M,fy);const fsz=mobile?6.4:7;put('ui',fsz,'Resúmenes Trials · Editorial EMEICRÍTICA',M,fy+(mobile?9:10),C.muted);put('ui',fsz,'Página '+i+' de '+count,W-M,fy+(mobile?9:10),C.muted,{right:true});put('ui',mobile?6:6.8,mobile?'resumenestrials.com · Resumen N.º '+item.id:canonical,M,fy+(mobile?18:21),C.accent,{link:canonical})}
+ doc.setProperties({title:t,subject:'Resumen '+item.id+' · '+(brief?'breve':'completo')+' · '+format,author:'Editorial EMEICRÍTICA · Resúmenes Trials',creator:'Resúmenes Trials / jsPDF '+JSPDF_VERSION});
  const filename='Resumen_'+item.id+'_'+(brief?'breve':'completo')+'_'+format+'.pdf';if(download)doc.save(filename);return {doc,filename,pages:count,format,id:item.id,brief}
 }
-

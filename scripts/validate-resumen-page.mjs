@@ -24,7 +24,12 @@ for (const [index, code] of scripts.entries()) {
 const runtime=fs.readFileSync('site-runtime.js','utf8'),pdf=fs.readFileSync('ui/pdf.js','utf8'),templates=fs.readFileSync('site_templates.py','utf8');
 for(const token of ['ev-dynamic-reader','<noscript>','/site-runtime.js?v='])if(!html.includes(token))fail('Lector sin '+token);
 for(const token of ['SpecialtyClassification','data-ev-reader','data-ev-sections','data-ev-pdf','data-ev-save','data-ev-return', "p.get('v')==='corto'",'Resumen no encontrado'])if(!runtime.includes(token))fail('Runtime sin '+token);
-for(const token of ["format='a4'", "['a4','mobile']", 'item.corto','item.cuerpo','JSPDF_SRI','opacity:.045'])if(!pdf.includes(token))fail('PDF sin '+token);
+for(const token of ["format='a4'", "['a4','mobile']", 'item.corto','item.cuerpo','JSPDF_SRI','sanPDF(','function signal(','Puntos clave','Cómo citar este resumen','Editorial EMEICRÍTICA',"'/fonts/pdf/'"])if(!pdf.includes(token))fail('PDF sin '+token);
+// Identidad editorial: fuentes OFL incrustadas (TTF reales), sin marca de agua y un solo punto ocre (la línea de señal).
+for(const f of (pdf.match(/FONT_FILES=\{([^}]+)\}/)||[,''])[1].matchAll(/'([a-z0-9-]+)'/g)){const file='fonts/pdf/'+f[1]+'.ttf';if(!fs.existsSync(file)||fs.readFileSync(file).readUInt32BE(0)!==0x00010000)fail('PDF sin la fuente TrueType '+file)}
+if(((pdf.match(/FONT_FILES=\{([^}]+)\}/)||[,''])[1].match(/'[a-z0-9-]+'/g)||[]).length<7)fail('PDF con menos de 7 fuentes declaradas');
+if(/GState|opacity:/.test(pdf))fail('PDF con marca de agua o transparencias');
+if((pdf.match(/C\.ocre/g)||[]).length!==1)fail('El ocre debe usarse solo en el punto de la línea de señal');
 if(!templates.includes('data-ev-pdf')||!templates.includes('icon("pdf")'))fail('Controles estáticos sin icono PDF SVG');
 if(/<script[^>]+src=["'][^"']*(?:pdf-contact|trial-pdf|reader-controls)/.test(html))fail('Múltiples controladores de lectura');
 if(failed)process.exit(1);console.log('Resumen detail UX PASS');
