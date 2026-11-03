@@ -13,6 +13,11 @@ Material educativo para profesionales de la salud. La referencia final es siempr
 
 ## Resúmenes de ensayos
 
+- [NONSEDA: ausencia de sedación o sedación ligera en pacientes críticos con ventilación mecánica](https://resumenestrials.com/trials/nonseda-ausencia-sedacion-sedacion-ligera-pacientes-criticos-ventilacion-mecanica/): NEJM, 2020.
+- [ISCHEMIA: estrategia inicial invasiva o conservadora en la enfermedad coronaria estable](https://resumenestrials.com/trials/ischemia-estrategia-inicial-invasiva-conservadora-enfermedad-coronaria-estable/): NEJM, 2020.
+- [VICTAS: efecto de la vitamina C, la tiamina y la hidrocortisona sobre los días libres de ventilador y vasopresores en pacientes con sepsis](https://resumenestrials.com/trials/victas-efecto-vitamina-c-tiamina-hidrocortisona-dias-libres-ventilador-vasopresores/): JAMA, 2021.
+- [MERCY: administración continua frente a intermitente de meropenem en pacientes en estado crítico con sepsis](https://resumenestrials.com/trials/mercy-administracion-continua-intermitente-meropenem-pacientes-estado-critico-sepsis/): JAMA, 2023.
+- [BLING III: infusiones continuas frente a intermitentes de antibióticos betalactámicos en pacientes en estado crítico con sepsis](https://resumenestrials.com/trials/bling-iii-infusiones-continuas-intermitentes-antibioticos-betalactamicos-pacientes-estado/): JAMA, 2024.
 - [BaSICS: efecto del tratamiento con líquidos intravenosos con una solución balanceada frente a solución salina al 0.9% sobre la mortalidad en pacientes en estado crítico](https://resumenestrials.com/trials/basics-efecto-tratamiento-liquidos-intravenosos-solucion-balanceada-solucion-salina-0/): JAMA, 2021.
 - [TOMAHAWK: angiografía tras un paro cardiaco extrahospitalario sin elevación del segmento ST](https://resumenestrials.com/trials/tomahawk-angiografia-tras-paro-cardiaco-extrahospitalario-elevacion-segmento-st/): NEJM, 2021.
 - [BOX: objetivos de oxígeno en supervivientes comatosos de un paro cardiaco](https://resumenestrials.com/trials/box-objetivos-oxigeno-supervivientes-comatosos-paro-cardiaco/): NEJM, 2022.

@@ -6757,5 +6757,155 @@
       "population": "La población fueron adultos ingresados en unidades de cuidados intensivos (UCI) de Brasil que necesitaban al menos una expansión de volumen, sin alta prevista al día siguiente y con al menos un factor de riesgo de lesión renal aguda. Raza o etnia: No reportado."
     },
     "datePublished": "2026-11-01"
+  },
+  "255": {
+    "slug": "bling-iii-infusiones-continuas-intermitentes-antibioticos-betalactamicos-pacientes-estado",
+    "path": "/trials/bling-iii-infusiones-continuas-intermitentes-antibioticos-betalactamicos-pacientes-estado/",
+    "url": "https://resumenestrials.com/trials/bling-iii-infusiones-continuas-intermitentes-antibioticos-betalactamicos-pacientes-estado/",
+    "title": "BLING III: infusiones continuas frente a intermitentes de antibióticos betalactámicos en pacientes en estado crítico con sepsis",
+    "seo_title": "BLING III trial: infusiones continuas frente a intermitentes de antibióticos betalactámicos en pacientes en estado crítico con sepsis | Resúmenes Trials",
+    "description": "BLING III: La mortalidad a 90 días fue del 24.9% con infusión continua frente al 26.8% con intermitente (diferencia absoluta −1.9%; IC 95%, −4.9% a 1.1%…",
+    "clusters": [
+      {
+        "name": "Sepsis y shock",
+        "path": "/medicina-critica/sepsis-shock/",
+        "url": "https://resumenestrials.com/medicina-critica/sepsis-shock/"
+      },
+      {
+        "name": "Infecciones y antibióticos",
+        "path": "/medicina-critica/infecciones-antibioticos/",
+        "url": "https://resumenestrials.com/medicina-critica/infecciones-antibioticos/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/bling-iii-infusiones-continuas-intermitentes-antibioticos-betalactamicos-pacientes-estado-16x9.jpg",
+      "https://resumenestrials.com/images/trials/bling-iii-infusiones-continuas-intermitentes-antibioticos-betalactamicos-pacientes-estado-4x3.jpg",
+      "https://resumenestrials.com/images/trials/bling-iii-infusiones-continuas-intermitentes-antibioticos-betalactamicos-pacientes-estado-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si la infusión continua de piperacilina-tazobactam o meropenem reduce la mortalidad por cualquier causa a 90 días frente a la infusión intermitente en adultos con sepsis en la UCI.",
+      "answer": "La mortalidad a 90 días fue del 24.9% con infusión continua frente al 26.8% con intermitente (diferencia absoluta −1.9%; IC 95%, −4.9% a 1.1%; razón de momios 0.91; IC 95%, 0.81 a 1.01; p = 0.08) , sin diferencia significativa.",
+      "population": "Se incluyó a adultos ingresados en la UCI con sepsis, es decir, con un foco de infección documentado o muy sospechado, que habían empezado piperacilina-tazobactam o meropenem en las 24 horas previas y tenían al menos un criterio de disfunción orgánica en ese periodo: presión arterial media menor de 60 mmHg durante al menos 1 hora, vasopresores durante más de 4 horas, soporte respiratorio con cánula nasal de alto flujo, presión…"
+    },
+    "datePublished": "2026-11-02"
+  },
+  "256": {
+    "slug": "mercy-administracion-continua-intermitente-meropenem-pacientes-estado-critico-sepsis",
+    "path": "/trials/mercy-administracion-continua-intermitente-meropenem-pacientes-estado-critico-sepsis/",
+    "url": "https://resumenestrials.com/trials/mercy-administracion-continua-intermitente-meropenem-pacientes-estado-critico-sepsis/",
+    "title": "MERCY: administración continua frente a intermitente de meropenem en pacientes en estado crítico con sepsis",
+    "seo_title": "MERCY trial: administración continua frente a intermitente de meropenem en pacientes en estado crítico con sepsis | Resúmenes Trials",
+    "description": "MERCY: El compuesto de muerte o aparición de bacterias panresistentes o extensamente resistentes a los 28 días ocurrió en el 47% con infusión continua frente…",
+    "clusters": [
+      {
+        "name": "Sepsis y shock",
+        "path": "/medicina-critica/sepsis-shock/",
+        "url": "https://resumenestrials.com/medicina-critica/sepsis-shock/"
+      },
+      {
+        "name": "Infecciones y antibióticos",
+        "path": "/medicina-critica/infecciones-antibioticos/",
+        "url": "https://resumenestrials.com/medicina-critica/infecciones-antibioticos/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/mercy-administracion-continua-intermitente-meropenem-pacientes-estado-critico-sepsis-16x9.jpg",
+      "https://resumenestrials.com/images/trials/mercy-administracion-continua-intermitente-meropenem-pacientes-estado-critico-sepsis-4x3.jpg",
+      "https://resumenestrials.com/images/trials/mercy-administracion-continua-intermitente-meropenem-pacientes-estado-critico-sepsis-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si la administración continua de meropenem, frente a la intermitente, reduce un desenlace compuesto de mortalidad por cualquier causa y aparición de bacterias panresistentes o extensamente resistentes a los 28 días en pacientes críticos con sepsis.",
+      "answer": "El compuesto de muerte o aparición de bacterias panresistentes o extensamente resistentes a los 28 días ocurrió en el 47% con infusión continua frente al 49% con administración intermitente (riesgo relativo 0.96; IC 95%, 0.81 a 1.13; p = 0.60) , sin diferencia significativa.",
+      "population": "La población fueron adultos en unidades de cuidados intensivos (UCI) de Croacia, Italia, Kazajistán y Rusia, con sepsis o shock séptico, a quienes el médico tratante había decidido iniciar meropenem. La raza la asignaron los clínicos: el 94% y el 95% eran blancos, el 2.7% asiáticos y el 2.4% y el 2.7% hispanos. Todos recibieron primero una carga de 1 g de meropenem, con independencia de la función renal, tras tomar, si…"
+    },
+    "datePublished": "2026-11-02"
+  },
+  "257": {
+    "slug": "victas-efecto-vitamina-c-tiamina-hidrocortisona-dias-libres-ventilador-vasopresores",
+    "path": "/trials/victas-efecto-vitamina-c-tiamina-hidrocortisona-dias-libres-ventilador-vasopresores/",
+    "url": "https://resumenestrials.com/trials/victas-efecto-vitamina-c-tiamina-hidrocortisona-dias-libres-ventilador-vasopresores/",
+    "title": "VICTAS: efecto de la vitamina C, la tiamina y la hidrocortisona sobre los días libres de ventilador y vasopresores en pacientes con sepsis",
+    "seo_title": "VICTAS trial: efecto de la vitamina C, la tiamina y la hidrocortisona sobre los días libres de ventilador y vasopresores en pacientes con sepsis | Resúmenes Trials",
+    "description": "VICTAS: La mediana de días libres de ventilador y vasopresores a 30 días fue de 25 con la combinación frente a 26 con placebo (diferencia de medianas −1 día…",
+    "clusters": [
+      {
+        "name": "Sepsis y shock",
+        "path": "/medicina-critica/sepsis-shock/",
+        "url": "https://resumenestrials.com/medicina-critica/sepsis-shock/"
+      },
+      {
+        "name": "Ventilación e insuficiencia respiratoria",
+        "path": "/medicina-critica/ventilacion-respiratoria/",
+        "url": "https://resumenestrials.com/medicina-critica/ventilacion-respiratoria/"
+      },
+      {
+        "name": "Hemodinámica y cardiovascular",
+        "path": "/medicina-critica/hemodinamica-cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-critica/hemodinamica-cardiovascular/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/victas-efecto-vitamina-c-tiamina-hidrocortisona-dias-libres-ventilador-vasopresores-16x9.jpg",
+      "https://resumenestrials.com/images/trials/victas-efecto-vitamina-c-tiamina-hidrocortisona-dias-libres-ventilador-vasopresores-4x3.jpg",
+      "https://resumenestrials.com/images/trials/victas-efecto-vitamina-c-tiamina-hidrocortisona-dias-libres-ventilador-vasopresores-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si la combinación de vitamina C, tiamina e hidrocortisona cada 6 horas aumenta los días libres de ventilador y vasopresores frente a placebo en adultos con sepsis.",
+      "answer": "La mediana de días libres de ventilador y vasopresores a 30 días fue de 25 con la combinación frente a 26 con placebo (diferencia de medianas −1 día; IC 95%, −4 a 2; p = 0.85) , sin diferencia significativa; el ensayo se detuvo de forma administrativa tras 501 pacientes al retirarse el financiamiento.",
+      "population": "La población fueron adultos con disfunción respiratoria o cardiovascular aguda por una infección sospechada y con ingreso previsto en la unidad de cuidados intensivos (UCI), reclutados en urgencias o en la UCI de 43 hospitales de Estados Unidos. Entre quienes tenían el dato, el 64.2% y el 58.2% eran blancos, el 30.2% y el 34.5% negros, y el 13.2% y el 10.0% hispanos o latinos, en el grupo de intervención y en el de placebo."
+    },
+    "datePublished": "2026-11-02"
+  },
+  "258": {
+    "slug": "ischemia-estrategia-inicial-invasiva-conservadora-enfermedad-coronaria-estable",
+    "path": "/trials/ischemia-estrategia-inicial-invasiva-conservadora-enfermedad-coronaria-estable/",
+    "url": "https://resumenestrials.com/trials/ischemia-estrategia-inicial-invasiva-conservadora-enfermedad-coronaria-estable/",
+    "title": "ISCHEMIA: estrategia inicial invasiva o conservadora en la enfermedad coronaria estable",
+    "seo_title": "ISCHEMIA trial: estrategia inicial invasiva o conservadora en la enfermedad coronaria estable | Resúmenes Trials",
+    "description": "ISCHEMIA: No hubo diferencia significativa en el desenlace primario entre la estrategia invasiva y la conservadora: razón de riesgos 0.93 (IC 95%, 0.80 a…",
+    "clusters": [
+      {
+        "name": "Cardiología y prevención cardiovascular",
+        "path": "/medicina-interna/cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-interna/cardiovascular/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/ischemia-estrategia-inicial-invasiva-conservadora-enfermedad-coronaria-estable-16x9.jpg",
+      "https://resumenestrials.com/images/trials/ischemia-estrategia-inicial-invasiva-conservadora-enfermedad-coronaria-estable-4x3.jpg",
+      "https://resumenestrials.com/images/trials/ischemia-estrategia-inicial-invasiva-conservadora-enfermedad-coronaria-estable-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si una estrategia invasiva inicial, con coronariografía y revascularización cuando fuera factible añadidas al tratamiento médico, reduce el compuesto de muerte cardiovascular, infarto de miocardio u hospitalización por angina inestable, insuficiencia cardiaca o paro cardiaco reanimado frente a una estrategia conservadora inicial en pacientes con enfermedad coronaria estable e isquemia moderada o grave.",
+      "answer": "No hubo diferencia significativa en el desenlace primario entre la estrategia invasiva y la conservadora: razón de riesgos 0.93 (IC 95%, 0.80 a 1.08; p=0.34) ; a 5 años la tasa acumulada fue de 16.4% frente a 18.2% (diferencia de −1.8 puntos; IC 95%, −4.7 a 1.0) .",
+      "population": "La población fueron adultos de 21 años o más con enfermedad coronaria estable e isquemia moderada o grave en una prueba de esfuerzo indicada por motivos clínicos, reclutados en 37 países. La raza o grupo étnico fue autorreportada: 66.3% blancos, 29.0% asiáticos y 4.0% negros, y el 15.8% se identificó como hispano o latino. La isquemia debía alcanzar umbrales concretos según la técnica: al menos 10% de miocardio isquémico en la…"
+    },
+    "datePublished": "2026-11-02"
+  },
+  "259": {
+    "slug": "nonseda-ausencia-sedacion-sedacion-ligera-pacientes-criticos-ventilacion-mecanica",
+    "path": "/trials/nonseda-ausencia-sedacion-sedacion-ligera-pacientes-criticos-ventilacion-mecanica/",
+    "url": "https://resumenestrials.com/trials/nonseda-ausencia-sedacion-sedacion-ligera-pacientes-criticos-ventilacion-mecanica/",
+    "title": "NONSEDA: ausencia de sedación o sedación ligera en pacientes críticos con ventilación mecánica",
+    "seo_title": "NONSEDA trial: ausencia de sedación o sedación ligera en pacientes críticos con ventilación mecánica | Resúmenes Trials",
+    "description": "NONSEDA: La mortalidad a 90 días no difirió de forma significativa entre no sedar y la sedación ligera con interrupción diaria: 42.4% frente a 37.0%…",
+    "clusters": [
+      {
+        "name": "Ventilación e insuficiencia respiratoria",
+        "path": "/medicina-critica/ventilacion-respiratoria/",
+        "url": "https://resumenestrials.com/medicina-critica/ventilacion-respiratoria/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/nonseda-ausencia-sedacion-sedacion-ligera-pacientes-criticos-ventilacion-mecanica-16x9.jpg",
+      "https://resumenestrials.com/images/trials/nonseda-ausencia-sedacion-sedacion-ligera-pacientes-criticos-ventilacion-mecanica-4x3.jpg",
+      "https://resumenestrials.com/images/trials/nonseda-ausencia-sedacion-sedacion-ligera-pacientes-criticos-ventilacion-mecanica-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si un plan de no sedación, frente a la sedación ligera con interrupción diaria, reduce la mortalidad a 90 días en adultos críticos con ventilación mecánica.",
+      "answer": "La mortalidad a 90 días no difirió de forma significativa entre no sedar y la sedación ligera con interrupción diaria: 42.4% frente a 37.0% (diferencia 5.4 puntos porcentuales; IC 95%, −2.2 a 12.2; p = 0.65).",
+      "population": "La población fueron adultos de 18 años o más ingresados en cuidados intensivos, intubados en las 24 horas previas a la selección y con una ventilación mecánica prevista de más de 24 horas, procedentes de ocho unidades de Dinamarca, Noruega y Suecia. Raza o etnia: No reportado."
+    },
+    "datePublished": "2026-11-02"
   }
 }

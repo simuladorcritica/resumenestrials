@@ -4,8 +4,43 @@
   <id>https://resumenestrials.com/</id>
   <link href="https://resumenestrials.com/"/>
   <link rel="self" type="application/atom+xml" href="https://resumenestrials.com/feed.xml"/>
-  <updated>2026-11-01T00:00:00Z</updated>
+  <updated>2026-11-02T00:00:00Z</updated>
   <subtitle>Resúmenes críticos en español de ensayos clínicos.</subtitle>
+  <entry>
+    <title>BLING III: infusiones continuas frente a intermitentes de antibióticos betalactámicos en pacientes en estado crítico con sepsis</title>
+    <id>https://resumenestrials.com/trials/bling-iii-infusiones-continuas-intermitentes-antibioticos-betalactamicos-pacientes-estado/</id>
+    <link href="https://resumenestrials.com/trials/bling-iii-infusiones-continuas-intermitentes-antibioticos-betalactamicos-pacientes-estado/"/>
+    <updated>2026-11-02T00:00:00Z</updated>
+    <summary>Determinar si la infusión continua de piperacilina-tazobactam o meropenem reduce la mortalidad por cualquier causa a 90 días frente a la infusión intermitente en adultos con sepsis en la UCI.</summary>
+  </entry>
+  <entry>
+    <title>MERCY: administración continua frente a intermitente de meropenem en pacientes en estado crítico con sepsis</title>
+    <id>https://resumenestrials.com/trials/mercy-administracion-continua-intermitente-meropenem-pacientes-estado-critico-sepsis/</id>
+    <link href="https://resumenestrials.com/trials/mercy-administracion-continua-intermitente-meropenem-pacientes-estado-critico-sepsis/"/>
+    <updated>2026-11-02T00:00:00Z</updated>
+    <summary>Determinar si la administración continua de meropenem, frente a la intermitente, reduce un desenlace compuesto de mortalidad por cualquier causa y aparición de bacterias panresistentes o extensamente resistentes a los 28 días en pacientes críticos con sepsis.</summary>
+  </entry>
+  <entry>
+    <title>VICTAS: efecto de la vitamina C, la tiamina y la hidrocortisona sobre los días libres de ventilador y vasopresores en pacientes con sepsis</title>
+    <id>https://resumenestrials.com/trials/victas-efecto-vitamina-c-tiamina-hidrocortisona-dias-libres-ventilador-vasopresores/</id>
+    <link href="https://resumenestrials.com/trials/victas-efecto-vitamina-c-tiamina-hidrocortisona-dias-libres-ventilador-vasopresores/"/>
+    <updated>2026-11-02T00:00:00Z</updated>
+    <summary>Determinar si la combinación de vitamina C, tiamina e hidrocortisona cada 6 horas aumenta los días libres de ventilador y vasopresores frente a placebo en adultos con sepsis.</summary>
+  </entry>
+  <entry>
+    <title>ISCHEMIA: estrategia inicial invasiva o conservadora en la enfermedad coronaria estable</title>
+    <id>https://resumenestrials.com/trials/ischemia-estrategia-inicial-invasiva-conservadora-enfermedad-coronaria-estable/</id>
+    <link href="https://resumenestrials.com/trials/ischemia-estrategia-inicial-invasiva-conservadora-enfermedad-coronaria-estable/"/>
+    <updated>2026-11-02T00:00:00Z</updated>
+    <summary>Determinar si una estrategia invasiva inicial, con coronariografía y revascularización cuando fuera factible añadidas al tratamiento médico, reduce el compuesto de muerte cardiovascular, infarto de miocardio u hospitalización por angina inestable, insuficiencia cardiaca o paro cardiaco reanimado…</summary>
+  </entry>
+  <entry>
+    <title>NONSEDA: ausencia de sedación o sedación ligera en pacientes críticos con ventilación mecánica</title>
+    <id>https://resumenestrials.com/trials/nonseda-ausencia-sedacion-sedacion-ligera-pacientes-criticos-ventilacion-mecanica/</id>
+    <link href="https://resumenestrials.com/trials/nonseda-ausencia-sedacion-sedacion-ligera-pacientes-criticos-ventilacion-mecanica/"/>
+    <updated>2026-11-02T00:00:00Z</updated>
+    <summary>Determinar si un plan de no sedación, frente a la sedación ligera con interrupción diaria, reduce la mortalidad a 90 días en adultos críticos con ventilación mecánica.</summary>
+  </entry>
   <entry>
     <title>ANNEXA-I: andexanet en la hemorragia intracerebral aguda asociada a inhibidores del factor Xa</title>
     <id>https://resumenestrials.com/trials/annexa-i-andexanet-hemorragia-intracerebral-aguda-asociada-inhibidores-factor-xa/</id>
@@ -320,40 +355,5 @@
     <link href="https://resumenestrials.com/trials/hero-19-anticoagulacion-profilactica-terapeutica-pacientes-hospitalizados-covid-19/"/>
     <updated>2026-10-20T00:00:00Z</updated>
     <summary>Determinar si la anticoagulación a dosis terapéutica, frente a la profilaxis habitual, reduce la combinación de muerte y eventos tromboembólicos a 42 días en pacientes hospitalizados con COVID-19.</summary>
-  </entry>
-  <entry>
-    <title>OptimaCC: epinefrina frente a norepinefrina en el shock cardiogénico tras un infarto agudo de miocardio</title>
-    <id>https://resumenestrials.com/trials/optimacc-epinefrina-norepinefrina-shock-cardiogenico-tras-infarto-agudo-miocardio/</id>
-    <link href="https://resumenestrials.com/trials/optimacc-epinefrina-norepinefrina-shock-cardiogenico-tras-infarto-agudo-miocardio/"/>
-    <updated>2026-10-20T00:00:00Z</updated>
-    <summary>Comparar la eficacia hemodinámica y la seguridad de la epinefrina y la norepinefrina en el shock cardiogénico por infarto agudo de miocardio revascularizado.</summary>
-  </entry>
-  <entry>
-    <title>ART: efecto del reclutamiento pulmonar y la PEEP titulada frente a PEEP baja sobre la mortalidad en pacientes con síndrome de dificultad respiratoria aguda</title>
-    <id>https://resumenestrials.com/trials/art-efecto-reclutamiento-pulmonar-peep-titulada-peep-baja-mortalidad-pacientes/</id>
-    <link href="https://resumenestrials.com/trials/art-efecto-reclutamiento-pulmonar-peep-titulada-peep-baja-mortalidad-pacientes/"/>
-    <updated>2026-10-20T00:00:00Z</updated>
-    <summary>Determinar si el reclutamiento alveolar con PEEP titulada según la mejor distensibilidad reduce la mortalidad a 28 días frente a una estrategia de PEEP baja en el síndrome de dificultad respiratoria aguda moderado o grave.</summary>
-  </entry>
-  <entry>
-    <title>IMPRESS in Severe Shock: soporte circulatorio mecánico percutáneo frente a balón de contrapulsación intraaórtico en el shock cardiogénico tras un infarto agudo de miocardio</title>
-    <id>https://resumenestrials.com/trials/impress-in-severe-shock-soporte-circulatorio-mecanico-percutaneo-balon-contrapulsacion/</id>
-    <link href="https://resumenestrials.com/trials/impress-in-severe-shock-soporte-circulatorio-mecanico-percutaneo-balon-contrapulsacion/"/>
-    <updated>2026-10-20T00:00:00Z</updated>
-    <summary>Determinar si el soporte circulatorio percutáneo con Impella CP reduce la mortalidad a 30 días frente al balón de contrapulsación intraaórtico en el shock cardiogénico grave por infarto agudo de miocardio.</summary>
-  </entry>
-  <entry>
-    <title>FiiRST-2: factores en la reanimación inicial de pacientes con traumatismo grave</title>
-    <id>https://resumenestrials.com/trials/fiirst-2-factores-reanimacion-inicial-pacientes-traumatismo-grave/</id>
-    <link href="https://resumenestrials.com/trials/fiirst-2-factores-reanimacion-inicial-pacientes-traumatismo-grave/"/>
-    <updated>2026-10-20T00:00:00Z</updated>
-    <summary>Evaluar si sustituir el plasma congelado por concentrados de fibrinógeno y de complejo protrombínico en la reanimación inicial de pacientes con traumatismo grave reduce los hemoderivados alogénicos transfundidos en 24 horas.</summary>
-  </entry>
-  <entry>
-    <title>VERROU-REA: citrato trisódico al 4% frente a heparina como solución de sellado de catéteres de hemodiálisis no tunelizados en pacientes en estado crítico</title>
-    <id>https://resumenestrials.com/trials/verrou-rea-citrato-trisodico-4-heparina-como-solucion-sellado-cateteres-hemodialisis/</id>
-    <link href="https://resumenestrials.com/trials/verrou-rea-citrato-trisodico-4-heparina-como-solucion-sellado-cateteres-hemodialisis/"/>
-    <updated>2026-10-20T00:00:00Z</updated>
-    <summary>Comparar el sellado con citrato trisódico al 4% frente a la heparina no fraccionada sobre la supervivencia libre de eventos del primer catéter de hemodiálisis no tunelizado en pacientes críticos con lesión renal aguda.</summary>
   </entry>
 </feed>
