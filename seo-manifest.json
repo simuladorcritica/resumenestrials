@@ -7053,7 +7053,7 @@
     ],
     "intent": {
       "question": "Determinar si añadir argatrobán o eptifibatida intravenosos a la trombólisis intravenosa mejora la escala de Rankin modificada ponderada por utilidad a los 90 días, frente a placebo, en adultos con ictus isquémico agudo tratados dentro de las 3 horas.",
-      "answer": "Ningún fármaco alcanzó el umbral de eficacia de 0.985: la probabilidad posterior de superioridad frente a placebo fue de 0.002 con argatrobán (diferencia media posterior −1.51±0.51) y de 0.041 con eptifibatida (−0.50±0.29); al ser un análisis bayesiano, el artículo no reporta en cifras ni IC 95% ni valor p para el primario (la…",
+      "answer": "Ningún fármaco alcanzó el umbral de eficacia de 0.985: la probabilidad posterior de superioridad frente a placebo fue de 0.002 con argatrobán (diferencia media posterior −1.51±0.51) y de 0.041 con eptifibatida (−0.50±0.29); al ser un análisis bayesiano, el artículo no reporta en cifras ni IC 95% ni valor p para el primario (el…",
       "population": "La población fueron adultos de 18 años o más con ictus isquémico agudo tratados con trombólisis intravenosa dentro de las 3 horas desde el inicio de los síntomas, con una NIHSS de 6 o más antes de la trombólisis y capaces de recibir el fármaco del estudio a más tardar 75 minutos después de iniciarla. La NIHSS va de 0 a 42, y más puntos indican un déficit más grave. La trombólisis fue alteplasa a 0.9 mg por kilogramo o…"
     },
     "datePublished": "2026-11-03"
