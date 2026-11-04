@@ -1,3 +1,8 @@
+## 2026-11-04 · PDF breve con la misma impresión editorial que el completo
+
+- El PDF breve (A4 y Celular) adopta el mismo diseño que el completo: título limpio, recuadro «Puntos clave» (Pregunta, Hallazgo y Mensaje), ficha y retícula. Solo el folio lo distingue («Resumen breve N.º …»).
+- El recuadro «Puntos clave» puede continuar en la página siguiente: en formato Celular ya no deja la página 1 a medias.
+
 ## 2026-11-04 · PDF: título limpio, ficha breve y cita APA/Vancouver
 
 - Se retira el antetítulo de especialidad y tipo de estudio que iba sobre el título; la versión breve conserva solo «Resumen breve».
