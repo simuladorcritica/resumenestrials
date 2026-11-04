@@ -5,7 +5,7 @@
     "url": "https://resumenestrials.com/trials/soho-oxigeno-alto-flujo-oxigeno-estandar-insuficiencia-respiratoria-hipoxemica-aguda/",
     "title": "SOHO: oxígeno de alto flujo u oxígeno estándar en la insuficiencia respiratoria hipoxémica aguda",
     "seo_title": "SOHO trial: oxígeno de alto flujo u oxígeno estándar en la insuficiencia respiratoria hipoxémica aguda | Resúmenes Trials",
-    "description": "SOHO: La mortalidad fue idéntica: 14.6% frente a 14.6% a los 28 días. El alto flujo redujo las intubaciones y mejoró el confort, pero no alargó la vida…",
+    "description": "SOHO: La mortalidad a los 28 días fue del 14.6% frente al 14.6% . El alto flujo pareció reducir las intubaciones y aliviar antes la disnea (desenlaces…",
     "clusters": [
       {
         "name": "Ventilación e insuficiencia respiratoria",
@@ -20,7 +20,7 @@
     ],
     "intent": {
       "question": "Determinar si el oxígeno de alto flujo por cánula nasal reduce la mortalidad a 28 días frente al oxígeno estándar en adultos con insuficiencia respiratoria hipoxémica aguda ingresados en cuidados intensivos.",
-      "answer": "La mortalidad fue idéntica: 14.6% frente a 14.6% a los 28 días.",
+      "answer": "La mortalidad a los 28 días fue del 14.6% frente al 14.6% .",
       "population": "La población fueron adultos ingresados en cuidados intensivos por insuficiencia respiratoria hipoxémica aguda, definida por tres criterios simultáneos: frecuencia respiratoria mayor de 25 por minuto, infiltrados pulmonares en la imagen de tórax y una relación PaO2:FiO2 de 200 o menos mientras recibían oxígeno a 10 litros por minuto o más con mascarilla con reservorio. El estudio se hizo en 42 unidades de cuidados intensivos de…"
     },
     "datePublished": "2026-08-14"
@@ -31,7 +31,7 @@
     "url": "https://resumenestrials.com/trials/arise-fluids-vasopresores-liquidos-shock-septico-temprano/",
     "title": "ARISE FLUIDS: vasopresores o líquidos en el shock séptico temprano",
     "seo_title": "ARISE FLUIDS trial: vasopresores o líquidos en el shock séptico temprano | Resúmenes Trials",
-    "description": "ARISE FLUIDS: Los días vivo y fuera del hospital fueron idénticos: 76 frente a 76 (p=1.00), sin cambios en la mortalidad. La estrategia restrictiva sí redujo…",
+    "description": "ARISE FLUIDS: La mediana de días vivo y fuera del hospital no mostró diferencia significativa: 76 frente a 76 (diferencia 0.0 días; IC 95%, −2.7 a 2.7…",
     "clusters": [
       {
         "name": "Sepsis y shock",
@@ -51,7 +51,7 @@
     ],
     "intent": {
       "question": "Determinar si una estrategia de líquidos restringidos y vasopresores tempranos aumenta los días vivo y fuera del hospital a 90 días frente a mayores volúmenes de líquido y vasopresores más tardíos, en adultos con shock séptico temprano en urgencias.",
-      "answer": "Los días vivo y fuera del hospital fueron idénticos: 76 frente a 76 (p=1.00), sin cambios en la mortalidad.",
+      "answer": "La mediana de días vivo y fuera del hospital no mostró diferencia significativa: 76 frente a 76 (diferencia 0.0 días; IC 95%, −2.7 a 2.7; p=1.00), y tampoco la mortalidad a 90 días (16.4% frente a 14.4%; riesgo relativo 1.14; IC 95%, 0.85 a 1.54), con un intervalo que no descarta un aumento con la estrategia restrictiva.",
       "population": "La población fueron adultos que llegaron al servicio de urgencias con shock séptico, definido por infección clínicamente sospechada, presión sistólica menor de 90 mmHg o presión arterial media menor de 65 mmHg pese a haber recibido al menos 1000 ml de líquido en bolos, lactato mayor de 2.0 mmol/l y al menos una dosis de antimicrobiano intravenoso, todo dentro de las primeras 6 horas de llegada. El estudio se hizo casi por…"
     },
     "datePublished": "2026-08-15"
@@ -62,7 +62,7 @@
     "url": "https://resumenestrials.com/trials/rsi-ketamina-etomidato-intubacion-traqueal-adulto-estado-critico/",
     "title": "RSI: ketamina o etomidato para la intubación traqueal de adultos en estado crítico",
     "seo_title": "RSI trial: ketamina o etomidato para la intubación traqueal de adultos en estado crítico | Resúmenes Trials",
-    "description": "RSI: Misma mortalidad a 28 días ( 28.1% vs 29.1% ; p=0.65), pero más colapso cardiovascular con ketamina (22.1% vs 17.0%). Análisis crítico y resultados en…",
+    "description": "RSI: Mortalidad a 28 días sin diferencia significativa ( 28.1% vs 29.1% ; diferencia −0.8 puntos; IC 95%, −4.5 a 2.9; p=0.65) y colapso cardiovascular…",
     "clusters": [
       {
         "name": "Ventilación e insuficiencia respiratoria",
@@ -77,7 +77,7 @@
     ],
     "intent": {
       "question": "Determinar si la ketamina reduce la mortalidad frente al etomidato como inductor en la intubación de urgencia del paciente crítico.",
-      "answer": "Misma mortalidad a 28 días ( 28.1% vs 29.1% ; p=0.65), pero más colapso cardiovascular con ketamina (22.1% vs 17.0%).",
+      "answer": "Mortalidad a 28 días sin diferencia significativa ( 28.1% vs 29.1% ; diferencia −0.8 puntos; IC 95%, −4.5 a 2.9; p=0.65) y colapso cardiovascular aparentemente más frecuente con ketamina (22.1% vs 17.0%; secundario, IC no ajustado por multiplicidad).",
       "population": "Población. Adultos de 18 años o más, en estado crítico, sometidos a intubación traqueal de urgencia con un fármaco para inducir la anestesia, en un servicio de urgencias o una unidad de cuidados intensivos de Estados Unidos. La distribución por raza o grupo étnico fue de alrededor de 59% blancos no hispanos, 25% negros no hispanos, 11% hispanos y 5% de otros grupos. Intervención. Ketamina intravenosa para la inducción de la…"
     },
     "datePublished": "2026-08-15"
@@ -88,7 +88,7 @@
     "url": "https://resumenestrials.com/trials/logical-oxigeno-conservador-oxigeno-liberal-paciente-inconsciente-tras-paro-cardiaco/",
     "title": "LOGICAL: oxígeno conservador en pacientes sin respuesta tras un paro cardiaco",
     "seo_title": "LOGICAL trial: oxígeno conservador en pacientes sin respuesta tras un paro cardiaco | Resúmenes Trials",
-    "description": "LOGICAL: Sin diferencia en el desenlace funcional a 180 días ( 38.2% vs 39.7% ; RR 0.97; p=0.65) ni en la mortalidad (48.0% vs 49.7%). Análisis crítico y…",
+    "description": "LOGICAL: Sin diferencia significativa en el desenlace funcional a 180 días ( 38.2% vs 39.7% ; RR 0.97; IC 95%, 0.87 a 1.09; p=0.65), con supervivencia al día…",
     "clusters": [
       {
         "name": "Ventilación e insuficiencia respiratoria",
@@ -108,8 +108,8 @@
     ],
     "intent": {
       "question": "Determinar si el oxígeno conservador, frente al liberal, mejora la supervivencia con buena función neurológica en el adulto inconsciente tras un paro cardiaco.",
-      "answer": "Sin diferencia en el desenlace funcional a 180 días ( 38.2% vs 39.7% ; RR 0.97; p=0.65) ni en la mortalidad (48.0% vs 49.7%).",
-      "population": "La población fueron adultos de 18 años o más que, tras recuperar la circulación después de un paro cardiaco, permanecían inconscientes y con ventilación mecánica en la unidad de cuidados intensivos, con sospecha de encefalopatía isquémica; es decir, incapaces de obedecer órdenes verbales y con preocupación clínica por posible daño cerebral. El origen fue Australia, Nueva Zelanda e Irlanda; la raza o etnia no se reportó."
+      "answer": "Sin diferencia significativa en el desenlace funcional a 180 días ( 38.2% vs 39.7% ; RR 0.97; IC 95%, 0.87 a 1.09; p=0.65), con supervivencia al día 180 similar (48.0% vs 49.7% vivos).",
+      "population": "La población fueron adultos de 18 años o más que, tras recuperar la circulación después de un paro cardiaco, permanecían inconscientes y con ventilación mecánica en la unidad de cuidados intensivos, con sospecha de encefalopatía isquémica; es decir, incapaces de obedecer órdenes verbales y con preocupación clínica por posible daño cerebral. El origen fue Australia, Nueva Zelanda e Irlanda; la etnia, autodeclarada, solo se…"
     },
     "datePublished": "2026-08-15"
   },
@@ -3519,7 +3519,7 @@
     "url": "https://resumenestrials.com/trials/coact-angiografia-coronaria-tras-paro-cardiaco-elevacion-st/",
     "title": "COACT: angiografía coronaria tras un paro cardiaco sin elevación del segmento ST",
     "seo_title": "COACT trial: angiografía coronaria tras un paro cardiaco sin elevación del segmento ST | Resúmenes Trials",
-    "description": "COACT: La estrategia de angiografía coronaria inmediata no mostró diferencia frente a la diferida en la supervivencia a 90 días ( 64.5% frente a 67.2%; odds…",
+    "description": "COACT: La estrategia de angiografía coronaria inmediata no mostró diferencia significativa frente a la diferida en la supervivencia a 90 días ( 64.5% frente a…",
     "clusters": [
       {
         "name": "Cardiología y prevención cardiovascular",
@@ -3539,7 +3539,7 @@
     ],
     "intent": {
       "question": "Comparar una estrategia de angiografía coronaria inmediata frente a una diferida hasta la recuperación neurológica en la supervivencia a 90 días de pacientes reanimados de un paro cardiaco extrahospitalario sin signos de elevación del segmento ST.",
-      "answer": "La estrategia de angiografía coronaria inmediata no mostró diferencia frente a la diferida en la supervivencia a 90 días ( 64.5% frente a 67.2%; odds ratio 0.89; IC95% 0.62 a 1.27; p=0.51 ).",
+      "answer": "La estrategia de angiografía coronaria inmediata no mostró diferencia significativa frente a la diferida en la supervivencia a 90 días ( 64.5% frente a 67.2%; odds ratio 0.89; IC95% 0.62 a 1.27; p=0.51 ).",
       "population": "La población fueron pacientes que habían sufrido un paro cardiaco extrahospitalario con ritmo inicial desfibrilable, que permanecían inconscientes tras el retorno de la circulación espontánea y que no mostraban signos de infarto con elevación del segmento ST en el electrocardiograma; se excluyó a quienes tenían choque hemodinámico persistente, una causa no coronaria evidente o sospechada del paro, disfunción renal grave o…"
     },
     "datePublished": "2026-09-03"
@@ -3586,7 +3586,7 @@
     "url": "https://resumenestrials.com/trials/mind-usa-haloperidol-ziprasidona-tratamiento-delirium-pacientes-criticos/",
     "title": "MIND-USA: haloperidol y ziprasidona para el tratamiento del delirium en la enfermedad crítica",
     "seo_title": "MIND-USA trial: haloperidol y ziprasidona para el tratamiento del delirium en la enfermedad crítica | Resúmenes Trials",
-    "description": "MIND-USA: El número de días vivo y libre de delirium o coma no difirió entre grupos, con una mediana de 8.5 días con placebo, 7.9 con haloperidol y 8.7 con…",
+    "description": "MIND-USA: El número de días vivo y libre de delirium o coma no difirió entre grupos, con una mediana ajustada de 8.5 días con placebo, 7.9 con haloperidol y…",
     "clusters": [],
     "images": [
       "https://resumenestrials.com/images/trials/mind-usa-haloperidol-ziprasidona-tratamiento-delirium-pacientes-criticos-16x9.jpg",
@@ -3595,7 +3595,7 @@
     ],
     "intent": {
       "question": "Evaluar si el haloperidol o la ziprasidona, comparados con placebo, reducen la duración del delirium y el coma en pacientes críticamente enfermos con insuficiencia respiratoria aguda o choque.",
-      "answer": "El número de días vivo y libre de delirium o coma no difirió entre grupos, con una mediana de 8.5 días con placebo, 7.9 con haloperidol y 8.7 con ziprasidona (p=0.26 para el efecto global) , sin significancia estadística.",
+      "answer": "El número de días vivo y libre de delirium o coma no difirió entre grupos, con una mediana ajustada de 8.5 días con placebo, 7.9 con haloperidol y 8.7 con ziprasidona (p=0.26 para el efecto global) , sin significancia estadística.",
       "population": "La población fueron adultos de 18 años o más ingresados en una unidad de cuidados intensivos médica o quirúrgica de Estados Unidos, que recibían ventilación con presión positiva invasiva o no invasiva, vasopresores o un balón de contrapulsación intraaórtico, y que presentaban delirium hipoactivo o hiperactivo detectado con el Método de Evaluación de la Confusión para la unidad de cuidados intensivos. La raza se autorreportó o…"
     },
     "datePublished": "2026-09-03"
@@ -3632,7 +3632,7 @@
     "url": "https://resumenestrials.com/trials/eurotherm3235-hipotermia-terapeutica-hipertension-intracraneal-tras-traumatismo-craneoencefalico/",
     "title": "Eurotherm3235: hipotermia para la hipertensión intracraneal tras un traumatismo craneoencefálico",
     "seo_title": "Eurotherm3235 trial: hipotermia para la hipertensión intracraneal tras un traumatismo craneoencefálico | Resúmenes Trials",
-    "description": "Eurotherm3235: La hipotermia resultó en peores desenlaces funcionales que la atención estándar: razón de momios común ajustada de 1.53 (IC 95%, 1.02 a 2.30…",
+    "description": "Eurotherm3235: La hipotermia se asoció a peores desenlaces funcionales que la atención estándar: razón de momios común ajustada de 1.53 (IC 95%, 1.02 a 2.30…",
     "clusters": [
       {
         "name": "Neurocríticos",
@@ -3647,7 +3647,7 @@
     ],
     "intent": {
       "question": "Determinar si la hipotermia terapéutica (32 a 35°C) añadida al tratamiento estándar mejora el desenlace funcional a los 6 meses, medido con la Escala de Resultados de Glasgow Extendida, en pacientes con traumatismo craneoencefálico e hipertensión intracraneal mayor de 20 mmHg.",
-      "answer": "La hipotermia resultó en peores desenlaces funcionales que la atención estándar: razón de momios común ajustada de 1.53 (IC 95%, 1.02 a 2.30; p=0.04) a favor de peor pronóstico con hipotermia, lo que llevó a detener el ensayo antes de tiempo por posible daño.",
+      "answer": "La hipotermia se asoció a peores desenlaces funcionales que la atención estándar: razón de momios común ajustada de 1.53 (IC 95%, 1.02 a 2.30; p=0.04) a favor de peor pronóstico con hipotermia, en un ensayo cuyo reclutamiento se detuvo antes de tiempo porque el comité directivo concluyó que había signos de daño.",
       "population": "La población fueron adultos con un traumatismo craneoencefálico primario y cerrado, ingresados en cuidados intensivos, con una presión intracraneal mayor de 20 mmHg durante al menos 5 minutos pese a los tratamientos de primera línea (ventilación mecánica, sedación, elevación de la cabecera y manejo de la presión arterial), sin causa reversible evidente, con una lesión ocurrida en los 10 días previos, una tomografía craneal…"
     },
     "datePublished": "2026-09-03"
@@ -6903,7 +6903,7 @@
     ],
     "intent": {
       "question": "Determinar si un plan de no sedación, frente a la sedación ligera con interrupción diaria, reduce la mortalidad a 90 días en adultos críticos con ventilación mecánica.",
-      "answer": "La mortalidad a 90 días no difirió de forma significativa entre no sedar y la sedación ligera con interrupción diaria: 42.4% frente a 37.0% (diferencia 5.4 puntos porcentuales; IC 95%, −2.2 a 12.2; p = 0.65).",
+      "answer": "La mortalidad a 90 días no difirió de forma significativa entre no sedar y la sedación ligera con interrupción diaria: 42.4% frente a 37.0% (diferencia 5.4 puntos porcentuales; IC 95%, −2.2 a 12.2; p = 0.65); la cifra puntual fue peor sin sedación y el intervalo no descarta un aumento clínicamente importante de la mortalidad.",
       "population": "La población fueron adultos de 18 años o más ingresados en cuidados intensivos, intubados en las 24 horas previas a la selección y con una ventilación mecánica prevista de más de 24 horas, procedentes de ocho unidades de Dinamarca, Noruega y Suecia. Raza o etnia: No reportado."
     },
     "datePublished": "2026-11-02"
