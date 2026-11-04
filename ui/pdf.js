@@ -35,7 +35,7 @@ export async function generatePDF(item,{brief=false,format='a4',download=true}={
  // A4 grid: marginal column for section labels + text column (~68 characters per line).
  const LAB=118,TX=mobile?M:M+134,TW=mobile?U:U-134,bottom=mobile?H-46:H-62,top=mobile?52:78;
  const critical=/Cr[ií]tica/.test(item.especialidad_principal||''),tone=critical?C.critica:C.accent;
- const fecha=longDate(item.fecha_publicacion_resumen),folio='Resumen N.º '+item.id+(fecha?' · '+fecha:'');
+ const fecha=longDate(item.fecha_publicacion_resumen),folio=(brief?'Resumen breve N.º ':'Resumen N.º ')+item.id+(fecha?' · '+fecha:''),num=(brief?'Breve · ':'')+'N.º '+item.id;
  const setF=(k,size)=>{if(custom)doc.setFont(FONT_NAMES[k],'normal');else doc.setFont(...CORE[k]);if(size)doc.setFontSize(size)};
  const cov=new Map();
  const covered=(k,cp)=>{if(!custom)return false;let m=cov.get(k);if(!m){m=new Map();cov.set(k,m)}if(!m.has(cp)){setF(k);m.set(cp,doc.getFont().metadata.characterToGlyph(cp)>0)}return m.get(cp)};
@@ -78,15 +78,15 @@ export async function generatePDF(item,{brief=false,format='a4',download=true}={
  function label(text,x,yy,width,color,size=mobile?8.4:7.6,lh=10){const lines=layout(words([{t:text.toLocaleUpperCase('es')}],{r:'cond',b:'cond'},color),size,width,{cs:size*.08});lines.forEach((l,i)=>drawLine(l,x,yy+i*lh,size,width,false,size*.08,lines.space));return yy+(lines.length-1)*lh}
  // The signal line: a hairline that rises softly at its end into the ochre dot, as in the monogram.
  function signal(x,yb,width,{stroke,r,rise,curve}){const yt=yb-rise,cx=x+width-r,x0=cx-r*.9-curve;doc.setDrawColor(...C.brand);doc.setLineWidth(stroke);doc.setLineCap('round');doc.moveTo(x,yb);doc.lineTo(x0,yb);doc.curveTo(x0+curve*.55,yb,cx-r-curve*.42,yt,cx-r*.9,yt);doc.stroke();doc.setFillColor(...C.ocre);doc.circle(cx,yt,r,'F');doc.setLineCap('butt')}
- function runningHead(){const s=mobile?9:10;put('titleB',s,'Resúmenes Trials',M,mobile?27:40,C.ink);put('ui',mobile?6.8:7.5,mobile?'N.º '+item.id:folio,W-M,mobile?27:40,C.muted,{right:true});doc.setDrawColor(...C.line);doc.setLineWidth(.6);doc.line(M,mobile?32:46,W-M,mobile?32:46)}
+ function runningHead(){const s=mobile?9:10;put('titleB',s,'Resúmenes Trials',M,mobile?27:40,C.ink);put('ui',mobile?6.8:7.5,mobile?num:folio,W-M,mobile?27:40,C.muted,{right:true});doc.setDrawColor(...C.line);doc.setLineWidth(.6);doc.line(M,mobile?32:46,W-M,mobile?32:46)}
  function page(){doc.addPage();runningHead();y=top+(mobile?14:0)}
  function ensure(h){if(y+h>bottom)page()}
  // Page 1 masthead: monogram + name, folio, then the signal line (the only ochre dot in the document).
- if(mobile){doc.addImage(image,'PNG',M,16,22,22,'rt-logo','FAST');put('titleB',12.5,'Resúmenes Trials',M+28,31.5,C.ink);put('ui',7.5,'N.º '+item.id,W-M,31,C.muted,{right:true});signal(M,57,U,{stroke:1.2,r:2.9,rise:8,curve:36})}
+ if(mobile){doc.addImage(image,'PNG',M,16,22,22,'rt-logo','FAST');put('titleB',12.5,'Resúmenes Trials',M+28,31.5,C.ink);put('ui',7.5,num,W-M,31,C.muted,{right:true});signal(M,57,U,{stroke:1.2,r:2.9,rise:8,curve:36})}
  else{doc.addImage(image,'PNG',M,26,26,26,'rt-logo','FAST');put('titleB',14.5,'Resúmenes Trials',M+34,44.5,C.ink);put('ui',7.5,folio,W-M,43,C.muted,{right:true});signal(M,74,U,{stroke:1.3,r:3.3,rise:9,curve:46})}
  y=mobile?80:100;
- // Clean title block: no specialty/study-type kicker; the brief version keeps only its «Resumen breve» label.
- if(brief)y=label('Resumen breve',M,y,U,C.muted,mobile?7.4:7.6,10)+(mobile?23:26);else y+=mobile?16:20;
+ // Same editorial imprint for both versions: clean title (no kicker); the brief one is named only in the folio.
+ y+=mobile?16:20;
  const t=plain(item.titulo),cut=t.indexOf(': '),titleRuns=cut>0&&cut<=40?[{t:t.slice(0,cut),b:true},{t:t.slice(cut)}]:[{t}];
  const tsize=mobile?19:23,tlh=mobile?22:26.2;
  y=para(titleRuns,{x:M,width:U,size:tsize,lh:tlh,fonts:{r:'title',b:'titleB'},color:C.ink})+(mobile?17:22);
@@ -96,23 +96,31 @@ export async function generatePDF(item,{brief=false,format='a4',download=true}={
  const rs=mobile?7.8:8,rlh=mobile?11.3:11.6;
  y=para(refRuns,{x:M,width:U,size:rs,lh:rlh,fonts:{r:'ui',b:'ui'},color:C.muted});
  if(mobile){y+=rlh;y=para([{t:folio}],{x:M,width:U,size:rs,lh:rlh,fonts:{r:'ui',b:'ui'},color:C.muted})}
- // «Puntos clave» (versión completa): only existing text — objetivo, hallazgo and the anchor phrase.
+ // «Puntos clave» in both versions: only existing text — objetivo, hallazgo and the anchor phrase
+ // of the version being downloaded (its own Conclusión), presented in sentence case by tidy().
  const source=document.createElement('div');source.innerHTML=brief?item.corto:item.cuerpo;
- if(!brief){
-  let anchor='',inConclusion=false;for(const n of source.children){if(n.tagName==='H2')inConclusion=/^Conclusi/i.test(n.textContent.trim());else if(inConclusion&&!anchor){const s=n.querySelector('strong');if(s)anchor=s.textContent.trim()}}
+ const anchorOf=html=>{const d=document.createElement('div');d.innerHTML=html||'';let a='',inC=false;for(const n of d.children){if(n.tagName==='H2')inC=/^Conclusi/i.test(n.textContent.trim());else if(inC&&!a){const s=n.querySelector('strong');if(s)a=s.textContent.trim()}}return a};
+ {
+  const anchor=anchorOf(brief?item.corto:item.cuerpo)||anchorOf(item.cuerpo);
   const rows=[['Pregunta',tidy(plain(item.objetivo))],['Hallazgo',item.hallazgo],['Mensaje',tidy(anchor)]].filter(r=>r[1]);
   const pad=mobile?12:14,ks=mobile?11.5:9.2,klh=mobile?16:13.6,kx=mobile?M+pad:TX,kw=mobile?U-pad*2:TW-pad;
-  const laid=rows.map(([k,v])=>{const ls=layout(words(v,{r:'read',b:'readB'},C.text),ks,kw);return{k,ls,h:ls.length*klh}});
-  // Two passes: measure the box, paint paper + 2 pt petroleum rule, then set the rows on top.
-  const place=(top,draw)=>{let by=top+(mobile?17+19:17+20),last=by;laid.forEach((r,i)=>{if(i){const sep=last+7;if(draw){doc.setDrawColor(...C.line);doc.setLineWidth(.5);doc.line(M+pad,sep,M+U-pad,sep)}by=sep+(mobile?15:13)}
-    if(draw)label(r.k,M+pad,by,LAB,C.muted,mobile?7.2:7.4,9.5);if(mobile)by+=13;
-    r.ls.forEach((l,j)=>{if(draw)drawLine(l,kx,by,ks,kw,!mobile&&j<r.ls.length-1&&l.ws.length>1,0,r.ls.space);last=by;by+=klh})});return last+(mobile?12:10)};
-  y+=mobile?14:16;let boxBottom=place(y,false);if(boxBottom>bottom){page();boxBottom=place(y,false)}
-  const boxTop=y;doc.setFillColor(...C.brand);doc.rect(M,boxTop,U,2,'F');doc.setFillColor(...C.alt);doc.rect(M,boxTop+2,U,boxBottom-boxTop-2,'F');
-  label('Puntos clave',M+pad,boxTop+17,U,C.accent,7.6);place(boxTop,true);
-  const boxH=boxBottom-boxTop;
-  y=boxTop+boxH+(mobile?18:20);
- }else y+=mobile?20:22;
+  const laid=rows.map(([k,v])=>({k,ls:layout(words(v,{r:'read',b:'readB'},C.text),ks,kw)}));
+  // Plan first (the box may continue on the next page instead of leaving page 1 half empty),
+  // then paint paper + 2 pt petroleum rule per page and set the rows on top.
+  const rowH=r=>(mobile?13:0)+(r.ls.length-1)*klh,head=mobile?36:37,cont=mobile?16:14,next=top+(mobile?14:0);
+  let pg=0,py=y+(mobile?14:16);if(laid.length&&py+head+rowH(laid[0])+12>bottom){pg=1;py=next}const startPg=pg;
+  const boxTop=py,segs=[],items=[];let segTop=py,by=py+head,last=by;
+  laid.forEach((r,i)=>{if(i){let nb=last+7+(mobile?15:13);if(nb+rowH(r)+10>bottom){segs.push({pg,top:segTop,bottom:last+10});pg++;segTop=next;nb=next+cont}else items.push({pg,sep:last+7});by=nb}
+   items.push({pg,r,by});last=by+rowH(r)});
+  segs.push({pg,top:segTop,bottom:last+(mobile?12:10)});
+  for(let k=0;k<=pg;k++){if(k)page();
+   for(const g of segs.filter(g=>g.pg===k)){const first=g===segs[0];if(first){doc.setFillColor(...C.brand);doc.rect(M,g.top,U,2,'F')}doc.setFillColor(...C.alt);doc.rect(M,g.top+(first?2:0),U,g.bottom-g.top-(first?2:0),'F')}
+   if(k===startPg)label('Puntos clave',M+pad,boxTop+17,U,C.accent,7.6);
+   for(const it of items.filter(it=>it.pg===k)){if(it.sep!=null){doc.setDrawColor(...C.line);doc.setLineWidth(.5);doc.line(M+pad,it.sep,M+U-pad,it.sep);continue}
+    let yy=it.by;label(it.r.k,M+pad,yy,LAB,C.muted,mobile?7.2:7.4,9.5);if(mobile)yy+=13;
+    it.r.ls.forEach((l,j)=>{drawLine(l,kx,yy,ks,kw,!mobile&&j<it.r.ls.length-1&&l.ws.length>1,0,it.r.ls.space);yy+=klh})}}
+  y=segs[segs.length-1].bottom+(mobile?18:20);
+ }
  // Ficha del estudio: the same fields as before, in the same order.
  const fields=[['Tipo de estudio',item.tipo_estudio],['Publicación',longDate(item.fecha)]].filter(f=>f[1]);
  const fs=mobile?8.5:7.8,flh=mobile?12:11.4;
