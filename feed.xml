@@ -4,8 +4,50 @@
   <id>https://resumenestrials.com/</id>
   <link href="https://resumenestrials.com/"/>
   <link rel="self" type="application/atom+xml" href="https://resumenestrials.com/feed.xml"/>
-  <updated>2026-11-02T00:00:00Z</updated>
+  <updated>2026-11-03T00:00:00Z</updated>
   <subtitle>Resúmenes críticos en español de ensayos clínicos.</subtitle>
+  <entry>
+    <title>EMBOLISE: embolización adyuvante de la arteria meníngea media en el hematoma subdural</title>
+    <id>https://resumenestrials.com/trials/embolise-embolizacion-adyuvante-arteria-meningea-media-hematoma-subdural/</id>
+    <link href="https://resumenestrials.com/trials/embolise-embolizacion-adyuvante-arteria-meningea-media-hematoma-subdural/"/>
+    <updated>2026-11-03T00:00:00Z</updated>
+    <summary>Determinar si añadir la embolización de la arteria meníngea media con Onyx a la cirugía reduce la reoperación por recurrencia o progresión a 90 días en adultos con hematoma subdural subagudo o crónico sintomático con indicación quirúrgica.</summary>
+  </entry>
+  <entry>
+    <title>PROHIP: reemplazo total de cadera o entrenamiento de resistencia en la artrosis grave de cadera</title>
+    <id>https://resumenestrials.com/trials/prohip-reemplazo-total-cadera-entrenamiento-resistencia-artrosis-grave-cadera/</id>
+    <link href="https://resumenestrials.com/trials/prohip-reemplazo-total-cadera-entrenamiento-resistencia-artrosis-grave-cadera/"/>
+    <updated>2026-11-03T00:00:00Z</updated>
+    <summary>Determinar si el reemplazo total de cadera es superior a un programa de entrenamiento de resistencia supervisado para mejorar el dolor y la función de la cadera a los 6 meses en pacientes de 50 años o más con artrosis grave e indicación quirúrgica.</summary>
+  </entry>
+  <entry>
+    <title>STEP 9: semaglutida una vez a la semana en personas con obesidad y osteoartritis de rodilla</title>
+    <id>https://resumenestrials.com/trials/step-9-semaglutida-vez-semana-personas-obesidad-osteoartritis-rodilla/</id>
+    <link href="https://resumenestrials.com/trials/step-9-semaglutida-vez-semana-personas-obesidad-osteoartritis-rodilla/"/>
+    <updated>2026-11-03T00:00:00Z</updated>
+    <summary>Determinar si la semaglutida subcutánea de 2.4 mg una vez a la semana, sumada a consejería de dieta y actividad física, es superior al placebo para reducir el peso corporal y el dolor de rodilla en adultos con obesidad y osteoartritis de rodilla con dolor al menos moderado.</summary>
+  </entry>
+  <entry>
+    <title>REDOX: oxigenoterapia de larga duración durante 24 o 15 horas al día en la hipoxemia grave</title>
+    <id>https://resumenestrials.com/trials/redox-oxigenoterapia-larga-duracion-24-15-horas-dia-hipoxemia-grave/</id>
+    <link href="https://resumenestrials.com/trials/redox-oxigenoterapia-larga-duracion-24-15-horas-dia-hipoxemia-grave/"/>
+    <updated>2026-11-03T00:00:00Z</updated>
+    <summary>Determinar si la oxigenoterapia de larga duración prescrita 24 horas al día es superior a la prescrita 15 horas al día para evitar la hospitalización o la muerte por cualquier causa en 1 año en adultos con hipoxemia crónica grave.</summary>
+  </entry>
+  <entry>
+    <title>QWINT-2: insulina efsitora frente a degludec en la diabetes tipo 2 sin tratamiento previo con insulina</title>
+    <id>https://resumenestrials.com/trials/qwint-2-insulina-efsitora-degludec-diabetes-tipo-2-tratamiento-previo-insulina/</id>
+    <link href="https://resumenestrials.com/trials/qwint-2-insulina-efsitora-degludec-diabetes-tipo-2-tratamiento-previo-insulina/"/>
+    <updated>2026-11-03T00:00:00Z</updated>
+    <summary>Determinar si la insulina efsitora alfa una vez por semana no es inferior a la insulina degludec diaria en el cambio de la HbA1c a 52 semanas en adultos con diabetes tipo 2 que nunca habían recibido insulina.</summary>
+  </entry>
+  <entry>
+    <title>MOST: argatrobán o eptifibatida intravenosos adyuvantes en el ictus isquémico</title>
+    <id>https://resumenestrials.com/trials/most-argatroban-eptifibatida-intravenosos-adyuvantes-ictus-isquemico/</id>
+    <link href="https://resumenestrials.com/trials/most-argatroban-eptifibatida-intravenosos-adyuvantes-ictus-isquemico/"/>
+    <updated>2026-11-03T00:00:00Z</updated>
+    <summary>Determinar si añadir argatrobán o eptifibatida intravenosos a la trombólisis intravenosa mejora la escala de Rankin modificada ponderada por utilidad a los 90 días, frente a placebo, en adultos con ictus isquémico agudo tratados dentro de las 3 horas.</summary>
+  </entry>
   <entry>
     <title>BLING III: infusiones continuas frente a intermitentes de antibióticos betalactámicos en pacientes en estado crítico con sepsis</title>
     <id>https://resumenestrials.com/trials/bling-iii-infusiones-continuas-intermitentes-antibioticos-betalactamicos-pacientes-estado/</id>
@@ -313,47 +355,5 @@
     <link href="https://resumenestrials.com/trials/avert-eficacia-seguridad-movilizacion-muy-precoz-primeras-24-h-tras/"/>
     <updated>2026-10-20T00:00:00Z</updated>
     <summary>Comparar la movilización muy precoz, frecuente y de mayor dosis, iniciada en las primeras 24 horas tras el ictus, con la atención habitual en la unidad de ictus sobre el resultado funcional favorable a los 3 meses.</summary>
-  </entry>
-  <entry>
-    <title>PROPPR: transfusión de plasma, plaquetas y glóbulos rojos en una proporción 1:1:1 frente a 1:1:2 y mortalidad en pacientes con traumatismo grave</title>
-    <id>https://resumenestrials.com/trials/proppr-transfusion-plasma-plaquetas-globulos-rojos-proporcion-1-1-1/</id>
-    <link href="https://resumenestrials.com/trials/proppr-transfusion-plasma-plaquetas-globulos-rojos-proporcion-1-1-1/"/>
-    <updated>2026-10-20T00:00:00Z</updated>
-    <summary>Determinar si transfundir plasma, plaquetas y glóbulos rojos en proporción 1:1:1, frente a 1:1:2, reduce la mortalidad a 24 horas y a 30 días en pacientes con traumatismo grave y sangrado mayor que se prevé que necesitarán una transfusión masiva.</summary>
-  </entry>
-  <entry>
-    <title>CONVINT: efecto de la terapia de reemplazo renal continua frente a la intermitente sobre el desenlace de pacientes en estado crítico con insuficiencia renal aguda</title>
-    <id>https://resumenestrials.com/trials/convint-efecto-terapia-reemplazo-renal-continua-intermitente-desenlace-pacientes-estado/</id>
-    <link href="https://resumenestrials.com/trials/convint-efecto-terapia-reemplazo-renal-continua-intermitente-desenlace-pacientes-estado/"/>
-    <updated>2026-10-20T00:00:00Z</updated>
-    <summary>Comparar la hemodiálisis intermitente diaria con la hemofiltración venovenosa continua en la supervivencia a los 14 días del final de la terapia de reemplazo renal en pacientes en estado crítico con insuficiencia renal aguda.</summary>
-  </entry>
-  <entry>
-    <title>Citrato de sodio frente a solución salina para el sellado de catéteres venosos centrales de hemodiálisis no tunelizados en adultos en estado crítico</title>
-    <id>https://resumenestrials.com/trials/citrato-de-sodio-frente-a-solucion-salina-para-el-sellado-de-cateteres-venosos-centrales/</id>
-    <link href="https://resumenestrials.com/trials/citrato-de-sodio-frente-a-solucion-salina-para-el-sellado-de-cateteres-venosos-centrales/"/>
-    <updated>2026-10-20T00:00:00Z</updated>
-    <summary>Comparar el sellado con citrato de sodio frente al sellado con solución salina en la vida sin complicaciones de los catéteres de hemodiálisis no tunelizados en adultos críticos con insuficiencia renal aguda.</summary>
-  </entry>
-  <entry>
-    <title>RENAL: intensidad de la terapia de reemplazo renal continua en pacientes en estado crítico</title>
-    <id>https://resumenestrials.com/trials/renal-intensidad-terapia-reemplazo-renal-continua-pacientes-estado-critico/</id>
-    <link href="https://resumenestrials.com/trials/renal-intensidad-terapia-reemplazo-renal-continua-pacientes-estado-critico/"/>
-    <updated>2026-10-20T00:00:00Z</updated>
-    <summary>Comparar una intensidad mayor (40 ml/kg/h) frente a una menor (25 ml/kg/h) de hemodiafiltración venovenosa continua en la mortalidad a 90 días de pacientes críticos con lesión renal aguda.</summary>
-  </entry>
-  <entry>
-    <title>Cathedia: cateterización venosa femoral frente a yugular y riesgo de eventos nosocomiales en adultos que requieren terapia de reemplazo renal aguda</title>
-    <id>https://resumenestrials.com/trials/cathedia-cateterizacion-venosa-femoral-yugular-riesgo-eventos-nosocomiales-adultos-requieren/</id>
-    <link href="https://resumenestrials.com/trials/cathedia-cateterizacion-venosa-femoral-yugular-riesgo-eventos-nosocomiales-adultos-requieren/"/>
-    <updated>2026-10-20T00:00:00Z</updated>
-    <summary>Comparar la cateterización yugular frente a la femoral para la terapia de reemplazo renal aguda en la colonización del catéter al retirarlo en adultos críticos.</summary>
-  </entry>
-  <entry>
-    <title>HERO-19: anticoagulación profiláctica frente a terapéutica en pacientes hospitalizados con COVID-19</title>
-    <id>https://resumenestrials.com/trials/hero-19-anticoagulacion-profilactica-terapeutica-pacientes-hospitalizados-covid-19/</id>
-    <link href="https://resumenestrials.com/trials/hero-19-anticoagulacion-profilactica-terapeutica-pacientes-hospitalizados-covid-19/"/>
-    <updated>2026-10-20T00:00:00Z</updated>
-    <summary>Determinar si la anticoagulación a dosis terapéutica, frente a la profilaxis habitual, reduce la combinación de muerte y eventos tromboembólicos a 42 días en pacientes hospitalizados con COVID-19.</summary>
   </entry>
 </feed>

@@ -13,6 +13,12 @@ Material educativo para profesionales de la salud. La referencia final es siempr
 
 ## Resúmenes de ensayos
 
+- [MOST: argatrobán o eptifibatida intravenosos adyuvantes en el ictus isquémico](https://resumenestrials.com/trials/most-argatroban-eptifibatida-intravenosos-adyuvantes-ictus-isquemico/): NEJM, 2024.
+- [QWINT-2: insulina efsitora frente a degludec en la diabetes tipo 2 sin tratamiento previo con insulina](https://resumenestrials.com/trials/qwint-2-insulina-efsitora-degludec-diabetes-tipo-2-tratamiento-previo-insulina/): NEJM, 2024.
+- [REDOX: oxigenoterapia de larga duración durante 24 o 15 horas al día en la hipoxemia grave](https://resumenestrials.com/trials/redox-oxigenoterapia-larga-duracion-24-15-horas-dia-hipoxemia-grave/): NEJM, 2024.
+- [STEP 9: semaglutida una vez a la semana en personas con obesidad y osteoartritis de rodilla](https://resumenestrials.com/trials/step-9-semaglutida-vez-semana-personas-obesidad-osteoartritis-rodilla/): NEJM, 2024.
+- [PROHIP: reemplazo total de cadera o entrenamiento de resistencia en la artrosis grave de cadera](https://resumenestrials.com/trials/prohip-reemplazo-total-cadera-entrenamiento-resistencia-artrosis-grave-cadera/): NEJM, 2024.
+- [EMBOLISE: embolización adyuvante de la arteria meníngea media en el hematoma subdural](https://resumenestrials.com/trials/embolise-embolizacion-adyuvante-arteria-meningea-media-hematoma-subdural/): NEJM, 2024.
 - [NONSEDA: ausencia de sedación o sedación ligera en pacientes críticos con ventilación mecánica](https://resumenestrials.com/trials/nonseda-ausencia-sedacion-sedacion-ligera-pacientes-criticos-ventilacion-mecanica/): NEJM, 2020.
 - [ISCHEMIA: estrategia inicial invasiva o conservadora en la enfermedad coronaria estable](https://resumenestrials.com/trials/ischemia-estrategia-inicial-invasiva-conservadora-enfermedad-coronaria-estable/): NEJM, 2020.
 - [VICTAS: efecto de la vitamina C, la tiamina y la hidrocortisona sobre los días libres de ventilador y vasopresores en pacientes con sepsis](https://resumenestrials.com/trials/victas-efecto-vitamina-c-tiamina-hidrocortisona-dias-libres-ventilador-vasopresores/): JAMA, 2021.
