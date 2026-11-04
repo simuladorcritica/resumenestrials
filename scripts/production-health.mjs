@@ -93,7 +93,7 @@ if(sample.corto){
     assert(b.includes('ev-dynamic-reader')&&b.includes('/site-runtime.js?v='),'Lector dinámico sin runtime');
   });
 }
-await check('/ui/pdf.js',b=>{for(const token of ['JSPDF_SRI','item.corto','item.cuerpo','generatePDF','opacity:.045','resumenestrials@outlook.com'])assert(b.includes(token),'PDF sin '+token)});
+await check('/ui/pdf.js',b=>{for(const token of ['JSPDF_SRI','item.corto','item.cuerpo','generatePDF','function signal(','resumenestrials@outlook.com'])assert(b.includes(token),'PDF sin '+token)});
 await check('/site-runtime.js',b=>{for(const token of ['data-ev-sections','data-ev-save','data-ev-pdf','SpecialtyClassification'])assert(b.includes(token),'Runtime sin '+token)});
 for(const path of ['/auth.js','/supabase-config.js','/turnstile.js','/turnstile-config.js','/library-store.js','/library-page.js','/recommendations.js','/trial-data.js'])await check(path,body=>assert(createHash('sha256').update(body.replace(/\r\n/g,'\n')).digest('hex')===createHash('sha256').update(readFileSync(path.slice(1),'utf8').replace(/\r\n/g,'\n')).digest('hex'),'Dependencia pública ausente o distinta'));
 for(const [path,count] of [['/medicina-critica/',expectedCrit],['/medicina-interna/',expectedInt]])await check(path,b=>assert((b.match(/class="ev-card" data-id=/g)||[]).length===count,'Hub sin todos los ensayos'));

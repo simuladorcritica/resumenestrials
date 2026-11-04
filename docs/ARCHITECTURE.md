@@ -11,7 +11,8 @@
 - `site_templates.py`, `templates/account/`, `templates/documents/`: presentación común y fuentes de formularios/documentos. `templates/` se excluye de Jekyll.
 - `ui/tokens.css` y `ui/site.css`: tokens y reglas; ninguna inyección de estilos en ejecución.
 - `ui/core.js`, `ui/archive.js`, `ui/reader.js`, `ui/forms.js`: módulos agrupados junto con `specialty-classification.js` y `reading-context.js`.
-- `ui/pdf.js`: generador único A4/celular, completo/breve, logo en cabecera y marca de agua en cada página; jsPDF 4.2.1 con SRI.
+- `ui/pdf.js`: generador único A4/celular, completo/breve, con la identidad editorial (monograma y línea de señal en la página 1, retícula marginal en A4, fuentes OFL incrustadas desde `fonts/pdf/` bajo demanda); jsPDF 4.2.1 con SRI.
+- `fonts/pdf/*.ttf` y `tools/fonts/*.ttf`: subconjuntos OFL (Newsreader, Literata e IBM Plex renombrada RTSans) para el PDF y las tarjetas sociales; se regeneran con `tools/fonts/construir_fuentes_pdf.py`.
 - `site-runtime.js` y `site-runtime.css`: bundles generados; sus fuentes permanecen separadas para mantenimiento.
 
 ## Generación reproducible

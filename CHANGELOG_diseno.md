@@ -1,3 +1,10 @@
+## 2026-11-02 · Identidad editorial en los PDF y las tarjetas sociales
+
+- Los PDF (completo y breve, A4 y Celular) y las tarjetas de X, Telegram y Google adoptan la identidad del logo: papel, tinta, petróleo y la línea de señal que termina en el único punto ocre. Se usan Newsreader, Literata e IBM Plex (RTSans), con licencia OFL e incrustadas.
+- PDF: «Puntos clave» en la versión completa, retícula con columna marginal en A4, bloque «Cómo citar este resumen» y sin marca de agua. El texto, el orden y el contenido no cambian.
+- Tarjetas: se regeneraron las 774 imágenes con los mismos nombres. Los títulos más largos caben sin cortes (6 líneas en 1:1 y 4:3).
+- La web no cambia (Nova). Las páginas solo actualizan la versión del runtime, porque el hash incluye `ui/pdf.js`.
+
 ## 2026-10-05 · Auditoría: controles estables al validar campos
 
 - Se reserva el espacio del aviso de validación para que un campo no desplace el botón entre mousedown y mouseup al perder el foco. El aviso oculto conserva su invisibilidad visual y accesible; la validación y las reglas de autenticación permanecen activas.

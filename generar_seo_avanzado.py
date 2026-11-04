@@ -121,13 +121,26 @@ def update_interactive_home() -> None:
 
 
 FONTS_DIR = ROOT / "tools" / "fonts"
-# Sora y Literata (OFL), las mismas del sitio y de la tarjeta de X. Si faltan, la
-# generación se detiene: nunca se publica una imagen con la fuente de emergencia de
-# Pillow (diminuta y sin acentos ni eñe).
-FONT_FILES = {"marca": "Sora-700.ttf", "etiqueta": "Sora-600.ttf", "titulo": "Literata-600.ttf", "texto": "Literata-400.ttf"}
+# Identidad editorial (docs/DESIGN_SYSTEM.md): Newsreader para cabecera y título, IBM Plex
+# (subconjunto RTSans) para etiquetas y Literata cursiva para la firma; todas OFL. Si falta una,
+# la generación se detiene: nunca se publica una imagen con la fuente de emergencia de Pillow.
+FONT_FILES = {
+    "marca": "Newsreader-DisplayBold.ttf",
+    "titulo": "Newsreader-Display.ttf",
+    "sigla": "Newsreader-DisplayBold.ttf",
+    "etiqueta": "IBMPlexSansCondensed-SemiBold.ttf",
+    "meta": "IBMPlexSans-Medium.ttf",
+    "firma": "Literata-Italic.ttf",
+}
 # Subconjunto latino de las fuentes: lo demás se traduce o se quita para que no salgan cuadros vacíos.
 _GLYPH_EXTRA = {0x131, 0x152, 0x153, 0x2C6, 0x2DA, 0x2DC, 0x20AC, 0x2122, 0x2191, 0x2193, 0x2212, 0x2215}
 _GLYPH_EQUIV = {"≥": ">=", "≤": "<=", "→": "->", "←": "<-", "α": "alfa", "β": "beta", "γ": "gamma", "δ": "delta", "κ": "kappa", "μ": "µ", "≈": "~", "≠": "!=", "∼": "~"}
+# Paleta derivada de logo.png: papel, tinta, petróleo y el ocre reservado al punto de la línea de señal.
+CARD_COLORS = {
+    "papel": (246, 244, 240), "tinta": (18, 35, 59), "secundario": (90, 99, 114), "linea": (221, 216, 204),
+    "petroleo": (20, 110, 110), "petroleo_marca": (28, 138, 138), "ocre": (200, 137, 42), "critica": (168, 71, 42),
+}
+CARD_SUPERSAMPLE = 2
 
 
 def font(kind: str, size: int):
@@ -162,39 +175,84 @@ def short_journal(name: str) -> str:
     return t
 
 
-def wrap_text(draw, text: str, font_obj, max_width: int, max_lines: int = 4) -> list[str]:
-    words = text.split()
-    lines: list[str] = []
-    current = ""
-    for word in words:
-        trial = (current + " " + word).strip()
-        box = draw.textbbox((0, 0), trial, font=font_obj)
-        if current and box[2] - box[0] > max_width:
-            lines.append(current)
-            current = word
-            if len(lines) >= max_lines:
-                break
-        else:
-            current = trial
-    if current and len(lines) < max_lines:
-        lines.append(current)
-    if len(lines) == max_lines and len(" ".join(lines)) < len(text):
-        last = lines[-1]
-        while last and draw.textbbox((0, 0), last.rstrip(" ,.;:") + "…", font=font_obj)[2] > max_width:
-            last = last.rsplit(" ", 1)[0] if " " in last else last[:-1]
-        lines[-1] = last.rstrip(" ,.;:") + "…"
-    return lines
+def card_study_type(tipo: str) -> str:
+    """Antetítulo de la tarjeta: el diseño del estudio sin calificativos (nunca llama ECA a lo que no lo es)."""
+    t = plain(tipo)
+    if re.match(r"^(Ensayo cl[ií]nico aleatorizado|ECA)\b", t, re.I):
+        return "Ensayo clínico aleatorizado"
+    if re.match(r"^Dos ensayos cl[ií]nicos aleatorizados\b", t, re.I):
+        return "Dos ensayos clínicos aleatorizados"
+    return re.split(r",| de ", t, maxsplit=1)[0].strip() or "Ensayo clínico"
 
 
-def fit_text(draw, text: str, kind: str, size_max: int, size_min: int, max_width: int, max_lines: int):
-    """Mayor tamaño con el que el texto cabe en max_lines; si no cabe, se recorta con «…»."""
-    for size in range(size_max, size_min - 1, -2):
-        font_obj = font(kind, size)
-        lines = wrap_text(draw, text, font_obj, max_width, max_lines + 1)
-        if len(lines) <= max_lines and not lines[-1].endswith("…"):
-            return font_obj, lines
-    font_obj = font(kind, size_min)
-    return font_obj, wrap_text(draw, text, font_obj, max_width, max_lines)
+def _tracked_width(draw, text: str, font_obj, tracking: float) -> float:
+    return sum(draw.textlength(ch, font=font_obj) for ch in text) + tracking * max(0, len(text) - 1)
+
+
+def _draw_tracked(draw, xy, text: str, font_obj, fill, tracking: float, anchor_right: bool = False) -> None:
+    """Versalitas: mayúsculas con espaciado de 0,08 em (Pillow no tiene letter-spacing)."""
+    x, y = xy
+    if anchor_right:
+        x -= _tracked_width(draw, text, font_obj, tracking)
+    for ch in text:
+        draw.text((x, y), ch, font=font_obj, fill=fill, anchor="ls")
+        x += draw.textlength(ch, font=font_obj) + tracking
+
+
+def _signal_line(draw, x: float, y_base: float, width: float, stroke: float, radius: float, rise: float, curve: float) -> None:
+    """La línea de señal: filete petróleo que al final sube suavemente y termina en el punto ocre."""
+    cx, yt = x + width - radius, y_base - rise
+    x0 = cx - radius * .9 - curve
+    p0, p1, p2, p3 = (x0, y_base), (x0 + curve * .55, y_base), (cx - radius - curve * .42, yt), (cx - radius * .9, yt)
+    points = [(x, y_base), p0]
+    for i in range(1, 41):
+        t = i / 40
+        points.append(tuple((1 - t) ** 3 * a + 3 * (1 - t) ** 2 * t * b + 3 * (1 - t) * t ** 2 * c + t ** 3 * d for a, b, c, d in zip(p0, p1, p2, p3)))
+    w = max(1, round(stroke))
+    draw.line(points, fill=CARD_COLORS["petroleo_marca"], width=w, joint="curve")
+    r = w / 2
+    draw.ellipse((x - r, y_base - r, x + r, y_base + r), fill=CARD_COLORS["petroleo_marca"])
+    draw.ellipse((cx - radius, yt - radius, cx + radius, yt + radius), fill=CARD_COLORS["ocre"])
+
+
+def card_title_layout(draw, title: str, max_width: float, max_height: float, size_max: int, size_min: int, max_lines: int):
+    """Título completo con la sigla en seminegrita. Primero reduce el cuerpo de letra; solo si aun así
+    no cabe, corta por palabra completa y termina en «…». Devuelve (tamaño, líneas, interlineado)."""
+    split = title.find(": ")
+    words = []
+    for n, word in enumerate(title.split()):
+        words.append([word, "sigla" if 0 < split <= 40 and len(" ".join(title.split()[:n + 1])) <= split + 1 else "titulo"])
+
+    def wrap(size, items):
+        fonts = {k: font(k, size) for k in ("titulo", "sigla")}
+        space = draw.textlength(" ", font=fonts["titulo"])
+        lines, line, width = [], [], 0.0
+        for word, kind in items:
+            w = draw.textlength(word, font=fonts[kind])
+            if line and width + space + w > max_width:
+                lines.append(line)
+                line, width = [], 0.0
+            width = width + space + w if line else w
+            line.append((word, kind))
+        if line:
+            lines.append(line)
+        return lines
+
+    for size in range(size_max, size_min - 1, -1):
+        lines = wrap(size, words)
+        if len(lines) <= max_lines and len(lines) * size * 1.13 <= max_height:
+            return size, lines, size * 1.13
+    size = size_min
+    lines_cap = max(1, min(max_lines, int(max_height // (size * 1.13))))
+    items = list(words)
+    while items:
+        candidate = [list(x) for x in items]
+        candidate[-1][0] = candidate[-1][0].rstrip(",;:.") + "…"
+        lines = wrap(size, candidate)
+        if len(lines) <= lines_cap:
+            return size, lines, size * 1.13
+        items.pop()
+    return size, [], size * 1.13
 
 
 def make_image(item: dict, width: int, height: int, suffix: str) -> str:
@@ -210,63 +268,71 @@ def make_image(item: dict, width: int, height: int, suffix: str) -> str:
     if path.exists():
         return public_url
 
-    # Misma familia visual que la tarjeta de X: fondo oscuro, franja de la especialidad,
-    # sigla grande, revista y año, y el título. Solo texto ya publicado del resumen.
+    # La tarjeta es la primera página de un artículo de revista, no un anuncio: papel, cabecera con
+    # el monograma, la línea de señal (único punto ocre), antetítulo, título completo y pie con la
+    # firma editorial. Solo texto ya publicado del resumen.
+    ss = CARD_SUPERSAMPLE
+    W, H = width * ss, height * ss
+    s = W / 1200
+    c = CARD_COLORS
     critical = "Medicina Crítica" in base.categorias(item)
-    bg, ink, muted, brand_blue = (7, 11, 22), (237, 241, 255), (166, 176, 207), (122, 184, 255)
-    accent = (255, 159, 128) if critical else (185, 162, 255)
-    image = Image.new("RGB", (width, height), bg)
+    tone = c["critica"] if critical else c["petroleo"]
+    image = Image.new("RGB", (W, H), c["papel"])
     draw = ImageDraw.Draw(image)
-    s = width / 1200
-    margin = int(72 * s)
-    inner = width - 2 * margin
+    m = round(72 * s)
+    inner = W - 2 * m
 
-    draw.rectangle((0, 0, width, max(8, int(10 * s))), fill=accent)
-    draw.text((margin, int(52 * s)), "RESÚMENES TRIALS", font=font("marca", int(26 * s)), fill=brand_blue)
-    chip_text = "MEDICINA CRÍTICA" if critical else "MEDICINA INTERNA"
-    chip_font = font("etiqueta", int(19 * s))
-    chip_w = draw.textlength(chip_text, font=chip_font) + int(36 * s)
-    chip_h = int(40 * s)
-    chip_y = int(46 * s)
-    draw.rounded_rectangle((width - margin - chip_w, chip_y, width - margin, chip_y + chip_h), radius=chip_h // 2, outline=accent, width=max(2, int(2 * s)))
-    draw.text((width - margin - chip_w + int(18 * s), chip_y + int(9 * s)), chip_text, font=chip_font, fill=accent)
+    # Cabecera: monograma + «Resúmenes Trials»; a la derecha, especialidad en versalitas y N.º.
+    logo_size = round(54 * s)
+    logo = Image.open(ROOT / "logo.png").convert("RGBA").resize((logo_size, logo_size), Image.LANCZOS)
+    mast_top = m
+    image.paste(logo, (m, mast_top + round(3 * s)), logo)
+    draw.text((m + logo_size + round(14 * s), mast_top + round(42 * s)), "Resúmenes Trials", font=font("marca", round(31 * s)), fill=c["tinta"], anchor="ls")
+    label_font = font("etiqueta", round(17 * s))
+    specialty = "MEDICINA CRÍTICA" if critical else "MEDICINA INTERNA"
+    _draw_tracked(draw, (W - m, mast_top + round(26 * s)), specialty, label_font, tone, 17 * s * .08, anchor_right=True)
+    number = f"N.º {item.get('id')}"
+    number_font = font("meta", round(18 * s))
+    draw.text((W - m, mast_top + round(52 * s)), number, font=number_font, fill=c["secundario"], anchor="rs")
 
+    signal_base = mast_top + round(60 * s) + round(26 * s) + round(24 * s)
+    _signal_line(draw, m, signal_base, inner, 2.4 * s, 6.6 * s, 17.5 * s, 96 * s)
+
+    # Pie: filete arena, firma editorial y dominio.
+    foot_font = font("firma", round(21 * s))
+    domain_font = font("meta", round(21 * s))
+    foot_base = H - round(62 * s)
+    rule_y = foot_base - round(38 * s)
+    draw.line((m, rule_y, W - m, rule_y), fill=c["linea"], width=max(1, round(1.5 * s)))
+    draw.text((m, foot_base), "Editorial EMEICRÍTICA", font=foot_font, fill=c["secundario"], anchor="ls")
+    draw.text((W - m, foot_base), "resumenestrials.com", font=domain_font, fill=c["petroleo"], anchor="rs")
+
+    # Centro: antetítulo en versalitas petróleo y el título completo (4 líneas en 16:9; 6 en 1:1 y 4:3).
+    kicker = glyph_safe(f"{card_study_type(item.get('tipo_estudio'))} · {short_journal(item.get('revista'))} {item.get('anio') or ''}".strip()).upper()
+    kicker_font = font("etiqueta", round(19 * s))
+    tall = height / width > .7
+    zone_top, zone_bottom = signal_base + round(40 * s), rule_y - round(44 * s)
+    kicker_h = round(19 * s) + round(22 * s)
     title = glyph_safe(plain(item.get("titulo")))
-    split = title.find(": ")
-    acronym, rest = (title[:split], title[split + 2:]) if 0 < split <= 40 else ("", title)
-    footer_y = height - int(84 * s)
-    top, bottom = int(128 * s), footer_y - int(56 * s)
-    acr_font = acr_lines = None
-    if acronym:
-        acr_font, acr_lines = fit_text(draw, acronym, "marca", int(96 * s), int(52 * s), inner, 1)
-    meta = " · ".join(x for x in [glyph_safe(short_journal(item.get("revista"))), str(item.get("anio") or "")] if x)
-    meta_font = font("etiqueta", int(30 * s))
-    acr_h = int(acr_font.size * 1.22) if acr_font else 0
-    meta_h = int(62 * s)
-    lines_room = max(2, int((bottom - top - acr_h - meta_h) // (46 * s * 1.3)))
-    title_font, title_lines = fit_text(draw, rest[:1].upper() + rest[1:], "titulo", int(50 * s), int(34 * s), inner, min(lines_room, 5))
-    line_h = int(title_font.size * 1.3)
-    block_h = acr_h + meta_h + line_h * len(title_lines)
-    y = top + max(0, (bottom - top - block_h) // 2)
-    if acr_font:
-        draw.text((margin, y), acr_lines[0], font=acr_font, fill=ink)
-        y += acr_h
-    draw.text((margin, y), meta, font=meta_font, fill=accent)
-    y += meta_h
-    for line in title_lines:
-        draw.text((margin, y), line, font=title_font, fill=ink)
-        y += line_h
+    size, lines, lh = card_title_layout(draw, title, inner, zone_bottom - zone_top - kicker_h, round((76 if tall else 64) * s), round(32 * s), 6 if tall else 4)
+    block_h = kicker_h + lh * len(lines)
+    y = zone_top + max(0, (zone_bottom - zone_top - block_h) / 2)
+    kicker_tracking = 19 * s * .08
+    while _tracked_width(draw, kicker, kicker_font, kicker_tracking) > inner and " " in kicker:
+        kicker = kicker.rsplit(" ", 1)[0].rstrip(" ·,") + "…"
+    _draw_tracked(draw, (m, y + round(19 * s)), kicker, kicker_font, c["petroleo"], kicker_tracking)
+    y += kicker_h
+    fonts = {k: font(k, size) for k in ("titulo", "sigla")}
+    space = draw.textlength(" ", font=fonts["titulo"])
+    for line in lines:
+        x = m
+        baseline = y + size * .9
+        for word, kind in line:
+            draw.text((x, baseline), word, font=fonts[kind], fill=c["tinta"], anchor="ls")
+            x += draw.textlength(word, font=fonts[kind]) + space
+        y += lh
 
-    draw.line((margin, footer_y - int(26 * s), width - margin, footer_y - int(26 * s)), fill=(35, 49, 84), width=max(2, int(2 * s)))
-    foot_font = font("etiqueta", int(24 * s))
-    draw.text((margin, footer_y), "resumenestrials.com", font=foot_font, fill=brand_blue)
-    topics = [glyph_safe(plain(x)) for x in (item.get("temas") or [])]
-    if topics:
-        topic = topics[0]
-        while topic and draw.textlength(topic, font=foot_font) > inner * 0.55:
-            topic = topic[:-2].rstrip() + "…" if len(topic) > 3 else ""
-        draw.text((width - margin - draw.textlength(topic, font=foot_font), footer_y), topic, font=foot_font, fill=muted)
-
+    image = image.resize((width, height), Image.LANCZOS)
     image.save(path, "JPEG", quality=90, optimize=True, progressive=True)
     return public_url
 
