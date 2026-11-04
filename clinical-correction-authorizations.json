@@ -1,213 +1,273 @@
 {
   "schema_version": 1,
-  "base_sha": "3eb53d1372c3c849cc1b148b1c42e8b830b055d4",
+  "base_sha": "d8aae82ff7746108c58a86c00d875b2b670a659a",
   "authorizations": [
     {
-      "id": 55,
+      "id": 1,
       "fields": [
+        "hallazgo",
         "cuerpo",
         "corto"
       ],
-      "reason": "Solo formato (revisar_estilo.py, revisor 4): la puntuación final de la frase ancla pasa fuera de <strong> y se cierran los <p> sin cerrar; sin cambiar ninguna palabra."
+      "reason": "Corrección del equipo crítico, issue #192 (H1, H2, H3, H4, H5, H6, H7, H8, H9, H10, H11, H14); equipo editorial sin CRÍTICOS ni MAYORES; contrainteligencia APROBADA."
     },
     {
-      "id": 56,
-      "fields": [
-        "cuerpo",
-        "corto"
-      ],
-      "reason": "Solo formato (revisar_estilo.py, revisor 4): la puntuación final de la frase ancla pasa fuera de <strong> y se cierran los <p> sin cerrar; sin cambiar ninguna palabra."
-    },
-    {
-      "id": 65,
-      "fields": [
-        "cuerpo",
-        "corto"
-      ],
-      "reason": "Solo formato (revisar_estilo.py, revisor 4): la puntuación final de la frase ancla pasa fuera de <strong> y se cierran los <p> sin cerrar; sin cambiar ninguna palabra."
-    },
-    {
-      "id": 66,
-      "fields": [
-        "cuerpo",
-        "corto"
-      ],
-      "reason": "Solo formato (revisar_estilo.py, revisor 4): la puntuación final de la frase ancla pasa fuera de <strong> y se cierran los <p> sin cerrar; sin cambiar ninguna palabra."
-    },
-    {
-      "id": 69,
-      "fields": [
-        "cuerpo",
-        "corto"
-      ],
-      "reason": "Solo formato (revisar_estilo.py, revisor 4): la puntuación final de la frase ancla pasa fuera de <strong> y se cierran los <p> sin cerrar; sin cambiar ninguna palabra."
-    },
-    {
-      "id": 70,
-      "fields": [
-        "cuerpo",
-        "corto"
-      ],
-      "reason": "Solo formato (revisar_estilo.py, revisor 4): la puntuación final de la frase ancla pasa fuera de <strong> y se cierran los <p> sin cerrar; sin cambiar ninguna palabra."
-    },
-    {
-      "id": 86,
-      "fields": [
-        "cuerpo",
-        "corto"
-      ],
-      "reason": "Solo formato (revisar_estilo.py, revisor 4): la puntuación final de la frase ancla pasa fuera de <strong> y se cierran los <p> sin cerrar; sin cambiar ninguna palabra."
-    },
-    {
-      "id": 121,
-      "fields": [
-        "financiacion",
-        "cuerpo",
-        "corto"
-      ],
-      "reason": "Revisión nocturna 2026-10-28 (SURMOUNT-1): corrección de los errores verificados por el equipo editorial contra el artículo, el apéndice, el protocolo y los formularios de conflictos (3 rondas; sin CRÍTICOS ni MAYORES pendientes). Detalle con cita y página en revision_nocturna/equipo/121_SURMOUNT-1/acta.md y ERRORES_RESUMENES.md."
-    },
-    {
-      "id": 123,
+      "id": 2,
       "fields": [
         "financiacion",
         "hallazgo",
         "cuerpo",
         "corto"
       ],
-      "reason": "Revisión nocturna 2026-10-28 (PARTNER): corrección de los errores verificados por el equipo editorial contra el artículo, el apéndice, el protocolo y los formularios de conflictos (3 rondas; sin CRÍTICOS ni MAYORES pendientes). Detalle con cita y página en revision_nocturna/equipo/123_PARTNER/acta.md y ERRORES_RESUMENES.md."
+      "reason": "Corrección del equipo crítico, issue #194 (H1, H2, H3, H4, H5, H6, H7, H8, H9, H10, H11, H12, H13, H14, H15, H16, H17, H18, H19, H20, H21, H22); equipo editorial sin CRÍTICOS ni MAYORES; contrainteligencia APROBADA."
     },
     {
-      "id": 126,
+      "id": 259,
       "fields": [
         "financiacion",
         "hallazgo",
         "cuerpo",
         "corto"
       ],
-      "reason": "Revisión nocturna 2026-10-28 (PILOT): corrección de los errores verificados por el equipo editorial contra el artículo, el apéndice, el protocolo y los formularios de conflictos (3 rondas; sin CRÍTICOS ni MAYORES pendientes). Detalle con cita y página en revision_nocturna/equipo/126_PILOT/acta.md y ERRORES_RESUMENES.md."
-    },
-    {
-      "id": 127,
-      "fields": [
-        "financiacion",
-        "cuerpo",
-        "corto"
-      ],
-      "reason": "Revisión nocturna 2026-10-28 (REMAP-CAP): corrección de los errores verificados por el equipo editorial contra el artículo, el apéndice, el protocolo y los formularios de conflictos (3 rondas; sin CRÍTICOS ni MAYORES pendientes). Detalle con cita y página en revision_nocturna/equipo/127_REMAP-CAP/acta.md y ERRORES_RESUMENES.md."
-    },
-    {
-      "id": 128,
-      "fields": [
-        "financiacion",
-        "cuerpo",
-        "corto"
-      ],
-      "reason": "Revisión nocturna 2026-10-28 (PARAMEDIC2): corrección de los errores verificados por el equipo editorial contra el artículo, el apéndice, el protocolo y los formularios de conflictos (3 rondas; sin CRÍTICOS ni MAYORES pendientes). Detalle con cita y página en revision_nocturna/equipo/128_PARAMEDIC2/acta.md y ERRORES_RESUMENES.md."
+      "reason": "Corrección del equipo crítico, issue #193 (H1, H2, H3, H4, H5, H6, H7); equipo editorial sin CRÍTICOS ni MAYORES; contrainteligencia APROBADA."
     },
     {
       "id": 129,
       "fields": [
+        "financiacion",
         "cuerpo",
         "corto"
       ],
-      "reason": "Solo formato (revisar_estilo.py, revisor 4): la puntuación final de la frase ancla pasa fuera de <strong> y se cierran los <p> sin cerrar; sin cambiar ninguna palabra."
+      "reason": "Corrección de la revisión nocturna del 2026-11-01 (Parte C, equipo editorial, extraída del PR #190); contrainteligencia APROBADA el 2026-11-03."
     },
     {
-      "id": 131,
+      "id": 130,
       "fields": [
+        "financiacion",
+        "hallazgo",
         "cuerpo",
         "corto"
       ],
-      "reason": "Solo formato (revisar_estilo.py, revisor 4): la puntuación final de la frase ancla pasa fuera de <strong> y se cierran los <p> sin cerrar; sin cambiar ninguna palabra."
+      "reason": "Corrección de la revisión nocturna del 2026-11-01 (Parte C, equipo editorial, extraída del PR #190); contrainteligencia APROBADA el 2026-11-03."
     },
     {
       "id": 132,
       "fields": [
+        "autor",
+        "financiacion",
+        "hallazgo",
         "cuerpo",
         "corto"
       ],
-      "reason": "Solo formato (revisar_estilo.py, revisor 4): la puntuación final de la frase ancla pasa fuera de <strong> y se cierran los <p> sin cerrar; sin cambiar ninguna palabra."
+      "reason": "Corrección de la revisión nocturna del 2026-11-01 (Parte C, equipo editorial, extraída del PR #190); contrainteligencia APROBADA el 2026-11-03."
     },
     {
       "id": 133,
       "fields": [
+        "financiacion",
         "cuerpo",
         "corto"
       ],
-      "reason": "Solo formato (revisar_estilo.py, revisor 4): la puntuación final de la frase ancla pasa fuera de <strong> y se cierran los <p> sin cerrar; sin cambiar ninguna palabra."
+      "reason": "Corrección de la revisión nocturna del 2026-11-01 (Parte C, equipo editorial, extraída del PR #190); contrainteligencia APROBADA el 2026-11-03."
     },
     {
       "id": 134,
       "fields": [
+        "autor",
+        "financiacion",
+        "hallazgo",
         "cuerpo",
         "corto"
       ],
-      "reason": "Solo formato (revisar_estilo.py, revisor 4): la puntuación final de la frase ancla pasa fuera de <strong> y se cierran los <p> sin cerrar; sin cambiar ninguna palabra."
+      "reason": "Corrección de la revisión nocturna del 2026-11-01 (Parte C, equipo editorial, extraída del PR #190); contrainteligencia APROBADA el 2026-11-03."
     },
     {
-      "id": 136,
+      "id": 145,
       "fields": [
         "cuerpo",
         "corto"
       ],
-      "reason": "Solo formato (revisar_estilo.py, revisor 4): la puntuación final de la frase ancla pasa fuera de <strong> y se cierran los <p> sin cerrar; sin cambiar ninguna palabra."
+      "reason": "Solo formato (revisar_estilo.py, revisor 4): la puntuación final de la frase ancla pasa fuera de <strong> y se cierran los <p> sin cerrar; sin cambiar ninguna palabra. Extraído del PR #190."
     },
     {
-      "id": 137,
+      "id": 146,
       "fields": [
         "cuerpo",
         "corto"
       ],
-      "reason": "Solo formato (revisar_estilo.py, revisor 4): la puntuación final de la frase ancla pasa fuera de <strong> y se cierran los <p> sin cerrar; sin cambiar ninguna palabra."
+      "reason": "Solo formato (revisar_estilo.py, revisor 4): la puntuación final de la frase ancla pasa fuera de <strong> y se cierran los <p> sin cerrar; sin cambiar ninguna palabra. Extraído del PR #190."
     },
     {
-      "id": 138,
+      "id": 147,
       "fields": [
         "cuerpo",
         "corto"
       ],
-      "reason": "Solo formato (revisar_estilo.py, revisor 4): la puntuación final de la frase ancla pasa fuera de <strong> y se cierran los <p> sin cerrar; sin cambiar ninguna palabra."
+      "reason": "Solo formato (revisar_estilo.py, revisor 4): la puntuación final de la frase ancla pasa fuera de <strong> y se cierran los <p> sin cerrar; sin cambiar ninguna palabra. Extraído del PR #190."
     },
     {
-      "id": 139,
+      "id": 148,
       "fields": [
         "cuerpo",
         "corto"
       ],
-      "reason": "Solo formato (revisar_estilo.py, revisor 4): la puntuación final de la frase ancla pasa fuera de <strong> y se cierran los <p> sin cerrar; sin cambiar ninguna palabra."
+      "reason": "Solo formato (revisar_estilo.py, revisor 4): la puntuación final de la frase ancla pasa fuera de <strong> y se cierran los <p> sin cerrar; sin cambiar ninguna palabra. Extraído del PR #190."
     },
     {
-      "id": 140,
+      "id": 149,
       "fields": [
         "cuerpo",
         "corto"
       ],
-      "reason": "Solo formato (revisar_estilo.py, revisor 4): la puntuación final de la frase ancla pasa fuera de <strong> y se cierran los <p> sin cerrar; sin cambiar ninguna palabra."
+      "reason": "Solo formato (revisar_estilo.py, revisor 4): la puntuación final de la frase ancla pasa fuera de <strong> y se cierran los <p> sin cerrar; sin cambiar ninguna palabra. Extraído del PR #190."
     },
     {
-      "id": 141,
+      "id": 150,
       "fields": [
         "cuerpo",
         "corto"
       ],
-      "reason": "Solo formato (revisar_estilo.py, revisor 4): la puntuación final de la frase ancla pasa fuera de <strong> y se cierran los <p> sin cerrar; sin cambiar ninguna palabra."
+      "reason": "Solo formato (revisar_estilo.py, revisor 4): la puntuación final de la frase ancla pasa fuera de <strong> y se cierran los <p> sin cerrar; sin cambiar ninguna palabra. Extraído del PR #190."
     },
     {
-      "id": 143,
+      "id": 151,
       "fields": [
         "cuerpo",
         "corto"
       ],
-      "reason": "Solo formato (revisar_estilo.py, revisor 4): la puntuación final de la frase ancla pasa fuera de <strong> y se cierran los <p> sin cerrar; sin cambiar ninguna palabra."
+      "reason": "Solo formato (revisar_estilo.py, revisor 4): la puntuación final de la frase ancla pasa fuera de <strong> y se cierran los <p> sin cerrar; sin cambiar ninguna palabra. Extraído del PR #190."
     },
     {
-      "id": 144,
+      "id": 152,
       "fields": [
         "cuerpo",
         "corto"
       ],
-      "reason": "Solo formato (revisar_estilo.py, revisor 4): la puntuación final de la frase ancla pasa fuera de <strong> y se cierran los <p> sin cerrar; sin cambiar ninguna palabra."
+      "reason": "Solo formato (revisar_estilo.py, revisor 4): la puntuación final de la frase ancla pasa fuera de <strong> y se cierran los <p> sin cerrar; sin cambiar ninguna palabra. Extraído del PR #190."
+    },
+    {
+      "id": 153,
+      "fields": [
+        "cuerpo",
+        "corto"
+      ],
+      "reason": "Solo formato (revisar_estilo.py, revisor 4): la puntuación final de la frase ancla pasa fuera de <strong> y se cierran los <p> sin cerrar; sin cambiar ninguna palabra. Extraído del PR #190."
+    },
+    {
+      "id": 154,
+      "fields": [
+        "cuerpo",
+        "corto"
+      ],
+      "reason": "Solo formato (revisar_estilo.py, revisor 4): la puntuación final de la frase ancla pasa fuera de <strong> y se cierran los <p> sin cerrar; sin cambiar ninguna palabra. Extraído del PR #190."
+    },
+    {
+      "id": 155,
+      "fields": [
+        "cuerpo",
+        "corto"
+      ],
+      "reason": "Solo formato (revisar_estilo.py, revisor 4): la puntuación final de la frase ancla pasa fuera de <strong> y se cierran los <p> sin cerrar; sin cambiar ninguna palabra. Extraído del PR #190."
+    },
+    {
+      "id": 156,
+      "fields": [
+        "cuerpo",
+        "corto"
+      ],
+      "reason": "Solo formato (revisar_estilo.py, revisor 4): la puntuación final de la frase ancla pasa fuera de <strong> y se cierran los <p> sin cerrar; sin cambiar ninguna palabra. Extraído del PR #190."
+    },
+    {
+      "id": 157,
+      "fields": [
+        "cuerpo",
+        "corto"
+      ],
+      "reason": "Solo formato (revisar_estilo.py, revisor 4): la puntuación final de la frase ancla pasa fuera de <strong> y se cierran los <p> sin cerrar; sin cambiar ninguna palabra. Extraído del PR #190."
+    },
+    {
+      "id": 158,
+      "fields": [
+        "cuerpo",
+        "corto"
+      ],
+      "reason": "Solo formato (revisar_estilo.py, revisor 4): la puntuación final de la frase ancla pasa fuera de <strong> y se cierran los <p> sin cerrar; sin cambiar ninguna palabra. Extraído del PR #190."
+    },
+    {
+      "id": 159,
+      "fields": [
+        "cuerpo",
+        "corto"
+      ],
+      "reason": "Solo formato (revisar_estilo.py, revisor 4): la puntuación final de la frase ancla pasa fuera de <strong> y se cierran los <p> sin cerrar; sin cambiar ninguna palabra. Extraído del PR #190."
+    },
+    {
+      "id": 160,
+      "fields": [
+        "cuerpo",
+        "corto"
+      ],
+      "reason": "Solo formato (revisar_estilo.py, revisor 4): la puntuación final de la frase ancla pasa fuera de <strong> y se cierran los <p> sin cerrar; sin cambiar ninguna palabra. Extraído del PR #190."
+    },
+    {
+      "id": 161,
+      "fields": [
+        "cuerpo",
+        "corto"
+      ],
+      "reason": "Solo formato (revisar_estilo.py, revisor 4): la puntuación final de la frase ancla pasa fuera de <strong> y se cierran los <p> sin cerrar; sin cambiar ninguna palabra. Extraído del PR #190."
+    },
+    {
+      "id": 162,
+      "fields": [
+        "cuerpo",
+        "corto"
+      ],
+      "reason": "Solo formato (revisar_estilo.py, revisor 4): la puntuación final de la frase ancla pasa fuera de <strong> y se cierran los <p> sin cerrar; sin cambiar ninguna palabra. Extraído del PR #190."
+    },
+    {
+      "id": 163,
+      "fields": [
+        "cuerpo",
+        "corto"
+      ],
+      "reason": "Solo formato (revisar_estilo.py, revisor 4): la puntuación final de la frase ancla pasa fuera de <strong> y se cierran los <p> sin cerrar; sin cambiar ninguna palabra. Extraído del PR #190."
+    },
+    {
+      "id": 164,
+      "fields": [
+        "cuerpo",
+        "corto"
+      ],
+      "reason": "Solo formato (revisar_estilo.py, revisor 4): la puntuación final de la frase ancla pasa fuera de <strong> y se cierran los <p> sin cerrar; sin cambiar ninguna palabra. Extraído del PR #190."
+    },
+    {
+      "id": 265,
+      "fields": [
+        "cuerpo",
+        "corto"
+      ],
+      "reason": "Corrección del equipo crítico, issue #196 (H1, H2, H3, H4, H5, H6, H7, H8, H9); equipo editorial sin CRÍTICOS ni MAYORES; contrainteligencia APROBADA."
+    },
+    {
+      "id": 3,
+      "fields": [
+        "financiacion",
+        "hallazgo",
+        "cuerpo",
+        "corto"
+      ],
+      "reason": "Corrección del equipo crítico, issue #197 (H1, H2, H3, H4, H5, H6, H7, H8, H9, H10, H11, H12, H13, H14, H15, H16, H17, H18, H19, H20); equipo editorial sin CRÍTICOS ni MAYORES; contrainteligencia APROBADA."
+    },
+    {
+      "id": 4,
+      "fields": [
+        "financiacion",
+        "hallazgo",
+        "cuerpo",
+        "corto"
+      ],
+      "reason": "Corrección del equipo crítico, issue #201 (H1, H2, H3, H4, H5, H6, H7, H8, H9, H10, H11, H12, H13, H14, H15, H16, H17, H18, H19, H20, H21); equipo editorial sin CRÍTICOS ni MAYORES; contrainteligencia APROBADA."
     }
   ]
 }
