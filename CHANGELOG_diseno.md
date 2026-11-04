@@ -1,3 +1,10 @@
+## 2026-11-04 · PDF: título limpio, ficha breve y cita APA/Vancouver
+
+- Se retira el antetítulo de especialidad y tipo de estudio que iba sobre el título; la versión breve conserva solo «Resumen breve».
+- La ficha ya no muestra Especialidad ni Temas.
+- «Cómo citar este resumen» ofrece solo dos formatos: APA y Vancouver.
+- «Puntos clave»: el Mensaje (frase ancla) se presenta con mayúscula inicial y punto final en los 264 resúmenes (151 empezaban en minúscula y 245 no tenían punto final). Es solo presentación: el texto de `resumenes.json` no cambia.
+
 ## 2026-11-02 · Identidad editorial en los PDF y las tarjetas sociales
 
 - Los PDF (completo y breve, A4 y Celular) y las tarjetas de X, Telegram y Google adoptan la identidad del logo: papel, tinta, petróleo y la línea de señal que termina en el único punto ocre. Se usan Newsreader, Literata e IBM Plex (RTSans), con licencia OFL e incrustadas.

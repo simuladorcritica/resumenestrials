@@ -30,6 +30,12 @@ for(const f of (pdf.match(/FONT_FILES=\{([^}]+)\}/)||[,''])[1].matchAll(/'([a-z0
 if(((pdf.match(/FONT_FILES=\{([^}]+)\}/)||[,''])[1].match(/'[a-z0-9-]+'/g)||[]).length<7)fail('PDF con menos de 7 fuentes declaradas');
 if(/GState|opacity:/.test(pdf))fail('PDF con marca de agua o transparencias');
 if((pdf.match(/C\.ocre/g)||[]).length!==1)fail('El ocre debe usarse solo en el punto de la línea de señal');
+// Formato editorial del PDF (decisión del editor, noviembre de 2026): título limpio sin antetítulo de especialidad/tipo,
+// ficha sin Especialidad ni Temas, cita solo en APA y Vancouver, y «Puntos clave» en mayúscula inicial con punto final.
+for(const token of ["'APA: '","'Vancouver: '",'[Internet]','Disponible en: ','[citado ','export function tidy(','tidy(anchor)'])if(!pdf.includes(token))fail('PDF sin '+token);
+if(/studyType\(item\.tipo_estudio\)|\['Especialidad',|\['Temas',/.test(pdf))fail('El PDF volvió a mostrar el antetítulo o Especialidad/Temas');
+{const tidy=new Function('return '+(pdf.match(/export function tidy\(s\)(\{[\s\S]*?\n)/)||[,''])[0].replace('export function tidy(s)','function(s)'))();
+  for(const r of JSON.parse(fs.readFileSync('resumenes.json','utf8'))){const sec=/<h2>Conclusi[^<]*<\/h2>([\s\S]*?)(?=<h2>|$)/.exec(r.cuerpo||''),m=sec&&/<strong>([\s\S]*?)<\/strong>/.exec(sec[1]);if(!m)continue;const t=tidy(m[1].replace(/<[^>]+>/g,''));if(!/^[^a-záéíóúñ]/.test(t)&&!/^[a-z]+[A-Z]/.test(t)||!/[.!?…]$/.test(t))fail('Mensaje sin formato de oración en el PDF del resumen '+r.id+': '+t.slice(0,40))}}
 if(!templates.includes('data-ev-pdf')||!templates.includes('icon("pdf")'))fail('Controles estáticos sin icono PDF SVG');
 if(/<script[^>]+src=["'][^"']*(?:pdf-contact|trial-pdf|reader-controls)/.test(html))fail('Múltiples controladores de lectura');
 if(failed)process.exit(1);console.log('Resumen detail UX PASS');

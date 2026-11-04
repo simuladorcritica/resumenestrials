@@ -20,6 +20,9 @@ const C={ink:[18,35,59],text:[30,39,51],muted:[90,99,114],accent:[20,110,110],br
 const MESES=['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
 const longDate=v=>{const m=/^(\d{4})-(\d{2})-(\d{2})/.exec(String(v||''));return m?(+m[3])+' de '+MESES[+m[2]-1]+' de '+m[1]:String(v||'')};
 const plain=s=>{const d=document.createElement('div');d.innerHTML=String(s??'');return d.textContent};
+// Presentation only (resumenes.json is never modified): sentence case and closing period for the
+// «Puntos clave» lines; the anchor phrase is extracted from mid-sentence and starts in lowercase.
+export function tidy(s){s=String(s??'').replace(/\s+/g,' ').replace(/\s+([.,;:)])/g,'$1').trim().replace(/[,;:]+$/,'');if(!s)return s;const first=s.split(' ')[0];if(first===first.toLocaleLowerCase('es'))s=s.charAt(0).toLocaleUpperCase('es')+s.slice(1);return /[.!?…]$/.test(s)?s:s+'.'}
 export function studyType(t){t=String(t||'').trim();let m=/^(?:Ensayo cl[ií]nico aleatorizado|ECA)\b\s*(.*)$/i.exec(t),p='ECA';if(!m){m=/^Dos ensayos cl[ií]nicos aleatorizados\b\s*(.*)$/i.exec(t);p='Dos ECA'}if(!m)return t.split(',')[0];const parts=m[1].split(/,\s*|\s+y\s+/).map(x=>x.trim()).filter(Boolean);return parts.length?p+' '+parts.slice(0,3).join(', '):p}
 export async function generatePDF(item,{brief=false,format='a4',download=true}={}){
  if(!item?.id||!item.titulo||!(brief?item.corto:item.cuerpo))throw Error('Ensayo incompleto para PDF');
@@ -46,7 +49,7 @@ export async function generatePDF(item,{brief=false,format='a4',download=true}={
   const out=[];let cur=null;
   const push=(ch,k,c,link)=>{if(/\s/.test(ch)){cur=null;return}if(!cur){cur={segs:[]};out.push(cur)}const last=cur.segs[cur.segs.length-1];if(last&&last.k===k&&last.c===c&&last.link===link)last.s+=ch;else cur.segs.push({s:ch,k,c,link})};
   const walk=(node,bold)=>{for(const n of node.childNodes){if(n.nodeType===3)for(const ch of n.nodeValue)push(ch,bold?b:r,color);else if(n.nodeType===1)walk(n,bold||/^(STRONG|B)$/.test(n.tagName))}};
-  if(Array.isArray(input))for(const run of input)for(const ch of String(run.t))push(ch,run.b?b:r,run.c||color,run.link);
+  if(Array.isArray(input))for(const run of input)for(const ch of String(run.t))push(ch,run.k||(run.b?b:r),run.c||color,run.link);
   else if(typeof input==='string'){const d=document.createElement('div');d.innerHTML=input;walk(d,false)}else walk(input,false);
   return out;
  }
@@ -82,8 +85,8 @@ export async function generatePDF(item,{brief=false,format='a4',download=true}={
  if(mobile){doc.addImage(image,'PNG',M,16,22,22,'rt-logo','FAST');put('titleB',12.5,'Resúmenes Trials',M+28,31.5,C.ink);put('ui',7.5,'N.º '+item.id,W-M,31,C.muted,{right:true});signal(M,57,U,{stroke:1.2,r:2.9,rise:8,curve:36})}
  else{doc.addImage(image,'PNG',M,26,26,26,'rt-logo','FAST');put('titleB',14.5,'Resúmenes Trials',M+34,44.5,C.ink);put('ui',7.5,folio,W-M,43,C.muted,{right:true});signal(M,74,U,{stroke:1.3,r:3.3,rise:9,curve:46})}
  y=mobile?80:100;
- const kicker=(brief?'Resumen breve · ':'')+(item.especialidad_principal||'')+(brief&&mobile?'':' · '+studyType(item.tipo_estudio));
- y=label(kicker,M,y,U,tone,mobile?7.4:7.6,10)+(mobile?23:26);
+ // Clean title block: no specialty/study-type kicker; the brief version keeps only its «Resumen breve» label.
+ if(brief)y=label('Resumen breve',M,y,U,C.muted,mobile?7.4:7.6,10)+(mobile?23:26);else y+=mobile?16:20;
  const t=plain(item.titulo),cut=t.indexOf(': '),titleRuns=cut>0&&cut<=40?[{t:t.slice(0,cut),b:true},{t:t.slice(cut)}]:[{t}];
  const tsize=mobile?19:23,tlh=mobile?22:26.2;
  y=para(titleRuns,{x:M,width:U,size:tsize,lh:tlh,fonts:{r:'title',b:'titleB'},color:C.ink})+(mobile?17:22);
@@ -97,7 +100,7 @@ export async function generatePDF(item,{brief=false,format='a4',download=true}={
  const source=document.createElement('div');source.innerHTML=brief?item.corto:item.cuerpo;
  if(!brief){
   let anchor='',inConclusion=false;for(const n of source.children){if(n.tagName==='H2')inConclusion=/^Conclusi/i.test(n.textContent.trim());else if(inConclusion&&!anchor){const s=n.querySelector('strong');if(s)anchor=s.textContent.trim()}}
-  const rows=[['Pregunta',item.objetivo],['Hallazgo',item.hallazgo],['Mensaje',anchor]].filter(r=>r[1]);
+  const rows=[['Pregunta',tidy(plain(item.objetivo))],['Hallazgo',item.hallazgo],['Mensaje',tidy(anchor)]].filter(r=>r[1]);
   const pad=mobile?12:14,ks=mobile?11.5:9.2,klh=mobile?16:13.6,kx=mobile?M+pad:TX,kw=mobile?U-pad*2:TW-pad;
   const laid=rows.map(([k,v])=>{const ls=layout(words(v,{r:'read',b:'readB'},C.text),ks,kw);return{k,ls,h:ls.length*klh}});
   // Two passes: measure the box, paint paper + 2 pt petroleum rule, then set the rows on top.
@@ -111,7 +114,7 @@ export async function generatePDF(item,{brief=false,format='a4',download=true}={
   y=boxTop+boxH+(mobile?18:20);
  }else y+=mobile?20:22;
  // Ficha del estudio: the same fields as before, in the same order.
- const fields=[['Tipo de estudio',item.tipo_estudio],['Especialidad',[item.especialidad_principal,item.especialidad_secundaria].filter(Boolean).join(' · ')],['Temas',(item.temas||[]).join(' · ')],['Publicación',longDate(item.fecha)]].filter(f=>f[1]);
+ const fields=[['Tipo de estudio',item.tipo_estudio],['Publicación',longDate(item.fecha)]].filter(f=>f[1]);
  const fs=mobile?8.5:7.8,flh=mobile?12:11.4;
  for(const[k,v]of fields){ensure(flh*2);if(mobile){label(k,M,y,U,C.muted,7,9);y+=11;y=para([{t:v}],{x:M,width:U,size:fs,lh:flh,fonts:{r:'ui',b:'ui'}})+flh+5}else{label(k,M,y,LAB,C.muted,7.4,9.5);y=para([{t:v}],{x:TX,width:TW,size:fs,lh:flh,fonts:{r:'ui',b:'ui'}})+flh+4}}
  // Body: marginal section labels on A4, labels above the text on Celular.
@@ -131,7 +134,14 @@ export async function generatePDF(item,{brief=false,format='a4',download=true}={
  // Closing block (last page): how to cite, notice and contacts.
  y+=mobile?16:blh;ensure(blh*4);doc.setDrawColor(...C.line);doc.setLineWidth(.6);doc.line(M,y-(mobile?6:8),W-M,y-(mobile?6:8));
  const cs=mobile?10.5:9,clh=mobile?15:13.5,close={size:cs,lh:clh};
- section('Cómo citar este resumen',C.accent,()=>{para([{t:'Editorial EMEICRÍTICA. '+t+'. '},{t:'Resúmenes Trials',b:true},{t:'. '+folio.replace(' · ',', ')+'. '},{t:canonical,c:C.accent,link:canonical}],{size:cs,lh:clh,fonts:{r:'read',b:'readI'}})},close);
+ // Two citation styles only: APA 7 and Vancouver (web content), both for this summary.
+ const pub=/^(\d{4})-(\d{2})-(\d{2})/.exec(String(item.fecha_publicacion_resumen||'')),now=new Date(),ab=MESES.map(m=>m.slice(0,3));
+ const apaDate=pub?'('+pub[1]+', '+(+pub[3])+' de '+MESES[+pub[2]-1]+')':'(s. f.)',vanDate=pub?pub[1]+' '+ab[+pub[2]-1]+' '+(+pub[3]):'';
+ const cited=now.getFullYear()+' '+ab[now.getMonth()]+' '+now.getDate(),tEnd=/[.?!]$/.test(t)?'':'.';
+ section('Cómo citar este resumen',C.accent,()=>{
+  para([{t:'APA: ',k:'readB'},{t:'Editorial EMEICRÍTICA. '+apaDate+'. '},{t:t,b:true},{t:tEnd+' Resúmenes Trials. '},{t:canonical,c:C.accent,link:canonical}],{size:cs,lh:clh,fonts:{r:'read',b:'readI'}});y+=clh*.5;
+  para([{t:'Vancouver: ',k:'readB'},{t:'Editorial EMEICRÍTICA. '+t+' [Internet]. Resúmenes Trials; '+(vanDate?vanDate+' ':'')+'[citado '+cited+']. Disponible en: '},{t:canonical,c:C.accent,link:canonical}],{size:cs,lh:clh,fonts:{r:'read',b:'readI'}})
+ },close);
  section('Aviso',C.muted,()=>{para([{t:'Resumen crítico independiente; no sustituye la lectura del artículo original y puede contener errores; las correcciones se publican en la web.'}],{size:cs,lh:clh})},close);
  section('Contacto',C.muted,()=>{para([{t:'X: @resumenestrials · Telegram: @ResumenesTrials · '},{t:'resumenestrials@outlook.com',c:C.accent,link:'mailto:resumenestrials@outlook.com'}],{size:cs,lh:clh})},close);
  // Footer on every page: sand hairline, imprint, page count and the canonical URL.
