@@ -7057,5 +7057,129 @@
       "population": "La población fueron adultos de 18 años o más con ictus isquémico agudo tratados con trombólisis intravenosa dentro de las 3 horas desde el inicio de los síntomas, con una NIHSS de 6 o más antes de la trombólisis y capaces de recibir el fármaco del estudio a más tardar 75 minutos después de iniciarla. La NIHSS va de 0 a 42, y más puntos indican un déficit más grave. La trombólisis fue alteplasa a 0.9 mg por kilogramo o…"
     },
     "datePublished": "2026-11-03"
+  },
+  "266": {
+    "slug": "harvest-ensayo-rifampicina-oral-dosis-alta-adultos-meningitis-tuberculosa",
+    "path": "/trials/harvest-ensayo-rifampicina-oral-dosis-alta-adultos-meningitis-tuberculosa/",
+    "url": "https://resumenestrials.com/trials/harvest-ensayo-rifampicina-oral-dosis-alta-adultos-meningitis-tuberculosa/",
+    "title": "HARVEST: ensayo de rifampicina oral en dosis alta en adultos con meningitis tuberculosa",
+    "seo_title": "HARVEST trial: ensayo de rifampicina oral en dosis alta en adultos con meningitis tuberculosa | Resúmenes Trials",
+    "description": "HARVEST: Sin diferencia significativa en la mortalidad a 6 meses: murieron 109 de 249 participantes con dosis alta (estimación de Kaplan-Meier, 44.6% ) y 100…",
+    "clusters": [
+      {
+        "name": "Enfermedades infecciosas",
+        "path": "/medicina-interna/infecciosas/",
+        "url": "https://resumenestrials.com/medicina-interna/infecciosas/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/harvest-ensayo-rifampicina-oral-dosis-alta-adultos-meningitis-tuberculosa-16x9.jpg",
+      "https://resumenestrials.com/images/trials/harvest-ensayo-rifampicina-oral-dosis-alta-adultos-meningitis-tuberculosa-4x3.jpg",
+      "https://resumenestrials.com/images/trials/harvest-ensayo-rifampicina-oral-dosis-alta-adultos-meningitis-tuberculosa-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si la rifampicina oral en dosis alta, de unos 35 mg/kg al día durante las primeras 8 semanas, mejora la supervivencia a 6 meses frente a la dosis estándar de unos 10 mg/kg en adultos con meningitis tuberculosa.",
+      "answer": "Sin diferencia significativa en la mortalidad a 6 meses: murieron 109 de 249 participantes con dosis alta (estimación de Kaplan-Meier, 44.6% ) y 100 de 250 con dosis estándar ( 40.7% ), con un HR de 1.17 (IC 95%, 0.89 a 1.54; p = 0.25) .",
+      "population": "Población. Adultos de 18 años o más con meningitis tuberculosa, con y sin infección por el virus de la inmunodeficiencia humana (VIH), en hospitales de Indonesia, Sudáfrica y Uganda. Raza o etnia: No reportado; según los autores, cerca de dos tercios eran ugandeses o sudafricanos y un tercio indonesios. Intervención. Rifampicina oral en dosis alta, de unos 35 mg/kg al día durante las primeras 8 semanas. A la combinación fija…"
+    },
+    "datePublished": "2026-11-04"
+  },
+  "267": {
+    "slug": "mosnodenvir-diario-como-profilaxis-del-dengue-en-un-modelo-de-infeccion-humana",
+    "path": "/trials/mosnodenvir-diario-como-profilaxis-del-dengue-en-un-modelo-de-infeccion-humana/",
+    "url": "https://resumenestrials.com/trials/mosnodenvir-diario-como-profilaxis-del-dengue-en-un-modelo-de-infeccion-humana/",
+    "title": "Mosnodenvir diario como profilaxis del dengue en un modelo de infección humana controlada",
+    "seo_title": "Mosnodenvir diario como profilaxis del dengue en un modelo de infección humana controlada | Resúmenes Trials",
+    "description": "Mosnodenvir diario como profilaxis del dengue en un modelo de infección humana controlada: Con la dosis alta de mosnodenvir, la carga de ARN del dengue…",
+    "clusters": [
+      {
+        "name": "Enfermedades infecciosas",
+        "path": "/medicina-interna/infecciosas/",
+        "url": "https://resumenestrials.com/medicina-interna/infecciosas/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/mosnodenvir-diario-como-profilaxis-del-dengue-en-un-modelo-de-infeccion-humana-16x9.jpg",
+      "https://resumenestrials.com/images/trials/mosnodenvir-diario-como-profilaxis-del-dengue-en-un-modelo-de-infeccion-humana-4x3.jpg",
+      "https://resumenestrials.com/images/trials/mosnodenvir-diario-como-profilaxis-del-dengue-en-un-modelo-de-infeccion-humana-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Evaluar si mosnodenvir oral diario a dosis alta reduce la carga de ARN del virus del dengue serotipo 3 frente al placebo en adultos sanos inoculados de forma controlada con una cepa infraatenuada, y describir la actividad antiviral, la seguridad y la farmacocinética de tres dosis.",
+      "answer": "Con la dosis alta de mosnodenvir, la carga de ARN del dengue serotipo 3 entre los días 1 y 29 fue menor que con placebo: diferencia de -2.02 log10 copias/ml en 28 días (IC 90%, -2.88 a -1.17; p<0.001) ; el artículo no reporta IC 95%.",
+      "population": "La población fueron adultos sanos de 18 a 55 años, que debían ser seronegativos para el virus del dengue y para el virus Zika, no haber viajado a zonas endémicas ni recibido vacunas vivas atenuadas en las 4 semanas previas, y se reclutaron en el área metropolitana de Baltimore y Washington y en Burlington, Vermont, en Estados Unidos. El 47% se identificó como de raza negra, el 33% como blanca y solo 1 participante como hispano…"
+    },
+    "datePublished": "2026-11-04"
+  },
+  "268": {
+    "slug": "hyperion-sotatercept-hipertension-arterial-pulmonar-dentro-primer-ano-tras-diagnostico",
+    "path": "/trials/hyperion-sotatercept-hipertension-arterial-pulmonar-dentro-primer-ano-tras-diagnostico/",
+    "url": "https://resumenestrials.com/trials/hyperion-sotatercept-hipertension-arterial-pulmonar-dentro-primer-ano-tras-diagnostico/",
+    "title": "HYPERION: sotatercept para la hipertensión arterial pulmonar dentro del primer año tras el diagnóstico",
+    "seo_title": "HYPERION trial: sotatercept para la hipertensión arterial pulmonar dentro del primer año tras el diagnóstico | Resúmenes Trials",
+    "description": "HYPERION: El empeoramiento clínico ocurrió en el 10.6% frente al 36.9% (HR 0.24; IC 95% 0.14-0.41; P<0.001), con un número necesario a tratar de 5 a los 12…",
+    "clusters": [
+      {
+        "name": "Neumología",
+        "path": "/medicina-interna/neumologia/",
+        "url": "https://resumenestrials.com/medicina-interna/neumologia/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/hyperion-sotatercept-hipertension-arterial-pulmonar-dentro-primer-ano-tras-diagnostico-16x9.jpg",
+      "https://resumenestrials.com/images/trials/hyperion-sotatercept-hipertension-arterial-pulmonar-dentro-primer-ano-tras-diagnostico-4x3.jpg",
+      "https://resumenestrials.com/images/trials/hyperion-sotatercept-hipertension-arterial-pulmonar-dentro-primer-ano-tras-diagnostico-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Evaluar si añadir sotatercept subcutáneo al tratamiento de base doble o triple, frente a placebo, reduce el riesgo de empeoramiento clínico en adultos con hipertensión arterial pulmonar diagnosticada hace menos de un año y con riesgo intermedio o alto de muerte.",
+      "answer": "El empeoramiento clínico ocurrió en el 10.6% frente al 36.9% (HR 0.24; IC 95% 0.14-0.41; P<0.001), con un número necesario a tratar de 5 a los 12 meses según los autores.",
+      "population": "La población fueron adultos con hipertensión arterial pulmonar del grupo 1 en clase funcional II o III de la OMS, idiopática, hereditaria, por fármacos o tóxicos, asociada a enfermedad del tejido conectivo o a cortocircuitos congénitos corregidos, con resistencia vascular pulmonar de al menos 320 dyn·s·cm−5 (4 unidades Wood o más) y presión de enclavamiento de 15 mm Hg o menos. Lo distintivo del ensayo es el momento: el…"
+    },
+    "datePublished": "2026-11-04"
+  },
+  "269": {
+    "slug": "clear-solucion-salina-hipertonica-carbocisteina-bronquiectasias",
+    "path": "/trials/clear-solucion-salina-hipertonica-carbocisteina-bronquiectasias/",
+    "url": "https://resumenestrials.com/trials/clear-solucion-salina-hipertonica-carbocisteina-bronquiectasias/",
+    "title": "CLEAR: solución salina hipertónica o carbocisteína en las bronquiectasias",
+    "seo_title": "CLEAR trial: solución salina hipertónica o carbocisteína en las bronquiectasias | Resúmenes Trials",
+    "description": "CLEAR: Sin diferencia significativa en las exacerbaciones plenamente calificadas a 52 semanas con solución salina hipertónica (diferencia ajustada de medias…",
+    "clusters": [
+      {
+        "name": "Neumología",
+        "path": "/medicina-interna/neumologia/",
+        "url": "https://resumenestrials.com/medicina-interna/neumologia/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/clear-solucion-salina-hipertonica-carbocisteina-bronquiectasias-16x9.jpg",
+      "https://resumenestrials.com/images/trials/clear-solucion-salina-hipertonica-carbocisteina-bronquiectasias-4x3.jpg",
+      "https://resumenestrials.com/images/trials/clear-solucion-salina-hipertonica-carbocisteina-bronquiectasias-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Evaluar si añadir solución salina hipertónica, carbocisteína o ambas al cuidado estándar disminuye las exacerbaciones pulmonares en adultos con bronquiectasias.",
+      "answer": "Sin diferencia significativa en las exacerbaciones plenamente calificadas a 52 semanas con solución salina hipertónica (diferencia ajustada de medias −0.25; IC 95%, −0.57 a 0.07; p = 0.12 ) ni con carbocisteína ( −0.04; IC 95%, −0.36 a 0.28; p = 0.81 ).",
+      "population": "Población. Adultos con bronquiectasias no debidas a fibrosis quística, confirmadas por tomografía, con exacerbaciones frecuentes y esputo diario, atendidos en 20 hospitales del Reino Unido. Raza o grupo étnico autodeclarado blanco: 97% con solución salina y 96% sin ella. Intervención. Dos mucoactivos de mecanismo distinto. La solución salina hipertónica es, según el artículo, un expectorante que favorece la expulsión del moco…"
+    },
+    "datePublished": "2026-11-04"
+  },
+  "271": {
+    "slug": "pens-ensayo-aleatorizado-derivacion-hidrocefalia-normotensiva-idiopatica",
+    "path": "/trials/pens-ensayo-aleatorizado-derivacion-hidrocefalia-normotensiva-idiopatica/",
+    "url": "https://resumenestrials.com/trials/pens-ensayo-aleatorizado-derivacion-hidrocefalia-normotensiva-idiopatica/",
+    "title": "PENS: ensayo aleatorizado de derivación en la hidrocefalia normotensiva idiopática",
+    "seo_title": "PENS trial: ensayo aleatorizado de derivación en la hidrocefalia normotensiva idiopática | Resúmenes Trials",
+    "description": "PENS: La velocidad de marcha aumentó de media 0.23 frente a 0.03 m/s , una diferencia de 0.21 m/s (IC 95% 0.12 a 0.31; P<0.001) a favor de la derivación…",
+    "clusters": [],
+    "images": [
+      "https://resumenestrials.com/images/trials/pens-ensayo-aleatorizado-derivacion-hidrocefalia-normotensiva-idiopatica-16x9.jpg",
+      "https://resumenestrials.com/images/trials/pens-ensayo-aleatorizado-derivacion-hidrocefalia-normotensiva-idiopatica-4x3.jpg",
+      "https://resumenestrials.com/images/trials/pens-ensayo-aleatorizado-derivacion-hidrocefalia-normotensiva-idiopatica-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Evaluar si la derivación ventriculoperitoneal con la válvula abierta, frente a la misma válvula cerrada como placebo, mejora la velocidad de marcha a los 3 meses en pacientes con hidrocefalia normotensiva idiopática seleccionados por su respuesta al drenaje temporal de líquido cefalorraquídeo.",
+      "answer": "La velocidad de marcha aumentó de media 0.23 frente a 0.03 m/s , una diferencia de 0.21 m/s (IC 95% 0.12 a 0.31; P<0.001) a favor de la derivación abierta.",
+      "population": "La población fueron adultos de 60 años o más con hidrocefalia normotensiva idiopática, el trastorno del adulto mayor que combina alteración de la marcha y el equilibrio, deterioro cognitivo, incontinencia urinaria y ventriculomegalia. Todos tenían indicación de derivación ventriculoperitoneal según las guías internacionales porque su velocidad de marcha había mejorado tras un drenaje temporal de líquido cefalorraquídeo, por…"
+    },
+    "datePublished": "2026-11-04"
   }
 }
