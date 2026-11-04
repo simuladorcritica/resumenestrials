@@ -4,8 +4,43 @@
   <id>https://resumenestrials.com/</id>
   <link href="https://resumenestrials.com/"/>
   <link rel="self" type="application/atom+xml" href="https://resumenestrials.com/feed.xml"/>
-  <updated>2026-11-03T00:00:00Z</updated>
+  <updated>2026-11-04T00:00:00Z</updated>
   <subtitle>Resúmenes críticos en español de ensayos clínicos.</subtitle>
+  <entry>
+    <title>HARVEST: ensayo de rifampicina oral en dosis alta en adultos con meningitis tuberculosa</title>
+    <id>https://resumenestrials.com/trials/harvest-ensayo-rifampicina-oral-dosis-alta-adultos-meningitis-tuberculosa/</id>
+    <link href="https://resumenestrials.com/trials/harvest-ensayo-rifampicina-oral-dosis-alta-adultos-meningitis-tuberculosa/"/>
+    <updated>2026-11-04T00:00:00Z</updated>
+    <summary>Determinar si la rifampicina oral en dosis alta, de unos 35 mg/kg al día durante las primeras 8 semanas, mejora la supervivencia a 6 meses frente a la dosis estándar de unos 10 mg/kg en adultos con meningitis tuberculosa.</summary>
+  </entry>
+  <entry>
+    <title>Mosnodenvir diario como profilaxis del dengue en un modelo de infección humana controlada</title>
+    <id>https://resumenestrials.com/trials/mosnodenvir-diario-como-profilaxis-del-dengue-en-un-modelo-de-infeccion-humana/</id>
+    <link href="https://resumenestrials.com/trials/mosnodenvir-diario-como-profilaxis-del-dengue-en-un-modelo-de-infeccion-humana/"/>
+    <updated>2026-11-04T00:00:00Z</updated>
+    <summary>Evaluar si mosnodenvir oral diario a dosis alta reduce la carga de ARN del virus del dengue serotipo 3 frente al placebo en adultos sanos inoculados de forma controlada con una cepa infraatenuada, y describir la actividad antiviral, la seguridad y la farmacocinética de tres dosis.</summary>
+  </entry>
+  <entry>
+    <title>HYPERION: sotatercept para la hipertensión arterial pulmonar dentro del primer año tras el diagnóstico</title>
+    <id>https://resumenestrials.com/trials/hyperion-sotatercept-hipertension-arterial-pulmonar-dentro-primer-ano-tras-diagnostico/</id>
+    <link href="https://resumenestrials.com/trials/hyperion-sotatercept-hipertension-arterial-pulmonar-dentro-primer-ano-tras-diagnostico/"/>
+    <updated>2026-11-04T00:00:00Z</updated>
+    <summary>Evaluar si añadir sotatercept subcutáneo al tratamiento de base doble o triple, frente a placebo, reduce el riesgo de empeoramiento clínico en adultos con hipertensión arterial pulmonar diagnosticada hace menos de un año y con riesgo intermedio o alto de muerte.</summary>
+  </entry>
+  <entry>
+    <title>CLEAR: solución salina hipertónica o carbocisteína en las bronquiectasias</title>
+    <id>https://resumenestrials.com/trials/clear-solucion-salina-hipertonica-carbocisteina-bronquiectasias/</id>
+    <link href="https://resumenestrials.com/trials/clear-solucion-salina-hipertonica-carbocisteina-bronquiectasias/"/>
+    <updated>2026-11-04T00:00:00Z</updated>
+    <summary>Evaluar si añadir solución salina hipertónica, carbocisteína o ambas al cuidado estándar disminuye las exacerbaciones pulmonares en adultos con bronquiectasias.</summary>
+  </entry>
+  <entry>
+    <title>PENS: ensayo aleatorizado de derivación en la hidrocefalia normotensiva idiopática</title>
+    <id>https://resumenestrials.com/trials/pens-ensayo-aleatorizado-derivacion-hidrocefalia-normotensiva-idiopatica/</id>
+    <link href="https://resumenestrials.com/trials/pens-ensayo-aleatorizado-derivacion-hidrocefalia-normotensiva-idiopatica/"/>
+    <updated>2026-11-04T00:00:00Z</updated>
+    <summary>Evaluar si la derivación ventriculoperitoneal con la válvula abierta, frente a la misma válvula cerrada como placebo, mejora la velocidad de marcha a los 3 meses en pacientes con hidrocefalia normotensiva idiopática seleccionados por su respuesta al drenaje temporal de líquido cefalorraquídeo.</summary>
+  </entry>
   <entry>
     <title>EMBOLISE: embolización adyuvante de la arteria meníngea media en el hematoma subdural</title>
     <id>https://resumenestrials.com/trials/embolise-embolizacion-adyuvante-arteria-meningea-media-hematoma-subdural/</id>
@@ -320,40 +355,5 @@
     <link href="https://resumenestrials.com/trials/procoag-eficacia-seguridad-administracion-temprana-concentrado-complejo-protrombinico-4-factores/"/>
     <updated>2026-10-20T00:00:00Z</updated>
     <summary>Evaluar si añadir concentrado de complejo protrombínico de 4 factores a una transfusión guiada por proporciones reduce el consumo total de componentes sanguíneos en 24 horas en pacientes con trauma en riesgo de transfusión masiva.</summary>
-  </entry>
-  <entry>
-    <title>PREVENT CLOT: aspirina o heparina de bajo peso molecular para la tromboprofilaxis después de una fractura</title>
-    <id>https://resumenestrials.com/trials/prevent-clot-aspirina-heparina-peso-molecular-tromboprofilaxis-despues-fractura/</id>
-    <link href="https://resumenestrials.com/trials/prevent-clot-aspirina-heparina-peso-molecular-tromboprofilaxis-despues-fractura/"/>
-    <updated>2026-10-20T00:00:00Z</updated>
-    <summary>Evaluar si la aspirina no es inferior a la heparina de bajo peso molecular como tromboprofilaxis para prevenir la muerte por cualquier causa a 90 días en pacientes con fracturas de extremidades operadas o de pelvis o acetábulo.</summary>
-  </entry>
-  <entry>
-    <title>AVERT Shock: efecto de la suplementación con dosis bajas de arginina vasopresina sobre la necesidad de transfusiones de hemoderivados en pacientes con trauma y shock hemorrágico</title>
-    <id>https://resumenestrials.com/trials/avert-shock-efecto-suplementacion-dosis-bajas-arginina-vasopresina-necesidad-transfusiones/</id>
-    <link href="https://resumenestrials.com/trials/avert-shock-efecto-suplementacion-dosis-bajas-arginina-vasopresina-necesidad-transfusiones/"/>
-    <updated>2026-10-20T00:00:00Z</updated>
-    <summary>Evaluar si la suplementación con dosis bajas de arginina vasopresina durante la reanimación reduce el volumen de hemoderivados transfundidos en 48 horas en pacientes con trauma y shock hemorrágico.</summary>
-  </entry>
-  <entry>
-    <title>CRASH-3: efectos del ácido tranexámico sobre la muerte, la discapacidad, los eventos vasculares oclusivos y otras morbilidades en pacientes con traumatismo craneoencefálico agudo</title>
-    <id>https://resumenestrials.com/trials/crash-3-efectos-acido-tranexamico-muerte-discapacidad-eventos-vasculares-oclusivos-otras/</id>
-    <link href="https://resumenestrials.com/trials/crash-3-efectos-acido-tranexamico-muerte-discapacidad-eventos-vasculares-oclusivos-otras/"/>
-    <updated>2026-10-20T00:00:00Z</updated>
-    <summary>Determinar si el ácido tranexámico, frente a placebo, reduce la muerte relacionada con el traumatismo craneal en el hospital a 28 días en adultos con traumatismo craneoencefálico tratados dentro de las 3 horas de la lesión.</summary>
-  </entry>
-  <entry>
-    <title>WOMAN: efecto de la administración precoz de ácido tranexámico sobre la mortalidad, la histerectomía y otras morbilidades en mujeres con hemorragia posparto</title>
-    <id>https://resumenestrials.com/trials/woman-efecto-administracion-precoz-acido-tranexamico-mortalidad-histerectomia-otras-morbilidades/</id>
-    <link href="https://resumenestrials.com/trials/woman-efecto-administracion-precoz-acido-tranexamico-mortalidad-histerectomia-otras-morbilidades/"/>
-    <updated>2026-10-20T00:00:00Z</updated>
-    <summary>Evaluar el efecto de la administración precoz de ácido tranexámico, frente a placebo, sobre la muerte por cualquier causa o la histerectomía a 42 días en mujeres con hemorragia posparto.</summary>
-  </entry>
-  <entry>
-    <title>AVERT: eficacia y seguridad de la movilización muy precoz en las primeras 24 h tras el inicio del ictus</title>
-    <id>https://resumenestrials.com/trials/avert-eficacia-seguridad-movilizacion-muy-precoz-primeras-24-h-tras/</id>
-    <link href="https://resumenestrials.com/trials/avert-eficacia-seguridad-movilizacion-muy-precoz-primeras-24-h-tras/"/>
-    <updated>2026-10-20T00:00:00Z</updated>
-    <summary>Comparar la movilización muy precoz, frecuente y de mayor dosis, iniciada en las primeras 24 horas tras el ictus, con la atención habitual en la unidad de ictus sobre el resultado funcional favorable a los 3 meses.</summary>
   </entry>
 </feed>
