@@ -4,8 +4,78 @@
   <id>https://resumenestrials.com/</id>
   <link href="https://resumenestrials.com/"/>
   <link rel="self" type="application/atom+xml" href="https://resumenestrials.com/feed.xml"/>
-  <updated>2026-11-04T00:00:00Z</updated>
+  <updated>2026-11-05T00:00:00Z</updated>
   <subtitle>Resúmenes críticos en español de ensayos clínicos.</subtitle>
+  <entry>
+    <title>P4: angiografía coronaria por tomografía computarizada frente a ecografía intravascular como guía de la intervención coronaria percutánea</title>
+    <id>https://resumenestrials.com/trials/p4-angiografia-coronaria-tomografia-computarizada-ecografia-intravascular-como-guia-intervencion/</id>
+    <link href="https://resumenestrials.com/trials/p4-angiografia-coronaria-tomografia-computarizada-ecografia-intravascular-como-guia-intervencion/"/>
+    <updated>2026-11-05T00:00:00Z</updated>
+    <summary>Determinar si una intervención coronaria percutánea planificada y guiada con angiografía coronaria por tomografía computarizada no es inferior a la guiada por ecografía intravascular en el fallo del vaso diana a 12 meses.</summary>
+  </entry>
+  <entry>
+    <title>OASIS 4: semaglutida oral a dosis de 25 mg en adultos con sobrepeso u obesidad</title>
+    <id>https://resumenestrials.com/trials/oasis-4-semaglutida-oral-dosis-25-mg-adultos-sobrepeso-u-obesidad/</id>
+    <link href="https://resumenestrials.com/trials/oasis-4-semaglutida-oral-dosis-25-mg-adultos-sobrepeso-u-obesidad/"/>
+    <updated>2026-11-05T00:00:00Z</updated>
+    <summary>Evaluar la eficacia y la seguridad de la semaglutida oral de 25 mg una vez al día frente a placebo, sumada a intervención sobre el estilo de vida, para reducir el peso corporal en adultos con sobrepeso u obesidad sin diabetes.</summary>
+  </entry>
+  <entry>
+    <title>AQUATIC: aspirina en pacientes con síndrome coronario crónico que reciben anticoagulación oral</title>
+    <id>https://resumenestrials.com/trials/aquatic-aspirina-pacientes-sindrome-coronario-cronico-reciben-anticoagulacion-oral/</id>
+    <link href="https://resumenestrials.com/trials/aquatic-aspirina-pacientes-sindrome-coronario-cronico-reciben-anticoagulacion-oral/"/>
+    <updated>2026-11-05T00:00:00Z</updated>
+    <summary>Determinar si añadir aspirina 100 mg al día a la anticoagulación oral reduce los eventos cardiovasculares en pacientes con síndrome coronario crónico, stent previo y alto riesgo aterotrombótico.</summary>
+  </entry>
+  <entry>
+    <title>NEO-MINDSET: retirada temprana de la aspirina tras la intervención coronaria percutánea en los síndromes coronarios agudos</title>
+    <id>https://resumenestrials.com/trials/neo-mindset-retirada-temprana-aspirina-tras-intervencion-coronaria-percutanea-sindromes/</id>
+    <link href="https://resumenestrials.com/trials/neo-mindset-retirada-temprana-aspirina-tras-intervencion-coronaria-percutanea-sindromes/"/>
+    <updated>2026-11-05T00:00:00Z</updated>
+    <summary>Determinar si suspender la aspirina justo después de una intervención coronaria percutánea exitosa y continuar solo con prasugrel o ticagrelor es no inferior a la doble antiagregación en eventos isquémicos y superior en sangrado en pacientes con síndrome coronario agudo.</summary>
+  </entry>
+  <entry>
+    <title>MAPLE-HCM: aficamten o metoprolol en monoterapia para la miocardiopatía hipertrófica obstructiva</title>
+    <id>https://resumenestrials.com/trials/maple-hcm-aficamten-metoprolol-monoterapia-miocardiopatia-hipertrofica-obstructiva/</id>
+    <link href="https://resumenestrials.com/trials/maple-hcm-aficamten-metoprolol-monoterapia-miocardiopatia-hipertrofica-obstructiva/"/>
+    <updated>2026-11-05T00:00:00Z</updated>
+    <summary>Determinar si el aficamten en monoterapia mejora el consumo pico de oxígeno a las 24 semanas más que el metoprolol en monoterapia en adultos con miocardiopatía hipertrófica obstructiva sintomática.</summary>
+  </entry>
+  <entry>
+    <title>REBOOT: betabloqueadores tras un infarto de miocardio sin fracción de eyección reducida</title>
+    <id>https://resumenestrials.com/trials/reboot-betabloqueadores-tras-infarto-miocardio-fraccion-eyeccion-reducida/</id>
+    <link href="https://resumenestrials.com/trials/reboot-betabloqueadores-tras-infarto-miocardio-fraccion-eyeccion-reducida/"/>
+    <updated>2026-11-05T00:00:00Z</updated>
+    <summary>Determinar si iniciar un betabloqueador oral al alta, frente a no darlo, reduce el compuesto de muerte por cualquier causa, reinfarto u hospitalización por insuficiencia cardiaca en pacientes con infarto agudo de miocardio, manejo invasivo y fracción de eyección del ventrículo izquierdo mayor de…</summary>
+  </entry>
+  <entry>
+    <title>BETAMI–DANBLOCK: betabloqueadores tras un infarto de miocardio en pacientes sin insuficiencia cardiaca</title>
+    <id>https://resumenestrials.com/trials/betami-danblock-betabloqueadores-tras-infarto-miocardio-pacientes-insuficiencia-cardiaca/</id>
+    <link href="https://resumenestrials.com/trials/betami-danblock-betabloqueadores-tras-infarto-miocardio-pacientes-insuficiencia-cardiaca/"/>
+    <updated>2026-11-05T00:00:00Z</updated>
+    <summary>Evaluar si el tratamiento oral prolongado con betabloqueadores, iniciado en los 14 días posteriores a un infarto de miocardio en pacientes con fracción de eyección del ventrículo izquierdo de al menos 40% y sin insuficiencia cardiaca, reduce un compuesto de muerte por cualquier causa o eventos…</summary>
+  </entry>
+  <entry>
+    <title>BaxHTN: eficacia y seguridad del baxdrostat en la hipertensión no controlada y resistente</title>
+    <id>https://resumenestrials.com/trials/baxhtn-eficacia-seguridad-baxdrostat-hipertension-no-controlada-resistente/</id>
+    <link href="https://resumenestrials.com/trials/baxhtn-eficacia-seguridad-baxdrostat-hipertension-no-controlada-resistente/"/>
+    <updated>2026-11-05T00:00:00Z</updated>
+    <summary>Evaluar si añadir baxdrostat de 1 mg o 2 mg al tratamiento de base reduce la presión sistólica sentada a las 12 semanas, frente a placebo, en adultos con hipertensión no controlada o resistente.</summary>
+  </entry>
+  <entry>
+    <title>HI-PRO: apixabán para el tratamiento extendido de la tromboembolia venosa provocada</title>
+    <id>https://resumenestrials.com/trials/hi-pro-apixaban-tratamiento-extendido-tromboembolia-venosa-provocada/</id>
+    <link href="https://resumenestrials.com/trials/hi-pro-apixaban-tratamiento-extendido-tromboembolia-venosa-provocada/"/>
+    <updated>2026-11-05T00:00:00Z</updated>
+    <summary>Evaluar si el apixabán 2.5 mg dos veces al día durante 12 meses, frente a placebo, reduce la tromboembolia venosa sintomática recurrente en adultos con tromboembolia venosa provocada y al menos un factor de riesgo persistente que completaron al menos 3 meses de anticoagulación.</summary>
+  </entry>
+  <entry>
+    <title>GALFLU: vacuna de dosis alta contra la influenza para reducir las hospitalizaciones</title>
+    <id>https://resumenestrials.com/trials/galflu-vacuna-dosis-alta-influenza-reducir-hospitalizaciones/</id>
+    <link href="https://resumenestrials.com/trials/galflu-vacuna-dosis-alta-influenza-reducir-hospitalizaciones/"/>
+    <updated>2026-11-05T00:00:00Z</updated>
+    <summary>Evaluar la efectividad relativa de la vacuna antigripal inactivada de dosis alta, frente a la de dosis estándar, para prevenir la hospitalización por influenza o neumonía en adultos de 65 a 79 años que viven en la comunidad.</summary>
+  </entry>
   <entry>
     <title>HARVEST: ensayo de rifampicina oral en dosis alta en adultos con meningitis tuberculosa</title>
     <id>https://resumenestrials.com/trials/harvest-ensayo-rifampicina-oral-dosis-alta-adultos-meningitis-tuberculosa/</id>
@@ -285,75 +355,5 @@
     <link href="https://resumenestrials.com/trials/late-mt-trombectomia-mecanica-24-72-horas-despues-ictus-isquemico-oclusion/"/>
     <updated>2026-10-24T00:00:00Z</updated>
     <summary>Determinar si la trombectomía endovascular sumada al tratamiento médico mejora la función a 90 días frente al tratamiento médico solo en pacientes con ictus por oclusión de un gran vaso anterior y tejido salvable que llegan entre 24 y 72 horas después del inicio.</summary>
-  </entry>
-  <entry>
-    <title>TRIUMPH-1-OSA y TRIUMPH-2-OSA: retatrutida una vez por semana para el tratamiento de la apnea obstructiva del sueño</title>
-    <id>https://resumenestrials.com/trials/triumph-1-osa-y-triumph-2-retatrutida-vez-semana-tratamiento-apnea-obstructiva-sueno/</id>
-    <link href="https://resumenestrials.com/trials/triumph-1-osa-y-triumph-2-retatrutida-vez-semana-tratamiento-apnea-obstructiva-sueno/"/>
-    <updated>2026-10-24T00:00:00Z</updated>
-    <summary>Determinar si la retatrutida subcutánea semanal reduce el índice de apnea-hipopnea a las 80 semanas frente al placebo en adultos con apnea obstructiva del sueño de moderada a grave y sobrepeso u obesidad, sin diabetes tipo 2 o con ella.</summary>
-  </entry>
-  <entry>
-    <title>TICH-2: ácido tranexámico para la hemorragia intracerebral primaria hiperaguda</title>
-    <id>https://resumenestrials.com/trials/tich-2-acido-tranexamico-hemorragia-intracerebral-primaria-hiperaguda/</id>
-    <link href="https://resumenestrials.com/trials/tich-2-acido-tranexamico-hemorragia-intracerebral-primaria-hiperaguda/"/>
-    <updated>2026-10-24T00:00:00Z</updated>
-    <summary>Determinar si el ácido tranexámico intravenoso administrado en las primeras 8 horas reduce la expansión del hematoma y mejora el estado funcional a los 90 días frente al placebo en adultos con hemorragia intracerebral espontánea.</summary>
-  </entry>
-  <entry>
-    <title>ANDROMEDA-SHOCK-2: reanimación hemodinámica personalizada dirigida al tiempo de llenado capilar en el shock séptico temprano</title>
-    <id>https://resumenestrials.com/trials/andromeda-shock-2-reanimacion-hemodinamica-personalizada-dirigida-tiempo-llenado-capilar-shock/</id>
-    <link href="https://resumenestrials.com/trials/andromeda-shock-2-reanimacion-hemodinamica-personalizada-dirigida-tiempo-llenado-capilar-shock/"/>
-    <updated>2026-10-21T00:00:00Z</updated>
-    <summary>Determinar si un protocolo de reanimación hemodinámica personalizada dirigido a normalizar el tiempo de llenado capilar mejora un compuesto jerárquico de mortalidad, duración del soporte vital y estancia hospitalaria a 28 días frente a la atención habitual en el shock séptico temprano.</summary>
-  </entry>
-  <entry>
-    <title>REST: efecto de la ventilación con volumen corriente más bajo facilitada por extracción extracorpórea de dióxido de carbono frente a la ventilación estándar sobre la mortalidad a 90 días en pacientes con insuficiencia respiratoria hipoxémica aguda</title>
-    <id>https://resumenestrials.com/trials/rest-efecto-ventilacion-volumen-corriente-mas-facilitada-extraccion-extracorporea-dioxido/</id>
-    <link href="https://resumenestrials.com/trials/rest-efecto-ventilacion-volumen-corriente-mas-facilitada-extraccion-extracorporea-dioxido/"/>
-    <updated>2026-10-21T00:00:00Z</updated>
-    <summary>Determinar si la ventilación con volumen corriente más bajo facilitada por extracción extracorpórea de dióxido de carbono reduce la mortalidad a 90 días frente a la ventilación protectora convencional en adultos con insuficiencia respiratoria hipoxémica aguda.</summary>
-  </entry>
-  <entry>
-    <title>OVATION: objetivos de presión arterial más altos frente a más bajos para el tratamiento vasopresor en el shock, ensayo piloto multicéntrico</title>
-    <id>https://resumenestrials.com/trials/ovation-objetivos-presion-arterial-mas-altos-mas-bajos-tratamiento-vasopresor/</id>
-    <link href="https://resumenestrials.com/trials/ovation-objetivos-presion-arterial-mas-altos-mas-bajos-tratamiento-vasopresor/"/>
-    <updated>2026-10-21T00:00:00Z</updated>
-    <summary>Evaluar si una meta de presión arterial media de 60 a 65 mmHg frente a una de 75 a 80 mmHg durante el tratamiento vasopresor del shock logra una separación suficiente entre grupos para justificar un ensayo definitivo.</summary>
-  </entry>
-  <entry>
-    <title>ATN: intensidad del soporte renal en pacientes en estado crítico con lesión renal aguda</title>
-    <id>https://resumenestrials.com/trials/atn-intensidad-soporte-renal-pacientes-estado-critico-lesion-renal-aguda/</id>
-    <link href="https://resumenestrials.com/trials/atn-intensidad-soporte-renal-pacientes-estado-critico-lesion-renal-aguda/"/>
-    <updated>2026-10-21T00:00:00Z</updated>
-    <summary>Determinar si una estrategia intensiva de reemplazo renal reduce la mortalidad a 60 días frente a una estrategia menos intensiva en adultos en estado crítico con lesión renal aguda.</summary>
-  </entry>
-  <entry>
-    <title>PELICAN: terapia hemodinámica individualizada guiada por el índice cardiaco en pacientes de alto riesgo sometidos a cirugía abdominal mayor electiva</title>
-    <id>https://resumenestrials.com/trials/pelican-terapia-hemodinamica-individualizada-guiada-indice-cardiaco-pacientes-alto-riesgo/</id>
-    <link href="https://resumenestrials.com/trials/pelican-terapia-hemodinamica-individualizada-guiada-indice-cardiaco-pacientes-alto-riesgo/"/>
-    <updated>2026-10-20T00:00:00Z</updated>
-    <summary>Evaluar si la terapia hemodinámica que mantiene el índice cardiaco intraoperatorio en el valor basal en reposo de cada paciente reduce las complicaciones a 7 días frente a la terapia hemodinámica habitual en la cirugía abdominal mayor electiva de alto riesgo.</summary>
-  </entry>
-  <entry>
-    <title>FLUID: ensayo cruzado de solución de Ringer lactato frente a solución salina normal en todo el hospital</title>
-    <id>https://resumenestrials.com/trials/fluid-ensayo-cruzado-solucion-ringer-lactato-solucion-salina-normal-todo/</id>
-    <link href="https://resumenestrials.com/trials/fluid-ensayo-cruzado-solucion-ringer-lactato-solucion-salina-normal-todo/"/>
-    <updated>2026-10-20T00:00:00Z</updated>
-    <summary>Determinar si una política hospitalaria de usar solución de Ringer lactato en lugar de solución salina normal reduce la muerte o el reingreso hospitalario a 90 días tras el ingreso índice.</summary>
-  </entry>
-  <entry>
-    <title>PROTECTION: ensayo aleatorizado de aminoácidos intravenosos para la protección renal</title>
-    <id>https://resumenestrials.com/trials/protection-ensayo-aleatorizado-aminoacidos-intravenosos-proteccion-renal/</id>
-    <link href="https://resumenestrials.com/trials/protection-ensayo-aleatorizado-aminoacidos-intravenosos-proteccion-renal/"/>
-    <updated>2026-10-20T00:00:00Z</updated>
-    <summary>Determinar si una infusión intravenosa de aminoácidos reduce la lesión renal aguda en la primera semana tras la cirugía cardiaca con circulación extracorpórea, frente a placebo.</summary>
-  </entry>
-  <entry>
-    <title>AMIKINHAL: amikacina inhalada para prevenir la neumonía asociada a la ventilación mecánica</title>
-    <id>https://resumenestrials.com/trials/amikinhal-amikacina-inhalada-prevenir-neumonia-asociada-ventilacion-mecanica/</id>
-    <link href="https://resumenestrials.com/trials/amikinhal-amikacina-inhalada-prevenir-neumonia-asociada-ventilacion-mecanica/"/>
-    <updated>2026-10-20T00:00:00Z</updated>
-    <summary>Determinar si un ciclo de 3 días de amikacina inhalada, frente a placebo, reduce el primer episodio de neumonía asociada a la ventilación en los 28 días siguientes en adultos con al menos 72 horas de ventilación mecánica invasiva.</summary>
   </entry>
 </feed>
