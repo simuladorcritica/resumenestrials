@@ -119,7 +119,7 @@
     "url": "https://resumenestrials.com/trials/march-carbocisteina-solucion-salina-hipertonica-insuficiencia-respiratoria-aguda/",
     "title": "MARCH: carbocisteína o solución salina hipertónica en la insuficiencia respiratoria aguda",
     "seo_title": "MARCH trial: carbocisteína o solución salina hipertónica en la insuficiencia respiratoria aguda | Resúmenes Trials",
-    "description": "MARCH: Sin diferencia en la ventilación mecánica, ni con carbocisteína ( 186.1 vs 172.7 h ; RR 0.96; p=0.34) ni con solución salina (184.5 vs 174.3 h; RR…",
+    "description": "MARCH: Sin diferencia significativa en la duración de la ventilación mecánica, ni con carbocisteína (mediana 186.1 vs 172.7 h ; HR 0.96; IC 95%, 0.87 a 1.05…",
     "clusters": [
       {
         "name": "Ventilación e insuficiencia respiratoria",
@@ -134,7 +134,7 @@
     ],
     "intent": {
       "question": "Determinar si la carbocisteína o la solución salina hipertónica, añadidas al cuidado habitual, acortan la duración de la ventilación mecánica en el adulto crítico con insuficiencia respiratoria aguda y secreciones difíciles de aclarar.",
-      "answer": "Sin diferencia en la ventilación mecánica, ni con carbocisteína ( 186.1 vs 172.7 h ; RR 0.96; p=0.34) ni con solución salina (184.5 vs 174.3 h; RR 1.00; p=0.98).",
+      "answer": "Sin diferencia significativa en la duración de la ventilación mecánica, ni con carbocisteína (mediana 186.1 vs 172.7 h ; HR 0.96; IC 95%, 0.87 a 1.05; p=0.34) ni con solución salina (184.5 vs 174.3 h; HR 1.00; IC 95%, 0.91 a 1.10; p=0.98).",
       "population": "Población. Adultos de 16 años o más, en estado crítico, que recibían ventilación mecánica invasiva por una insuficiencia respiratoria aguda y potencialmente reversible, y que presentaban secreciones difíciles de movilizar con el manejo habitual de la vía aérea, según el juicio del equipo tratante. La distribución por raza fue de alrededor de 86% blancos, 3% asiáticos y 2% negros, con cerca de un 8% de origen desconocido…"
     },
     "datePublished": "2026-08-15"
@@ -145,7 +145,7 @@
     "url": "https://resumenestrials.com/trials/soda-bic-bicarbonato-sodio-placebo-adulto-critico-acidosis-metabolica-shock/",
     "title": "SODa-BIC: bicarbonato de sodio en adultos en estado crítico con acidosis metabólica y shock",
     "seo_title": "SODa-BIC trial: bicarbonato de sodio en adultos en estado crítico con acidosis metabólica y shock | Resúmenes Trials",
-    "description": "SODa-BIC: Sin diferencia: el evento renal adverso mayor ocurrió en 40.2% frente a 39.4% a los 30 días. El bicarbonato corrigió el pH y recortó las…",
+    "description": "SODa-BIC: Sin diferencia significativa: el evento renal adverso mayor ocurrió en 40.2% frente a 39.4% a los 30 días (diferencia ajustada 1.2 puntos; IC 95%…",
     "clusters": [
       {
         "name": "Renal y ácido-base",
@@ -160,7 +160,7 @@
     ],
     "intent": {
       "question": "Determinar si una infusión de bicarbonato de sodio, frente a placebo, reduce los eventos renales adversos mayores a 30 días en adultos críticos con acidosis metabólica que reciben vasopresores.",
-      "answer": "Sin diferencia: el evento renal adverso mayor ocurrió en 40.2% frente a 39.4% a los 30 días.",
+      "answer": "Sin diferencia significativa: el evento renal adverso mayor ocurrió en 40.2% frente a 39.4% a los 30 días (diferencia ajustada 1.2 puntos; IC 95%, −7.1 a 9.4; p = 0.78).",
       "population": "La población fueron adultos de dieciocho años o más ingresados en cuidados intensivos que recibían una infusión continua de vasopresores para corregir la hipotensión y que además cursaban con acidosis metabólica, definida por tres criterios simultáneos: un pH por debajo de 7.30, un exceso de base no mayor de −4 mmol por litro y una presión parcial de dióxido de carbono arterial no mayor de 45 mm Hg sin intubación, o no mayor…"
     },
     "datePublished": "2026-08-15"
@@ -3576,7 +3576,7 @@
     "intent": {
       "question": "Evaluar si la reanimación cardiopulmonar extracorpórea, comparada con la reanimación convencional, mejora la supervivencia con resultado neurológico favorable a los 30 días en pacientes con paro cardiaco extrahospitalario refractario.",
       "answer": "La supervivencia con resultado neurológico favorable a los 30 días fue similar entre grupos, 20% con reanimación extracorpórea frente a 16% con reanimación convencional (razón de momios 1.4; IC 95%, 0.5 a 3.5; p=0.52) , sin diferencia estadísticamente significativa.",
-      "population": "La población fueron adultos de 18 a 70 años con paro cardiaco extrahospitalario presenciado, que habían recibido reanimación por testigos, con un ritmo inicial de fibrilación o taquicardia ventricular, y sin retorno de circulación espontánea tras 15 minutos de soporte vital avanzado, lo que definía el paro como refractario. El estudio se hizo en los Países Bajos; la raza o etnia de los participantes no se reporta."
+      "population": "La población fueron adultos de 18 a 70 años con paro cardiaco extrahospitalario presenciado, que habían recibido soporte vital básico (salvo paro presenciado por el equipo de emergencias), con un ritmo inicial de fibrilación o taquicardia ventricular, y sin retorno de circulación espontánea tras 15 minutos de soporte vital avanzado, lo que definía el paro como refractario. El estudio se hizo en los Países Bajos; la raza o…"
     },
     "datePublished": "2026-09-03"
   },
@@ -7281,7 +7281,7 @@
     ],
     "intent": {
       "question": "Determinar si suspender la aspirina un mes después de un infarto agudo de miocardio de bajo riesgo con revascularización completa, y continuar con un inhibidor P2Y12 en monoterapia, es no inferior a mantener la doble antiagregación durante 11 meses más.",
-      "answer": "El compuesto primario ocurrió en el 2.1% frente al 2.2% (diferencia de menos 0.09 puntos; IC 95% menos 1.39 a 1.20; P = 0.02 para no inferioridad), con el límite superior del IC 95% (1.20) por debajo del margen de 1.25 puntos.",
+      "answer": "El compuesto primario ocurrió en el 2.1% frente al 2.2% (diferencia de menos 0.09 puntos; IC 95% menos 1.39 a 1.20; P = 0.02 para no inferioridad), con el límite superior del IC 95% (1.20) por debajo del margen de 1.25 puntos, aunque en el análisis por protocolo no se demostró la no inferioridad.",
       "population": "La población fueron adultos con un infarto agudo de miocardio, con o sin elevación del ST, con revascularización completa sin complicaciones mediante el stent Firehawk Liberty y que, tras un mes de doble antiagregación, seguían libres de eventos isquémicos y de hemorragias mayores. Eran pacientes de bajo riesgo hemorrágico e isquémico, de 40 centros de Austria, Francia, Italia, Países Bajos, Portugal y España. Raza y etnia: No…"
     },
     "datePublished": "2026-11-04"
