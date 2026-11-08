@@ -7766,5 +7766,31 @@
       "population": "La población fueron adultos chinos de 18 a 75 años con obesidad, definida según los criterios chinos como un índice de masa corporal (IMC) de 28 o más, o con sobrepeso, un IMC de 24 a menos de 28, más al menos una enfermedad relacionada con el peso, como prediabetes, hipertensión, dislipidemia, enfermedad hepática grasa asociada a disfunción metabólica (MAFLD) o apnea obstructiva del sueño. Procedían de 23 hospitales de 11…"
     },
     "datePublished": "2026-11-08"
+  },
+  "293": {
+    "slug": "bridge-tnk-tenecteplasa-intravenosa-antes-trombectomia-ictus",
+    "path": "/trials/bridge-tnk-tenecteplasa-intravenosa-antes-trombectomia-ictus/",
+    "url": "https://resumenestrials.com/trials/bridge-tnk-tenecteplasa-intravenosa-antes-trombectomia-ictus/",
+    "title": "BRIDGE-TNK: tenecteplasa intravenosa antes de la trombectomía en el ictus",
+    "seo_title": "BRIDGE-TNK trial: tenecteplasa intravenosa antes de la trombectomía en el ictus | Resúmenes Trials",
+    "description": "BRIDGE-TNK: La independencia funcional a 90 días (Rankin de 0 a 2) fue del 52.9% con tenecteplasa intravenosa más trombectomía frente al 44.1% con…",
+    "clusters": [
+      {
+        "name": "Neurología",
+        "path": "/medicina-interna/neurologia/",
+        "url": "https://resumenestrials.com/medicina-interna/neurologia/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/bridge-tnk-tenecteplasa-intravenosa-antes-trombectomia-ictus-16x9.jpg",
+      "https://resumenestrials.com/images/trials/bridge-tnk-tenecteplasa-intravenosa-antes-trombectomia-ictus-4x3.jpg",
+      "https://resumenestrials.com/images/trials/bridge-tnk-tenecteplasa-intravenosa-antes-trombectomia-ictus-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si la tenecteplasa intravenosa antes de la trombectomía endovascular aumenta la independencia funcional a los 90 días, frente a la trombectomía sola, en pacientes con ictus isquémico agudo por oclusión de gran vaso atendidos dentro de las 4.5 horas y aptos para trombólisis.",
+      "answer": "La independencia funcional a 90 días (Rankin de 0 a 2) fue del 52.9% con tenecteplasa intravenosa más trombectomía frente al 44.1% con trombectomía sola (razón de riesgos no ajustada 1.20 ; IC 95% 1.01 a 1.43; P=0.04).",
+      "population": "Podían entrar adultos con ictus isquémico agudo por oclusión de gran vaso, dentro de las 4.5 horas desde la última vez que se les vio bien y aptos para trombólisis intravenosa según las guías chinas, atendidos en 39 hospitales de China; todos eran de etnia han, según su propio informe verificado con su documento de identidad."
+    },
+    "datePublished": "2026-11-08"
   }
 }
