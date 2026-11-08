@@ -7792,5 +7792,31 @@
       "population": "Podían entrar adultos con ictus isquémico agudo por oclusión de gran vaso, dentro de las 4.5 horas desde la última vez que se les vio bien y aptos para trombólisis intravenosa según las guías chinas, atendidos en 39 hospitales de China; todos eran de etnia han, según su propio informe verificado con su documento de identidad."
     },
     "datePublished": "2026-11-08"
+  },
+  "294": {
+    "slug": "fibroneer-ild-nerandomilast-pacientes-fibrosis-pulmonar-progresiva",
+    "path": "/trials/fibroneer-ild-nerandomilast-pacientes-fibrosis-pulmonar-progresiva/",
+    "url": "https://resumenestrials.com/trials/fibroneer-ild-nerandomilast-pacientes-fibrosis-pulmonar-progresiva/",
+    "title": "FIBRONEER-ILD: nerandomilast en pacientes con fibrosis pulmonar progresiva",
+    "seo_title": "FIBRONEER-ILD trial: nerandomilast en pacientes con fibrosis pulmonar progresiva | Resúmenes Trials",
+    "description": "FIBRONEER-ILD: A las 52 semanas, el cambio medio ajustado de la FVC fue de −98.6 ml con 18 mg dos veces al día y −165.8 ml con placebo (diferencia ajustada…",
+    "clusters": [
+      {
+        "name": "Neumología",
+        "path": "/medicina-interna/neumologia/",
+        "url": "https://resumenestrials.com/medicina-interna/neumologia/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/fibroneer-ild-nerandomilast-pacientes-fibrosis-pulmonar-progresiva-16x9.jpg",
+      "https://resumenestrials.com/images/trials/fibroneer-ild-nerandomilast-pacientes-fibrosis-pulmonar-progresiva-4x3.jpg",
+      "https://resumenestrials.com/images/trials/fibroneer-ild-nerandomilast-pacientes-fibrosis-pulmonar-progresiva-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Evaluar si el nerandomilast a 18 o 9 mg dos veces al día, frente a placebo, reduce la caída de la capacidad vital forzada a las 52 semanas en pacientes con fibrosis pulmonar progresiva distinta de la fibrosis pulmonar idiopática.",
+      "answer": "A las 52 semanas, el cambio medio ajustado de la FVC fue de −98.6 ml con 18 mg dos veces al día y −165.8 ml con placebo (diferencia ajustada 67.2 ml ; IC 95% 31.9 a 102.5; P<0.001), y de −84.6 ml con 9 mg (diferencia ajustada 81.1 ml ; IC 95% 46.0 a 116.3; P<0.001).",
+      "population": "La población fueron adultos con enfermedad pulmonar intersticial distinta de la fibrosis pulmonar idiopática y con fibrosis progresiva. Se exigía extensión fibrótica mayor del 10% en una tomografía computarizada de alta resolución (TCAR) de los 12 meses previos, confirmada de forma central; capacidad vital forzada (FVC) de al menos el 45% del predicho y capacidad de difusión de monóxido de carbono (DLCO) de al menos el 25%; y…"
+    },
+    "datePublished": "2026-11-08"
   }
 }
