@@ -7740,5 +7740,31 @@
       "population": "La población fueron adultos con diabetes tipo 2 y enfermedad renal crónica con albuminuria: hemoglobina glucosilada menor de 11%, tasa de filtración glomerular estimada (TFGe) entre 30 y 90 ml/min/1.73 m² y cociente albúmina/creatinina en orina (CACu) entre 100 y 5000 mg/g. Se exigía tomar desde hacía más de 1 mes un inhibidor de la enzima convertidora de angiotensina (IECA) o un antagonista del receptor de angiotensina II…"
     },
     "datePublished": "2026-11-08"
+  },
+  "292": {
+    "slug": "glory-1-mazdutida-vez-semana-adultos-chinos-obesidad-sobrepeso",
+    "path": "/trials/glory-1-mazdutida-vez-semana-adultos-chinos-obesidad-sobrepeso/",
+    "url": "https://resumenestrials.com/trials/glory-1-mazdutida-vez-semana-adultos-chinos-obesidad-sobrepeso/",
+    "title": "GLORY-1: mazdutida una vez por semana en adultos chinos con obesidad o sobrepeso",
+    "seo_title": "GLORY-1 trial: mazdutida una vez por semana en adultos chinos con obesidad o sobrepeso | Resúmenes Trials",
+    "description": "GLORY-1: A la semana 32, el peso cambió −10.09% con 4 mg, −12.55% con 6 mg y 0.45% con placebo: diferencias de −10.54 puntos porcentuales (IC 95% −11.83 a…",
+    "clusters": [
+      {
+        "name": "Renal y metabolismo",
+        "path": "/medicina-interna/renal-metabolica/",
+        "url": "https://resumenestrials.com/medicina-interna/renal-metabolica/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/glory-1-mazdutida-vez-semana-adultos-chinos-obesidad-sobrepeso-16x9.jpg",
+      "https://resumenestrials.com/images/trials/glory-1-mazdutida-vez-semana-adultos-chinos-obesidad-sobrepeso-4x3.jpg",
+      "https://resumenestrials.com/images/trials/glory-1-mazdutida-vez-semana-adultos-chinos-obesidad-sobrepeso-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Evaluar si la mazdutida subcutánea una vez por semana, a 4 o 6 mg, reduce el peso corporal a la semana 32 frente a placebo en adultos chinos con obesidad o con sobrepeso y al menos una enfermedad relacionada con el peso.",
+      "answer": "A la semana 32, el peso cambió −10.09% con 4 mg, −12.55% con 6 mg y 0.45% con placebo: diferencias de −10.54 puntos porcentuales (IC 95% −11.83 a −9.26) y −13.00 puntos porcentuales (IC 95% −14.31 a −11.70) , con P<0.001 en ambas; perdieron al menos 5% del peso el 73.9% , el 82.0% y el 10.5% (P<0.001).",
+      "population": "La población fueron adultos chinos de 18 a 75 años con obesidad, definida según los criterios chinos como un índice de masa corporal (IMC) de 28 o más, o con sobrepeso, un IMC de 24 a menos de 28, más al menos una enfermedad relacionada con el peso, como prediabetes, hipertensión, dislipidemia, enfermedad hepática grasa asociada a disfunción metabólica (MAFLD) o apnea obstructiva del sueño. Procedían de 23 hospitales de 11…"
+    },
+    "datePublished": "2026-11-08"
   }
 }
