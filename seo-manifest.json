@@ -7662,5 +7662,31 @@
       "population": "La población fueron adultos con diabetes tipo 2 diagnosticada al menos 180 días antes, índice de masa corporal de 27 o más, hemoglobina glucosilada de 7 a 10% y al menos un intento fallido de adelgazar con dieta, tratados solo con estilo de vida o con hasta tres antidiabéticos orales estables durante 90 días. Procedían de 12 países de Europa, Norteamérica y Asia; según su propio informe, el 66.4% eran blancos y el 28.7%…"
     },
     "datePublished": "2026-11-08"
+  },
+  "289": {
+    "slug": "achieve-1-orforglipron-agonista-oral-molecula-pequena-receptor-glp-1-diabetes",
+    "path": "/trials/achieve-1-orforglipron-agonista-oral-molecula-pequena-receptor-glp-1-diabetes/",
+    "url": "https://resumenestrials.com/trials/achieve-1-orforglipron-agonista-oral-molecula-pequena-receptor-glp-1-diabetes/",
+    "title": "ACHIEVE-1: orforglipron, agonista oral de molécula pequeña del receptor de GLP-1, en la diabetes tipo 2 temprana",
+    "seo_title": "ACHIEVE-1 trial: orforglipron, agonista oral de molécula pequeña del receptor de GLP-1, en la diabetes tipo 2 temprana | Resúmenes Trials",
+    "description": "ACHIEVE-1: Con orforglipron a 3, 12 y 36 mg, la HbA1c bajó a las 40 semanas 0.83, 1.06 y 1.07 puntos más que con placebo (IC 95% −1.10 a −0.56, −1.33 a −0.79…",
+    "clusters": [
+      {
+        "name": "Renal y metabolismo",
+        "path": "/medicina-interna/renal-metabolica/",
+        "url": "https://resumenestrials.com/medicina-interna/renal-metabolica/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/achieve-1-orforglipron-agonista-oral-molecula-pequena-receptor-glp-1-diabetes-16x9.jpg",
+      "https://resumenestrials.com/images/trials/achieve-1-orforglipron-agonista-oral-molecula-pequena-receptor-glp-1-diabetes-4x3.jpg",
+      "https://resumenestrials.com/images/trials/achieve-1-orforglipron-agonista-oral-molecula-pequena-receptor-glp-1-diabetes-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Evaluar si el orforglipron oral una vez al día (3, 12 o 36 mg), frente a placebo, reduce la hemoglobina glucosilada a las 40 semanas en adultos con diabetes tipo 2 temprana mal controlada solo con dieta y ejercicio.",
+      "answer": "Con orforglipron a 3, 12 y 36 mg, la HbA1c bajó a las 40 semanas 0.83, 1.06 y 1.07 puntos más que con placebo (IC 95% −1.10 a −0.56, −1.33 a −0.79 y −1.33 a −0.81; P<0.001 en las tres comparaciones).",
+      "population": "La población fueron adultos de 18 años o más con diabetes tipo 2 mal controlada solo con dieta y ejercicio, sin hipoglucemiantes en los 3 meses previos ni insulina previa, con una hemoglobina glucosilada (HbA1c) de 7.0% a 9.5%, un índice de masa corporal de 23.0 o más y peso estable. Según su propio informe, el 43.8% eran asiáticos, el 25.9% blancos, el 25.6% indígenas americanos y el 4.3% negros, y el 39.9% se identificó como…"
+    },
+    "datePublished": "2026-11-08"
   }
 }
