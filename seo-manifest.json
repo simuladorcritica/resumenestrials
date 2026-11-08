@@ -7688,5 +7688,57 @@
       "population": "La población fueron adultos de 18 años o más con diabetes tipo 2 mal controlada solo con dieta y ejercicio, sin hipoglucemiantes en los 3 meses previos ni insulina previa, con una hemoglobina glucosilada (HbA1c) de 7.0% a 9.5%, un índice de masa corporal de 23.0 o más y peso estable. Según su propio informe, el 43.8% eran asiáticos, el 25.9% blancos, el 25.6% indígenas americanos y el 4.3% negros, y el 39.9% se identificó como…"
     },
     "datePublished": "2026-11-08"
+  },
+  "290": {
+    "slug": "promizing-ventilacion-asistida-proporcional-minimizar-duracion-ventilacion-mecanica",
+    "path": "/trials/promizing-ventilacion-asistida-proporcional-minimizar-duracion-ventilacion-mecanica/",
+    "url": "https://resumenestrials.com/trials/promizing-ventilacion-asistida-proporcional-minimizar-duracion-ventilacion-mecanica/",
+    "title": "PROMIZING: ventilación asistida proporcional para minimizar la duración de la ventilación mecánica",
+    "seo_title": "PROMIZING trial: ventilación asistida proporcional para minimizar la duración de la ventilación mecánica | Resúmenes Trials",
+    "description": "PROMIZING: La mediana del tiempo hasta la liberación exitosa de la ventilación fue de 7.3 días con PAV+ y 6.8 días con PSV (IC 95%, 6.2 a 9.7 y 5.4 a 8.8…",
+    "clusters": [
+      {
+        "name": "Ventilación e insuficiencia respiratoria",
+        "path": "/medicina-critica/ventilacion-respiratoria/",
+        "url": "https://resumenestrials.com/medicina-critica/ventilacion-respiratoria/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/promizing-ventilacion-asistida-proporcional-minimizar-duracion-ventilacion-mecanica-16x9.jpg",
+      "https://resumenestrials.com/images/trials/promizing-ventilacion-asistida-proporcional-minimizar-duracion-ventilacion-mecanica-4x3.jpg",
+      "https://resumenestrials.com/images/trials/promizing-ventilacion-asistida-proporcional-minimizar-duracion-ventilacion-mecanica-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si la ventilación asistida proporcional con factores de ganancia ajustables a la carga (PAV+) acorta el tiempo hasta la liberación exitosa de la ventilación mecánica frente a la ventilación con presión de soporte, en adultos críticos que toleran soporte parcial pero aún no están listos para la extubación.",
+      "answer": "La mediana del tiempo hasta la liberación exitosa de la ventilación fue de 7.3 días con PAV+ y 6.8 días con PSV (IC 95%, 6.2 a 9.7 y 5.4 a 8.8; p=0.58 por la prueba de Gray; hazard ratio en el modelo multiestado, 0.96; IC 95%, 0.80 a 1.15), sin diferencia significativa, y el intervalo de la diferencia de medianas (−3.0 a 3.5…",
+      "population": "La población fueron adultos en estado crítico con ventilación mecánica invasiva durante al menos 24 horas, capaces de tolerar presión de soporte al menos 30 minutos pero aún no listos para dejar el ventilador, atendidos en 23 hospitales de Argentina, Canadá, Francia, Grecia, Italia, Arabia Saudita y España. El 69.8% fue registrado como caucásico y en el 15.0% no constó la raza, dato que la ley francesa restringe."
+    },
+    "datePublished": "2026-11-08"
+  },
+  "291": {
+    "slug": "confidence-finerenona-empagliflozina-enfermedad-renal-cronica-diabetes-tipo-2",
+    "path": "/trials/confidence-finerenona-empagliflozina-enfermedad-renal-cronica-diabetes-tipo-2/",
+    "url": "https://resumenestrials.com/trials/confidence-finerenona-empagliflozina-enfermedad-renal-cronica-diabetes-tipo-2/",
+    "title": "CONFIDENCE: finerenona con empagliflozina en la enfermedad renal crónica y la diabetes tipo 2",
+    "seo_title": "CONFIDENCE trial: finerenona con empagliflozina en la enfermedad renal crónica y la diabetes tipo 2 | Resúmenes Trials",
+    "description": "CONFIDENCE: A los 180 días, la combinación de finerenona y empagliflozina redujo el cociente albúmina/creatinina en orina un 29% más que la finerenona sola…",
+    "clusters": [
+      {
+        "name": "Renal y metabolismo",
+        "path": "/medicina-interna/renal-metabolica/",
+        "url": "https://resumenestrials.com/medicina-interna/renal-metabolica/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/confidence-finerenona-empagliflozina-enfermedad-renal-cronica-diabetes-tipo-2-16x9.jpg",
+      "https://resumenestrials.com/images/trials/confidence-finerenona-empagliflozina-enfermedad-renal-cronica-diabetes-tipo-2-4x3.jpg",
+      "https://resumenestrials.com/images/trials/confidence-finerenona-empagliflozina-enfermedad-renal-cronica-diabetes-tipo-2-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Evaluar si iniciar a la vez finerenona y empagliflozina reduce el cociente albúmina/creatinina en orina a los 180 días más que cada fármaco por separado en adultos con enfermedad renal crónica con albuminuria y diabetes tipo 2.",
+      "answer": "A los 180 días, la combinación de finerenona y empagliflozina redujo el cociente albúmina/creatinina en orina un 29% más que la finerenona sola (cociente de medias de mínimos cuadrados 0.71 ; IC 95% 0.61 a 0.82; P<0.001) y un 32% más que la empagliflozina sola ( 0.68 ; IC 95% 0.59 a 0.79; P<0.001).",
+      "population": "La población fueron adultos con diabetes tipo 2 y enfermedad renal crónica con albuminuria: hemoglobina glucosilada menor de 11%, tasa de filtración glomerular estimada (TFGe) entre 30 y 90 ml/min/1.73 m² y cociente albúmina/creatinina en orina (CACu) entre 100 y 5000 mg/g. Se exigía tomar desde hacía más de 1 mes un inhibidor de la enzima convertidora de angiotensina (IECA) o un antagonista del receptor de angiotensina II…"
+    },
+    "datePublished": "2026-11-08"
   }
 }
