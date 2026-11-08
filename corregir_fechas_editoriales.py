@@ -9,12 +9,12 @@ import generar_seo as base
 def block(item: dict) -> str:
     published = str(item.get('fecha_publicacion_resumen') or '').strip()
     modified = str(item.get('fecha_revision') or item.get('actualizado') or '').strip()
-    parts = []
+    parts = ['<span class="ev-signature">Por <a href="/equipo-editorial/" rel="author">Editorial EMEICRÍTICA</a></span>']
     if published:
         parts.append(f'<span>Publicado en Resúmenes Trials: <time datetime="{html.escape(published)}">{html.escape(base.fecha_humana(published))}</time></span>')
     if modified:
         parts.append(f'<span>Última revisión: <time datetime="{html.escape(modified)}">{html.escape(base.fecha_humana(modified))}</time></span>')
-    return '<div class="ev-editorial-dates">' + ' · '.join(parts) + '</div>' if parts else ''
+    return '<div class="ev-editorial-dates">' + ' · '.join(parts) + '</div>'
 
 
 def main() -> None:

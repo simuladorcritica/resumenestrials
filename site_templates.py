@@ -16,13 +16,17 @@ def human_date(value):
  months=["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"]
  return f"{int(m[3])} de {months[int(m[2])-1]} de {m[1]}" if m and 1<=int(m[2])<=12 else value
 
+EDITORIAL_SIGNATURE='<span class="ev-signature">Por <a href="/equipo-editorial/" rel="author">Editorial EMEICRÍTICA</a></span>'
+METHOD_NOTE=('<div class="ev-method"><span class="ev-original-label">Cómo se elaboró</span>'
+ '<span>Resumen redactado por la Editorial EMEICRÍTICA con apoyo de herramientas de inteligencia artificial, con criterios editoriales fijos, y verificado con controles automáticos contra el artículo original.'
+ '</span><span class="ev-method-links"><a href="/metodologia/">Metodología</a><a href="/equipo-editorial/">Cómo trabajamos</a><a href="mailto:resumenestrials@outlook.com">Reportar un error</a></span></div>')
 def editorial_dates(r):
  values=[("fecha_publicacion_resumen","Publicado en Resúmenes Trials"),("fecha_revision","Última revisión")]
- parts=[]
+ parts=[EDITORIAL_SIGNATURE]
  for key,label in values:
   value=r.get(key) or (r.get("actualizado") if key=="fecha_revision" else "")
   if value:parts.append(f'<span>{label}: <time datetime="{esc(value)}">{esc(human_date(value))}</time></span>')
- return '<div class="ev-editorial-dates">'+" · ".join(parts)+'</div>' if parts else ""
+ return '<div class="ev-editorial-dates">'+" · ".join(parts)+'</div>'
 
 def version():
  p=ROOT/"ui/runtime-version.json"
@@ -173,7 +177,7 @@ def reading(r,manifest,brief=False,legacy=False):
   f'<p class="ev-readtime">{readtime(r)}</p>{editorial_dates(r)}</header>'
   '<details class="ev-facts" open><summary>Ficha técnica del estudio</summary>'+facts(r)+'</details>'+toolbar+'<progress class="ev-progress" max="100" value="0" aria-label="Progreso de lectura"></progress>'
   '<div class="ev-reader-grid">'+article+'<aside class="ev-rail"><p class="ev-rail-title">En esta página</p><nav data-ev-toc aria-label="Secciones del artículo"></nav></aside></div>'
-  f'<div class="ev-endmatter"><p class="ev-original"><span class="ev-original-label">Artículo original</span>{original}</p><nav class="ev-neighbors" aria-label="Continuidad de lectura" data-ev-neighbors></nav><section class="ev-related"><h2>Evidencia relacionada</h2><ul class="ev-list" data-ev-related></ul></section><p class="ev-status" id="ev-reader-status" role="status"></p></div></section>')
+  f'<div class="ev-endmatter"><p class="ev-original"><span class="ev-original-label">Artículo original</span>{original}</p>{METHOD_NOTE}<nav class="ev-neighbors" aria-label="Continuidad de lectura" data-ev-neighbors></nav><section class="ev-related"><h2>Evidencia relacionada</h2><ul class="ev-list" data-ev-related></ul></section><p class="ev-status" id="ev-reader-status" role="status"></p></div></section>')
 def doc_page(eyebrow,h1,date_html,content):return '<div class="ev-doc ev-doc-text"><p class="ev-eyebrow"><span class="ev-pulse" aria-hidden="true"></span>'+eyebrow+'</p><h1>'+h1+'</h1>'+date_html+'<article class="ev-prose">'+content+'</article></div>'
 def write(path,text):path.parent.mkdir(parents=True,exist_ok=True);path.write_text(text,encoding="utf-8")
 def render_all():

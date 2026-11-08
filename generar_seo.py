@@ -205,6 +205,29 @@ def related(item: dict, todos: list[dict], limite: int = 4) -> list[dict]:
     return [x[2] for x in candidatos[:limite]]
 
 
+def estudio_original(item: dict, original_url: str) -> dict:
+    """Describe el artículo científico resumido como ScholarlyArticle (solo datos ya presentes en la ficha)."""
+    doi = texto_plano(item.get("doi")).strip()
+    if not doi and not original_url:
+        return {}
+    estudio: dict = {"@type": "ScholarlyArticle"}
+    if original_url:
+        estudio["url"] = original_url
+    if re.fullmatch(r"10\.\d{4,9}/\S+", doi):
+        estudio["identifier"] = {"@type": "PropertyValue", "propertyID": "DOI", "value": doi}
+        estudio["sameAs"] = f"https://doi.org/{doi}"
+    autor = texto_plano(item.get("autor")).strip()
+    if autor:
+        estudio["author"] = {"@type": "Person", "name": autor}
+    revista = texto_plano(item.get("revista")).strip()
+    if revista:
+        estudio["isPartOf"] = {"@type": "Periodical", "name": revista}
+    fecha = str(item.get("fecha") or "").strip()
+    if re.fullmatch(r"\d{4}-\d{2}-\d{2}", fecha):
+        estudio["datePublished"] = fecha
+    return estudio
+
+
 def jsonld_article(item: dict) -> str:
     canonical = url_trial(item)
     descripcion = recortar(item.get("objetivo") or item.get("hallazgo") or "Resumen crítico en español de un ensayo clínico aleatorizado.")
@@ -232,8 +255,10 @@ def jsonld_article(item: dict) -> str:
     if temas:
         article["keywords"] = temas
     original_url = url_http(item.get("original"))
+    estudio = estudio_original(item, original_url)
+    if estudio:
+        article["isBasedOn"] = estudio
     if original_url:
-        article["isBasedOn"] = original_url
         article["citation"] = original_url
     elif item.get("original"):
         article["citation"] = texto_plano(item.get("original"))
