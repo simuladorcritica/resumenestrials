@@ -28,6 +28,11 @@ for(const token of ["format='a4'", "['a4','mobile']", 'item.corto','item.cuerpo'
 // Identidad editorial: fuentes OFL incrustadas (TTF reales), sin marca de agua y un solo punto ocre (la línea de señal).
 for(const f of (pdf.match(/FONT_FILES=\{([^}]+)\}/)||[,''])[1].matchAll(/'([a-z0-9-]+)'/g)){const file='fonts/pdf/'+f[1]+'.ttf';if(!fs.existsSync(file)||fs.readFileSync(file).readUInt32BE(0)!==0x00010000)fail('PDF sin la fuente TrueType '+file)}
 if(((pdf.match(/FONT_FILES=\{([^}]+)\}/)||[,''])[1].match(/'[a-z0-9-]+'/g)||[]).length<7)fail('PDF con menos de 7 fuentes declaradas');
+// jsPDF autoalojado: la URL es del propio sitio y el archivo coincide byte a byte con su SRI.
+{const url=(pdf.match(/JSPDF_URL='([^']+)'/)||[])[1],sri=(pdf.match(/JSPDF_SRI='sha384-([^']+)'/)||[])[1];
+ if(!url||!url.startsWith('/vendor/'))fail('jsPDF debe cargarse desde /vendor/ (sin depender del CDN)');
+ else if(!fs.existsSync('.'+url))fail('Falta el archivo de jsPDF '+url);
+ else if((await import('node:crypto')).createHash('sha384').update(fs.readFileSync('.'+url)).digest('base64')!==sri)fail('El jsPDF autoalojado no coincide con su SRI');}
 if(/GState|opacity:/.test(pdf))fail('PDF con marca de agua o transparencias');
 if((pdf.match(/C\.ocre/g)||[]).length!==1)fail('El ocre debe usarse solo en el punto de la línea de señal');
 // Formato editorial del PDF (decisión del editor, noviembre de 2026): título limpio sin antetítulo de especialidad/tipo,

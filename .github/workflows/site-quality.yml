@@ -24,7 +24,7 @@ permissions:
 jobs:
   data-validation:
     if: ${{ github.event_name != 'workflow_dispatch' || inputs.confirmation != 'SEND_ONE_QA_EMAIL' }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v7.0.1
         with:
@@ -234,7 +234,7 @@ jobs:
 
   download-contract-smoke:
     if: ${{ github.event_name != 'workflow_dispatch' || inputs.confirmation != 'SEND_ONE_QA_EMAIL' }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     # Contenedor oficial de Playwright (misma versión que package.json): navegadores y
     # dependencias ya instalados. Instalarlos con apt llegó a tardar 14 min y agotaba el tiempo.
     container: mcr.microsoft.com/playwright:v1.64.1-noble
@@ -266,7 +266,11 @@ jobs:
       - name: Serve generated site locally
         run: |
           python3 -m http.server 8000 >/tmp/rt-http.log 2>&1 &
-          sleep 3
+          python3 -c "import time,urllib.request as u
+          for i in range(60):
+              try: u.urlopen('http://127.0.0.1:8000/',timeout=5).read(1); break
+              except Exception: time.sleep(1)
+          else: raise SystemExit('Servidor local no disponible tras 60 s')"
       - name: Validate unified trial, short summary and PDF contract
         env:
           RT_BASE_URL: http://127.0.0.1:8000
@@ -274,7 +278,7 @@ jobs:
 
   production-health:
     if: ${{ (github.event_name != 'workflow_dispatch' || inputs.confirmation != 'SEND_ONE_QA_EMAIL') && (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main') }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v7.0.1
       - uses: actions/setup-node@v7.1.0
@@ -287,7 +291,7 @@ jobs:
 
   browser-smoke-chromium:
     if: ${{ (github.event_name != 'workflow_dispatch' || inputs.confirmation != 'SEND_ONE_QA_EMAIL') && (github.event_name == 'pull_request' || github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main') }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     container: mcr.microsoft.com/playwright:v1.64.1-noble
     timeout-minutes: 30
     strategy:
@@ -307,7 +311,11 @@ jobs:
       - name: Serve the exact pull request locally
         run: |
           python3 -m http.server 8000 >/tmp/rt-browser-http.log 2>&1 &
-          sleep 3
+          python3 -c "import time,urllib.request as u
+          for i in range(60):
+              try: u.urlopen('http://127.0.0.1:8000/',timeout=5).read(1); break
+              except Exception: time.sleep(1)
+          else: raise SystemExit('Servidor local no disponible tras 60 s')"
       - name: Sweep every record in this browser configuration
         env:
           RT_BASE_URL: http://127.0.0.1:8000
@@ -320,7 +328,7 @@ jobs:
 
   browser-smoke-webkit:
     if: ${{ (github.event_name != 'workflow_dispatch' || inputs.confirmation != 'SEND_ONE_QA_EMAIL') && (github.event_name == 'pull_request' || github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main') }}
-    runs-on: windows-latest
+    runs-on: windows-2025
     timeout-minutes: 30
     strategy:
       fail-fast: false
@@ -348,10 +356,14 @@ jobs:
         run: |
           $qaServer = Start-Process -FilePath "$env:pythonLocation/python.exe" -ArgumentList '-m','http.server','8000' -WorkingDirectory $env:GITHUB_WORKSPACE -WindowStyle Hidden -PassThru -RedirectStandardOutput "$env:RUNNER_TEMP/rt-browser-http.log" -RedirectStandardError "$env:RUNNER_TEMP/rt-browser-http-errors.log"
           try {
-            Start-Sleep -Seconds 3
-            if ($qaServer.HasExited) { throw 'The local QA server exited before the sweep' }
-            $qaResponse = Invoke-WebRequest -Uri 'http://127.0.0.1:8000/'
-            if ($qaResponse.StatusCode -ne 200) { throw 'The local QA server is not ready' }
+            # The Windows runner can take several seconds to bind the port: retry for up to 60 s.
+            $qaReady = $false
+            for ($qaTry = 1; $qaTry -le 30; $qaTry++) {
+              Start-Sleep -Seconds 2
+              if ($qaServer.HasExited) { throw 'The local QA server exited before the sweep' }
+              try { $qaResponse = Invoke-WebRequest -Uri 'http://127.0.0.1:8000/' -UseBasicParsing -TimeoutSec 5; if ($qaResponse.StatusCode -eq 200) { $qaReady = $true; break } } catch { Write-Host "QA server not ready yet (attempt $qaTry)" }
+            }
+            if (-not $qaReady) { throw 'The local QA server is not ready after 60 s' }
             node scripts/browser-smoke.mjs
             if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
           } finally {
@@ -365,7 +377,7 @@ jobs:
 
   browser-interactions:
     if: ${{ (github.event_name != 'workflow_dispatch' || inputs.confirmation != 'SEND_ONE_QA_EMAIL') && (github.event_name == 'pull_request' || github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main') }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v7.0.1
@@ -379,7 +391,11 @@ jobs:
       - name: Serve the exact pull request locally
         run: |
           python3 -m http.server 8000 >/tmp/rt-browser-http.log 2>&1 &
-          sleep 3
+          python3 -c "import time,urllib.request as u
+          for i in range(60):
+              try: u.urlopen('http://127.0.0.1:8000/',timeout=5).read(1); break
+              except Exception: time.sleep(1)
+          else: raise SystemExit('Servidor local no disponible tras 60 s')"
       - name: Check all eight interaction configurations
         env:
           RT_BASE_URL: http://127.0.0.1:8000
@@ -392,7 +408,7 @@ jobs:
 
   jekyll-artifact:
     if: ${{ github.event_name != 'workflow_dispatch' || inputs.confirmation != 'SEND_ONE_QA_EMAIL' }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v7.0.1
       - uses: actions/setup-node@v7.1.0
@@ -409,7 +425,7 @@ jobs:
   browser-smoke:
     if: ${{ always() && (github.event_name != 'workflow_dispatch' || inputs.confirmation != 'SEND_ONE_QA_EMAIL') }}
     needs: [browser-smoke-chromium, browser-smoke-webkit, browser-interactions, download-contract-smoke, jekyll-artifact]
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - name: Require every browser and download dependency to succeed
         env:
@@ -425,7 +441,7 @@ jobs:
   resend-qa-single-recipient:
     name: Enviar exactamente un correo QA
     if: ${{ github.event_name == 'workflow_dispatch' && inputs.confirmation == 'SEND_ONE_QA_EMAIL' }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 5
     environment: resend-qa
     concurrency:

@@ -57,3 +57,11 @@ Las dos Edge Functions usan imports npm fijados y se resuelven con Deno 2 median
 ## Secretos requeridos
 
 `SUPABASE_ACCESS_TOKEN`, `SUPABASE_SERVICE_ROLE_KEY`, `TURNSTILE_SECRET_KEY` y `RESEND_API_KEY`. Nunca se incorporan a JavaScript público ni al historial Git, y solo se inyectan en pasos de workflow que no se ejecutan para `pull_request`.
+
+## Fiabilidad del entorno y alertas
+
+- Los flujos de GitHub usan imágenes fijas (`ubuntu-24.04`, `windows-2025`), no `*-latest`, para que una migración de GitHub no cambie fuentes del sistema ni navegadores sin aviso.
+- Antes de cada barrido, los flujos esperan a que el servidor local responda (hasta 60 s, con reintentos) en lugar de una pausa fija.
+- jsPDF 4.2.1 se sirve desde `vendor/jspdf-4.2.1/` (mismos bytes y SRI que cdnjs): una caída del CDN no rompe las descargas. `validate-resumen-page.mjs` comprueba la ruta y el SRI.
+- `alertas-produccion.yml` avisa por Telegram cuando una verificación de `main` falla dos veces seguidas y cuando se recupera. Secretos: `TELEGRAM_BOT_TOKEN` y `TELEGRAM_CHAT_ID`.
+- `regenerar-pr-en-conflicto.yml` integra `main` en los PR `claude/*` que solo chocan en salidas generadas y las regenera con `scripts/regenerar-pr-en-conflicto.sh`. Si el conflicto toca fuentes, comenta en el PR. Secreto: `RT_AUTOMATION_TOKEN` (un push con el token automático de GitHub no relanza las comprobaciones obligatorias). Límite conocido: una tarjeta social que `main` ya generó no se rehace sola; si el PR cambia el diseño de las tarjetas, hay que borrar las nuevas y regenerarlas.

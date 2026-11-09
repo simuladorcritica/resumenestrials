@@ -75,7 +75,7 @@ async function main() {
   const jspdfOk = await page.evaluate(() =>
     import('/ui/pdf.js').then(m=>m.loadJsPDF()).then(()=>true)).catch(() => false);
   if (!jspdfOk) {
-    push("PDF", "la librería jsPDF no se cargó (¿CDN cdnjs caído o bloqueado?): fallarían todas las descargas");
+    push("PDF", "la librería jsPDF no se cargó (¿falta /vendor/jspdf-4.2.1 en el sitio publicado?): fallarían todas las descargas");
   }
 
   // 2) Cada resumen + su PDF

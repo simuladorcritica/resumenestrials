@@ -1,3 +1,12 @@
+## 2026-11-08 · Fiabilidad: pruebas estables, entorno fijo, jsPDF propio y alertas
+
+- El barrido de WebKit (Windows) y los flujos de Linux esperan a que el servidor local responda, con reintentos durante 60 s. Así se corrige el fallo intermitente de las corridas #979 y #982.
+- Los flujos de GitHub usan `ubuntu-24.04` y `windows-2025` fijos en lugar de `*-latest`.
+- jsPDF se sirve desde el propio sitio (`vendor/jspdf-4.2.1/`), con el mismo SRI.
+- Alertas por Telegram cuando una verificación de `main` falla dos veces seguidas.
+- Regeneración automática de los PR `claude/*` que solo chocan en salidas generadas.
+- La web y el contenido no cambian.
+
 ## 2026-11-04 · PDF breve con la misma impresión editorial que el completo
 
 - El PDF breve (A4 y Celular) adopta el mismo diseño que el completo: título limpio, recuadro «Puntos clave» (Pregunta, Hallazgo y Mensaje), ficha y retícula. Solo el folio lo distingue («Resumen breve N.º …»).

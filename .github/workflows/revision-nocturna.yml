@@ -20,7 +20,7 @@ permissions:
 
 jobs:
   revision:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 45
     steps:
       - name: Descargar repositorio
@@ -76,7 +76,11 @@ jobs:
         run: |
           python3 -m http.server 8000 >servidor_local.log 2>&1 &
           echo $! > servidor_local.pid
-          sleep 3
+          python3 -c "import time,urllib.request as u
+          for i in range(60):
+              try: u.urlopen('http://127.0.0.1:8000/',timeout=5).read(1); break
+              except Exception: time.sleep(1)
+          else: raise SystemExit('Servidor local no disponible tras 60 s')"
 
       - name: Prueba base de páginas y PDF
         id: pagina

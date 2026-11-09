@@ -2,7 +2,8 @@
 // Identidad editorial (docs/DESIGN_SYSTEM.md): papel blanco, tinta, petróleo y la línea de señal
 // del logo, que termina en el único punto ocre, solo en la cabecera de la página 1.
 export const JSPDF_VERSION='4.2.1';
-export const JSPDF_URL='https://cdnjs.cloudflare.com/ajax/libs/jspdf/4.2.1/jspdf.umd.min.js';
+// Self-hosted (same bytes and SRI as cdnjs) so a CDN outage cannot break downloads.
+export const JSPDF_URL='/vendor/jspdf-4.2.1/jspdf.umd.min.js';
 export const JSPDF_SRI='sha384-qovJwSBbRDPP5cEjCp8S0UP66wrvnjaa60XMOGzTNanrThcrGfXfnZkvgY8N1KT3';
 // Safety net for characters the embedded fonts do not cover (and for the core-font fallback).
 export function sanPDF(s){return String(s==null?'':s).normalize('NFKC').replace(/−/g,'-').replace(/[–—―‒‑]/g,'-').replace(/[‘’‛′]/g,"'").replace(/[“”‟″]/g,'"').replace(/…/g,'...').replace(/[     ]/g,' ').replace(/​/g,'').replace(/≥/g,'>=').replace(/≤/g,'<=').replace(/≠/g,'!=').replace(/[≈≅]/g,'~').replace(/→/g,'->').replace(/←/g,'<-').replace(/[₀-₉]/g,m=>String(m.charCodeAt(0)-0x2080)).replace(/[αβγδμΔχσ]/g,c=>({α:'alpha',β:'beta',γ:'gamma',δ:'delta',μ:'u',Δ:'Delta',χ:'chi',σ:'sigma'}[c]))}

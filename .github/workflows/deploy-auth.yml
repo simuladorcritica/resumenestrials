@@ -50,7 +50,7 @@ concurrency:
 jobs:
   deploy-and-smoke:
     if: github.event_name == 'workflow_dispatch' && inputs.deploy_backend || github.event.pull_request.head.repo.full_name == github.repository
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 18
     env:
       PROJECT_REF: hnsmozvatgyrascxbhys
@@ -97,7 +97,11 @@ jobs:
       - name: Servir el PR sin conexiones de autenticacion reales
         run: |
           python3 -m http.server 8000 >/tmp/rt-auth-safe-http.log 2>&1 &
-          sleep 3
+          python3 -c "import time,urllib.request as u
+          for i in range(60):
+              try: u.urlopen('http://127.0.0.1:8000/',timeout=5).read(1); break
+              except Exception: time.sleep(1)
+          else: raise SystemExit('Servidor local no disponible tras 60 s')"
 
       - name: Probar registro, login y recuperacion en entorno local aislado
         env:
