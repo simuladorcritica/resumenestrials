@@ -10,11 +10,14 @@ const data = JSON.parse(readFileSync(join(ROOT, 'resumenes.json'), 'utf8'));
 const manifest = JSON.parse(readFileSync(join(ROOT, 'seo-manifest.json'), 'utf8'));
 const clusters = JSON.parse(readFileSync(join(ROOT, 'seo-cluster-manifest.json'), 'utf8'));
 const sitemap = readFileSync(join(ROOT, 'sitemap.xml'), 'utf8');
+const videos = existsSync(join(ROOT, 'videos.json')) ? JSON.parse(readFileSync(join(ROOT, 'videos.json'), 'utf8')) : {};
 const sitemapUrls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
 
 const pages = [
   ['/', '_includes/index-source.html'], ['/metodologia/', 'metodologia/index.html'], ['/equipo-editorial/', 'equipo-editorial/index.html'],
   ['/privacidad/', 'privacidad/index.html'], ['/terminos/', 'terminos/index.html'],
+  ...(data.some((item) => item?.fecha_revision) ? [['/correcciones/', 'correcciones/index.html']] : []),
+  ...Object.keys(videos).map((id) => String(manifest[id]?.path || '').split('/').filter(Boolean).pop()).map((slug) => [`/videos/${slug}/`, `videos/${slug}/index.html`]),
   ['/medicina-critica/', 'medicina-critica/index.html'], ['/medicina-interna/', 'medicina-interna/index.html'],
   ...Object.values(clusters).map((x) => [x.path, `${x.path.replace(/^\//, '')}index.html`]),
   ...Object.values(manifest).map((x) => [x.path, `${x.path.replace(/^\//, '')}index.html`]),

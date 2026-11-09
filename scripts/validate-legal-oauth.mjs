@@ -5,7 +5,7 @@ const assert = (condition, message) => { if (!condition) throw new Error(message
 const scope = 'https://www.googleapis.com/auth/webmasters.readonly';
 
 for (const [path, canonical, title, date] of [
-  ['privacidad/index.html', 'https://resumenestrials.com/privacidad/', 'Política de Privacidad', '3 de septiembre de 2026'],
+  ['privacidad/index.html', 'https://resumenestrials.com/privacidad/', 'Política de Privacidad', '8 de noviembre de 2026'],
   ['terminos/index.html', 'https://resumenestrials.com/terminos/', 'Términos y Condiciones de Uso', '2 de septiembre de 2026'],
 ]) {
   assert(existsSync(path), `Falta ${path}`);

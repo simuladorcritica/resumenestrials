@@ -20,6 +20,38 @@ EDITORIAL_SIGNATURE='<span class="ev-signature">Por <a href="/equipo-editorial/"
 METHOD_NOTE=('<div class="ev-method"><span class="ev-original-label">Cómo se elaboró</span>'
  '<span>Resumen redactado por la Editorial EMEICRÍTICA con apoyo de herramientas de inteligencia artificial, con criterios editoriales fijos, y verificado con controles automáticos contra el artículo original.'
  '</span><span class="ev-method-links"><a href="/metodologia/">Metodología</a><a href="/equipo-editorial/">Cómo trabajamos</a><a href="mailto:resumenestrials@outlook.com">Reportar un error</a></span></div>')
+SUBSCRIBE_NOTE=('<div class="ev-method ev-subscribe"><span class="ev-original-label">Avisos por correo</span>'
+ '<span>Recibe un aviso cuando publiquemos un resumen nuevo. Es gratis y puedes darte de baja cuando quieras.</span>'
+ '<span class="ev-method-links"><a href="/registro.html">Crear cuenta y activar avisos</a><a href="/cuenta.html">Ya tengo cuenta</a></span></div>')
+YOUTUBE_ID=re.compile(r"[A-Za-z0-9_-]{11}")
+def load_videos():
+ """videos.json: {"<id del resumen>": {"youtube_id","titulo","descripcion","fecha_subida","duracion"}}.
+
+ Un video por resumen. Sin entradas no se genera nada; un dato inválido detiene la generación.
+ """
+ p=ROOT/"videos.json"
+ if not p.exists():return {}
+ data=json.loads(p.read_text(encoding="utf-8"))
+ if not isinstance(data,dict):raise ValueError("videos.json debe ser un objeto {id: video}")
+ for k,v in data.items():
+  if not re.fullmatch(r"\d+",str(k)) or not isinstance(v,dict):raise ValueError(f"videos.json: entrada inválida {k!r}")
+  for f in ("youtube_id","titulo","descripcion","fecha_subida","duracion"):
+   if not str(v.get(f) or "").strip():raise ValueError(f"videos.json · {k}: falta {f}")
+  if not YOUTUBE_ID.fullmatch(v["youtube_id"]):raise ValueError(f"videos.json · {k}: youtube_id inválido")
+  if not re.fullmatch(r"\d{4}-\d{2}-\d{2}",v["fecha_subida"]):raise ValueError(f"videos.json · {k}: fecha_subida debe ser AAAA-MM-DD")
+  if not re.fullmatch(r"PT(?=\d)(?:\d+H)?(?:\d+M)?(?:\d+S)?",v["duracion"]):raise ValueError(f"videos.json · {k}: duracion ISO 8601, p. ej. PT6M30S")
+ return data
+def video_minutes(d):
+ m=re.fullmatch(r"PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?",d);h,mi,se=(int(x or 0) for x in m.groups())
+ return max(1,round((h*3600+mi*60+se)/60))
+def video_path(manifest,id):return "/videos/"+manifest[trial_id(id)]["path"].strip("/").split("/")[-1]+"/"
+def video_block(r,manifest,videos):
+ v=videos.get(trial_id(r["id"]))
+ if not v:return ""
+ t=esc(v["titulo"]);y=esc(v["youtube_id"])
+ return (f'<section class="ev-video" aria-labelledby="ev-video-h"><h2 id="ev-video-h">En video</h2><div class="ev-video-frame">'
+  f'<button type="button" class="ev-video-play" data-ev-video="{y}" data-ev-video-title="{t}">{icon("play")}<span>Reproducir: {t}</span></button></div>'
+  f'<p class="ev-video-meta">EMEICRÍTICA · {video_minutes(v["duracion"])} min</p><div class="ev-method-links"><a href="{video_path(manifest,r["id"])}">Página del video</a><a href="https://www.youtube.com/watch?v={y}" target="_blank" rel="noopener noreferrer">Ver en YouTube</a></div></section>')
 def editorial_dates(r):
  values=[("fecha_publicacion_resumen","Publicado en Resúmenes Trials"),("fecha_revision","Última revisión")]
  parts=[EDITORIAL_SIGNATURE]
@@ -31,7 +63,7 @@ def editorial_dates(r):
 def version():
  p=ROOT/"ui/runtime-version.json"
  return json.loads(p.read_text(encoding="utf-8"))["version"] if p.exists() else "nova-v1"
-ICONS={"search":'<circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/>',"sun":'<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>',"moon":'<path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11Z"/>',"menu":'<path d="M4 7h16M4 12h16M4 17h10"/>',"close":'<path d="M6 6l12 12M18 6 6 18"/>',"home":'<path d="M3 10.5 12 3l9 7.5"/><path d="M5.5 9v11h13V9"/><path d="M10 20v-6h4v6"/>',"grid":'<rect x="3.5" y="3.5" width="7" height="7" rx="2"/><rect x="13.5" y="3.5" width="7" height="7" rx="2"/><rect x="3.5" y="13.5" width="7" height="7" rx="2"/><rect x="13.5" y="13.5" width="7" height="7" rx="2"/>',"bookmark":'<path d="M6.5 3.5h11v17l-5.5-4-5.5 4z"/>',"pdf":'<path d="M12 3.5v11"/><path d="m7.5 10 4.5 4.5 4.5-4.5"/><path d="M4.5 16.5v3h15v-3"/>',"list":'<path d="M9 6h11M9 12h11M9 18h11"/><circle cx="4.5" cy="6" r="1"/><circle cx="4.5" cy="12" r="1"/><circle cx="4.5" cy="18" r="1"/>',"read":'<path d="M3 5.5c3.5-1 6.5-.5 9 1.5 2.5-2 5.5-2.5 9-1.5v13c-3.5-1-6.5-.5-9 1.5-2.5-2-5.5-2.5-9-1.5z"/><path d="M12 7v13"/>',"more":'<circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/>',"share":'<circle cx="18" cy="5.5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="18.5" r="2.5"/><path d="m8.2 10.8 7.6-4M8.2 13.2l7.6 4"/>',"text":'<path d="M4 18 9 6l5 12M5.7 14h6.6"/><path d="M15 18l3-7 3 7M15.8 16h4.4"/>',"clock":'<circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/>',"arrow-left":'<path d="M19 12H5M11 6l-6 6 6 6"/>',"arrow-right":'<path d="M5 12h14M13 6l6 6-6 6"/>',"arrow-up":'<path d="M12 19V5M6 11l6-6 6 6"/>',"user":'<circle cx="12" cy="8" r="4"/><path d="M4.5 20.5c1.2-3.8 4-5.5 7.5-5.5s6.3 1.7 7.5 5.5"/>',"external":'<path d="M14 4h6v6M20 4l-9 9"/><path d="M18 14v6H4V6h6"/>',"filter":'<path d="M4 6h16M7 12h10M10 18h4"/>',"spark":'<path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M6 18l2.5-2.5M15.5 8.5 18 6"/>'}
+ICONS={"search":'<circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/>',"sun":'<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>',"moon":'<path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11Z"/>',"menu":'<path d="M4 7h16M4 12h16M4 17h10"/>',"close":'<path d="M6 6l12 12M18 6 6 18"/>',"home":'<path d="M3 10.5 12 3l9 7.5"/><path d="M5.5 9v11h13V9"/><path d="M10 20v-6h4v6"/>',"grid":'<rect x="3.5" y="3.5" width="7" height="7" rx="2"/><rect x="13.5" y="3.5" width="7" height="7" rx="2"/><rect x="3.5" y="13.5" width="7" height="7" rx="2"/><rect x="13.5" y="13.5" width="7" height="7" rx="2"/>',"bookmark":'<path d="M6.5 3.5h11v17l-5.5-4-5.5 4z"/>',"pdf":'<path d="M12 3.5v11"/><path d="m7.5 10 4.5 4.5 4.5-4.5"/><path d="M4.5 16.5v3h15v-3"/>',"list":'<path d="M9 6h11M9 12h11M9 18h11"/><circle cx="4.5" cy="6" r="1"/><circle cx="4.5" cy="12" r="1"/><circle cx="4.5" cy="18" r="1"/>',"read":'<path d="M3 5.5c3.5-1 6.5-.5 9 1.5 2.5-2 5.5-2.5 9-1.5v13c-3.5-1-6.5-.5-9 1.5-2.5-2-5.5-2.5-9-1.5z"/><path d="M12 7v13"/>',"more":'<circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/>',"share":'<circle cx="18" cy="5.5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="18.5" r="2.5"/><path d="m8.2 10.8 7.6-4M8.2 13.2l7.6 4"/>',"text":'<path d="M4 18 9 6l5 12M5.7 14h6.6"/><path d="M15 18l3-7 3 7M15.8 16h4.4"/>',"clock":'<circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/>',"play":'<path d="M8.5 5.5v13l10.5-6.5z"/>',"arrow-left":'<path d="M19 12H5M11 6l-6 6 6 6"/>',"arrow-right":'<path d="M5 12h14M13 6l6 6-6 6"/>',"arrow-up":'<path d="M12 19V5M6 11l6-6 6 6"/>',"user":'<circle cx="12" cy="8" r="4"/><path d="M4.5 20.5c1.2-3.8 4-5.5 7.5-5.5s6.3 1.7 7.5 5.5"/>',"external":'<path d="M14 4h6v6M20 4l-9 9"/><path d="M18 14v6H4V6h6"/>',"filter":'<path d="M4 6h16M7 12h10M10 18h4"/>',"spark":'<path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M6 18l2.5-2.5M15.5 8.5 18 6"/>'}
 def icon(name):return '<svg class="ev-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">'+ICONS[name]+'</svg>'
 INTERNAL=("Cardiología","Cirugía","Endocrinología","Enfermedades Infecciosas","Gastroenterología","Geriatría","Hematología","Infectología","Medicina de Urgencias","Medicina Física y Rehabilitación","Nefrología","Neumología","Neurología","Oncología","Oftalmología","Reumatología","VIH")
 def area_of(r):
@@ -46,7 +78,7 @@ def readtime(r):
  full=minutes(r.get("cuerpo"));brief=minutes(r.get("corto")) if r.get("corto") else 0
  return f'{icon("clock")}<span>Completo {full} min</span>'+(f'<span>Breve {brief} min</span>' if brief else '')
 NAV=[("/","Inicio"),("/medicina-critica/","Medicina Crítica"),("/medicina-interna/","Medicina Interna"),("/biblioteca.html","Mi biblioteca")]
-INFO=[("/metodologia/","Metodología"),("/equipo-editorial/","Editorial"),("/privacidad/","Privacidad"),("/terminos/","Términos")]
+INFO=[("/metodologia/","Metodología"),("/equipo-editorial/","Editorial"),("/correcciones/","Correcciones"),("/privacidad/","Privacidad"),("/terminos/","Términos")]
 SOCIAL=[("https://t.me/ResumenesTrials","Telegram"),("https://x.com/resumenestrials","X · @resumenestrials")]
 def brand(small=False):return '<a class="ev-brand" href="/" aria-label="Resúmenes Trials, ir al inicio"><span class="ev-brand-mark"><img src="/logo.png" width="40" height="40" alt=""></span><span class="ev-brand-name" aria-hidden="true">Resúmenes<b>Trials</b></span></a>'
 def header():
@@ -177,7 +209,49 @@ def reading(r,manifest,brief=False,legacy=False):
   f'<p class="ev-readtime">{readtime(r)}</p>{editorial_dates(r)}</header>'
   '<details class="ev-facts" open><summary>Ficha técnica del estudio</summary>'+facts(r)+'</details>'+toolbar+'<progress class="ev-progress" max="100" value="0" aria-label="Progreso de lectura"></progress>'
   '<div class="ev-reader-grid">'+article+'<aside class="ev-rail"><p class="ev-rail-title">En esta página</p><nav data-ev-toc aria-label="Secciones del artículo"></nav></aside></div>'
-  f'<div class="ev-endmatter"><p class="ev-original"><span class="ev-original-label">Artículo original</span>{original}</p>{METHOD_NOTE}<nav class="ev-neighbors" aria-label="Continuidad de lectura" data-ev-neighbors></nav><section class="ev-related"><h2>Evidencia relacionada</h2><ul class="ev-list" data-ev-related></ul></section><p class="ev-status" id="ev-reader-status" role="status"></p></div></section>')
+  f'<div class="ev-endmatter">{video_block(r,manifest,load_videos()) if not legacy else ""}<p class="ev-original"><span class="ev-original-label">Artículo original</span>{original}</p>{METHOD_NOTE}{SUBSCRIBE_NOTE}<nav class="ev-neighbors" aria-label="Continuidad de lectura" data-ev-neighbors></nav><section class="ev-related"><h2>Evidencia relacionada</h2><ul class="ev-list" data-ev-related></ul></section><p class="ev-status" id="ev-reader-status" role="status"></p></div></section>')
+def simple_head(title,description,route,schema,og_type="website"):
+ canonical=BASE+route
+ return ('<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">'
+  f'<title>{esc(title)}</title><meta name="description" content="{esc(description)}"><meta name="robots" content="index,follow,max-image-preview:large">'
+  f'<link rel="canonical" href="{canonical}"><meta property="og:type" content="{og_type}"><meta property="og:title" content="{esc(title)}"><meta property="og:description" content="{esc(description)}"><meta property="og:url" content="{canonical}"><meta property="og:image" content="{BASE}/logo.png">'
+  '<link rel="alternate" type="application/atom+xml" title="Resúmenes Trials" href="'+BASE+'/feed.xml">'
+  '<script type="application/ld+json">'+json.dumps(schema,ensure_ascii=False,separators=(",",":"))+'</script><link rel="icon" href="/favicon.png"></head>')
+PUBLISHER={"@type":"Organization","name":"Resúmenes Trials","url":f"{BASE}/equipo-editorial/","logo":{"@type":"ImageObject","url":f"{BASE}/logo.png"}}
+def corrections_page(items,manifest):
+ """Registro público de correcciones: resúmenes con fecha_revision, de la más reciente a la más antigua."""
+ rev=sorted([r for r in items if r.get("fecha_revision")],key=lambda r:(str(r["fecha_revision"]),int(trial_id(r["id"]))),reverse=True)
+ last=rev[0]["fecha_revision"] if rev else ""
+ groups={}
+ for r in rev:groups.setdefault(r["fecha_revision"],[]).append(r)
+ lists="".join(f'<h2><time datetime="{esc(d)}">{esc(human_date(d))}</time></h2><ul>'+"".join(f'<li><a href="{esc(manifest[trial_id(r["id"])]["path"])}">{esc(r["titulo"])} ({esc(r["revista"])} {esc(r["anio"])})</a></li>' for r in rs)+'</ul>' for d,rs in groups.items())
+ intro=(f'<p>Aquí aparecen los resúmenes cuyo contenido se corrigió después de publicarse, ordenados por la fecha de su última corrección. Hoy son {len(rev)} de {len(items)} resúmenes publicados. Un mismo resumen puede haberse corregido más de una vez; se muestra la corrección más reciente.</p>'
+  '<p>Cada corrección se comprueba contra el artículo original antes de publicarse y se aplica a todas las versiones del resumen: la página completa, la versión breve y el PDF. Cómo se revisan los resúmenes y cómo se decide una corrección está explicado en <a href="/equipo-editorial/">Editorial</a>.</p>'
+  '<p>Si encuentras un error, escríbenos a <a href="mailto:resumenestrials@outlook.com">resumenestrials@outlook.com</a> con el enlace del resumen y, si puedes, la página o tabla del artículo donde aparece el dato correcto.</p>')
+ body=doc_page('Transparencia editorial','Registro de correcciones',f'<p class="ev-doc-date">Última actualización: {esc(human_date(last))}</p>' if last else "",intro+(lists or '<p>Todavía no hay correcciones publicadas.</p>'))
+ schema={"@context":"https://schema.org","@graph":[{"@type":"CollectionPage","name":"Registro de correcciones","url":f"{BASE}/correcciones/","inLanguage":"es-MX","publisher":PUBLISHER,**({"dateModified":last} if last else {})},
+  {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":f"{BASE}/"},{"@type":"ListItem","position":2,"name":"Registro de correcciones","item":f"{BASE}/correcciones/"}]}]}
+ head=simple_head("Registro de correcciones | Resúmenes Trials","Resúmenes de ensayos clínicos corregidos después de su publicación, con la fecha de la última corrección. Transparencia editorial de Resúmenes Trials.","/correcciones/",schema)
+ return document(head,body,"/correcciones/")
+def video_page(r,v,manifest):
+ """Página del video: el video es el contenido principal (requisito de Google para mostrarlo en resultados de video)."""
+ route=video_path(manifest,r["id"]);trial=manifest[trial_id(r["id"])]["path"];y=v["youtube_id"]
+ schema={"@context":"https://schema.org","@graph":[{"@type":"VideoObject","name":v["titulo"],"description":v["descripcion"],"inLanguage":"es-MX",
+   "thumbnailUrl":[f"https://i.ytimg.com/vi/{y}/maxresdefault.jpg",f"https://i.ytimg.com/vi/{y}/hqdefault.jpg"],"uploadDate":v["fecha_subida"],"duration":v["duracion"],
+   "embedUrl":f"https://www.youtube.com/embed/{y}","url":BASE+route,"publisher":PUBLISHER,"about":{"@type":"ScholarlyArticle","name":plain(r["titulo"]),"identifier":plain(r.get("doi"))},
+   "isBasedOn":BASE+trial},
+  {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":f"{BASE}/"},{"@type":"ListItem","position":2,"name":plain(r["titulo"]),"item":BASE+trial},{"@type":"ListItem","position":3,"name":"Video","item":BASE+route}]}]}
+ t=esc(v["titulo"])
+ body=('<div class="ev-doc ev-doc-text ev-video-page"><nav class="ev-breadcrumb" aria-label="Ruta"><a href="'+esc(trial)+'">'+icon("arrow-left")+'Volver al resumen</a></nav>'
+  '<p class="ev-eyebrow"><span class="ev-pulse" aria-hidden="true"></span>Video · EMEICRÍTICA</p><h1>'+t+'</h1>'
+  f'<div class="ev-video-frame"><iframe src="https://www.youtube-nocookie.com/embed/{esc(y)}" title="{t}" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>'
+  f'<p class="ev-doc-date">Publicado el {esc(human_date(v["fecha_subida"]))} · {video_minutes(v["duracion"])} min</p>'
+  '<article class="ev-prose"><p>'+esc(v["descripcion"])+'</p>'
+  f'<p>Resumen crítico completo del ensayo: <a href="{esc(trial)}">{esc(r["titulo"])}</a>.</p>'
+  f'<p>Fuente: {esc(r["autor"])} et al. {esc(r["revista"])}, {esc(r["anio"])}. DOI {esc(r.get("doi"))}.</p>'
+  '<p>El presentador del video es un personaje creado con inteligencia artificial. El contenido no sustituye el artículo original ni el juicio clínico.</p></article></div>')
+ head=simple_head(f'{v["titulo"]} | Video | Resúmenes Trials',v["descripcion"][:155],route,schema,"video.other")
+ return document(head,body,route)
 def doc_page(eyebrow,h1,date_html,content):return '<div class="ev-doc ev-doc-text"><p class="ev-eyebrow"><span class="ev-pulse" aria-hidden="true"></span>'+eyebrow+'</p><h1>'+h1+'</h1>'+date_html+'<article class="ev-prose">'+content+'</article></div>'
 def write(path,text):path.parent.mkdir(parents=True,exist_ok=True);path.write_text(text,encoding="utf-8")
 def render_all():
@@ -199,6 +273,19 @@ def render_all():
   date=re.search(r"<p[^>]*>(Última actualización:[^<]+)</p>",content_source)
   date_html='<p class="ev-doc-date">'+date[1]+'</p>' if date else ""
   write(path,document(source,doc_page('Transparencia editorial',h1,date_html,content),"/"+name+"/"))
+ write(ROOT/"correcciones/index.html",corrections_page(items,manifest))
+ videos=load_videos();expected=set()
+ for id,v in videos.items():
+  r=next((x for x in items if trial_id(x["id"])==id),None)
+  if r is None:raise ValueError(f"videos.json: el resumen {id} no existe")
+  route=video_path(manifest,id);expected.add(route.strip("/").split("/")[-1])
+  write(ROOT/route.lstrip("/")/"index.html",video_page(r,v,manifest))
+ vdir=ROOT/"videos"
+ if vdir.exists():
+  import shutil
+  for d in vdir.iterdir():
+   if d.is_dir() and d.name not in expected:shutil.rmtree(d)
+  if not any(vdir.iterdir()):vdir.rmdir()
  # Existing inactive subtopic route stays available with its own empty archive.
  path=ROOT/"medicina-interna/hematologia-oncologia/index.html"
  if path.exists():

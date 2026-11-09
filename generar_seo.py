@@ -387,6 +387,7 @@ def generar_llms(items: list[dict]) -> None:
         "",
         f"- [Metodología]({BASE_URL}/metodologia/): cómo se seleccionan, estructuran y evalúan los estudios.",
         f"- [Editorial EMEICRÍTICA]({BASE_URL}/equipo-editorial/): quién firma, controles de verificación y correcciones.",
+        f"- [Registro de correcciones]({BASE_URL}/correcciones/): resúmenes corregidos después de publicarse y fecha de la última corrección.",
         f"- [Medicina Crítica]({BASE_URL}/medicina-critica/): índice de resúmenes de Medicina Crítica.",
         f"- [Medicina Interna]({BASE_URL}/medicina-interna/): índice de resúmenes de Medicina Interna.",
         "",

@@ -103,7 +103,7 @@ class FechaPublicacionResumenTests(unittest.TestCase):
         import json
         from pathlib import Path
         datos = json.loads((Path(__file__).resolve().parent.parent / "resumenes.json").read_text(encoding="utf-8"))
-        self.base = {k: v for k, v in datos[0].items() if k != "fecha_publicacion_resumen"}
+        self.base = {k: v for k, v in datos[0].items() if k not in ("fecha_publicacion_resumen", "fecha_revision")}
 
     def errores(self, entrada):
         from validar_resumenes import validar_entrada
@@ -124,6 +124,33 @@ class FechaPublicacionResumenTests(unittest.TestCase):
         movido = {"fecha_publicacion_resumen": "2026-10-24", **self.base}
         self.assertTrue(any("orden" in m or "no esperados" in m for m in self.errores(movido)))
         self.assertTrue(any("no esperados" in m for m in self.errores({**self.base, "otro": 1})))
+
+
+class FechaRevisionTests(unittest.TestCase):
+    def setUp(self):
+        import json
+        from pathlib import Path
+        datos = json.loads((Path(__file__).resolve().parent.parent / "resumenes.json").read_text(encoding="utf-8"))
+        self.base = {k: v for k, v in datos[0].items() if k not in ("fecha_publicacion_resumen", "fecha_revision")}
+
+    def errores(self, entrada):
+        from validar_resumenes import validar_entrada
+        hallazgos = Hallazgos()
+        validar_entrada(entrada, hallazgos, {})
+        return [m for _, m in hallazgos.errores if "campo" in m or "fecha_" in m]
+
+    def test_revision_tras_publicacion_es_valida(self):
+        self.assertEqual(self.errores({**self.base, "fecha_publicacion_resumen": "2026-10-24", "fecha_revision": "2026-11-04"}), [])
+        self.assertEqual(self.errores({**self.base, "fecha_revision": "2026-11-04"}), [])
+
+    def test_revision_invalida_futura_o_anterior_se_rechaza(self):
+        self.assertTrue(self.errores({**self.base, "fecha_publicacion_resumen": "2026-10-24", "fecha_revision": "04/11/2026"}))
+        self.assertTrue(self.errores({**self.base, "fecha_publicacion_resumen": "2026-10-24", "fecha_revision": "2999-01-01"}))
+        self.assertTrue(self.errores({**self.base, "fecha_publicacion_resumen": "2026-10-24", "fecha_revision": "2026-10-01"}))
+
+    def test_orden_de_las_fechas_finales_es_fijo(self):
+        invertido = {**self.base, "fecha_revision": "2026-11-04", "fecha_publicacion_resumen": "2026-10-24"}
+        self.assertTrue(any("orden" in m for m in self.errores(invertido)))
 
 
 if __name__ == "__main__":
