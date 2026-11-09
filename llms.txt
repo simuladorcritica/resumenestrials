@@ -13,6 +13,8 @@ Material educativo para profesionales de la salud. La referencia final es siempr
 
 ## Resúmenes de ensayos
 
+- [BATURA: albuterol-budesonida a demanda en el asma leve](https://resumenestrials.com/trials/batura-albuterol-budesonida-demanda-asma-leve/): NEJM, 2025.
+- [FIBRONEER-ILD: nerandomilast en pacientes con fibrosis pulmonar progresiva](https://resumenestrials.com/trials/fibroneer-ild-nerandomilast-pacientes-fibrosis-pulmonar-progresiva/): NEJM, 2025.
 - [BRIDGE-TNK: tenecteplasa intravenosa antes de la trombectomía en el ictus](https://resumenestrials.com/trials/bridge-tnk-tenecteplasa-intravenosa-antes-trombectomia-ictus/): NEJM, 2025.
 - [GLORY-1: mazdutida una vez por semana en adultos chinos con obesidad o sobrepeso](https://resumenestrials.com/trials/glory-1-mazdutida-vez-semana-adultos-chinos-obesidad-sobrepeso/): NEJM, 2025.
 - [CONFIDENCE: finerenona con empagliflozina en la enfermedad renal crónica y la diabetes tipo 2](https://resumenestrials.com/trials/confidence-finerenona-empagliflozina-enfermedad-renal-cronica-diabetes-tipo-2/): NEJM, 2025.

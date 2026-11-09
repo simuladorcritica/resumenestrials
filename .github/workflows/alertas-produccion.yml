@@ -1,0 +1,61 @@
+name: Alertas de producción por Telegram
+
+# Avisa por Telegram cuando una verificación de main falla dos veces seguidas
+# (un fallo aislado puede ser del entorno) y cuando vuelve a pasar después de ese aviso.
+# Secretos: TELEGRAM_BOT_TOKEN y TELEGRAM_CHAT_ID. Sin ellos, el aviso se omite sin error.
+on:
+  workflow_run:
+    workflows:
+      - Resumenes Trials Quality
+      - Verificar botones del lector en producción
+      - Validar experiencia futura
+      - Auditoria integral del sitio
+      - Validar interfaz principal
+    types: [completed]
+    branches: [main]
+
+permissions:
+  actions: read
+  contents: read
+
+concurrency:
+  group: alertas-produccion-${{ github.event.workflow_run.workflow_id }}
+  cancel-in-progress: false
+
+jobs:
+  avisar:
+    if: ${{ github.event.workflow_run.event != 'pull_request' && (github.event.workflow_run.conclusion == 'failure' || github.event.workflow_run.conclusion == 'success') }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - name: Decidir y enviar el aviso
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          RUN_ID: ${{ github.event.workflow_run.id }}
+          WORKFLOW_ID: ${{ github.event.workflow_run.workflow_id }}
+          WORKFLOW_NAME: ${{ github.event.workflow_run.name }}
+          CONCLUSION: ${{ github.event.workflow_run.conclusion }}
+          RUN_URL: ${{ github.event.workflow_run.html_url }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          set -euo pipefail
+          # Última corrida terminada en main del mismo flujo, anterior a esta (sin contar canceladas ni omitidas).
+          previous=$(gh api "repos/$REPO/actions/workflows/$WORKFLOW_ID/runs?branch=main&status=completed&per_page=20" \
+            --jq "[.workflow_runs[] | select(.id != $RUN_ID and (.conclusion == \"success\" or .conclusion == \"failure\"))][0:2] | map(.conclusion) | join(\",\")")
+          echo "Corrida actual: $CONCLUSION · anteriores: ${previous:-ninguna}"
+          message=""
+          if [ "$CONCLUSION" = "failure" ] && [ "${previous%%,*}" = "failure" ]; then
+            message="ALERTA resumenestrials.com: «$WORKFLOW_NAME» falló dos veces seguidas en main. Revisa: $RUN_URL"
+          elif [ "$CONCLUSION" = "success" ] && [ "$previous" = "failure,failure" ]; then
+            message="RECUPERADO resumenestrials.com: «$WORKFLOW_NAME» vuelve a pasar en main. $RUN_URL"
+          fi
+          if [ -z "$message" ]; then echo "Sin aviso: no hay dos fallos seguidos ni recuperación."; exit 0; fi
+          if [ -z "${TELEGRAM_BOT_TOKEN:-}" ] || [ -z "${TELEGRAM_CHAT_ID:-}" ]; then
+            echo "::warning::Faltan TELEGRAM_BOT_TOKEN o TELEGRAM_CHAT_ID; aviso no enviado: $message"; exit 0
+          fi
+          curl -fsS -o /dev/null -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+            --data-urlencode "chat_id=${TELEGRAM_CHAT_ID}" --data-urlencode "text=${message}" \
+            --data-urlencode "disable_web_page_preview=true"
+          echo "Aviso enviado."

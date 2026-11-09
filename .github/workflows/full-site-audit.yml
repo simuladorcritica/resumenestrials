@@ -16,7 +16,7 @@ concurrency:
 
 jobs:
   audit:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     # Contenedor oficial de Playwright (misma versión que package.json): navegadores y
     # dependencias ya instalados. Instalarlos con apt llegó a tardar 14 min y agotaba el tiempo.
     container: mcr.microsoft.com/playwright:v1.64.1-noble
@@ -45,7 +45,11 @@ jobs:
       - name: Servir sitio localmente
         run: |
           python3 -m http.server 8000 >/tmp/rt-full-audit-http.log 2>&1 &
-          sleep 3
+          python3 -c "import time,urllib.request as u
+          for i in range(60):
+              try: u.urlopen('http://127.0.0.1:8000/',timeout=5).read(1); break
+              except Exception: time.sleep(1)
+          else: raise SystemExit('Servidor local no disponible tras 60 s')"
       - name: Auditoría funcional integral
         env:
           RT_BASE_URL: http://127.0.0.1:8000

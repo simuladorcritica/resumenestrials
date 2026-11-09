@@ -1,0 +1,87 @@
+name: Regenerar PR en conflicto
+
+# Cuando main avanza (altas diarias, correcciones), los PR de diseño suelen chocar solo en salidas
+# generadas (páginas, runtime, sitemap). Este flujo integra main en cada PR abierto `claude/*` en
+# conflicto y regenera las salidas con la secuencia de CLAUDE.md. Si el conflicto toca fuentes
+# (resumenes.json, ui/, scripts…), no lo resuelve: comenta en el PR para que lo revise una persona.
+# Necesita el secreto RT_AUTOMATION_TOKEN (token de acceso con permiso de escritura en el repo):
+# un push hecho con el token automático de GitHub no vuelve a lanzar las comprobaciones obligatorias.
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '40 */3 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: write
+
+concurrency:
+  group: regenerar-pr-en-conflicto
+  cancel-in-progress: false
+
+jobs:
+  regenerar:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - name: Comprobar el token
+        id: token
+        env:
+          RT_AUTOMATION_TOKEN: ${{ secrets.RT_AUTOMATION_TOKEN }}
+        run: |
+          if [ -z "${RT_AUTOMATION_TOKEN:-}" ]; then echo "::warning::Falta RT_AUTOMATION_TOKEN; no se regenera ningún PR."; echo "ok=false" >> "$GITHUB_OUTPUT"; else echo "ok=true" >> "$GITHUB_OUTPUT"; fi
+
+      - name: Descargar el repositorio
+        if: steps.token.outputs.ok == 'true'
+        uses: actions/checkout@v7.0.1
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.RT_AUTOMATION_TOKEN }}
+
+      - name: Configurar Python
+        if: steps.token.outputs.ok == 'true'
+        uses: actions/setup-python@v7.0.0
+        with:
+          python-version: "3.13"
+
+      - name: Instalar dependencias de generación
+        if: steps.token.outputs.ok == 'true'
+        run: python -m pip install --disable-pip-version-check pillow==11.3.0
+
+      - name: Integrar main y regenerar los PR en conflicto
+        if: steps.token.outputs.ok == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.RT_AUTOMATION_TOKEN }}
+          REPO: ${{ github.repository }}
+        run: |
+          set -uo pipefail
+          # GitHub calcula «mergeable» en segundo plano: se consulta dos veces con una pausa.
+          gh pr list --repo "$REPO" --state open --json number >/dev/null; sleep 20
+          prs=$(gh pr list --repo "$REPO" --state open --limit 50 --json number,headRefName,isCrossRepository,mergeable \
+            --jq '.[] | select(.isCrossRepository == false and (.headRefName | startswith("claude/")) and .mergeable == "CONFLICTING") | "\(.number) \(.headRefName)"')
+          if [ -z "$prs" ]; then echo "No hay PR claude/* en conflicto."; exit 0; fi
+          git fetch -q origin main
+          # Copia fija del script: el checkout de cada rama no debe cambiarlo mientras corre.
+          cp scripts/regenerar-pr-en-conflicto.sh "$RUNNER_TEMP/regenerar.sh"
+          status=0
+          while read -r number branch; do
+            echo "::group::PR #$number ($branch)"
+            git fetch -q origin "$branch"
+            bash "$RUNNER_TEMP/regenerar.sh" "$branch"; code=$?
+            case "$code" in
+              0) git push origin "HEAD:$branch" && gh pr comment "$number" --repo "$REPO" --body "Integré \`main\` y regeneré las salidas: el conflicto era solo de archivos generados. Las comprobaciones vuelven a correr." || status=1 ;;
+              2) echo "Nada que hacer." ;;
+              3) marker="<!-- regenerar-pr: fuentes -->"
+                 if ! gh pr view "$number" --repo "$REPO" --json comments --jq '.comments[].body' | grep -qF "$marker"; then
+                   gh pr comment "$number" --repo "$REPO" --body "$marker
+          El conflicto con \`main\` toca archivos fuente; no se resuelve automáticamente. Hay que integrar \`main\` a mano o rehacer el PR."
+                 fi ;;
+              *) echo "::error::La regeneración del PR #$number falló (código $code)."; status=1 ;;
+            esac
+            git merge --abort 2>/dev/null || true
+            git checkout -q --detach origin/main
+            echo "::endgroup::"
+          done <<< "$prs"
+          exit $status
