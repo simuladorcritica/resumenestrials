@@ -1,3 +1,13 @@
+## 2026-11-08 · La web adopta la identidad editorial del PDF y de X
+
+- Tema claro «papel» por defecto y oscuro «tinta nocturna»; colores, tipografías y línea de señal iguales a los del PDF y las tarjetas.
+- Titulares y marca en Newsreader, interfaz en RT Sans (IBM Plex Sans), lectura en Literata; todas servidas desde el propio sitio. Se retira Sora.
+- Fuera aurora, vidrio, degradados y sombras; tarjetas con filete superior, etiquetas en versalitas, radios de 2–4 px.
+- Línea de señal con punto ocre una sola vez por página (portada y lector).
+- En la ficha del estudio, «Financiación» ocupa todo el ancho.
+- `site-runtime.css` baja de 63 KB a ~60 KB (se sirve sin comentarios ni saltos de línea).
+- El contenido clínico no cambia.
+
 ## 2026-11-08 · Fiabilidad: pruebas estables, entorno fijo, jsPDF propio y alertas
 
 - El barrido de WebKit (Windows) y los flujos de Linux esperan a que el servidor local responda, con reintentos durante 60 s. Así se corrige el fallo intermitente de las corridas #979 y #982.
