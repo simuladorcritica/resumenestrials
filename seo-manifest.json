@@ -177,7 +177,7 @@
     "url": "https://resumenestrials.com/trials/suddicu-descontaminacion-selectiva-tubo-digestivo-ventilacion-mecanica-cuidados-intensivos/",
     "title": "SuDDICU: descontaminación selectiva del tubo digestivo durante la ventilación en la UCI",
     "seo_title": "SuDDICU trial: descontaminación selectiva del tubo digestivo durante la ventilación en la UCI | Resúmenes Trials",
-    "description": "SuDDICU: La mortalidad intrahospitalaria a 90 días fue del 27.9% frente al 29.5% , sin diferencia significativa. La descontaminación redujo las infecciones y…",
+    "description": "SuDDICU: La mortalidad intrahospitalaria a 90 días fue del 27.9% frente al 29.5% , sin diferencia significativa. La descontaminación pareció reducir las…",
     "clusters": [
       {
         "name": "Ventilación e insuficiencia respiratoria",
@@ -201,15 +201,15 @@
       "population": "La población fueron adultos ingresados en unidades de cuidados intensivos médico-quirúrgicas de Australia y Canadá que recibían ventilación mecánica invasiva a través de un tubo endotraqueal y en quienes se preveía que la necesitarían más allá del día siguiente a su ingreso. La raza o etnia no se reporta."
     },
     "datePublished": "2026-08-15",
-    "dateModified": "2026-10-20"
+    "dateModified": "2026-11-10"
   },
   "8": {
     "slug": "expres-puntaje-predictivo-extubacion-reducir-reintubacion-cuidados-intensivos",
     "path": "/trials/expres-puntaje-predictivo-extubacion-reducir-reintubacion-cuidados-intensivos/",
     "url": "https://resumenestrials.com/trials/expres-puntaje-predictivo-extubacion-reducir-reintubacion-cuidados-intensivos/",
-    "title": "ExPreS: efecto de la puntuación predictiva de extubación sobre la reintubación en la UCI",
-    "seo_title": "ExPreS trial: efecto de la puntuación predictiva de extubación sobre la reintubación en la UCI | Resúmenes Trials",
-    "description": "ExPreS: El fracaso de la extubación a 48 horas fue del 13.0% frente al 8.0% , sin significancia en el análisis principal (p=0.070). El puntaje apunta a menos…",
+    "title": "ExPreS: efecto de la puntuación predictiva de extubación sobre la reintubación en la UCI: ensayo clínico aleatorizado",
+    "seo_title": "ExPreS trial: efecto de la puntuación predictiva de extubación sobre la reintubación en la UCI: ensayo clínico aleatorizado | Resúmenes Trials",
+    "description": "ExPreS: El fracaso de la extubación a 48 horas fue del 13.0% con el protocolo habitual frente al 8.0% con el ExPreS , sin diferencia significativa en el…",
     "clusters": [
       {
         "name": "Ventilación e insuficiencia respiratoria",
@@ -224,19 +224,19 @@
     ],
     "intent": {
       "question": "Determinar si guiar la decisión de extubar con el Extubation Predictive Score (ExPreS) reduce la reintubación dentro de las 48 horas frente al protocolo habitual en adultos ventilados que superan una prueba de respiración espontánea.",
-      "answer": "El fracaso de la extubación a 48 horas fue del 13.0% frente al 8.0% , sin significancia en el análisis principal (p=0.070).",
+      "answer": "El fracaso de la extubación a 48 horas fue del 13.0% con el protocolo habitual frente al 8.0% con el ExPreS , sin diferencia significativa en el análisis principal (diferencia de 5.0 puntos; IC 95% impreso en el artículo como −0.45 a −10.41, incoherente con la diferencia y con el valor p; p=0.070).",
       "population": "La población fueron adultos, de 18 años o más, sin COVID-19, que llevaban al menos 24 horas con ventilación mecánica invasiva y que habían superado una prueba de respiración espontánea. La raza o etnia no se reporta."
     },
     "datePublished": "2026-08-16",
-    "dateModified": "2026-10-20"
+    "dateModified": "2026-11-10"
   },
   "9": {
     "slug": "cleanse-hemoadsorcion-ha-330-shock-septico-requiere-dosis-altas-noradrenalina",
     "path": "/trials/cleanse-hemoadsorcion-ha-330-shock-septico-requiere-dosis-altas-noradrenalina/",
     "url": "https://resumenestrials.com/trials/cleanse-hemoadsorcion-ha-330-shock-septico-requiere-dosis-altas-noradrenalina/",
-    "title": "CLEANSE: hemoadsorción con HA-330 en el shock séptico que requiere dosis altas de noradrenalina",
-    "seo_title": "CLEANSE trial: hemoadsorción con HA-330 en el shock séptico que requiere dosis altas de noradrenalina | Resúmenes Trials",
-    "description": "CLEANSE: La mortalidad a 28 días fue del 58% frente al 44% a favor de la hemoadsorción, sin alcanzar significancia (RR 0.76; IC 95%, 0.54-1.07; p=0.16). El…",
+    "title": "CLEANSE: hemoadsorción con HA-330 en el shock séptico que requiere dosis altas de noradrenalina: ensayo multicéntrico aleatorizado y controlado",
+    "seo_title": "CLEANSE trial: hemoadsorción con HA-330 en el shock séptico que requiere dosis altas de noradrenalina: ensayo multicéntrico aleatorizado y controlado | Resúmenes Trials",
+    "description": "CLEANSE: La mortalidad a 28 días fue del 44% con hemoadsorción frente al 58% con tratamiento estándar , sin diferencia significativa (riesgo relativo [RR]…",
     "clusters": [
       {
         "name": "Sepsis y shock",
@@ -261,18 +261,19 @@
     ],
     "intent": {
       "question": "Determinar si añadir dos sesiones de hemoadsorción con el cartucho HA-330 al tratamiento estándar reduce la mortalidad a 28 días en adultos con shock séptico que requieren dosis altas de vasopresores.",
-      "answer": "La mortalidad a 28 días fue del 58% frente al 44% a favor de la hemoadsorción, sin alcanzar significancia (RR 0.76; IC 95%, 0.54-1.07; p=0.16).",
+      "answer": "La mortalidad a 28 días fue del 44% con hemoadsorción frente al 58% con tratamiento estándar , sin diferencia significativa (riesgo relativo [RR] 0.76; IC 95%, 0.54-1.07; p=0.16).",
       "population": "La población fueron adultos, de 18 años o más, con shock séptico según los criterios Sepsis-3 que requerían dosis altas de vasopresores, definidas como noradrenalina a 0.2 mcg/kg/min o más, o una dosis equipotente de otro vasopresor. La raza o etnia no se reporta."
     },
-    "datePublished": "2026-08-16"
+    "datePublished": "2026-08-16",
+    "dateModified": "2026-11-10"
   },
   "10": {
     "slug": "digisep-secuenciacion-metagenomica-anadida-microbiologia-estandar-sepsis-shock-septico",
     "path": "/trials/digisep-secuenciacion-metagenomica-anadida-microbiologia-estandar-sepsis-shock-septico/",
     "url": "https://resumenestrials.com/trials/digisep-secuenciacion-metagenomica-anadida-microbiologia-estandar-sepsis-shock-septico/",
-    "title": "DigiSep: efectos de una intervención de metagenómica clínica sobre los desenlaces clínicos, los costos sanitarios y la calidad de vida relacionada con la salud en pacientes con sepsis o shock séptico",
-    "seo_title": "DigiSep trial: efectos de una intervención de metagenómica clínica sobre los desenlaces clínicos, los costos sanitarios y la calidad de vida relacionada con la salud en pacientes con sepsis o shock séptico | Resúmenes Trials",
-    "description": "DigiSep: El puntaje DOOR/RADAR a 28 días no mejoró: 3.21 frente a 3.49 a favor de la metagenómica, sin significancia (diferencia −0.28; IC 95%, −0.58 a 0.03…",
+    "title": "Ensayo aleatorizado y controlado DigiSep: efectos de una intervención de metagenómica clínica sobre los desenlaces clínicos, los costos sanitarios y la calidad de vida relacionada con la salud en pacientes con sepsis o shock séptico",
+    "seo_title": "Ensayo aleatorizado y controlado DigiSep trial: efectos de una intervención de metagenómica clínica sobre los desenlaces clínicos, los costos sanitarios y la calidad de vida relacionada con la salud en pacientes con sepsis o shock séptico | Resúmenes Trials",
+    "description": "Ensayo aleatorizado y controlado DigiSep: El puntaje DOOR/RADAR a 28 días no mostró diferencia significativa: 3.21 frente a 3.49 (diferencia −0.28; IC 95%…",
     "clusters": [
       {
         "name": "Sepsis y shock",
@@ -287,11 +288,11 @@
     ],
     "intent": {
       "question": "Determinar si añadir la secuenciación metagenómica de nueva generación (mNGS) del ADN microbiano libre en plasma a la microbiología estándar mejora el desenlace clínico, medido con el puntaje DOOR/RADAR a 28 días, en adultos con sepsis o shock séptico.",
-      "answer": "El puntaje DOOR/RADAR a 28 días no mejoró: 3.21 frente a 3.49 a favor de la metagenómica, sin significancia (diferencia −0.28; IC 95%, −0.58 a 0.03; p=0.149).",
+      "answer": "El puntaje DOOR/RADAR a 28 días no mostró diferencia significativa: 3.21 frente a 3.49 (diferencia −0.28; IC 95%, −0.58 a 0.03; p=0.149).",
       "population": "La población fueron adultos, de 18 años o más, con sepsis o shock séptico según los criterios Sepsis-3 y con el diagnóstico establecido en las 24 horas previas. La raza o etnia no se reporta."
     },
     "datePublished": "2026-08-16",
-    "dateModified": "2026-10-20"
+    "dateModified": "2026-11-10"
   },
   "11": {
     "slug": "promine-propofol-ketamina-intubacion-secuencia-rapida-paciente-critico",
@@ -299,7 +300,7 @@
     "url": "https://resumenestrials.com/trials/promine-propofol-ketamina-intubacion-secuencia-rapida-paciente-critico/",
     "title": "PROMINE: propofol frente a ketamina en la intubación de secuencia rápida de pacientes en estado crítico",
     "seo_title": "PROMINE trial: propofol frente a ketamina en la intubación de secuencia rápida de pacientes en estado crítico | Resúmenes Trials",
-    "description": "PROMINE: La presión arterial media más baja en los primeros diez minutos fue 66 frente a 60 mmHg a favor de la ketamina, sin significancia (diferencia 6.0; IC…",
+    "description": "PROMINE: La mediana de la presión arterial media más baja en los primeros diez minutos fue 66 frente a 60 mmHg a favor de la ketamina (diferencia de medias…",
     "clusters": [
       {
         "name": "Ventilación e insuficiencia respiratoria",
@@ -314,11 +315,11 @@
     ],
     "intent": {
       "question": "Evaluar si la ketamina, frente al propofol, produce una menor caída de la presión arterial media en los primeros diez minutos tras la inducción para la intubación de secuencia rápida en pacientes críticos.",
-      "answer": "La presión arterial media más baja en los primeros diez minutos fue 66 frente a 60 mmHg a favor de la ketamina, sin significancia (diferencia 6.0; IC 95%, −0.0 a 11.9; p=0.05) y por debajo del umbral clínico de 10 mmHg.",
+      "answer": "La mediana de la presión arterial media más baja en los primeros diez minutos fue 66 frente a 60 mmHg a favor de la ketamina (diferencia de medias ajustada 6.0; IC 95%, −0.0 a 11.9; p=0.05): cumple justo el umbral preespecificado de p ≤ 0.05, con un límite inferior del IC de −0.0 (frágil) y una estimación puntual por debajo de…",
       "population": "La población fueron adultos, de 18 años o más, ingresados en cuidados intensivos que requerían intubación orotraqueal mediante secuencia rápida. La raza o etnia no se reporta."
     },
     "datePublished": "2026-08-16",
-    "dateModified": "2026-10-20"
+    "dateModified": "2026-11-10"
   },
   "12": {
     "slug": "relieve-aki-ultrafiltracion-neta-restrictiva-liberal-lesion-renal-aguda",
@@ -7517,7 +7518,8 @@
       "answer": "La estrategia guiada por angiografía coronaria por tomografía fue no inferior a la guiada por ecografía intravascular: el fallo del vaso diana a 12 meses ocurrió en el 4.1% frente al 4.6% (diferencia de riesgo -0.42 puntos porcentuales; IC 95%, -2.82 a 1.99; p<0.001 para no inferioridad; p=0.73 para superioridad) , con un margen…",
       "population": "La población fueron adultos de 18 a 79 años con síndrome coronario crónico o síndrome coronario agudo sin elevación del ST ya estabilizado, con indicación de revascularización y una angiografía coronaria por tomografía computarizada (angio-TC) hecha como parte de la atención habitual. Todos tenían al menos una lesión epicárdica con estenosis mayor del 70% y una reserva de flujo fraccional derivada de la angio-TC (FFR-TC) de…"
     },
-    "datePublished": "2026-11-05"
+    "datePublished": "2026-11-05",
+    "dateModified": "2026-11-10"
   },
   "270": {
     "slug": "oasis-4-semaglutida-oral-dosis-25-mg-adultos-sobrepeso-u-obesidad",
@@ -8024,7 +8026,8 @@
       "answer": "A las 52 semanas, el cambio medio ajustado de la FVC fue de −98.6 ml con 18 mg dos veces al día y −165.8 ml con placebo (diferencia ajustada 67.2 ml ; IC 95% 31.9 a 102.5; P<0.001), y de −84.6 ml con 9 mg (diferencia ajustada 81.1 ml ; IC 95% 46.0 a 116.3; P<0.001).",
       "population": "La población fueron adultos con enfermedad pulmonar intersticial distinta de la fibrosis pulmonar idiopática y con fibrosis progresiva. Se exigía extensión fibrótica mayor del 10% en una tomografía computarizada de alta resolución (TCAR) de los 12 meses previos, confirmada de forma central; capacidad vital forzada (FVC) de al menos el 45% del predicho y capacidad de difusión de monóxido de carbono (DLCO) de al menos el 25%; y…"
     },
-    "datePublished": "2026-11-08"
+    "datePublished": "2026-11-08",
+    "dateModified": "2026-11-10"
   },
   "295": {
     "slug": "batura-albuterol-budesonida-demanda-asma-leve",
@@ -8048,8 +8051,9 @@
     "intent": {
       "question": "Evaluar si el inhalador de dosis fija de albuterol-budesonida usado a demanda, frente al albuterol solo a demanda, reduce el riesgo de una primera exacerbación grave en personas de 12 años o más con asma no controlada pese al tratamiento para asma leve.",
       "answer": "En el análisis intermedio, en la población de eficacia durante el tratamiento, tuvo una exacerbación grave el 5.1% con albuterol-budesonida frente al 9.1% con albuterol (HR 0.53; IC 95% 0.39 a 0.73; P<0.001) , y el ensayo se detuvo por eficacia.",
-      "population": "Se estudió a personas de 12 años o más con asma no controlada pese al tratamiento de los escalones 1 o 2 del programa estadounidense NAEPP: SABA a demanda solo o con un glucocorticoide inhalado a dosis baja o un antileucotrieno de mantenimiento. Según su propio informe, el 70.1% eran blancos, el 18.1% negros y el 2.3% asiáticos, y el 12.1%, hispanos o latinos."
+      "population": "Se estudió a personas de 12 años o más con asma no controlada pese al tratamiento de los escalones 1 o 2 del programa estadounidense NAEPP: agonista beta-2 de acción corta (SABA) a demanda solo o con un glucocorticoide inhalado a dosis baja o un antileucotrieno de mantenimiento. Según su propio informe, el 70.1% eran blancos, el 18.1% negros y el 2.3% asiáticos, y el 12.1%, hispanos o latinos."
     },
-    "datePublished": "2026-11-08"
+    "datePublished": "2026-11-08",
+    "dateModified": "2026-11-10"
   }
 }
