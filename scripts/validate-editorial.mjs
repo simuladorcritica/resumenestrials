@@ -3,7 +3,7 @@ const read=p=>fs.readFileSync(p,'utf8');
 const fail=m=>{console.error('EDITORIAL FAIL: '+m);process.exitCode=1};
 const ok=m=>console.log('EDITORIAL PASS: '+m);
 const index=read('index.html'),privacy=read('privacidad/index.html'),account=read('cuenta.html'),auth=read('auth.js'),login=read('login.html'),register=read('registro.html'),recovery=read('recuperar.html'),runtime=read('site-runtime.js'),css=read('site-runtime.css'),classifier=read('specialty-classification.js');
-for(const font of ['Sora','Literata']){
+for(const font of ['Newsreader','RT Sans','Literata']){
  const faces=[...css.matchAll(/@font-face\{[^}]*\}/g)].map(m=>m[0]).filter(f=>f.includes("font-family:'"+font+"'"));
  if(!faces.length)fail('site-runtime.css no declara '+font);
  for(const f of faces){
@@ -13,8 +13,12 @@ for(const font of ['Sora','Literata']){
   else if(!fs.existsSync('.'+src)||fs.readFileSync('.'+src).subarray(0,4).toString('latin1')!=='wOF2')fail(font+': falta o no es WOFF2 '+src);
  }
 }
-if(!fs.existsSync('fonts/OFL-literata.txt')||!fs.existsSync('fonts/OFL-sora.txt'))fail('faltan las licencias OFL de las fuentes');
-if(!/fonts\.(googleapis|gstatic)\.com/.test(css))ok('Fuentes Sora y Literata servidas desde el propio sitio.');else fail('site-runtime.css depende de Google Fonts');
+if(!['literata','newsreader','ibmplexsans'].every(f=>fs.existsSync('fonts/OFL-'+f+'.txt')))fail('faltan las licencias OFL de las fuentes');
+// Identidad editorial: sin la tipografía ni los efectos de la estética anterior.
+if(/'Sora'|aurora\(|backdrop-filter:blur|linear-gradient\(1[0-9]0deg,#|--ev-grad:linear-gradient/.test(css))fail('site-runtime.css conserva rastros de Nova (Sora, degradados, vidrio)');
+if(!/--ev-dot:#c8892a/.test(css)||(css.match(/var\(--ev-dot\)/g)||[]).length!==1)fail('El ocre debe usarse solo en el punto de la línea de señal');
+if(!index.includes('class="ev-signal"'))fail('La portada no tiene la línea de señal');
+if(!/fonts\.(googleapis|gstatic)\.com/.test(css))ok('Fuentes Newsreader, RT Sans y Literata servidas desde el propio sitio.');else fail('site-runtime.css depende de Google Fonts');
 for(const [name,html] of [['index',index],['cuenta',account],['login',login],['registro',register],['recuperar',recovery],['privacidad',privacy]]){
  // Fuentes propias: la página no debe depender de servidores externos para mostrarse.
  if(/fonts\.(googleapis|gstatic)\.com/.test(html))fail(name+' depende de Google Fonts (bloquea el render en redes móviles)');

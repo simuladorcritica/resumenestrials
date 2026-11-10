@@ -80,7 +80,7 @@ def readtime(r):
 NAV=[("/","Inicio"),("/medicina-critica/","Medicina Crítica"),("/medicina-interna/","Medicina Interna"),("/biblioteca.html","Mi biblioteca")]
 INFO=[("/metodologia/","Metodología"),("/equipo-editorial/","Editorial"),("/correcciones/","Correcciones"),("/privacidad/","Privacidad"),("/terminos/","Términos")]
 SOCIAL=[("https://t.me/ResumenesTrials","Telegram"),("https://x.com/resumenestrials","X · @resumenestrials")]
-def brand(small=False):return '<a class="ev-brand" href="/" aria-label="Resúmenes Trials, ir al inicio"><span class="ev-brand-mark"><img src="/logo.png" width="40" height="40" alt=""></span><span class="ev-brand-name" aria-hidden="true">Resúmenes<b>Trials</b></span></a>'
+def brand(small=False):return '<a class="ev-brand" href="/" aria-label="Resúmenes Trials, ir al inicio"><span class="ev-brand-mark"><img src="/logo.png" width="40" height="40" alt=""></span><span class="ev-brand-name" aria-hidden="true">Resúmenes <b>Trials</b></span></a>'
 def header():
  search=('<form class="ev-search" role="search" action="/" method="get" data-ev-search-form>'
   '<label class="ev-sr" for="ev-q">Buscar resúmenes de ensayos clínicos</label>'+icon("search")+
@@ -109,8 +109,9 @@ def dialogs():
  topics='<p class="ev-dialog-label">Subtemas</p><div class="ev-dialog-chips">'+''.join(f'<a class="ev-chip" href="{esc(c["path"])}">{esc(c["name"])}</a>' for c in clusters.values())+'</div>'
  menu='<nav class="ev-menu-list" aria-label="Menú">'+''.join(f'<a href="{u}">{l}</a>' for u,l in NAV+[("/cuenta.html","Cuenta")])+'</nav><p class="ev-dialog-label">Transparencia</p><nav class="ev-menu-list ev-menu-minor" aria-label="Transparencia">'+''.join(f'<a href="{u}">{l}</a>' for u,l in INFO)+'</nav><p class="ev-dialog-label">Síguenos</p><nav class="ev-menu-list ev-menu-minor" aria-label="Redes">'+''.join(f'<a href="{u}">{l}</a>' for u,l in SOCIAL)+'</nav>'
  return dialog("ev-specialties","Especialidades",tiles+topics)+dialog("ev-menu","Menú",menu,"drawer")
+SIGNAL='<div class="ev-signal" aria-hidden="true"><i></i><svg width="96" height="18" viewBox="0 0 96 18"><path d="M0 17C44 17 46 6 84 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="90" cy="6" r="5"/></svg></div>'
 HEAD_SCRIPT=('<script>window.evNavigatingAway=false;for(const e of ["beforeunload","pagehide"])addEventListener(e,()=>window.evNavigatingAway=true);addEventListener("pageshow",e=>{if(e.persisted)window.evNavigatingAway=false});'
- '(()=>{const d=document.documentElement;try{const t=localStorage.getItem("rt-tema");d.dataset.evTheme=t==="claro"||t==="oscuro"?t:matchMedia("(prefers-color-scheme:light)").matches?"claro":"oscuro"}catch{}'
+ '(()=>{const d=document.documentElement;try{const t=localStorage.getItem("rt-tema");d.dataset.evTheme=t==="claro"||t==="oscuro"?t:matchMedia("(prefers-color-scheme:dark)").matches?"oscuro":"claro"}catch{}'
  'try{const w=innerWidth,c=matchMedia("(pointer:coarse)").matches;d.dataset.evDevice=w<720?"movil":w<1100?"tableta":"escritorio";d.dataset.evPointer=c?"tactil":"raton"}catch{}'
  'try{if(/^\\/(trials\\/|resumen(\\.html|\\/))/.test(location.pathname)&&localStorage.getItem("ev-focus")==="true")d.dataset.evReadingMode="on"}catch{}})()</script>')
 def clean_head(source,title=None):
@@ -123,9 +124,9 @@ def clean_head(source,title=None):
  if not re.search(r'<meta\b[^>]*charset=',head,re.I):head='<meta charset="UTF-8">'+head
  if not re.search(r'<meta\b[^>]*name=["\']viewport["\']',head,re.I):head+='<meta name="viewport" content="width=device-width,initial-scale=1">'
  if not re.search(r'<title>',head,re.I):head+=f'<title>{esc(title or "Resúmenes Trials")}</title>'
- head+='<meta name="theme-color" content="#070b16" media="(prefers-color-scheme: dark)"><meta name="theme-color" content="#f3f5fb" media="(prefers-color-scheme: light)">'+HEAD_SCRIPT
+ head+='<meta name="theme-color" content="#0f1b2d" media="(prefers-color-scheme: dark)"><meta name="theme-color" content="#f6f4f0" media="(prefers-color-scheme: light)">'+HEAD_SCRIPT
  # Fuentes propias (/fonts): ninguna dependencia externa bloquea el primer render.
- head+=f'<link rel="preload" href="/fonts/sora-normal-latin.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="/site-runtime.css?v={version()}">'
+ head+=f'<link rel="preload" href="/fonts/newsreader-normal-latin.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="/site-runtime.css?v={version()}">'
  return head
 def document(source,body,route,kind="document",scripts="",title=None):
  head=clean_head(source,title)
@@ -165,14 +166,14 @@ def archive(items,manifest,title="Archivo de evidencia",scope=""):
  from collections import Counter
  crit=sum(1 for r in items if "Medicina Crítica" in base.categorias(r));inter=sum(1 for r in items if "Medicina Interna" in base.categorias(r))
  if not scope:
-  hero=('<section class="ev-hero"><div class="ev-hero-copy"><p class="ev-eyebrow"><span class="ev-pulse" aria-hidden="true"></span>Resúmenes críticos de ensayos clínicos · en español</p>'
-   '<h1>Evidencia clínica, <span class="ev-grad-text">clara y al instante.</span></h1>'
+  hero=('<section class="ev-hero"><div class="ev-hero-copy"><p class="ev-eyebrow">Resúmenes críticos de ensayos clínicos · en español</p>'
+   '<h1>Evidencia sin ruido</h1>'+SIGNAL+
    '<p class="ev-lead">Encuentra un ensayo, léelo completo o en versión breve y descárgalo en PDF. Escribe en el buscador una enfermedad, un fármaco o el nombre del estudio.</p></div>'
    f'<ul class="ev-stats" aria-label="Contenido del archivo"><li><strong>{len(items)}</strong><span>resúmenes</span></li><li data-tone="critica"><strong>{crit}</strong><span>Medicina Crítica</span></li><li data-tone="interna"><strong>{inter}</strong><span>Medicina Interna</span></li></ul>'
    '<ol class="ev-steps" aria-label="Cómo usar Resúmenes Trials"><li><b>1</b><span>Busca o elige una especialidad</span></li><li><b>2</b><span>Abre el resumen completo o breve</span></li><li><b>3</b><span>Descárgalo en PDF o guárdalo</span></li></ol></section>')
  else:
   kind="Especialidad" if scope in ("medicina-critica","medicina-interna") else "Subtema"
-  hero=(f'<section class="ev-hero ev-hero-compact"><div class="ev-hero-copy"><nav class="ev-breadcrumb" aria-label="Ruta"><a href="/">{icon("arrow-left")}Inicio</a></nav><p class="ev-eyebrow"><span class="ev-pulse" aria-hidden="true"></span>{kind}</p><h1>{esc(title)}</h1>'
+  hero=(f'<section class="ev-hero ev-hero-compact"><div class="ev-hero-copy"><nav class="ev-breadcrumb" aria-label="Ruta"><a href="/">{icon("arrow-left")}Inicio</a></nav><p class="ev-eyebrow">{kind}</p><h1>{esc(title)}</h1>'
    f'<p class="ev-lead">{len(items)} resúmenes críticos de ensayos clínicos. Elige uno para leerlo completo o en versión breve y descargarlo en PDF.</p>'+topic_intro(scope)+'</div></section>')
  segment=''
  if not scope:
@@ -203,7 +204,7 @@ def reading(r,manifest,brief=False,legacy=False):
  article='<article class="ev-body">'+body+'</article>' if brief or legacy else '<article class="articulo">'+body+'</article>'
  original=(f'<a href="{esc(r["original"])}" target="_blank" rel="noopener noreferrer">{esc(r["original"])}{icon("external")}</a>' if str(r["original"]).startswith("https://") else esc(r["original"]))
  return (f'<section class="ev-reading" data-ev-reader="{id}" data-ev-brief="{str(brief).lower()}"><nav class="ev-breadcrumb" aria-label="Ruta"><a href="/" data-ev-return>{icon("arrow-left")}Volver a la lista</a><a href="/metodologia/">Metodología</a></nav>'
-  f'<header class="ev-reading-head"><div class="ev-card-tags"><span class="ev-area" data-tone="{tone(area)}">{esc(area)}</span><span class="ev-type">{esc(r["tipo_estudio"])} · {esc(r["anio"])}</span></div><h1 data-ev-field="titulo">{esc(r["titulo"])}</h1>'
+  f'<header class="ev-reading-head">{SIGNAL}<div class="ev-card-tags"><span class="ev-area" data-tone="{tone(area)}">{esc(area)}</span><span class="ev-type">{esc(r["tipo_estudio"])} · {esc(r["anio"])}</span></div><h1 data-ev-field="titulo">{esc(r["titulo"])}</h1>'
   f'<p class="ev-byline"><span data-ev-field="autor">{esc(r["autor"])}</span><span data-ev-field="revista">{esc(r["revista"])}</span><span data-ev-field="fecha">{esc(human_date(r["fecha"]))}</span></p>'
   f'<div class="ev-keyfinding"><p class="ev-keyfinding-label">{icon("spark")}Hallazgo principal</p><p data-ev-field="hallazgo" class="ev-lead">{r["hallazgo"]}</p></div>'
   f'<p class="ev-readtime">{readtime(r)}</p>{editorial_dates(r)}</header>'
@@ -243,7 +244,7 @@ def video_page(r,v,manifest):
   {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":f"{BASE}/"},{"@type":"ListItem","position":2,"name":plain(r["titulo"]),"item":BASE+trial},{"@type":"ListItem","position":3,"name":"Video","item":BASE+route}]}]}
  t=esc(v["titulo"])
  body=('<div class="ev-doc ev-doc-text ev-video-page"><nav class="ev-breadcrumb" aria-label="Ruta"><a href="'+esc(trial)+'">'+icon("arrow-left")+'Volver al resumen</a></nav>'
-  '<p class="ev-eyebrow"><span class="ev-pulse" aria-hidden="true"></span>Video · EMEICRÍTICA</p><h1>'+t+'</h1>'
+  '<p class="ev-eyebrow">Video · EMEICRÍTICA</p><h1>'+t+'</h1>'
   f'<div class="ev-video-frame"><iframe src="https://www.youtube-nocookie.com/embed/{esc(y)}" title="{t}" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>'
   f'<p class="ev-doc-date">Publicado el {esc(human_date(v["fecha_subida"]))} · {video_minutes(v["duracion"])} min</p>'
   '<article class="ev-prose"><p>'+esc(v["descripcion"])+'</p>'
@@ -252,7 +253,7 @@ def video_page(r,v,manifest):
   '<p>El presentador del video es un personaje creado con inteligencia artificial. El contenido no sustituye el artículo original ni el juicio clínico.</p></article></div>')
  head=simple_head(f'{v["titulo"]} | Video | Resúmenes Trials',v["descripcion"][:155],route,schema,"video.other")
  return document(head,body,route)
-def doc_page(eyebrow,h1,date_html,content):return '<div class="ev-doc ev-doc-text"><p class="ev-eyebrow"><span class="ev-pulse" aria-hidden="true"></span>'+eyebrow+'</p><h1>'+h1+'</h1>'+date_html+'<article class="ev-prose">'+content+'</article></div>'
+def doc_page(eyebrow,h1,date_html,content):return '<div class="ev-doc ev-doc-text"><p class="ev-eyebrow">'+eyebrow+'</p><h1>'+h1+'</h1>'+date_html+'<article class="ev-prose">'+content+'</article></div>'
 def write(path,text):path.parent.mkdir(parents=True,exist_ok=True);path.write_text(text,encoding="utf-8")
 def render_all():
  items=json.loads((ROOT/"resumenes.json").read_text(encoding="utf-8"));manifest=json.loads((ROOT/"seo-manifest.json").read_text(encoding="utf-8"));clusters=json.loads((ROOT/"seo-cluster-manifest.json").read_text(encoding="utf-8"))
@@ -295,7 +296,7 @@ def render_all():
   if name=="agregar":
    # The section container owns its rows; collection must not depend on legacy CSS names.
    body=body.replace('seccionesEl.querySelectorAll(".sec-row")', "seccionesEl.children")
-   body='<div class="ev-doc ev-doc-wide"><p class="ev-eyebrow"><span class="ev-pulse" aria-hidden="true"></span>Herramienta interna</p><h1>Panel editorial</h1>'+body+'</div>'
+   body='<div class="ev-doc ev-doc-wide"><p class="ev-eyebrow">Herramienta interna</p><h1>Panel editorial</h1>'+body+'</div>'
   write(ROOT/(name+".html"),document(source,body,"/"+name+".html","internal" if name=="agregar" else "document"))
  templates=ROOT/"templates/account"
  for name in ["login","registro","recuperar","cuenta","biblioteca"]:
@@ -309,7 +310,7 @@ def render_all():
  source=(ROOT/"templates/reader-head.html").read_text(encoding="utf-8")
  fallback='<noscript><section class="ev-notice ev-doc"><h1>Leer un ensayo</h1><p>Selecciona el ensayo para abrir su página con contenido disponible sin JavaScript.</p><ul>'+''.join(f'<li><a href="{esc(manifest[trial_id(r["id"])]["path"])}">{esc(r["titulo"])}</a></li>' for r in items)+'</ul></section></noscript>'
  write(ROOT/"resumen.html",document(source,'<div id="ev-dynamic-reader" aria-live="polite"><div class="ev-loading"><span class="ev-loading-bar"></span><p>Cargando ensayo…</p></div></div>'+fallback,"/resumen.html","reader"))
- write(ROOT/"404.html",document('<head><title>Página no encontrada | Resúmenes Trials</title><meta name="robots" content="noindex,follow"></head>','<div class="ev-doc ev-notfound"><p class="ev-eyebrow"><span class="ev-pulse" aria-hidden="true"></span>Error 404</p><h1>Página no encontrada</h1><p class="ev-lead">Puedes encontrar el ensayo con el buscador de arriba, en el archivo o en las áreas clínicas.</p><div class="ev-actions-row"><a class="ev-btn ev-btn-primary" href="/">Volver al archivo</a><a class="ev-btn" href="/medicina-critica/">Medicina Crítica</a><a class="ev-btn" href="/medicina-interna/">Medicina Interna</a></div></div>',"/404.html"))
+ write(ROOT/"404.html",document('<head><title>Página no encontrada | Resúmenes Trials</title><meta name="robots" content="noindex,follow"></head>','<div class="ev-doc ev-notfound"><p class="ev-eyebrow">Error 404</p><h1>Página no encontrada</h1><p class="ev-lead">Puedes encontrar el ensayo con el buscador de arriba, en el archivo o en las áreas clínicas.</p><div class="ev-actions-row"><a class="ev-btn ev-btn-primary" href="/">Volver al archivo</a><a class="ev-btn" href="/medicina-critica/">Medicina Crítica</a><a class="ev-btn" href="/medicina-interna/">Medicina Interna</a></div></div>',"/404.html"))
  # Static index also runs without a local Jekyll process; SEO is identical to the include.
  write(ROOT/"index.html",home.read_text(encoding="utf-8"))
  print(f"DESIGN TEMPLATES PASS: {len(items)} trials, {len(clusters)} subtemas, archivo, cuenta, lector y documentos")

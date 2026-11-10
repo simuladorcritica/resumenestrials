@@ -1,31 +1,36 @@
-# Sistema de diseño: Nova (web) e identidad editorial (PDF y tarjetas)
+# Sistema de diseño: identidad editorial (web, PDF y tarjetas)
 
 ## Objetivo
-Una publicación de evidencia clínica futurista pero práctica: cualquier persona, aunque no conozca el tema ni use páginas web con frecuencia, debe poder encontrar un ensayo, leerlo completo o breve, descargarlo en PDF y volver a la lista sin explicación previa. El contenido clínico de `resumenes.json` no se modifica: solo cambia la presentación. El logo original se conserva sin transformaciones.
+Una publicación de evidencia clínica sobria y práctica: cualquier persona, aunque no conozca el tema ni use páginas web con frecuencia, debe poder encontrar un ensayo, leerlo completo o breve, descargarlo en PDF y volver a la lista sin explicación previa. El contenido clínico de `resumenes.json` no se modifica: solo cambia la presentación. El logo original se conserva sin transformaciones. Desde noviembre de 2026 la web comparte la identidad editorial del PDF y de las tarjetas (sustituye a Nova).
 
 Prioridad: integridad del contenido → funcionalidad → facilidad de uso → estética.
 
 ## Tokens (`ui/tokens.css`)
-Los literales de color viven exclusivamente en `ui/tokens.css`; las reglas de `ui/site.css` usan variables. Los temas claro y oscuro se diseñan por separado.
+Los literales de color viven exclusivamente en `ui/tokens.css`; las reglas de `ui/site.css` usan variables. El tema claro («papel») es el predeterminado; el oscuro («tinta nocturna») se activa por preferencia del sistema o con el botón.
 
-| Familia | Oscuro («noche índigo») | Claro («blanco frío») |
+| Familia | Claro («papel») | Oscuro («tinta nocturna») |
 |---|---|---|
-| Fondo | #070b16 | #f3f5fb |
-| Superficie | #0f172b | #ffffff |
-| Superficie elevada | #16203a | #eef2fa |
-| Texto | #edf1ff | #0c1428 |
-| Texto secundario | #a6b0cf | #4a5573 |
-| Línea | #233154 | #d6ddec |
-| Acento (enlaces, activo) | azul eléctrico #7ab8ff | #1f56d1 |
-| Botón principal | #4c8dff + texto #050a16 | #1f56d1 + texto blanco |
-| Degradado de marca | azul → violeta → magenta | azul → violeta |
-| Medicina Crítica (categoría) | coral #ff9f80 | #b23c10 |
-| Medicina Interna (categoría) | violeta #b9a2ff | #6236cc |
-| Superficie de modo lectura | #0d0f17 | #fbf8f2 |
+| Fondo | #f6f4f0 | #0f1b2d |
+| Superficie | #ffffff | #15243a |
+| Superficie elevada / suave | #efebe3 | #1b2c45 |
+| Titulares (tinta) | #12233b | #ede9e1 |
+| Texto | #1e2733 | #e4e0d8 |
+| Texto secundario | #5a6372 | #a9b2bf |
+| Línea | #ddd8cc | #2a3b55 |
+| Acento (enlaces, activo) | petróleo #146e6e | #5fbfbc |
+| Botón principal | tinta #12233b + texto papel | papel #ede9e1 + texto tinta |
+| Marca (línea de señal) | #1c8a8a | #5fbfbc |
+| Punto ocre (solo línea de señal) | #c8892a | #e0a84a |
+| Medicina Crítica (categoría) | #a8472a | #e08a6a |
+| Medicina Interna (categoría) | #146e6e | #5fbfbc |
 
 Los colores de categoría identifican especialidades; nunca valoran resultados. Contraste mínimo 4,5:1 comprobado con axe en ambos temas.
 
-Tipografías (Google Fonts, `display=swap`): **Sora** para interfaz y titulares; **Literata** para lectura larga. Lectura: 20 px por defecto (18/22 con el botón Letra), interlineado 1,78 y máximo 70 caracteres por línea. Radios 10/16/24 px y píldoras; sombras suaves; movimiento 160/220 ms, desactivado con `prefers-reduced-motion`. Fondo con aurora tenue y vidrio translúcido en cabecera y barras.
+Tipografías propias (`/fonts/`, WOFF2, OFL): **Newsreader** para titulares y marca; **RT Sans** (IBM Plex Sans renombrada) para interfaz; **Literata** para lectura larga. Lectura: 20 px por defecto (18/22 con el botón Letra), interlineado 1,78 y máximo 70 caracteres por línea. Sin degradados, vidrio, aurora ni sombras: superficies planas, filetes de 1 px y radios de 2–4 px. Las tarjetas del archivo se separan con un filete superior en tinta, sin caja. Las etiquetas son versalitas sin píldora. Movimiento 160/220 ms, desactivado con `prefers-reduced-motion`.
+
+**Línea de señal en la web.** Aparece una sola vez por página: bajo el titular de la portada y en la cabecera del lector (`SIGNAL` en `site_templates.py` y su equivalente en `ui/reader.js`). Es el único uso de `var(--ev-dot)`; `validate-editorial.mjs` lo comprueba.
+
+El CSS servido (`site-runtime.css`) se genera sin comentarios ni saltos de línea; las fuentes en `ui/` se mantienen comentadas. Objetivo ≤ 60 KB (límite duro 70 KB).
 
 ## Responsive y dispositivo
 - Celular < 720 px · tableta 720–1099 px · escritorio ≥ 1100 px; navegación completa en cabecera desde 1240 px.
@@ -51,10 +56,10 @@ Todo párrafo de prosa (cuerpo, breve, documentos, avisos, textos de apoyo) y la
 En celular (pantallas de hasta 480 px) la prosa se alinea a la izquierda con la misma partición: en columnas tan angostas el justificado abría huecos de más de 2em entre palabras (139 de 231 resúmenes con letra grande). Tablet, escritorio y PDF siguen justificados. Decisión del editor, octubre de 2026.
 
 ## Tipografía
-Literata y Sora se sirven desde `/fonts/` (WOFF2, latin y latin-ext, licencia OFL) con `font-display: swap`. Ninguna página depende de Google Fonts: una hoja de estilos externa bloquea el primer render y dejaba la pantalla en blanco en redes móviles. `validate-editorial.mjs` falla si vuelve a aparecer.
+Literata, Newsreader y RT Sans se sirven desde `/fonts/` (WOFF2, latin y latin-ext, licencia OFL) con `font-display: swap`. Ninguna página depende de Google Fonts: una hoja de estilos externa bloquea el primer render y dejaba la pantalla en blanco en redes móviles. `validate-editorial.mjs` falla si vuelve a aparecer.
 
 ## Identidad editorial: PDF y tarjetas sociales
-Alcance: los PDF descargables y las imágenes para X, Telegram y Google. **La web conserva Nova** (tokens y estilos de arriba); esta sección no la modifica. Todo sale del logo (`logo.png`): el papel crema del círculo, la tinta de la R, el petróleo de la T y el punto ocre en el que termina la curva.
+Alcance: los PDF descargables y las imágenes para X, Telegram y Google; la web aplica la misma identidad con los tokens de arriba. Todo sale del logo (`logo.png`): el papel crema del círculo, la tinta de la R, el petróleo de la T y el punto ocre en el que termina la curva.
 
 **Línea de señal.** Es un filete petróleo que, en su extremo derecho, sube suavemente y termina en el punto ocre, como la curva del monograma. Aparece una sola vez por pieza: en la cabecera de la página 1 del PDF y en la cabecera de la tarjeta. Es el único uso del ocre; si apareciera en otro sitio, dejaría de significar algo. El monograma conserva su propio punto como parte de la marca (decisión del editor, noviembre de 2026). Se dibuja como trazo vectorial: curva de Bézier en jsPDF y polilínea muestreada en Pillow, con supermuestreo 2×.
 
