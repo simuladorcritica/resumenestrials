@@ -8077,5 +8077,36 @@
       "population": "Participaron adultos sin diabetes con artrosis de rodilla dolorosa y exceso de peso: dolor en la rodilla índice durante más de 12 semanas y más de 15 días del mes previo, artrosis radiográfica de grado 2 o 3 de Kellgren-Lawrence y al menos un intento fallido de adelgazar con dieta. El dolor se midió con la subescala de dolor del índice de artrosis de las universidades Western Ontario y McMaster (WOMAC), de 0 a 10, donde más…"
     },
     "datePublished": "2026-11-10"
+  },
+  "297": {
+    "slug": "race-cars-intervenciones-comunitarias-servicios-emergencias-medicas-mejorar-supervivencia-paro",
+    "path": "/trials/race-cars-intervenciones-comunitarias-servicios-emergencias-medicas-mejorar-supervivencia-paro/",
+    "url": "https://resumenestrials.com/trials/race-cars-intervenciones-comunitarias-servicios-emergencias-medicas-mejorar-supervivencia-paro/",
+    "title": "RACE-CARS: intervenciones comunitarias y de los servicios de emergencias médicas para mejorar la supervivencia en el paro cardiaco",
+    "seo_title": "RACE-CARS trial: intervenciones comunitarias y de los servicios de emergencias médicas para mejorar la supervivencia en el paro cardiaco | Resúmenes Trials",
+    "description": "RACE-CARS: Sin diferencia significativa en la supervivencia al alta con buena función neurológica ( 9.0% vs 9.4% ; OR ajustado 0.97; IC 95%, 0.75 a 1.26; P =…",
+    "clusters": [
+      {
+        "name": "Ventilación e insuficiencia respiratoria",
+        "path": "/medicina-critica/ventilacion-respiratoria/",
+        "url": "https://resumenestrials.com/medicina-critica/ventilacion-respiratoria/"
+      },
+      {
+        "name": "Paro cardiaco y resucitación",
+        "path": "/medicina-critica/paro-resucitacion/",
+        "url": "https://resumenestrials.com/medicina-critica/paro-resucitacion/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/race-cars-intervenciones-comunitarias-servicios-emergencias-medicas-mejorar-supervivencia-paro-16x9.jpg",
+      "https://resumenestrials.com/images/trials/race-cars-intervenciones-comunitarias-servicios-emergencias-medicas-mejorar-supervivencia-paro-4x3.jpg",
+      "https://resumenestrials.com/images/trials/race-cars-intervenciones-comunitarias-servicios-emergencias-medicas-mejorar-supervivencia-paro-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si una estrategia comunitaria y de los servicios de emergencias médicas, aplicada a condados enteros, aumenta la supervivencia al alta con buena función neurológica en adultos con paro cardiaco extrahospitalario.",
+      "answer": "Sin diferencia significativa en la supervivencia al alta con buena función neurológica ( 9.0% vs 9.4% ; OR ajustado 0.97; IC 95%, 0.75 a 1.26; P = 0.80); según los autores, el IC incluye la posibilidad de un beneficio o un daño modestos.",
+      "population": "Población: adultos de 18 años o más con paro cardiaco extrahospitalario no traumático e intento de reanimación por los servicios de emergencias médicas (EMS, por sus siglas en inglés), en 60 condados rurales y urbanos de Carolina del Norte, Estados Unidos, con unos 8.5 millones de habitantes. Según el personal de emergencias, el 33.3% de los pacientes eran negros y el 3.9% hispanos o latinos."
+    },
+    "datePublished": "2026-11-10"
   }
 }

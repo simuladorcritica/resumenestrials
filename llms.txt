@@ -14,6 +14,7 @@ Material educativo para profesionales de la salud. La referencia final es siempr
 
 ## Resúmenes de ensayos
 
+- [RACE-CARS: intervenciones comunitarias y de los servicios de emergencias médicas para mejorar la supervivencia en el paro cardiaco](https://resumenestrials.com/trials/race-cars-intervenciones-comunitarias-servicios-emergencias-medicas-mejorar-supervivencia-paro/): NEJM, 2026.
 - [TRIUMPH-4 y TRIUMPH-1-OA: retatrutida una vez por semana en adultos con dolor por artrosis de rodilla y obesidad](https://resumenestrials.com/trials/triumph-4-y-triumph-1-oa-retatrutida-vez-semana-adultos-dolor-artrosis-rodilla-obesidad/): NEJM, 2026.
 - [BATURA: albuterol-budesonida a demanda en el asma leve](https://resumenestrials.com/trials/batura-albuterol-budesonida-demanda-asma-leve/): NEJM, 2025.
 - [FIBRONEER-ILD: nerandomilast en pacientes con fibrosis pulmonar progresiva](https://resumenestrials.com/trials/fibroneer-ild-nerandomilast-pacientes-fibrosis-pulmonar-progresiva/): NEJM, 2025.

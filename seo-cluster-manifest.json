@@ -38,7 +38,7 @@
     "category": "Medicina Crítica",
     "path": "/medicina-critica/ventilacion-respiratoria/",
     "url": "https://resumenestrials.com/medicina-critica/ventilacion-respiratoria/",
-    "count": 50,
+    "count": 51,
     "trial_ids": [
       "1",
       "3",
@@ -89,7 +89,8 @@
       "251",
       "257",
       "259",
-      "290"
+      "290",
+      "297"
     ]
   },
   "sdra-ecmo": {
@@ -221,7 +222,7 @@
     "category": "Medicina Crítica",
     "path": "/medicina-critica/paro-resucitacion/",
     "url": "https://resumenestrials.com/medicina-critica/paro-resucitacion/",
-    "count": 12,
+    "count": 13,
     "trial_ids": [
       "4",
       "23",
@@ -234,7 +235,8 @@
       "131",
       "144",
       "251",
-      "252"
+      "252",
+      "297"
     ]
   },
   "infecciones-antibioticos": {
