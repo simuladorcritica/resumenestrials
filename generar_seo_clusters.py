@@ -343,9 +343,17 @@ def update_sitemap(items: list[dict], clusters: list[dict], active: dict[str, li
         f"{base.BASE_URL}/privacidad/",
         f"{base.BASE_URL}/terminos/",
     ]
+    revisiones = sorted(str(item["fecha_revision"]) for item in items if item.get("fecha_revision"))
+    if revisiones:
+        urls.append(f"{base.BASE_URL}/correcciones/")
     urls.extend(f"{base.BASE_URL}/{base.CATEGORY_PATHS[name]}/" for name, values in category_content.items() if values)
     urls.extend(cluster_url(c) for c in clusters if active.get(c["slug"]))
     urls.extend(base.url_trial(item) for item in items)
+    import site_templates
+    videos = site_templates.load_videos()
+    manifest_seo = json.loads((base.ROOT / "seo-manifest.json").read_text(encoding="utf-8")) if videos else {}
+    video_urls = {f"{base.BASE_URL}{site_templates.video_path(manifest_seo, i)}": v["fecha_subida"] for i, v in videos.items()}
+    urls.extend(video_urls)
     root = ET.Element("urlset", xmlns="http://www.sitemaps.org/schemas/sitemap/0.9")
     dates = {
         base.url_trial(item): str(
@@ -356,6 +364,9 @@ def update_sitemap(items: list[dict], clusters: list[dict], active: dict[str, li
         ).strip()
         for item in items
     }
+    if revisiones:
+        dates[f"{base.BASE_URL}/correcciones/"] = revisiones[-1]
+    dates.update(video_urls)
     for url in dict.fromkeys(urls):
         node = ET.SubElement(root, "url")
         ET.SubElement(node, "loc").text = url

@@ -28,9 +28,12 @@ CAMPOS = [
     "objetivo", "hallazgo", "cuerpo", "corto",
 ]
 
-# Campo opcional al final de cada entrada: fecha (AAAA-MM-DD, hora del centro de México)
-# en que el resumen se publicó en la web. Alimenta datePublished, sitemap y feed.
-CAMPOS_OPCIONALES_FINALES = ["fecha_publicacion_resumen"]
+# Campos opcionales al final de cada entrada, en este orden (fechas AAAA-MM-DD, hora del
+# centro de México):
+# - fecha_publicacion_resumen: día en que el resumen se publicó en la web.
+# - fecha_revision: día de la última corrección publicada de su contenido.
+# Alimentan datePublished/dateModified, «Última revisión», sitemap y feed.
+CAMPOS_OPCIONALES_FINALES = ["fecha_publicacion_resumen", "fecha_revision"]
 
 SECCIONES_CUERPO = [
     "Referencia y registro",
@@ -239,7 +242,11 @@ def validar_entrada(e, H, if_vistos):
 
     # --- Esquema: campos exactos y en orden ---
     claves = list(e.keys())
-    if claves[len(CAMPOS):] == CAMPOS_OPCIONALES_FINALES[:len(claves) - len(CAMPOS)]:
+    finales = claves[len(CAMPOS):]
+    if finales == [c for c in CAMPOS_OPCIONALES_FINALES if c in finales]:
+        claves = claves[:len(CAMPOS)]
+    elif claves[:len(CAMPOS)] == CAMPOS and sorted(finales) == sorted(set(finales) & set(CAMPOS_OPCIONALES_FINALES)):
+        H.error(idn, f"orden de campos finales incorrecto: {finales} (debe ser {CAMPOS_OPCIONALES_FINALES})")
         claves = claves[:len(CAMPOS)]
     if claves != CAMPOS:
         faltan = [c for c in CAMPOS if c not in claves]
@@ -249,16 +256,25 @@ def validar_entrada(e, H, if_vistos):
         if not faltan and not sobran:
             H.error(idn, f"orden de campos incorrecto: {claves}")
 
-    if "fecha_publicacion_resumen" in e:
-        fp = e.get("fecha_publicacion_resumen")
+    fechas_editoriales = {}
+    for campo in CAMPOS_OPCIONALES_FINALES:
+        if campo not in e:
+            continue
+        fp = e.get(campo)
         if not isinstance(fp, str) or not re.fullmatch(r"\d{4}-\d{2}-\d{2}", fp):
-            H.error(idn, f"'fecha_publicacion_resumen' debe ser AAAA-MM-DD: {fp!r}")
-        else:
-            try:
-                if date.fromisoformat(fp) > date.today():
-                    H.error(idn, f"'fecha_publicacion_resumen' está en el futuro: {fp}")
-            except ValueError:
-                H.error(idn, f"'fecha_publicacion_resumen' no es una fecha válida: {fp!r}")
+            H.error(idn, f"'{campo}' debe ser AAAA-MM-DD: {fp!r}")
+            continue
+        try:
+            fd = date.fromisoformat(fp)
+        except ValueError:
+            H.error(idn, f"'{campo}' no es una fecha válida: {fp!r}")
+            continue
+        if fd > date.today():
+            H.error(idn, f"'{campo}' está en el futuro: {fp}")
+        fechas_editoriales[campo] = fd
+    if ("fecha_publicacion_resumen" in fechas_editoriales and "fecha_revision" in fechas_editoriales
+            and fechas_editoriales["fecha_revision"] < fechas_editoriales["fecha_publicacion_resumen"]):
+        H.error(idn, "'fecha_revision' es anterior a 'fecha_publicacion_resumen'")
 
     # --- Tipos y coherencia de fechas ---
     if not isinstance(e.get("anio"), int):
