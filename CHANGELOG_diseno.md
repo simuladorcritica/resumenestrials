@@ -1,3 +1,11 @@
+## 2026-11-10 · Portada sin cifras repetidas y entrada sin guiones
+
+- Se retira el bloque de cifras de la portada (295 · 145 · 157): repetía lo que dicen las pestañas y el contador, y la suma 145 + 157 no coincide con el total porque hay resúmenes de ambas especialidades.
+- Las pestañas Todas / Medicina Crítica / Medicina Interna ya no llevan número. El total aparece una sola vez, en el contador de la biblioteca («295 resúmenes»); al filtrar, el contador dice «12 de 295 resúmenes».
+- Las páginas de especialidad y subtema tampoco repiten la cifra en la entrada.
+- El texto de entrada (portada y especialidades) va alineado a la izquierda y sin división de palabras: no más «Es-cribe». La línea de señal se ajusta al ancho del texto.
+- Las pruebas usan `data-ready` del contador como señal de carga en lugar del texto « de ».
+
 ## 2026-11-08 · La web adopta la identidad editorial del PDF y de X
 
 - Tema claro «papel» por defecto y oscuro «tinta nocturna»; colores, tipografías y línea de señal iguales a los del PDF y las tarjetas.

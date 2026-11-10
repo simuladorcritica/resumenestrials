@@ -8,8 +8,8 @@ const routes=JSON.parse(fs.readFileSync('seo-manifest.json','utf8'));
 const clusters=JSON.parse(fs.readFileSync('seo-cluster-manifest.json','utf8'));
 const clinical=JSON.parse(fs.readFileSync('resumenes.json','utf8'));
 const paths=['/','/medicina-critica/','/medicina-interna/',...Object.values(clusters).map(c=>c.path),'/medicina-interna/hematologia-oncologia/',routes['168'].path,'/resumen.html?id=168','/resumen.html?id=168&v=corto','/resumen/168.html','/metodologia/','/equipo-editorial/','/privacidad.html','/privacidad/','/terminos/','/404.html','/cuenta.html','/biblioteca.html','/registro.html','/login.html','/recuperar.html'];
-// Metadata lines, labels and status messages keep start alignment; every other paragraph is prose.
-const excluded=':where(.ev-meta,.ev-count,.ev-eyebrow,.ev-kicker,.ev-trust,.ev-state,.ev-estado,.ev-strength,.ev-hint,.ev-field-error,.ev-pill,.ev-editorial-dates,.ev-turnstile-status,.ev-safe,.ev-card-meta,.ev-card-topics,.ev-readtime,.ev-byline,.ev-keyfinding-label,.ev-search-status,.ev-footer-claim,.ev-footer-title,.ev-dialog-label,.ev-dialog-note,.ev-rail-title,.ev-original,.ev-status,.ev-doc-date,.ev-empty-title,.ev-tools-hint)';
+// Metadata lines, labels, status messages and the hero lead (editor request, Nov 2026) keep start alignment; every other paragraph is prose.
+const excluded=':where(.ev-meta,.ev-count,.ev-intro,.ev-eyebrow,.ev-kicker,.ev-trust,.ev-state,.ev-estado,.ev-strength,.ev-hint,.ev-field-error,.ev-pill,.ev-editorial-dates,.ev-turnstile-status,.ev-safe,.ev-card-meta,.ev-card-topics,.ev-readtime,.ev-byline,.ev-keyfinding-label,.ev-search-status,.ev-footer-claim,.ev-footer-title,.ev-dialog-label,.ev-dialog-note,.ev-rail-title,.ev-original,.ev-status,.ev-doc-date,.ev-empty-title,.ev-tools-hint)';
 // Institutional pages (.ev-doc-text) use a wider column and, like summary pages (body.ev-reader), never split words with a hyphen (editor request, Oct 2026).
 const TEXT_PAGES=new Set(['/metodologia/','/equipo-editorial/','/privacidad.html','/privacidad/','/terminos/']);
 const results=[];
@@ -31,7 +31,7 @@ for(const engine of [chromium,webkit]){
    if(path==='/privacidad.html')await page.waitForURL(u=>u.pathname==='/privacidad/');
    if(path.startsWith('/resumen.html'))await page.waitForFunction(()=>document.querySelector('article p'));
    if(await page.locator('[data-ev-ids]').count()){
-    await page.waitForFunction(()=>document.querySelector('#ev-count')?.textContent.includes(' de '));
+    await page.waitForFunction(()=>document.querySelector('#ev-count')?.dataset.ready);
     for(const dense of [false,true]){
      const view=page.locator('#ev-view');if((await view.getAttribute('aria-pressed')==='true')!==dense)await view.click();
      const offset=await page.locator('#ev-list>.ev-card:visible').first().evaluate(card=>{const s=getComputedStyle(card);return card.querySelector('h2').getBoundingClientRect().top-card.getBoundingClientRect().top-parseFloat(s.paddingTop)-parseFloat(s.borderTopWidth)});

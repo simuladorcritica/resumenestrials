@@ -27,7 +27,7 @@
    let chosen=rows.filter(r=>(!term||E.searchable(r).includes(term))&&filters.every(f=>!f.value||values[f.key](r).includes(f.value)));
    chosen=chosen.slice().sort(sort.value==='title'?(a,b)=>a.titulo.localeCompare(b.titulo,'es'):sort.value==='journal'?(a,b)=>a.revista.localeCompare(b.revista,'es')||a.titulo.localeCompare(b.titulo,'es'):dates.compareTrialDates);
    const selected=new Set(chosen.slice(0,limit).map(r=>String(r.id)));for(const r of chosen){const n=nodes.get(String(r.id));if(n)list.append(n)}for(const[id,n]of nodes)n.hidden=!selected.has(id);
-   count.textContent=chosen.length+' de '+rows.length+' resúmenes';
+   count.textContent=chosen.length===rows.length?rows.length+' resúmenes':chosen.length+' de '+rows.length+' resúmenes';count.dataset.ready='1';
    const rest=chosen.length-limit;more.hidden=rest<=0;more.textContent='Mostrar '+Math.min(pageSize,Math.max(rest,0))+' más · quedan '+Math.max(rest,0);
    empty.hidden=chosen.length!==0;
    const active=filters.filter(f=>f.value),advanced=active.filter(f=>f.key!=='area').length;

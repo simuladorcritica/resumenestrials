@@ -168,17 +168,16 @@ def archive(items,manifest,title="Archivo de evidencia",scope=""):
  if not scope:
   hero=('<section class="ev-hero"><div class="ev-hero-copy"><p class="ev-eyebrow">Resúmenes críticos de ensayos clínicos · en español</p>'
    '<h1>Evidencia sin ruido</h1>'+SIGNAL+
-   '<p class="ev-lead">Encuentra un ensayo, léelo completo o en versión breve y descárgalo en PDF. Escribe en el buscador una enfermedad, un fármaco o el nombre del estudio.</p></div>'
-   f'<ul class="ev-stats" aria-label="Contenido del archivo"><li><strong>{len(items)}</strong><span>resúmenes</span></li><li data-tone="critica"><strong>{crit}</strong><span>Medicina Crítica</span></li><li data-tone="interna"><strong>{inter}</strong><span>Medicina Interna</span></li></ul>'
+   '<p class="ev-lead ev-intro">Encuentra un ensayo, léelo completo o en versión breve y descárgalo en PDF. Escribe en el buscador una enfermedad, un fármaco o el nombre del estudio.</p></div>'
    '<ol class="ev-steps" aria-label="Cómo usar Resúmenes Trials"><li><b>1</b><span>Busca o elige una especialidad</span></li><li><b>2</b><span>Abre el resumen completo o breve</span></li><li><b>3</b><span>Descárgalo en PDF o guárdalo</span></li></ol></section>')
  else:
   kind="Especialidad" if scope in ("medicina-critica","medicina-interna") else "Subtema"
   hero=(f'<section class="ev-hero ev-hero-compact"><div class="ev-hero-copy"><nav class="ev-breadcrumb" aria-label="Ruta"><a href="/">{icon("arrow-left")}Inicio</a></nav><p class="ev-eyebrow">{kind}</p><h1>{esc(title)}</h1>'
-   f'<p class="ev-lead">{len(items)} resúmenes críticos de ensayos clínicos. Elige uno para leerlo completo o en versión breve y descargarlo en PDF.</p>'+topic_intro(scope)+'</div></section>')
+   f'<p class="ev-lead ev-intro">Resúmenes críticos de ensayos clínicos en español. Elige uno para leerlo completo o en versión breve y descargarlo en PDF.</p>'+topic_intro(scope)+'</div></section>')
  segment=''
  if not scope:
   segment=('<div class="ev-segment" role="radiogroup" aria-label="Especialidad">'
-   +''.join(f'<label><input type="radio" name="ev-area" value="{v}"{" checked" if not v else ""}><span>{l}<small>{n}</small></span></label>' for v,l,n in [("","Todas",len(items)),("Medicina Crítica","Medicina Crítica",crit),("Medicina Interna","Medicina Interna",inter)])+'</div>')
+   +''.join(f'<label><input type="radio" name="ev-area" value="{v}"{" checked" if not v else ""}><span>{l}</span></label>' for v,l in [("","Todas"),("Medicina Crítica","Medicina Crítica"),("Medicina Interna","Medicina Interna")])+'</div>')
  quick_year=max((int(r["anio"]) for r in items if "Medicina Crítica" in [r.get("especialidad_principal"),r.get("especialidad_secundaria")] and str(r.get("anio","")).isdigit()),default=0)
  top=[t for t,_ in Counter(t for r in items for t in (r.get("temas") or [])).most_common(5)]
  quick=('<div class="ev-quick"><span class="ev-quick-label">Atajos</span><div class="ev-quick-row">'+(f'<button class="ev-chip ev-chip-strong" type="button" data-ev-preset="{quick_year}">Medicina Crítica · {quick_year}</button>' if quick_year and not scope else '')
