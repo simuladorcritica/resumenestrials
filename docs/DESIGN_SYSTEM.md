@@ -24,7 +24,7 @@ Los literales de color viven exclusivamente en `ui/tokens.css`; las reglas de `u
 | Medicina Crítica (categoría) | #a8472a | #e08a6a |
 | Medicina Interna (categoría) | #146e6e | #5fbfbc |
 
-Los colores de categoría identifican especialidades; nunca valoran resultados. Contraste mínimo 4,5:1 comprobado con axe en ambos temas.
+Los colores de categoría identifican especialidades; nunca valoran resultados. Cada subespecialidad tiene un tono propio (`--ev-sub-*`: cardio, endo, neuro, nefro, neumo, infecto, gastro, onco; `otra` en grafito para las poco frecuentes), con la misma luminosidad OKLCH y contraste ≥ 4,5:1; `ui/archive.js` asigna `data-sub` a la etiqueta. Contraste mínimo 4,5:1 comprobado con axe en ambos temas.
 
 Tipografías propias (`/fonts/`, WOFF2, OFL): **Newsreader** para titulares y marca; **RT Sans** (IBM Plex Sans renombrada) para interfaz; **Literata** para lectura larga. Lectura: 20 px por defecto (18/22 con el botón Letra), interlineado 1,78 y máximo 70 caracteres por línea. Sin degradados, vidrio, aurora ni sombras: superficies planas, filetes de 1 px y radios de 2–4 px. Las tarjetas del archivo se separan con un filete superior en tinta, sin caja. Las etiquetas son versalitas sin píldora. Movimiento 160/220 ms, desactivado con `prefers-reduced-motion`.
 
