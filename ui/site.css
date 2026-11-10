@@ -27,9 +27,9 @@ mark{background:var(--ev-mark);color:inherit;border-radius:4px;padding:0 2px}
 .ev-aurora{display:none}
 
 /* ---------- Text & justification ---------- */
-:where(.ev-prose,.ev-body,article.articulo) li,p:not(:where(.ev-meta,.ev-count,.ev-eyebrow,.ev-kicker,.ev-trust,.ev-state,.ev-estado,.ev-strength,.ev-hint,.ev-field-error,.ev-pill,.ev-editorial-dates,.ev-turnstile-status,.ev-safe,.ev-card-meta,.ev-card-topics,.ev-readtime,.ev-byline,.ev-keyfinding-label,.ev-search-status,.ev-footer-claim,.ev-footer-title,.ev-dialog-label,.ev-dialog-note,.ev-rail-title,.ev-original,.ev-status,.ev-doc-date,.ev-empty-title,.ev-tools-hint)),.ev-justify{text-align:justify;text-align-last:start;-webkit-hyphens:auto;hyphens:auto;hyphenate-limit-chars:6 2 2;-webkit-hyphenate-character:"-";hyphenate-character:"-";overflow-wrap:break-word}
+:where(.ev-prose,.ev-body,article.articulo) li,p:not(:where(.ev-meta,.ev-count,.ev-intro,.ev-eyebrow,.ev-kicker,.ev-trust,.ev-state,.ev-estado,.ev-strength,.ev-hint,.ev-field-error,.ev-pill,.ev-editorial-dates,.ev-turnstile-status,.ev-safe,.ev-card-meta,.ev-card-topics,.ev-readtime,.ev-byline,.ev-keyfinding-label,.ev-search-status,.ev-footer-claim,.ev-footer-title,.ev-dialog-label,.ev-dialog-note,.ev-rail-title,.ev-original,.ev-status,.ev-doc-date,.ev-empty-title,.ev-tools-hint)),.ev-justify{text-align:justify;text-align-last:start;-webkit-hyphens:auto;hyphens:auto;hyphenate-limit-chars:6 2 2;-webkit-hyphenate-character:"-";hyphenate-character:"-";overflow-wrap:break-word}
 /* Celular: en columnas tan angostas el justificado abre huecos grandes entre palabras; se alinea a la izquierda. Tablet, escritorio y PDF siguen justificados. */
-@media (max-width:480px){:where(.ev-prose,.ev-body,article.articulo) li,p:not(:where(.ev-meta,.ev-count,.ev-eyebrow,.ev-kicker,.ev-trust,.ev-state,.ev-estado,.ev-strength,.ev-hint,.ev-field-error,.ev-pill,.ev-editorial-dates,.ev-turnstile-status,.ev-safe,.ev-card-meta,.ev-card-topics,.ev-readtime,.ev-byline,.ev-keyfinding-label,.ev-search-status,.ev-footer-claim,.ev-footer-title,.ev-dialog-label,.ev-dialog-note,.ev-rail-title,.ev-original,.ev-status,.ev-doc-date,.ev-empty-title,.ev-tools-hint)),.ev-justify{text-align:start}}
+@media (max-width:480px){:where(.ev-prose,.ev-body,article.articulo) li,p:not(:where(.ev-meta,.ev-count,.ev-intro,.ev-eyebrow,.ev-kicker,.ev-trust,.ev-state,.ev-estado,.ev-strength,.ev-hint,.ev-field-error,.ev-pill,.ev-editorial-dates,.ev-turnstile-status,.ev-safe,.ev-card-meta,.ev-card-topics,.ev-readtime,.ev-byline,.ev-keyfinding-label,.ev-search-status,.ev-footer-claim,.ev-footer-title,.ev-dialog-label,.ev-dialog-note,.ev-rail-title,.ev-original,.ev-status,.ev-doc-date,.ev-empty-title,.ev-tools-hint)),.ev-justify{text-align:start}}
 .ev-prose-break::after{content:"\00ad"}
 :where(a,h1,h2,h3,h4,button,input,select,textarea,label,summary,th,td,nav,.ev-tag,.ev-chip,.ev-area){text-align:start;text-align-last:auto;-webkit-hyphens:manual;hyphens:manual}
 .ev-eyebrow{display:inline-flex;align-items:center;gap:10px;margin:0 0 14px;font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ev-accent)}
@@ -125,17 +125,11 @@ details>summary::-webkit-details-marker{display:none}
 .ev-main:focus{outline:none}
 
 /* ---------- Hero ---------- */
-.ev-hero{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(260px,1fr);gap:28px 56px;align-items:end;padding:24px 0 36px}
+.ev-hero{display:grid;grid-template-columns:minmax(0,1fr);gap:28px 56px;align-items:end;padding:24px 0 36px}
 .ev-hero h1{max-width:15ch}
 .ev-hero-compact{grid-template-columns:minmax(0,1fr);padding-bottom:20px}
 .ev-hero-compact h1{max-width:24ch;font-size:clamp(2rem,1.3rem + 2.6vw,3rem)}
-.ev-stats{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
-.ev-stats li{padding:12px 0 0 14px;border-left:1px solid var(--ev-line)}.ev-stats li:first-child{padding-left:0;border:0}.ev-stats{border-top:1px solid var(--ev-ink)}
-.ev-stats strong{display:block;font:500 2.3rem/1.1 var(--ev-display);font-variant-numeric:lining-nums tabular-nums}
-.ev-stats li:first-child strong{color:var(--ev-accent)}
-.ev-stats li[data-tone=critica] strong{color:var(--ev-critica)}
-.ev-stats li[data-tone=interna] strong{color:var(--ev-interna)}
-.ev-stats span{display:block;margin-top:6px;color:var(--ev-muted);font-size:.8rem;line-height:1.3}
+
 .ev-steps{grid-column:1/-1;list-style:none;margin:8px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
 .ev-steps li{display:flex;align-items:center;gap:14px;padding:14px 18px;border:1px dashed var(--ev-line-strong);border-radius:var(--ev-r);color:var(--ev-text);font-size:.92rem;font-weight:500;line-height:1.35}
 .ev-steps b{display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;width:34px;height:34px;border:1px solid var(--ev-line);border-radius:var(--ev-r);color:var(--ev-accent);font-weight:700}
@@ -149,10 +143,8 @@ section.ev-archive{scroll-margin-top:96px;padding-top:12px}
 .ev-segment label{position:relative;display:flex;cursor:pointer}
 .ev-segment input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:pointer}
 .ev-segment span{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:8px 12px;border-radius:var(--ev-r);color:var(--ev-muted);font-weight:600;font-size:.95rem;text-align:center;line-height:1.2;transition:background var(--ev-fast),color var(--ev-fast)}
-.ev-segment small{display:inline-flex;align-items:center;justify-content:center;min-width:28px;height:22px;padding:0 7px;border-radius:var(--ev-pill);background:var(--ev-neutral-soft);font-size:.75rem;font-weight:600}
 .ev-segment label:hover span{color:var(--ev-text)}
 .ev-segment input:checked+span{background:var(--ev-accent-strong);color:var(--ev-on-accent)}
-.ev-segment input:checked+span small{background:transparent;box-shadow:inset 0 0 0 1px currentColor;color:inherit}
 .ev-segment input:focus-visible+span{outline:3px solid var(--ev-accent);outline-offset:2px}
 .ev-quick{display:flex;align-items:center;gap:12px;margin-bottom:14px;min-width:0}
 .ev-quick-label{flex:0 0 auto;color:var(--ev-muted);font-size:.82rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em}
@@ -553,14 +545,13 @@ html .ev-field-error[hidden]{display:block!important;visibility:hidden}
  .ev-hero{padding:6px 0 22px;gap:18px}
  .ev-hero h1{font-size:2.05rem;max-width:none}
  .ev-lead{font-size:1rem}
- .ev-stats{display:none}
  .ev-steps{grid-template-columns:minmax(0,1fr);gap:6px;margin-top:0}
  .ev-steps li{gap:12px;padding:8px 12px;font-size:.86rem;border-radius:var(--ev-r)}
  .ev-steps b{width:28px;height:28px;font-size:.85rem}
  .ev-eyebrow{font-size:.7rem;letter-spacing:.04em}
  .ev-archive-head h2{font-size:1.3rem}
  .ev-segment{gap:4px;padding:4px;border-radius:var(--ev-r)}
- .ev-segment span{flex-direction:column;gap:4px;min-height:60px;padding:6px 4px;font-size:.82rem;border-radius:var(--ev-r)}
+ .ev-segment span{gap:4px;min-height:48px;padding:6px 4px;font-size:.82rem;border-radius:var(--ev-r)}
  .ev-quick{flex-direction:column;align-items:flex-start;gap:8px}
  .ev-quick-row{flex-wrap:nowrap;overflow-x:auto;max-width:100%;padding-bottom:4px;scrollbar-width:none}
  .ev-quick-row::-webkit-scrollbar{display:none}
@@ -638,3 +629,4 @@ html .ev-field-error[hidden]{display:block!important;visibility:hidden}
 
 .ev-signal{display:flex;align-items:flex-end;height:18px;margin:18px 0 22px;color:var(--ev-brand)}.ev-signal i{flex:1;border-bottom:2px solid}.ev-signal svg{flex:none;margin-left:-1px}.ev-signal circle{fill:var(--ev-dot)}
 
+.ev-hero .ev-signal{max-width:640px}
