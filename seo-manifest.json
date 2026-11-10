@@ -8159,5 +8159,57 @@
       "population": "Población. Adultos con fibrilación auricular persistente de más de 3 meses, candidatos a ablación con catéter, en 14 centros terciarios de Canadá. Raza o grupo étnico: No reportado. Intervención. Aislamiento de las venas pulmonares con radiofrecuencia más ablación de las áreas de bajo voltaje de la aurícula izquierda. En ambos grupos se hacía antes un mapa de voltaje de alta densidad con CARTO (más de 750 puntos con buen…"
     },
     "datePublished": "2026-11-10"
+  },
+  "300": {
+    "slug": "stream-suspension-estatinas-adultos-mayores-enfermedad-cardiovascular",
+    "path": "/trials/stream-suspension-estatinas-adultos-mayores-enfermedad-cardiovascular/",
+    "url": "https://resumenestrials.com/trials/stream-suspension-estatinas-adultos-mayores-enfermedad-cardiovascular/",
+    "title": "STREAM: suspensión de las estatinas en adultos mayores sin enfermedad cardiovascular",
+    "seo_title": "STREAM trial: suspensión de las estatinas en adultos mayores sin enfermedad cardiovascular | Resúmenes Trials",
+    "description": "STREAM: La diferencia en el tiempo medio restringido sin eventos a 2 años fue de −2.0 semanas (IC 95% −3.7 a −0.3; P<0.001 para no inferioridad), dentro del…",
+    "clusters": [
+      {
+        "name": "Cardiología y prevención cardiovascular",
+        "path": "/medicina-interna/cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-interna/cardiovascular/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/stream-suspension-estatinas-adultos-mayores-enfermedad-cardiovascular-16x9.jpg",
+      "https://resumenestrials.com/images/trials/stream-suspension-estatinas-adultos-mayores-enfermedad-cardiovascular-4x3.jpg",
+      "https://resumenestrials.com/images/trials/stream-suspension-estatinas-adultos-mayores-enfermedad-cardiovascular-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si suspender las estatinas en adultos de 70 años o más con al menos dos enfermedades crónicas que las tomaban en prevención primaria es no inferior a continuarlas en el tiempo libre de infarto no mortal, ictus isquémico no mortal o muerte por cualquier causa a 2 años.",
+      "answer": "La diferencia en el tiempo medio restringido sin eventos a 2 años fue de −2.0 semanas (IC 95% −3.7 a −0.3; P<0.001 para no inferioridad), dentro del margen de −5.2 semanas, aunque todo el intervalo quedó del lado que favorece continuar.",
+      "population": "Se estudiaron adultos de 70 años o más, sin enfermedad cardiovascular aterosclerótica conocida, que tomaban una estatina en prevención primaria desde hacía al menos un año y tenían al menos dos enfermedades crónicas, reclutados en hospitales y consultorios de medicina general de Suiza, los Países Bajos y Francia. Raza y etnia: No reportado."
+    },
+    "datePublished": "2026-11-10"
+  },
+  "301": {
+    "slug": "lp-a-horizon-pelacarsen-desenlaces-cardiovasculares-pacientes-lipoproteina-elevada",
+    "path": "/trials/lp-a-horizon-pelacarsen-desenlaces-cardiovasculares-pacientes-lipoproteina-elevada/",
+    "url": "https://resumenestrials.com/trials/lp-a-horizon-pelacarsen-desenlaces-cardiovasculares-pacientes-lipoproteina-elevada/",
+    "title": "Lp(a)HORIZON: pelacarsén y desenlaces cardiovasculares en pacientes con lipoproteína(a) elevada",
+    "seo_title": "Lp(a)HORIZON trial: pelacarsén y desenlaces cardiovasculares en pacientes con lipoproteína(a) elevada | Resúmenes Trials",
+    "description": "Lp(a)HORIZON: Con una mediana de 4.7 años y una reducción de la lipoproteína(a) del 78.4% al año, el evento cardiovascular adverso mayor ocurrió en el 12.3%…",
+    "clusters": [
+      {
+        "name": "Cardiología y prevención cardiovascular",
+        "path": "/medicina-interna/cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-interna/cardiovascular/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/lp-a-horizon-pelacarsen-desenlaces-cardiovasculares-pacientes-lipoproteina-elevada-16x9.jpg",
+      "https://resumenestrials.com/images/trials/lp-a-horizon-pelacarsen-desenlaces-cardiovasculares-pacientes-lipoproteina-elevada-4x3.jpg",
+      "https://resumenestrials.com/images/trials/lp-a-horizon-pelacarsen-desenlaces-cardiovasculares-pacientes-lipoproteina-elevada-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si el pelacarsén subcutáneo mensual reduce los eventos cardiovasculares adversos mayores frente a placebo en pacientes con enfermedad cardiovascular aterosclerótica establecida y lipoproteína(a) de al menos 70 mg/dl.",
+      "answer": "Con una mediana de 4.7 años y una reducción de la lipoproteína(a) del 78.4% al año, el evento cardiovascular adverso mayor ocurrió en el 12.3% con pelacarsén y el 12.1% con placebo, sin diferencia significativa ( HR 1.02; IC 95% 0.90 a 1.15; P = 0.76 ), un IC compatible con una reducción pequeña o con un aumento del riesgo.",
+      "population": "La población fueron adultos de 18 a 80 años con enfermedad cardiovascular aterosclerótica establecida, es decir, un infarto de miocardio, un ictus isquémico o una enfermedad arterial periférica sintomática ocurridos más de 3 meses y menos de 10 años antes, y una lipoproteína(a) de al menos 70 mg/dl en el laboratorio central, unos 148 nmol/l según los autores. Procedían de 797 centros en 42 países: el 39.6% de Europa…"
+    },
+    "datePublished": "2026-11-10"
   }
 }
