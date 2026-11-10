@@ -8051,5 +8051,31 @@
       "population": "Se estudió a personas de 12 años o más con asma no controlada pese al tratamiento de los escalones 1 o 2 del programa estadounidense NAEPP: SABA a demanda solo o con un glucocorticoide inhalado a dosis baja o un antileucotrieno de mantenimiento. Según su propio informe, el 70.1% eran blancos, el 18.1% negros y el 2.3% asiáticos, y el 12.1%, hispanos o latinos."
     },
     "datePublished": "2026-11-08"
+  },
+  "296": {
+    "slug": "triumph-4-y-triumph-1-oa-retatrutida-vez-semana-adultos-dolor-artrosis-rodilla-obesidad",
+    "path": "/trials/triumph-4-y-triumph-1-oa-retatrutida-vez-semana-adultos-dolor-artrosis-rodilla-obesidad/",
+    "url": "https://resumenestrials.com/trials/triumph-4-y-triumph-1-oa-retatrutida-vez-semana-adultos-dolor-artrosis-rodilla-obesidad/",
+    "title": "TRIUMPH-4 y TRIUMPH-1-OA: retatrutida una vez por semana en adultos con dolor por artrosis de rodilla y obesidad",
+    "seo_title": "TRIUMPH-4 y TRIUMPH-1-OA trial: retatrutida una vez por semana en adultos con dolor por artrosis de rodilla y obesidad | Resúmenes Trials",
+    "description": "TRIUMPH-4 y TRIUMPH-1-OA: En TRIUMPH-4 (445 aleatorizados), la retatrutida redujo el dolor WOMAC a la semana 68 más que el placebo: −1.83 (IC 95% −2.37 a…",
+    "clusters": [
+      {
+        "name": "Renal y metabolismo",
+        "path": "/medicina-interna/renal-metabolica/",
+        "url": "https://resumenestrials.com/medicina-interna/renal-metabolica/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/triumph-4-y-triumph-1-oa-retatrutida-vez-semana-adultos-dolor-artrosis-rodilla-obesidad-16x9.jpg",
+      "https://resumenestrials.com/images/trials/triumph-4-y-triumph-1-oa-retatrutida-vez-semana-adultos-dolor-artrosis-rodilla-obesidad-4x3.jpg",
+      "https://resumenestrials.com/images/trials/triumph-4-y-triumph-1-oa-retatrutida-vez-semana-adultos-dolor-artrosis-rodilla-obesidad-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Evaluar si la retatrutida subcutánea una vez por semana reduce el dolor de rodilla medido con la subescala de dolor del WOMAC frente a placebo en adultos sin diabetes con artrosis de rodilla dolorosa y obesidad, y, en TRIUMPH-4, también el peso corporal.",
+      "answer": "En TRIUMPH-4 (445 aleatorizados), la retatrutida redujo el dolor WOMAC a la semana 68 más que el placebo: −1.83 (IC 95% −2.37 a −1.30) con 9 mg y −1.61 (IC 95% −2.16 a −1.07) con 12 mg, P<0.001, y el peso, con diferencias de −15.4 (IC 95% −18.7 a −12.1) y −19.2 puntos porcentuales (IC 95% −22.4 a −15.9), P<0.001.",
+      "population": "Participaron adultos sin diabetes con artrosis de rodilla dolorosa y exceso de peso: dolor en la rodilla índice durante más de 12 semanas y más de 15 días del mes previo, artrosis radiográfica de grado 2 o 3 de Kellgren-Lawrence y al menos un intento fallido de adelgazar con dieta. El dolor se midió con la subescala de dolor del índice de artrosis de las universidades Western Ontario y McMaster (WOMAC), de 0 a 10, donde más…"
+    },
+    "datePublished": "2026-11-10"
   }
 }
