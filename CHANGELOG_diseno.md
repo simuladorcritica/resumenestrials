@@ -1,3 +1,8 @@
+## 2026-11-10 · Un color por subespecialidad
+
+- En las tarjetas, cada subespecialidad tiene su propio tono: Cardiología (carmín), Endocrinología (magenta), Neurología (violeta), Nefrología (cobalto), Neumología (azul), Infectología (verde), Gastroenterología (oliva) y Oncología/Hematología (sepia). Las de muy pocos resúmenes (Cirugía, Geriatría, Reumatología, Urgencias…) usan grafito.
+- Los tonos comparten luminosidad (OKLCH) para que ninguno pese más que otro, cumplen contraste ≥ 4,5:1 en claro y oscuro, y evitan el petróleo de Medicina Interna, el óxido de Medicina Crítica y el ocre de la línea de señal.
+
 ## 2026-11-10 · Portada sin cifras repetidas y entrada sin guiones
 
 - Se retira el bloque de cifras de la portada (295 · 145 · 157): repetía lo que dicen las pestañas y el contador, y la suma 145 + 157 no coincide con el total porque hay resúmenes de ambas especialidades.

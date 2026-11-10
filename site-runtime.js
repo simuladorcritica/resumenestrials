@@ -321,7 +321,7 @@ document.addEventListener('click',e=>{const b=e.target.closest?.('[data-ev-video
 })();
 
 /* source: ui/archive.js */
-(() => {const E=window.EV;E.ready(async()=>{
+(() => {const SUB_TONE={'Cardiología':'cardio','Endocrinología':'endo','Neurología':'neuro','Nefrología':'nefro','Neumología':'neumo','Infectología':'infecto','Enfermedades Infecciosas':'infecto','VIH':'infecto','Gastroenterología':'gastro','Oncología':'onco','Hematología':'onco'};const E=window.EV;E.ready(async()=>{
  const root=document.querySelector('[data-ev-ids]');if(!root)return;
  try{
   const[all,map,dates]=await Promise.all([E.data(),E.routes(),import('/trial-data.js?v=20261003-laboratorio-v1')]);
@@ -333,7 +333,7 @@ document.addEventListener('click',e=>{const b=e.target.closest?.('[data-ev-video
   const values={area:r=>E.areas(r),sub:r=>E.areas(r).filter(a=>!E.MAIN.includes(a)),topic:r=>r.temas||[],year:r=>[String(r.anio)],journal:r=>[r.revista],type:r=>[r.tipo_estudio]};
   const filters=[...(radios.length?[area]:[]),...selects.map(s=>({key:s.dataset.evFilter,id:s.id,label:labels[s.dataset.evFilter],get value(){return s.value},set value(v){s.value=v}}))];
   const pageSize=24;let limit=pageSize,timer,scrolled=false;
-  for(const r of rows){const inferred=E.inferSubspecialty(r),node=nodes.get(String(r.id));if(inferred&&node&&!node.querySelector('[data-ev-subspecialty]')){const tag=document.createElement('span');tag.className='ev-tag';tag.dataset.evSubspecialty='true';tag.textContent=inferred;node.querySelector('.ev-card-tags').append(tag)}}
+  for(const r of rows){const inferred=E.inferSubspecialty(r),node=nodes.get(String(r.id));if(inferred&&node&&!node.querySelector('[data-ev-subspecialty]')){const tag=document.createElement('span');tag.className='ev-tag';tag.dataset.evSubspecialty='true';tag.dataset.sub=SUB_TONE[inferred]||'otra';tag.textContent=inferred;node.querySelector('.ev-card-tags').append(tag)}}
   for(const s of selects){const key=s.dataset.evFilter,unique=[...new Set(rows.flatMap(values[key]).filter(Boolean))].sort((a,b)=>key==='year'?Number(b)-Number(a):a.localeCompare(b,'es'));s.innerHTML='<option value="">Todos</option>'+unique.map(v=>'<option value="'+E.esc(v)+'">'+E.esc(v)+' ('+rows.filter(r=>values[key](r).includes(v)).length+')</option>').join('')}
   const has=(f,v)=>f.key==='area'?radios.some(r=>r.value===v):[...$(f.id).options].some(o=>o.value===v);
   function fromURL(){
