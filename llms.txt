@@ -14,6 +14,8 @@ Material educativo para profesionales de la salud. La referencia final es siempr
 
 ## Resúmenes de ensayos
 
+- [COAST-AF: ablación de áreas de bajo voltaje en la fibrilación auricular persistente](https://resumenestrials.com/trials/coast-af-ablacion-areas-voltaje-fibrilacion-auricular-persistente/): JAMA, 2026.
+- [CATCH: implementación del tratamiento con combinación en una sola píldora mediante atención en equipo para el control de la hipertensión en entornos con recursos limitados](https://resumenestrials.com/trials/catch-implementacion-tratamiento-combinacion-sola-pildora-mediante-atencion-equipo-control/): JAMA, 2026.
 - [RACE-CARS: intervenciones comunitarias y de los servicios de emergencias médicas para mejorar la supervivencia en el paro cardiaco](https://resumenestrials.com/trials/race-cars-intervenciones-comunitarias-servicios-emergencias-medicas-mejorar-supervivencia-paro/): NEJM, 2026.
 - [TRIUMPH-4 y TRIUMPH-1-OA: retatrutida una vez por semana en adultos con dolor por artrosis de rodilla y obesidad](https://resumenestrials.com/trials/triumph-4-y-triumph-1-oa-retatrutida-vez-semana-adultos-dolor-artrosis-rodilla-obesidad/): NEJM, 2026.
 - [BATURA: albuterol-budesonida a demanda en el asma leve](https://resumenestrials.com/trials/batura-albuterol-budesonida-demanda-asma-leve/): NEJM, 2025.

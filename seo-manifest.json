@@ -8108,5 +8108,56 @@
       "population": "Población: adultos de 18 años o más con paro cardiaco extrahospitalario no traumático e intento de reanimación por los servicios de emergencias médicas (EMS, por sus siglas en inglés), en 60 condados rurales y urbanos de Carolina del Norte, Estados Unidos, con unos 8.5 millones de habitantes. Según el personal de emergencias, el 33.3% de los pacientes eran negros y el 3.9% hispanos o latinos."
     },
     "datePublished": "2026-11-10"
+  },
+  "298": {
+    "slug": "catch-implementacion-tratamiento-combinacion-sola-pildora-mediante-atencion-equipo-control",
+    "path": "/trials/catch-implementacion-tratamiento-combinacion-sola-pildora-mediante-atencion-equipo-control/",
+    "url": "https://resumenestrials.com/trials/catch-implementacion-tratamiento-combinacion-sola-pildora-mediante-atencion-equipo-control/",
+    "title": "CATCH: implementación del tratamiento con combinación en una sola píldora mediante atención en equipo para el control de la hipertensión en entornos con recursos limitados",
+    "seo_title": "CATCH trial: implementación del tratamiento con combinación en una sola píldora mediante atención en equipo para el control de la hipertensión en entornos con recursos limitados | Resúmenes Trials",
+    "description": "CATCH: A los 18 meses, la presión sistólica bajó 19.1 frente a 9.0 mm Hg , con una diferencia de menos 10.1 mm Hg (IC 95% menos 13.3 a menos 6.9; P < .001)…",
+    "clusters": [],
+    "images": [
+      "https://resumenestrials.com/images/trials/catch-implementacion-tratamiento-combinacion-sola-pildora-mediante-atencion-equipo-control-16x9.jpg",
+      "https://resumenestrials.com/images/trials/catch-implementacion-tratamiento-combinacion-sola-pildora-mediante-atencion-equipo-control-4x3.jpg",
+      "https://resumenestrials.com/images/trials/catch-implementacion-tratamiento-combinacion-sola-pildora-mediante-atencion-equipo-control-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Evaluar si aplicar la combinación en una sola píldora mediante atención en equipo reduce más la presión arterial sistólica a los 18 meses que la atención estándar en adultos con hipertensión no controlada de clínicas de atención primaria de Colombia y Jamaica.",
+      "answer": "A los 18 meses, la presión sistólica bajó 19.1 frente a 9.0 mm Hg , con una diferencia de menos 10.1 mm Hg (IC 95% menos 13.3 a menos 6.9; P < .001).",
+      "population": "La población fueron adultos con hipertensión no controlada de 40 clínicas de atención primaria de Colombia y Jamaica, con visitas y fármacos cubiertos por un seguro o por programas públicos. En intervención y en atención estándar se declararon negros el 36.4% y el 34.9%, multirraciales el 55.2% y el 45.5%, blancos el 1.4% y el 14.0% e indígenas el 6.3% y el 0.6%."
+    },
+    "datePublished": "2026-11-10"
+  },
+  "299": {
+    "slug": "coast-af-ablacion-areas-voltaje-fibrilacion-auricular-persistente",
+    "path": "/trials/coast-af-ablacion-areas-voltaje-fibrilacion-auricular-persistente/",
+    "url": "https://resumenestrials.com/trials/coast-af-ablacion-areas-voltaje-fibrilacion-auricular-persistente/",
+    "title": "COAST-AF: ablación de áreas de bajo voltaje en la fibrilación auricular persistente",
+    "seo_title": "COAST-AF trial: ablación de áreas de bajo voltaje en la fibrilación auricular persistente | Resúmenes Trials",
+    "description": "COAST-AF: Recurrencia de arritmia auricular sin diferencia significativa entre la ablación ampliada y el aislamiento de venas pulmonares solo ( 49.4% frente a…",
+    "clusters": [
+      {
+        "name": "Cardiología y prevención cardiovascular",
+        "path": "/medicina-interna/cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-interna/cardiovascular/"
+      },
+      {
+        "name": "Neumología",
+        "path": "/medicina-interna/neumologia/",
+        "url": "https://resumenestrials.com/medicina-interna/neumologia/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/coast-af-ablacion-areas-voltaje-fibrilacion-auricular-persistente-16x9.jpg",
+      "https://resumenestrials.com/images/trials/coast-af-ablacion-areas-voltaje-fibrilacion-auricular-persistente-4x3.jpg",
+      "https://resumenestrials.com/images/trials/coast-af-ablacion-areas-voltaje-fibrilacion-auricular-persistente-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si añadir la ablación de áreas de bajo voltaje al aislamiento de venas pulmonares reduce las recurrencias de arritmia auricular en la fibrilación auricular persistente.",
+      "answer": "Recurrencia de arritmia auricular sin diferencia significativa entre la ablación ampliada y el aislamiento de venas pulmonares solo ( 49.4% frente a 57.5%; hazard ratio 0.82; IC 95%, 0.65 a 1.04; P = .11 ), con un intervalo que no descarta un beneficio clínicamente relevante.",
+      "population": "Población. Adultos con fibrilación auricular persistente de más de 3 meses, candidatos a ablación con catéter, en 14 centros terciarios de Canadá. Raza o grupo étnico: No reportado. Intervención. Aislamiento de las venas pulmonares con radiofrecuencia más ablación de las áreas de bajo voltaje de la aurícula izquierda. En ambos grupos se hacía antes un mapa de voltaje de alta densidad con CARTO (más de 750 puntos con buen…"
+    },
+    "datePublished": "2026-11-10"
   }
 }
