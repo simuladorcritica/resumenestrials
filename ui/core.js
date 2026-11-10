@@ -146,4 +146,6 @@ E.ready(()=>{
  addEventListener('scroll',()=>{if(!ticking){ticking=true;requestAnimationFrame(onScroll)}},{passive:true});onScroll();
  top?.addEventListener('click',()=>{scrollTo({top:0,behavior:E.reduced()?'auto':'smooth'});document.getElementById('ev-main')?.focus({preventScroll:true})});
 });
+// Videos en los resúmenes: el reproductor de YouTube (modo de privacidad mejorada) solo se carga al pulsar.
+document.addEventListener('click',e=>{const b=e.target.closest?.('[data-ev-video]');if(!b)return;const id=b.dataset.evVideo||'';if(!/^[A-Za-z0-9_-]{11}$/.test(id))return;const f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1';f.title=b.dataset.evVideoTitle||'Video';f.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';f.referrerPolicy='strict-origin-when-cross-origin';f.allowFullscreen=true;b.replaceWith(f);f.focus?.()});
 })();

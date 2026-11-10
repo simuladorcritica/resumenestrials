@@ -91,6 +91,34 @@
     <summary>Evaluar si el inhalador de dosis fija de albuterol-budesonida usado a demanda, frente al albuterol solo a demanda, reduce el riesgo de una primera exacerbación grave en personas de 12 años o más con asma no controlada pese al tratamiento para asma leve.</summary>
   </entry>
   <entry>
+    <title>MARCH: carbocisteína o solución salina hipertónica en la insuficiencia respiratoria aguda</title>
+    <id>https://resumenestrials.com/trials/march-carbocisteina-solucion-salina-hipertonica-insuficiencia-respiratoria-aguda/</id>
+    <link href="https://resumenestrials.com/trials/march-carbocisteina-solucion-salina-hipertonica-insuficiencia-respiratoria-aguda/"/>
+    <updated>2026-11-05T00:00:00Z</updated>
+    <summary>Determinar si la carbocisteína o la solución salina hipertónica, añadidas al cuidado habitual, acortan la duración de la ventilación mecánica en el adulto crítico con insuficiencia respiratoria aguda y secreciones difíciles de aclarar.</summary>
+  </entry>
+  <entry>
+    <title>SODa-BIC: bicarbonato de sodio en adultos en estado crítico con acidosis metabólica y shock</title>
+    <id>https://resumenestrials.com/trials/soda-bic-bicarbonato-sodio-placebo-adulto-critico-acidosis-metabolica-shock/</id>
+    <link href="https://resumenestrials.com/trials/soda-bic-bicarbonato-sodio-placebo-adulto-critico-acidosis-metabolica-shock/"/>
+    <updated>2026-11-05T00:00:00Z</updated>
+    <summary>Determinar si una infusión de bicarbonato de sodio, frente a placebo, reduce los eventos renales adversos mayores a 30 días en adultos críticos con acidosis metabólica que reciben vasopresores.</summary>
+  </entry>
+  <entry>
+    <title>INCEPTION: reanimación cardiopulmonar extracorpórea temprana en el paro cardiaco extrahospitalario refractario</title>
+    <id>https://resumenestrials.com/trials/inception-reanimacion-cardiopulmonar-extracorporea-temprana-paro-cardiaco-extrahospitalario/</id>
+    <link href="https://resumenestrials.com/trials/inception-reanimacion-cardiopulmonar-extracorporea-temprana-paro-cardiaco-extrahospitalario/"/>
+    <updated>2026-11-05T00:00:00Z</updated>
+    <summary>Evaluar si la reanimación cardiopulmonar extracorpórea, comparada con la reanimación convencional, mejora la supervivencia con resultado neurológico favorable a los 30 días en pacientes con paro cardiaco extrahospitalario refractario.</summary>
+  </entry>
+  <entry>
+    <title>TARGET-FIRST: suspensión temprana de la aspirina tras la ICP en el infarto agudo de miocardio de bajo riesgo</title>
+    <id>https://resumenestrials.com/trials/target-first-suspension-temprana-aspirina-tras-icp-infarto-agudo-miocardio-riesgo/</id>
+    <link href="https://resumenestrials.com/trials/target-first-suspension-temprana-aspirina-tras-icp-infarto-agudo-miocardio-riesgo/"/>
+    <updated>2026-11-05T00:00:00Z</updated>
+    <summary>Determinar si suspender la aspirina un mes después de un infarto agudo de miocardio de bajo riesgo con revascularización completa, y continuar con un inhibidor P2Y12 en monoterapia, es no inferior a mantener la doble antiagregación durante 11 meses más.</summary>
+  </entry>
+  <entry>
     <title>P4: angiografía coronaria por tomografía computarizada frente a ecografía intravascular como guía de la intervención coronaria percutánea</title>
     <id>https://resumenestrials.com/trials/p4-angiografia-coronaria-tomografia-computarizada-ecografia-intravascular-como-guia-intervencion/</id>
     <link href="https://resumenestrials.com/trials/p4-angiografia-coronaria-tomografia-computarizada-ecografia-intravascular-como-guia-intervencion/"/>
@@ -161,199 +189,171 @@
     <summary>Evaluar la efectividad relativa de la vacuna antigripal inactivada de dosis alta, frente a la de dosis estándar, para prevenir la hospitalización por influenza o neumonía en adultos de 65 a 79 años que viven en la comunidad.</summary>
   </entry>
   <entry>
-    <title>HARVEST: ensayo de rifampicina oral en dosis alta en adultos con meningitis tuberculosa</title>
-    <id>https://resumenestrials.com/trials/harvest-ensayo-rifampicina-oral-dosis-alta-adultos-meningitis-tuberculosa/</id>
-    <link href="https://resumenestrials.com/trials/harvest-ensayo-rifampicina-oral-dosis-alta-adultos-meningitis-tuberculosa/"/>
+    <title>SOHO: oxígeno de alto flujo u oxígeno estándar en la insuficiencia respiratoria hipoxémica aguda</title>
+    <id>https://resumenestrials.com/trials/soho-oxigeno-alto-flujo-oxigeno-estandar-insuficiencia-respiratoria-hipoxemica-aguda/</id>
+    <link href="https://resumenestrials.com/trials/soho-oxigeno-alto-flujo-oxigeno-estandar-insuficiencia-respiratoria-hipoxemica-aguda/"/>
     <updated>2026-11-04T00:00:00Z</updated>
-    <summary>Determinar si la rifampicina oral en dosis alta, de unos 35 mg/kg al día durante las primeras 8 semanas, mejora la supervivencia a 6 meses frente a la dosis estándar de unos 10 mg/kg en adultos con meningitis tuberculosa.</summary>
+    <summary>Determinar si el oxígeno de alto flujo por cánula nasal reduce la mortalidad a 28 días frente al oxígeno estándar en adultos con insuficiencia respiratoria hipoxémica aguda ingresados en cuidados intensivos.</summary>
   </entry>
   <entry>
-    <title>Mosnodenvir diario como profilaxis del dengue en un modelo de infección humana controlada</title>
-    <id>https://resumenestrials.com/trials/mosnodenvir-diario-como-profilaxis-del-dengue-en-un-modelo-de-infeccion-humana/</id>
-    <link href="https://resumenestrials.com/trials/mosnodenvir-diario-como-profilaxis-del-dengue-en-un-modelo-de-infeccion-humana/"/>
+    <title>ARISE FLUIDS: vasopresores o líquidos en el shock séptico temprano</title>
+    <id>https://resumenestrials.com/trials/arise-fluids-vasopresores-liquidos-shock-septico-temprano/</id>
+    <link href="https://resumenestrials.com/trials/arise-fluids-vasopresores-liquidos-shock-septico-temprano/"/>
     <updated>2026-11-04T00:00:00Z</updated>
-    <summary>Evaluar si mosnodenvir oral diario a dosis alta reduce la carga de ARN del virus del dengue serotipo 3 frente al placebo en adultos sanos inoculados de forma controlada con una cepa infraatenuada, y describir la actividad antiviral, la seguridad y la farmacocinética de tres dosis.</summary>
+    <summary>Determinar si una estrategia de líquidos restringidos y vasopresores tempranos aumenta los días vivo y fuera del hospital a 90 días frente a mayores volúmenes de líquido y vasopresores más tardíos, en adultos con shock séptico temprano en urgencias.</summary>
   </entry>
   <entry>
-    <title>HYPERION: sotatercept para la hipertensión arterial pulmonar dentro del primer año tras el diagnóstico</title>
-    <id>https://resumenestrials.com/trials/hyperion-sotatercept-hipertension-arterial-pulmonar-dentro-primer-ano-tras-diagnostico/</id>
-    <link href="https://resumenestrials.com/trials/hyperion-sotatercept-hipertension-arterial-pulmonar-dentro-primer-ano-tras-diagnostico/"/>
+    <title>RSI: ketamina o etomidato para la intubación traqueal de adultos en estado crítico</title>
+    <id>https://resumenestrials.com/trials/rsi-ketamina-etomidato-intubacion-traqueal-adulto-estado-critico/</id>
+    <link href="https://resumenestrials.com/trials/rsi-ketamina-etomidato-intubacion-traqueal-adulto-estado-critico/"/>
     <updated>2026-11-04T00:00:00Z</updated>
-    <summary>Evaluar si añadir sotatercept subcutáneo al tratamiento de base doble o triple, frente a placebo, reduce el riesgo de empeoramiento clínico en adultos con hipertensión arterial pulmonar diagnosticada hace menos de un año y con riesgo intermedio o alto de muerte.</summary>
+    <summary>Determinar si la ketamina reduce la mortalidad frente al etomidato como inductor en la intubación de urgencia del paciente crítico.</summary>
   </entry>
   <entry>
-    <title>CLEAR: solución salina hipertónica o carbocisteína en las bronquiectasias</title>
-    <id>https://resumenestrials.com/trials/clear-solucion-salina-hipertonica-carbocisteina-bronquiectasias/</id>
-    <link href="https://resumenestrials.com/trials/clear-solucion-salina-hipertonica-carbocisteina-bronquiectasias/"/>
+    <title>LOGICAL: oxígeno conservador en pacientes sin respuesta tras un paro cardiaco</title>
+    <id>https://resumenestrials.com/trials/logical-oxigeno-conservador-oxigeno-liberal-paciente-inconsciente-tras-paro-cardiaco/</id>
+    <link href="https://resumenestrials.com/trials/logical-oxigeno-conservador-oxigeno-liberal-paciente-inconsciente-tras-paro-cardiaco/"/>
     <updated>2026-11-04T00:00:00Z</updated>
-    <summary>Evaluar si añadir solución salina hipertónica, carbocisteína o ambas al cuidado estándar disminuye las exacerbaciones pulmonares en adultos con bronquiectasias.</summary>
+    <summary>Determinar si el oxígeno conservador, frente al liberal, mejora la supervivencia con buena función neurológica en el adulto inconsciente tras un paro cardiaco.</summary>
   </entry>
   <entry>
-    <title>PENS: ensayo aleatorizado de derivación en la hidrocefalia normotensiva idiopática</title>
-    <id>https://resumenestrials.com/trials/pens-ensayo-aleatorizado-derivacion-hidrocefalia-normotensiva-idiopatica/</id>
-    <link href="https://resumenestrials.com/trials/pens-ensayo-aleatorizado-derivacion-hidrocefalia-normotensiva-idiopatica/"/>
+    <title>ATHOS-3: angiotensina II para el tratamiento del shock vasodilatador</title>
+    <id>https://resumenestrials.com/trials/athos-3-angiotensina-ii-shock-vasodilatador/</id>
+    <link href="https://resumenestrials.com/trials/athos-3-angiotensina-ii-shock-vasodilatador/"/>
     <updated>2026-11-04T00:00:00Z</updated>
-    <summary>Evaluar si la derivación ventriculoperitoneal con la válvula abierta, frente a la misma válvula cerrada como placebo, mejora la velocidad de marcha a los 3 meses en pacientes con hidrocefalia normotensiva idiopática seleccionados por su respuesta al drenaje temporal de líquido cefalorraquídeo.</summary>
+    <summary>Evaluar si la angiotensina II intravenosa, añadida a los vasopresores convencionales en dosis altas, aumenta la presión arterial media en pacientes con shock vasodilatador que no responde a esos vasopresores.</summary>
   </entry>
   <entry>
-    <title>ATTAIN-1: orforglipron, un agonista oral de molécula pequeña del receptor de GLP-1 para el tratamiento de la obesidad</title>
-    <id>https://resumenestrials.com/trials/attain-1-orforglipron-agonista-oral-molecula-pequena-receptor-glp-1-tratamiento/</id>
-    <link href="https://resumenestrials.com/trials/attain-1-orforglipron-agonista-oral-molecula-pequena-receptor-glp-1-tratamiento/"/>
+    <title>COACT: angiografía coronaria tras un paro cardiaco sin elevación del segmento ST</title>
+    <id>https://resumenestrials.com/trials/coact-angiografia-coronaria-tras-paro-cardiaco-elevacion-st/</id>
+    <link href="https://resumenestrials.com/trials/coact-angiografia-coronaria-tras-paro-cardiaco-elevacion-st/"/>
     <updated>2026-11-04T00:00:00Z</updated>
-    <summary>Determinar si el orforglipron oral una vez al día, a 6, 12 o 36 mg, reduce el peso corporal a las 72 semanas frente a placebo en adultos con obesidad sin diabetes.</summary>
+    <summary>Comparar una estrategia de angiografía coronaria inmediata frente a una diferida hasta la recuperación neurológica en la supervivencia a 90 días de pacientes reanimados de un paro cardiaco extrahospitalario sin signos de elevación del segmento ST.</summary>
   </entry>
   <entry>
-    <title>Una dosis frente a tres dosis de penicilina G benzatina en la sífilis temprana</title>
-    <id>https://resumenestrials.com/trials/una-dosis-frente-a-tres-dosis-de-penicilina-g-benzatina-en-la-sifilis-temprana/</id>
-    <link href="https://resumenestrials.com/trials/una-dosis-frente-a-tres-dosis-de-penicilina-g-benzatina-en-la-sifilis-temprana/"/>
+    <title>MIND-USA: haloperidol y ziprasidona para el tratamiento del delirium en la enfermedad crítica</title>
+    <id>https://resumenestrials.com/trials/mind-usa-haloperidol-ziprasidona-tratamiento-delirium-pacientes-criticos/</id>
+    <link href="https://resumenestrials.com/trials/mind-usa-haloperidol-ziprasidona-tratamiento-delirium-pacientes-criticos/"/>
     <updated>2026-11-04T00:00:00Z</updated>
-    <summary>Determinar si, en la sífilis temprana, una sola dosis de 2.4 millones de unidades de penicilina G benzatina no es inferior a tres dosis semanales en la respuesta serológica a los 6 meses.</summary>
+    <summary>Evaluar si el haloperidol o la ziprasidona, comparados con placebo, reducen la duración del delirium y el coma en pacientes críticamente enfermos con insuficiencia respiratoria aguda o choque.</summary>
   </entry>
   <entry>
-    <title>TACSI: ticagrelor y aspirina o aspirina sola tras la cirugía coronaria por síndrome coronario agudo</title>
-    <id>https://resumenestrials.com/trials/tacsi-ticagrelor-aspirina-aspirina-sola-tras-cirugia-coronaria-sindrome-coronario/</id>
-    <link href="https://resumenestrials.com/trials/tacsi-ticagrelor-aspirina-aspirina-sola-tras-cirugia-coronaria-sindrome-coronario/"/>
+    <title>CAPE COD: hidrocortisona en la neumonía grave adquirida en la comunidad</title>
+    <id>https://resumenestrials.com/trials/cape-cod-hidrocortisona-neumonia-grave-adquirida-comunidad/</id>
+    <link href="https://resumenestrials.com/trials/cape-cod-hidrocortisona-neumonia-grave-adquirida-comunidad/"/>
     <updated>2026-11-04T00:00:00Z</updated>
-    <summary>Determinar si añadir ticagrelor a la aspirina durante 1 año tras una cirugía de revascularización coronaria por síndrome coronario agudo reduce el compuesto de muerte, infarto, ictus o nueva revascularización frente a la aspirina sola.</summary>
+    <summary>Evaluar si la hidrocortisona en dosis bajas, comparada con placebo, reduce la mortalidad a 28 días en pacientes ingresados en cuidados intensivos por neumonía grave adquirida en la comunidad.</summary>
   </entry>
   <entry>
-    <title>TARGET-FIRST: suspensión temprana de la aspirina tras la ICP en el infarto agudo de miocardio de bajo riesgo</title>
-    <id>https://resumenestrials.com/trials/target-first-suspension-temprana-aspirina-tras-icp-infarto-agudo-miocardio-riesgo/</id>
-    <link href="https://resumenestrials.com/trials/target-first-suspension-temprana-aspirina-tras-icp-infarto-agudo-miocardio-riesgo/"/>
+    <title>Eurotherm3235: hipotermia para la hipertensión intracraneal tras un traumatismo craneoencefálico</title>
+    <id>https://resumenestrials.com/trials/eurotherm3235-hipotermia-terapeutica-hipertension-intracraneal-tras-traumatismo-craneoencefalico/</id>
+    <link href="https://resumenestrials.com/trials/eurotherm3235-hipotermia-terapeutica-hipertension-intracraneal-tras-traumatismo-craneoencefalico/"/>
     <updated>2026-11-04T00:00:00Z</updated>
-    <summary>Determinar si suspender la aspirina un mes después de un infarto agudo de miocardio de bajo riesgo con revascularización completa, y continuar con un inhibidor P2Y12 en monoterapia, es no inferior a mantener la doble antiagregación durante 11 meses más.</summary>
+    <summary>Determinar si la hipotermia terapéutica (32 a 35°C) añadida al tratamiento estándar mejora el desenlace funcional a los 6 meses, medido con la Escala de Resultados de Glasgow Extendida, en pacientes con traumatismo craneoencefálico e hipertensión intracraneal mayor de 20 mmHg.</summary>
   </entry>
   <entry>
-    <title>EMBOLISE: embolización adyuvante de la arteria meníngea media en el hematoma subdural</title>
-    <id>https://resumenestrials.com/trials/embolise-embolizacion-adyuvante-arteria-meningea-media-hematoma-subdural/</id>
-    <link href="https://resumenestrials.com/trials/embolise-embolizacion-adyuvante-arteria-meningea-media-hematoma-subdural/"/>
-    <updated>2026-11-03T00:00:00Z</updated>
-    <summary>Determinar si añadir la embolización de la arteria meníngea media con Onyx a la cirugía reduce la reoperación por recurrencia o progresión a 90 días en adultos con hematoma subdural subagudo o crónico sintomático con indicación quirúrgica.</summary>
+    <title>ATTACC, ACTIV-4a y REMAP-CAP: anticoagulación terapéutica con heparina en pacientes en estado crítico con Covid-19</title>
+    <id>https://resumenestrials.com/trials/attacc-activ-4a-y-remap-cap-anticoagulacion-terapeutica-heparina-pacientes-criticos-covid-19/</id>
+    <link href="https://resumenestrials.com/trials/attacc-activ-4a-y-remap-cap-anticoagulacion-terapeutica-heparina-pacientes-criticos-covid-19/"/>
+    <updated>2026-11-04T00:00:00Z</updated>
+    <summary>Determinar si, en pacientes críticamente enfermos con Covid-19 grave, una estrategia inicial de anticoagulación a dosis terapéutica con heparina mejora la supervivencia hospitalaria y el número de días libres de soporte cardiovascular o respiratorio, en comparación con la tromboprofilaxis…</summary>
   </entry>
   <entry>
-    <title>PROHIP: reemplazo total de cadera o entrenamiento de resistencia en la artrosis grave de cadera</title>
-    <id>https://resumenestrials.com/trials/prohip-reemplazo-total-cadera-entrenamiento-resistencia-artrosis-grave-cadera/</id>
-    <link href="https://resumenestrials.com/trials/prohip-reemplazo-total-cadera-entrenamiento-resistencia-artrosis-grave-cadera/"/>
-    <updated>2026-11-03T00:00:00Z</updated>
-    <summary>Determinar si el reemplazo total de cadera es superior a un programa de entrenamiento de resistencia supervisado para mejorar el dolor y la función de la cadera a los 6 meses en pacientes de 50 años o más con artrosis grave e indicación quirúrgica.</summary>
+    <title>STARRT-AKI: momento de inicio de la terapia de reemplazo renal en la lesión renal aguda</title>
+    <id>https://resumenestrials.com/trials/starrt-aki-momento-inicio-terapia-reemplazo-renal-lesion-renal-aguda/</id>
+    <link href="https://resumenestrials.com/trials/starrt-aki-momento-inicio-terapia-reemplazo-renal-lesion-renal-aguda/"/>
+    <updated>2026-11-04T00:00:00Z</updated>
+    <summary>Determinar si, en pacientes críticamente enfermos con lesión renal aguda grave, una estrategia acelerada de inicio de la terapia de reemplazo renal reduce la mortalidad por cualquier causa a los 90 días, en comparación con una estrategia estándar que difiere el inicio hasta que aparezcan…</summary>
   </entry>
   <entry>
-    <title>STEP 9: semaglutida una vez a la semana en personas con obesidad y osteoartritis de rodilla</title>
-    <id>https://resumenestrials.com/trials/step-9-semaglutida-vez-semana-personas-obesidad-osteoartritis-rodilla/</id>
-    <link href="https://resumenestrials.com/trials/step-9-semaglutida-vez-semana-personas-obesidad-osteoartritis-rodilla/"/>
-    <updated>2026-11-03T00:00:00Z</updated>
-    <summary>Determinar si la semaglutida subcutánea de 2.4 mg una vez a la semana, sumada a consejería de dieta y actividad física, es superior al placebo para reducir el peso corporal y el dolor de rodilla en adultos con obesidad y osteoartritis de rodilla con dolor al menos moderado.</summary>
+    <title>IDEAL-ICU: momento de la terapia de reemplazo renal en pacientes con lesión renal aguda y sepsis</title>
+    <id>https://resumenestrials.com/trials/ideal-icu-inicio-temprano-diferido-depuracion-renal-choque-septico/</id>
+    <link href="https://resumenestrials.com/trials/ideal-icu-inicio-temprano-diferido-depuracion-renal-choque-septico/"/>
+    <updated>2026-11-04T00:00:00Z</updated>
+    <summary>Determinar si, en pacientes con choque séptico en fase inicial y lesión renal aguda grave sin complicaciones que obligaran a diálisis inmediata, iniciar la terapia de reemplazo renal dentro de las 12 horas reduce la mortalidad a los 90 días frente a diferirla 48 horas si no hay recuperación renal.</summary>
   </entry>
   <entry>
-    <title>REDOX: oxigenoterapia de larga duración durante 24 o 15 horas al día en la hipoxemia grave</title>
-    <id>https://resumenestrials.com/trials/redox-oxigenoterapia-larga-duracion-24-15-horas-dia-hipoxemia-grave/</id>
-    <link href="https://resumenestrials.com/trials/redox-oxigenoterapia-larga-duracion-24-15-horas-dia-hipoxemia-grave/"/>
-    <updated>2026-11-03T00:00:00Z</updated>
-    <summary>Determinar si la oxigenoterapia de larga duración prescrita 24 horas al día es superior a la prescrita 15 horas al día para evitar la hospitalización o la muerte por cualquier causa en 1 año en adultos con hipoxemia crónica grave.</summary>
+    <title>RESCUEicp: ensayo de craniectomía descompresiva en la hipertensión intracraneal traumática</title>
+    <id>https://resumenestrials.com/trials/rescueicp-craniectomia-descompresiva-hipertension-intracraneal-traumatica-refractaria/</id>
+    <link href="https://resumenestrials.com/trials/rescueicp-craniectomia-descompresiva-hipertension-intracraneal-traumatica-refractaria/"/>
+    <updated>2026-11-04T00:00:00Z</updated>
+    <summary>Determinar si la craniectomía descompresiva, como tratamiento de última línea, mejora el desenlace funcional a los 6 meses en pacientes con traumatismo craneoencefálico e hipertensión intracraneal refractaria a las medidas médicas de primera y segunda línea, en comparación con continuar el…</summary>
   </entry>
   <entry>
-    <title>QWINT-2: insulina efsitora frente a degludec en la diabetes tipo 2 sin tratamiento previo con insulina</title>
-    <id>https://resumenestrials.com/trials/qwint-2-insulina-efsitora-degludec-diabetes-tipo-2-tratamiento-previo-insulina/</id>
-    <link href="https://resumenestrials.com/trials/qwint-2-insulina-efsitora-degludec-diabetes-tipo-2-tratamiento-previo-insulina/"/>
-    <updated>2026-11-03T00:00:00Z</updated>
-    <summary>Determinar si la insulina efsitora alfa una vez por semana no es inferior a la insulina degludec diaria en el cambio de la HbA1c a 52 semanas en adultos con diabetes tipo 2 que nunca habían recibido insulina.</summary>
+    <title>ProMISe: ensayo de reanimación temprana dirigida por objetivos en el shock séptico</title>
+    <id>https://resumenestrials.com/trials/promise-reanimacion-temprana-dirigida-objetivos-shock-septico/</id>
+    <link href="https://resumenestrials.com/trials/promise-reanimacion-temprana-dirigida-objetivos-shock-septico/"/>
+    <updated>2026-11-04T00:00:00Z</updated>
+    <summary>Determinar si la reanimación dirigida por objetivos hemodinámicos durante 6 horas (terapia temprana dirigida por objetivos, EGDT) reduce la mortalidad por cualquier causa a los 90 días en pacientes con choque séptico identificado tempranamente en el servicio de urgencias, en comparación con la…</summary>
   </entry>
   <entry>
-    <title>MOST: argatrobán o eptifibatida intravenosos adyuvantes en el ictus isquémico</title>
-    <id>https://resumenestrials.com/trials/most-argatroban-eptifibatida-intravenosos-adyuvantes-ictus-isquemico/</id>
-    <link href="https://resumenestrials.com/trials/most-argatroban-eptifibatida-intravenosos-adyuvantes-ictus-isquemico/"/>
-    <updated>2026-11-03T00:00:00Z</updated>
-    <summary>Determinar si añadir argatrobán o eptifibatida intravenosos a la trombólisis intravenosa mejora la escala de Rankin modificada ponderada por utilidad a los 90 días, frente a placebo, en adultos con ictus isquémico agudo tratados dentro de las 3 horas.</summary>
+    <title>DEVICE: videolaringoscopia frente a laringoscopia directa para la intubación traqueal de adultos en estado crítico</title>
+    <id>https://resumenestrials.com/trials/device-videolaringoscopia-laringoscopia-directa-intubacion-traqueal-adultos-criticos/</id>
+    <link href="https://resumenestrials.com/trials/device-videolaringoscopia-laringoscopia-directa-intubacion-traqueal-adultos-criticos/"/>
+    <updated>2026-11-04T00:00:00Z</updated>
+    <summary>Determinar si el uso de un videolaringoscopio, en comparación con un laringoscopio directo, aumenta la probabilidad de lograr la intubación traqueal exitosa al primer intento en adultos críticamente enfermos atendidos en el servicio de urgencias o la unidad de cuidados intensivos.</summary>
   </entry>
   <entry>
-    <title>BLING III: infusiones continuas frente a intermitentes de antibióticos betalactámicos en pacientes en estado crítico con sepsis</title>
-    <id>https://resumenestrials.com/trials/bling-iii-infusiones-continuas-intermitentes-antibioticos-betalactamicos-pacientes-estado/</id>
-    <link href="https://resumenestrials.com/trials/bling-iii-infusiones-continuas-intermitentes-antibioticos-betalactamicos-pacientes-estado/"/>
-    <updated>2026-11-02T00:00:00Z</updated>
-    <summary>Determinar si la infusión continua de piperacilina-tazobactam o meropenem reduce la mortalidad por cualquier causa a 90 días frente a la infusión intermitente en adultos con sepsis en la UCI.</summary>
+    <title>SURPASS-CVOT: desenlaces cardiovasculares con tirzepatida frente a dulaglutida en la diabetes tipo 2</title>
+    <id>https://resumenestrials.com/trials/surpass-cvot-tirzepatida-dulaglutida-desenlaces-cardiovasculares-diabetes-tipo-2/</id>
+    <link href="https://resumenestrials.com/trials/surpass-cvot-tirzepatida-dulaglutida-desenlaces-cardiovasculares-diabetes-tipo-2/"/>
+    <updated>2026-11-04T00:00:00Z</updated>
+    <summary>Determinar si tirzepatida es no inferior a dulaglutida respecto al riesgo de muerte cardiovascular, infarto de miocardio o accidente cerebrovascular en pacientes con diabetes tipo 2 y enfermedad cardiovascular aterosclerótica establecida, y explorar si ofrece además un beneficio cardiovascular…</summary>
   </entry>
   <entry>
-    <title>MERCY: administración continua frente a intermitente de meropenem en pacientes en estado crítico con sepsis</title>
-    <id>https://resumenestrials.com/trials/mercy-administracion-continua-intermitente-meropenem-pacientes-estado-critico-sepsis/</id>
-    <link href="https://resumenestrials.com/trials/mercy-administracion-continua-intermitente-meropenem-pacientes-estado-critico-sepsis/"/>
-    <updated>2026-11-02T00:00:00Z</updated>
-    <summary>Determinar si la administración continua de meropenem, frente a la intermitente, reduce un desenlace compuesto de mortalidad por cualquier causa y aparición de bacterias panresistentes o extensamente resistentes a los 28 días en pacientes críticos con sepsis.</summary>
+    <title>TenCRAOS: ensayo aleatorizado de tenecteplasa en la oclusión aguda de la arteria central de la retina</title>
+    <id>https://resumenestrials.com/trials/tencraos-tenecteplasa-oclusion-aguda-arteria-central-retina/</id>
+    <link href="https://resumenestrials.com/trials/tencraos-tenecteplasa-oclusion-aguda-arteria-central-retina/"/>
+    <updated>2026-11-04T00:00:00Z</updated>
+    <summary>Determinar si la tenecteplasa intravenosa administrada dentro de las 4.5 horas tras el inicio de los síntomas logra mayor recuperación visual que la aspirina oral en pacientes con oclusión aguda no arterítica de la arteria central de la retina.</summary>
   </entry>
   <entry>
-    <title>VICTAS: efecto de la vitamina C, la tiamina y la hidrocortisona sobre los días libres de ventilador y vasopresores en pacientes con sepsis</title>
-    <id>https://resumenestrials.com/trials/victas-efecto-vitamina-c-tiamina-hidrocortisona-dias-libres-ventilador-vasopresores/</id>
-    <link href="https://resumenestrials.com/trials/victas-efecto-vitamina-c-tiamina-hidrocortisona-dias-libres-ventilador-vasopresores/"/>
-    <updated>2026-11-02T00:00:00Z</updated>
-    <summary>Determinar si la combinación de vitamina C, tiamina e hidrocortisona cada 6 horas aumenta los días libres de ventilador y vasopresores frente a placebo en adultos con sepsis.</summary>
+    <title>CORALreef Lipids: ensayo controlado con placebo del inhibidor oral de PCSK9 enlicitide</title>
+    <id>https://resumenestrials.com/trials/coralreef-lipids-enlicitide-oral-placebo-reducir-colesterol-ldl/</id>
+    <link href="https://resumenestrials.com/trials/coralreef-lipids-enlicitide-oral-placebo-reducir-colesterol-ldl/"/>
+    <updated>2026-11-04T00:00:00Z</updated>
+    <summary>Determinar si enlicitide, un inhibidor oral de PCSK9, reduce más el colesterol LDL que el placebo a las 24 semanas en adultos con enfermedad cardiovascular aterosclerótica previa o en riesgo de un primer evento.</summary>
   </entry>
   <entry>
-    <title>ISCHEMIA: estrategia inicial invasiva o conservadora en la enfermedad coronaria estable</title>
-    <id>https://resumenestrials.com/trials/ischemia-estrategia-inicial-invasiva-conservadora-enfermedad-coronaria-estable/</id>
-    <link href="https://resumenestrials.com/trials/ischemia-estrategia-inicial-invasiva-conservadora-enfermedad-coronaria-estable/"/>
-    <updated>2026-11-02T00:00:00Z</updated>
-    <summary>Determinar si una estrategia invasiva inicial, con coronariografía y revascularización cuando fuera factible añadidas al tratamiento médico, reduce el compuesto de muerte cardiovascular, infarto de miocardio u hospitalización por angina inestable, insuficiencia cardiaca o paro cardiaco reanimado…</summary>
+    <title>RECOVERY: cirugía temprana o tratamiento conservador en la estenosis aórtica asintomática a 10 años</title>
+    <id>https://resumenestrials.com/trials/recovery-cirugia-temprana-tratamiento-conservador-estenosis-aortica-asintomatica-10-anos/</id>
+    <link href="https://resumenestrials.com/trials/recovery-cirugia-temprana-tratamiento-conservador-estenosis-aortica-asintomatica-10-anos/"/>
+    <updated>2026-11-04T00:00:00Z</updated>
+    <summary>Determinar si el reemplazo valvular aórtico quirúrgico temprano reduce, frente al tratamiento conservador, el riesgo de mortalidad operatoria o muerte cardiovascular a 10 años en pacientes asintomáticos con estenosis aórtica muy severa.</summary>
   </entry>
   <entry>
-    <title>NONSEDA: ausencia de sedación o sedación ligera en pacientes críticos con ventilación mecánica</title>
-    <id>https://resumenestrials.com/trials/nonseda-ausencia-sedacion-sedacion-ligera-pacientes-criticos-ventilacion-mecanica/</id>
-    <link href="https://resumenestrials.com/trials/nonseda-ausencia-sedacion-sedacion-ligera-pacientes-criticos-ventilacion-mecanica/"/>
-    <updated>2026-11-02T00:00:00Z</updated>
-    <summary>Determinar si un plan de no sedación, frente a la sedación ligera con interrupción diaria, reduce la mortalidad a 90 días en adultos críticos con ventilación mecánica.</summary>
+    <title>Betabloqueadores tras un infarto de miocardio con fracción de eyección normal</title>
+    <id>https://resumenestrials.com/trials/betabloqueadores-despues-de-un-infarto-de-miocardio-con-fraccion-de-eyeccion-normal/</id>
+    <link href="https://resumenestrials.com/trials/betabloqueadores-despues-de-un-infarto-de-miocardio-con-fraccion-de-eyeccion-normal/"/>
+    <updated>2026-11-04T00:00:00Z</updated>
+    <summary>Determinar si el tratamiento con un betabloqueador reduce la muerte por cualquier causa, el infarto de miocardio o la insuficiencia cardiaca en pacientes con un infarto reciente y una fracción de eyección ventricular izquierda conservada, de al menos 50%, sin otra indicación para el fármaco.</summary>
   </entry>
   <entry>
-    <title>ANNEXA-I: andexanet en la hemorragia intracerebral aguda asociada a inhibidores del factor Xa</title>
-    <id>https://resumenestrials.com/trials/annexa-i-andexanet-hemorragia-intracerebral-aguda-asociada-inhibidores-factor-xa/</id>
-    <link href="https://resumenestrials.com/trials/annexa-i-andexanet-hemorragia-intracerebral-aguda-asociada-inhibidores-factor-xa/"/>
-    <updated>2026-11-01T00:00:00Z</updated>
-    <summary>Evaluar si el andexanet, frente a la atención habitual, mejora la eficacia hemostática a las 12 horas en pacientes con hemorragia intracerebral aguda que toman inhibidores del factor Xa.</summary>
+    <title>CORE-TIMI 72a y CORE2-TIMI 72b: olezarsén para el manejo de la hipertrigliceridemia grave y del riesgo de pancreatitis</title>
+    <id>https://resumenestrials.com/trials/core-timi-72a-y-core2-timi-olezarsen-hipertrigliceridemia-grave-riesgo-pancreatitis/</id>
+    <link href="https://resumenestrials.com/trials/core-timi-72a-y-core2-timi-olezarsen-hipertrigliceridemia-grave-riesgo-pancreatitis/"/>
+    <updated>2026-11-04T00:00:00Z</updated>
+    <summary>Evaluar si el olezarsén, en dosis de 50 mg u 80 mg mensuales, reduce más que el placebo los triglicéridos a los 6 meses y la incidencia de pancreatitis aguda en personas con hipertrigliceridemia grave.</summary>
   </entry>
   <entry>
-    <title>STAND: movilización estructurada para pacientes en estado crítico: ensayo pragmático aleatorizado por conglomerados</title>
-    <id>https://resumenestrials.com/trials/stand-movilizacion-estructurada-pacientes-estado-critico-ensayo-pragmatico-aleatorizado/</id>
-    <link href="https://resumenestrials.com/trials/stand-movilizacion-estructurada-pacientes-estado-critico-ensayo-pragmatico-aleatorizado/"/>
-    <updated>2026-11-01T00:00:00Z</updated>
-    <summary>Evaluar si un paquete de movilización estructurada de bajo costo, con metas diarias, comunicación de circuito cerrado y retroalimentación del desempeño, aumenta la puntuación máxima de movilidad antes del alta de la UCI en adultos con ventilación mecánica de 48 horas o más, frente a la atención…</summary>
+    <title>FINE-ONE: finerenona en la diabetes tipo 1 con enfermedad renal crónica</title>
+    <id>https://resumenestrials.com/trials/fine-one-finerenona-diabetes-tipo-1-enfermedad-renal-cronica/</id>
+    <link href="https://resumenestrials.com/trials/fine-one-finerenona-diabetes-tipo-1-enfermedad-renal-cronica/"/>
+    <updated>2026-11-04T00:00:00Z</updated>
+    <summary>Determinar si finerenona, añadida a un inhibidor de la ECA o un antagonista del receptor de angiotensina II, reduce más que el placebo el cociente albúmina-creatinina urinario en adultos con diabetes tipo 1 y enfermedad renal crónica.</summary>
   </entry>
   <entry>
-    <title>AID-ICU: haloperidol para el tratamiento del delirium en pacientes de la UCI</title>
-    <id>https://resumenestrials.com/trials/aid-icu-haloperidol-tratamiento-delirium-pacientes-uci/</id>
-    <link href="https://resumenestrials.com/trials/aid-icu-haloperidol-tratamiento-delirium-pacientes-uci/"/>
-    <updated>2026-11-01T00:00:00Z</updated>
-    <summary>Determinar si el haloperidol intravenoso, frente a placebo, aumenta los días vivos y fuera del hospital a 90 días en adultos con delirium ingresados en la UCI.</summary>
+    <title>PISCES: suplementación con aceite de pescado y eventos cardiovasculares en pacientes en hemodiálisis</title>
+    <id>https://resumenestrials.com/trials/pisces-aceite-pescado-eventos-cardiovasculares-pacientes-hemodialisis/</id>
+    <link href="https://resumenestrials.com/trials/pisces-aceite-pescado-eventos-cardiovasculares-pacientes-hemodialisis/"/>
+    <updated>2026-11-04T00:00:00Z</updated>
+    <summary>Determinar si la suplementación oral diaria con aceite de pescado reduce la tasa de eventos cardiovasculares graves frente a placebo en pacientes con enfermedad renal terminal en hemodiálisis de mantenimiento.</summary>
   </entry>
   <entry>
-    <title>BOX: objetivos de oxígeno en supervivientes comatosos de un paro cardiaco</title>
-    <id>https://resumenestrials.com/trials/box-objetivos-oxigeno-supervivientes-comatosos-paro-cardiaco/</id>
-    <link href="https://resumenestrials.com/trials/box-objetivos-oxigeno-supervivientes-comatosos-paro-cardiaco/"/>
-    <updated>2026-11-01T00:00:00Z</updated>
-    <summary>Comparar una meta restrictiva y una liberal de presión arterial de oxígeno en adultos en coma tras un paro cardiaco extrahospitalario, para el desenlace de muerte o alta con discapacidad grave o coma a 90 días.</summary>
-  </entry>
-  <entry>
-    <title>TOMAHAWK: angiografía tras un paro cardiaco extrahospitalario sin elevación del segmento ST</title>
-    <id>https://resumenestrials.com/trials/tomahawk-angiografia-tras-paro-cardiaco-extrahospitalario-elevacion-segmento-st/</id>
-    <link href="https://resumenestrials.com/trials/tomahawk-angiografia-tras-paro-cardiaco-extrahospitalario-elevacion-segmento-st/"/>
-    <updated>2026-11-01T00:00:00Z</updated>
-    <summary>Determinar si la angiografía coronaria inmediata, frente a una evaluación inicial en cuidados intensivos con angiografía diferida o selectiva, reduce la mortalidad por cualquier causa a 30 días en adultos reanimados de un paro cardiaco extrahospitalario sin elevación del segmento ST.</summary>
-  </entry>
-  <entry>
-    <title>BaSICS: efecto del tratamiento con líquidos intravenosos con una solución balanceada frente a solución salina al 0.9% sobre la mortalidad en pacientes en estado crítico</title>
-    <id>https://resumenestrials.com/trials/basics-efecto-tratamiento-liquidos-intravenosos-solucion-balanceada-solucion-salina-0/</id>
-    <link href="https://resumenestrials.com/trials/basics-efecto-tratamiento-liquidos-intravenosos-solucion-balanceada-solucion-salina-0/"/>
-    <updated>2026-11-01T00:00:00Z</updated>
-    <summary>Determinar si una solución balanceada, Plasma-Lyte 148, mejora la supervivencia a 90 días frente a la solución salina al 0.9% en pacientes críticos que requieren cargas de volumen.</summary>
-  </entry>
-  <entry>
-    <title>ANH: ensayo aleatorizado de hemodilución normovolémica aguda en cirugía cardiaca</title>
-    <id>https://resumenestrials.com/trials/anh-ensayo-aleatorizado-hemodilucion-normovolemica-aguda-cirugia-cardiaca/</id>
-    <link href="https://resumenestrials.com/trials/anh-ensayo-aleatorizado-hemodilucion-normovolemica-aguda-cirugia-cardiaca/"/>
-    <updated>2026-10-28T00:00:00Z</updated>
-    <summary>Determinar si la hemodilución normovolémica aguda, frente al cuidado habitual, reduce la proporción de adultos sometidos a cirugía cardiaca con circulación extracorpórea que reciben al menos una unidad de glóbulos rojos alogénicos durante la hospitalización.</summary>
-  </entry>
-  <entry>
-    <title>DeLLphi-305: mantenimiento con tarlatamab-durvalumab en el cáncer de pulmón de células pequeñas en estadio extendido</title>
-    <id>https://resumenestrials.com/trials/dellphi-305-mantenimiento-tarlatamab-durvalumab-cancer-pulmon-celulas-pequenas-estadio-extendido/</id>
-    <link href="https://resumenestrials.com/trials/dellphi-305-mantenimiento-tarlatamab-durvalumab-cancer-pulmon-celulas-pequenas-estadio-extendido/"/>
-    <updated>2026-10-28T00:00:00Z</updated>
-    <summary>Determinar si añadir tarlatamab al mantenimiento con durvalumab prolonga la supervivencia global frente al durvalumab solo en pacientes con cáncer de pulmón de células pequeñas en estadio extendido sin progresión tras la quimioinmunoterapia de primera línea.</summary>
+    <title>TRACTION: política hospitalaria de ácido tranexámico para reducir la transfusión en cirugía mayor no cardiaca</title>
+    <id>https://resumenestrials.com/trials/traction-politica-hospitalaria-acido-tranexamico-reducir-transfusion-cirugia-mayor-no/</id>
+    <link href="https://resumenestrials.com/trials/traction-politica-hospitalaria-acido-tranexamico-reducir-transfusion-cirugia-mayor-no/"/>
+    <updated>2026-11-04T00:00:00Z</updated>
+    <summary>Determinar si una política hospitalaria de administración de ácido tranexámico durante la cirugía mayor no cardiaca reduce la transfusión de glóbulos rojos sin aumentar de forma clínicamente importante el tromboembolismo venoso.</summary>
   </entry>
 </feed>

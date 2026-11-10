@@ -15,7 +15,7 @@ HOME_SOURCE = ROOT / "_includes" / "index-source.html"
 CLUSTER_MANIFEST = ROOT / "seo-cluster-manifest.json"
 SEO_MANIFEST = ROOT / "seo-manifest.json"
 IMAGES_DIR = ROOT / "images" / "trials"
-SOCIAL_URLS = ["https://x.com/resumenestrials", "https://t.me/ResumenesTrials"]
+SOCIAL_URLS = ["https://x.com/resumenestrials", "https://t.me/ResumenesTrials", "https://www.youtube.com/@EMEICRITICA"]
 
 
 def plain(value: object) -> str:
