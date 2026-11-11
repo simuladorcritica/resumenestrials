@@ -4,8 +4,15 @@
   <id>https://resumenestrials.com/</id>
   <link href="https://resumenestrials.com/"/>
   <link rel="self" type="application/atom+xml" href="https://resumenestrials.com/feed.xml"/>
-  <updated>2026-11-10T00:00:00Z</updated>
+  <updated>2026-11-11T00:00:00Z</updated>
   <subtitle>Resúmenes críticos en español de ensayos clínicos.</subtitle>
+  <entry>
+    <title>ZEUS: inhibición de la interleucina-6 con ziltivekimab en la enfermedad aterosclerótica</title>
+    <id>https://resumenestrials.com/trials/zeus-inhibicion-interleucina-6-ziltivekimab-enfermedad-aterosclerotica/</id>
+    <link href="https://resumenestrials.com/trials/zeus-inhibicion-interleucina-6-ziltivekimab-enfermedad-aterosclerotica/"/>
+    <updated>2026-11-11T00:00:00Z</updated>
+    <summary>Determinar si el ziltivekimab subcutáneo mensual, un anticuerpo contra la interleucina-6, reduce los eventos cardiovasculares adversos mayores frente a placebo en adultos con enfermedad cardiovascular aterosclerótica, enfermedad renal crónica e inflamación sistémica.</summary>
+  </entry>
   <entry>
     <title>SuDDICU: descontaminación selectiva del tubo digestivo durante la ventilación en la UCI</title>
     <id>https://resumenestrials.com/trials/suddicu-descontaminacion-selectiva-tubo-digestivo-ventilacion-mecanica-cuidados-intensivos/</id>
@@ -348,12 +355,5 @@
     <link href="https://resumenestrials.com/trials/ideal-icu-inicio-temprano-diferido-depuracion-renal-choque-septico/"/>
     <updated>2026-11-04T00:00:00Z</updated>
     <summary>Determinar si, en pacientes con choque séptico en fase inicial y lesión renal aguda grave sin complicaciones que obligaran a diálisis inmediata, iniciar la terapia de reemplazo renal dentro de las 12 horas reduce la mortalidad a los 90 días frente a diferirla 48 horas si no hay recuperación renal.</summary>
-  </entry>
-  <entry>
-    <title>RESCUEicp: ensayo de craniectomía descompresiva en la hipertensión intracraneal traumática</title>
-    <id>https://resumenestrials.com/trials/rescueicp-craniectomia-descompresiva-hipertension-intracraneal-traumatica-refractaria/</id>
-    <link href="https://resumenestrials.com/trials/rescueicp-craniectomia-descompresiva-hipertension-intracraneal-traumatica-refractaria/"/>
-    <updated>2026-11-04T00:00:00Z</updated>
-    <summary>Determinar si la craniectomía descompresiva, como tratamiento de última línea, mejora el desenlace funcional a los 6 meses en pacientes con traumatismo craneoencefálico e hipertensión intracraneal refractaria a las medidas médicas de primera y segunda línea, en comparación con continuar el…</summary>
   </entry>
 </feed>

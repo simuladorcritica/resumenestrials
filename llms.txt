@@ -14,6 +14,7 @@ Material educativo para profesionales de la salud. La referencia final es siempr
 
 ## Resúmenes de ensayos
 
+- [ZEUS: inhibición de la interleucina-6 con ziltivekimab en la enfermedad aterosclerótica](https://resumenestrials.com/trials/zeus-inhibicion-interleucina-6-ziltivekimab-enfermedad-aterosclerotica/): NEJM, 2026.
 - [Lp(a)HORIZON: pelacarsén y desenlaces cardiovasculares en pacientes con lipoproteína(a) elevada](https://resumenestrials.com/trials/lp-a-horizon-pelacarsen-desenlaces-cardiovasculares-pacientes-lipoproteina-elevada/): NEJM, 2026.
 - [STREAM: suspensión de las estatinas en adultos mayores sin enfermedad cardiovascular](https://resumenestrials.com/trials/stream-suspension-estatinas-adultos-mayores-enfermedad-cardiovascular/): NEJM, 2026.
 - [COAST-AF: ablación de áreas de bajo voltaje en la fibrilación auricular persistente](https://resumenestrials.com/trials/coast-af-ablacion-areas-voltaje-fibrilacion-auricular-persistente/): JAMA, 2026.
