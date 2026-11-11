@@ -14,6 +14,7 @@ Material educativo para profesionales de la salud. La referencia final es siempr
 
 ## Resúmenes de ensayos
 
+- [RAINIER: análisis intermedio de un ensayo de fase 3 de povetacicept en la nefropatía por IgA](https://resumenestrials.com/trials/rainier-analisis-intermedio-ensayo-fase-3-povetacicept-nefropatia-iga/): NEJM, 2026.
 - [PROGRESS: TAVR en pacientes con estenosis aórtica moderada con rasgos de riesgo](https://resumenestrials.com/trials/progress-tavr-pacientes-estenosis-aortica-moderada-rasgos-riesgo/): NEJM, 2026.
 - [SHASTA-3 y SHASTA-4: plozasirán para la hipertrigliceridemia grave y el riesgo de pancreatitis](https://resumenestrials.com/trials/shasta-3-y-shasta-4-plozasiran-hipertrigliceridemia-grave-riesgo-pancreatitis/): NEJM, 2026.
 - [OPTIMAL-STROKE: control intensivo de la presión arterial en pacientes con ictus isquémico previo](https://resumenestrials.com/trials/optimal-stroke-control-intensivo-presion-arterial-pacientes-ictus-isquemico-previo/): NEJM, 2026.
