@@ -8349,5 +8349,25 @@
       "population": "La población fueron adultos de 65 años o más con estenosis aórtica moderada y al menos un rasgo de riesgo, un síntoma o anomalía asociados a peor evolución. Procedían de 74 centros de 6 países, el 87.1% de Estados Unidos y el resto de Japón, Australia, Países Bajos, Canadá y Suiza. Raza y etnia solo se recogieron en Estados Unidos y Canadá: eran blancos el 92.7% del grupo TAVR y el 90.5% del de vigilancia, negros el 1.8% y el…"
     },
     "datePublished": "2026-11-11"
+  },
+  "307": {
+    "slug": "rainier-analisis-intermedio-ensayo-fase-3-povetacicept-nefropatia-iga",
+    "path": "/trials/rainier-analisis-intermedio-ensayo-fase-3-povetacicept-nefropatia-iga/",
+    "url": "https://resumenestrials.com/trials/rainier-analisis-intermedio-ensayo-fase-3-povetacicept-nefropatia-iga/",
+    "title": "RAINIER: análisis intermedio de un ensayo de fase 3 de povetacicept en la nefropatía por IgA",
+    "seo_title": "RAINIER trial: análisis intermedio de un ensayo de fase 3 de povetacicept en la nefropatía por IgA | Resúmenes Trials",
+    "description": "RAINIER: En el análisis intermedio, con 199 participantes en la población del análisis primario, el cociente proteína/creatinina en orina de 24 horas bajó a…",
+    "clusters": [],
+    "images": [
+      "https://resumenestrials.com/images/trials/rainier-analisis-intermedio-ensayo-fase-3-povetacicept-nefropatia-iga-16x9.jpg",
+      "https://resumenestrials.com/images/trials/rainier-analisis-intermedio-ensayo-fase-3-povetacicept-nefropatia-iga-4x3.jpg",
+      "https://resumenestrials.com/images/trials/rainier-analisis-intermedio-ensayo-fase-3-povetacicept-nefropatia-iga-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Evaluar, en un análisis intermedio preespecificado, si el povetacicept subcutáneo cada 4 semanas reduce la proteinuria a las 36 semanas frente a placebo en adultos con nefropatía por IgA y tratamiento de fondo estable.",
+      "answer": "En el análisis intermedio, con 199 participantes en la población del análisis primario, el cociente proteína/creatinina en orina de 24 horas bajó a la semana 36 un 52.0% con povetacicept y un 4.3% con placebo ( diferencia ajustada −49.8 puntos porcentuales; IC 95% −58.6 a −39.2; P<0.001 ).",
+      "population": "La población fueron adultos con nefropatía por IgA confirmada por biopsia, con proteinuria de al menos 1 g al día o cociente proteína/creatinina en orina de 24 horas de al menos 0.75 g/g, filtrado glomerular estimado de al menos 30 ml/min/1.73 m2 y bloqueo del sistema renina-angiotensina (inhibidor de la enzima convertidora de angiotensina o antagonista del receptor de angiotensina II) a la dosis máxima tolerada durante al…"
+    },
+    "datePublished": "2026-11-11"
   }
 }
