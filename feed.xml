@@ -4,8 +4,36 @@
   <id>https://resumenestrials.com/</id>
   <link href="https://resumenestrials.com/"/>
   <link rel="self" type="application/atom+xml" href="https://resumenestrials.com/feed.xml"/>
-  <updated>2026-11-10T00:00:00Z</updated>
+  <updated>2026-11-11T00:00:00Z</updated>
   <subtitle>Resúmenes críticos en español de ensayos clínicos.</subtitle>
+  <entry>
+    <title>ZEUS: inhibición de la interleucina-6 con ziltivekimab en la enfermedad aterosclerótica</title>
+    <id>https://resumenestrials.com/trials/zeus-inhibicion-interleucina-6-ziltivekimab-enfermedad-aterosclerotica/</id>
+    <link href="https://resumenestrials.com/trials/zeus-inhibicion-interleucina-6-ziltivekimab-enfermedad-aterosclerotica/"/>
+    <updated>2026-11-11T00:00:00Z</updated>
+    <summary>Determinar si el ziltivekimab subcutáneo mensual, un anticuerpo contra la interleucina-6, reduce los eventos cardiovasculares adversos mayores frente a placebo en adultos con enfermedad cardiovascular aterosclerótica, enfermedad renal crónica e inflamación sistémica.</summary>
+  </entry>
+  <entry>
+    <title>OPTIMAL-DIABETES: reducción intensiva de la presión arterial en pacientes con diabetes tipo 2</title>
+    <id>https://resumenestrials.com/trials/optimal-diabetes-reduccion-intensiva-presion-arterial-pacientes-diabetes-tipo-2/</id>
+    <link href="https://resumenestrials.com/trials/optimal-diabetes-reduccion-intensiva-presion-arterial-pacientes-diabetes-tipo-2/"/>
+    <updated>2026-11-11T00:00:00Z</updated>
+    <summary>Determinar si un objetivo de presión arterial sistólica menor de 120 mm Hg, frente a menor de 140 mm Hg, reduce los eventos cardiovasculares mayores en adultos con diabetes tipo 2, presión arterial elevada y alto riesgo cardiovascular.</summary>
+  </entry>
+  <entry>
+    <title>OPTIMAL-STROKE: control intensivo de la presión arterial en pacientes con ictus isquémico previo</title>
+    <id>https://resumenestrials.com/trials/optimal-stroke-control-intensivo-presion-arterial-pacientes-ictus-isquemico-previo/</id>
+    <link href="https://resumenestrials.com/trials/optimal-stroke-control-intensivo-presion-arterial-pacientes-ictus-isquemico-previo/"/>
+    <updated>2026-11-11T00:00:00Z</updated>
+    <summary>Determinar si un objetivo de presión arterial sistólica menor de 120 mm Hg reduce los eventos cardiovasculares mayores frente a un objetivo menor de 140 mm Hg en pacientes con ictus isquémico o accidente isquémico transitorio previos.</summary>
+  </entry>
+  <entry>
+    <title>SHASTA-3 y SHASTA-4: plozasirán para la hipertrigliceridemia grave y el riesgo de pancreatitis</title>
+    <id>https://resumenestrials.com/trials/shasta-3-y-shasta-4-plozasiran-hipertrigliceridemia-grave-riesgo-pancreatitis/</id>
+    <link href="https://resumenestrials.com/trials/shasta-3-y-shasta-4-plozasiran-hipertrigliceridemia-grave-riesgo-pancreatitis/"/>
+    <updated>2026-11-11T00:00:00Z</updated>
+    <summary>Determinar si el plozasirán subcutáneo cada 3 meses reduce, frente a placebo, los triglicéridos en ayunas a los 12 meses en adultos con hipertrigliceridemia grave y, en el análisis combinado de ambos ensayos, la pancreatitis aguda.</summary>
+  </entry>
   <entry>
     <title>SuDDICU: descontaminación selectiva del tubo digestivo durante la ventilación en la UCI</title>
     <id>https://resumenestrials.com/trials/suddicu-descontaminacion-selectiva-tubo-digestivo-ventilacion-mecanica-cuidados-intensivos/</id>
@@ -327,33 +355,5 @@
     <link href="https://resumenestrials.com/trials/eurotherm3235-hipotermia-terapeutica-hipertension-intracraneal-tras-traumatismo-craneoencefalico/"/>
     <updated>2026-11-04T00:00:00Z</updated>
     <summary>Determinar si la hipotermia terapéutica (32 a 35°C) añadida al tratamiento estándar mejora el desenlace funcional a los 6 meses, medido con la Escala de Resultados de Glasgow Extendida, en pacientes con traumatismo craneoencefálico e hipertensión intracraneal mayor de 20 mmHg.</summary>
-  </entry>
-  <entry>
-    <title>ATTACC, ACTIV-4a y REMAP-CAP: anticoagulación terapéutica con heparina en pacientes en estado crítico con Covid-19</title>
-    <id>https://resumenestrials.com/trials/attacc-activ-4a-y-remap-cap-anticoagulacion-terapeutica-heparina-pacientes-criticos-covid-19/</id>
-    <link href="https://resumenestrials.com/trials/attacc-activ-4a-y-remap-cap-anticoagulacion-terapeutica-heparina-pacientes-criticos-covid-19/"/>
-    <updated>2026-11-04T00:00:00Z</updated>
-    <summary>Determinar si, en pacientes críticamente enfermos con Covid-19 grave, una estrategia inicial de anticoagulación a dosis terapéutica con heparina mejora la supervivencia hospitalaria y el número de días libres de soporte cardiovascular o respiratorio, en comparación con la tromboprofilaxis…</summary>
-  </entry>
-  <entry>
-    <title>STARRT-AKI: momento de inicio de la terapia de reemplazo renal en la lesión renal aguda</title>
-    <id>https://resumenestrials.com/trials/starrt-aki-momento-inicio-terapia-reemplazo-renal-lesion-renal-aguda/</id>
-    <link href="https://resumenestrials.com/trials/starrt-aki-momento-inicio-terapia-reemplazo-renal-lesion-renal-aguda/"/>
-    <updated>2026-11-04T00:00:00Z</updated>
-    <summary>Determinar si, en pacientes críticamente enfermos con lesión renal aguda grave, una estrategia acelerada de inicio de la terapia de reemplazo renal reduce la mortalidad por cualquier causa a los 90 días, en comparación con una estrategia estándar que difiere el inicio hasta que aparezcan…</summary>
-  </entry>
-  <entry>
-    <title>IDEAL-ICU: momento de la terapia de reemplazo renal en pacientes con lesión renal aguda y sepsis</title>
-    <id>https://resumenestrials.com/trials/ideal-icu-inicio-temprano-diferido-depuracion-renal-choque-septico/</id>
-    <link href="https://resumenestrials.com/trials/ideal-icu-inicio-temprano-diferido-depuracion-renal-choque-septico/"/>
-    <updated>2026-11-04T00:00:00Z</updated>
-    <summary>Determinar si, en pacientes con choque séptico en fase inicial y lesión renal aguda grave sin complicaciones que obligaran a diálisis inmediata, iniciar la terapia de reemplazo renal dentro de las 12 horas reduce la mortalidad a los 90 días frente a diferirla 48 horas si no hay recuperación renal.</summary>
-  </entry>
-  <entry>
-    <title>RESCUEicp: ensayo de craniectomía descompresiva en la hipertensión intracraneal traumática</title>
-    <id>https://resumenestrials.com/trials/rescueicp-craniectomia-descompresiva-hipertension-intracraneal-traumatica-refractaria/</id>
-    <link href="https://resumenestrials.com/trials/rescueicp-craniectomia-descompresiva-hipertension-intracraneal-traumatica-refractaria/"/>
-    <updated>2026-11-04T00:00:00Z</updated>
-    <summary>Determinar si la craniectomía descompresiva, como tratamiento de última línea, mejora el desenlace funcional a los 6 meses en pacientes con traumatismo craneoencefálico e hipertensión intracraneal refractaria a las medidas médicas de primera y segunda línea, en comparación con continuar el…</summary>
   </entry>
 </feed>
