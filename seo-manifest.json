@@ -8323,5 +8323,31 @@
       "population": "La población fueron adultos con hipertrigliceridemia grave, con triglicéridos en ayunas de al menos 500 mg/dl pese al tratamiento hipolipemiante estándar, de 214 centros en 24 países. La raza la declararon los pacientes: en SHASTA-3 eran blancos el 75% y el 73% de cada grupo, y asiáticos el 21% y el 26%; en SHASTA-4, blancos el 89% y el 84%."
     },
     "datePublished": "2026-11-11"
+  },
+  "306": {
+    "slug": "progress-tavr-pacientes-estenosis-aortica-moderada-rasgos-riesgo",
+    "path": "/trials/progress-tavr-pacientes-estenosis-aortica-moderada-rasgos-riesgo/",
+    "url": "https://resumenestrials.com/trials/progress-tavr-pacientes-estenosis-aortica-moderada-rasgos-riesgo/",
+    "title": "PROGRESS: TAVR en pacientes con estenosis aórtica moderada con rasgos de riesgo",
+    "seo_title": "PROGRESS trial: TAVR en pacientes con estenosis aórtica moderada con rasgos de riesgo | Resúmenes Trials",
+    "description": "PROGRESS: La muerte por cualquier causa o el evento de insuficiencia cardiaca a 2 años ocurrió en el 16.7% con TAVR frente al 23.9% con vigilancia clínica…",
+    "clusters": [
+      {
+        "name": "Cardiología y prevención cardiovascular",
+        "path": "/medicina-interna/cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-interna/cardiovascular/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/progress-tavr-pacientes-estenosis-aortica-moderada-rasgos-riesgo-16x9.jpg",
+      "https://resumenestrials.com/images/trials/progress-tavr-pacientes-estenosis-aortica-moderada-rasgos-riesgo-4x3.jpg",
+      "https://resumenestrials.com/images/trials/progress-tavr-pacientes-estenosis-aortica-moderada-rasgos-riesgo-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si la sustitución valvular aórtica transcatéter (TAVR) transfemoral temprana, frente a la vigilancia clínica, reduce la muerte por cualquier causa o los eventos de insuficiencia cardiaca a 2 años en pacientes con estenosis aórtica moderada y al menos un rasgo de riesgo.",
+      "answer": "La muerte por cualquier causa o el evento de insuficiencia cardiaca a 2 años ocurrió en el 16.7% con TAVR frente al 23.9% con vigilancia clínica (diferencia de −7.2 puntos porcentuales; IC 95% −13.1 a −1.3; P = 0.02 ; HR 0.67; IC 95% 0.48 a 0.93).",
+      "population": "La población fueron adultos de 65 años o más con estenosis aórtica moderada y al menos un rasgo de riesgo, un síntoma o anomalía asociados a peor evolución. Procedían de 74 centros de 6 países, el 87.1% de Estados Unidos y el resto de Japón, Australia, Países Bajos, Canadá y Suiza. Raza y etnia solo se recogieron en Estados Unidos y Canadá: eran blancos el 92.7% del grupo TAVR y el 90.5% del de vigilancia, negros el 1.8% y el…"
+    },
+    "datePublished": "2026-11-11"
   }
 }
