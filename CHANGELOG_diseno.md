@@ -1,3 +1,10 @@
+## 2026-11-11 · Ficha del estudio rediseñada
+
+- La ficha (en las tarjetas y en el lector) pasa de una retícula de dos o tres columnas desiguales a filas «etiqueta | valor» separadas por filetes, como una ficha técnica impresa.
+- Primero los datos breves (Revista, Año, Fecha, Especialidad, Registro, DOI); al final los largos (Tipo de estudio, Temas, Financiación), que en tarjetas y en celular llevan la etiqueta encima y ocupan todo el ancho.
+- Tipo de estudio y Financiación van justificados, sin división de palabras; los Temas, alineados a la izquierda y con el punto separador pegado al tema anterior (nunca empieza un renglón con «·»).
+- El texto de cada campo no cambia.
+
 ## 2026-11-10 · Un color por subespecialidad
 
 - En las tarjetas, cada subespecialidad tiene su propio tono: Cardiología (carmín), Endocrinología (magenta), Neurología (violeta), Nefrología (cobalto), Neumología (azul), Infectología (verde), Gastroenterología (oliva) y Oncología/Hematología (sepia). Las de muy pocos resúmenes (Cirugía, Geriatría, Reumatología, Urgencias…) usan grafito.

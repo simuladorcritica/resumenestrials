@@ -135,8 +135,9 @@ def document(source,body,route,kind="document",scripts="",title=None):
  mode="list" if kind=="archive" or route=="/biblioteca.html" else "quick"
  return '<!DOCTYPE html><html lang="es-MX"><head>'+head+'</head><body class="'+("ev-reader" if kind=="reader" else "ev-"+kind)+'" data-ev-search-mode="'+mode+'"><div class="ev-aurora" aria-hidden="true"></div>'+header()+'<main id="ev-main" class="ev-main" tabindex="-1">'+body+'</main>'+footer(route=="/")+dialogs()+scripts+f'<script src="/site-runtime.js?v={version()}" defer></script></body></html>\n'
 FACTS=[("revista","Revista"),("anio","Año"),("fecha","Fecha"),("tipo_estudio","Tipo de estudio"),("especialidad_principal","Especialidad"),("especialidad_secundaria","Especialidad secundaria"),("temas","Temas"),("registro","Registro"),("doi","DOI"),("financiacion","Financiación")]
+LONG_FACTS=("tipo_estudio","temas","financiacion")
 def facts(r):
- return '<dl class="ev-study-facts">'+''.join(f'<div><dt>{label}</dt><dd data-ev-field="{key}">{esc(" · ".join(map(str,r[key])) if isinstance(r.get(key),list) else r.get(key))}</dd></div>' for key,label in FACTS if r.get(key) not in ("",None,[]))+'</dl>'
+ return '<dl class="ev-study-facts">'+''.join(f'<div{' class="ev-fact-long"' if key in LONG_FACTS else ''}><dt>{label}</dt><dd data-ev-field="{key}">{esc("\u00a0· ".join(map(str,r[key])) if isinstance(r.get(key),list) else r.get(key))}</dd></div>' for key,label in FACTS if r.get(key) not in ("",None,[]))+'</dl>'
 def card(r,manifest):
  id=trial_id(r["id"]);path=esc(manifest[id]["path"]);area=area_of(r);t=esc(r["titulo"]);topics=" · ".join(r.get("temas") or [])
  topics_attr=f' data-ev-topics="{esc(topics)}"' if topics else ''

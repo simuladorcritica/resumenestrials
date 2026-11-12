@@ -30,6 +30,8 @@ Tipografías propias (`/fonts/`, WOFF2, OFL): **Newsreader** para titulares y ma
 
 **Portada.** Ninguna cifra se repite: el total aparece solo en el contador de la biblioteca y las pestañas de especialidad no llevan número. Los textos de entrada (`.ev-intro`) van alineados a la izquierda y sin guiones de división.
 
+**Ficha del estudio.** Filas «etiqueta | valor» con filete superior (`.ev-study-facts>div`). Los campos largos llevan `.ev-fact-long` (tipo de estudio, temas, financiación): van al final y, en tarjetas y a ≤ 480 px, con la etiqueta encima. Tipo y financiación justificados sin guiones; temas unidos con espacio duro + «· » para que el punto no abra renglón.
+
 **Línea de señal en la web.** Aparece una sola vez por página: bajo el titular de la portada y en la cabecera del lector (`SIGNAL` en `site_templates.py` y su equivalente en `ui/reader.js`). Es el único uso de `var(--ev-dot)`; `validate-editorial.mjs` lo comprueba.
 
 El CSS servido (`site-runtime.css`) se genera sin comentarios ni saltos de línea; las fuentes en `ui/` se mantienen comentadas. Objetivo ≤ 60 KB (límite duro 70 KB).
