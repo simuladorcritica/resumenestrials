@@ -388,7 +388,7 @@
       "population": "La población fueron pacientes de 18 a 90 años con una lesión traumática que motivó una transfusión prehospitalaria por riesgo de shock hemorrágico, atendidos por bases médicas aéreas en Estados Unidos y Canadá. Para entrar debían haber tenido al menos un episodio de hipotensión, definida como una presión arterial sistólica de 90 mm Hg o menos, junto con taquicardia, definida como una frecuencia cardiaca de 108 latidos por…"
     },
     "datePublished": "2026-08-16",
-    "dateModified": "2026-10-27"
+    "dateModified": "2026-11-12"
   },
   "15": {
     "slug": "smart-decision-suspension-continuacion-betabloqueador-tras-infarto-miocardio",
@@ -396,7 +396,7 @@
     "url": "https://resumenestrials.com/trials/smart-decision-suspension-continuacion-betabloqueador-tras-infarto-miocardio/",
     "title": "SMART-DECISION: suspensión del tratamiento con betabloqueadores tras un infarto de miocardio",
     "seo_title": "SMART-DECISION trial: suspensión del tratamiento con betabloqueadores tras un infarto de miocardio | Resúmenes Trials",
-    "description": "SMART-DECISION: El desenlace primario compuesto ocurrió en el 7.2% frente al 9.0% (HR 0.80; IC 95% 0.57-1.13; P=0.001 para no inferioridad), cumpliendo el…",
+    "description": "SMART-DECISION: El desenlace primario compuesto ocurrió en 58 frente a 74 pacientes ( 7.2% frente al 9.0% , estimación de Kaplan-Meier a 4 años; HR 0.80; IC…",
     "clusters": [
       {
         "name": "Cardiología y prevención cardiovascular",
@@ -410,12 +410,12 @@
       "https://resumenestrials.com/images/trials/smart-decision-suspension-continuacion-betabloqueador-tras-infarto-miocardio-1x1.jpg"
     ],
     "intent": {
-      "question": "Determinar si la suspensión del betabloqueador es no inferior a su continuación en pacientes estables, sin insuficiencia cardiaca ni disfunción sistólica, que lo recibían desde hacía más de un año tras un infarto de miocardio.",
-      "answer": "El desenlace primario compuesto ocurrió en el 7.2% frente al 9.0% (HR 0.80; IC 95% 0.57-1.13; P=0.001 para no inferioridad), cumpliendo el margen preespecificado de 1.4.",
-      "population": "La población fueron pacientes en condición estable tras un infarto de miocardio, con una fracción de eyección del ventrículo izquierdo de al menos 40%, sin insuficiencia cardiaca, que llevaban al menos un año recibiendo un betabloqueador y que habían permanecido libres de eventos desde el infarto índice hasta el tamizaje. Todos fueron atendidos en Corea del Sur, de modo que se trata de una población coreana homogénea; la raza…"
+      "question": "Determinar si la suspensión del betabloqueador es no inferior a su continuación en pacientes estables, sin insuficiencia cardiaca ni disfunción sistólica, que lo recibían desde hacía al menos un año tras un infarto de miocardio.",
+      "answer": "El desenlace primario compuesto ocurrió en 58 frente a 74 pacientes ( 7.2% frente al 9.0% , estimación de Kaplan-Meier a 4 años; HR 0.80; IC 95% 0.57-1.13; P=0.001 para no inferioridad), cumpliendo el margen preespecificado de 1.4.",
+      "population": "La población fueron pacientes en condición estable tras un infarto de miocardio, con una fracción de eyección del ventrículo izquierdo de al menos 40%, sin insuficiencia cardiaca, que llevaban al menos un año recibiendo un betabloqueador y que habían permanecido libres de eventos desde el infarto índice hasta el tamizaje. Todos fueron atendidos en Corea del Sur, y la raza y el origen étnico no se reportaron de forma explícita."
     },
     "datePublished": "2026-08-16",
-    "dateModified": "2026-10-20"
+    "dateModified": "2026-11-12"
   },
   "16": {
     "slug": "trident-tres-antihipertensivos-dosis-bajas-sola-pildora-tras-hemorragia-intracerebral",
@@ -4566,7 +4566,7 @@
       "population": "Población. Adultos de 40 años o más con EPOC diagnosticada al menos 12 meses antes, fumadores activos o exfumadores con una historia de al menos 10 paquetes-año, que recibían tratamiento inhalado de mantenimiento estable, doble o triple, y que habían tenido al menos dos exacerbaciones moderadas o una severa en el año previo. No hubo criterio de inclusión relacionado con el recuento de eosinófilos en sangre. Reclutados en…"
     },
     "datePublished": "2026-09-14",
-    "dateModified": "2026-10-20"
+    "dateModified": "2026-11-12"
   },
   "166": {
     "slug": "staree-atorvastatina-eventos-cardiovasculares-supervivencia-libre-discapacidad-adultos-mayores",
@@ -4574,7 +4574,7 @@
     "url": "https://resumenestrials.com/trials/staree-atorvastatina-eventos-cardiovasculares-supervivencia-libre-discapacidad-adultos-mayores/",
     "title": "STAREE: atorvastatina, eventos cardiovasculares y supervivencia libre de discapacidad en adultos mayores",
     "seo_title": "STAREE trial: atorvastatina, eventos cardiovasculares y supervivencia libre de discapacidad en adultos mayores | Resúmenes Trials",
-    "description": "STAREE: Menos eventos cardiovasculares mayores con atorvastatina ( 10.9 vs 15.5 por 1000 personas-año ; RR 0.70; p<0.001; NNT 37), sin beneficio en la…",
+    "description": "STAREE: Menos eventos cardiovasculares mayores con atorvastatina ( 10.9 vs 15.5 por 1000 personas-año ; HR 0.70; IC 95%, 0.61 a 0.82; p<0.001; NNT 37), sin…",
     "clusters": [
       {
         "name": "Cardiología y prevención cardiovascular",
@@ -4589,10 +4589,11 @@
     ],
     "intent": {
       "question": "Determinar si atorvastatina reduce los eventos cardiovasculares mayores y prolonga la supervivencia libre de discapacidad en adultos mayores sin enfermedad cardiovascular conocida.",
-      "answer": "Menos eventos cardiovasculares mayores con atorvastatina ( 10.9 vs 15.5 por 1000 personas-año ; RR 0.70; p<0.001; NNT 37), sin beneficio en la supervivencia libre de discapacidad (RR 0.94; p=0.25).",
+      "answer": "Menos eventos cardiovasculares mayores con atorvastatina ( 10.9 vs 15.5 por 1000 personas-año ; HR 0.70; IC 95%, 0.61 a 0.82; p<0.001; NNT 37), sin diferencia significativa en la supervivencia libre de discapacidad (HR 0.94; IC 95%, 0.84 a 1.05; p=0.25).",
       "population": "Población. Adultos de 70 años o más que vivían de forma independiente en la comunidad, sin antecedente de enfermedad cardiovascular, diabetes ni demencia. Reclutados en consultorios médicos generales de toda Australia; el 98.3% de los participantes fue clasificado como de raza blanca. Intervención. Atorvastatina oral, 40 mg una vez al día tras un periodo de ajuste de dosis de 4 semanas que inició en 20 mg. Comparador. Placebo…"
     },
-    "datePublished": "2026-09-14"
+    "datePublished": "2026-09-14",
+    "dateModified": "2026-11-12"
   },
   "167": {
     "slug": "single-af-anticoagulacion-oral-directa-fibrilacion-auricular-riesgo-intermedio-accidente",
@@ -4600,7 +4601,7 @@
     "url": "https://resumenestrials.com/trials/single-af-anticoagulacion-oral-directa-fibrilacion-auricular-riesgo-intermedio-accidente/",
     "title": "SINGLE-AF: anticoagulación en la fibrilación auricular con riesgo intermedio de ictus",
     "seo_title": "SINGLE-AF trial: anticoagulación en la fibrilación auricular con riesgo intermedio de ictus | Resúmenes Trials",
-    "description": "SINGLE-AF: El desenlace primario ocurrió en 0.5% de los pacientes con anticoagulación frente a 1.5% sin anticoagulación (RR 0.31; p=0.03), sin aumento…",
+    "description": "SINGLE-AF: El desenlace primario ocurrió en 0.5% de los pacientes con anticoagulación frente a 1.5% sin anticoagulación (hazard ratio de subdistribución, HR…",
     "clusters": [
       {
         "name": "Cardiología y prevención cardiovascular",
@@ -4620,11 +4621,11 @@
     ],
     "intent": {
       "question": "Determinar si la anticoagulación oral directa reduce, frente a no anticoagular, el riesgo de accidente cerebrovascular, embolia sistémica, sangrado mayor o muerte cardiovascular en pacientes con fibrilación auricular de riesgo intermedio.",
-      "answer": "El desenlace primario ocurrió en 0.5% de los pacientes con anticoagulación frente a 1.5% sin anticoagulación (RR 0.31; p=0.03), sin aumento significativo del sangrado mayor.",
+      "answer": "El desenlace primario ocurrió en 0.5% de los pacientes con anticoagulación frente a 1.5% sin anticoagulación (hazard ratio de subdistribución, HR 0.31; p=0.03), con un sangrado mayor que pareció similar entre grupos.",
       "population": "Población. Pacientes de 19 años o más con fibrilación auricular y riesgo intermedio de accidente cerebrovascular, definido como una puntuación de 1 en la escala CHA2DS2-VASc en hombres o de 2 en mujeres (escala de 0 a 9, donde puntuaciones más altas indican mayor riesgo). Reclutados en 18 centros de Corea del Sur. Intervención. Tratamiento con un anticoagulante oral directo, apixabán (5 mg dos veces al día) o rivaroxabán (20…"
     },
     "datePublished": "2026-09-14",
-    "dateModified": "2026-10-20"
+    "dateModified": "2026-11-12"
   },
   "168": {
     "slug": "tricycle-estrategia-multimodal-temprana-vasopresores-shock-septico",
@@ -4655,7 +4656,8 @@
       "answer": "La renina plasmática descendió más rápido con la estrategia multimodal ( 2.61%/h frente a 1.67%/h ; p=0.015), sin diferencias significativas en mortalidad.",
       "population": "Población. Adultos con shock séptico que persistían con hipotensión pese a resucitación adecuada con volumen (20-30 ml/kg en 3 horas), que requerían al menos 0.15 µg/kg/min de noradrenalina base equivalente para mantener una presión arterial media ≥65 mmHg, con lactato sérico >2 mmol/l, acceso venoso central, línea arterial y catéter urinario, y un índice cardiaco >2.3 l/min/m². Reclutados en tres unidades de cuidados…"
     },
-    "datePublished": "2026-09-14"
+    "datePublished": "2026-09-14",
+    "dateModified": "2026-11-12"
   },
   "169": {
     "slug": "tric-i-hf-dzhk24-reparacion-transcateter-valvula-tricuspide-mas-tratamiento-medico-tratamiento",
@@ -4754,7 +4756,7 @@
     "url": "https://resumenestrials.com/trials/prodige-4-accord-11-folfirinox-gemcitabina-primera-linea-cancer-pancreas-metastasico/",
     "title": "PRODIGE 4-ACCORD 11: FOLFIRINOX frente a gemcitabina en el cáncer de páncreas metastásico",
     "seo_title": "PRODIGE 4-ACCORD 11 trial: FOLFIRINOX frente a gemcitabina en el cáncer de páncreas metastásico | Resúmenes Trials",
-    "description": "PRODIGE 4-ACCORD 11: FOLFIRINOX prolongó la mediana de supervivencia global: 11.1 frente a 6.8 meses (razón de riesgos para la muerte 0.57; IC 95%, 0.45 a…",
+    "description": "PRODIGE 4-ACCORD 11: FOLFIRINOX prolongó la mediana de supervivencia global: 11.1 frente a 6.8 meses (hazard ratio [HR] para la muerte 0.57; IC 95%, 0.45 a…",
     "clusters": [],
     "images": [
       "https://resumenestrials.com/images/trials/prodige-4-accord-11-folfirinox-gemcitabina-primera-linea-cancer-pancreas-metastasico-16x9.jpg",
@@ -4763,11 +4765,11 @@
     ],
     "intent": {
       "question": "Determinar si FOLFIRINOX, frente a gemcitabina, prolonga la supervivencia global como tratamiento de primera línea en pacientes con cáncer de páncreas metastásico y buen estado funcional.",
-      "answer": "FOLFIRINOX prolongó la mediana de supervivencia global: 11.1 frente a 6.8 meses (razón de riesgos para la muerte 0.57; IC 95%, 0.45 a 0.73; p<0.001) , a costa de más toxicidad, como la neutropenia febril, 5.4% frente a 1.2% (p=0.03) .",
+      "answer": "FOLFIRINOX prolongó la mediana de supervivencia global: 11.1 frente a 6.8 meses (hazard ratio [HR] para la muerte 0.57; IC 95%, 0.45 a 0.73; p<0.001) , a costa de más toxicidad, como la neutropenia febril, 5.4% frente a 1.2% (p=0.03) .",
       "population": "La población fueron adultos de 18 a 75 años con adenocarcinoma de páncreas metastásico, confirmado por histología o citología, con enfermedad medible y sin quimioterapia previa, todos en buen estado funcional. La raza o etnia: No reportado. Todos procedían de Francia."
     },
     "datePublished": "2026-10-19",
-    "dateModified": "2026-10-20"
+    "dateModified": "2026-11-12"
   },
   "174": {
     "slug": "acurasys-bloqueo-neuromuscular-temprano-cisatracurio-48-horas-placebo-sindrome-dificultad",
@@ -7596,10 +7598,11 @@
     ],
     "intent": {
       "question": "Determinar si suspender la aspirina justo después de una intervención coronaria percutánea exitosa y continuar solo con prasugrel o ticagrelor es no inferior a la doble antiagregación en eventos isquémicos y superior en sangrado en pacientes con síndrome coronario agudo.",
-      "answer": "El compuesto de muerte, infarto, ictus o revascularización urgente ocurrió en el 7.0% frente al 5.5% (diferencia 1.47 puntos; IC 95% −0.16 a 3.10; P=0.11 para no inferioridad), sin cumplir el margen de 2.5 puntos y sin diferencia significativa.",
+      "answer": "El compuesto de muerte, infarto, ictus o revascularización urgente ocurrió en el 7.0% frente al 5.5% (diferencia 1.47 puntos; IC 95% −0.16 a 3.10; P=0.11 para no inferioridad), por lo que no se demostró la no inferioridad: el límite superior del IC rebasó el margen de 2.5 puntos ; tampoco hubo diferencia significativa.",
       "population": "La población fueron adultos de Brasil ingresados por un síndrome coronario agudo, ya fuera infarto con o sin elevación del segmento ST o angina inestable, con una intervención coronaria percutánea exitosa con stents farmacoactivos contemporáneos dentro de los primeros 4 días de hospitalización. La raza la registró el investigador: 68.5% blancos, 18.8% negros y 12.7% de raza mixta."
     },
-    "datePublished": "2026-11-05"
+    "datePublished": "2026-11-05",
+    "dateModified": "2026-11-12"
   },
   "278": {
     "slug": "maple-hcm-aficamten-metoprolol-monoterapia-miocardiopatia-hipertrofica-obstructiva",

@@ -21,6 +21,20 @@
     <summary>Determinar si la transfusión prehospitalaria de hasta 2 unidades de sangre total es superior al tratamiento estándar con hemocomponentes para reducir la muerte o la transfusión masiva a 24 horas en pacientes con hemorragia traumática potencialmente mortal.</summary>
   </entry>
   <entry>
+    <title>TOWAR: reanimación prehospitalaria con sangre total tipo O en el trauma y la hemorragia</title>
+    <id>https://resumenestrials.com/trials/towar-sangre-total-tipo-prehospitalaria-hemocomponentes-trauma-hemorragia/</id>
+    <link href="https://resumenestrials.com/trials/towar-sangre-total-tipo-prehospitalaria-hemocomponentes-trauma-hemorragia/"/>
+    <updated>2026-11-12T00:00:00Z</updated>
+    <summary>Determinar si la transfusión prehospitalaria de hasta 2 unidades de sangre total tipo O de título bajo reduce la mortalidad a 30 días frente a los hemocomponentes en pacientes con lesión traumática y riesgo de shock hemorrágico.</summary>
+  </entry>
+  <entry>
+    <title>SMART-DECISION: suspensión del tratamiento con betabloqueadores tras un infarto de miocardio</title>
+    <id>https://resumenestrials.com/trials/smart-decision-suspension-continuacion-betabloqueador-tras-infarto-miocardio/</id>
+    <link href="https://resumenestrials.com/trials/smart-decision-suspension-continuacion-betabloqueador-tras-infarto-miocardio/"/>
+    <updated>2026-11-12T00:00:00Z</updated>
+    <summary>Determinar si la suspensión del betabloqueador es no inferior a su continuación en pacientes estables, sin insuficiencia cardiaca ni disfunción sistólica, que lo recibían desde hacía al menos un año tras un infarto de miocardio.</summary>
+  </entry>
+  <entry>
     <title>OPTIMAL: intervención coronaria percutánea guiada por ultrasonido intravascular frente a guiada por angiografía en la enfermedad del tronco coronario izquierdo no protegido</title>
     <id>https://resumenestrials.com/trials/optimal-ultrasonido-intravascular-angiografia-guiar-intervencion-tronco-coronario-izquierdo/</id>
     <link href="https://resumenestrials.com/trials/optimal-ultrasonido-intravascular-angiografia-guiar-intervencion-tronco-coronario-izquierdo/"/>
@@ -49,6 +63,41 @@
     <summary>Determinar si una estrategia de revascularización coronaria completa guiada por angiografía coronaria funcional reduce, frente a la guiada por angiografía convencional, un compuesto de muerte, infarto de miocardio, accidente cerebrovascular o revascularización guiada por isquemia en pacientes con…</summary>
   </entry>
   <entry>
+    <title>OBERON y TITANIA: tozorakimab para prevenir las exacerbaciones de la EPOC</title>
+    <id>https://resumenestrials.com/trials/oberon-y-titania-tozorakimab-prevenir-exacerbaciones-epoc/</id>
+    <link href="https://resumenestrials.com/trials/oberon-y-titania-tozorakimab-prevenir-exacerbaciones-epoc/"/>
+    <updated>2026-11-12T00:00:00Z</updated>
+    <summary>Determinar si tozorakimab, añadido al tratamiento inhalado estándar, reduce la tasa anualizada de exacerbaciones moderadas o severas de EPOC frente a placebo, en dos ensayos réplica (OBERON y TITANIA).</summary>
+  </entry>
+  <entry>
+    <title>STAREE: atorvastatina, eventos cardiovasculares y supervivencia libre de discapacidad en adultos mayores</title>
+    <id>https://resumenestrials.com/trials/staree-atorvastatina-eventos-cardiovasculares-supervivencia-libre-discapacidad-adultos-mayores/</id>
+    <link href="https://resumenestrials.com/trials/staree-atorvastatina-eventos-cardiovasculares-supervivencia-libre-discapacidad-adultos-mayores/"/>
+    <updated>2026-11-12T00:00:00Z</updated>
+    <summary>Determinar si atorvastatina reduce los eventos cardiovasculares mayores y prolonga la supervivencia libre de discapacidad en adultos mayores sin enfermedad cardiovascular conocida.</summary>
+  </entry>
+  <entry>
+    <title>SINGLE-AF: anticoagulación en la fibrilación auricular con riesgo intermedio de ictus</title>
+    <id>https://resumenestrials.com/trials/single-af-anticoagulacion-oral-directa-fibrilacion-auricular-riesgo-intermedio-accidente/</id>
+    <link href="https://resumenestrials.com/trials/single-af-anticoagulacion-oral-directa-fibrilacion-auricular-riesgo-intermedio-accidente/"/>
+    <updated>2026-11-12T00:00:00Z</updated>
+    <summary>Determinar si la anticoagulación oral directa reduce, frente a no anticoagular, el riesgo de accidente cerebrovascular, embolia sistémica, sangrado mayor o muerte cardiovascular en pacientes con fibrilación auricular de riesgo intermedio.</summary>
+  </entry>
+  <entry>
+    <title>TRICYCLE: estrategia multimodal temprana de vasopresores en el shock séptico</title>
+    <id>https://resumenestrials.com/trials/tricycle-estrategia-multimodal-temprana-vasopresores-shock-septico/</id>
+    <link href="https://resumenestrials.com/trials/tricycle-estrategia-multimodal-temprana-vasopresores-shock-septico/"/>
+    <updated>2026-11-12T00:00:00Z</updated>
+    <summary>Evaluar si una estrategia temprana con angiotensina II, vasopresina y noradrenalina administradas simultáneamente acelera el descenso de la renina plasmática y mejora desenlaces fisiológicos y clínicos frente al manejo escalonado clásico en shock séptico.</summary>
+  </entry>
+  <entry>
+    <title>PRODIGE 4-ACCORD 11: FOLFIRINOX frente a gemcitabina en el cáncer de páncreas metastásico</title>
+    <id>https://resumenestrials.com/trials/prodige-4-accord-11-folfirinox-gemcitabina-primera-linea-cancer-pancreas-metastasico/</id>
+    <link href="https://resumenestrials.com/trials/prodige-4-accord-11-folfirinox-gemcitabina-primera-linea-cancer-pancreas-metastasico/"/>
+    <updated>2026-11-12T00:00:00Z</updated>
+    <summary>Determinar si FOLFIRINOX, frente a gemcitabina, prolonga la supervivencia global como tratamiento de primera línea en pacientes con cáncer de páncreas metastásico y buen estado funcional.</summary>
+  </entry>
+  <entry>
     <title>OASIS 4: semaglutida oral a dosis de 25 mg en adultos con sobrepeso u obesidad</title>
     <id>https://resumenestrials.com/trials/oasis-4-semaglutida-oral-dosis-25-mg-adultos-sobrepeso-u-obesidad/</id>
     <link href="https://resumenestrials.com/trials/oasis-4-semaglutida-oral-dosis-25-mg-adultos-sobrepeso-u-obesidad/"/>
@@ -61,6 +110,13 @@
     <link href="https://resumenestrials.com/trials/aquatic-aspirina-pacientes-sindrome-coronario-cronico-reciben-anticoagulacion-oral/"/>
     <updated>2026-11-12T00:00:00Z</updated>
     <summary>Determinar si añadir aspirina 100 mg al día a la anticoagulación oral reduce los eventos cardiovasculares en pacientes con síndrome coronario crónico, stent previo y alto riesgo aterotrombótico.</summary>
+  </entry>
+  <entry>
+    <title>NEO-MINDSET: retirada temprana de la aspirina tras la intervención coronaria percutánea en los síndromes coronarios agudos</title>
+    <id>https://resumenestrials.com/trials/neo-mindset-retirada-temprana-aspirina-tras-intervencion-coronaria-percutanea-sindromes/</id>
+    <link href="https://resumenestrials.com/trials/neo-mindset-retirada-temprana-aspirina-tras-intervencion-coronaria-percutanea-sindromes/"/>
+    <updated>2026-11-12T00:00:00Z</updated>
+    <summary>Determinar si suspender la aspirina justo después de una intervención coronaria percutánea exitosa y continuar solo con prasugrel o ticagrelor es no inferior a la doble antiagregación en eventos isquémicos y superior en sangrado en pacientes con síndrome coronario agudo.</summary>
   </entry>
   <entry>
     <title>ZEUS: inhibición de la interleucina-6 con ziltivekimab en la enfermedad aterosclerótica</title>
@@ -299,61 +355,5 @@
     <link href="https://resumenestrials.com/trials/target-first-suspension-temprana-aspirina-tras-icp-infarto-agudo-miocardio-riesgo/"/>
     <updated>2026-11-05T00:00:00Z</updated>
     <summary>Determinar si suspender la aspirina un mes después de un infarto agudo de miocardio de bajo riesgo con revascularización completa, y continuar con un inhibidor P2Y12 en monoterapia, es no inferior a mantener la doble antiagregación durante 11 meses más.</summary>
-  </entry>
-  <entry>
-    <title>NEO-MINDSET: retirada temprana de la aspirina tras la intervención coronaria percutánea en los síndromes coronarios agudos</title>
-    <id>https://resumenestrials.com/trials/neo-mindset-retirada-temprana-aspirina-tras-intervencion-coronaria-percutanea-sindromes/</id>
-    <link href="https://resumenestrials.com/trials/neo-mindset-retirada-temprana-aspirina-tras-intervencion-coronaria-percutanea-sindromes/"/>
-    <updated>2026-11-05T00:00:00Z</updated>
-    <summary>Determinar si suspender la aspirina justo después de una intervención coronaria percutánea exitosa y continuar solo con prasugrel o ticagrelor es no inferior a la doble antiagregación en eventos isquémicos y superior en sangrado en pacientes con síndrome coronario agudo.</summary>
-  </entry>
-  <entry>
-    <title>MAPLE-HCM: aficamten o metoprolol en monoterapia para la miocardiopatía hipertrófica obstructiva</title>
-    <id>https://resumenestrials.com/trials/maple-hcm-aficamten-metoprolol-monoterapia-miocardiopatia-hipertrofica-obstructiva/</id>
-    <link href="https://resumenestrials.com/trials/maple-hcm-aficamten-metoprolol-monoterapia-miocardiopatia-hipertrofica-obstructiva/"/>
-    <updated>2026-11-05T00:00:00Z</updated>
-    <summary>Determinar si el aficamten en monoterapia mejora el consumo pico de oxígeno a las 24 semanas más que el metoprolol en monoterapia en adultos con miocardiopatía hipertrófica obstructiva sintomática.</summary>
-  </entry>
-  <entry>
-    <title>REBOOT: betabloqueadores tras un infarto de miocardio sin fracción de eyección reducida</title>
-    <id>https://resumenestrials.com/trials/reboot-betabloqueadores-tras-infarto-miocardio-fraccion-eyeccion-reducida/</id>
-    <link href="https://resumenestrials.com/trials/reboot-betabloqueadores-tras-infarto-miocardio-fraccion-eyeccion-reducida/"/>
-    <updated>2026-11-05T00:00:00Z</updated>
-    <summary>Determinar si iniciar un betabloqueador oral al alta, frente a no darlo, reduce el compuesto de muerte por cualquier causa, reinfarto u hospitalización por insuficiencia cardiaca en pacientes con infarto agudo de miocardio, manejo invasivo y fracción de eyección del ventrículo izquierdo mayor de…</summary>
-  </entry>
-  <entry>
-    <title>BETAMI–DANBLOCK: betabloqueadores tras un infarto de miocardio en pacientes sin insuficiencia cardiaca</title>
-    <id>https://resumenestrials.com/trials/betami-danblock-betabloqueadores-tras-infarto-miocardio-pacientes-insuficiencia-cardiaca/</id>
-    <link href="https://resumenestrials.com/trials/betami-danblock-betabloqueadores-tras-infarto-miocardio-pacientes-insuficiencia-cardiaca/"/>
-    <updated>2026-11-05T00:00:00Z</updated>
-    <summary>Evaluar si el tratamiento oral prolongado con betabloqueadores, iniciado en los 14 días posteriores a un infarto de miocardio en pacientes con fracción de eyección del ventrículo izquierdo de al menos 40% y sin insuficiencia cardiaca, reduce un compuesto de muerte por cualquier causa o eventos…</summary>
-  </entry>
-  <entry>
-    <title>BaxHTN: eficacia y seguridad del baxdrostat en la hipertensión no controlada y resistente</title>
-    <id>https://resumenestrials.com/trials/baxhtn-eficacia-seguridad-baxdrostat-hipertension-no-controlada-resistente/</id>
-    <link href="https://resumenestrials.com/trials/baxhtn-eficacia-seguridad-baxdrostat-hipertension-no-controlada-resistente/"/>
-    <updated>2026-11-05T00:00:00Z</updated>
-    <summary>Evaluar si añadir baxdrostat de 1 mg o 2 mg al tratamiento de base reduce la presión sistólica sentada a las 12 semanas, frente a placebo, en adultos con hipertensión no controlada o resistente.</summary>
-  </entry>
-  <entry>
-    <title>HI-PRO: apixabán para el tratamiento extendido de la tromboembolia venosa provocada</title>
-    <id>https://resumenestrials.com/trials/hi-pro-apixaban-tratamiento-extendido-tromboembolia-venosa-provocada/</id>
-    <link href="https://resumenestrials.com/trials/hi-pro-apixaban-tratamiento-extendido-tromboembolia-venosa-provocada/"/>
-    <updated>2026-11-05T00:00:00Z</updated>
-    <summary>Evaluar si el apixabán 2.5 mg dos veces al día durante 12 meses, frente a placebo, reduce la tromboembolia venosa sintomática recurrente en adultos con tromboembolia venosa provocada y al menos un factor de riesgo persistente que completaron al menos 3 meses de anticoagulación.</summary>
-  </entry>
-  <entry>
-    <title>GALFLU: vacuna de dosis alta contra la influenza para reducir las hospitalizaciones</title>
-    <id>https://resumenestrials.com/trials/galflu-vacuna-dosis-alta-influenza-reducir-hospitalizaciones/</id>
-    <link href="https://resumenestrials.com/trials/galflu-vacuna-dosis-alta-influenza-reducir-hospitalizaciones/"/>
-    <updated>2026-11-05T00:00:00Z</updated>
-    <summary>Evaluar la efectividad relativa de la vacuna antigripal inactivada de dosis alta, frente a la de dosis estándar, para prevenir la hospitalización por influenza o neumonía en adultos de 65 a 79 años que viven en la comunidad.</summary>
-  </entry>
-  <entry>
-    <title>SOHO: oxígeno de alto flujo u oxígeno estándar en la insuficiencia respiratoria hipoxémica aguda</title>
-    <id>https://resumenestrials.com/trials/soho-oxigeno-alto-flujo-oxigeno-estandar-insuficiencia-respiratoria-hipoxemica-aguda/</id>
-    <link href="https://resumenestrials.com/trials/soho-oxigeno-alto-flujo-oxigeno-estandar-insuficiencia-respiratoria-hipoxemica-aguda/"/>
-    <updated>2026-11-04T00:00:00Z</updated>
-    <summary>Determinar si el oxígeno de alto flujo por cánula nasal reduce la mortalidad a 28 días frente al oxígeno estándar en adultos con insuficiencia respiratoria hipoxémica aguda ingresados en cuidados intensivos.</summary>
   </entry>
 </feed>
