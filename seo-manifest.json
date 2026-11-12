@@ -327,7 +327,7 @@
     "url": "https://resumenestrials.com/trials/relieve-aki-ultrafiltracion-neta-restrictiva-liberal-lesion-renal-aguda/",
     "title": "RELIEVE-AKI: estrategias alternativas de tasa de ultrafiltración neta en la lesión renal aguda: ensayo clínico aleatorizado de factibilidad",
     "seo_title": "RELIEVE-AKI trial: estrategias alternativas de tasa de ultrafiltración neta en la lesión renal aguda: ensayo clínico aleatorizado de factibilidad | Resúmenes Trials",
-    "description": "RELIEVE-AKI: La separación en la tasa de ultrafiltración administrada fue mínima, de 2.05 frente a 1.81 mL/kg/h (P ajustada=0.4), y no alcanzó el umbral de…",
+    "description": "RELIEVE-AKI: La separación en la tasa media de ultrafiltración administrada fue mínima, de 2.05 frente a 1.81 mL/kg/h (diferencia 0.26; IC 95%, −0.61 a 0.09…",
     "clusters": [
       {
         "name": "Renal y ácido-base",
@@ -342,11 +342,11 @@
     ],
     "intent": {
       "question": "Evaluar la factibilidad de mantener en la práctica clínica dos estrategias alternativas, restrictiva y liberal, de tasa de ultrafiltración neta durante la terapia de reemplazo renal continuo en adultos con lesión renal aguda.",
-      "answer": "La separación en la tasa de ultrafiltración administrada fue mínima, de 2.05 frente a 1.81 mL/kg/h (P ajustada=0.4), y no alcanzó el umbral de factibilidad de 0.53 mL/kg/h.",
-      "population": "La población fueron adultos con lesión renal aguda en estadio 3 que ya habían iniciado terapia de reemplazo renal continuo y en quienes se anticipaba la necesidad de retirar líquido durante al menos 48 horas. En cuanto a la etnia, el 90.7% era de raza blanca y el 6.2% de raza negra. Se excluyó a quienes tenían edema pulmonar que exigía retirada urgente de líquido, una infusión masiva de líquidos o diálisis crónica previa…"
+      "answer": "La separación en la tasa media de ultrafiltración administrada fue mínima, de 2.05 frente a 1.81 mL/kg/h (diferencia 0.26; IC 95%, −0.61 a 0.09; P ajustada=0.4), sin diferencia significativa y por debajo del umbral de factibilidad de 0.53 mL/kg/h.",
+      "population": "La población fueron adultos con lesión renal aguda en estadio 3 que ya habían iniciado terapia de reemplazo renal continuo y en quienes se anticipaba la necesidad de retirar líquido durante al menos 48 horas. En cuanto a la etnia, el 90.7% era de raza blanca y el 6.2% de raza negra. Se excluyó, entre otros, a quienes tenían edema pulmonar que exigía retirada urgente de líquido, una infusión masiva de líquidos, diálisis crónica…"
     },
     "datePublished": "2026-08-16",
-    "dateModified": "2026-10-20"
+    "dateModified": "2026-11-12"
   },
   "13": {
     "slug": "swift-sangre-total-prehospitalaria-hemocomponentes-hemorragia-traumatica-grave",
@@ -354,7 +354,7 @@
     "url": "https://resumenestrials.com/trials/swift-sangre-total-prehospitalaria-hemocomponentes-hemorragia-traumatica-grave/",
     "title": "SWiFT: sangre total prehospitalaria en la hemorragia traumática",
     "seo_title": "SWiFT trial: sangre total prehospitalaria en la hemorragia traumática | Resúmenes Trials",
-    "description": "SWiFT: El desenlace combinado de muerte o transfusión masiva a 24 horas fue casi idéntico: 48.7% frente a 47.7% (RR 1.02; IC 95% 0.80-1.31; P=0.84). La sangre…",
+    "description": "SWiFT: El desenlace combinado de muerte o transfusión masiva a 24 horas no mostró diferencia significativa: 48.7% frente a 47.7% (RR 1.02; IC 95% 0.80-1.31…",
     "clusters": [],
     "images": [
       "https://resumenestrials.com/images/trials/swift-sangre-total-prehospitalaria-hemocomponentes-hemorragia-traumatica-grave-16x9.jpg",
@@ -363,11 +363,11 @@
     ],
     "intent": {
       "question": "Determinar si la transfusión prehospitalaria de hasta 2 unidades de sangre total es superior al tratamiento estándar con hemocomponentes para reducir la muerte o la transfusión masiva a 24 horas en pacientes con hemorragia traumática potencialmente mortal.",
-      "answer": "El desenlace combinado de muerte o transfusión masiva a 24 horas fue casi idéntico: 48.7% frente a 47.7% (RR 1.02; IC 95% 0.80-1.31; P=0.84).",
-      "population": "La población fueron pacientes de cualquier edad con una lesión traumática que motivó una transfusión prehospitalaria por hemorragia mayor, atendidos por servicios de ambulancia aérea en Inglaterra. El origen étnico no se reportó. Se excluyó a quienes no permitían un acceso intravenoso o intraóseo, a quienes tenían una objeción conocida a la transfusión y a quienes ya habían recibido hemocomponentes antes de la llegada del…"
+      "answer": "El desenlace combinado de muerte o transfusión masiva a 24 horas no mostró diferencia significativa: 48.7% frente a 47.7% (RR 1.02; IC 95% 0.80-1.31; P=0.84).",
+      "population": "La población fueron pacientes de cualquier edad con una lesión traumática que motivó una transfusión prehospitalaria por hemorragia mayor, atendidos por servicios de ambulancia aérea en Inglaterra. El origen étnico no se recogió en el estudio. Se excluyó a quienes no permitían un acceso intravenoso o intraóseo, a quienes tenían una objeción conocida a la transfusión y a quienes ya habían recibido hemocomponentes antes de la…"
     },
     "datePublished": "2026-08-16",
-    "dateModified": "2026-10-20"
+    "dateModified": "2026-11-12"
   },
   "14": {
     "slug": "towar-sangre-total-tipo-prehospitalaria-hemocomponentes-trauma-hemorragia",
@@ -4451,7 +4451,7 @@
     "url": "https://resumenestrials.com/trials/optimal-ultrasonido-intravascular-angiografia-guiar-intervencion-tronco-coronario-izquierdo/",
     "title": "OPTIMAL: intervención coronaria percutánea guiada por ultrasonido intravascular frente a guiada por angiografía en la enfermedad del tronco coronario izquierdo no protegido",
     "seo_title": "OPTIMAL trial: intervención coronaria percutánea guiada por ultrasonido intravascular frente a guiada por angiografía en la enfermedad del tronco coronario izquierdo no protegido | Resúmenes Trials",
-    "description": "OPTIMAL: Sin diferencia en el compuesto primario ( 33.7% vs 30.9% ; RR 1.11; p=0.40). Más accidente cerebrovascular con ultrasonido (3.0% vs 1.0%; RR 3.11)…",
+    "description": "OPTIMAL: Sin diferencia significativa en el compuesto primario ( 33.7% vs 30.9% ; hazard ratio [HR] 1.11; IC 95% 0.87 a 1.42; p=0.40). El accidente…",
     "clusters": [
       {
         "name": "Cardiología y prevención cardiovascular",
@@ -4466,11 +4466,11 @@
     ],
     "intent": {
       "question": "Determinar si la guía con ultrasonido intravascular durante la intervención coronaria percutánea reduce, frente a la guía angiográfica sola, un compuesto de accidente cerebrovascular, infarto de miocardio, revascularización o muerte en pacientes con enfermedad de tronco coronario izquierdo no protegido.",
-      "answer": "Sin diferencia en el compuesto primario ( 33.7% vs 30.9% ; RR 1.11; p=0.40).",
+      "answer": "Sin diferencia significativa en el compuesto primario ( 33.7% vs 30.9% ; hazard ratio [HR] 1.11; IC 95% 0.87 a 1.42; p=0.40).",
       "population": "Población. Adultos de 18 años o más con enfermedad de tronco coronario izquierdo no protegido, es decir, sin un puente coronario previo y permeable hacia la descendente anterior o la circunfleja, con una estenosis de al menos 50% considerada apta para intervención percutánea, y con isquemia moderada o severa demostrada por pruebas no invasivas o síntomas pese a tratamiento médico óptimo. Reclutados en 28 centros europeos de…"
     },
     "datePublished": "2026-09-14",
-    "dateModified": "2026-11-04"
+    "dateModified": "2026-11-12"
   },
   "162": {
     "slug": "majesty-obinutuzumab-tacrolimus-nefropatia-membranosa-primaria",
@@ -4478,7 +4478,7 @@
     "url": "https://resumenestrials.com/trials/majesty-obinutuzumab-tacrolimus-nefropatia-membranosa-primaria/",
     "title": "MAJESTY: obinutuzumab o tacrolimus en la nefropatía membranosa primaria",
     "seo_title": "MAJESTY trial: obinutuzumab o tacrolimus en la nefropatía membranosa primaria | Resúmenes Trials",
-    "description": "MAJESTY: Remisión completa mucho más frecuente con obinutuzumab ( 37% vs 6% ; diferencia 31 pp; p<0.001; NNT ≈3), sin diferencia en la reducción sostenida de…",
+    "description": "MAJESTY: Remisión completa mucho más frecuente con obinutuzumab ( 37% vs 6% ; diferencia 31 pp; p<0.001; NNT 3.2, que redondeado hacia arriba es 4), sin…",
     "clusters": [],
     "images": [
       "https://resumenestrials.com/images/trials/majesty-obinutuzumab-tacrolimus-nefropatia-membranosa-primaria-16x9.jpg",
@@ -4487,11 +4487,11 @@
     ],
     "intent": {
       "question": "Determinar si obinutuzumab es superior a tacrolimus para inducir remisión completa en pacientes con nefropatía membranosa primaria a las 104 semanas.",
-      "answer": "Remisión completa mucho más frecuente con obinutuzumab ( 37% vs 6% ; diferencia 31 pp; p<0.001; NNT ≈3), sin diferencia en la reducción sostenida de la función renal.",
+      "answer": "Remisión completa mucho más frecuente con obinutuzumab ( 37% vs 6% ; diferencia 31 pp; p<0.001; NNT 3.2, que redondeado hacia arriba es 4), sin diferencia significativa en la reducción sostenida de la función renal.",
       "population": "Población. Adultos de 18 a 75 años con nefropatía membranosa primaria confirmada por biopsia y proteinuria persistente pese al mejor tratamiento de soporte, con una tasa de filtración glomerular estimada de 40 ml/min/1.73 m² o más. Reclutados en 49 centros de 11 países; alrededor del 70% de los pacientes era de raza blanca, cerca de una cuarta parte asiática, y una minoría de raza negra. Intervención. Obinutuzumab intravenoso…"
     },
     "datePublished": "2026-09-14",
-    "dateModified": "2026-11-04"
+    "dateModified": "2026-11-12"
   },
   "163": {
     "slug": "epcat-iii-acido-acetilsalicilico-solo-rivaroxaban-seguido-acido-acetilsalicilico-tras",
@@ -4512,7 +4512,7 @@
       "population": "Población. Pacientes sometidos a artroplastia total de cadera o rodilla, primaria o de revisión, de forma electiva y unilateral. Reclutados en 15 centros universitarios de Canadá; el estudio no recolectó datos de raza o etnia, aunque los autores señalan que, dada la composición demográfica de Canadá, es probable que los pacientes negros estuvieran subrepresentados. Intervención. Tromboprofilaxis con ácido acetilsalicílico…"
     },
     "datePublished": "2026-09-14",
-    "dateModified": "2026-11-04"
+    "dateModified": "2026-11-12"
   },
   "164": {
     "slug": "air-stemi-revascularizacion-completa-guiada-angiografia-coronaria-funcional-infarto-elevacion-st",
@@ -4520,7 +4520,7 @@
     "url": "https://resumenestrials.com/trials/air-stemi-revascularizacion-completa-guiada-angiografia-coronaria-funcional-infarto-elevacion-st/",
     "title": "AIR-STEMI: revascularización completa guiada por angiografía coronaria funcional en el infarto con elevación del ST",
     "seo_title": "AIR-STEMI trial: revascularización completa guiada por angiografía coronaria funcional en el infarto con elevación del ST | Resúmenes Trials",
-    "description": "AIR-STEMI: Menor incidencia del compuesto primario con guía funcional ( 8.9% vs 13.7% ; RR 0.62; p<0.001; NNT 21) y también del compuesto de seguridad (4.6%…",
+    "description": "AIR-STEMI: Menor incidencia del compuesto primario con guía funcional ( 8.9% vs 13.7% ; hazard ratio [HR] 0.62; p<0.001; NNT 21) y también del compuesto de…",
     "clusters": [
       {
         "name": "Cardiología y prevención cardiovascular",
@@ -4535,11 +4535,11 @@
     ],
     "intent": {
       "question": "Determinar si una estrategia de revascularización coronaria completa guiada por angiografía coronaria funcional reduce, frente a la guiada por angiografía convencional, un compuesto de muerte, infarto de miocardio, accidente cerebrovascular o revascularización guiada por isquemia en pacientes con infarto con elevación del ST y enfermedad multivaso.",
-      "answer": "Menor incidencia del compuesto primario con guía funcional ( 8.9% vs 13.7% ; RR 0.62; p<0.001; NNT 21) y también del compuesto de seguridad (4.6% vs 7.1%; RR 0.63; p=0.02).",
+      "answer": "Menor incidencia del compuesto primario con guía funcional ( 8.9% vs 13.7% ; hazard ratio [HR] 0.62; p<0.001; NNT 21) y también del compuesto de seguridad (4.6% vs 7.1%; HR 0.63; p=0.02, sin ajuste por multiplicidad).",
       "population": "Población. Pacientes hospitalizados por infarto agudo de miocardio con elevación del ST (IAMCEST) a quienes ya se les había tratado con éxito la lesión culpable mediante intervención coronaria percutánea, y que tenían enfermedad multivaso con al menos una lesión no culpable en una arteria de referencia de 2.5 mm o más y una estenosis angiográfica del 50 al 99%. Reclutados en 21 centros de Italia y Pakistán; el estudio no…"
     },
     "datePublished": "2026-09-14",
-    "dateModified": "2026-11-04"
+    "dateModified": "2026-11-12"
   },
   "165": {
     "slug": "oberon-y-titania-tozorakimab-prevenir-exacerbaciones-epoc",
@@ -7545,7 +7545,8 @@
       "answer": "A la semana 64, el cambio medio estimado del peso fue de -13.6% con semaglutida oral frente a -2.2% con placebo (diferencia -11.4 puntos porcentuales; IC 95% -13.9 a -9.0; P<0.001).",
       "population": "La población fueron adultos de 18 años o más, sin diabetes, con un índice de masa corporal (IMC) de 30 o más, o de 27 o más con al menos una complicación relacionada con el peso: hipertensión, dislipidemia, apnea obstructiva del sueño o enfermedad cardiovascular. Todos debían referir al menos un intento fallido de bajar de peso con dieta. La raza la registró el investigador: el 91.5% eran personas blancas, procedentes de…"
     },
-    "datePublished": "2026-11-05"
+    "datePublished": "2026-11-05",
+    "dateModified": "2026-11-12"
   },
   "275": {
     "slug": "aquatic-aspirina-pacientes-sindrome-coronario-cronico-reciben-anticoagulacion-oral",
@@ -7553,7 +7554,7 @@
     "url": "https://resumenestrials.com/trials/aquatic-aspirina-pacientes-sindrome-coronario-cronico-reciben-anticoagulacion-oral/",
     "title": "AQUATIC: aspirina en pacientes con síndrome coronario crónico que reciben anticoagulación oral",
     "seo_title": "AQUATIC trial: aspirina en pacientes con síndrome coronario crónico que reciben anticoagulación oral | Resúmenes Trials",
-    "description": "AQUATIC: Añadir aspirina al anticoagulante aumentó el desenlace primario compuesto: 16.9% frente a 12.1% (HR ajustado 1.53; IC 95% 1.07 a 2.18; P=0.02). El…",
+    "description": "AQUATIC: Añadir aspirina al anticoagulante aumentó el desenlace primario compuesto: 16.9% frente a 12.1% (hazard ratio [HR] ajustado 1.53; IC 95% 1.07 a 2.18…",
     "clusters": [
       {
         "name": "Cardiología y prevención cardiovascular",
@@ -7568,10 +7569,11 @@
     ],
     "intent": {
       "question": "Determinar si añadir aspirina 100 mg al día a la anticoagulación oral reduce los eventos cardiovasculares en pacientes con síndrome coronario crónico, stent previo y alto riesgo aterotrombótico.",
-      "answer": "Añadir aspirina al anticoagulante aumentó el desenlace primario compuesto: 16.9% frente a 12.1% (HR ajustado 1.53; IC 95% 1.07 a 2.18; P=0.02).",
+      "answer": "Añadir aspirina al anticoagulante aumentó el desenlace primario compuesto: 16.9% frente a 12.1% (hazard ratio [HR] ajustado 1.53; IC 95% 1.07 a 2.18; P=0.02).",
       "population": "La población fueron adultos con síndrome coronario crónico, es decir, enfermedad coronaria estable, con un stent implantado más de 6 meses antes, alto riesgo aterotrombótico residual y anticoagulación oral a largo plazo por cualquier motivo, sobre todo fibrilación auricular. Todos fueron atendidos en Francia; la raza y el origen étnico no se reportaron."
     },
-    "datePublished": "2026-11-05"
+    "datePublished": "2026-11-05",
+    "dateModified": "2026-11-12"
   },
   "276": {
     "slug": "neo-mindset-retirada-temprana-aspirina-tras-intervencion-coronaria-percutanea-sindromes",
