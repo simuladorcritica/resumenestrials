@@ -32,7 +32,7 @@ E.ready(async()=>{
   // Only the trial being read is needed to render and wire the controls; the full
   // archive (neighbours, related) loads afterwards and never blocks reading.
   const pathOf=async rec=>rec.ruta||(await E.routes())[String(rec.id)].path;let path;
-  if(dynamic){const p=new URLSearchParams(location.search),id=p.get('id');r=await E.record(id);if(!r){delete root.dataset.evReadingMode;document.title='Resumen no encontrado · Resúmenes Trials';dynamic.innerHTML='<section class="ev-notice ev-doc"><p class="ev-eyebrow">Enlace no válido</p><h1>Resumen no encontrado</h1><p>El identificador no corresponde a un ensayo disponible. Usa el buscador de arriba o vuelve al archivo.</p><a class="ev-btn ev-btn-primary" href="/">Volver al archivo</a></section>';return}brief=p.get('v')==='corto'&&!!r.corto;path=await pathOf(r);dynamic.innerHTML=markup(r,path,brief);updateMetadata(r,path,brief)}
+  if(dynamic){const p=new URLSearchParams(location.search),id=p.get('id');r=await E.record(id);if(!r){delete root.dataset.evReadingMode;document.title='Resumen no encontrado · Resúmenes Trials';dynamic.innerHTML='<section class="ev-notice ev-doc"><p class="ev-eyebrow">Enlace no válido</p><h1>Resumen no encontrado</h1><p>El identificador no corresponde a un ensayo disponible. Usa el buscador de arriba o vuelve al archivo.</p><a class="ev-btn ev-btn-primary" href="/archivo/">Ir al archivo</a></section>';return}brief=p.get('v')==='corto'&&!!r.corto;path=await pathOf(r);dynamic.innerHTML=markup(r,path,brief);updateMetadata(r,path,brief)}
   reader=document.querySelector('[data-ev-reader]');if(!reader)return;r??=await E.record(reader.dataset.evReader);brief=reader.dataset.evBrief==='true';if(!r)throw Error('Resumen no disponible');path??=await pathOf(r).catch(()=>location.pathname);
   const article=reader.querySelector('article'),headings=[...article.querySelectorAll('h2')],toc=reader.querySelector('[data-ev-toc]'),progress=reader.querySelector('progress'),status=document.getElementById('ev-reader-status'),toolbar=reader.querySelector('.ev-toolbar');
   E.prose(reader);
@@ -91,6 +91,6 @@ E.ready(async()=>{
   reader.querySelector('[data-ev-related]').innerHTML=rank.map(x=>E.card(x.r,map[String(x.r.id)].path)).join('');
   reader.dataset.evContinuity='ready';
   }catch(error){E.readerContinuityError=error;reader.dataset.evContinuity='error'}})();
- }catch(error){E.readerError=error;if(dynamic)dynamic.innerHTML='<section class="ev-notice ev-doc"><h1>No pudimos cargar el ensayo</h1><p>Revisa tu conexión e inténtalo de nuevo.</p><div class="ev-actions-row"><a class="ev-btn ev-btn-primary" href="">Reintentar</a><a class="ev-btn" href="/">Volver al archivo</a></div></section>'}
+ }catch(error){E.readerError=error;if(dynamic)dynamic.innerHTML='<section class="ev-notice ev-doc"><h1>No pudimos cargar el ensayo</h1><p>Revisa tu conexión e inténtalo de nuevo.</p><div class="ev-actions-row"><a class="ev-btn ev-btn-primary" href="">Reintentar</a><a class="ev-btn" href="/archivo/">Ir al archivo</a></div></section>'}
 });
 })();

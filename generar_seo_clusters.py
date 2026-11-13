@@ -336,8 +336,17 @@ def update_sitemap(items: list[dict], clusters: list[dict], active: dict[str, li
     for item in items:
         for cat in base.categorias(item):
             category_content[cat].append(item)
+    import site_templates
+    # Ediciones anteriores: página propia y lastmod con la última fecha de publicación de sus resúmenes.
+    # La edición actual es la portada.
+    edition_urls = {
+        f"{base.BASE_URL}{site_templates.edition_route(monday)}": max(str(item["fecha_publicacion_resumen"]) for item in rows)
+        for monday, rows in site_templates.editions(items)[:-1]
+    }
     urls = [
         f"{base.BASE_URL}/",
+        f"{base.BASE_URL}/archivo/",
+        *edition_urls,
         f"{base.BASE_URL}/metodologia/",
         f"{base.BASE_URL}/equipo-editorial/",
         f"{base.BASE_URL}/privacidad/",
@@ -349,7 +358,6 @@ def update_sitemap(items: list[dict], clusters: list[dict], active: dict[str, li
     urls.extend(f"{base.BASE_URL}/{base.CATEGORY_PATHS[name]}/" for name, values in category_content.items() if values)
     urls.extend(cluster_url(c) for c in clusters if active.get(c["slug"]))
     urls.extend(base.url_trial(item) for item in items)
-    import site_templates
     videos = site_templates.load_videos()
     manifest_seo = json.loads((base.ROOT / "seo-manifest.json").read_text(encoding="utf-8")) if videos else {}
     video_urls = {f"{base.BASE_URL}{site_templates.video_path(manifest_seo, i)}": v["fecha_subida"] for i, v in videos.items()}
@@ -367,6 +375,7 @@ def update_sitemap(items: list[dict], clusters: list[dict], active: dict[str, li
     if revisiones:
         dates[f"{base.BASE_URL}/correcciones/"] = revisiones[-1]
     dates.update(video_urls)
+    dates.update(edition_urls)
     for url in dict.fromkeys(urls):
         node = ET.SubElement(root, "url")
         ET.SubElement(node, "loc").text = url

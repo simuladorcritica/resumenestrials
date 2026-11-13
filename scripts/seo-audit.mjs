@@ -1,5 +1,6 @@
 import { readFileSync, writeFileSync, mkdirSync, existsSync, statSync } from 'node:fs';
 import { dirname, join, normalize, relative } from 'node:path';
+import { pastEditions } from './editions.mjs';
 
 const ROOT = process.cwd();
 const BASE = 'https://resumenestrials.com';
@@ -14,7 +15,8 @@ const videos = existsSync(join(ROOT, 'videos.json')) ? JSON.parse(readFileSync(j
 const sitemapUrls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
 
 const pages = [
-  ['/', '_includes/index-source.html'], ['/metodologia/', 'metodologia/index.html'], ['/equipo-editorial/', 'equipo-editorial/index.html'],
+  ['/', '_includes/index-source.html'], ['/archivo/', 'archivo/index.html'], ...pastEditions(data).map((edition) => [edition.route, edition.file]),
+  ['/metodologia/', 'metodologia/index.html'], ['/equipo-editorial/', 'equipo-editorial/index.html'],
   ['/privacidad/', 'privacidad/index.html'], ['/terminos/', 'terminos/index.html'],
   ...(data.some((item) => item?.fecha_revision) ? [['/correcciones/', 'correcciones/index.html']] : []),
   ...Object.keys(videos).map((id) => String(manifest[id]?.path || '').split('/').filter(Boolean).pop()).map((slug) => [`/videos/${slug}/`, `videos/${slug}/index.html`]),

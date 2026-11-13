@@ -21,7 +21,7 @@ async function init(){
   try{
     const state=await getLibraryState();
     if(!state.signedIn)return;
-    const anchor=document.querySelector('[data-ev-ids]');
+    const anchor=document.querySelector('[data-ev-recs],[data-ev-ids]');
     if(!anchor)return;
     const p=state.preferences||{};
     if(!p.area&&!(Array.isArray(p.interests)&&p.interests.length))return;

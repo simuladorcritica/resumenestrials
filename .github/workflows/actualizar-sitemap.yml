@@ -164,7 +164,9 @@ jobs:
 
       - name: Stagear archivos derivados
         run: |
-          git add sitemap.xml seo-manifest.json seo-cluster-manifest.json datos/ trials/ medicina-critica/ medicina-interna/ metodologia/ equipo-editorial/ resumen/ images/trials/ _includes/index-source.html ui/runtime-version.json agregar.html index.html resumen.html privacidad.html login.html registro.html recuperar.html cuenta.html biblioteca.html privacidad/ terminos/ 404.html site-runtime.js site-runtime.css
+          # archivo/ (archivo completo) y ediciones/ (una página por cada edición semanal anterior) también son salidas
+          # generadas: cada semana nace una página nueva en ediciones/ y, sin ellas aquí, quedarían sin publicar.
+          git add sitemap.xml seo-manifest.json seo-cluster-manifest.json datos/ trials/ medicina-critica/ medicina-interna/ metodologia/ equipo-editorial/ resumen/ images/trials/ _includes/index-source.html archivo/ ediciones/ ui/runtime-version.json agregar.html index.html resumen.html privacidad.html login.html registro.html recuperar.html cuenta.html biblioteca.html privacidad/ terminos/ 404.html site-runtime.js site-runtime.css
           python3 scripts/validate-design.py
 
       - name: Guardar archivos derivados en la rama del PR

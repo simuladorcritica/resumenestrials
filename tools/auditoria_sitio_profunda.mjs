@@ -192,13 +192,25 @@ async function main() {
   // se usa la clave de prueba oficial de Turnstile, igual que en las demás suites.
   if (['localhost', '127.0.0.1', '::1'].includes(new URL(BASE).hostname)) await installTurnstileTestRoutes(page, BASE);
 
+  // Portada: edición actual con su ensayo destacado y un único buscador. El archivo completo vive en /archivo/.
   await guardedGoto(page, `${BASE}/index.html`, 'index');
+  const cover = await page.evaluate(() => ({
+    lead: document.querySelectorAll('.ev-ed-lead a[href*="/trials/"]').length,
+    signal: document.querySelectorAll('.ev-signal').length,
+    h1: document.querySelectorAll('h1').length,
+    searches: document.querySelectorAll('input[type=search]').length,
+  }));
+  if (!cover.lead || cover.signal !== 1 || cover.h1 !== 1) add('ALTO', 'index', 'integridad', 'la portada no muestra la edición actual', JSON.stringify(cover));
+  if (cover.searches !== 1) add('MEDIO', 'index', 'UX', 'la portada debe mostrar un único buscador', JSON.stringify(cover));
+  await basicA11y(page, 'index');
+
+  await guardedGoto(page, `${BASE}/archivo/`, 'archivo');
   await page.waitForSelector('#ev-list>.ev-card', { timeout: 15000 }).catch(() => {});
   await page.waitForSelector('#ev-year', { timeout: 10000 }).catch(() => {});
   await page.waitForTimeout(500);
 
   const cards = await page.locator('#ev-list>.ev-card').count();
-  if (cards !== data.length) add('ALTO', 'index', 'integridad', `la portada muestra ${cards} filas para ${data.length} registros`);
+  if (cards !== data.length) add('ALTO', 'archivo', 'integridad', `el archivo muestra ${cards} filas para ${data.length} registros`);
 
   const align = await page.evaluate(() => ({
     searches: document.querySelectorAll('input[type=search]').length,
@@ -206,11 +218,11 @@ async function main() {
     year: Boolean(document.querySelector('#ev-year')),
     journal: Boolean(document.querySelector('#ev-journal')),
   }));
-  if (!align.year || !align.journal) add('ALTO', 'index', 'filtros', 'faltan filtros de año/revista');
-  if (align.searches !== 1 || !align.searchVisible) add('MEDIO', 'index', 'UX', 'el sitio debe mostrar un único buscador visible en la cabecera', JSON.stringify(align));
+  if (!align.year || !align.journal) add('ALTO', 'archivo', 'filtros', 'faltan filtros de año/revista');
+  if (align.searches !== 1 || !align.searchVisible) add('MEDIO', 'archivo', 'UX', 'el sitio debe mostrar un único buscador visible en la cabecera', JSON.stringify(align));
 
   const fullIndexText=await page.locator('[data-ev-card-pdf]').first().getAttribute('aria-label').catch(()=>'');
-  if(!/Descargar resumen completo PDF/i.test(fullIndexText))add('MEDIO','index','UX','PDF completo no identificado',fullIndexText);
+  if(!/Descargar resumen completo PDF/i.test(fullIndexText))add('MEDIO','archivo','UX','PDF completo no identificado',fullIndexText);
   // Brief reading and its download are checked for every record below.
   const input = page.locator('#ev-q');
   if (await input.count()) {
@@ -219,11 +231,11 @@ async function main() {
       await input.fill(term);
       await page.waitForTimeout(300);
       const visible = await page.locator('#ev-list>.ev-card:visible').count();
-      if (visible < 1) add('ALTO', 'index', 'buscador', `buscar '${term}' dejó cero resultados`);
+      if (visible < 1) add('ALTO', 'archivo', 'buscador', `buscar '${term}' dejó cero resultados`);
       await input.fill('');
     }
   }
-  await basicA11y(page, 'index');
+  await basicA11y(page, 'archivo');
 
   for (const route of ['privacidad/', 'terminos/', 'login.html', 'registro.html', 'recuperar.html']) {
     await guardedGoto(page, `${BASE}/${route}`, route);

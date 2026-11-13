@@ -4,7 +4,7 @@
   const KEY='rt-reading-context-v1', RETURN='rt-reading-return-v1', VIEW='rt-reading-view-v1:', TTL=12*60*60*1000;
   const path=location.pathname;
   const isReader=/^\/trials\//.test(path)||path==='/resumen.html';
-  const isOrigin=p=>p==='/'||p==='/index.html'||p==='/biblioteca.html'||/^\/(medicina-critica|medicina-interna)\//.test(p);
+  const isOrigin=p=>p==='/'||p==='/index.html'||p==='/biblioteca.html'||/^\/(archivo|ediciones|medicina-critica|medicina-interna)\//.test(p);
   const parse=value=>{try{return JSON.parse(value)}catch{return null}};
   const read=()=>{try{const ctx=parse(sessionStorage.getItem(KEY));return ctx&&Array.isArray(ctx.targets)&&Date.now()-ctx.at<TTL&&isOrigin(new URL(ctx.origin,location.origin).pathname)&&new URL(ctx.origin,location.origin).origin===location.origin?ctx:null}catch{return null}};
   const write=ctx=>{try{sessionStorage.setItem(KEY,JSON.stringify(ctx))}catch{}};

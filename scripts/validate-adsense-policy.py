@@ -59,9 +59,11 @@ assert len(paths) >= 50
 for name in EXCLUDED_FILES:
     assert ROOT / name in paths, f'{name}: missing regeneration candidate'
     assert not future.adsense_allowed(ROOT / name), f'{name}: must remain excluded'
-for name in ['_includes/index-source.html', 'medicina-critica/index.html',
+for name in ['_includes/index-source.html', 'archivo/index.html', 'medicina-critica/index.html',
              'medicina-interna/index.html', 'metodologia/index.html', 'equipo-editorial/index.html']:
     assert ROOT / name in paths and future.adsense_allowed(ROOT / name), f'{name}: must retain AdSense'
+editions = sorted((ROOT / 'ediciones').glob('*/index.html'))
+assert all(path in paths and future.adsense_allowed(path) for path in editions), 'ediciones: must be regeneration candidates and retain AdSense'
 for path in paths:
     verify(path, path.read_text(encoding='utf-8'), future.adsense_allowed(path))
 

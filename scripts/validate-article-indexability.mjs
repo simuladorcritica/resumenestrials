@@ -1,6 +1,7 @@
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { auditArticleData, compareCoverage, expectedEntry } from './article-inventory.mjs';
+import { pastEditions } from './editions.mjs';
 
 const ROOT = process.cwd();
 const BASE = 'https://resumenestrials.com';
@@ -63,6 +64,8 @@ for (const record of dataAudit.records) {
 
 const crawlSources = [
   join(ROOT, '_includes', 'index-source.html'),
+  join(ROOT, 'archivo', 'index.html'),
+  ...pastEditions(data).map((edition) => join(ROOT, edition.file)),
   join(ROOT, 'medicina-critica', 'index.html'),
   join(ROOT, 'medicina-interna', 'index.html'),
   ...Object.values(clusters).map((cluster) => join(ROOT, cluster.path.replace(/^\//, ''), 'index.html')),

@@ -225,6 +225,8 @@ E.ready(()=>{
  document.querySelectorAll('dialog').forEach(d=>d.addEventListener('click',e=>{if(e.target===d){const r=d.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)d.close()}}));
  document.querySelectorAll('[data-ev-specialties]').forEach(b=>b.onclick=()=>E.open('ev-specialties'));
  const here=location.pathname.replace(/index\.html$/,'');
+ // Navegador de ediciones: en pantallas estrechas la fila se desplaza; deja a la vista la edición mostrada.
+ const tick=document.querySelector('.ev-ednav-now'),track=tick?.closest('.ev-ednav-track');if(track)track.scrollBy(tick.getBoundingClientRect().left-track.getBoundingClientRect().left-(track.clientWidth-tick.offsetWidth)/2,0);
  document.querySelectorAll('.ev-header-nav a,.ev-menu-list a,.ev-mobile-nav a').forEach(a=>{if(a.pathname===here)a.setAttribute('aria-current','page')});
  // Single search: filters the page list, or shows instant results elsewhere.
  const form=document.querySelector('[data-ev-search-form]'),box=document.getElementById('ev-q'),panel=document.getElementById('ev-search-panel'),results=document.getElementById('ev-search-results'),status=document.getElementById('ev-search-status'),all=document.getElementById('ev-search-all'),clear=form?.querySelector('[data-ev-search-clear]'),mode=document.body.dataset.evSearchMode||'quick';
@@ -234,20 +236,20 @@ E.ready(()=>{
  async function search(){
   const id=++epoch,raw=box.value.trim(),q=E.norm(raw);
   if(!q){results.innerHTML='';status.textContent='';showPanel(false);return}
-  showPanel(true);status.textContent='Buscando…';all.href='/?q='+encodeURIComponent(raw)+'#ev-archivo';
+  showPanel(true);status.textContent='Buscando…';all.href='/archivo/?q='+encodeURIComponent(raw)+'#ev-archivo';
   try{const[rows,map]=await Promise.all([E.data(),E.routes()]);if(id!==epoch)return;const matches=rows.filter(r=>E.searchable(r).includes(q));
    results.innerHTML=matches.slice(0,8).map(r=>{const area=E.area(r);return '<li><a href="'+E.esc(map[String(r.id)].path)+'" data-ev-read="'+r.id+'"><span class="ev-result-dot" data-tone="'+E.tone(area)+'" aria-hidden="true"></span><span class="ev-result-text"><b>'+highlight(r.titulo,q)+'</b><small>'+highlight([r.revista,r.anio,r.doi,r.registro].filter(Boolean).join(' · '),q)+'</small></span></a></li>'}).join('');
    status.textContent=matches.length?matches.length+(matches.length===1?' resultado':' resultados')+(matches.length>8?' · mostrando 8':''):'Sin resultados. Prueba «sepsis», el nombre corto del estudio o el año.';all.hidden=!matches.length;
   }catch{if(id===epoch)status.textContent='No pudimos cargar el buscador. Puedes explorar el archivo.'}
  }
  if(box){
-  const setPlaceholder=()=>{if(!box.dataset.evOwnLabel)box.placeholder=root.dataset.evDevice==='movil'?'Buscar ensayos':'Busca un ensayo, enfermedad o fármaco'};setPlaceholder();addEventListener('resize',setPlaceholder,{passive:true});
+  const setPlaceholder=()=>{if(!box.dataset.evOwnLabel)box.placeholder=root.dataset.evDevice==='movil'?'Buscar ensayos':'Buscar en el archivo'};setPlaceholder();addEventListener('resize',setPlaceholder,{passive:true});
   const syncClear=()=>{if(clear)clear.hidden=!box.value};syncClear();
   box.addEventListener('input',()=>{syncClear();if(mode==='quick'){clearTimeout(timer);timer=setTimeout(search,90)}});
   box.addEventListener('ev-sync',syncClear);
   box.addEventListener('focus',()=>{if(mode==='quick'&&box.value.trim())search()});
   clear?.addEventListener('click',()=>{box.value='';syncClear();box.dispatchEvent(new Event('input',{bubbles:true}));box.focus()});
-  form.addEventListener('submit',e=>{e.preventDefault();if(mode==='list'){if(root.dataset.evPointer==='tactil')box.blur();document.getElementById('ev-archivo')?.scrollIntoView({behavior:E.reduced()?'auto':'smooth',block:'start'});return}const raw=box.value.trim();location.href=raw?'/?q='+encodeURIComponent(raw)+'#ev-archivo':'/'});
+  form.addEventListener('submit',e=>{e.preventDefault();if(mode==='list'){if(root.dataset.evPointer==='tactil')box.blur();document.getElementById('ev-archivo')?.scrollIntoView({behavior:E.reduced()?'auto':'smooth',block:'start'});return}const raw=box.value.trim();location.href=raw?'/archivo/?q='+encodeURIComponent(raw)+'#ev-archivo':'/archivo/'});
   box.addEventListener('keydown',e=>{if(mode!=='quick')return;if(e.key==='ArrowDown'&&results.querySelector('a')){e.preventDefault();results.querySelector('a').focus()}});
   results?.addEventListener('keydown',e=>{const links=[...results.querySelectorAll('a')],i=links.indexOf(document.activeElement);if(['ArrowDown','ArrowUp','Home','End'].includes(e.key)){e.preventDefault();if(e.key==='ArrowUp'&&i===0){box.focus();return}const next=e.key==='Home'?0:e.key==='End'?links.length-1:(i+(e.key==='ArrowDown'?1:-1)+links.length)%links.length;links[next]?.focus()}});
   document.addEventListener('pointerdown',e=>{if(panel&&!panel.hidden&&!form.contains(e.target))showPanel(false)});
@@ -287,7 +289,7 @@ document.addEventListener('click',e=>{const b=e.target.closest?.('[data-ev-video
   const KEY='rt-reading-context-v1', RETURN='rt-reading-return-v1', VIEW='rt-reading-view-v1:', TTL=12*60*60*1000;
   const path=location.pathname;
   const isReader=/^\/trials\//.test(path)||path==='/resumen.html';
-  const isOrigin=p=>p==='/'||p==='/index.html'||p==='/biblioteca.html'||/^\/(medicina-critica|medicina-interna)\//.test(p);
+  const isOrigin=p=>p==='/'||p==='/index.html'||p==='/biblioteca.html'||/^\/(archivo|ediciones|medicina-critica|medicina-interna)\//.test(p);
   const parse=value=>{try{return JSON.parse(value)}catch{return null}};
   const read=()=>{try{const ctx=parse(sessionStorage.getItem(KEY));return ctx&&Array.isArray(ctx.targets)&&Date.now()-ctx.at<TTL&&isOrigin(new URL(ctx.origin,location.origin).pathname)&&new URL(ctx.origin,location.origin).origin===location.origin?ctx:null}catch{return null}};
   const write=ctx=>{try{sessionStorage.setItem(KEY,JSON.stringify(ctx))}catch{}};
@@ -418,7 +420,7 @@ E.ready(async()=>{
   // Only the trial being read is needed to render and wire the controls; the full
   // archive (neighbours, related) loads afterwards and never blocks reading.
   const pathOf=async rec=>rec.ruta||(await E.routes())[String(rec.id)].path;let path;
-  if(dynamic){const p=new URLSearchParams(location.search),id=p.get('id');r=await E.record(id);if(!r){delete root.dataset.evReadingMode;document.title='Resumen no encontrado · Resúmenes Trials';dynamic.innerHTML='<section class="ev-notice ev-doc"><p class="ev-eyebrow">Enlace no válido</p><h1>Resumen no encontrado</h1><p>El identificador no corresponde a un ensayo disponible. Usa el buscador de arriba o vuelve al archivo.</p><a class="ev-btn ev-btn-primary" href="/">Volver al archivo</a></section>';return}brief=p.get('v')==='corto'&&!!r.corto;path=await pathOf(r);dynamic.innerHTML=markup(r,path,brief);updateMetadata(r,path,brief)}
+  if(dynamic){const p=new URLSearchParams(location.search),id=p.get('id');r=await E.record(id);if(!r){delete root.dataset.evReadingMode;document.title='Resumen no encontrado · Resúmenes Trials';dynamic.innerHTML='<section class="ev-notice ev-doc"><p class="ev-eyebrow">Enlace no válido</p><h1>Resumen no encontrado</h1><p>El identificador no corresponde a un ensayo disponible. Usa el buscador de arriba o vuelve al archivo.</p><a class="ev-btn ev-btn-primary" href="/archivo/">Ir al archivo</a></section>';return}brief=p.get('v')==='corto'&&!!r.corto;path=await pathOf(r);dynamic.innerHTML=markup(r,path,brief);updateMetadata(r,path,brief)}
   reader=document.querySelector('[data-ev-reader]');if(!reader)return;r??=await E.record(reader.dataset.evReader);brief=reader.dataset.evBrief==='true';if(!r)throw Error('Resumen no disponible');path??=await pathOf(r).catch(()=>location.pathname);
   const article=reader.querySelector('article'),headings=[...article.querySelectorAll('h2')],toc=reader.querySelector('[data-ev-toc]'),progress=reader.querySelector('progress'),status=document.getElementById('ev-reader-status'),toolbar=reader.querySelector('.ev-toolbar');
   E.prose(reader);
@@ -477,7 +479,7 @@ E.ready(async()=>{
   reader.querySelector('[data-ev-related]').innerHTML=rank.map(x=>E.card(x.r,map[String(x.r.id)].path)).join('');
   reader.dataset.evContinuity='ready';
   }catch(error){E.readerContinuityError=error;reader.dataset.evContinuity='error'}})();
- }catch(error){E.readerError=error;if(dynamic)dynamic.innerHTML='<section class="ev-notice ev-doc"><h1>No pudimos cargar el ensayo</h1><p>Revisa tu conexión e inténtalo de nuevo.</p><div class="ev-actions-row"><a class="ev-btn ev-btn-primary" href="">Reintentar</a><a class="ev-btn" href="/">Volver al archivo</a></div></section>'}
+ }catch(error){E.readerError=error;if(dynamic)dynamic.innerHTML='<section class="ev-notice ev-doc"><h1>No pudimos cargar el ensayo</h1><p>Revisa tu conexión e inténtalo de nuevo.</p><div class="ev-actions-row"><a class="ev-btn ev-btn-primary" href="">Reintentar</a><a class="ev-btn" href="/archivo/">Ir al archivo</a></div></section>'}
 });
 })();
 

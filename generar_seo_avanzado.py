@@ -86,8 +86,8 @@ def population_text(item: dict) -> str:
 
 
 def render_home(items: list[dict]) -> str:
-    from site_templates import archive
-    return archive(items,{base.id_texto(r["id"]):{"path":base.ruta_trial(r)} for r in items})
+    from site_templates import cover
+    return cover(items,{base.id_texto(r["id"]):{"path":base.ruta_trial(r)} for r in items})
 
 
 def update_jsonld_block(source: str, updater) -> str:
@@ -109,10 +109,11 @@ def ensure_css(source: str) -> str:
 
 
 def update_home(items: list[dict]) -> None:
-    from site_templates import document, archive
+    # La portada es la edición actual; el archivo completo (/archivo/) y las ediciones anteriores
+    # (/ediciones/<lunes>/) los escribe site_templates.render_all().
+    from site_templates import document
     source=HOME_SOURCE.read_text(encoding="utf-8")
-    manifest={base.id_texto(r["id"]):{"path":base.ruta_trial(r)} for r in items}
-    HOME_SOURCE.write_text(document(source,archive(items,manifest),"/","archive"),encoding="utf-8")
+    HOME_SOURCE.write_text(document(source,render_home(items),"/","edition"),encoding="utf-8")
 
 
 def update_interactive_home() -> None:

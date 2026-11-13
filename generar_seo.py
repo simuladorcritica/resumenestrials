@@ -390,10 +390,17 @@ def generar_llms(items: list[dict]) -> None:
         f"- [Registro de correcciones]({BASE_URL}/correcciones/): resúmenes corregidos después de publicarse y fecha de la última corrección.",
         f"- [Medicina Crítica]({BASE_URL}/medicina-critica/): índice de resúmenes de Medicina Crítica.",
         f"- [Medicina Interna]({BASE_URL}/medicina-interna/): índice de resúmenes de Medicina Interna.",
+        f"- [Archivo]({BASE_URL}/archivo/): todos los resúmenes, con buscador y filtros.",
         "",
-        "## Resúmenes de ensayos",
+        "## Ediciones semanales",
         "",
+        f"- [Edición actual]({BASE_URL}/): resúmenes publicados en la semana más reciente.",
     ]
+    # Una edición por semana de publicación; la actual es la portada y las anteriores tienen página propia.
+    from site_templates import editions, edition_range, edition_route
+    for lunes, _ in reversed(editions(items)[:-1]):
+        lines.append(f"- [Edición {edition_range(lunes, True)}]({BASE_URL}{edition_route(lunes)})")
+    lines += ["", "## Resúmenes de ensayos", ""]
     def clave(item: dict) -> tuple:
         try:
             return (0, -int(str(item.get("id"))))

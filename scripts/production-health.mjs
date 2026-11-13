@@ -1,6 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { belongsToCategory } from './article-inventory.mjs';
+import { editions } from './editions.mjs';
 
 const BASE=(process.env.RT_BASE_URL||'https://resumenestrials.com').replace(/\/$/,'');
 const CANONICAL_ORIGIN='https://resumenestrials.com';
@@ -55,13 +56,28 @@ async function check(path,fn,options){
 assert(expected.length>0,'El repositorio no contiene resúmenes');
 assert(sample&&sampleEntry?.path,'No hay muestra canónica para la auditoría');
 
+// La portada es la edición actual (última semana con datos); el archivo completo vive en /archivo/
+// y cada edición anterior tiene su página en /ediciones/<lunes>/.
+const weeks=editions(expected);
+const editionCheck=(edition,label)=>(b)=>{
+  assert(b.includes(`data-ev-edition="${edition.monday}"`),`${label} no muestra la edición del ${edition.monday}`);
+  assert((b.match(/class="ev-signal"/g)||[]).length===1,`${label} sin la línea de señal`);
+  for(const item of edition.items)assert(b.includes(`href="${manifest[String(item.id)].path}"`),`${label} no enlaza el ensayo ${item.id}`);
+};
 await check('/',(b)=>{
   assert(b.replace(/\r\n/g,'\n').includes(expectedHomeDisclosure),'Portada: falta el aviso original de publicidad y contenido');
-  const rows=(b.match(/class="ev-card" data-id=/g)||[]).length;
-  assert(rows===expected.length,'Portada no prerenderiza todos los ensayos');
-  assert(b.includes('id="ev-count"')&&b.includes(expected.length+' resúmenes'),'Contador de portada incorrecto');
-  assert(b.includes(sampleEntry.path),`la portada no enlaza al trial canónico de muestra ${sample.id}`);
+  assert(weeks.length>0,'No hay ninguna edición semanal');
+  editionCheck(weeks.at(-1),'La portada')(b);
+  assert(b.includes('<h1>Evidencia sin ruido</h1>')&&(b.match(/<h1\b/g)||[]).length===1,'Portada sin su único h1');
+  assert(!b.includes('class="ev-card" data-id=')&&!b.includes('data-ev-ids='),'La portada no debe incluir el archivo');
 });
+await check('/archivo/',(b)=>{
+  const rows=(b.match(/class="ev-card" data-id=/g)||[]).length;
+  assert(rows===expected.length,'El archivo no prerenderiza todos los ensayos');
+  assert(b.includes('id="ev-count"')&&b.includes(expected.length+' resúmenes'),'Contador del archivo incorrecto');
+  assert(b.includes(sampleEntry.path),`el archivo no enlaza al trial canónico de muestra ${sample.id}`);
+});
+for(const edition of weeks.slice(0,-1))await check(edition.route,editionCheck(edition,`La edición ${edition.route}`));
 
 let liveArticles=[];
 await check('/resumenes.json',(body)=>{
@@ -107,7 +123,7 @@ for(const entry of Object.values(clusters)){
 await check('/sitemap.xml',(b)=>{
   for(const entry of Object.values(manifest))assert(b.includes(entry.url),`sitemap sin ${entry.url}`);
   for(const entry of Object.values(clusters))assert(b.includes(`${CANONICAL_ORIGIN}${entry.path}`),`sitemap sin cluster ${entry.path}`);
-  for(const path of ['/medicina-critica/','/medicina-interna/','/metodologia/','/equipo-editorial/','/privacidad/','/terminos/'])assert(b.includes(`${CANONICAL_ORIGIN}${path}`),`sitemap sin ${path}`);
+  for(const path of ['/archivo/',...weeks.slice(0,-1).map(edition=>edition.route),'/medicina-critica/','/medicina-interna/','/metodologia/','/equipo-editorial/','/privacidad/','/terminos/'])assert(b.includes(`<loc>${CANONICAL_ORIGIN}${path}</loc>`),`sitemap sin ${path}`);
 });
 
 await check('/login.html',(b)=>{for(const x of ['turnstile-login','turnstile.js','auth.js'])assert(b.includes(x),`falta ${x}`)});

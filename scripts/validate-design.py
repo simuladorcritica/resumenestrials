@@ -7,8 +7,23 @@ ROOT=Path(__file__).resolve().parents[1]
 version=json.loads((ROOT/"ui/runtime-version.json").read_text(encoding="utf8"))["version"]
 data=json.loads((ROOT/"resumenes.json").read_text(encoding="utf8"));manifest=json.loads((ROOT/"seo-manifest.json").read_text(encoding="utf8"));clusters=json.loads((ROOT/"seo-cluster-manifest.json").read_text(encoding="utf8"))
 home=(ROOT/"_includes/index-source.html").read_text(encoding="utf8")
-assert home.count('class="ev-card" data-id=')==len(data),"Prerender must include every record"
+archive=(ROOT/"archivo/index.html").read_text(encoding="utf8")
+assert archive.count('class="ev-card" data-id=')==len(data),"Prerender must include every record"
+assert 'id="ev-archivo"' in archive and '<link rel="canonical" href="https://resumenestrials.com/archivo/">' in archive
 assert (ROOT/"index.html").read_text(encoding="utf8")==home
+# Portada = edición actual (última semana con datos); cada edición anterior tiene página propia con todos sus ensayos enlazados.
+from site_templates import editions,edition_route
+weeks=editions(data);assert weeks,"At least one edition"
+assert 'class="ev-card" data-id=' not in home and 'data-ev-ids=' not in home,"The cover must not carry the archive"
+assert home.count('<h1>Evidencia sin ruido</h1>')==1 and home.count("<h1")==1 and 'data-ev-recs' in home
+pages=[(monday,rows,ROOT/"ediciones"/monday/"index.html") for monday,rows in weeks[:-1]]+[(weeks[-1][0],weeks[-1][1],ROOT/"_includes/index-source.html")]
+for monday,rows,path in pages:
+ s=path.read_text(encoding="utf8")
+ assert s.count('data-ev-edition="'+monday+'"')==1,f"{path}: edition"
+ assert s.count('class="ev-signal"')==1 and s.count("<h1")==1,f"{path}: one signal line and one h1"
+ for r in rows:assert 'href="'+manifest[str(r["id"])]["path"]+'"' in s,f"{path}: missing trial {r['id']}"
+ if path.parent.parent.name=="ediciones":assert '<link rel="canonical" href="https://resumenestrials.com'+edition_route(monday)+'">' in s
+assert sorted(d.name for d in (ROOT/"ediciones").iterdir())==[monday for monday,_ in weeks[:-1]] if len(weeks)>1 else not (ROOT/"ediciones").exists(),"Stale or missing edition pages"
 css=(ROOT/"site-runtime.css").read_text(encoding="utf8");runtime=(ROOT/"site-runtime.js").read_text(encoding="utf8")
 assert len(css.encode())<=70000
 assert len(runtime.encode())<=90000
