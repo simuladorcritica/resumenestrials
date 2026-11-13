@@ -1,19 +1,9 @@
 {
   "schema_version": 1,
-  "base_sha": "72371957637ae557bc94b73ecab5a76d695b8298",
+  "base_sha": "8553ee9d246b7a44c09d5b1c14db7a71fd1fe8ef",
   "authorizations": [
     {
-      "id": 276,
-      "fields": [
-        "hallazgo",
-        "cuerpo",
-        "corto",
-        "fecha_revision"
-      ],
-      "reason": "Corrección del equipo crítico, issue #249 (11 hallazgos: 1 MAYOR, 10 MENOR); equipo editorial y contrainteligencia APROBADA (D:\\OneDrive\\Escritorio\\PAGINA ECA\\ARTICULOS\\_ORGANIZADOR_DIARIO\\revision_nocturna\\equipo\\276_NEO-MINDSET\\contrainteligencia.md)."
-    },
-    {
-      "id": 173,
+      "id": 184,
       "fields": [
         "financiacion",
         "hallazgo",
@@ -21,10 +11,10 @@
         "corto",
         "fecha_revision"
       ],
-      "reason": "Corrección de hallazgos de la revisión nocturna (Parte C del 2026-11-08) (8 hallazgos: 1 MAYOR, 7 MENOR); equipo editorial y contrainteligencia APROBADA (D:\\OneDrive\\Escritorio\\PAGINA ECA\\ARTICULOS\\_ORGANIZADOR_DIARIO\\revision_nocturna\\equipo\\173_PRODIGE 4-ACCORD 11\\contrainteligencia.md)."
+      "reason": "Corrección de hallazgos de la revisión nocturna (Parte C) (12 hallazgos: 1 CRÍTICO, 11 MENOR); equipo editorial y contrainteligencia APROBADA (D:\\OneDrive\\Escritorio\\PAGINA ECA\\ARTICULOS\\_ORGANIZADOR_DIARIO\\revision_nocturna\\equipo\\184_IABP-SHOCK_II\\contrainteligencia.md)."
     },
     {
-      "id": 167,
+      "id": 248,
       "fields": [
         "financiacion",
         "hallazgo",
@@ -32,21 +22,30 @@
         "corto",
         "fecha_revision"
       ],
-      "reason": "Corrección de hallazgos de la revisión nocturna (Parte C del 2026-11-08) (3 hallazgos: 2 MAYOR, 1 MENOR); equipo editorial y contrainteligencia APROBADA (D:\\OneDrive\\Escritorio\\PAGINA ECA\\ARTICULOS\\_ORGANIZADOR_DIARIO\\revision_nocturna\\equipo\\167_SINGLE-AF\\contrainteligencia.md)."
+      "reason": "Corrección del equipo crítico, issue #256 (17 hallazgos: 1 CRÍTICO, 2 MAYOR, 14 MENOR); equipo editorial y contrainteligencia APROBADA (D:\\OneDrive\\Escritorio\\PAGINA ECA\\ARTICULOS\\_ORGANIZADOR_DIARIO\\revision_nocturna\\equipo\\248_ANNEXA-I\\contrainteligencia.md)."
     },
     {
-      "id": 168,
+      "id": 174,
       "fields": [
-        "fecha",
         "financiacion",
         "cuerpo",
         "corto",
         "fecha_revision"
       ],
-      "reason": "Corrección de hallazgos de la revisión nocturna (Parte C del 2026-11-08) (2 hallazgos: 1 CRÍTICO, 1 MAYOR); equipo editorial y contrainteligencia APROBADA (D:\\OneDrive\\Escritorio\\PAGINA ECA\\ARTICULOS\\_ORGANIZADOR_DIARIO\\revision_nocturna\\equipo\\168_TRICYCLE\\contrainteligencia.md)."
+      "reason": "Corrección de hallazgos de la revisión nocturna (Parte C) (3 hallazgos: 1 MAYOR, 2 MENOR); equipo editorial y contrainteligencia APROBADA (D:\\OneDrive\\Escritorio\\PAGINA ECA\\ARTICULOS\\_ORGANIZADOR_DIARIO\\revision_nocturna\\equipo\\174_ACURASYS\\contrainteligencia.md)."
     },
     {
-      "id": 14,
+      "id": 180,
+      "fields": [
+        "hallazgo",
+        "cuerpo",
+        "corto",
+        "fecha_revision"
+      ],
+      "reason": "Corrección de hallazgos de la revisión nocturna (Parte C) (9 hallazgos: 1 MAYOR, 8 MENOR); equipo editorial y contrainteligencia APROBADA (D:\\OneDrive\\Escritorio\\PAGINA ECA\\ARTICULOS\\_ORGANIZADOR_DIARIO\\revision_nocturna\\equipo\\180_PreVent\\contrainteligencia.md)."
+    },
+    {
+      "id": 181,
       "fields": [
         "financiacion",
         "hallazgo",
@@ -54,10 +53,10 @@
         "corto",
         "fecha_revision"
       ],
-      "reason": "Corrección del equipo crítico, issue #250 (19 hallazgos: 3 CRÍTICO, 7 MAYOR, 9 MENOR); equipo editorial y contrainteligencia APROBADA (D:\\OneDrive\\Escritorio\\PAGINA ECA\\ARTICULOS\\_ORGANIZADOR_DIARIO\\revision_nocturna\\equipo\\14_TOWAR\\contrainteligencia.md)."
+      "reason": "Corrección de hallazgos de la revisión nocturna (Parte C) (10 hallazgos: 2 MAYOR, 8 MENOR); equipo editorial y contrainteligencia APROBADA (D:\\OneDrive\\Escritorio\\PAGINA ECA\\ARTICULOS\\_ORGANIZADOR_DIARIO\\revision_nocturna\\equipo\\181_SEPSISPAM\\contrainteligencia.md)."
     },
     {
-      "id": 166,
+      "id": 183,
       "fields": [
         "financiacion",
         "hallazgo",
@@ -65,29 +64,18 @@
         "corto",
         "fecha_revision"
       ],
-      "reason": "Corrección de hallazgos de la revisión nocturna (Parte C del 2026-11-08) (6 hallazgos: 1 CRÍTICO, 2 MAYOR, 3 MENOR); equipo editorial y contrainteligencia APROBADA (D:\\OneDrive\\Escritorio\\PAGINA ECA\\ARTICULOS\\_ORGANIZADOR_DIARIO\\revision_nocturna\\equipo\\166_STAREE\\contrainteligencia.md)."
+      "reason": "Corrección de hallazgos de la revisión nocturna (Parte C) (7 hallazgos: 1 CRÍTICO, 6 MENOR); equipo editorial y contrainteligencia APROBADA (D:\\OneDrive\\Escritorio\\PAGINA ECA\\ARTICULOS\\_ORGANIZADOR_DIARIO\\revision_nocturna\\equipo\\183_OSCAR\\contrainteligencia.md)."
     },
     {
-      "id": 165,
+      "id": 16,
       "fields": [
         "financiacion",
-        "cuerpo",
-        "corto",
-        "fecha_revision"
-      ],
-      "reason": "Corrección de hallazgos de la revisión nocturna (Parte C del 2026-11-08) (5 hallazgos: 2 CRÍTICO, 1 MAYOR, 2 MENOR); equipo editorial y contrainteligencia APROBADA (revision_nocturna\\equipo\\165_OBERON y TITANIA\\resolucion_20261111.md)."
-    },
-    {
-      "id": 15,
-      "fields": [
-        "financiacion",
-        "objetivo",
         "hallazgo",
         "cuerpo",
         "corto",
         "fecha_revision"
       ],
-      "reason": "Corrección del equipo crítico, issue #252 (18 hallazgos: 2 CRÍTICO, 4 MAYOR, 12 MENOR); equipo editorial y contrainteligencia APROBADA (D:\\OneDrive\\Escritorio\\PAGINA ECA\\ARTICULOS\\_ORGANIZADOR_DIARIO\\revision_nocturna\\equipo\\15_SMART-DECISION\\contrainteligencia_20261111.md)."
+      "reason": "Corrección del equipo crítico, issue #259 (24 hallazgos: 2 CRÍTICO, 2 MAYOR, 20 MENOR); equipo editorial y contrainteligencia APROBADA (D:\\OneDrive\\Escritorio\\PAGINA ECA\\ARTICULOS\\_ORGANIZADOR_DIARIO\\revision_nocturna\\equipo\\16_TRIDENT\\resolucion_20261112.md)."
     }
   ]
 }
