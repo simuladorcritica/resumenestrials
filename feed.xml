@@ -4,8 +4,57 @@
   <id>https://resumenestrials.com/</id>
   <link href="https://resumenestrials.com/"/>
   <link rel="self" type="application/atom+xml" href="https://resumenestrials.com/feed.xml"/>
-  <updated>2026-11-12T00:00:00Z</updated>
+  <updated>2026-11-13T00:00:00Z</updated>
   <subtitle>Resúmenes críticos en español de ensayos clínicos.</subtitle>
+  <entry>
+    <title>TRIDENT: tres antihipertensivos a dosis bajas en una sola píldora tras una hemorragia intracerebral</title>
+    <id>https://resumenestrials.com/trials/trident-tres-antihipertensivos-dosis-bajas-sola-pildora-tras-hemorragia-intracerebral/</id>
+    <link href="https://resumenestrials.com/trials/trident-tres-antihipertensivos-dosis-bajas-sola-pildora-tras-hemorragia-intracerebral/"/>
+    <updated>2026-11-13T00:00:00Z</updated>
+    <summary>Evaluar si una píldora única con tres antihipertensivos a dosis bajas, añadida al tratamiento estándar, reduce el ictus recurrente y controla mejor la presión arterial en pacientes con antecedente de hemorragia intracerebral.</summary>
+  </entry>
+  <entry>
+    <title>ACURASYS: bloqueantes neuromusculares en el síndrome de dificultad respiratoria aguda temprano</title>
+    <id>https://resumenestrials.com/trials/acurasys-bloqueo-neuromuscular-temprano-cisatracurio-48-horas-placebo-sindrome-dificultad/</id>
+    <link href="https://resumenestrials.com/trials/acurasys-bloqueo-neuromuscular-temprano-cisatracurio-48-horas-placebo-sindrome-dificultad/"/>
+    <updated>2026-11-13T00:00:00Z</updated>
+    <summary>Determinar si dos días de bloqueo neuromuscular con cisatracurio al inicio del síndrome de dificultad respiratoria aguda grave reducen la mortalidad a 90 días frente a placebo.</summary>
+  </entry>
+  <entry>
+    <title>PreVent: ventilación con bolsa-mascarilla durante la intubación traqueal de adultos en estado crítico</title>
+    <id>https://resumenestrials.com/trials/prevent-ventilacion-bolsa-mascarilla-intubacion-traqueal-adulto-estado-critico/</id>
+    <link href="https://resumenestrials.com/trials/prevent-ventilacion-bolsa-mascarilla-intubacion-traqueal-adulto-estado-critico/"/>
+    <updated>2026-11-13T00:00:00Z</updated>
+    <summary>Determinar si la ventilación con bolsa-mascarilla entre la inducción y la laringoscopia aumenta la saturación de oxígeno más baja durante la intubación traqueal del adulto crítico.</summary>
+  </entry>
+  <entry>
+    <title>SEPSISPAM: objetivo de presión arterial alto frente a bajo en pacientes con shock séptico</title>
+    <id>https://resumenestrials.com/trials/sepsispam-objetivo-presion-arterial-media-alto-shock-septico/</id>
+    <link href="https://resumenestrials.com/trials/sepsispam-objetivo-presion-arterial-media-alto-shock-septico/"/>
+    <updated>2026-11-13T00:00:00Z</updated>
+    <summary>Determinar si un objetivo de presión arterial media de 80 a 85 mm Hg, frente a 65 a 70 mm Hg, reduce la mortalidad a 28 días en el shock séptico.</summary>
+  </entry>
+  <entry>
+    <title>OSCAR: ventilación oscilatoria de alta frecuencia en el síndrome de dificultad respiratoria aguda</title>
+    <id>https://resumenestrials.com/trials/oscar-ventilacion-oscilatoria-alta-frecuencia-ventilacion-convencional-sindrome-dificultad/</id>
+    <link href="https://resumenestrials.com/trials/oscar-ventilacion-oscilatoria-alta-frecuencia-ventilacion-convencional-sindrome-dificultad/"/>
+    <updated>2026-11-13T00:00:00Z</updated>
+    <summary>Determinar si la ventilación oscilatoria de alta frecuencia, frente a la ventilación convencional, reduce la mortalidad a 30 días en adultos con síndrome de dificultad respiratoria aguda.</summary>
+  </entry>
+  <entry>
+    <title>IABP-SHOCK II: soporte con balón intraaórtico en el infarto de miocardio con shock cardiogénico</title>
+    <id>https://resumenestrials.com/trials/iabp-shock-ii-balon-contrapulsacion-intraaortico-infarto-agudo-miocardio-shock-cardiogenico/</id>
+    <link href="https://resumenestrials.com/trials/iabp-shock-ii-balon-contrapulsacion-intraaortico-infarto-agudo-miocardio-shock-cardiogenico/"/>
+    <updated>2026-11-13T00:00:00Z</updated>
+    <summary>Determinar si la contrapulsación con balón intraaórtico, añadida a la revascularización temprana, reduce la mortalidad a 30 días en el infarto agudo de miocardio con shock cardiogénico.</summary>
+  </entry>
+  <entry>
+    <title>ANNEXA-I: andexanet en la hemorragia intracerebral aguda asociada a inhibidores del factor Xa</title>
+    <id>https://resumenestrials.com/trials/annexa-i-andexanet-hemorragia-intracerebral-aguda-asociada-inhibidores-factor-xa/</id>
+    <link href="https://resumenestrials.com/trials/annexa-i-andexanet-hemorragia-intracerebral-aguda-asociada-inhibidores-factor-xa/"/>
+    <updated>2026-11-13T00:00:00Z</updated>
+    <summary>Evaluar si el andexanet, frente a la atención habitual, mejora la eficacia hemostática a las 12 horas en pacientes con hemorragia intracerebral aguda que toman inhibidores del factor Xa.</summary>
+  </entry>
   <entry>
     <title>RELIEVE-AKI: estrategias alternativas de tasa de ultrafiltración neta en la lesión renal aguda: ensayo clínico aleatorizado de factibilidad</title>
     <id>https://resumenestrials.com/trials/relieve-aki-ultrafiltracion-neta-restrictiva-liberal-lesion-renal-aguda/</id>
@@ -306,54 +355,5 @@
     <link href="https://resumenestrials.com/trials/retreat-frail-reduccion-tratamiento-antihipertensivo-residentes-residencias-ancianos/"/>
     <updated>2026-11-08T00:00:00Z</updated>
     <summary>Evaluar si una estrategia protocolizada de reducción progresiva de antihipertensivos disminuye la mortalidad por cualquier causa frente a la atención habitual en residentes de residencias de 80 años o más con presión arterial sistólica menor de 130 mm Hg y más de un antihipertensivo.</summary>
-  </entry>
-  <entry>
-    <title>POTCAST: aumentar el nivel de potasio en pacientes con alto riesgo de arritmias ventriculares</title>
-    <id>https://resumenestrials.com/trials/potcast-aumentar-nivel-potasio-pacientes-alto-riesgo-arritmias-ventriculares/</id>
-    <link href="https://resumenestrials.com/trials/potcast-aumentar-nivel-potasio-pacientes-alto-riesgo-arritmias-ventriculares/"/>
-    <updated>2026-11-08T00:00:00Z</updated>
-    <summary>Evaluar si un tratamiento dirigido a llevar el potasio plasmático a 4.5 a 5.0 mmol/l, con consejo dietético, cloruro potásico, un antagonista del receptor de mineralocorticoides o ambos, reduce frente a la atención estándar un compuesto de taquicardia ventricular sostenida o terapia apropiada del…</summary>
-  </entry>
-  <entry>
-    <title>IMASOY: ciprofloxacino frente a aminoglucósido-ciprofloxacino para la peste bubónica</title>
-    <id>https://resumenestrials.com/trials/imasoy-ciprofloxacino-aminoglucosido-ciprofloxacino-peste-bubonica/</id>
-    <link href="https://resumenestrials.com/trials/imasoy-ciprofloxacino-aminoglucosido-ciprofloxacino-peste-bubonica/"/>
-    <updated>2026-11-08T00:00:00Z</updated>
-    <summary>Evaluar si diez días de ciprofloxacino oral en monoterapia son no inferiores a un antibiótico aminoglucósido inyectable durante 3 días seguido de ciprofloxacino oral durante 7 días en cuanto al fracaso terapéutico al día 11 en pacientes con peste bubónica en Madagascar.</summary>
-  </entry>
-  <entry>
-    <title>REDEFINE 1: cagrilintida y semaglutida coadministradas en adultos con sobrepeso u obesidad</title>
-    <id>https://resumenestrials.com/trials/redefine-1-cagrilintida-semaglutida-coadministradas-adultos-sobrepeso-u-obesidad/</id>
-    <link href="https://resumenestrials.com/trials/redefine-1-cagrilintida-semaglutida-coadministradas-adultos-sobrepeso-u-obesidad/"/>
-    <updated>2026-11-08T00:00:00Z</updated>
-    <summary>Evaluar si la combinación semanal de cagrilintida 2.4 mg y semaglutida 2.4 mg, frente a placebo, reduce el peso corporal a las 68 semanas en adultos sin diabetes con obesidad o con sobrepeso y al menos una complicación, y compararla con cada fármaco por separado.</summary>
-  </entry>
-  <entry>
-    <title>REDEFINE 2: cagrilintida–semaglutida en adultos con sobrepeso u obesidad y diabetes tipo 2</title>
-    <id>https://resumenestrials.com/trials/redefine-2-cagrilintida-semaglutida-adultos-sobrepeso-u-obesidad-diabetes-tipo-2/</id>
-    <link href="https://resumenestrials.com/trials/redefine-2-cagrilintida-semaglutida-adultos-sobrepeso-u-obesidad-diabetes-tipo-2/"/>
-    <updated>2026-11-08T00:00:00Z</updated>
-    <summary>Evaluar si la cagrilintida–semaglutida subcutánea semanal (2.4 mg de cada fármaco), frente a placebo y junto con intervención en el estilo de vida, reduce el peso corporal a las 68 semanas en adultos con sobrepeso u obesidad y diabetes tipo 2.</summary>
-  </entry>
-  <entry>
-    <title>ACHIEVE-1: orforglipron, agonista oral de molécula pequeña del receptor de GLP-1, en la diabetes tipo 2 temprana</title>
-    <id>https://resumenestrials.com/trials/achieve-1-orforglipron-agonista-oral-molecula-pequena-receptor-glp-1-diabetes/</id>
-    <link href="https://resumenestrials.com/trials/achieve-1-orforglipron-agonista-oral-molecula-pequena-receptor-glp-1-diabetes/"/>
-    <updated>2026-11-08T00:00:00Z</updated>
-    <summary>Evaluar si el orforglipron oral una vez al día (3, 12 o 36 mg), frente a placebo, reduce la hemoglobina glucosilada a las 40 semanas en adultos con diabetes tipo 2 temprana mal controlada solo con dieta y ejercicio.</summary>
-  </entry>
-  <entry>
-    <title>PROMIZING: ventilación asistida proporcional para minimizar la duración de la ventilación mecánica</title>
-    <id>https://resumenestrials.com/trials/promizing-ventilacion-asistida-proporcional-minimizar-duracion-ventilacion-mecanica/</id>
-    <link href="https://resumenestrials.com/trials/promizing-ventilacion-asistida-proporcional-minimizar-duracion-ventilacion-mecanica/"/>
-    <updated>2026-11-08T00:00:00Z</updated>
-    <summary>Determinar si la ventilación asistida proporcional con factores de ganancia ajustables a la carga (PAV+) acorta el tiempo hasta la liberación exitosa de la ventilación mecánica frente a la ventilación con presión de soporte, en adultos críticos que toleran soporte parcial pero aún no están listos…</summary>
-  </entry>
-  <entry>
-    <title>CONFIDENCE: finerenona con empagliflozina en la enfermedad renal crónica y la diabetes tipo 2</title>
-    <id>https://resumenestrials.com/trials/confidence-finerenona-empagliflozina-enfermedad-renal-cronica-diabetes-tipo-2/</id>
-    <link href="https://resumenestrials.com/trials/confidence-finerenona-empagliflozina-enfermedad-renal-cronica-diabetes-tipo-2/"/>
-    <updated>2026-11-08T00:00:00Z</updated>
-    <summary>Evaluar si iniciar a la vez finerenona y empagliflozina reduce el cociente albúmina/creatinina en orina a los 180 días más que cada fármaco por separado en adultos con enfermedad renal crónica con albuminuria y diabetes tipo 2.</summary>
   </entry>
 </feed>
