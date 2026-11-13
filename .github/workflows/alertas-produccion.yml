@@ -2,6 +2,9 @@ name: Alertas de producción por Telegram
 
 # Avisa por Telegram cuando una verificación de main falla dos veces seguidas
 # (un fallo aislado puede ser del entorno) y cuando vuelve a pasar después de ese aviso.
+# El correo a los suscriptores (despliegue y envío diario) avisa desde el primer fallo: corre pocas
+# veces y cada fallo es un día sin aviso. El despliegue estuvo roto del 9 al 13 de noviembre de 2026
+# sin que nadie se enterara, porque este flujo no lo vigilaba.
 # Secretos: TELEGRAM_BOT_TOKEN y TELEGRAM_CHAT_ID. Sin ellos, el aviso se omite sin error.
 on:
   workflow_run:
@@ -11,6 +14,9 @@ on:
       - Validar experiencia futura
       - Auditoria integral del sitio
       - Validar interfaz principal
+      - Desplegar servicio de correo
+      - Avisar nuevos resúmenes por correo
+      - Regenerar PR en conflicto
     types: [completed]
     branches: [main]
 
@@ -46,7 +52,17 @@ jobs:
             --jq "[.workflow_runs[] | select(.id != $RUN_ID and (.conclusion == \"success\" or .conclusion == \"failure\"))][0:2] | map(.conclusion) | join(\",\")")
           echo "Corrida actual: $CONCLUSION · anteriores: ${previous:-ninguna}"
           message=""
-          if [ "$CONCLUSION" = "failure" ] && [ "${previous%%,*}" = "failure" ]; then
+          case "$WORKFLOW_NAME" in
+            "Desplegar servicio de correo"|"Avisar nuevos resúmenes por correo") inmediato=1 ;;
+            *) inmediato=0 ;;
+          esac
+          if [ "$inmediato" = "1" ]; then
+            if [ "$CONCLUSION" = "failure" ]; then
+              message="ALERTA resumenestrials.com: «$WORKFLOW_NAME» falló en main. El aviso por correo a los suscriptores puede no estar saliendo. Revisa: $RUN_URL"
+            elif [ "$CONCLUSION" = "success" ] && [ "${previous%%,*}" = "failure" ]; then
+              message="RECUPERADO resumenestrials.com: «$WORKFLOW_NAME» vuelve a pasar en main. $RUN_URL"
+            fi
+          elif [ "$CONCLUSION" = "failure" ] && [ "${previous%%,*}" = "failure" ]; then
             message="ALERTA resumenestrials.com: «$WORKFLOW_NAME» falló dos veces seguidas en main. Revisa: $RUN_URL"
           elif [ "$CONCLUSION" = "success" ] && [ "$previous" = "failure,failure" ]; then
             message="RECUPERADO resumenestrials.com: «$WORKFLOW_NAME» vuelve a pasar en main. $RUN_URL"

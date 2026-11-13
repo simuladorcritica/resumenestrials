@@ -66,6 +66,9 @@ export async function checkContentAdvertising(base, output = 'future-screenshots
       assert.equal(dom.overflow, false, path + ': horizontal overflow');
       rows.push({ path, width, finalUrl: page.url(), allowed, loaders, originAds, requests, failedResponses, errors, consoleMessages, dom });
       await page.screenshot({ path: output + '/content-ads-' + rows.length + '.png' });
+      // Las comprobaciones ya terminaron: una petición tardía que siga dentro de un `route` no debe
+      // tumbar la suite al cerrar el contexto (fallo intermitente de future-production, 2026-11-11).
+      await context.unrouteAll({ behavior: 'ignoreErrors' });
       await context.close();
     }
     // Isolate the redirecting document: its destination may legitimately show ads.

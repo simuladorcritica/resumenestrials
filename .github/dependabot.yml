@@ -5,6 +5,11 @@ updates:
     schedule:
       interval: weekly
     open-pull-requests-limit: 5
+    ignore:
+      # Playwright se fija a la vez en package.json, deno.lock y la imagen del contenedor de CI
+      # (scripts/validate-playwright-container.mjs). Un PR que solo sube el paquete npm falla siempre
+      # (PR #264): la versión se sube a mano, en los tres sitios juntos.
+      - dependency-name: playwright
   - package-ecosystem: github-actions
     directory: /
     schedule:

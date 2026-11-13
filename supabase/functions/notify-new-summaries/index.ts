@@ -138,8 +138,10 @@ async function validateRun(runId: number, runAttempt: number, beforeSha: string,
   await validateInstallationToken(token);
   const run = await githubJson(`/repos/${REPOSITORY}/actions/runs/${runId}`, token);
   if (run?.repository?.full_name !== REPOSITORY) throw new Error("Repositorio no autorizado");
-  if (run?.event !== "push" || run?.head_branch !== "main" || run?.head_sha !== headSha) {
-    throw new Error("La ejecución no corresponde a un push válido de main");
+  // El aviso sale una vez al día (flujo programado) o a mano; ya no en cada push.
+  const scheduled = run?.event === "schedule" || run?.event === "workflow_dispatch";
+  if (!scheduled || run?.head_branch !== "main" || run?.head_sha !== headSha) {
+    throw new Error("La ejecución no corresponde a un aviso programado válido de main");
   }
   if (Number(run?.run_attempt || 1) !== runAttempt) throw new Error("run_attempt no coincide con GitHub");
 
@@ -149,7 +151,7 @@ async function validateRun(runId: number, runAttempt: number, beforeSha: string,
   }
 
   const comparison = await githubJson(`/repos/${REPOSITORY}/compare/${beforeSha}...${headSha}`, token);
-  if (comparison?.status !== "ahead") throw new Error("before_sha y head_sha no forman el push esperado");
+  if (comparison?.status !== "ahead") throw new Error("before_sha y head_sha no forman un rango válido de main");
 }
 
 async function rawJson(sha: string, path: string) {
@@ -251,7 +253,7 @@ async function emailFor(
         </td></tr>
         <tr><td style="padding:30px 34px 10px">
           <div style="font-family:Georgia,'Times New Roman',serif;font-size:19px;line-height:1.55;color:#12233b">${hello}</div>
-          <div style="margin-top:10px;font-family:Georgia,'Times New Roman',serif;font-size:18px;line-height:1.55;color:#263b55">${plural ? "Acabamos de publicar nuevos resúmenes que ya puedes consultar." : "Acabamos de publicar un nuevo resumen que ya puedes consultar."}</div>
+          <div style="margin-top:10px;font-family:Georgia,'Times New Roman',serif;font-size:18px;line-height:1.55;color:#263b55">${plural ? "Publicamos nuevos resúmenes que ya puedes consultar." : "Publicamos un nuevo resumen que ya puedes consultar."}</div>
         </td></tr>
         <tr><td style="padding:10px 34px 4px"><table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse:collapse">${cards}</table></td></tr>
         <tr><td style="padding:22px 34px 30px;border-top:1px solid #ddd8cc;font-family:Arial,sans-serif;font-size:11px;line-height:1.65;color:#6d7784">
@@ -270,7 +272,7 @@ async function emailFor(
     const url = `${SITE_URL}/resumen.html?id=${encodeURIComponent(String(summary.id))}`;
     return `${title}\n${meta}${meta ? "\n" : ""}${finding}${finding ? "\n" : ""}${url}`;
   }).join("\n\n");
-  const text = `${firstName ? `Hola, ${firstName}.` : "Hola."}\n\n${plural ? "Acabamos de publicar nuevos resúmenes." : "Acabamos de publicar un nuevo resumen."}\n\n${textItems}\n\nCancelar estos avisos: ${unsubscribe}\nAdministrar notificaciones: ${SITE_URL}/cuenta.html#notificaciones\n\nresumenestrials.com · X: @resumenestrials · Telegram: @ResumenesTrials · resumenestrials@outlook.com`;
+  const text = `${firstName ? `Hola, ${firstName}.` : "Hola."}\n\n${plural ? "Publicamos nuevos resúmenes." : "Publicamos un nuevo resumen."}\n\n${textItems}\n\nCancelar estos avisos: ${unsubscribe}\nAdministrar notificaciones: ${SITE_URL}/cuenta.html#notificaciones\n\nresumenestrials.com · X: @resumenestrials · Telegram: @ResumenesTrials · resumenestrials@outlook.com`;
 
   return {
     from: FROM_EMAIL,
