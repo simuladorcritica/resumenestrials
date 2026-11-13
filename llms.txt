@@ -14,6 +14,12 @@ Material educativo para profesionales de la salud. La referencia final es siempr
 
 ## Resúmenes de ensayos
 
+- [EPoS II: intervalos de colonoscopia e incidencia de cáncer colorrectal tras la extirpación de adenomas](https://resumenestrials.com/trials/epos-ii-intervalos-colonoscopia-incidencia-cancer-colorrectal-tras-extirpacion-adenomas/): NEJM, 2026.
+- [SOLARIO: pautas de antibiótico cortas o largas en ortopedia](https://resumenestrials.com/trials/solario-pautas-antibiotico-cortas-largas-ortopedia/): NEJM, 2026.
+- [TRIUMPH-1: retatrutida, un agonista triple de receptores hormonales, para el tratamiento de la obesidad](https://resumenestrials.com/trials/triumph-1-retatrutida-agonista-triple-receptores-hormonales-tratamiento-obesidad/): NEJM, 2026.
+- [SYNCHRONIZE-2: survodutida una vez a la semana en adultos con obesidad y diabetes tipo 2](https://resumenestrials.com/trials/synchronize-2-survodutida-vez-semana-adultos-obesidad-diabetes-tipo-2/): NEJM, 2026.
+- [ORIGIN 3: atacicept en la nefropatía por IgA, análisis final de eficacia del ensayo de fase 3](https://resumenestrials.com/trials/origin-3-atacicept-nefropatia-iga-analisis-final-eficacia-ensayo-fase-3/): NEJM, 2026.
+- [PEPPER: prevención de la tromboembolia venosa tras el reemplazo total de cadera o de rodilla](https://resumenestrials.com/trials/pepper-prevencion-tromboembolia-venosa-tras-reemplazo-total-cadera-rodilla/): NEJM, 2026.
 - [RAINIER: análisis intermedio de un ensayo de fase 3 de povetacicept en la nefropatía por IgA](https://resumenestrials.com/trials/rainier-analisis-intermedio-ensayo-fase-3-povetacicept-nefropatia-iga/): NEJM, 2026.
 - [PROGRESS: TAVR en pacientes con estenosis aórtica moderada con rasgos de riesgo](https://resumenestrials.com/trials/progress-tavr-pacientes-estenosis-aortica-moderada-rasgos-riesgo/): NEJM, 2026.
 - [SHASTA-3 y SHASTA-4: plozasirán para la hipertrigliceridemia grave y el riesgo de pancreatitis](https://resumenestrials.com/trials/shasta-3-y-shasta-4-plozasiran-hipertrigliceridemia-grave-riesgo-pancreatitis/): NEJM, 2026.
