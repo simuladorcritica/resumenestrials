@@ -179,7 +179,9 @@ section.ev-archive{scroll-margin-top:96px;padding-top:12px}
 .ev-card-facts>summary{display:inline-flex;align-items:center;gap:6px;min-height:44px;color:var(--ev-accent);font-size:.84rem;font-weight:600}
 .ev-card-facts>summary::after{content:"";width:7px;height:7px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translateY(-2px);margin-left:4px}
 .ev-card-facts[open]>summary::after{transform:rotate(-135deg)}
-.ev-card-facts .ev-study-facts{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 14px;padding:6px 0 4px}
+.ev-card-facts .ev-study-facts{padding:2px 0 4px}
+.ev-card-facts .ev-study-facts>div{grid-template-columns:6.75rem minmax(0,1fr);gap:2px 14px}
+.ev-card-facts .ev-study-facts>.ev-fact-long{grid-template-columns:minmax(0,1fr)}
 .ev-dense .ev-card-facts{display:none}
 .ev-card-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:auto;padding-top:14px;border-top:1px solid var(--ev-line)}
 .ev-readtime{--ev-sep:24px;display:flex;align-items:center;flex-wrap:wrap;row-gap:4px;margin-top:0;margin-right:0;margin-bottom:0;color:var(--ev-muted);font-size:.78rem}
@@ -297,10 +299,15 @@ section.ev-archive{scroll-margin-top:96px;padding-top:12px}
 .ev-facts>summary{display:flex;align-items:center;justify-content:space-between;min-height:52px;padding:12px 20px;font-weight:600}
 .ev-facts>summary::after{content:"";width:9px;height:9px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);transition:transform var(--ev-fast);margin-right:4px}
 .ev-facts[open]>summary::after{transform:rotate(-135deg)}
-.ev-study-facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px 20px;margin:0;padding:4px 20px 20px}
-.ev-study-facts div{min-width:0}.ev-study-facts div:has(>[data-ev-field=financiacion]){grid-column:1/-1}
-.ev-study-facts dt{margin-bottom:4px;color:var(--ev-muted);font-size:.74rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase}
-.ev-study-facts dd{margin:0;font-size:.9rem;overflow-wrap:anywhere}
+/* Ficha: filas etiqueta | valor separadas por filetes; los campos largos (tipo, temas, financiación) van al final y, en espacios estrechos, con la etiqueta encima. */
+.ev-study-facts{display:flex;flex-direction:column;margin:0;padding:0 20px 14px}
+.ev-study-facts>div{display:grid;grid-template-columns:10rem minmax(0,1fr);gap:4px 24px;align-items:baseline;min-width:0;padding:8px 0;border-top:1px solid var(--ev-line)}
+.ev-study-facts>.ev-fact-long{order:1}
+.ev-study-facts dt{margin:0;color:var(--ev-muted);font-size:.72rem;font-weight:600;letter-spacing:.07em;line-height:1.4;text-transform:uppercase}
+.ev-study-facts dd{margin:0;color:var(--ev-text);font-size:.92rem;line-height:1.6;text-align:start;-webkit-hyphens:manual;hyphens:manual;overflow-wrap:break-word}
+.ev-study-facts :is([data-ev-field=tipo_estudio],[data-ev-field=financiacion]){text-align:justify;text-align-last:start}
+.ev-study-facts [data-ev-field=revista],.ev-study-facts [data-ev-field=anio],.ev-study-facts [data-ev-field=fecha]{font-variant-numeric:lining-nums tabular-nums}
+.ev-study-facts [data-ev-field=doi],.ev-study-facts [data-ev-field=registro]{overflow-wrap:anywhere;font-variant-numeric:tabular-nums}
 .ev-toolbar{position:sticky;top:calc(var(--ev-header-h) + 10px);z-index:30;display:flex;align-items:center;gap:6px;flex-wrap:nowrap;padding:6px;border:1px solid var(--ev-line);border-radius:var(--ev-r);background:var(--ev-glass)}
 .ev-version{display:flex;padding:3px;border-radius:var(--ev-r);background:var(--ev-raised);flex:0 0 auto}
 .ev-version a{display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:44px;padding:8px 16px;border-radius:var(--ev-r);color:var(--ev-muted);font-weight:600;font-size:.9rem;text-decoration:none}
@@ -471,7 +478,7 @@ html .ev-field-error[hidden]{display:block!important;visibility:hidden}
 .ev-library-item .ev-meta{color:var(--ev-muted);font-size:.86rem}
 .ev-library-item details{margin-top:8px}
 .ev-library-item summary,.ev-recommendations summary{display:inline-flex;align-items:center;min-height:44px;color:var(--ev-accent);font-weight:600;font-size:.9rem}
-.ev-library-item .ev-study-facts{padding:8px 0 0}
+.ev-library-item .ev-study-facts{padding:6px 0 0}
 .ev-badges{display:flex;flex-wrap:wrap;gap:6px}
 [data-ev-ghost]{background:transparent}
 .ev-recommendations{margin:8px 0 28px;padding:22px;border:1px solid var(--ev-line);border-radius:var(--ev-r-lg);background:var(--ev-bg-soft),var(--ev-panel)}
@@ -584,7 +591,9 @@ html .ev-field-error[hidden]{display:block!important;visibility:hidden}
  .ev-reading-head h1{font-size:1.85rem}
  .ev-keyfinding{padding:14px 16px}
  .ev-keyfinding .ev-lead{font-size:1.05rem}
- .ev-study-facts{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 14px;padding:4px 16px 16px}
+ .ev-study-facts{padding:0 16px 12px}
+ .ev-study-facts>div{grid-template-columns:6.75rem minmax(0,1fr);gap:2px 14px}
+ .ev-study-facts>.ev-fact-long{grid-template-columns:minmax(0,1fr)}
  .ev-reader .ev-mobile-nav,.ev-member .ev-mobile-nav,.ev-internal .ev-mobile-nav{display:none}
  .ev-member .ev-header .ev-menu-toggle,.ev-internal .ev-header .ev-menu-toggle{display:inline-flex}
  .ev-member .ev-footer-legal,.ev-internal .ev-footer-legal{padding-bottom:40px}
