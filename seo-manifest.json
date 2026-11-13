@@ -423,7 +423,7 @@
     "url": "https://resumenestrials.com/trials/trident-tres-antihipertensivos-dosis-bajas-sola-pildora-tras-hemorragia-intracerebral/",
     "title": "TRIDENT: tres antihipertensivos a dosis bajas en una sola píldora tras una hemorragia intracerebral",
     "seo_title": "TRIDENT trial: tres antihipertensivos a dosis bajas en una sola píldora tras una hemorragia intracerebral | Resúmenes Trials",
-    "description": "TRIDENT: El ictus recurrente ocurrió en el 4.6% frente al 7.4% (HR 0.61; IC 95% 0.41-0.92; P=0.02), con un número necesario a tratar de 35. La píldora triple…",
+    "description": "TRIDENT: El ictus recurrente ocurrió en el 4.6% frente al 7.4% (hazard ratio 0.61; IC 95% 0.41-0.92; P=0.02), con un número necesario a tratar de 35 en una…",
     "clusters": [
       {
         "name": "Neurología",
@@ -438,11 +438,11 @@
     ],
     "intent": {
       "question": "Evaluar si una píldora única con tres antihipertensivos a dosis bajas, añadida al tratamiento estándar, reduce el ictus recurrente y controla mejor la presión arterial en pacientes con antecedente de hemorragia intracerebral.",
-      "answer": "El ictus recurrente ocurrió en el 4.6% frente al 7.4% (HR 0.61; IC 95% 0.41-0.92; P=0.02), con un número necesario a tratar de 35.",
+      "answer": "El ictus recurrente ocurrió en el 4.6% frente al 7.4% (hazard ratio 0.61; IC 95% 0.41-0.92; P=0.02), con un número necesario a tratar de 35 en una mediana de 2.5 años.",
       "population": "La población fueron adultos con antecedente de hemorragia intracerebral espontánea, es decir, no traumática, en condición clínicamente estable y con una presión arterial sistólica de 130 a 160 mm Hg sentados y en reposo. Se reclutaron en hospitales académicos, tanto en salas de hospitalización como en consulta externa. La raza la reportó el propio paciente: el 72.6% eran asiáticos y dos tercios residían en Sri Lanka."
     },
     "datePublished": "2026-08-16",
-    "dateModified": "2026-10-28"
+    "dateModified": "2026-11-13"
   },
   "17": {
     "slug": "hi-peitho-fibrinolisis-dirigida-cateter-facilitada-ultrasonido-embolia-pulmonar-aguda-riesgo",
@@ -4806,7 +4806,7 @@
       "population": "La población fueron adultos ventilados por insuficiencia respiratoria hipoxémica aguda que cumplían, desde hacía no más de 48 horas, todas estas condiciones: un cociente PaO2/FiO2 menor de 150 con una PEEP de 5 cmH2O o más y un volumen corriente de 6 a 8 ml/kg de peso predicho, infiltrados bilaterales compatibles con edema y ausencia de signos de hipertensión de la aurícula izquierda, con una presión de enclavamiento menor de…"
     },
     "datePublished": "2026-10-19",
-    "dateModified": "2026-10-20"
+    "dateModified": "2026-11-13"
   },
   "175": {
     "slug": "connect-monitoreo-continuo-glucosa-cuidado-habitual-diabetes-tipo-2-no",
@@ -4931,7 +4931,7 @@
     "url": "https://resumenestrials.com/trials/prevent-ventilacion-bolsa-mascarilla-intubacion-traqueal-adulto-estado-critico/",
     "title": "PreVent: ventilación con bolsa-mascarilla durante la intubación traqueal de adultos en estado crítico",
     "seo_title": "PreVent trial: ventilación con bolsa-mascarilla durante la intubación traqueal de adultos en estado crítico | Resúmenes Trials",
-    "description": "PreVent: Saturación más baja con mediana de 96% (RIC, 87 a 99) frente a 93% (RIC, 81 a 99) (diferencia de medias 3.9 puntos; IC 95%, 1.4 a 6.5; p = 0.01 ) y…",
+    "description": "PreVent: Saturación más baja con mediana de 96% (RIC, 87 a 99) frente a 93% (RIC, 81 a 99) ( p = 0.01 con la prueba de Mann-Whitney; diferencia de medias 3.9…",
     "clusters": [
       {
         "name": "Ventilación e insuficiencia respiratoria",
@@ -4946,11 +4946,11 @@
     ],
     "intent": {
       "question": "Determinar si la ventilación con bolsa-mascarilla entre la inducción y la laringoscopia aumenta la saturación de oxígeno más baja durante la intubación traqueal del adulto crítico.",
-      "answer": "Saturación más baja con mediana de 96% (RIC, 87 a 99) frente a 93% (RIC, 81 a 99) (diferencia de medias 3.9 puntos; IC 95%, 1.4 a 6.5; p = 0.01 ) y menos hipoxemia grave (10.9% frente a 22.8%; RR 0.48; IC 95%, 0.30 a 0.77).",
+      "answer": "Saturación más baja con mediana de 96% (RIC, 87 a 99) frente a 93% (RIC, 81 a 99) ( p = 0.01 con la prueba de Mann-Whitney; diferencia de medias 3.9 puntos; IC 95%, 1.4 a 6.5) y menos hipoxemia grave (10.9% frente a 22.8%; RR 0.48; IC 95%, 0.30 a 0.77).",
       "population": "Población. Adultos de 18 años o más, en estado crítico, sometidos a inducción e intubación traqueal en siete unidades de cuidados intensivos académicas de Estados Unidos. La raza se registró a partir de lo reportado por el paciente o su representante: el 70.9% del grupo de bolsa-mascarilla y el 66.3% del grupo sin ventilación eran de raza blanca; la etnia no se reportó. Intervención. Ventilación con bolsa-mascarilla…"
     },
     "datePublished": "2026-10-19",
-    "dateModified": "2026-10-20"
+    "dateModified": "2026-11-13"
   },
   "181": {
     "slug": "sepsispam-objetivo-presion-arterial-media-alto-shock-septico",
@@ -4958,7 +4958,7 @@
     "url": "https://resumenestrials.com/trials/sepsispam-objetivo-presion-arterial-media-alto-shock-septico/",
     "title": "SEPSISPAM: objetivo de presión arterial alto frente a bajo en pacientes con shock séptico",
     "seo_title": "SEPSISPAM trial: objetivo de presión arterial alto frente a bajo en pacientes con shock séptico | Resúmenes Trials",
-    "description": "SEPSISPAM: Sin diferencia en la mortalidad a 28 días ( 36.6% frente a 34.0% ; hazard ratio 1.07; IC 95%, 0.84 a 1.38; p = 0.57 ), con más fibrilación…",
+    "description": "SEPSISPAM: Sin diferencia significativa en la mortalidad a 28 días ( 36.6% frente a 34.0% ; hazard ratio 1.07; IC 95%, 0.84 a 1.38; p = 0.57 ), con más…",
     "clusters": [
       {
         "name": "Sepsis y shock",
@@ -4978,11 +4978,11 @@
     ],
     "intent": {
       "question": "Determinar si un objetivo de presión arterial media de 80 a 85 mm Hg, frente a 65 a 70 mm Hg, reduce la mortalidad a 28 días en el shock séptico.",
-      "answer": "Sin diferencia en la mortalidad a 28 días ( 36.6% frente a 34.0% ; hazard ratio 1.07; IC 95%, 0.84 a 1.38; p = 0.57 ), con más fibrilación auricular nueva en el objetivo alto (6.7% frente a 2.8%).",
+      "answer": "Sin diferencia significativa en la mortalidad a 28 días ( 36.6% frente a 34.0% ; hazard ratio 1.07; IC 95%, 0.84 a 1.38; p = 0.57 ), con más fibrilación auricular nueva en el objetivo alto (6.7% frente a 2.8%).",
       "population": "Población. Adultos mayores de 18 años con shock séptico refractario a líquidos que requerían vasopresores, incluidos en las primeras 6 horas tras iniciarlos, en 29 centros de Francia. La raza y la etnia no se reportaron. Intervención. Ajustar los vasopresores para mantener una presión arterial media de 80 a 85 mm Hg, el objetivo alto. Se usó noradrenalina como vasopresor de primera línea, salvo en un centro que empleó…"
     },
     "datePublished": "2026-10-19",
-    "dateModified": "2026-10-20"
+    "dateModified": "2026-11-13"
   },
   "182": {
     "slug": "bano-diario-con-clorhexidina-para-prevenir-la-adquisicion-de-germenes-multirresistentes",
@@ -5017,7 +5017,7 @@
     "url": "https://resumenestrials.com/trials/oscar-ventilacion-oscilatoria-alta-frecuencia-ventilacion-convencional-sindrome-dificultad/",
     "title": "OSCAR: ventilación oscilatoria de alta frecuencia en el síndrome de dificultad respiratoria aguda",
     "seo_title": "OSCAR trial: ventilación oscilatoria de alta frecuencia en el síndrome de dificultad respiratoria aguda | Resúmenes Trials",
-    "description": "OSCAR: Sin diferencia en la mortalidad a 30 días ( 41.7% frente a 41.1% ; p = 0.85 ; odds ratio ajustada de supervivencia del grupo convencional frente al de…",
+    "description": "OSCAR: Sin diferencia significativa en la mortalidad a 30 días ( 41.7% frente a 41.1% ; p = 0.85 ; odds ratio ajustada de supervivencia del grupo convencional…",
     "clusters": [
       {
         "name": "Ventilación e insuficiencia respiratoria",
@@ -5037,11 +5037,11 @@
     ],
     "intent": {
       "question": "Determinar si la ventilación oscilatoria de alta frecuencia, frente a la ventilación convencional, reduce la mortalidad a 30 días en adultos con síndrome de dificultad respiratoria aguda.",
-      "answer": "Sin diferencia en la mortalidad a 30 días ( 41.7% frente a 41.1% ; p = 0.85 ; odds ratio ajustada de supervivencia del grupo convencional frente al de oscilación 1.03; IC 95%, 0.75 a 1.40; p = 0.87), con más días de bloqueo neuromuscular en el grupo de oscilación (2.5 frente a 2.0; p = 0.02).",
+      "answer": "Sin diferencia significativa en la mortalidad a 30 días ( 41.7% frente a 41.1% ; p = 0.85 ; odds ratio ajustada de supervivencia del grupo convencional frente al de oscilación 1.03; IC 95%, 0.75 a 1.40; p = 0.87), con más días de bloqueo neuromuscular en el grupo de oscilación (media de 2.5 frente a 2.0 días; p = 0.02).",
       "population": "La población fueron adultos con síndrome de dificultad respiratoria aguda (SDRA) bajo ventilación mecánica, con una relación entre la presión arterial de oxígeno y la fracción inspirada de oxígeno (PaO2:FiO2) de 200 mm Hg (26.7 kPa) o menos con una presión positiva al final de la espiración (PEEP) de al menos 5 cm de agua, infiltrados pulmonares bilaterales sin signos de hipertensión auricular izquierda y una previsión de al…"
     },
     "datePublished": "2026-10-19",
-    "dateModified": "2026-10-20"
+    "dateModified": "2026-11-13"
   },
   "184": {
     "slug": "iabp-shock-ii-balon-contrapulsacion-intraaortico-infarto-agudo-miocardio-shock-cardiogenico",
@@ -5049,7 +5049,7 @@
     "url": "https://resumenestrials.com/trials/iabp-shock-ii-balon-contrapulsacion-intraaortico-infarto-agudo-miocardio-shock-cardiogenico/",
     "title": "IABP-SHOCK II: soporte con balón intraaórtico en el infarto de miocardio con shock cardiogénico",
     "seo_title": "IABP-SHOCK II trial: soporte con balón intraaórtico en el infarto de miocardio con shock cardiogénico | Resúmenes Trials",
-    "description": "IABP-SHOCK II: Sin diferencia en la mortalidad a 30 días ( 39.7% frente a 41.3% ; riesgo relativo 0.96; IC 95%, 0.79 a 1.17; p = 0.69 ), sin diferencias…",
+    "description": "IABP-SHOCK II: Sin diferencia significativa en la mortalidad a 30 días ( 39.7% frente a 41.3% ; riesgo relativo 0.96; IC 95%, 0.79 a 1.17; p = 0.69 ), sin…",
     "clusters": [
       {
         "name": "Hemodinámica y cardiovascular",
@@ -5064,11 +5064,11 @@
     ],
     "intent": {
       "question": "Determinar si la contrapulsación con balón intraaórtico, añadida a la revascularización temprana, reduce la mortalidad a 30 días en el infarto agudo de miocardio con shock cardiogénico.",
-      "answer": "Sin diferencia en la mortalidad a 30 días ( 39.7% frente a 41.3% ; riesgo relativo 0.96; IC 95%, 0.79 a 1.17; p = 0.69 ), sin diferencias significativas en hemorragia grave, isquemia periférica, sepsis ni ictus.",
+      "answer": "Sin diferencia significativa en la mortalidad a 30 días ( 39.7% frente a 41.3% ; riesgo relativo 0.96; IC 95%, 0.79 a 1.17; p = 0.69 ), sin diferencias significativas en hemorragia grave, isquemia periférica, sepsis ni ictus.",
       "population": "La población fueron pacientes con infarto agudo de miocardio, con o sin elevación del segmento ST, complicado con shock cardiogénico y en quienes se planeaba una revascularización temprana, por intervención coronaria percutánea (ICP) o cirugía de revascularización. El shock se definió por la suma de tres elementos: presión sistólica menor de 90 mm Hg durante más de 30 minutos o necesidad de catecolaminas para mantenerla por…"
     },
     "datePublished": "2026-10-19",
-    "dateModified": "2026-10-20"
+    "dateModified": "2026-11-13"
   },
   "185": {
     "slug": "sonic-infliximab-azatioprina-ambos-enfermedad-crohn-tratamiento-inmunosupresor-previo",
@@ -6816,7 +6816,7 @@
     "url": "https://resumenestrials.com/trials/annexa-i-andexanet-hemorragia-intracerebral-aguda-asociada-inhibidores-factor-xa/",
     "title": "ANNEXA-I: andexanet en la hemorragia intracerebral aguda asociada a inhibidores del factor Xa",
     "seo_title": "ANNEXA-I trial: andexanet en la hemorragia intracerebral aguda asociada a inhibidores del factor Xa | Resúmenes Trials",
-    "description": "ANNEXA-I: La eficacia hemostática a las 12 horas se logró en el 67.0% frente al 53.1% (diferencia ajustada 13.4 puntos porcentuales; IC 95% 4.6-22.2…",
+    "description": "ANNEXA-I: La eficacia hemostática a las 12 horas se logró en el 67.0% con andexanet frente al 53.1% con atención habitual (diferencia ajustada 13.4 puntos…",
     "clusters": [
       {
         "name": "Neurocríticos",
@@ -6831,10 +6831,11 @@
     ],
     "intent": {
       "question": "Evaluar si el andexanet, frente a la atención habitual, mejora la eficacia hemostática a las 12 horas en pacientes con hemorragia intracerebral aguda que toman inhibidores del factor Xa.",
-      "answer": "La eficacia hemostática a las 12 horas se logró en el 67.0% frente al 53.1% (diferencia ajustada 13.4 puntos porcentuales; IC 95% 4.6-22.2; P=0.003), pero los eventos trombóticos a 30 días fueron más frecuentes con andexanet, 10.3% frente a 5.6% (diferencia 4.6 puntos porcentuales; IC 95% 0.1-9.2; P=0.048).",
+      "answer": "La eficacia hemostática a las 12 horas se logró en el 67.0% con andexanet frente al 53.1% con atención habitual (diferencia ajustada 13.4 puntos porcentuales; IC 95% 4.6-22.2; P=0.003), pero los eventos trombóticos a 30 días fueron más frecuentes con andexanet, 10.3% frente a 5.6% (diferencia 4.6 puntos porcentuales; IC 95%…",
       "population": "La población fueron adultos de 18 años o más con hemorragia intracerebral aguda que tomaban apixabán, rivaroxabán o edoxabán (y 3 con enoxaparina en la población de seguridad, todos con atención habitual), con la última dosis en las 15 horas previas a la aleatorización. La raza la informaron los pacientes y la mayoría eran blancos, 202 de 224 con andexanet y 213 de 228 con atención habitual; casi todos se trataron en Europa y…"
     },
-    "datePublished": "2026-11-01"
+    "datePublished": "2026-11-01",
+    "dateModified": "2026-11-13"
   },
   "249": {
     "slug": "stand-movilizacion-estructurada-pacientes-estado-critico-ensayo-pragmatico-aleatorizado",
