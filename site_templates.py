@@ -184,8 +184,7 @@ def archive(items,manifest,title="Archivo de evidencia",scope=""):
  crit=sum(1 for r in items if "Medicina Crítica" in base.categorias(r));inter=sum(1 for r in items if "Medicina Interna" in base.categorias(r))
  if not scope:
   hero=('<section class="ev-hero ev-hero-compact"><div class="ev-hero-copy"><nav class="ev-breadcrumb" aria-label="Ruta"><a href="/">'+icon("arrow-left")+'Edición actual</a></nav><p class="ev-eyebrow">Todos los resúmenes</p>'
-   '<h1>Archivo</h1>'
-   '<p class="ev-lead ev-intro">Encuentra un ensayo, léelo completo o en versión breve y descárgalo en PDF. Escribe en el buscador una enfermedad, un fármaco o el nombre del estudio.</p></div></section>')
+   '<h1>Archivo</h1></div></section>')
  else:
   kind="Especialidad" if scope in ("medicina-critica","medicina-interna") else "Subtema"
   hero=(f'<section class="ev-hero ev-hero-compact"><div class="ev-hero-copy"><nav class="ev-breadcrumb" aria-label="Ruta"><a href="/">{icon("arrow-left")}Inicio</a></nav><p class="ev-eyebrow">{kind}</p><h1>{esc(title)}</h1>'
