@@ -1,0 +1,65 @@
+name: Vigilante de rutinas
+
+# Avisa por Telegram si las rutinas de producción (que corren en la PC del editor) dejaron de publicar:
+# main sin cambios en más de 26 h, o sin resúmenes nuevos en más de 30 h.
+# Vive en GitHub para no depender de la PC ni del uso de Claude. Solo lee el historial; no modifica nada.
+# Secretos: TELEGRAM_BOT_TOKEN y TELEGRAM_CHAT_ID. Sin ellos, el aviso queda solo en el registro de la corrida.
+# 18:37 UTC = 12:37 CDMX · 02:37 UTC = 20:37 CDMX.
+on:
+  schedule:
+    - cron: '37 18 * * *'
+    - cron: '37 2 * * *'
+  workflow_dispatch: {}
+
+permissions:
+  actions: read
+  contents: read
+
+concurrency:
+  group: vigilante-rutinas
+  cancel-in-progress: false
+
+jobs:
+  vigilar:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - name: Descargar el historial reciente de main
+        uses: actions/checkout@v7.0.1
+        with:
+          ref: main
+          fetch-depth: 120
+
+      - name: Revisar y avisar
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          RUN_ID: ${{ github.run_id }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          set -uo pipefail
+          codigo=0
+          python3 tools/vigilante_rutinas.py > mensaje.txt || codigo=$?
+          cat mensaje.txt
+          # Resultado de la corrida anterior de este mismo flujo (para avisar la recuperación una sola vez).
+          anterior=$(gh api "repos/$REPO/actions/workflows/vigilante-rutinas.yml/runs?status=completed&per_page=5" \
+            --jq "[.workflow_runs[] | select(.id != $RUN_ID and (.conclusion == \"success\" or .conclusion == \"failure\"))][0].conclusion" 2>/dev/null || true)
+          mensaje=""
+          if [ "$codigo" -eq 3 ]; then
+            mensaje=$(cat mensaje.txt)
+          elif [ "$codigo" -eq 0 ] && [ "${anterior:-}" = "failure" ]; then
+            mensaje="RECUPERADO · $(cat mensaje.txt)"
+          fi
+          if [ -n "$mensaje" ]; then
+            if [ -z "${TELEGRAM_BOT_TOKEN:-}" ] || [ -z "${TELEGRAM_CHAT_ID:-}" ]; then
+              echo "::warning::Faltan TELEGRAM_BOT_TOKEN o TELEGRAM_CHAT_ID; aviso no enviado."
+            else
+              curl -fsS -o /dev/null -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+                --data-urlencode "chat_id=${TELEGRAM_CHAT_ID}" --data-urlencode "text=${mensaje}" \
+                --data-urlencode "disable_web_page_preview=true" && echo "Aviso enviado."
+            fi
+          fi
+          # La corrida queda en rojo mientras dure la alerta: así se ve en GitHub y la siguiente sabe si hubo recuperación.
+          if [ "$codigo" -eq 3 ]; then exit 1; fi
+          exit "$codigo"
