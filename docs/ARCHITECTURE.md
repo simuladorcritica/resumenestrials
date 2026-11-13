@@ -3,7 +3,9 @@
 ## Fuente y salidas
 
 - `resumenes.json`: fuente clínica canónica.
-- `_includes/index-source.html`: portada prerenderizada usada por Jekyll.
+- `_includes/index-source.html`: portada prerenderizada (la edición actual) usada por Jekyll; `index.html` es su copia exacta. Es también la fuente de su propio `<head>` (canonical, JSON-LD `WebSite`/`Organization`, Open Graph): cada generación lo conserva.
+- `archivo/index.html`: archivo completo con todos los resúmenes prerenderizados, buscador y filtros (antes vivía en la portada).
+- `ediciones/<lunes ISO>/index.html`: una página por cada edición semanal anterior. La edición actual no tiene página propia: es la portada.
 - `trials/*/index.html`: páginas canónicas indexables.
 - `resumen/*.html`: compatibilidad social/legada, `noindex` y canonical al trial.
 - `seo-manifest.json`, `seo-cluster-manifest.json`, `sitemap.xml`: salidas SEO.
@@ -29,6 +31,10 @@ python aplicar_experiencia_futura.py
 ```
 
 Los archivos generados se versionan para que GitHub Pages pueda servirlos sin una plataforma de construcción adicional. Los cambios manuales en salidas generadas serán sobrescritos.
+
+Una edición agrupa los resúmenes cuya `fecha_publicacion_resumen` cae en la misma semana ISO (lunes a domingo); `site_templates.editions()` es la única regla y `scripts/editions.mjs` la repite para las pruebas. La edición actual es la última semana con datos, no la fecha del día: la generación no depende de cuándo se ejecuta. Cuando empieza una semana nueva, la anterior recibe su página en `ediciones/` y entra en el sitemap y en `llms.txt`. La portada se escribe dos veces con el mismo resultado (`generar_seo_avanzado.update_home()` y `site_templates.render_all()`); el archivo y las ediciones los escribe `render_all()`. Un resumen sin fecha de publicación válida no entra en ninguna edición y sigue en el archivo.
+
+Quien versiona las salidas con una lista fija de rutas debe incluir `archivo/` y `ediciones/`: el workflow `actualizar-sitemap` ya las añade.
 
 La secuencia debe ser idempotente: dos ejecuciones consecutivas tienen que producir las mismas salidas. `sitemap.xml` solo publica `lastmod` cuando existe una fecha editorial explícita (`fecha_revision`, `actualizado` o `fecha_publicacion_resumen`); la fecha de publicación del estudio no representa una modificación del sitio.
 

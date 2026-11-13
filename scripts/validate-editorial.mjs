@@ -2,7 +2,7 @@ import fs from 'node:fs';
 const read=p=>fs.readFileSync(p,'utf8');
 const fail=m=>{console.error('EDITORIAL FAIL: '+m);process.exitCode=1};
 const ok=m=>console.log('EDITORIAL PASS: '+m);
-const index=read('index.html'),privacy=read('privacidad/index.html'),account=read('cuenta.html'),auth=read('auth.js'),login=read('login.html'),register=read('registro.html'),recovery=read('recuperar.html'),runtime=read('site-runtime.js'),css=read('site-runtime.css'),classifier=read('specialty-classification.js');
+const index=read('index.html'),archive=read('archivo/index.html'),privacy=read('privacidad/index.html'),account=read('cuenta.html'),auth=read('auth.js'),login=read('login.html'),register=read('registro.html'),recovery=read('recuperar.html'),runtime=read('site-runtime.js'),css=read('site-runtime.css'),classifier=read('specialty-classification.js');
 for(const font of ['Newsreader','RT Sans','Literata']){
  const faces=[...css.matchAll(/@font-face\{[^}]*\}/g)].map(m=>m[0]).filter(f=>f.includes("font-family:'"+font+"'"));
  if(!faces.length)fail('site-runtime.css no declara '+font);
@@ -17,9 +17,13 @@ if(!['literata','newsreader','ibmplexsans'].every(f=>fs.existsSync('fonts/OFL-'+
 // Identidad editorial: sin la tipografía ni los efectos de la estética anterior.
 if(/'Sora'|aurora\(|backdrop-filter:blur|linear-gradient\(1[0-9]0deg,#|--ev-grad:linear-gradient/.test(css))fail('site-runtime.css conserva rastros de Nova (Sora, degradados, vidrio)');
 if(!/--ev-dot:#c8892a/.test(css)||(css.match(/var\(--ev-dot\)/g)||[]).length!==1)fail('El ocre debe usarse solo en el punto de la línea de señal');
-if(!index.includes('class="ev-signal"'))fail('La portada no tiene la línea de señal');
+if((index.match(/class="ev-signal"/g)||[]).length!==1)fail('La portada debe tener la línea de señal una sola vez');
+// La portada es la edición actual: un único h1 (el lema de la cabecera), ancla de recomendaciones y nada del archivo.
+if((index.match(/<h1\b/g)||[]).length!==1||!index.includes('<h1>Evidencia sin ruido</h1>'))fail('La portada debe tener un único h1: Evidencia sin ruido');
+if(!index.includes('data-ev-edition=')||!index.includes('data-ev-recs'))fail('La portada no muestra la edición actual o perdió el ancla de recomendaciones');
+if(/id="ev-list"|data-ev-ids=|data-ev-filter=|class="ev-steps"/.test(index))fail('La portada no debe incluir el archivo, los filtros ni los pasos');
 if(!/fonts\.(googleapis|gstatic)\.com/.test(css))ok('Fuentes Newsreader, RT Sans y Literata servidas desde el propio sitio.');else fail('site-runtime.css depende de Google Fonts');
-for(const [name,html] of [['index',index],['cuenta',account],['login',login],['registro',register],['recuperar',recovery],['privacidad',privacy]]){
+for(const [name,html] of [['index',index],['archivo',archive],['cuenta',account],['login',login],['registro',register],['recuperar',recovery],['privacidad',privacy]]){
  // Fuentes propias: la página no debe depender de servidores externos para mostrarse.
  if(/fonts\.(googleapis|gstatic)\.com/.test(html))fail(name+' depende de Google Fonts (bloquea el render en redes móviles)');
  for(const font of ['Inter+Tight','JetBrains+Mono','Source+Serif+4'])if(html.includes(font))fail(name+' conserva la tipografía anterior '+font);
@@ -28,10 +32,11 @@ for(const [name,html] of [['index',index],['cuenta',account],['login',login],['r
  if(/Fraunces|Newsreader|IBM.Plex.Mono|<style\b/.test(html))fail(name+' conserva presentación anterior o CSS inline');
 }
 if((login.match(/href="registro\.html"/g)||[]).length!==1)fail('Login debe tener un enlace a registro');
-for(const key of ['sub','topic','year','journal','type'])if(!index.includes('data-ev-filter="'+key+'"'))fail('Falta filtro '+key);
-if((index.match(/name="ev-area"/g)||[]).length!==3)fail('Falta el selector segmentado de especialidad');
-if((index.match(/<input\b[^>]*type="search"/g)||[]).length!==1||!index.includes('id="ev-q"'))fail('La portada debe tener un único buscador');
-if(!index.includes('data-ev-card-pdf=')||!runtime.includes('SpecialtyClassification'))fail('Portada sin PDF o taxonomía');
+// El archivo completo vive en /archivo/: filtros, selector de especialidad y PDF por tarjeta.
+for(const key of ['sub','topic','year','journal','type'])if(!archive.includes('data-ev-filter="'+key+'"'))fail('Falta filtro '+key);
+if((archive.match(/name="ev-area"/g)||[]).length!==3)fail('Falta el selector segmentado de especialidad');
+for(const [name,html] of [['La portada',index],['El archivo',archive]])if((html.match(/<input\b[^>]*type="search"/g)||[]).length!==1||!html.includes('id="ev-q"'))fail(name+' debe tener un único buscador');
+if(!archive.includes('id="ev-archivo"')||!archive.includes('data-ev-ids=')||!archive.includes('data-ev-card-pdf=')||!runtime.includes('SpecialtyClassification'))fail('Archivo sin listado, PDF o taxonomía');
 if(!classifier.includes('Hematolog')||!classifier.includes('Neumolog')||classifier.includes('Medicina Interna General'))fail('Taxonomía canónica incompleta');
 if(!css.includes('minmax(0,1fr)')||!css.includes('ev-mobile-nav'))fail('Contrato responsive incompleto');
 if(!privacy.includes('ev-prose')||!privacy.includes('Política de Privacidad'))fail('Política fuera del sistema institucional');

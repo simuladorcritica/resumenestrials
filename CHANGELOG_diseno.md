@@ -1,3 +1,14 @@
+## 2026-11-13 · La portada es la edición de la semana y el archivo se muda a /archivo/
+
+- **Portada.** Al entrar se ve la edición actual: los resúmenes publicados esa semana (de lunes a domingo). Arriba está el ensayo destacado, con su sigla en grande, la pregunta, el hallazgo principal y los botones para leerlo completo o en breve. Al lado, «En esta edición» enlaza los demás ensayos de la semana, separados en Medicina Crítica y Medicina Interna.
+- **Navegador de ediciones.** La línea de señal de la marca sirve ahora para cambiar de semana: hay una marca por edición y el punto ocre señala la que se está viendo. Cada edición anterior tiene su propia página (`/ediciones/2026-11-02/`, por ejemplo).
+- **Archivo.** El listado completo con el buscador, los filtros, la vista compacta y los PDF por tarjeta está en `/archivo/`, igual que antes. Los enlaces antiguos a la portada con filtros o búsquedas (`/?q=…`, `/?esp=…`) llevan solos al archivo.
+- **Cabecera de revista** en todas las páginas: una franja con el lema «Evidencia sin ruido», Mi biblioteca, el tema y la cuenta; debajo, la marca, las secciones (Edición actual, Medicina Crítica, Medicina Interna, Archivo) y el buscador. Al bajar por la página queda fija solo la barra con el buscador. Buscar desde cualquier página lleva a `/archivo/`.
+- En la portada no hay bloque de colecciones, ni «próximamente», ni etiquetas de diseño del estudio, ni cifras repetidas.
+- La edición actual es la semana más reciente que tiene resúmenes: no depende del día en que se regenera el sitio. Cuando empieza una semana nueva, la anterior pasa a tener página propia.
+- Las pruebas del archivo se movieron a `/archivo/` con las mismas comprobaciones y se añadieron las de la portada. Quien suba las páginas generadas con una lista fija de carpetas debe incluir `archivo/` y `ediciones/`.
+- El contenido clínico no cambia.
+
 ## 2026-11-11 · Ficha del estudio rediseñada
 
 - La ficha (en las tarjetas y en el lector) pasa de una retícula de dos o tres columnas desiguales a filas «etiqueta | valor» separadas por filetes, como una ficha técnica impresa.

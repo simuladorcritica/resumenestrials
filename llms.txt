@@ -11,6 +11,19 @@ Material educativo para profesionales de la salud. La referencia final es siempr
 - [Registro de correcciones](https://resumenestrials.com/correcciones/): resúmenes corregidos después de publicarse y fecha de la última corrección.
 - [Medicina Crítica](https://resumenestrials.com/medicina-critica/): índice de resúmenes de Medicina Crítica.
 - [Medicina Interna](https://resumenestrials.com/medicina-interna/): índice de resúmenes de Medicina Interna.
+- [Archivo](https://resumenestrials.com/archivo/): todos los resúmenes, con buscador y filtros.
+
+## Ediciones semanales
+
+- [Edición actual](https://resumenestrials.com/): resúmenes publicados en la semana más reciente.
+- [Edición del 2 al 8 de noviembre de 2026](https://resumenestrials.com/ediciones/2026-11-02/)
+- [Edición del 26 de octubre al 1 de noviembre de 2026](https://resumenestrials.com/ediciones/2026-10-26/)
+- [Edición del 19 al 25 de octubre de 2026](https://resumenestrials.com/ediciones/2026-10-19/)
+- [Edición del 14 al 20 de septiembre de 2026](https://resumenestrials.com/ediciones/2026-09-14/)
+- [Edición del 31 de agosto al 6 de septiembre de 2026](https://resumenestrials.com/ediciones/2026-08-31/)
+- [Edición del 24 al 30 de agosto de 2026](https://resumenestrials.com/ediciones/2026-08-24/)
+- [Edición del 17 al 23 de agosto de 2026](https://resumenestrials.com/ediciones/2026-08-17/)
+- [Edición del 10 al 16 de agosto de 2026](https://resumenestrials.com/ediciones/2026-08-10/)
 
 ## Resúmenes de ensayos
 

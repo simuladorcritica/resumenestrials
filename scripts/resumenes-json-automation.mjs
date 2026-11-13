@@ -274,6 +274,7 @@ function buildIngestionReport(worktreePath, comparison) {
   const feed = readFileSync(join(worktreePath, 'feed.xml'), 'utf8');
   const navigationFiles = [
     join(worktreePath, '_includes', 'index-source.html'),
+    join(worktreePath, 'archivo', 'index.html'),
     join(worktreePath, 'medicina-critica', 'index.html'),
     join(worktreePath, 'medicina-interna', 'index.html'),
   ].filter(existsSync).map((file) => readFileSync(file, 'utf8')).join('\n');

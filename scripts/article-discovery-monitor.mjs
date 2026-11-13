@@ -376,6 +376,7 @@ export async function runArticleDiscoveryMonitor({ env = process.env, logger = c
   const previousState = existsSync(stateFile) ? JSON.parse(readFileSync(stateFile, 'utf8')) : null;
   const navigationFiles = [
     '_includes/index-source.html',
+    'archivo/index.html',
     'medicina-critica/index.html',
     'medicina-interna/index.html',
     ...Object.values(clusterManifest).map((entry) => join(entry.path.replace(/^\//, ''), 'index.html')),

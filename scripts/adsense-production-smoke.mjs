@@ -106,6 +106,7 @@ assert(prague && manifest[String(prague.id)]?.path, 'Falta el control editorial 
 
 const paths = [
   '/',
+  '/archivo/',
   entry.path,
   '/medicina-critica/',
   '/medicina-interna/',

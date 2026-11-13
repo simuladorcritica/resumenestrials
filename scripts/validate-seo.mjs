@@ -1,10 +1,12 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { pastEditions } from './editions.mjs';
 
 const ROOT = process.cwd();
 const BASE = 'https://resumenestrials.com';
 const manifest = JSON.parse(readFileSync(join(ROOT, 'seo-manifest.json'), 'utf8'));
 const clusters = JSON.parse(readFileSync(join(ROOT, 'seo-cluster-manifest.json'), 'utf8'));
+const past = pastEditions(JSON.parse(readFileSync(join(ROOT, 'resumenes.json'), 'utf8')));
 
 function value(source, pattern, label, file) {
   const matches = [...source.matchAll(pattern)];
@@ -35,6 +37,8 @@ function validatePage(file, expectedCanonical, expectedImages = null) {
 }
 
 validatePage('_includes/index-source.html', `${BASE}/`);
+validatePage('archivo/index.html', `${BASE}/archivo/`);
+for (const edition of past) validatePage(edition.file, `${BASE}${edition.route}`);
 validatePage('medicina-critica/index.html', `${BASE}/medicina-critica/`);
 validatePage('medicina-interna/index.html', `${BASE}/medicina-interna/`);
 validatePage('metodologia/index.html', `${BASE}/metodologia/`);
@@ -49,4 +53,4 @@ for (const entry of Object.values(manifest)) {
   validatePage(`${entry.path.slice(1)}index.html`, entry.url, entry.images || []);
 }
 
-console.log(`SEO PASS · canonical + Open Graph coherentes en ${Object.keys(manifest).length} trials, ${Object.keys(clusters).length} clusters y 7 hubs`);
+console.log(`SEO PASS · canonical + Open Graph coherentes en ${Object.keys(manifest).length} trials, ${Object.keys(clusters).length} clusters, ${past.length} ediciones anteriores y 8 hubs`);
