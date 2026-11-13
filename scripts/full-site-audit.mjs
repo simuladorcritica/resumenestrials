@@ -86,6 +86,10 @@ function staticAudit(){
     if(!entry?.path)fail(`trial ${r.id}`,'sin ruta canónica en seo-manifest');
     else if(!existsSync(join(ROOT,entry.path.replace(/^\//,''),'index.html')))fail(`trial ${r.id}`,`ruta canónica no existe: ${entry.path}`);
   }
+  // Mapa de evidencia: un punto por resumen en el HTML y su módulo de página cargado como módulo versionado.
+  const mapa=read('mapa/index.html');
+  if(!/<script\b[^>]*type=["']module["'][^>]*src=["']\/map-page\.js\?v=[0-9a-f]{12}["'][^>]*>/.test(mapa))fail('mapa','no carga el módulo del mapa');
+  if((mapa.match(/<i data-id="\d+"/g)||[]).length!==data.length)fail('mapa',`no dibuja un punto por cada uno de los ${data.length} resúmenes`);
 }
 
 

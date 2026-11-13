@@ -12,6 +12,7 @@ Material educativo para profesionales de la salud. La referencia final es siempr
 - [Medicina Crítica](https://resumenestrials.com/medicina-critica/): índice de resúmenes de Medicina Crítica.
 - [Medicina Interna](https://resumenestrials.com/medicina-interna/): índice de resúmenes de Medicina Interna.
 - [Archivo](https://resumenestrials.com/archivo/): todos los resúmenes, con buscador y filtros.
+- [Mapa de evidencia](https://resumenestrials.com/mapa/): todos los resúmenes por año del artículo y por tema, subespecialidad o revista.
 
 ## Ediciones semanales
 

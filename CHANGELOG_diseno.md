@@ -1,3 +1,16 @@
+## 2026-11-13 · Mapa de evidencia
+
+- **Página nueva, `/mapa/`.** Todo el archivo en una sola vista: cada ensayo resumido es un punto. De izquierda a derecha, el año en que se publicó el artículo (lo anterior a 2010 va junto en «2000–09»). Cada fila es un tema de Medicina Crítica o una subespecialidad de Medicina Interna, con su nombre, su área y cuántos ensayos tiene. Las subespecialidades con menos de cinco ensayos (hoy Cirugía, Oncología, Geriatría, Reumatología y Medicina de Urgencias) comparten la fila «Otras subespecialidades».
+- **Colores.** Los de siempre: óxido para Medicina Crítica y el tono de cada subespecialidad. El ocre sigue reservado a la línea de señal.
+- **Tres controles.** Especialidad (Todas, Medicina Crítica, Medicina Interna), Filas (por tema o por revista: NEJM, JAMA, Critical Care, Intensive Care Med, Lancet y «Otras revistas») y Resaltar, que atenúa los puntos que no coinciden con un fármaco, una enfermedad o el nombre de un ensayo.
+- **Cómo se abre un ensayo.** Se pulsa una casilla (un tema en un año) y debajo del mapa aparecen sus ensayos con el título, la revista, la fecha y el hallazgo principal. Si se pulsa justo sobre un punto, ese ensayo sale primero. Al volver desde un ensayo, el mapa queda como estaba.
+- **En el celular** el mapa se desliza de lado dentro de su recuadro y empieza por los años más recientes; los nombres de las filas se quedan fijos.
+- **Portada.** Debajo de la edición hay una franja «Mapa de evidencia» con una miniatura (un punto por ensayo, apilados por año y coloreados por área) y el botón «Explorar el mapa». No lleva cifras. También aparece en las ediciones anteriores.
+- **Navegación.** «Mapa de evidencia» está en la barra superior (entre Medicina Interna y Archivo), en el menú y en el pie.
+- **Especialidades y subtemas.** El texto que describe cada sección baja al final de la página, debajo del listado, con el rótulo «Sobre esta sección». El texto no cambia. Arriba queda solo el título: se quitó la frase genérica «Resúmenes críticos de ensayos clínicos en español. Elige uno…».
+- Quien suba las páginas generadas con una lista fija de carpetas debe incluir `mapa/`.
+- El contenido clínico no cambia.
+
 ## 2026-11-13 · La portada es la edición de la semana y el archivo se muda a /archivo/
 
 - **Portada.** Al entrar se ve la edición actual: los resúmenes publicados esa semana (de lunes a domingo). Arriba está el ensayo destacado, con su sigla en grande, la pregunta, el hallazgo principal y los botones para leerlo completo o en breve. Al lado, «En esta edición» enlaza los demás ensayos de la semana, separados en Medicina Crítica y Medicina Interna.

@@ -152,7 +152,7 @@ def minutes(value):return max(1,round(len(re.findall(r"\w+",plain(value)))/230))
 def readtime(r):
  full=minutes(r.get("cuerpo"));brief=minutes(r.get("corto")) if r.get("corto") else 0
  return f'{icon("clock")}<span>Completo {full} min</span>'+(f'<span>Breve {brief} min</span>' if brief else '')
-NAV=[("/","Edición actual"),("/medicina-critica/","Medicina Crítica"),("/medicina-interna/","Medicina Interna"),("/archivo/","Archivo")]
+NAV=[("/","Edición actual"),("/medicina-critica/","Medicina Crítica"),("/medicina-interna/","Medicina Interna"),("/mapa/","Mapa de evidencia"),("/archivo/","Archivo")]
 MEMBER=[("/biblioteca.html","Mi biblioteca"),("/cuenta.html","Cuenta")]
 INFO=[("/metodologia/","Metodología"),("/correcciones/","Correcciones"),("/equipo-editorial/","Editorial"),("/privacidad/","Privacidad"),("/terminos/","Términos")]
 SOCIAL=[("https://t.me/ResumenesTrials","Telegram"),("https://x.com/resumenestrials","X · @resumenestrials")]
@@ -239,22 +239,22 @@ def by_date(items):
   m=re.fullmatch(r"(\d{4})-(\d{2})-(\d{2})",str(r.get("fecha") or "").strip())
   return (0,-int(m[1]+m[2]+m[3])) if m else (1,0)
  return sorted(items,key=key)
-# Texto introductorio de cada especialidad y subtema (fuente editorial: templates/textos-temas.json).
+# Texto de cada especialidad y subtema (fuente editorial: templates/textos-temas.json). Va al final de la página,
+# debajo del listado y bajo el rótulo «Sobre esta sección»: quien llega busca primero los ensayos.
 def topic_intro(scope):
  texts=json.loads((ROOT/"templates/textos-temas.json").read_text(encoding="utf-8"))
  text=texts.get(str(scope).strip("/"))
- return f'<p class="ev-topic-intro">{esc(text)}</p>' if text else ''
+ return f'<section class="ev-about" aria-labelledby="ev-about-h"><h2 id="ev-about-h" class="ev-eyebrow ev-ed-label">Sobre esta sección</h2><p class="ev-topic-intro">{esc(text)}</p></section>' if text else ''
 def archive(items,manifest,title="Archivo de evidencia",scope=""):
  import generar_seo as base
  from collections import Counter
  crit=sum(1 for r in items if "Medicina Crítica" in base.categorias(r));inter=sum(1 for r in items if "Medicina Interna" in base.categorias(r))
  if not scope:
-  hero=('<section class="ev-hero ev-hero-compact"><div class="ev-hero-copy"><nav class="ev-breadcrumb" aria-label="Ruta"><a href="/">'+icon("arrow-left")+'Edición actual</a></nav><p class="ev-eyebrow">Todos los resúmenes</p>'
+  hero=('<section class="ev-hero"><div class="ev-hero-copy"><nav class="ev-breadcrumb" aria-label="Ruta"><a href="/">'+icon("arrow-left")+'Edición actual</a></nav><p class="ev-eyebrow">Todos los resúmenes</p>'
    '<h1>Archivo</h1></div></section>')
  else:
   kind="Especialidad" if scope in ("medicina-critica","medicina-interna") else "Subtema"
-  hero=(f'<section class="ev-hero ev-hero-compact"><div class="ev-hero-copy"><nav class="ev-breadcrumb" aria-label="Ruta"><a href="/">{icon("arrow-left")}Inicio</a></nav><p class="ev-eyebrow">{kind}</p><h1>{esc(title)}</h1>'
-   f'<p class="ev-lead ev-intro">Resúmenes críticos de ensayos clínicos en español. Elige uno para leerlo completo o en versión breve y descargarlo en PDF.</p>'+topic_intro(scope)+'</div></section>')
+  hero=f'<section class="ev-hero"><div class="ev-hero-copy"><nav class="ev-breadcrumb" aria-label="Ruta"><a href="/">{icon("arrow-left")}Inicio</a></nav><p class="ev-eyebrow">{kind}</p><h1>{esc(title)}</h1></div></section>'
  segment=''
  if not scope:
   segment=('<div class="ev-segment" role="radiogroup" aria-label="Especialidad">'
@@ -271,7 +271,7 @@ def archive(items,manifest,title="Archivo de evidencia",scope=""):
   +segment+quick+'<div class="ev-archive-bar"><button type="button" class="ev-btn ev-filter-toggle" data-ev-filters aria-expanded="false" aria-controls="ev-filters">'+icon("filter")+'<span>Filtros</span><b class="ev-badge" data-ev-filter-count hidden></b></button><div class="ev-chips" id="ev-chips" role="group" aria-label="Filtros activos"></div><button type="button" class="ev-btn ev-view-toggle" id="ev-view" aria-pressed="false" aria-label="Vista compacta">'+icon("list")+'<span>Vista compacta</span></button></div>'
   +filters+'<ul class="ev-list" id="ev-list">'+''.join(card(r,manifest) for r in by_date(items))+'</ul>'
   '<div id="ev-empty" class="ev-empty" hidden><p class="ev-empty-title">No encontramos coincidencias</p><p>Prueba con otra palabra, por ejemplo «sepsis», el nombre corto del estudio o el año.</p><button type="button" class="ev-btn ev-btn-primary" data-ev-reset>Ver todos los resúmenes</button></div>'
-  '<button id="ev-more" type="button" class="ev-btn ev-more" hidden>Mostrar más</button></section>')
+  '<button id="ev-more" type="button" class="ev-btn ev-more" hidden>Mostrar más</button></section>'+(topic_intro(scope) if scope else ''))
 # ---------- Ediciones semanales y portada ----------
 SUB_TONE={"Cardiología":"cardio","Endocrinología":"endo","Neurología":"neuro","Nefrología":"nefro","Neumología":"neumo","Infectología":"infecto","Enfermedades Infecciosas":"infecto","VIH":"infecto","Gastroenterología":"gastro","Oncología":"onco","Hematología":"onco"}
 def editions(items):
@@ -351,7 +351,7 @@ def edition_toc(rest,manifest,total):
  count="1 resumen" if total==1 else f"{total} resúmenes"
  return f'<aside class="ev-ed-toc" aria-labelledby="ev-ed-toc-h"><div class="ev-ed-toc-head"><h2 id="ev-ed-toc-h">En esta edición</h2><p class="ev-count">{count}</p></div>'+shown+details+'</aside>'
 def cover(items,manifest,monday=None):
- """Portada de una edición: navegador, ensayo destacado y sumario. Sin `monday`, la edición actual (ruta /)."""
+ """Portada de una edición: navegador, ensayo destacado, sumario y franja del mapa. Sin `monday`, la edición actual (ruta /)."""
  eds=editions(items)
  if not eds:return '<div class="ev-doc"><p class="ev-eyebrow">Edición actual</p><h2>Todavía no hay una edición semanal</h2><div class="ev-actions-row"><a class="ev-btn ev-btn-primary" href="/archivo/">Ir al archivo</a></div></div>'
  home=monday is None;index=len(eds)-1 if home else [m for m,_ in eds].index(monday);monday,rows=eds[index]
@@ -359,7 +359,95 @@ def cover(items,manifest,monday=None):
   else f'<div class="ev-ed-top"><h1 class="ev-eyebrow ev-ed-label">Edición anterior · {edition_range(monday)}</h1><a href="/">Volver a la edición actual</a></div>')
  return (f'<section class="ev-ed" data-ev-edition="{monday}">'+edition_nav(eds,index)+'<div class="ev-ed-grid">'+edition_lead(rows[0],manifest,label)+edition_toc(rows[1:],manifest,len(rows))+'</div>'
   # Ancla de «Para ti» (recommendations.js): solo en la portada, debajo de la edición.
-  +('<div data-ev-recs></div>' if home else '')+'</section>')
+  +('<div data-ev-recs></div>' if home else '')+'</section>'+map_band(items))
+# ---------- Mapa de evidencia ----------
+# Un punto por resumen. Columnas: el año del artículo (todo lo anterior a 2010 en una sola). Filas: los ensayos de
+# Medicina Crítica por subtema (seo-cluster-manifest.json; si un ensayo está en varios, el de menos ensayos; en ninguno,
+# «Otros temas») y los de Medicina Interna por subespecialidad inferida, la misma etiqueta que muestra el archivo
+# (campo _sub de datos/indice.json, que escribe scripts/build-site-runtime.mjs con specialty-classification.js).
+# scripts/evidence-map.mjs repite la regla para las pruebas.
+MAP_JOURNALS=("NEJM","JAMA","Critical Care","Intensive Care Med","Lancet")
+MAP_MIN_ROW=5  # Una subespecialidad con menos ensayos comparte la fila «Otras subespecialidades».
+MAP_TONES=(("critica","Medicina Crítica"),("cardio","Cardiología"),("endo","Endocrinología"),("neuro","Neurología"),("nefro","Nefrología"),("neumo","Neumología"),("infecto","Infectología"),("gastro","Gastroenterología"),("onco","Oncología y hematología"),("interna","Medicina Interna"),("otra","Otras subespecialidades"))
+def map_bins(items):
+ """Columnas: «2000–09» para todo lo anterior a 2010 y después una por año hasta el último con datos."""
+ return ["2000–09"]+[str(y) for y in range(2010,max((int(r["anio"]) for r in items),default=2009)+1)]
+def map_bin(r):return max(0,int(r["anio"])-2009)
+def map_count(n):return "1 ensayo" if n==1 else f"{n} ensayos"
+def map_subs(items):
+ """Subespecialidad inferida por id. El índice ligero es el primer paso de la generación; si no está al día, se detiene."""
+ p=ROOT/"datos/indice.json"
+ subs={trial_id(r["id"]):str(r.get("_sub") or "") for r in json.loads(p.read_text(encoding="utf-8"))} if p.exists() else {}
+ missing=[trial_id(r["id"]) for r in items if trial_id(r["id"]) not in subs]
+ if missing:raise ValueError("datos/indice.json no incluye los resúmenes "+", ".join(missing)+": ejecuta antes node scripts/build-site-runtime.mjs")
+ return subs
+def map_tone(r,subs):
+ """Color del punto: Medicina Crítica, el tono de la subespecialidad o, sin subespecialidad, Medicina Interna."""
+ if area_of(r)=="Medicina Crítica":return "critica"
+ sub=subs[trial_id(r["id"])]
+ return SUB_TONE.get(sub,"otra") if sub else "interna"
+def map_rows(items,clusters,subs):
+ """Filas por tema: [(clave, nombre, área, ensayos)]. Medicina Crítica primero; en cada área, de más a menos ensayos y la fila «Otros…» al final."""
+ from collections import Counter
+ import unicodedata
+ topics=[(slug,c["name"],set(map(str,c["trial_ids"]))) for slug,c in clusters.items() if c.get("category")=="Medicina Crítica"]
+ critical=lambda r:area_of(r)=="Medicina Crítica"
+ count=Counter(subs[trial_id(r["id"])] for r in items if not critical(r));rows={}
+ for r in items:
+  id=trial_id(r["id"])
+  if critical(r):
+   mine=sorted((len(ids),n) for n,(_,_,ids) in enumerate(topics) if id in ids)
+   key,name=("c:"+topics[mine[0][1]][0],topics[mine[0][1]][1]) if mine else ("c:otros","Otros temas")
+  else:
+   sub=subs[id]
+   key,name=("i:"+sub,sub) if sub and count[sub]>=MAP_MIN_ROW else ("i:otras","Otras subespecialidades")
+  rows.setdefault(key,(name,[]))[1].append(r)
+ fold=lambda text:re.sub("[̀-ͯ]","",unicodedata.normalize("NFD",text)).lower()
+ return sorted(((k,n,"Medicina Crítica" if k[0]=="c" else "Medicina Interna",rs) for k,(n,rs) in rows.items()),key=lambda x:(x[0][0]!="c",x[0] in ("c:otros","i:otras"),-len(x[3]),fold(x[1])))
+def evidence_map(items,manifest,clusters):
+ """Cuerpo de /mapa/. La vista por tema va completa en el HTML; map-page.js reagrupa, filtra, resalta y abre el panel."""
+ subs=map_subs(items);bins=map_bins(items);rows=map_rows(items,clusters,subs)
+ def order(r):
+  id=trial_id(r["id"])
+  return (str(r["fecha"]).strip() if iso_date(r.get("fecha")) else "",int(id) if id.isdigit() else 0)
+ journal=lambda r:MAP_JOURNALS.index(r["revista"]) if r.get("revista") in MAP_JOURNALS else len(MAP_JOURNALS)
+ # Los puntos son decorativos: el control es la casilla (fila × año), un botón con nombre accesible.
+ def cell(name,b,rs):
+  if not rs:return "<td></td>"
+  return (f'<td><button type="button" class="ev-map-cell" aria-pressed="false" aria-label="{esc(name)}, {bins[b]}: {map_count(len(rs))}">'
+   +"".join(f'<i data-id="{trial_id(r["id"])}" data-sub="{map_tone(r,subs)}" data-j="{journal(r)}"></i>' for r in sorted(rs,key=order))+'</button></td>')
+ body="".join(f'<tr data-ev-row="{esc(key)}"><th scope="row">{esc(name)}<small>{area} · {map_count(len(rs))}</small></th>'
+  +"".join(cell(name,b,[r for r in rs if map_bin(r)==b]) for b in range(len(bins)))+'</tr>' for key,name,area,rs in rows)
+ seg=lambda name,label,options:(f'<div><span class="ev-quick-label" id="ev-map-{name}-l">{label}</span><div class="ev-segment" role="radiogroup" aria-labelledby="ev-map-{name}-l">'
+  +"".join(f'<label><input type="radio" name="ev-map-{name}" value="{v}"{"" if i else " checked"}><span>{l}</span></label>' for i,(v,l) in enumerate(options))+'</div></div>')
+ # «Resaltar» es un campo de texto, no de búsqueda: el único buscador de la página sigue siendo el de la cabecera.
+ controls=('<div class="ev-map-ctl">'+seg("area","Especialidad",[("","Todas"),("c","Medicina Crítica"),("i","Medicina Interna")])+seg("rows","Filas",[("tema","Por tema"),("revista","Por revista")])
+  +'<div><label class="ev-quick-label" for="ev-map-hl">Resaltar</label><input id="ev-map-hl" type="text" placeholder="Fármaco, enfermedad o ensayo" autocomplete="off" autocapitalize="none" spellcheck="false"></div></div>'
+  '<p id="ev-map-status" class="ev-status" role="status"></p>')
+ present={map_tone(r,subs) for r in items}
+ legend='<ul class="ev-map-legend" aria-label="Colores">'+"".join(f'<li><i data-sub="{t}"></i>{l}</li>' for t,l in MAP_TONES if t in present)+'</ul>'
+ paths=json.dumps({trial_id(r["id"]):manifest[trial_id(r["id"])]["path"] for r in items},ensure_ascii=False,separators=(",",":")).replace("</","<\\/")
+ hero=('<section class="ev-hero"><div class="ev-hero-copy"><nav class="ev-breadcrumb" aria-label="Ruta"><a href="/">'+icon("arrow-left")+'Edición actual</a></nav><p class="ev-eyebrow">Todo el archivo</p><h1>Mapa de evidencia</h1>'
+  '<p class="ev-lead ev-intro">Cada punto es un ensayo resumido. Las columnas son el año del artículo; las filas, el tema, la subespecialidad o la revista; el color, la especialidad. Elige una casilla para ver sus ensayos.</p></div></section>')
+ return (hero+f'<section class="ev-map" id="ev-mapa" data-ev-map data-ev-journals="{esc(json.dumps([*MAP_JOURNALS,"Otras revistas"],ensure_ascii=False))}">'+controls
+  +'<div class="ev-map-scroll"><table><caption class="ev-sr">Ensayos resumidos por fila y año del artículo</caption><thead><tr><td></td>'+"".join(f'<th scope="col">{b}</th>' for b in bins)+'</tr></thead><tbody>'+body+'</tbody></table></div>'
+  +legend+'<div id="ev-map-panel" class="ev-map-panel" hidden></div><script type="application/json" id="ev-map-paths">'+paths+'</script></section>')
+def map_band(items):
+ """Franja de la portada: miniatura estática del mapa (un punto por resumen, apilados por año y coloreados por área)."""
+ bins=map_bins(items);columns=[[] for _ in bins]
+ for r in items:columns[map_bin(r)].append(area_of(r)=="Medicina Crítica")
+ mini="".join('<span>'+''.join('<i data-sub="critica"></i>' if critical else '<i></i>' for critical in sorted(column,reverse=True))+f'</span><small>{label}</small>' for label,column in zip(bins,columns))
+ return ('<section class="ev-band" aria-labelledby="ev-band-h"><div class="ev-archive-head"><h2 id="ev-band-h">Mapa de evidencia</h2><p class="ev-count">Cada punto es un ensayo resumido, colocado en el año en que se publicó el artículo.</p></div>'
+  '<a class="ev-mini" href="/mapa/" aria-label="Abrir el mapa de evidencia">'+mini+'</a>'
+  '<ul class="ev-map-legend"><li><i data-sub="critica"></i>Medicina Crítica</li><li><i data-sub="interna"></i>Medicina Interna</li></ul>'
+  '<div class="ev-actions-row"><a class="ev-btn" href="/mapa/">Explorar el mapa</a></div></section>')
+def map_script():
+ """El módulo de la página lleva en su URL la huella de su contenido: un cambio en map-page.js renueva la caché."""
+ import hashlib
+ return '<script type="module" src="/map-page.js?v='+hashlib.sha256((ROOT/"map-page.js").read_bytes().replace(b"\r\n",b"\n")).hexdigest()[:12]+'"></script>'
+def map_page(items,manifest,clusters):
+ head=simple_head("Mapa de evidencia | Resúmenes Trials","Mapa de evidencia de Resúmenes Trials: todos los ensayos clínicos resumidos, un punto por ensayo, ordenados por año de publicación y agrupados por tema de Medicina Crítica, subespecialidad de Medicina Interna o revista.","/mapa/",collection_schema("Mapa de evidencia","/mapa/"))
+ return document(head,evidence_map(items,manifest,clusters),"/mapa/",scripts=map_script())
 def reading(r,manifest,brief=False,legacy=False):
  id=trial_id(r["id"]);body=r["corto" if brief else "cuerpo"];body=re.sub(r"<(?=\d)","&lt;",body)
  route=manifest[id]["path"];full=f"/resumen.html?id={id}" if legacy else route;short=f"/resumen.html?id={id}&amp;v=corto";area=area_of(r)
@@ -458,6 +546,7 @@ def render_all():
   write(path,document(source,reading(r,manifest),manifest[trial_id(r["id"])]["path"],"reader"))
  home=ROOT/"_includes/index-source.html";write(home,document(home.read_text(encoding="utf-8"),cover(items,manifest),"/","edition"))
  write(ROOT/"archivo/index.html",archive_page(items,manifest))
+ write(ROOT/"mapa/index.html",map_page(items,manifest,clusters))
  past=[monday for monday,_ in editions(items)[:-1]]
  for monday in past:write(ROOT/"ediciones"/monday/"index.html",edition_page(items,manifest,monday))
  edir=ROOT/"ediciones"
@@ -520,5 +609,5 @@ def render_all():
  write(ROOT/"404.html",document('<head><title>Página no encontrada | Resúmenes Trials</title><meta name="robots" content="noindex,follow"></head>','<div class="ev-doc ev-notfound"><p class="ev-eyebrow">Error 404</p><h1>Página no encontrada</h1><p class="ev-lead">Puedes encontrar el ensayo con el buscador de arriba, en el archivo o en las áreas clínicas.</p><div class="ev-actions-row"><a class="ev-btn ev-btn-primary" href="/archivo/">Ir al archivo</a><a class="ev-btn" href="/medicina-critica/">Medicina Crítica</a><a class="ev-btn" href="/medicina-interna/">Medicina Interna</a></div></div>',"/404.html"))
  # Static index also runs without a local Jekyll process; SEO is identical to the include.
  write(ROOT/"index.html",home.read_text(encoding="utf-8"))
- print(f"DESIGN TEMPLATES PASS: {len(items)} trials, {len(clusters)} subtemas, portada, {len(past)} ediciones anteriores, archivo, cuenta, lector y documentos")
+ print(f"DESIGN TEMPLATES PASS: {len(items)} trials, {len(clusters)} subtemas, portada, {len(past)} ediciones anteriores, archivo, mapa, cuenta, lector y documentos")
 

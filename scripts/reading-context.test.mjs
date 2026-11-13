@@ -6,6 +6,7 @@ test('does not reuse context for an unrelated trial',()=>assert.equal(context({s
 test('does not follow an external return URL',()=>assert.equal(context({saved:{origin:'https://example.org/'}}).api.destination(),'/'));
 test('does not restore expired context',()=>assert.equal(context({saved:{at:Date.now()-13*60*60*1000}}).api.destination(),'/'));
 test('the archive and a past edition are valid return origins',()=>{for(const origin of ['/archivo/?q=SOHO&vista=lista','/ediciones/2026-11-02/'])assert.equal(context({path:'/trials/soho/',search:'',saved:{origin}}).api.destination(),origin)});
+test('the evidence map is a valid return origin and keeps its open cell',()=>{const origin='/mapa/?celda=i%3ACardiolog%C3%ADa%7C17';assert.equal(context({path:'/trials/soho/',search:'',saved:{origin}}).api.destination(),origin)});
 test('an unknown path is not a return origin',()=>assert.equal(context({path:'/trials/soho/',search:'',saved:{origin:'/metodologia/'}}).api.destination(),'/'));
 test('canonical path preserves specialty return',()=>assert.equal(context({path:'/trials/soho/',search:'',saved:{origin:'/medicina-critica/'}}).api.destination(),'/medicina-critica/'));
 test('return request is recorded only for the matching reader',()=>{const good=context();good.api.requestReturn();assert.equal(JSON.parse(good.values.get('rt-reading-return-v1')).origin,'/biblioteca.html');const other=context({search:'?id=2'});other.api.requestReturn();assert.equal(other.values.has('rt-reading-return-v1'),false)});

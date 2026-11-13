@@ -38,6 +38,7 @@ function validatePage(file, expectedCanonical, expectedImages = null) {
 
 validatePage('_includes/index-source.html', `${BASE}/`);
 validatePage('archivo/index.html', `${BASE}/archivo/`);
+validatePage('mapa/index.html', `${BASE}/mapa/`);
 for (const edition of past) validatePage(edition.file, `${BASE}${edition.route}`);
 validatePage('medicina-critica/index.html', `${BASE}/medicina-critica/`);
 validatePage('medicina-interna/index.html', `${BASE}/medicina-interna/`);
@@ -54,4 +55,4 @@ for (const entry of Object.values(manifest)) {
   validatePage(`${entry.path.slice(1)}index.html`, entry.url, entry.images || []);
 }
 
-console.log(`SEO PASS · canonical + Open Graph coherentes en ${Object.keys(manifest).length} trials, ${Object.keys(clusters).length} clusters, ${past.length} ediciones anteriores y 8 hubs`);
+console.log(`SEO PASS · canonical + Open Graph coherentes en ${Object.keys(manifest).length} trials, ${Object.keys(clusters).length} clusters, ${past.length} ediciones anteriores y 9 hubs`);

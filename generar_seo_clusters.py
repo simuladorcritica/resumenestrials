@@ -359,6 +359,7 @@ def update_sitemap(items: list[dict], clusters: list[dict], active: dict[str, li
     urls = [
         f"{base.BASE_URL}/",
         f"{base.BASE_URL}/archivo/",
+        f"{base.BASE_URL}/mapa/",
         *edition_urls,
         f"{base.BASE_URL}/metodologia/",
         f"{base.BASE_URL}/correcciones/",

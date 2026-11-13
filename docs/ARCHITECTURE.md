@@ -7,6 +7,7 @@
 - `_includes/index-source.html`: portada prerenderizada (la edición actual) usada por Jekyll; `index.html` es su copia exacta. Es también la fuente de su propio `<head>` (canonical, JSON-LD `WebSite`/`Organization`, Open Graph): cada generación lo conserva.
 - `archivo/index.html`: archivo completo con todos los resúmenes prerenderizados, buscador y filtros (antes vivía en la portada).
 - `ediciones/<lunes ISO>/index.html`: una página por cada edición semanal anterior. La edición actual no tiene página propia: es la portada.
+- `mapa/index.html`: mapa de evidencia, con un punto por resumen ya en el HTML (vista por tema) y las rutas de los ensayos incrustadas.
 - `trials/*/index.html`: páginas canónicas indexables.
 - `resumen/*.html`: compatibilidad social/legada, `noindex` y canonical al trial.
 - `seo-manifest.json`, `seo-cluster-manifest.json`, `sitemap.xml`: salidas SEO.
@@ -14,6 +15,7 @@
 - `site_templates.py`, `templates/account/`, `templates/documents/`: presentación común y fuentes de formularios/documentos. `templates/` se excluye de Jekyll.
 - `ui/tokens.css` y `ui/site.css`: tokens y reglas; ninguna inyección de estilos en ejecución.
 - `ui/core.js`, `ui/archive.js`, `ui/reader.js`, `ui/forms.js`: módulos agrupados junto con `specialty-classification.js` y `reading-context.js`.
+- `map-page.js`: módulo propio de `/mapa/` (reagrupar, filtrar, resaltar y abrir el panel de una casilla). No forma parte del runtime; la página lo carga con la huella de su contenido en la URL, así que cambiarlo exige regenerar.
 - `ui/pdf.js`: generador único A4/celular, completo/breve, con la identidad editorial (monograma y línea de señal en la página 1, retícula marginal en A4, fuentes OFL incrustadas desde `fonts/pdf/` bajo demanda); jsPDF 4.2.1 con SRI.
 - `fonts/pdf/*.ttf` y `tools/fonts/*.ttf`: subconjuntos OFL (Newsreader, Literata e IBM Plex renombrada RTSans) para el PDF y las tarjetas sociales; se regeneran con `tools/fonts/construir_fuentes_pdf.py`.
 - `site-runtime.js` y `site-runtime.css`: bundles generados; sus fuentes permanecen separadas para mantenimiento.
@@ -21,21 +23,25 @@
 ## Generación reproducible
 
 ```text
+node scripts/build-site-runtime.mjs
 python generar_seo.py
 python generar_seo_semantico.py
 python generar_seo_avanzado.py
 python restaurar_arquitectura.py
 python actualizar_agregar_editorial.py
 python generar_paginas_sociales.py
-node scripts/build-site-runtime.mjs
 python aplicar_experiencia_futura.py
 ```
 
+El runtime va primero (como en `CLAUDE.md` y en los workflows): además de los bundles escribe el índice ligero `datos/indice.json`, del que el mapa de evidencia toma la subespecialidad inferida de cada resumen.
+
 Los archivos generados se versionan para que GitHub Pages pueda servirlos sin una plataforma de construcción adicional. Los cambios manuales en salidas generadas serán sobrescritos.
 
-Una edición agrupa los resúmenes cuya `fecha_publicacion_resumen` cae en la misma semana ISO (lunes a domingo); `site_templates.editions()` es la única regla y `scripts/editions.mjs` la repite para las pruebas. La edición actual es la última semana con datos, no la fecha del día: la generación no depende de cuándo se ejecuta. Cuando empieza una semana nueva, la anterior recibe su página en `ediciones/` y entra en el sitemap y en `llms.txt`. La portada se escribe dos veces con el mismo resultado (`generar_seo_avanzado.update_home()` y `site_templates.render_all()`); el archivo y las ediciones los escribe `render_all()`. Un resumen sin fecha de publicación válida no entra en ninguna edición y sigue en el archivo.
+Una edición agrupa los resúmenes cuya `fecha_publicacion_resumen` cae en la misma semana ISO (lunes a domingo); `site_templates.editions()` es la única regla y `scripts/editions.mjs` la repite para las pruebas. La edición actual es la última semana con datos, no la fecha del día: la generación no depende de cuándo se ejecuta. Cuando empieza una semana nueva, la anterior recibe su página en `ediciones/` y entra en el sitemap y en `llms.txt`. La portada se escribe dos veces con el mismo resultado (`generar_seo_avanzado.update_home()` y `site_templates.render_all()`); el archivo, el mapa y las ediciones los escribe `render_all()`. Un resumen sin fecha de publicación válida no entra en ninguna edición y sigue en el archivo.
 
-Quien versiona las salidas con una lista fija de rutas debe incluir `archivo/` y `ediciones/`: el workflow `actualizar-sitemap` ya las añade.
+El mapa de evidencia (`site_templates.evidence_map()`) coloca cada resumen en una columna (año del artículo) y una fila: los de Medicina Crítica en su subtema de `seo-cluster-manifest.json` y los de Medicina Interna en su subespecialidad inferida. Esa subespecialidad es la del archivo: no se recalcula en Python, se lee del campo `_sub` de `datos/indice.json`, que escribe `scripts/build-site-runtime.mjs` con `specialty-classification.js`. Si el índice no incluye algún resumen, la generación se detiene y pide ejecutar ese paso; `validate-data.mjs` ya exige que el índice esté al día. `scripts/evidence-map.mjs` repite la regla con el clasificador para las pruebas. La franja de la portada solo necesita el área y el año de cada resumen.
+
+Quien versiona las salidas con una lista fija de rutas debe incluir `archivo/`, `mapa/` y `ediciones/`: el workflow `actualizar-sitemap` ya las añade.
 
 La secuencia debe ser idempotente: dos ejecuciones consecutivas tienen que producir las mismas salidas. `sitemap.xml` solo publica `lastmod` cuando existe una fecha editorial explícita (`fecha_revision`, `actualizado` o `fecha_publicacion_resumen`); la fecha de publicación del estudio no representa una modificación del sitio.
 
