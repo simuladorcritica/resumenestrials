@@ -8571,5 +8571,31 @@
       "population": "Se incluyó a adultos de 18 a 85 años con miocardiopatía hipertrófica (MCH) no obstructiva sintomática: pared del ventrículo izquierdo de al menos 15 mm, o 13 mm con mutación causal o historia familiar; gradiente del tracto de salida menor de 30 mm Hg en reposo y de 50 mm Hg con Valsalva; fracción de eyección del ventrículo izquierdo (FEVI) del 60% o más; clase II o III de la New York Heart Association (NYHA), escala de I a IV…"
     },
     "datePublished": "2026-11-13"
+  },
+  "316": {
+    "slug": "dapt-mvd-doble-antiagregacion-plaquetaria-prolongada-enfermedad-arterial-coronaria-multivaso",
+    "path": "/trials/dapt-mvd-doble-antiagregacion-plaquetaria-prolongada-enfermedad-arterial-coronaria-multivaso/",
+    "url": "https://resumenestrials.com/trials/dapt-mvd-doble-antiagregacion-plaquetaria-prolongada-enfermedad-arterial-coronaria-multivaso/",
+    "title": "DAPT-MVD: doble antiagregación plaquetaria prolongada para la enfermedad arterial coronaria multivaso",
+    "seo_title": "DAPT-MVD trial: doble antiagregación plaquetaria prolongada para la enfermedad arterial coronaria multivaso | Resúmenes Trials",
+    "description": "DAPT-MVD: El compuesto primario de muerte cardiovascular, infarto o ictus no mortales ocurrió en 222 pacientes con doble antiagregación frente a 266 con…",
+    "clusters": [
+      {
+        "name": "Cardiología y prevención cardiovascular",
+        "path": "/medicina-interna/cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-interna/cardiovascular/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/dapt-mvd-doble-antiagregacion-plaquetaria-prolongada-enfermedad-arterial-coronaria-multivaso-16x9.jpg",
+      "https://resumenestrials.com/images/trials/dapt-mvd-doble-antiagregacion-plaquetaria-prolongada-enfermedad-arterial-coronaria-multivaso-4x3.jpg",
+      "https://resumenestrials.com/images/trials/dapt-mvd-doble-antiagregacion-plaquetaria-prolongada-enfermedad-arterial-coronaria-multivaso-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si prolongar 12 meses la doble antiagregación plaquetaria con clopidogrel y aspirina, frente a la aspirina sola, reduce el compuesto de muerte cardiovascular, infarto o ictus no mortales en pacientes con enfermedad coronaria multivaso estables 12 meses después de un stent farmacoactivo.",
+      "answer": "El compuesto primario de muerte cardiovascular, infarto o ictus no mortales ocurrió en 222 pacientes con doble antiagregación frente a 266 con aspirina sola ( 5.8% frente a 6.8% a 36 meses; HR 0.82; IC 95% 0.69 a 0.98; P = 0.03 ).",
+      "population": "La población fueron adultos de 18 a 75 años con enfermedad coronaria multivaso que, 12 meses después de un stent farmacoactivo, seguían estables y sin eventos isquémicos ni hemorrágicos mayores con doble antiagregación plaquetaria (DAPT, por sus siglas en inglés). Todos eran chinos, de 97 centros de China; el 98.1% era de etnia han."
+    },
+    "datePublished": "2026-11-13"
   }
 }
