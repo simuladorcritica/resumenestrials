@@ -27,6 +27,7 @@ Material educativo para profesionales de la salud. La referencia final es siempr
 
 ## Resúmenes de ensayos
 
+- [ATTAIN-OSA: orforglipron para la apnea obstructiva del sueño, resultados de 2 ensayos clínicos aleatorizados](https://resumenestrials.com/trials/attain-osa-orforglipron-apnea-obstructiva-sueno-resultados-2-ensayos-clinicos-aleatorizados/): JAMA, 2026.
 - [EPoS II: intervalos de colonoscopia e incidencia de cáncer colorrectal tras la extirpación de adenomas](https://resumenestrials.com/trials/epos-ii-intervalos-colonoscopia-incidencia-cancer-colorrectal-tras-extirpacion-adenomas/): NEJM, 2026.
 - [SOLARIO: pautas de antibiótico cortas o largas en ortopedia](https://resumenestrials.com/trials/solario-pautas-antibiotico-cortas-largas-ortopedia/): NEJM, 2026.
 - [TRIUMPH-1: retatrutida, un agonista triple de receptores hormonales, para el tratamiento de la obesidad](https://resumenestrials.com/trials/triumph-1-retatrutida-agonista-triple-receptores-hormonales-tratamiento-obesidad/): NEJM, 2026.

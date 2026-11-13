@@ -8519,5 +8519,31 @@
       "population": "La población fueron hombres y mujeres de 40 a 74 años, sin cáncer ni adenomas previos, a quienes se les había extirpado por completo en una colonoscopia de calidad al menos un adenoma de alto riesgo: un adenoma de 10 mm o más, con displasia de alto grado o con componente velloso, o de 3 a 10 adenomas de cualquier tipo. Procedían de 49 centros de endoscopia de ocho países europeos. Raza y etnia: No reportado, porque el ensayo…"
     },
     "datePublished": "2026-11-12"
+  },
+  "314": {
+    "slug": "attain-osa-orforglipron-apnea-obstructiva-sueno-resultados-2-ensayos-clinicos-aleatorizados",
+    "path": "/trials/attain-osa-orforglipron-apnea-obstructiva-sueno-resultados-2-ensayos-clinicos-aleatorizados/",
+    "url": "https://resumenestrials.com/trials/attain-osa-orforglipron-apnea-obstructiva-sueno-resultados-2-ensayos-clinicos-aleatorizados/",
+    "title": "ATTAIN-OSA: orforglipron para la apnea obstructiva del sueño, resultados de 2 ensayos clínicos aleatorizados",
+    "seo_title": "ATTAIN-OSA trial: orforglipron para la apnea obstructiva del sueño, resultados de 2 ensayos clínicos aleatorizados | Resúmenes Trials",
+    "description": "ATTAIN-OSA: En el ensayo 1 (sin presión positiva en la vía aérea), el índice de apnea-hipopnea bajó 17.8 frente a 4.5 eventos/h con orforglipron y placebo…",
+    "clusters": [
+      {
+        "name": "Renal y metabolismo",
+        "path": "/medicina-interna/renal-metabolica/",
+        "url": "https://resumenestrials.com/medicina-interna/renal-metabolica/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/attain-osa-orforglipron-apnea-obstructiva-sueno-resultados-2-ensayos-clinicos-aleatorizados-16x9.jpg",
+      "https://resumenestrials.com/images/trials/attain-osa-orforglipron-apnea-obstructiva-sueno-resultados-2-ensayos-clinicos-aleatorizados-4x3.jpg",
+      "https://resumenestrials.com/images/trials/attain-osa-orforglipron-apnea-obstructiva-sueno-resultados-2-ensayos-clinicos-aleatorizados-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Evaluar el efecto del orforglipron oral una vez al día frente a placebo sobre la apnea obstructiva del sueño moderada a grave en adultos con obesidad o sobrepeso, en pacientes sin presión positiva en la vía aérea (ensayo 1) y con ella (ensayo 2).",
+      "answer": "En el ensayo 1 (sin presión positiva en la vía aérea), el índice de apnea-hipopnea bajó 17.8 frente a 4.5 eventos/h con orforglipron y placebo (diferencia −13.2; IC 95%, −17.7 a −8.7; P < .001); en el ensayo 2 (con presión positiva), 17.3 frente a 5.3 eventos/h (diferencia −12.0; IC 95%, −17.1 a −6.9; P < .001), a las 52…",
+      "population": "Se estudió a adultos con apnea obstructiva del sueño (AOS) moderada a grave, es decir, un índice de apnea-hipopnea (IAH) de 15 eventos por hora o más en polisomnografía de lectura central, y un índice de masa corporal (IMC) de 27 o más. El ensayo 1 incluyó a quienes no podían o no querían usar presión positiva en la vía aérea (PAP); el ensayo 2, a usuarios de PAP desde hacía 3 meses o más. Se excluyó, entre otros, la diabetes…"
+    },
+    "datePublished": "2026-11-13"
   }
 }
