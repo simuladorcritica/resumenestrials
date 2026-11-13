@@ -74,7 +74,8 @@ jobs:
       - name: Configurar Supabase CLI
         uses: supabase/setup-cli@v3
         with:
-          version: latest
+          # Versión fija: con `latest` la CLI saltó sola a la v3, que cambia el modo de confirmar despliegues.
+          version: v2.stable
 
       - name: Validar Edge Function
         uses: denoland/setup-deno@v2
@@ -112,6 +113,7 @@ jobs:
         if: github.event_name == 'workflow_dispatch' && inputs.deploy_backend
         env:
           SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+          SUPABASE_YES: "1"
         run: |
           set -euo pipefail
           supabase functions deploy login-username \

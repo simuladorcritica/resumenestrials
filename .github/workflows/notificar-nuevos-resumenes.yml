@@ -1,34 +1,52 @@
 name: Avisar nuevos resúmenes por correo
 
+# Un solo correo al día, a las 12:30 (hora del centro de México = 18:30 UTC), con todos los resúmenes
+# nuevos desde el último aviso. Decisión del editor (2026-11-12): los resúmenes se publican de madrugada
+# y el aviso sale a mediodía. El rango va del commit de main del último aviso exitoso al main de esta
+# corrida, así no se repite ni se pierde ningún resumen aunque una corrida falle o se retrase.
 on:
-  push:
-    branches: [main]
-    paths:
-      - resumenes.json
+  schedule:
+    - cron: '30 18 * * *'
+  workflow_dispatch: {}
 
 permissions:
   contents: read
   actions: read
 
 concurrency:
-  group: newsletter-${{ github.sha }}
+  group: newsletter-diario
   cancel-in-progress: false
 
 jobs:
   notificar:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-24.04
-    timeout-minutes: 5
+    timeout-minutes: 10
     steps:
       - name: Invocar servicio de avisos
         env:
           ENDPOINT: https://hnsmozvatgyrascxbhys.supabase.co/functions/v1/notify-new-summaries
+          REPO: ${{ github.repository }}
           RUN_ID: ${{ github.run_id }}
           RUN_ATTEMPT: ${{ github.run_attempt }}
-          BEFORE_SHA: ${{ github.event.before }}
           HEAD_SHA: ${{ github.sha }}
+          GH_TOKEN: ${{ github.token }}
           CALLBACK_GITHUB_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
+          # Commit de main del último aviso exitoso (programado, manual o, antes del 2026-11-13, por push).
+          BEFORE_SHA=$(gh api "repos/$REPO/actions/workflows/notificar-nuevos-resumenes.yml/runs?status=success&branch=main&per_page=30" \
+            --jq "[.workflow_runs[] | select(.id != $RUN_ID)][0].head_sha // empty")
+          if [ -z "$BEFORE_SHA" ]; then
+            echo "No encontré el aviso anterior; no envío nada para no repetir correos." >&2
+            exit 1
+          fi
+          if [ "$BEFORE_SHA" = "$HEAD_SHA" ]; then
+            echo "main no cambió desde el último aviso: no hay nada que enviar."
+            exit 0
+          fi
+          echo "Rango del aviso: $BEFORE_SHA...$HEAD_SHA"
+
           payload=$(jq -nc \
             --argjson run_id "$RUN_ID" \
             --argjson run_attempt "$RUN_ATTEMPT" \

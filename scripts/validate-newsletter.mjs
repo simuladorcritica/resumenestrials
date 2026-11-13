@@ -54,12 +54,13 @@ for (const token of [
 if (!failed) pass('Edge Function: consentimiento, correo confirmado, autenticación de callback, rango completo del push, idempotencia y baja en un clic verificados por contrato.');
 
 for (const token of [
-  'branches: [main]',
-  '- resumenes.json',
+  "cron: '30 18 * * *'",
+  'workflow_dispatch',
+  "github.ref == 'refs/heads/main'",
+  'status=success&branch=main',
   'actions: read',
   'github.run_id',
   'github.run_attempt',
-  'github.event.before',
   'github.sha',
   'github.token',
   'X-GitHub-Token',
@@ -68,14 +69,15 @@ for (const token of [
 ]) {
   if (!workflow.includes(token)) fail(`Workflow de avisos incompleto: falta ${token}`);
 }
-if (!failed) pass('Workflow limitado a altas publicadas en resumenes.json, autenticado con token efímero de GitHub Actions y con reintentos.');
+if (!failed) pass('Workflow diario (12:30, centro de México) con el rango desde el último aviso exitoso, autenticado con token efímero de GitHub Actions y con reintentos.');
 
 for (const token of [
   'SUPABASE_ACCESS_TOKEN',
   'RESEND_API_KEY',
   'hnsmozvatgyrascxbhys',
   'supabase/setup-cli@v3',
-  'version: latest',
+  'version: v2.stable',
+  'SUPABASE_YES: "1"',
   'supabase secrets set',
   'supabase functions deploy notify-new-summaries',
   '--no-verify-jwt',
@@ -95,13 +97,15 @@ for (const token of [
 }
 // El artefacto de estado debe subirse con upload-artifact v7 fijado a una versión exacta
 // (Dependabot actualiza el parche; la validación no debe exigir uno concreto).
+// `version: latest` rompió el despliegue cuando la CLI pasó sola a la v3 (2026-11-09): no debe volver.
+if (/version:\s*latest/.test(deploy)) fail('Workflow de despliegue: la CLI de Supabase debe ir en una versión fija, no en latest.');
 if (!/actions\/upload-artifact@v7\.\d+\.\d+\b/.test(deploy)) fail('Workflow de despliegue incompleto: falta actions/upload-artifact@v7.x.y fijado');
 if (/git\s+push\s+origin\s+HEAD:main/.test(deploy) || /permissions:\s*[\s\S]*?contents:\s*write/.test(deploy)) {
   fail('El workflow de newsletter no debe escribir directamente en main protegido.');
 } else {
   pass('Workflow de despliegue conserva observabilidad mediante artefacto/resumen y no escribe directamente en main.');
 }
-if (!failed) pass('Despliegue de producción usa CLI oficial actual, configura secretos, publica por API, ejecuta health check y conserva el resultado sin commits automáticos a main.');
+if (!failed) pass('Despliegue de producción usa la CLI oficial en una versión fija y con confirmación explícita, configura secretos, publica por API, ejecuta health check y conserva el resultado sin commits automáticos a main.');
 
 if (failed) process.exit(1);
 console.log('Newsletter integration PASS');

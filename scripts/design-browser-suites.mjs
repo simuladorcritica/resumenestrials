@@ -23,8 +23,21 @@ async function ready(p,path,base){
  if(await p.locator('[data-ev-reader],#ev-dynamic-reader').count())await p.waitForFunction(()=>document.querySelector('[data-ev-sections]')?.onclick||/no encontrado/i.test(document.querySelector('h1')?.textContent));
 }
 async function geometry(p){
- const m=await p.evaluate(()=>({w:innerWidth,sw:document.documentElement.scrollWidth,bw:document.body.scrollWidth,styles:document.querySelectorAll('style').length,headers:document.querySelectorAll('.ev-header').length}));
- assert(m.sw<=m.w+2&&m.bw<=m.w+2,'Horizontal overflow '+JSON.stringify(m));assert.equal(m.styles,0,'JS/inline style');assert.equal(m.headers,1);
+ const measure=()=>p.evaluate(()=>({w:innerWidth,sw:document.documentElement.scrollWidth,bw:document.body.scrollWidth,styles:document.querySelectorAll('style').length,headers:document.querySelectorAll('.ev-header').length}));
+ // El ancho se comprueba con la página asentada. En WebKit de Windows, una medición hecha mientras llegan las
+ // fuentes o termina una transición dio varias veces un desbordamiento que al instante ya no estaba (CI, 11 a 13
+ // de noviembre de 2026, webkit:390:oscuro). Un desbordamiento real sigue ahí tras la espera y la prueba falla igual.
+ let m=await measure();
+ for(let i=0;i<8&&(m.sw>m.w+2||m.bw>m.w+2);i++){
+  await p.evaluate(()=>(document.fonts?document.fonts.ready:Promise.resolve()).then(()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))));
+  await p.waitForTimeout(250);m=await measure();
+ }
+ if(m.sw>m.w+2||m.bw>m.w+2){
+  // Si falla, el mensaje dice en qué página y qué elementos se salen, para corregir la causa y no adivinarla.
+  const wide=await p.evaluate(()=>[...document.querySelectorAll('body *')].map(n=>({n,r:n.getBoundingClientRect()})).filter(x=>x.r.width>0&&x.r.right>innerWidth+2).sort((a,b)=>b.r.right-a.r.right).slice(0,4).map(x=>x.n.tagName.toLowerCase()+(x.n.id?'#'+x.n.id:'')+(typeof x.n.className==='string'&&x.n.className?'.'+x.n.className.trim().split(/\s+/).join('.'):'')+' → '+Math.round(x.r.right)));
+  assert.fail('Horizontal overflow '+JSON.stringify(m)+' en '+p.url()+' · '+wide.join(' | '));
+ }
+ assert.equal(m.styles,0,'JS/inline style');assert.equal(m.headers,1);
 }
 async function visibleIds(p){return p.locator('#ev-list>.ev-card:visible').evaluateAll(ns=>ns.map(n=>n.dataset.id))}
 async function singleSearch(p,label){assert.equal(await p.locator('input[type=search]').count(),1,label+' must expose exactly one search field');assert(await p.locator('.ev-header #ev-q').isVisible(),label+' search field visible in header')}

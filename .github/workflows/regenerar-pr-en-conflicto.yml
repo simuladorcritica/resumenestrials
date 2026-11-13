@@ -4,6 +4,9 @@ name: Regenerar PR en conflicto
 # generadas (páginas, runtime, sitemap). Este flujo integra main en cada PR abierto `claude/*` en
 # conflicto y regenera las salidas con la secuencia de CLAUDE.md. Si el conflicto toca fuentes
 # (resumenes.json, ui/, scripts…), no lo resuelve: comenta en el PR para que lo revise una persona.
+# También integra main en los PR `claude/*` que ya tienen el auto-merge activado y solo quedaron
+# atrasados: main exige ramas al día, así que sin esto esperarían para siempre a que alguien pulsara
+# «Update branch» (PR #258 y #260, del 12 al 13 de noviembre de 2026).
 # Necesita el secreto RT_AUTOMATION_TOKEN (token de acceso con permiso de escritura en el repo):
 # un push hecho con el token automático de GitHub no vuelve a lanzar las comprobaciones obligatorias.
 on:
@@ -59,9 +62,9 @@ jobs:
           set -uo pipefail
           # GitHub calcula «mergeable» en segundo plano: se consulta dos veces con una pausa.
           gh pr list --repo "$REPO" --state open --json number >/dev/null; sleep 20
-          prs=$(gh pr list --repo "$REPO" --state open --limit 50 --json number,headRefName,isCrossRepository,mergeable \
-            --jq '.[] | select(.isCrossRepository == false and (.headRefName | startswith("claude/")) and .mergeable == "CONFLICTING") | "\(.number) \(.headRefName)"')
-          if [ -z "$prs" ]; then echo "No hay PR claude/* en conflicto."; exit 0; fi
+          prs=$(gh pr list --repo "$REPO" --state open --limit 50 --json number,headRefName,isCrossRepository,mergeable,mergeStateStatus,autoMergeRequest \
+            --jq '.[] | select(.isCrossRepository == false and (.headRefName | startswith("claude/")) and (.mergeable == "CONFLICTING" or (.mergeStateStatus == "BEHIND" and .autoMergeRequest != null))) | "\(.number) \(.headRefName)"')
+          if [ -z "$prs" ]; then echo "No hay PR claude/* en conflicto ni atrasados con auto-merge."; exit 0; fi
           git fetch -q origin main
           # Copia fija del script: el checkout de cada rama no debe cambiarlo mientras corre.
           cp scripts/regenerar-pr-en-conflicto.sh "$RUNNER_TEMP/regenerar.sh"
@@ -71,7 +74,7 @@ jobs:
             git fetch -q origin "$branch"
             bash "$RUNNER_TEMP/regenerar.sh" "$branch"; code=$?
             case "$code" in
-              0) git push origin "HEAD:$branch" && gh pr comment "$number" --repo "$REPO" --body "Integré \`main\` y regeneré las salidas: el conflicto era solo de archivos generados. Las comprobaciones vuelven a correr." || status=1 ;;
+              0) git push origin "HEAD:$branch" && gh pr comment "$number" --repo "$REPO" --body "Integré \`main\` y regeneré las salidas (sin conflictos en archivos fuente). Las comprobaciones vuelven a correr." || status=1 ;;
               2) echo "Nada que hacer." ;;
               3) marker="<!-- regenerar-pr: fuentes -->"
                  if ! gh pr view "$number" --repo "$REPO" --json comments --jq '.comments[].body' | grep -qF "$marker"; then
