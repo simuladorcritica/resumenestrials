@@ -1,94 +1,93 @@
 {
   "schema_version": 1,
-  "base_sha": "b6900785e6e45dd9997ae66d11ca68d96b1aac50",
+  "base_sha": "72371957637ae557bc94b73ecab5a76d695b8298",
   "authorizations": [
     {
-      "id": 295,
-      "fields": [
-        "cuerpo",
-        "corto",
-        "fecha_revision"
-      ],
-      "reason": "Corrección del equipo crítico, issue #221 (7 hallazgos: 1 MAYOR, 6 MENOR); equipo editorial y contrainteligencia APROBADA (revision_nocturna\\equipo\\295_BATURA\\contrainteligencia.md)."
-    },
-    {
-      "id": 294,
-      "fields": [
-        "cuerpo",
-        "fecha_revision"
-      ],
-      "reason": "Corrección del equipo crítico, issue #224 (6 hallazgos: 1 MAYOR, 5 MENOR); equipo editorial y contrainteligencia APROBADA (revision_nocturna\\equipo\\294_FIBRONEER-ILD\\contrainteligencia_vuelta2.md)."
-    },
-    {
-      "id": 254,
-      "fields": [
-        "financiacion",
-        "cuerpo",
-        "corto",
-        "fecha_revision"
-      ],
-      "reason": "Corrección del equipo crítico, issue #228 (17 hallazgos: 2 MAYOR, 15 MENOR); equipo editorial y contrainteligencia APROBADA (revision_nocturna\\equipo\\254_P4\\resolucion.md)."
-    },
-    {
-      "id": 11,
-      "fields": [
-        "financiacion",
-        "original",
-        "hallazgo",
-        "cuerpo",
-        "corto",
-        "fecha_revision"
-      ],
-      "reason": "Corrección del equipo crítico, issue #231 (25 hallazgos: 2 CRÍTICO, 5 MAYOR, 18 MENOR); equipo editorial y contrainteligencia APROBADA (revision_nocturna\\equipo\\11_PROMINE\\contrainteligencia.md)."
-    },
-    {
-      "id": 9,
-      "fields": [
-        "titulo",
-        "financiacion",
-        "original",
-        "hallazgo",
-        "cuerpo",
-        "corto",
-        "fecha_revision"
-      ],
-      "reason": "Corrección del equipo crítico, issue #226 (27 hallazgos: 2 CRÍTICO, 2 MAYOR, 23 MENOR); equipo editorial y contrainteligencia APROBADA (revision_nocturna\\equipo\\9_CLEANSE\\contrainteligencia_vuelta2.md)."
-    },
-    {
-      "id": 10,
-      "fields": [
-        "titulo",
-        "financiacion",
-        "original",
-        "hallazgo",
-        "cuerpo",
-        "corto",
-        "fecha_revision"
-      ],
-      "reason": "Corrección del equipo crítico, issue #227 (28 hallazgos: 1 CRÍTICO, 6 MAYOR, 21 MENOR); equipo editorial y contrainteligencia APROBADA (revision_nocturna\\equipo\\10_DigiSep\\resolucion.md)."
-    },
-    {
-      "id": 7,
+      "id": 276,
       "fields": [
         "hallazgo",
         "cuerpo",
         "corto",
         "fecha_revision"
       ],
-      "reason": "Corrección del equipo crítico, issue #222 (23 hallazgos: 1 CRÍTICO, 7 MAYOR, 15 MENOR); equipo editorial y contrainteligencia APROBADA (revision_nocturna\\equipo\\7_SuDDICU\\contrainteligencia_pub.md)."
+      "reason": "Corrección del equipo crítico, issue #249 (11 hallazgos: 1 MAYOR, 10 MENOR); equipo editorial y contrainteligencia APROBADA (D:\\OneDrive\\Escritorio\\PAGINA ECA\\ARTICULOS\\_ORGANIZADOR_DIARIO\\revision_nocturna\\equipo\\276_NEO-MINDSET\\contrainteligencia.md)."
     },
     {
-      "id": 8,
+      "id": 173,
       "fields": [
-        "titulo",
         "financiacion",
-        "original",
         "hallazgo",
         "cuerpo",
         "corto",
         "fecha_revision"
       ],
-      "reason": "Corrección del equipo crítico, issue #225 (21 hallazgos: 7 MAYOR, 14 MENOR); equipo editorial y contrainteligencia APROBADA (revision_nocturna\\equipo\\8_ExPreS\\contrainteligencia_pub.md)."
+      "reason": "Corrección de hallazgos de la revisión nocturna (Parte C del 2026-11-08) (8 hallazgos: 1 MAYOR, 7 MENOR); equipo editorial y contrainteligencia APROBADA (D:\\OneDrive\\Escritorio\\PAGINA ECA\\ARTICULOS\\_ORGANIZADOR_DIARIO\\revision_nocturna\\equipo\\173_PRODIGE 4-ACCORD 11\\contrainteligencia.md)."
+    },
+    {
+      "id": 167,
+      "fields": [
+        "financiacion",
+        "hallazgo",
+        "cuerpo",
+        "corto",
+        "fecha_revision"
+      ],
+      "reason": "Corrección de hallazgos de la revisión nocturna (Parte C del 2026-11-08) (3 hallazgos: 2 MAYOR, 1 MENOR); equipo editorial y contrainteligencia APROBADA (D:\\OneDrive\\Escritorio\\PAGINA ECA\\ARTICULOS\\_ORGANIZADOR_DIARIO\\revision_nocturna\\equipo\\167_SINGLE-AF\\contrainteligencia.md)."
+    },
+    {
+      "id": 168,
+      "fields": [
+        "fecha",
+        "financiacion",
+        "cuerpo",
+        "corto",
+        "fecha_revision"
+      ],
+      "reason": "Corrección de hallazgos de la revisión nocturna (Parte C del 2026-11-08) (2 hallazgos: 1 CRÍTICO, 1 MAYOR); equipo editorial y contrainteligencia APROBADA (D:\\OneDrive\\Escritorio\\PAGINA ECA\\ARTICULOS\\_ORGANIZADOR_DIARIO\\revision_nocturna\\equipo\\168_TRICYCLE\\contrainteligencia.md)."
+    },
+    {
+      "id": 14,
+      "fields": [
+        "financiacion",
+        "hallazgo",
+        "cuerpo",
+        "corto",
+        "fecha_revision"
+      ],
+      "reason": "Corrección del equipo crítico, issue #250 (19 hallazgos: 3 CRÍTICO, 7 MAYOR, 9 MENOR); equipo editorial y contrainteligencia APROBADA (D:\\OneDrive\\Escritorio\\PAGINA ECA\\ARTICULOS\\_ORGANIZADOR_DIARIO\\revision_nocturna\\equipo\\14_TOWAR\\contrainteligencia.md)."
+    },
+    {
+      "id": 166,
+      "fields": [
+        "financiacion",
+        "hallazgo",
+        "cuerpo",
+        "corto",
+        "fecha_revision"
+      ],
+      "reason": "Corrección de hallazgos de la revisión nocturna (Parte C del 2026-11-08) (6 hallazgos: 1 CRÍTICO, 2 MAYOR, 3 MENOR); equipo editorial y contrainteligencia APROBADA (D:\\OneDrive\\Escritorio\\PAGINA ECA\\ARTICULOS\\_ORGANIZADOR_DIARIO\\revision_nocturna\\equipo\\166_STAREE\\contrainteligencia.md)."
+    },
+    {
+      "id": 165,
+      "fields": [
+        "financiacion",
+        "cuerpo",
+        "corto",
+        "fecha_revision"
+      ],
+      "reason": "Corrección de hallazgos de la revisión nocturna (Parte C del 2026-11-08) (5 hallazgos: 2 CRÍTICO, 1 MAYOR, 2 MENOR); equipo editorial y contrainteligencia APROBADA (revision_nocturna\\equipo\\165_OBERON y TITANIA\\resolucion_20261111.md)."
+    },
+    {
+      "id": 15,
+      "fields": [
+        "financiacion",
+        "objetivo",
+        "hallazgo",
+        "cuerpo",
+        "corto",
+        "fecha_revision"
+      ],
+      "reason": "Corrección del equipo crítico, issue #252 (18 hallazgos: 2 CRÍTICO, 4 MAYOR, 12 MENOR); equipo editorial y contrainteligencia APROBADA (D:\\OneDrive\\Escritorio\\PAGINA ECA\\ARTICULOS\\_ORGANIZADOR_DIARIO\\revision_nocturna\\equipo\\15_SMART-DECISION\\contrainteligencia_20261111.md)."
     }
   ]
 }
