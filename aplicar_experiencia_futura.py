@@ -7,7 +7,7 @@ def adsense_allowed(path):
  route="/"+path.resolve().relative_to(ROOT.resolve()).as_posix()
  return route not in EXCLUDED|ADSENSE_DEFERRED_ROUTES and not route.startswith("/resumen/")
 def candidates():
- paths=[ROOT/"_includes/index-source.html",ROOT/"resumen.html",ROOT/"login.html",ROOT/"registro.html",ROOT/"recuperar.html",ROOT/"cuenta.html",ROOT/"biblioteca.html",ROOT/"privacidad.html",ROOT/"privacidad/index.html",ROOT/"terminos/index.html",ROOT/"agregar.html",ROOT/"metodologia/index.html",ROOT/"equipo-editorial/index.html",ROOT/"404.html"]
+ paths=[ROOT/"_includes/index-source.html",ROOT/"resumen.html",ROOT/"login.html",ROOT/"registro.html",ROOT/"recuperar.html",ROOT/"cuenta.html",ROOT/"biblioteca.html",ROOT/"privacidad.html",ROOT/"privacidad/index.html",ROOT/"terminos/index.html",ROOT/"agregar.html",ROOT/"metodologia/index.html",ROOT/"correcciones/index.html",ROOT/"equipo-editorial/index.html",ROOT/"404.html"]
  paths.extend(sorted((ROOT/"trials").glob("*/index.html")));paths.extend(sorted((ROOT/"medicina-critica").glob("**/index.html")));paths.extend(sorted((ROOT/"medicina-interna").glob("**/index.html")))
  paths.append(ROOT/"archivo/index.html");paths.extend(sorted((ROOT/"ediciones").glob("*/index.html")))
  paths.append(ROOT/"index.html");paths.extend(sorted((ROOT/"resumen").glob("*.html")))

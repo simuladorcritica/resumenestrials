@@ -351,6 +351,12 @@ section.ev-archive{scroll-margin-top:96px;padding-top:12px}
 .ev-keyfinding .ev-lead{max-width:none;margin:0;color:var(--ev-text);font-family:var(--ev-reading);font-size:1.12rem;line-height:1.7}
 .ev-reading-head .ev-readtime{font-size:.86rem;margin-bottom:6px}
 .ev-editorial-dates{color:var(--ev-muted);font-size:.82rem}.ev-editorial-dates a{color:inherit;font-weight:600;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2px}.ev-method{display:flex;flex-direction:column;gap:4px;max-width:70ch;margin:0 0 28px;color:var(--ev-muted);font-size:.88rem;line-height:1.55;text-align:start;hyphens:manual;-webkit-hyphens:manual}.ev-method-links{display:flex;flex-wrap:wrap;column-gap:20px}.ev-video{max-width:70ch;margin:0 0 28px}.ev-video h2{font-size:1.05rem;margin:0 0 10px}.ev-video-frame{position:relative;aspect-ratio:16/9;overflow:hidden;border:1px solid var(--ev-line);border-radius:var(--ev-r);background:var(--ev-panel)}.ev-video-frame iframe,.ev-video-play{position:absolute;inset:0;width:100%;height:100%;border:0}.ev-video-play{display:flex;align-items:center;justify-content:center;gap:12px;padding:16px;min-height:44px;cursor:pointer;color:var(--ev-text);background:var(--ev-panel);font:inherit;font-weight:600;text-align:center}.ev-video-play .ev-svg{width:44px;height:44px;flex:none;padding:10px;border-radius:50%;background:var(--ev-accent);color:var(--ev-on-accent);fill:currentColor}.ev-video-play:hover .ev-svg,.ev-video-play:focus-visible .ev-svg{background:var(--ev-accent-strong)}.ev-video-meta{margin:8px 0 0;color:var(--ev-muted);font-size:.85rem}.ev-video-page .ev-video-frame{margin:16px 0 8px}.ev-method-links a{color:inherit;text-decoration:underline;text-underline-offset:2px}
+/* Transparencia editorial: aviso «Resumen en revisión» y fe de erratas, notas sobrias con filete de señal. */
+.ev-audit{display:flex;flex-direction:column;align-items:flex-start;max-width:880px;margin:14px 0 0;padding:12px 16px 0;border:1px solid var(--ev-line);border-left:3px solid var(--ev-signal);border-radius:var(--ev-r-sm);background:var(--ev-panel);color:var(--ev-muted);font-size:.9rem;line-height:1.6}
+.ev-audit p,.ev-errata p{margin:0}.ev-audit strong{color:var(--ev-text);font-weight:600}
+.ev-errata{max-width:880px;margin:0 0 28px;padding:16px 18px 0;border:1px solid var(--ev-line);border-radius:var(--ev-r);background:var(--ev-panel);font-size:.92rem;line-height:1.6}
+.ev-errata h2{margin:0 0 8px;color:var(--ev-muted);font:700 .78rem/1.4 var(--ev-ui);letter-spacing:.06em;text-transform:uppercase}
+.ev-errata ul{display:grid;gap:8px;margin:0;padding:0;list-style:none}
 .ev-facts{max-width:880px;margin:20px 0 22px;border:1px solid var(--ev-line);border-radius:var(--ev-r-lg);background:var(--ev-panel)}
 .ev-facts>summary{display:flex;align-items:center;justify-content:space-between;min-height:52px;padding:12px 20px;font-weight:600}
 .ev-facts>summary::after{content:"";width:9px;height:9px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);transition:transform var(--ev-fast);margin-right:4px}
@@ -442,6 +448,11 @@ body.ev-reader :where(p,li){-webkit-hyphens:manual;hyphens:manual}
 .ev-prose h2{margin:44px 0 14px;font:600 1.4rem/1.3 var(--ev-display)}
 .ev-prose h3{margin:28px 0 10px;font:600 1.12rem/1.35 var(--ev-display)}
 .ev-prose li{margin-bottom:.4em}
+.ev-figures{display:grid;grid-template-columns:repeat(auto-fit,minmax(104px,1fr));gap:12px;margin:0 0 20px;font-family:var(--ev-ui)}
+.ev-figures div{padding:14px 16px;border:1px solid var(--ev-line);border-radius:var(--ev-r);background:var(--ev-panel)}
+.ev-figures dt{color:var(--ev-muted);font-size:.8rem;line-height:1.4}.ev-figures dd{margin:4px 0 0;font-size:1.5rem;font-weight:650;line-height:1.2}
+.ev-corrections{padding:0;list-style:none}.ev-corrections li{display:flex;flex-direction:column;gap:2px;margin:0;padding:14px 0;border-top:1px solid var(--ev-line)}
+.ev-corrections time{color:var(--ev-muted);font:600 .8rem/1.4 var(--ev-ui)}.ev-corrections a{font-family:var(--ev-ui);font-weight:600;line-height:1.4}
 .ev-actions-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
 .ev-notfound h1{max-width:18ch}
 

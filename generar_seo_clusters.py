@@ -17,6 +17,7 @@ CLUSTER_MANIFEST = ROOT / "seo-cluster-manifest.json"
 LEGACY_REDIRECTS = ROOT / "seo-legacy-redirects.json"
 METHODOLOGY_DIR = ROOT / "metodologia"
 EDITORIAL_DIR = ROOT / "equipo-editorial"
+CORRECTIONS_DIR = ROOT / "correcciones"
 
 
 def plain(value: object) -> str:
@@ -313,11 +314,23 @@ def editorial_page() -> str:
     return page_shell("Editorial EMEICRÍTICA | Resúmenes Trials", desc, canonical, body, schema)
 
 
+def corrections_page() -> str:
+    """/correcciones/: política, cifras y lista de correcciones de auditoria-editorial.json."""
+    canonical = f"{base.BASE_URL}/correcciones/"
+    title, desc = presentation.CORRECTIONS_TITLE, presentation.CORRECTIONS_DESCRIPTION
+    schema = json.dumps({"@context":"https://schema.org","@type":"WebPage","name":title,"description":desc,"url":canonical,"inLanguage":"es-MX","publisher":{"@type":"Organization","name":"Resúmenes Trials","url":f"{base.BASE_URL}/equipo-editorial/"}}, ensure_ascii=False, separators=(",", ":"))
+    items = json.loads(base.DATA_PATH.read_text(encoding="utf-8"))
+    manifest = json.loads(base.MANIFEST_PATH.read_text(encoding="utf-8"))
+    return page_shell(title, desc, canonical, presentation.corrections_page(items, manifest, presentation.audit()), schema)
+
+
 def write_editorial_pages() -> None:
     METHODOLOGY_DIR.mkdir(exist_ok=True)
     (METHODOLOGY_DIR / "index.html").write_text(methodology_page(), encoding="utf-8")
     EDITORIAL_DIR.mkdir(exist_ok=True)
     (EDITORIAL_DIR / "index.html").write_text(editorial_page(), encoding="utf-8")
+    CORRECTIONS_DIR.mkdir(exist_ok=True)
+    (CORRECTIONS_DIR / "index.html").write_text(corrections_page(), encoding="utf-8")
 
 
 def update_manifest(items: list[dict], by_item: dict[str, list[dict]]) -> None:
@@ -348,6 +361,7 @@ def update_sitemap(items: list[dict], clusters: list[dict], active: dict[str, li
         f"{base.BASE_URL}/archivo/",
         *edition_urls,
         f"{base.BASE_URL}/metodologia/",
+        f"{base.BASE_URL}/correcciones/",
         f"{base.BASE_URL}/equipo-editorial/",
         f"{base.BASE_URL}/privacidad/",
         f"{base.BASE_URL}/terminos/",
@@ -396,7 +410,7 @@ def main() -> None:
     update_manifest(items, by_item)
     CLUSTER_MANIFEST.write_text(json.dumps(cluster_manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     update_sitemap(items, clusters, active)
-    print(f"SEO semántico: {len(cluster_manifest)} clusters activos, {len(items)} trials enriquecidos y 2 páginas editoriales.")
+    print(f"SEO semántico: {len(cluster_manifest)} clusters activos, {len(items)} trials enriquecidos y 3 páginas editoriales.")
 
 
 if __name__ == "__main__":

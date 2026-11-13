@@ -427,7 +427,7 @@ def editorial_head(source: str) -> str:
 
 
 def update_organization_pages() -> None:
-    for rel in ["equipo-editorial/index.html", "metodologia/index.html"]:
+    for rel in ["equipo-editorial/index.html", "metodologia/index.html", "correcciones/index.html"]:
         path = ROOT / rel
         if not path.exists():
             continue

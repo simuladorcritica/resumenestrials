@@ -3,6 +3,7 @@
 ## Fuente y salidas
 
 - `resumenes.json`: fuente clínica canónica.
+- `auditoria-editorial.json`: fuente de transparencia editorial (schema_version 1) que regeneran a diario las rutinas locales; no se genera en el build. Alimenta el aviso «Resumen en revisión» (IDs en `sin_auditar` o, con precedencia, en `con_errores_abiertos`), la «Fe de erratas» de cada resumen (`correcciones`) y `/correcciones/`. Es opcional: si falta, no es válido o un ID no aparece, no se muestra aviso ni fe de erratas. Ambos bloques quedan fuera de `<article class="articulo">`, así que no alteran el cuerpo clínico congelado. El lector dinámico (`resumen.html?id=`) lo descarga en paralelo con el ensayo (`E.audit()` en `ui/core.js`) y usa el mismo marcado que `site_templates.py`.
 - `_includes/index-source.html`: portada prerenderizada (la edición actual) usada por Jekyll; `index.html` es su copia exacta. Es también la fuente de su propio `<head>` (canonical, JSON-LD `WebSite`/`Organization`, Open Graph): cada generación lo conserva.
 - `archivo/index.html`: archivo completo con todos los resúmenes prerenderizados, buscador y filtros (antes vivía en la portada).
 - `ediciones/<lunes ISO>/index.html`: una página por cada edición semanal anterior. La edición actual no tiene página propia: es la portada.
