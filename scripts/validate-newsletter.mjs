@@ -54,12 +54,13 @@ for (const token of [
 if (!failed) pass('Edge Function: consentimiento, correo confirmado, autenticación de callback, rango completo del push, idempotencia y baja en un clic verificados por contrato.');
 
 for (const token of [
-  'branches: [main]',
-  '- resumenes.json',
+  "cron: '30 18 * * *'",
+  'workflow_dispatch',
+  "github.ref == 'refs/heads/main'",
+  'status=success&branch=main',
   'actions: read',
   'github.run_id',
   'github.run_attempt',
-  'github.event.before',
   'github.sha',
   'github.token',
   'X-GitHub-Token',
@@ -68,7 +69,7 @@ for (const token of [
 ]) {
   if (!workflow.includes(token)) fail(`Workflow de avisos incompleto: falta ${token}`);
 }
-if (!failed) pass('Workflow limitado a altas publicadas en resumenes.json, autenticado con token efímero de GitHub Actions y con reintentos.');
+if (!failed) pass('Workflow diario (12:30, centro de México) con el rango desde el último aviso exitoso, autenticado con token efímero de GitHub Actions y con reintentos.');
 
 for (const token of [
   'SUPABASE_ACCESS_TOKEN',
