@@ -53,6 +53,9 @@ E.routes=()=>routes??=get('/seo-manifest.json').then(r=>{if(!r.ok)throw Error('N
 // One small file per trial (~20 KB) so reading, PDF and controls never wait for the full archive.
 // If that file is missing or fails, the full archive is the fallback (unknown ids resolve to null).
 E.record=id=>{id=String(id??'').trim();if(!/^\d+$/.test(id))return Promise.resolve(null);if(!recordCache.has(id))recordCache.set(id,get('/datos/ensayos/'+id+'.json').then(r=>{if(!r.ok)throw Error('HTTP '+r.status);return r.json()}).then(r=>r&&typeof r==='object'&&!Array.isArray(r)&&String(r.id)===id?r:null).catch(e=>{recordCache.delete(id);if(e?.name==='AbortError')throw e;return E.full().then(all=>all.find(x=>String(x.id)===id)||null).catch(()=>{throw e})}));return recordCache.get(id)};
+// Transparencia editorial del lector dinámico: archivo pequeño y opcional. Si falta o no es JSON,
+// el lector se muestra igual, sin aviso ni fe de erratas (solo se propaga la cancelación por navegación).
+let editorialAudit;E.audit=()=>editorialAudit??=get('/auditoria-editorial.json').then(r=>r.ok?r.json():null).catch(e=>{if(e?.name==='AbortError'){editorialAudit=undefined;throw e}return null});
 E.library=()=>library??=import('/library-store.js?v=20261003-laboratorio-v1');
 E.inferSubspecialty=r=>{if(r&&typeof r._sub==='string')return r._sub;const result=globalThis.SpecialtyClassification?.classify(r);return result?.specialty===globalThis.SpecialtyClassification?.REVIEW?'':result?.specialty||''};
 E.ready=f=>document.readyState==='loading'?document.addEventListener('DOMContentLoaded',f,{once:true}):f();

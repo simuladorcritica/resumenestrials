@@ -8,7 +8,7 @@ Material educativo para profesionales de la salud. La referencia final es siempr
 
 - [Metodología](https://resumenestrials.com/metodologia/): cómo se seleccionan, estructuran y evalúan los estudios.
 - [Editorial EMEICRÍTICA](https://resumenestrials.com/equipo-editorial/): quién firma, controles de verificación y correcciones.
-- [Registro de correcciones](https://resumenestrials.com/correcciones/): resúmenes corregidos después de publicarse y fecha de la última corrección.
+- [Correcciones](https://resumenestrials.com/correcciones/): política de correcciones, estado de la auditoría editorial y correcciones publicadas.
 - [Medicina Crítica](https://resumenestrials.com/medicina-critica/): índice de resúmenes de Medicina Crítica.
 - [Medicina Interna](https://resumenestrials.com/medicina-interna/): índice de resúmenes de Medicina Interna.
 - [Archivo](https://resumenestrials.com/archivo/): todos los resúmenes, con buscador y filtros.

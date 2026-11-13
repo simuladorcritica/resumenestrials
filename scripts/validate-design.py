@@ -46,7 +46,7 @@ for r in data:
  assert 'id="resumen-breve"' not in s and 'RT-INTENT-START' not in s and 'RT-HERO-START' not in s
  assert not re.search(r'<img[^>]+images/trials/',s)
  assert '/resumen.html?id='+str(r["id"])+'&amp;v=corto' in s
- assert '/metodologia/' in s and '/equipo-editorial/' in s
+ assert '/metodologia/' in s and '/equipo-editorial/' in s and '/correcciones/' in s
  images=e.get("images",[])
  assert len(images)==3 and all(u in s and (ROOT/u.replace("https://resumenestrials.com/","")).is_file() for u in images)
  for c in e.get("clusters",[]):assert c["path"] in s
@@ -56,7 +56,7 @@ for slug,c in clusters.items():
  assert 'RT-CLUSTER-SYNTHESIS-START' not in s
 assert '24' not in clusters.get('sepsis-shock',{}).get('trial_ids',[])
 assert '18' not in clusters.get('neurologia',{}).get('trial_ids',[])
-for name in ["metodologia","equipo-editorial"]:
+for name in ["metodologia","correcciones","equipo-editorial"]:
  s=(ROOT/name/"index.html").read_text(encoding="utf8");assert 'rel="canonical"' in s and 'sameAs' in s
 assert '/agregar-editorial-dates.js?v=1' in (ROOT/"agregar.html").read_text(encoding="utf8")
 print(f"DESIGN CONTRACT PASS {len(data)} trials / {len(clusters)} active collections / {version}")

@@ -42,6 +42,7 @@ for (const edition of past) validatePage(edition.file, `${BASE}${edition.route}`
 validatePage('medicina-critica/index.html', `${BASE}/medicina-critica/`);
 validatePage('medicina-interna/index.html', `${BASE}/medicina-interna/`);
 validatePage('metodologia/index.html', `${BASE}/metodologia/`);
+validatePage('correcciones/index.html', `${BASE}/correcciones/`);
 validatePage('equipo-editorial/index.html', `${BASE}/equipo-editorial/`);
 validatePage('privacidad/index.html', `${BASE}/privacidad/`);
 validatePage('terminos/index.html', `${BASE}/terminos/`);

@@ -28,7 +28,7 @@ def iso_date(value):
 EDITORIAL_SIGNATURE='<span class="ev-signature">Por <a href="/equipo-editorial/" rel="author">Editorial EMEICRÍTICA</a></span>'
 METHOD_NOTE=('<div class="ev-method"><span class="ev-original-label">Cómo se elaboró</span>'
  '<span>Resumen redactado por la Editorial EMEICRÍTICA con apoyo de herramientas de inteligencia artificial, con criterios editoriales fijos, y verificado con controles automáticos contra el artículo original.'
- '</span><span class="ev-method-links"><a href="/metodologia/">Metodología</a><a href="/equipo-editorial/">Cómo trabajamos</a><a href="mailto:resumenestrials@outlook.com">Reportar un error</a></span></div>')
+ '</span><span class="ev-method-links"><a href="/metodologia/">Metodología</a><a href="/correcciones/">Correcciones</a><a href="/equipo-editorial/">Cómo trabajamos</a><a href="mailto:resumenestrials@outlook.com">Reportar un error</a></span></div>')
 SUBSCRIBE_NOTE=('<div class="ev-method ev-subscribe"><span class="ev-original-label">Avisos por correo</span>'
  '<span>Recibe un aviso cuando publiquemos un resumen nuevo. Es gratis y puedes darte de baja cuando quieras.</span>'
  '<span class="ev-method-links"><a href="/registro.html">Crear cuenta y activar avisos</a><a href="/cuenta.html">Ya tengo cuenta</a></span></div>')
@@ -69,6 +69,72 @@ def editorial_dates(r):
   if value:parts.append(f'<span>{label}: <time datetime="{esc(value)}">{esc(human_date(value))}</time></span>')
  return '<div class="ev-editorial-dates">'+" · ".join(parts)+'</div>'
 
+# Transparencia editorial: auditoria-editorial.json es una fuente que las rutinas locales
+# regeneran a diario. Es opcional: si falta, no es válido o un ID no aparece, no se muestra
+# aviso ni fe de erratas. Todo valor se valida y se escapa; nunca se confía en sus tipos.
+AUDIT_PATH=ROOT/"auditoria-editorial.json"
+SEVERITIES=(("CRÍTICO","Críticos"),("MAYOR","Mayores"),("MENOR","Menores"))
+CORRECTIONS_LINK='<a href="/correcciones/">Política de correcciones</a>'
+def _audit_id(value):
+ if isinstance(value,bool):return None
+ if isinstance(value,int):return str(value) if value>=0 else None
+ if isinstance(value,str) and re.fullmatch(r"\s*\d+\s*",value):return str(int(value))
+ return None
+def _audit_ids(value):return {i for i in map(_audit_id,value) if i} if isinstance(value,list) else set()
+def _audit_count(value):return value if isinstance(value,int) and not isinstance(value,bool) and value>=0 else None
+def _audit_date(value):
+ import datetime
+ if not isinstance(value,str) or not re.fullmatch(r"\d{4}-\d{2}-\d{2}",value):return ""
+ try:datetime.date.fromisoformat(value)
+ except ValueError:return ""
+ return value
+def _audit_text(value):return re.sub(r"\s+"," ",value).strip() if isinstance(value,str) else ""
+def parse_audit(data):
+ """Normaliza el contenido de auditoria-editorial.json (schema_version 1); None si no es utilizable."""
+ if not isinstance(data,dict) or data.get("schema_version")!=1:return None
+ archivo=data.get("archivo") if isinstance(data.get("archivo"),dict) else {}
+ errores=data.get("errores_abiertos") if isinstance(data.get("errores_abiertos"),dict) else None
+ sin_auditar=_audit_ids(data.get("sin_auditar"));con_errores=_audit_ids(data.get("con_errores_abiertos"))
+ corrections=[]
+ for entry in data.get("correcciones") if isinstance(data.get("correcciones"),list) else []:
+  if not isinstance(entry,dict):continue
+  id=_audit_id(entry.get("id"));fecha=_audit_date(entry.get("fecha"));texto=_audit_text(entry.get("texto"))
+  if id and fecha and texto:corrections.append({"id":id,"fecha":fecha,"texto":texto})
+ # Más recientes primero; las entradas de la misma fecha conservan el orden del archivo.
+ corrections.sort(key=lambda c:c["fecha"],reverse=True)
+ return {"actualizado":_audit_date(data.get("actualizado")),"estandar":_audit_text(data.get("estandar")),
+  "total":_audit_count(archivo.get("total")),"auditados":_audit_count(archivo.get("auditados")),
+  "sin_auditar":sin_auditar,"con_errores":con_errores,"en_revision":_audit_ids(data.get("en_revision"))|sin_auditar|con_errores,
+  "errores":{key:_audit_count(errores.get(key)) for key,_ in SEVERITIES} if errores is not None else None,
+  "correcciones":corrections}
+def load_audit(path=None):
+ path=Path(path) if path else AUDIT_PATH
+ try:return parse_audit(json.loads(path.read_text(encoding="utf-8")))
+ except (OSError,ValueError):return None
+_AUDIT_CACHE={}
+def audit():
+ """Auditoría vigente, leída una vez por proceso y por versión del archivo."""
+ try:key=AUDIT_PATH.stat().st_mtime_ns
+ except OSError:key=None
+ if key not in _AUDIT_CACHE:_AUDIT_CACHE.clear();_AUDIT_CACHE[key]=load_audit() if key is not None else None
+ return _AUDIT_CACHE[key]
+def audit_notice(id,data):
+ if not data:return ""
+ id=_audit_id(id)
+ if id in data["con_errores"]:
+  text="nuestro equipo de verificación encontró datos que estamos corrigiendo.";state="errores"
+ elif id in data["sin_auditar"]:
+  standard=f'de {esc(data["estandar"])}' if data["estandar"] else "vigente"
+  text=f"lo estamos auditando con nuestro estándar editorial {standard}. Si encontramos algún error, lo corregiremos y lo indicaremos en esta página.";state="revision"
+ else:return ""
+ return f'<aside class="ev-audit" data-ev-audit="{state}" aria-label="Estado de revisión del resumen"><p><strong>Resumen en revisión:</strong> {text}</p>{CORRECTIONS_LINK}</aside>'
+def audit_errata(id,data):
+ id=_audit_id(id)
+ entries=[c for c in data["correcciones"] if c["id"]==id] if data and id else []
+ if not entries:return ""
+ items="".join(f'<li>Corregido el <time datetime="{c["fecha"]}">{esc(human_date(c["fecha"]))}</time>. {esc(c["texto"])}</li>' for c in entries)
+ return f'<section class="ev-errata" aria-labelledby="ev-errata-title"><h2 id="ev-errata-title">Fe de erratas</h2><ul>{items}</ul><p>{CORRECTIONS_LINK}</p></section>'
+
 def version():
  p=ROOT/"ui/runtime-version.json"
  return json.loads(p.read_text(encoding="utf-8"))["version"] if p.exists() else "nova-v1"
@@ -88,7 +154,7 @@ def readtime(r):
  return f'{icon("clock")}<span>Completo {full} min</span>'+(f'<span>Breve {brief} min</span>' if brief else '')
 NAV=[("/","Edición actual"),("/medicina-critica/","Medicina Crítica"),("/medicina-interna/","Medicina Interna"),("/archivo/","Archivo")]
 MEMBER=[("/biblioteca.html","Mi biblioteca"),("/cuenta.html","Cuenta")]
-INFO=[("/metodologia/","Metodología"),("/equipo-editorial/","Editorial"),("/correcciones/","Correcciones"),("/privacidad/","Privacidad"),("/terminos/","Términos")]
+INFO=[("/metodologia/","Metodología"),("/correcciones/","Correcciones"),("/equipo-editorial/","Editorial"),("/privacidad/","Privacidad"),("/terminos/","Términos")]
 SOCIAL=[("https://t.me/ResumenesTrials","Telegram"),("https://x.com/resumenestrials","X · @resumenestrials")]
 def brand(small=False):return '<a class="ev-brand" href="/" aria-label="Resúmenes Trials, ir al inicio"><span class="ev-brand-mark"><img src="/logo.png" width="40" height="40" alt=""></span><span class="ev-brand-name" aria-hidden="true">Resúmenes <b>Trials</b></span></a>'
 def header(home=False):
@@ -309,10 +375,10 @@ def reading(r,manifest,brief=False,legacy=False):
   f'<header class="ev-reading-head">{SIGNAL}<div class="ev-card-tags"><span class="ev-area" data-tone="{tone(area)}">{esc(area)}</span><span class="ev-type">{esc(r["tipo_estudio"])} · {esc(r["anio"])}</span></div><h1 data-ev-field="titulo">{esc(r["titulo"])}</h1>'
   f'<p class="ev-byline"><span data-ev-field="autor">{esc(r["autor"])}</span><span data-ev-field="revista">{esc(r["revista"])}</span><span data-ev-field="fecha">{esc(human_date(r["fecha"]))}</span></p>'
   f'<div class="ev-keyfinding"><p class="ev-keyfinding-label">{icon("spark")}Hallazgo principal</p><p data-ev-field="hallazgo" class="ev-lead">{r["hallazgo"]}</p></div>'
-  f'<p class="ev-readtime">{readtime(r)}</p>{editorial_dates(r)}</header>'
+  f'<p class="ev-readtime">{readtime(r)}</p>{editorial_dates(r)}{audit_notice(id,audit())}</header>'
   '<details class="ev-facts" open><summary>Ficha técnica del estudio</summary>'+facts(r)+'</details>'+toolbar+'<progress class="ev-progress" max="100" value="0" aria-label="Progreso de lectura"></progress>'
   '<div class="ev-reader-grid">'+article+'<aside class="ev-rail"><p class="ev-rail-title">En esta página</p><nav data-ev-toc aria-label="Secciones del artículo"></nav></aside></div>'
-  f'<div class="ev-endmatter">{video_block(r,manifest,load_videos()) if not legacy else ""}<p class="ev-original"><span class="ev-original-label">Artículo original</span>{original}</p>{METHOD_NOTE}{SUBSCRIBE_NOTE}<nav class="ev-neighbors" aria-label="Continuidad de lectura" data-ev-neighbors></nav><section class="ev-related"><h2>Evidencia relacionada</h2><ul class="ev-list" data-ev-related></ul></section><p class="ev-status" id="ev-reader-status" role="status"></p></div></section>')
+  f'<div class="ev-endmatter">{audit_errata(id,audit())}{video_block(r,manifest,load_videos()) if not legacy else ""}<p class="ev-original"><span class="ev-original-label">Artículo original</span>{original}</p>{METHOD_NOTE}{SUBSCRIBE_NOTE}<nav class="ev-neighbors" aria-label="Continuidad de lectura" data-ev-neighbors></nav><section class="ev-related"><h2>Evidencia relacionada</h2><ul class="ev-list" data-ev-related></ul></section><p class="ev-status" id="ev-reader-status" role="status"></p></div></section>')
 def simple_head(title,description,route,schema,og_type="website"):
  canonical=BASE+route
  return ('<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">'
@@ -321,21 +387,6 @@ def simple_head(title,description,route,schema,og_type="website"):
   '<link rel="alternate" type="application/atom+xml" title="Resúmenes Trials" href="'+BASE+'/feed.xml">'
   '<script type="application/ld+json">'+json.dumps(schema,ensure_ascii=False,separators=(",",":"))+'</script><link rel="icon" href="/favicon.png"></head>')
 PUBLISHER={"@type":"Organization","name":"Resúmenes Trials","url":f"{BASE}/equipo-editorial/","logo":{"@type":"ImageObject","url":f"{BASE}/logo.png"}}
-def corrections_page(items,manifest):
- """Registro público de correcciones: resúmenes con fecha_revision, de la más reciente a la más antigua."""
- rev=sorted([r for r in items if r.get("fecha_revision")],key=lambda r:(str(r["fecha_revision"]),int(trial_id(r["id"]))),reverse=True)
- last=rev[0]["fecha_revision"] if rev else ""
- groups={}
- for r in rev:groups.setdefault(r["fecha_revision"],[]).append(r)
- lists="".join(f'<h2><time datetime="{esc(d)}">{esc(human_date(d))}</time></h2><ul>'+"".join(f'<li><a href="{esc(manifest[trial_id(r["id"])]["path"])}">{esc(r["titulo"])} ({esc(r["revista"])} {esc(r["anio"])})</a></li>' for r in rs)+'</ul>' for d,rs in groups.items())
- intro=(f'<p>Aquí aparecen los resúmenes cuyo contenido se corrigió después de publicarse, ordenados por la fecha de su última corrección. Hoy son {len(rev)} de {len(items)} resúmenes publicados. Un mismo resumen puede haberse corregido más de una vez; se muestra la corrección más reciente.</p>'
-  '<p>Cada corrección se comprueba contra el artículo original antes de publicarse y se aplica a todas las versiones del resumen: la página completa, la versión breve y el PDF. Cómo se revisan los resúmenes y cómo se decide una corrección está explicado en <a href="/equipo-editorial/">Editorial</a>.</p>'
-  '<p>Si encuentras un error, escríbenos a <a href="mailto:resumenestrials@outlook.com">resumenestrials@outlook.com</a> con el enlace del resumen y, si puedes, la página o tabla del artículo donde aparece el dato correcto.</p>')
- body=doc_page('Transparencia editorial','Registro de correcciones',f'<p class="ev-doc-date">Última actualización: {esc(human_date(last))}</p>' if last else "",intro+(lists or '<p>Todavía no hay correcciones publicadas.</p>'))
- schema={"@context":"https://schema.org","@graph":[{"@type":"CollectionPage","name":"Registro de correcciones","url":f"{BASE}/correcciones/","inLanguage":"es-MX","publisher":PUBLISHER,**({"dateModified":last} if last else {})},
-  {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":f"{BASE}/"},{"@type":"ListItem","position":2,"name":"Registro de correcciones","item":f"{BASE}/correcciones/"}]}]}
- head=simple_head("Registro de correcciones | Resúmenes Trials","Resúmenes de ensayos clínicos corregidos después de su publicación, con la fecha de la última corrección. Transparencia editorial de Resúmenes Trials.","/correcciones/",schema)
- return document(head,body,"/correcciones/")
 def collection_schema(name,route):
  return {"@context":"https://schema.org","@graph":[{"@type":"CollectionPage","name":name,"url":BASE+route,"inLanguage":"es-MX","publisher":PUBLISHER},
   {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":f"{BASE}/"},{"@type":"ListItem","position":2,"name":name,"item":BASE+route}]}]}
@@ -368,6 +419,37 @@ def video_page(r,v,manifest):
  head=simple_head(f'{v["titulo"]} | Video | Resúmenes Trials',v["descripcion"][:155],route,schema,"video.other")
  return document(head,body,route)
 def doc_page(eyebrow,h1,date_html,content):return '<div class="ev-doc ev-doc-text"><p class="ev-eyebrow">'+eyebrow+'</p><h1>'+h1+'</h1>'+date_html+'<article class="ev-prose">'+content+'</article></div>'
+CORRECTIONS_TITLE="Correcciones | Resúmenes Trials"
+CORRECTIONS_DESCRIPTION="Política de correcciones de Resúmenes Trials: cómo corregimos los errores confirmados, estado de la auditoría editorial y lista fechada de las correcciones publicadas."
+def _plural(n,one,many):return f"{n} {one if n==1 else many}"
+def corrections_page(items,manifest,data):
+ """Cuerpo de /correcciones/: política, cifras de auditoria-editorial.json y lista completa de correcciones."""
+ titles={trial_id(r["id"]):str(r.get("titulo") or "") for r in items if isinstance(r,dict) and "id" in r}
+ content=('<h2>Política de correcciones</h2>'
+  '<p>Corregimos un resumen en cuanto confirmamos un error. Cada corrección lleva fecha y queda indicada en el propio resumen, en un apartado «Fe de erratas» al final del texto. Los resúmenes que ya compartimos en nuestros canales también se actualizan.</p>'
+  '<p>Mientras un resumen no se ha auditado con nuestro estándar editorial vigente, o mientras tiene errores confirmados que todavía estamos corrigiendo, su página lo indica al inicio con el aviso «Resumen en revisión».</p>'
+  '<p>Si encuentras un error, escríbenos a <a href="mailto:resumenestrials@outlook.com">resumenestrials@outlook.com</a> con el enlace del resumen y, si puedes, la página o la tabla del artículo donde aparece el dato correcto. Cómo elaboramos y revisamos los resúmenes se explica en la <a href="/metodologia/">metodología</a>.</p>')
+ if data:
+  figures=[]
+  if data["auditados"] is not None and data["total"] is not None:
+   standard=f' con el estándar editorial de {esc(data["estandar"])}' if data["estandar"] else ""
+   figures.append((f'Resúmenes auditados{standard}',f'{data["auditados"]} de {data["total"]}'))
+  figures.append(("Resúmenes en revisión",str(len(data["en_revision"]))))
+  dl=lambda pairs:'<dl class="ev-figures">'+"".join(f'<div><dt>{label}</dt><dd>{value}</dd></div>' for label,value in pairs)+'</dl>'
+  content+='<h2>Estado de la revisión</h2>'+(f'<p>Datos actualizados al {esc(human_date(data["actualizado"]))}.</p>' if data["actualizado"] else '')+dl(figures)
+  if data["errores"] and all(data["errores"][key] is not None for key,_ in SEVERITIES):
+   content+='<p>Errores confirmados pendientes de corregir, por gravedad:</p>'+dl([(label,str(data["errores"][key])) for key,label in SEVERITIES])
+ entries=data["correcciones"] if data else []
+ content+='<h2>Correcciones publicadas</h2>'
+ if entries:
+  def title(c):
+   name=esc(titles.get(c["id"]) or f'Resumen N.º {c["id"]}');path=(manifest.get(c["id"]) or {}).get("path") if c["id"] in titles else None
+   return f'<a href="{esc(path)}">{name}</a>' if path else f'<span>{name}</span>'
+  content+=f'<p>{_plural(len(entries),"corrección publicada","correcciones publicadas")}, de la más reciente a la más antigua.</p><ul class="ev-corrections">'+"".join(f'<li><time datetime="{c["fecha"]}">{esc(human_date(c["fecha"]))}</time>{title(c)}<span>{esc(c["texto"])}</span></li>' for c in entries)+'</ul>'
+ else:content+='<p>Todavía no hay correcciones publicadas.</p>'
+ content+='<p>Editorial EMEICRÍTICA</p>'
+ date_html=f'<p class="ev-doc-date">Última actualización: {esc(human_date(data["actualizado"]))}</p>' if data and data["actualizado"] else ""
+ return doc_page("Transparencia editorial","Correcciones",date_html,content)
 def write(path,text):path.parent.mkdir(parents=True,exist_ok=True);path.write_text(text,encoding="utf-8")
 def render_all():
  items=json.loads((ROOT/"resumenes.json").read_text(encoding="utf-8"));manifest=json.loads((ROOT/"seo-manifest.json").read_text(encoding="utf-8"));clusters=json.loads((ROOT/"seo-cluster-manifest.json").read_text(encoding="utf-8"))
@@ -397,7 +479,9 @@ def render_all():
   date=re.search(r"<p[^>]*>(Última actualización:[^<]+)</p>",content_source)
   date_html='<p class="ev-doc-date">'+date[1]+'</p>' if date else ""
   write(path,document(source,doc_page('Transparencia editorial',h1,date_html,content),"/"+name+"/"))
- write(ROOT/"correcciones/index.html",corrections_page(items,manifest))
+ # /correcciones/: la cabecera SEO la escribe generar_seo_clusters.py, como la de /metodologia/.
+ path=ROOT/"correcciones/index.html"
+ if path.exists():write(path,document(path.read_text(encoding="utf-8"),corrections_page(items,manifest,audit()),"/correcciones/"))
  videos=load_videos();expected=set()
  for id,v in videos.items():
   r=next((x for x in items if trial_id(x["id"])==id),None)

@@ -4,6 +4,8 @@ Ejecutar `npm run build`, la secuencia de `ARCHITECTURE.md`, `npm run validate`,
 
 `scripts/design-browser-suites.mjs` comparte las pruebas funcionales entre las entradas históricas. Cubre ocho combinaciones: Chromium/WebKit × 390/1440 × claro/oscuro. `sweep` recorre las 504 vistas canónica/query completa/query breve en cada combinación. `shell` aplica axe a todas las familias de páginas y colecciones, con reglas WCAG 2.2 AA y cero infracciones serias/críticas.
 
+`tools/test_auditoria_editorial.py` y `scripts/editorial-audit.test.mjs` (en `npm run validate`) cubren el contrato de `auditoria-editorial.json`, el aviso «Resumen en revisión», la fe de erratas, `/correcciones/`, la paridad entre el lector estático y el dinámico y la tolerancia a un archivo ausente o inválido. `scripts/editorial-audit-smoke.mjs` lo comprueba en el navegador (canónica, legada y `resumen.html?id=`, ambos motores, temas y anchos); `RT_AUDIT_ENGINES=chromium` limita los motores en local.
+
 ## Equivalencias
 
 La portada conserva en templates/home-disclosure.html los dos párrafos originales de privacidad y contenido de _includes/index-source.html del commit anterior. Se insertan desde la plantilla, sin cambiar su texto. Las tres regresiones home-disclosure.test.mjs congelan el contenido con LF normalizado y comprueban que ambos HTML de portada lo incluyan una sola vez. El smoke de AdSense mantiene todas sus aserciones originales: Google AdSense explícito en portada y política, sección de cookies, ausencia de declaraciones falsas, exclusiones, publisher y gate de datos. Salud y el smoke del lector esperan también este aviso para distinguir el despliegue nuevo aunque el bundle no cambie.

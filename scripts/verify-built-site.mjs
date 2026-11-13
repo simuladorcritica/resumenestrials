@@ -4,7 +4,7 @@ import assert from 'node:assert/strict';
 import crypto from 'node:crypto';
 
 const destination=path.resolve(process.argv[2]||'_site');
-const required=['vendor/jspdf-4.2.1/jspdf.umd.min.js','auth.js','supabase-config.js','turnstile.js','turnstile-config.js','library-store.js','library-page.js','recommendations.js','trial-data.js','site-runtime.js','site-runtime.css','ui/pdf.js','resumenes.json'];
+const required=['vendor/jspdf-4.2.1/jspdf.umd.min.js','auth.js','supabase-config.js','turnstile.js','turnstile-config.js','library-store.js','library-page.js','recommendations.js','trial-data.js','site-runtime.js','site-runtime.css','ui/pdf.js','resumenes.json','auditoria-editorial.json'];
 for(const file of required){
  const built=path.join(destination,file);
  assert(fs.existsSync(built),'Jekyll omitted public runtime dependency '+file);
