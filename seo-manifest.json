@@ -8545,5 +8545,31 @@
       "population": "Se estudió a adultos con apnea obstructiva del sueño (AOS) moderada a grave, es decir, un índice de apnea-hipopnea (IAH) de 15 eventos por hora o más en polisomnografía de lectura central, y un índice de masa corporal (IMC) de 27 o más. El ensayo 1 incluyó a quienes no podían o no querían usar presión positiva en la vía aérea (PAP); el ensayo 2, a usuarios de PAP desde hacía 3 meses o más. Se excluyó, entre otros, la diabetes…"
     },
     "datePublished": "2026-11-13"
+  },
+  "315": {
+    "slug": "acacia-hcm-aficamten-miocardiopatia-hipertrofica-no-obstructiva-sintomatica",
+    "path": "/trials/acacia-hcm-aficamten-miocardiopatia-hipertrofica-no-obstructiva-sintomatica/",
+    "url": "https://resumenestrials.com/trials/acacia-hcm-aficamten-miocardiopatia-hipertrofica-no-obstructiva-sintomatica/",
+    "title": "ACACIA-HCM: aficamten para la miocardiopatía hipertrófica no obstructiva sintomática",
+    "seo_title": "ACACIA-HCM trial: aficamten para la miocardiopatía hipertrófica no obstructiva sintomática | Resúmenes Trials",
+    "description": "ACACIA-HCM: A las 36 semanas, el KCCQ-CSS mejoró 11.4 puntos con aficamten y 8.4 con placebo (diferencia 3.0 puntos ; IC 95% 0.5 a 5.5; P=0.02), y el consumo…",
+    "clusters": [
+      {
+        "name": "Cardiología y prevención cardiovascular",
+        "path": "/medicina-interna/cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-interna/cardiovascular/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/acacia-hcm-aficamten-miocardiopatia-hipertrofica-no-obstructiva-sintomatica-16x9.jpg",
+      "https://resumenestrials.com/images/trials/acacia-hcm-aficamten-miocardiopatia-hipertrofica-no-obstructiva-sintomatica-4x3.jpg",
+      "https://resumenestrials.com/images/trials/acacia-hcm-aficamten-miocardiopatia-hipertrofica-no-obstructiva-sintomatica-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Evaluar si el aficamten, frente a placebo, mejora el estado de salud medido con el KCCQ-CSS y el consumo pico de oxígeno a las 36 semanas en adultos con miocardiopatía hipertrófica no obstructiva sintomática.",
+      "answer": "A las 36 semanas, el KCCQ-CSS mejoró 11.4 puntos con aficamten y 8.4 con placebo (diferencia 3.0 puntos ; IC 95% 0.5 a 5.5; P=0.02), y el consumo pico de oxígeno cambió 0.64 frente a −0.03 ml por kilogramo por minuto (diferencia 0.67 ml por kilogramo por minuto ; IC 95% 0.22 a 1.11; P=0.003).",
+      "population": "Se incluyó a adultos de 18 a 85 años con miocardiopatía hipertrófica (MCH) no obstructiva sintomática: pared del ventrículo izquierdo de al menos 15 mm, o 13 mm con mutación causal o historia familiar; gradiente del tracto de salida menor de 30 mm Hg en reposo y de 50 mm Hg con Valsalva; fracción de eyección del ventrículo izquierdo (FEVI) del 60% o más; clase II o III de la New York Heart Association (NYHA), escala de I a IV…"
+    },
+    "datePublished": "2026-11-13"
   }
 }
