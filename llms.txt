@@ -28,6 +28,7 @@ Material educativo para profesionales de la salud. La referencia final es siempr
 
 ## Resúmenes de ensayos
 
+- [SYNCHRONIZE-1: survodutida una vez por semana para el tratamiento de adultos con obesidad](https://resumenestrials.com/trials/synchronize-1-survodutida-vez-semana-tratamiento-adultos-obesidad/): NEJM, 2026.
 - [OVERLORD-MS: rituximab frente a ocrelizumab en la esclerosis múltiple recurrente de diagnóstico reciente](https://resumenestrials.com/trials/overlord-ms-rituximab-ocrelizumab-esclerosis-multiple-recurrente-diagnostico-reciente/): NEJM, 2026.
 - [TRANSCEND: setmelanotida para el tratamiento de la obesidad hipotalámica adquirida](https://resumenestrials.com/trials/transcend-setmelanotida-tratamiento-obesidad-hipotalamica-adquirida/): NEJM, 2026.
 - [DAPT-MVD: doble antiagregación plaquetaria prolongada para la enfermedad arterial coronaria multivaso](https://resumenestrials.com/trials/dapt-mvd-doble-antiagregacion-plaquetaria-prolongada-enfermedad-arterial-coronaria-multivaso/): NEJM, 2026.

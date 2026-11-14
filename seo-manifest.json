@@ -8649,5 +8649,31 @@
       "population": "La población fueron adultos de 18 a 60 años con esclerosis múltiple recurrente diagnosticada en los 12 meses previos, sin tratamiento modificador previo y con actividad reciente: al menos un brote o una lesión nueva o agrandada en la resonancia en esos 12 meses. Procedían de 12 servicios de neurología de Noruega y Suecia. Raza y etnia: No reportado; los autores describen una población predominantemente de ascendencia del norte…"
     },
     "datePublished": "2026-11-13"
+  },
+  "319": {
+    "slug": "synchronize-1-survodutida-vez-semana-tratamiento-adultos-obesidad",
+    "path": "/trials/synchronize-1-survodutida-vez-semana-tratamiento-adultos-obesidad/",
+    "url": "https://resumenestrials.com/trials/synchronize-1-survodutida-vez-semana-tratamiento-adultos-obesidad/",
+    "title": "SYNCHRONIZE-1: survodutida una vez por semana para el tratamiento de adultos con obesidad",
+    "seo_title": "SYNCHRONIZE-1 trial: survodutida una vez por semana para el tratamiento de adultos con obesidad | Resúmenes Trials",
+    "description": "SYNCHRONIZE-1: A la semana 76, el cambio medio estimado del peso fue de -12.2% con 3.6 mg y -13.0% con 6.0 mg de survodutida frente a -5.4% con placebo…",
+    "clusters": [
+      {
+        "name": "Renal y metabolismo",
+        "path": "/medicina-interna/renal-metabolica/",
+        "url": "https://resumenestrials.com/medicina-interna/renal-metabolica/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/synchronize-1-survodutida-vez-semana-tratamiento-adultos-obesidad-16x9.jpg",
+      "https://resumenestrials.com/images/trials/synchronize-1-survodutida-vez-semana-tratamiento-adultos-obesidad-4x3.jpg",
+      "https://resumenestrials.com/images/trials/synchronize-1-survodutida-vez-semana-tratamiento-adultos-obesidad-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Evaluar la eficacia y la seguridad de la survodutida subcutánea una vez por semana, con dosis objetivo de 3.6 mg o 6.0 mg, frente a placebo, sumada a consejo sobre dieta y ejercicio, para reducir el peso corporal en adultos con obesidad sin diabetes.",
+      "answer": "A la semana 76, el cambio medio estimado del peso fue de -12.2% con 3.6 mg y -13.0% con 6.0 mg de survodutida frente a -5.4% con placebo (diferencias de -6.8 puntos porcentuales, IC 95% -8.8 a -4.8, y de -7.5, IC 95% -9.6 a -5.5; P<0.001).",
+      "population": "Se incluyó a adultos de 18 años o más sin diabetes, con un índice de masa corporal (IMC) de 30 o más, o de 27 o más con alguna complicación (hipertensión, dislipidemia, apnea obstructiva del sueño, enfermedad cardiovascular o esteatohepatitis asociada a disfunción metabólica), y con al menos un intento fallido de adelgazar con dieta. La raza fue autodeclarada: el 67.6% eran personas blancas, el 22.3% asiáticas y el 7.2%…"
+    },
+    "datePublished": "2026-11-14"
   }
 }
