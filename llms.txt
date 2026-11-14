@@ -28,6 +28,9 @@ Material educativo para profesionales de la salud. La referencia final es siempr
 
 ## Resúmenes de ensayos
 
+- [OVERLORD-MS: rituximab frente a ocrelizumab en la esclerosis múltiple recurrente de diagnóstico reciente](https://resumenestrials.com/trials/overlord-ms-rituximab-ocrelizumab-esclerosis-multiple-recurrente-diagnostico-reciente/): NEJM, 2026.
+- [TRANSCEND: setmelanotida para el tratamiento de la obesidad hipotalámica adquirida](https://resumenestrials.com/trials/transcend-setmelanotida-tratamiento-obesidad-hipotalamica-adquirida/): NEJM, 2026.
+- [DAPT-MVD: doble antiagregación plaquetaria prolongada para la enfermedad arterial coronaria multivaso](https://resumenestrials.com/trials/dapt-mvd-doble-antiagregacion-plaquetaria-prolongada-enfermedad-arterial-coronaria-multivaso/): NEJM, 2026.
 - [ACACIA-HCM: aficamten para la miocardiopatía hipertrófica no obstructiva sintomática](https://resumenestrials.com/trials/acacia-hcm-aficamten-miocardiopatia-hipertrofica-no-obstructiva-sintomatica/): NEJM, 2026.
 - [ATTAIN-OSA: orforglipron para la apnea obstructiva del sueño, resultados de 2 ensayos clínicos aleatorizados](https://resumenestrials.com/trials/attain-osa-orforglipron-apnea-obstructiva-sueno-resultados-2-ensayos-clinicos-aleatorizados/): JAMA, 2026.
 - [EPoS II: intervalos de colonoscopia e incidencia de cáncer colorrectal tras la extirpación de adenomas](https://resumenestrials.com/trials/epos-ii-intervalos-colonoscopia-incidencia-cancer-colorrectal-tras-extirpacion-adenomas/): NEJM, 2026.
