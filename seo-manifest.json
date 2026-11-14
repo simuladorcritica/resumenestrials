@@ -450,12 +450,17 @@
     "url": "https://resumenestrials.com/trials/hi-peitho-fibrinolisis-dirigida-cateter-facilitada-ultrasonido-embolia-pulmonar-aguda-riesgo/",
     "title": "HI-PEITHO: fibrinólisis dirigida por catéter y facilitada por ultrasonido en la embolia pulmonar aguda",
     "seo_title": "HI-PEITHO trial: fibrinólisis dirigida por catéter y facilitada por ultrasonido en la embolia pulmonar aguda | Resúmenes Trials",
-    "description": "HI-PEITHO: El desenlace combinado a 7 días cayó del 10.3% al 4.0% (RR 0.39; IC 95% 0.20-0.77; P=0.005), impulsado por menos deterioro cardiorrespiratorio. No…",
+    "description": "HI-PEITHO: El desenlace combinado a 7 días ocurrió en el 4.0% con la intervención frente al 10.3% con anticoagulación sola (RR 0.39; IC 95% 0.20-0.77…",
     "clusters": [
       {
         "name": "Ventilación e insuficiencia respiratoria",
         "path": "/medicina-critica/ventilacion-respiratoria/",
         "url": "https://resumenestrials.com/medicina-critica/ventilacion-respiratoria/"
+      },
+      {
+        "name": "Neurocríticos",
+        "path": "/medicina-critica/neurocriticos/",
+        "url": "https://resumenestrials.com/medicina-critica/neurocriticos/"
       },
       {
         "name": "Neumología",
@@ -469,12 +474,12 @@
       "https://resumenestrials.com/images/trials/hi-peitho-fibrinolisis-dirigida-cateter-facilitada-ultrasonido-embolia-pulmonar-aguda-riesgo-1x1.jpg"
     ],
     "intent": {
-      "question": "Determinar si la fibrinólisis dirigida por catéter y facilitada por ultrasonido, sumada a anticoagulación, es superior a la anticoagulación sola para reducir un desenlace combinado de muerte, colapso cardiorrespiratorio o recurrencia a 7 días en la embolia pulmonar aguda de riesgo intermedio.",
-      "answer": "El desenlace combinado a 7 días cayó del 10.3% al 4.0% (RR 0.39; IC 95% 0.20-0.77; P=0.005), impulsado por menos deterioro cardiorrespiratorio.",
+      "question": "Determinar si la fibrinólisis dirigida por catéter y facilitada por ultrasonido, sumada a anticoagulación, es superior a la anticoagulación sola para reducir un desenlace combinado de muerte relacionada con la embolia, deterioro o colapso cardiorrespiratorio o recurrencia sintomática a 7 días en la embolia pulmonar aguda de riesgo intermedio.",
+      "answer": "El desenlace combinado a 7 días ocurrió en el 4.0% con la intervención frente al 10.3% con anticoagulación sola (RR 0.39; IC 95% 0.20-0.77; P=0.005), impulsado por menos deterioro cardiorrespiratorio.",
       "population": "La población fueron adultos de 18 a 80 años con embolia pulmonar aguda de riesgo intermedio, confirmada por angiografía pulmonar por tomografía en al menos una arteria pulmonar principal o lobar proximal. El 15.8% se identificó con una raza distinta de la blanca. Para ingresar debían tener una relación entre el diámetro telediastólico del ventrículo derecho y el del izquierdo de 1.0 o mayor, troponina elevada y al menos dos…"
     },
     "datePublished": "2026-08-16",
-    "dateModified": "2026-10-20"
+    "dateModified": "2026-11-13"
   },
   "18": {
     "slug": "vesalius-cv-evolocumab-pacientes-infarto-miocardio-ni-ictus-previos",
@@ -5121,7 +5126,7 @@
       "population": "Población. Adultos de 18 años o más con shock que necesitaban un vasopresor, atendidos en las unidades de cuidados intensivos de ocho centros de Bélgica, Austria y España. Se incluyeron todos los tipos de shock: séptico, cardiogénico, hipovolémico y otros. La raza y la etnia no se reportaron. Intervención. Dopamina como vasopresor de primera línea, en infusión intravenosa ajustada al peso. La preparación llevaba 800 mg de…"
     },
     "datePublished": "2026-10-19",
-    "dateModified": "2026-10-20"
+    "dateModified": "2026-11-13"
   },
   "187": {
     "slug": "epvent-peep-guiada-presion-esofagica-lesion-pulmonar-aguda-sdra",
@@ -5187,10 +5192,10 @@
     "intent": {
       "question": "Determinar si añadir vasopresina en dosis baja, frente a noradrenalina, reduce la mortalidad a 28 días en el shock séptico tratado con catecolaminas.",
       "answer": "Sin diferencia significativa en la mortalidad a 28 días ( 35.4% con vasopresina frente a 39.3% con noradrenalina ; riesgo relativo 0.90; IC 95%, 0.75 a 1.08; p = 0.26 ), con eventos adversos graves similares (10.3% frente a 10.5%).",
-      "population": "Población. Pacientes mayores de 16 años con shock séptico que seguían necesitando noradrenalina pese a la reanimación con líquidos, atendidos en 27 unidades de cuidados intensivos de Canadá, Australia y Estados Unidos. La raza la registraron los coordinadores locales: era blanca en el 84.6% del grupo vasopresina y en el 83.8% del grupo noradrenalina. Intervención. Vasopresina en dosis baja, añadida a los vasopresores abiertos…"
+      "population": "Población. Pacientes mayores de 16 años con shock séptico que seguían necesitando vasopresores, al menos 5 µg por minuto de noradrenalina o equivalente, pese a la reanimación con líquidos, atendidos en 27 unidades de cuidados intensivos de Canadá, Australia y Estados Unidos. La raza la registraron los coordinadores locales: era blanca en el 84.6% del grupo vasopresina y en el 83.8% del grupo noradrenalina. Intervención…"
     },
     "datePublished": "2026-10-19",
-    "dateModified": "2026-10-27"
+    "dateModified": "2026-11-13"
   },
   "189": {
     "slug": "corticus-hidrocortisona-shock-septico",
@@ -5282,11 +5287,11 @@
     ],
     "intent": {
       "question": "Determinar si una estrategia de PEEP alta, frente a una de PEEP baja, reduce la mortalidad en la lesión pulmonar aguda y el SDRA ventilados con volumen corriente bajo.",
-      "answer": "Sin diferencia significativa en la muerte antes del alta ( 24.9% con PEEP baja frente a 27.5% con PEEP alta ; IC 95% de la diferencia, −10.0 a 4.7; p = 0.48 ), pese a una PEEP media de 13.2 frente a 8.3 cm de agua y mejor oxigenación.",
+      "answer": "Sin diferencia significativa en la muerte antes del alta ( 24.9% con PEEP baja frente a 27.5% con PEEP alta ; IC 95% de la diferencia, −10.0 a 4.7; p = 0.48 ), pese a una PEEP media en los días 1 a 4 de 8.3 cm de agua con PEEP baja frente a 13.2 con PEEP alta, y una mejor oxigenación con PEEP alta.",
       "population": "Población. Pacientes de 13 años o más, intubados y en ventilación mecánica, con lesión pulmonar aguda o síndrome de dificultad respiratoria aguda (SDRA) de inicio reciente, atendidos en 23 hospitales de la red en Estados Unidos. Según la asignación de los investigadores, el 73% del grupo con PEEP baja y el 77% del grupo con PEEP alta eran de raza blanca, el 14% de ambos de raza negra, y el 6% y el 7% hispanos. Ventilación…"
     },
     "datePublished": "2026-10-19",
-    "dateModified": "2026-10-20"
+    "dateModified": "2026-11-13"
   },
   "192": {
     "slug": "volumen-corriente-bajo-frente-a-tradicional-en-la-lesion-pulmonar-aguda-y-el-sdra",
@@ -5372,7 +5377,7 @@
       "population": "La población fueron adultos de 18 años o más con insuficiencia respiratoria hipoxémica aguda en ventilación mecánica invasiva, que llevaban menos de 72 horas con sedación intravenosa y en los que se esperaba que siguieran ventilados al menos hasta el final del día siguiente. Podían tener una insuficiencia respiratoria no relacionada con COVID-19 con una relación PaO2/FiO2 menor de 300 mmHg o bien COVID-19. Se reclutaron en 14…"
     },
     "datePublished": "2026-10-19",
-    "dateModified": "2026-10-20"
+    "dateModified": "2026-11-13"
   },
   "195": {
     "slug": "vasspr-umbral-umbral-alto-iniciar-vasopresina-shock-septico",
@@ -5404,7 +5409,7 @@
       "population": "La población fueron todos los adultos de 18 años o más ingresados en 13 hospitales de Idaho y Utah, o en sus servicios de urgencias, que recibieron vasopresores por shock séptico, identificados por la indicación registrada en la orden médica del vasopresor; no hubo criterios de exclusión. La raza y etnia se tomaron de la autodeclaración en el expediente: el 82.3% y el 81.2% eran blancos no hispanos y el 9.8% y el 11.4%…"
     },
     "datePublished": "2026-10-19",
-    "dateModified": "2026-10-20"
+    "dateModified": "2026-11-13"
   },
   "197": {
     "slug": "save-o2-ai-titulacion-autonoma-oxigeno-titulacion-manual-adultos-hospitalizados",
@@ -5412,7 +5417,7 @@
     "url": "https://resumenestrials.com/trials/save-o2-ai-titulacion-autonoma-oxigeno-titulacion-manual-adultos-hospitalizados/",
     "title": "SAVE-O2 AI: titulación autónoma del oxígeno para mantener la normoxemia en adultos con enfermedad aguda",
     "seo_title": "SAVE-O2 AI trial: titulación autónoma del oxígeno para mantener la normoxemia en adultos con enfermedad aguda | Resúmenes Trials",
-    "description": "SAVE-O2 AI: Los pacientes con titulación autónoma pasaron el 85% del tiempo en normoxemia frente al 63% con titulación manual, una diferencia ajustada de 21…",
+    "description": "SAVE-O2 AI: Los pacientes con titulación autónoma pasaron una media del 85% del tiempo en normoxemia frente al 63% con titulación manual, una diferencia…",
     "clusters": [
       {
         "name": "Ventilación e insuficiencia respiratoria",
@@ -5427,11 +5432,11 @@
     ],
     "intent": {
       "question": "Determinar si un sistema que titula el oxígeno de forma autónoma aumenta el tiempo en normoxemia frente a la titulación manual en adultos hospitalizados con oxígeno suplementario.",
-      "answer": "Los pacientes con titulación autónoma pasaron el 85% del tiempo en normoxemia frente al 63% con titulación manual, una diferencia ajustada de 21 puntos porcentuales (IC 95%, 18 a 25; p < 0.001) , y menos tiempo en hipoxemia.",
+      "answer": "Los pacientes con titulación autónoma pasaron una media del 85% del tiempo en normoxemia frente al 63% con titulación manual, una diferencia ajustada de 21 puntos porcentuales (IC 95%, 18 a 25; p < 0.001) , y menos tiempo en hipoxemia en el secundario clave, sin ajuste por multiplicidad.",
       "population": "La población fueron adultos hospitalizados en 4 hospitales terciarios de distintas regiones de Estados Unidos por una enfermedad respiratoria aguda, un traumatismo, quemaduras o cirugía urgente, que recibían entre 1 y 10 L/min de oxígeno suplementario. La raza y la etnia fueron autodeclaradas: el 74% y el 71% eran blancos no hispanos, el 17% y el 19% negros no hispanos y el 6% y el 7% hispanos. La pigmentación de la piel se…"
     },
     "datePublished": "2026-10-19",
-    "dateModified": "2026-10-20"
+    "dateModified": "2026-11-13"
   },
   "198": {
     "slug": "65-hipotension-permisiva-atencion-habitual-mayores-65-anos-hipotension-vasodilatadora",
@@ -8480,7 +8485,7 @@
     "url": "https://resumenestrials.com/trials/solario-pautas-antibiotico-cortas-largas-ortopedia/",
     "title": "SOLARIO: pautas de antibiótico cortas o largas en ortopedia",
     "seo_title": "SOLARIO trial: pautas de antibiótico cortas o largas en ortopedia | Resúmenes Trials",
-    "description": "SOLARIO: La pauta corta de antibiótico sistémico no fue inferior a la larga: en el análisis primario de la población elegible, el fracaso definitivo a 12…",
+    "description": "SOLARIO: La pauta corta de antibiótico sistémico no fue inferior a la larga: en el análisis primario de la población elegible, el fracaso definitivo en los 12…",
     "clusters": [
       {
         "name": "Enfermedades infecciosas",
@@ -8494,11 +8499,12 @@
       "https://resumenestrials.com/images/trials/solario-pautas-antibiotico-cortas-largas-ortopedia-1x1.jpg"
     ],
     "intent": {
-      "question": "Determinar si, en adultos operados con intención curativa de una infección ortopédica a los que se implantó un portador de antibiótico local, 7 días o menos de antibiótico sistémico posoperatorio no son inferiores a 4 semanas o más en el fracaso definitivo del tratamiento a 12 meses.",
-      "answer": "La pauta corta de antibiótico sistémico no fue inferior a la larga: en el análisis primario de la población elegible, el fracaso definitivo a 12 meses ocurrió en el 11.1% frente al 14.1% (diferencia de riesgo -3.0 puntos porcentuales; IC 95%, -9.0 a 3.0; sin valor p informado) , dentro del margen preespecificado de 10 puntos…",
+      "question": "Determinar si, en adultos operados con intención curativa de una infección ortopédica a los que se implantó un portador de antibiótico local, 7 días o menos de antibiótico sistémico posoperatorio no son inferiores a 4 semanas o más en el fracaso definitivo del tratamiento en los 12 meses siguientes a la cirugía.",
+      "answer": "La pauta corta de antibiótico sistémico no fue inferior a la larga: en el análisis primario de la población elegible, el fracaso definitivo en los 12 meses siguientes a la cirugía ocurrió en el 11.1% frente al 14.1% (diferencia de riesgo -3.0 puntos porcentuales; IC 95%, -9.0 a 3.0; sin valor p informado) , dentro del margen…",
       "population": "La población fueron adultos de 18 años o más que iban a someterse a una cirugía definitiva, con intención curativa, por una infección ortopédica confirmada y que de ordinario habrían recibido al menos 4 semanas de antibiótico sistémico. No se recogió la raza ni la etnia; según datos generales de los centros, alrededor del 80% de sus pacientes eran blancos europeos. El 71% eran hombres. Participaron 25 centros de Reino Unido…"
     },
-    "datePublished": "2026-11-12"
+    "datePublished": "2026-11-12",
+    "dateModified": "2026-11-13"
   },
   "313": {
     "slug": "epos-ii-intervalos-colonoscopia-incidencia-cancer-colorrectal-tras-extirpacion-adenomas",

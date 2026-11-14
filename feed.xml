@@ -14,6 +14,13 @@
     <summary>Evaluar si una píldora única con tres antihipertensivos a dosis bajas, añadida al tratamiento estándar, reduce el ictus recurrente y controla mejor la presión arterial en pacientes con antecedente de hemorragia intracerebral.</summary>
   </entry>
   <entry>
+    <title>HI-PEITHO: fibrinólisis dirigida por catéter y facilitada por ultrasonido en la embolia pulmonar aguda</title>
+    <id>https://resumenestrials.com/trials/hi-peitho-fibrinolisis-dirigida-cateter-facilitada-ultrasonido-embolia-pulmonar-aguda-riesgo/</id>
+    <link href="https://resumenestrials.com/trials/hi-peitho-fibrinolisis-dirigida-cateter-facilitada-ultrasonido-embolia-pulmonar-aguda-riesgo/"/>
+    <updated>2026-11-13T00:00:00Z</updated>
+    <summary>Determinar si la fibrinólisis dirigida por catéter y facilitada por ultrasonido, sumada a anticoagulación, es superior a la anticoagulación sola para reducir un desenlace combinado de muerte relacionada con la embolia, deterioro o colapso cardiorrespiratorio o recurrencia sintomática a 7 días en la…</summary>
+  </entry>
+  <entry>
     <title>ACURASYS: bloqueantes neuromusculares en el síndrome de dificultad respiratoria aguda temprano</title>
     <id>https://resumenestrials.com/trials/acurasys-bloqueo-neuromuscular-temprano-cisatracurio-48-horas-placebo-sindrome-dificultad/</id>
     <link href="https://resumenestrials.com/trials/acurasys-bloqueo-neuromuscular-temprano-cisatracurio-48-horas-placebo-sindrome-dificultad/"/>
@@ -49,11 +56,60 @@
     <summary>Determinar si la contrapulsación con balón intraaórtico, añadida a la revascularización temprana, reduce la mortalidad a 30 días en el infarto agudo de miocardio con shock cardiogénico.</summary>
   </entry>
   <entry>
+    <title>SOAP II: comparación de dopamina y noradrenalina en el tratamiento del shock</title>
+    <id>https://resumenestrials.com/trials/soap-ii-dopamina-noradrenalina-como-primer-vasopresor-shock/</id>
+    <link href="https://resumenestrials.com/trials/soap-ii-dopamina-noradrenalina-como-primer-vasopresor-shock/"/>
+    <updated>2026-11-13T00:00:00Z</updated>
+    <summary>Determinar si usar noradrenalina en lugar de dopamina como primer vasopresor reduce la mortalidad a 28 días en los pacientes con shock.</summary>
+  </entry>
+  <entry>
+    <title>VASST: infusión de vasopresina frente a noradrenalina en pacientes con shock séptico</title>
+    <id>https://resumenestrials.com/trials/vasst-vasopresina-noradrenalina-shock-septico/</id>
+    <link href="https://resumenestrials.com/trials/vasst-vasopresina-noradrenalina-shock-septico/"/>
+    <updated>2026-11-13T00:00:00Z</updated>
+    <summary>Determinar si añadir vasopresina en dosis baja, frente a noradrenalina, reduce la mortalidad a 28 días en el shock séptico tratado con catecolaminas.</summary>
+  </entry>
+  <entry>
+    <title>ALVEOLI: presiones positivas al final de la espiración más altas frente a más bajas en pacientes con síndrome de dificultad respiratoria aguda</title>
+    <id>https://resumenestrials.com/trials/alveoli-peep-alta-peep-baja-sdra-ventilado-volumen-corriente/</id>
+    <link href="https://resumenestrials.com/trials/alveoli-peep-alta-peep-baja-sdra-ventilado-volumen-corriente/"/>
+    <updated>2026-11-13T00:00:00Z</updated>
+    <summary>Determinar si una estrategia de PEEP alta, frente a una de PEEP baja, reduce la mortalidad en la lesión pulmonar aguda y el SDRA ventilados con volumen corriente bajo.</summary>
+  </entry>
+  <entry>
+    <title>SAVE-ICU: sedación inhalada con isoflurano en adultos con insuficiencia respiratoria hipoxémica aguda en ventilación mecánica</title>
+    <id>https://resumenestrials.com/trials/save-icu-sedacion-inhalada-isoflurano-sedacion-intravenosa-insuficiencia-respiratoria-hipoxemica/</id>
+    <link href="https://resumenestrials.com/trials/save-icu-sedacion-inhalada-isoflurano-sedacion-intravenosa-insuficiencia-respiratoria-hipoxemica/"/>
+    <updated>2026-11-13T00:00:00Z</updated>
+    <summary>Determinar si una estrategia de sedación inhalada con isoflurano reduce la mortalidad hospitalaria frente a la sedación intravenosa habitual en adultos ventilados con insuficiencia respiratoria hipoxémica aguda.</summary>
+  </entry>
+  <entry>
+    <title>VASSPR: efecto del umbral de inicio de la vasopresina sobre la mortalidad en el shock séptico</title>
+    <id>https://resumenestrials.com/trials/vasspr-umbral-umbral-alto-iniciar-vasopresina-shock-septico/</id>
+    <link href="https://resumenestrials.com/trials/vasspr-umbral-umbral-alto-iniciar-vasopresina-shock-septico/"/>
+    <updated>2026-11-13T00:00:00Z</updated>
+    <summary>Determinar si una estrategia hospitalaria que recomienda iniciar vasopresina con un umbral bajo de otros vasopresores reduce la mortalidad a 28 días frente a un umbral alto en adultos con shock séptico.</summary>
+  </entry>
+  <entry>
+    <title>SAVE-O2 AI: titulación autónoma del oxígeno para mantener la normoxemia en adultos con enfermedad aguda</title>
+    <id>https://resumenestrials.com/trials/save-o2-ai-titulacion-autonoma-oxigeno-titulacion-manual-adultos-hospitalizados/</id>
+    <link href="https://resumenestrials.com/trials/save-o2-ai-titulacion-autonoma-oxigeno-titulacion-manual-adultos-hospitalizados/"/>
+    <updated>2026-11-13T00:00:00Z</updated>
+    <summary>Determinar si un sistema que titula el oxígeno de forma autónoma aumenta el tiempo en normoxemia frente a la titulación manual en adultos hospitalizados con oxígeno suplementario.</summary>
+  </entry>
+  <entry>
     <title>ANNEXA-I: andexanet en la hemorragia intracerebral aguda asociada a inhibidores del factor Xa</title>
     <id>https://resumenestrials.com/trials/annexa-i-andexanet-hemorragia-intracerebral-aguda-asociada-inhibidores-factor-xa/</id>
     <link href="https://resumenestrials.com/trials/annexa-i-andexanet-hemorragia-intracerebral-aguda-asociada-inhibidores-factor-xa/"/>
     <updated>2026-11-13T00:00:00Z</updated>
     <summary>Evaluar si el andexanet, frente a la atención habitual, mejora la eficacia hemostática a las 12 horas en pacientes con hemorragia intracerebral aguda que toman inhibidores del factor Xa.</summary>
+  </entry>
+  <entry>
+    <title>SOLARIO: pautas de antibiótico cortas o largas en ortopedia</title>
+    <id>https://resumenestrials.com/trials/solario-pautas-antibiotico-cortas-largas-ortopedia/</id>
+    <link href="https://resumenestrials.com/trials/solario-pautas-antibiotico-cortas-largas-ortopedia/"/>
+    <updated>2026-11-13T00:00:00Z</updated>
+    <summary>Determinar si, en adultos operados con intención curativa de una infección ortopédica a los que se implantó un portador de antibiótico local, 7 días o menos de antibiótico sistémico posoperatorio no son inferiores a 4 semanas o más en el fracaso definitivo del tratamiento en los 12 meses siguientes…</summary>
   </entry>
   <entry>
     <title>ATTAIN-OSA: orforglipron para la apnea obstructiva del sueño, resultados de 2 ensayos clínicos aleatorizados</title>
@@ -231,13 +287,6 @@
     <summary>Determinar si la retatrutida subcutánea semanal (4, 9 o 12 mg) reduce el peso corporal a las 80 semanas frente a placebo en adultos con obesidad sin diabetes, y si mejora el dolor de la artrosis de rodilla y el índice de apnea-hipopnea en las subpoblaciones con esas complicaciones.</summary>
   </entry>
   <entry>
-    <title>SOLARIO: pautas de antibiótico cortas o largas en ortopedia</title>
-    <id>https://resumenestrials.com/trials/solario-pautas-antibiotico-cortas-largas-ortopedia/</id>
-    <link href="https://resumenestrials.com/trials/solario-pautas-antibiotico-cortas-largas-ortopedia/"/>
-    <updated>2026-11-12T00:00:00Z</updated>
-    <summary>Determinar si, en adultos operados con intención curativa de una infección ortopédica a los que se implantó un portador de antibiótico local, 7 días o menos de antibiótico sistémico posoperatorio no son inferiores a 4 semanas o más en el fracaso definitivo del tratamiento a 12 meses.</summary>
-  </entry>
-  <entry>
     <title>EPoS II: intervalos de colonoscopia e incidencia de cáncer colorrectal tras la extirpación de adenomas</title>
     <id>https://resumenestrials.com/trials/epos-ii-intervalos-colonoscopia-incidencia-cancer-colorrectal-tras-extirpacion-adenomas/</id>
     <link href="https://resumenestrials.com/trials/epos-ii-intervalos-colonoscopia-incidencia-cancer-colorrectal-tras-extirpacion-adenomas/"/>
@@ -306,54 +355,5 @@
     <link href="https://resumenestrials.com/trials/cleanse-hemoadsorcion-ha-330-shock-septico-requiere-dosis-altas-noradrenalina/"/>
     <updated>2026-11-10T00:00:00Z</updated>
     <summary>Determinar si añadir dos sesiones de hemoadsorción con el cartucho HA-330 al tratamiento estándar reduce la mortalidad a 28 días en adultos con shock séptico que requieren dosis altas de vasopresores.</summary>
-  </entry>
-  <entry>
-    <title>Ensayo aleatorizado y controlado DigiSep: efectos de una intervención de metagenómica clínica sobre los desenlaces clínicos, los costos sanitarios y la calidad de vida relacionada con la salud en pacientes con sepsis o shock séptico</title>
-    <id>https://resumenestrials.com/trials/digisep-secuenciacion-metagenomica-anadida-microbiologia-estandar-sepsis-shock-septico/</id>
-    <link href="https://resumenestrials.com/trials/digisep-secuenciacion-metagenomica-anadida-microbiologia-estandar-sepsis-shock-septico/"/>
-    <updated>2026-11-10T00:00:00Z</updated>
-    <summary>Determinar si añadir la secuenciación metagenómica de nueva generación (mNGS) del ADN microbiano libre en plasma a la microbiología estándar mejora el desenlace clínico, medido con el puntaje DOOR/RADAR a 28 días, en adultos con sepsis o shock séptico.</summary>
-  </entry>
-  <entry>
-    <title>PROMINE: propofol frente a ketamina en la intubación de secuencia rápida de pacientes en estado crítico</title>
-    <id>https://resumenestrials.com/trials/promine-propofol-ketamina-intubacion-secuencia-rapida-paciente-critico/</id>
-    <link href="https://resumenestrials.com/trials/promine-propofol-ketamina-intubacion-secuencia-rapida-paciente-critico/"/>
-    <updated>2026-11-10T00:00:00Z</updated>
-    <summary>Evaluar si la ketamina, frente al propofol, produce una menor caída de la presión arterial media en los primeros diez minutos tras la inducción para la intubación de secuencia rápida en pacientes críticos.</summary>
-  </entry>
-  <entry>
-    <title>P4: angiografía coronaria por tomografía computarizada frente a ecografía intravascular como guía de la intervención coronaria percutánea</title>
-    <id>https://resumenestrials.com/trials/p4-angiografia-coronaria-tomografia-computarizada-ecografia-intravascular-como-guia-intervencion/</id>
-    <link href="https://resumenestrials.com/trials/p4-angiografia-coronaria-tomografia-computarizada-ecografia-intravascular-como-guia-intervencion/"/>
-    <updated>2026-11-10T00:00:00Z</updated>
-    <summary>Determinar si una intervención coronaria percutánea planificada y guiada con angiografía coronaria por tomografía computarizada no es inferior a la guiada por ecografía intravascular en el fallo del vaso diana a 12 meses.</summary>
-  </entry>
-  <entry>
-    <title>FIBRONEER-ILD: nerandomilast en pacientes con fibrosis pulmonar progresiva</title>
-    <id>https://resumenestrials.com/trials/fibroneer-ild-nerandomilast-pacientes-fibrosis-pulmonar-progresiva/</id>
-    <link href="https://resumenestrials.com/trials/fibroneer-ild-nerandomilast-pacientes-fibrosis-pulmonar-progresiva/"/>
-    <updated>2026-11-10T00:00:00Z</updated>
-    <summary>Evaluar si el nerandomilast a 18 o 9 mg dos veces al día, frente a placebo, reduce la caída de la capacidad vital forzada a las 52 semanas en pacientes con fibrosis pulmonar progresiva distinta de la fibrosis pulmonar idiopática.</summary>
-  </entry>
-  <entry>
-    <title>BATURA: albuterol-budesonida a demanda en el asma leve</title>
-    <id>https://resumenestrials.com/trials/batura-albuterol-budesonida-demanda-asma-leve/</id>
-    <link href="https://resumenestrials.com/trials/batura-albuterol-budesonida-demanda-asma-leve/"/>
-    <updated>2026-11-10T00:00:00Z</updated>
-    <summary>Evaluar si el inhalador de dosis fija de albuterol-budesonida usado a demanda, frente al albuterol solo a demanda, reduce el riesgo de una primera exacerbación grave en personas de 12 años o más con asma no controlada pese al tratamiento para asma leve.</summary>
-  </entry>
-  <entry>
-    <title>TRIUMPH-4 y TRIUMPH-1-OA: retatrutida una vez por semana en adultos con dolor por artrosis de rodilla y obesidad</title>
-    <id>https://resumenestrials.com/trials/triumph-4-y-triumph-1-oa-retatrutida-vez-semana-adultos-dolor-artrosis-rodilla-obesidad/</id>
-    <link href="https://resumenestrials.com/trials/triumph-4-y-triumph-1-oa-retatrutida-vez-semana-adultos-dolor-artrosis-rodilla-obesidad/"/>
-    <updated>2026-11-10T00:00:00Z</updated>
-    <summary>Evaluar si la retatrutida subcutánea una vez por semana reduce el dolor de rodilla medido con la subescala de dolor del WOMAC frente a placebo en adultos sin diabetes con artrosis de rodilla dolorosa y obesidad, y, en TRIUMPH-4, también el peso corporal.</summary>
-  </entry>
-  <entry>
-    <title>RACE-CARS: intervenciones comunitarias y de los servicios de emergencias médicas para mejorar la supervivencia en el paro cardiaco</title>
-    <id>https://resumenestrials.com/trials/race-cars-intervenciones-comunitarias-servicios-emergencias-medicas-mejorar-supervivencia-paro/</id>
-    <link href="https://resumenestrials.com/trials/race-cars-intervenciones-comunitarias-servicios-emergencias-medicas-mejorar-supervivencia-paro/"/>
-    <updated>2026-11-10T00:00:00Z</updated>
-    <summary>Determinar si una estrategia comunitaria y de los servicios de emergencias médicas, aplicada a condados enteros, aumenta la supervivencia al alta con buena función neurológica en adultos con paro cardiaco extrahospitalario.</summary>
   </entry>
 </feed>
