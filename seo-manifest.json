@@ -8747,5 +8747,25 @@
       "population": "La población fueron adultos con nefropatía IgA primaria confirmada por biopsia y proteinuria persistente pese al tratamiento de soporte: un cociente proteína/creatinina en orina de 24 horas (UPCR) de 0.8 o más, o una proteinuria de 1.0 g al día o más, con una tasa de filtración glomerular estimada (TFGe) por CKD-EPI de al menos 30 ml/min/1.73 m2. Llevaban al menos 12 semanas con un inhibidor de la enzima convertidora de…"
     },
     "datePublished": "2026-11-14"
+  },
+  "323": {
+    "slug": "gale-crusted-ivermectina-oral-combinada-crema-permetrina-5-tratar-escabiosis-grave",
+    "path": "/trials/gale-crusted-ivermectina-oral-combinada-crema-permetrina-5-tratar-escabiosis-grave/",
+    "url": "https://resumenestrials.com/trials/gale-crusted-ivermectina-oral-combinada-crema-permetrina-5-tratar-escabiosis-grave/",
+    "title": "GALE CRUSTED: ivermectina oral combinada con crema de permetrina al 5% para tratar la escabiosis grave",
+    "seo_title": "GALE CRUSTED trial: ivermectina oral combinada con crema de permetrina al 5% para tratar la escabiosis grave | Resúmenes Trials",
+    "description": "GALE CRUSTED: La curación al día 28 fue del 75% con 400 µg/kg frente al 82% con 200 µg/kg de ivermectina oral (OR 0.64; IC 95%, 0.25 a 1.67; valor p no…",
+    "clusters": [],
+    "images": [
+      "https://resumenestrials.com/images/trials/gale-crusted-ivermectina-oral-combinada-crema-permetrina-5-tratar-escabiosis-grave-16x9.jpg",
+      "https://resumenestrials.com/images/trials/gale-crusted-ivermectina-oral-combinada-crema-permetrina-5-tratar-escabiosis-grave-4x3.jpg",
+      "https://resumenestrials.com/images/trials/gale-crusted-ivermectina-oral-combinada-crema-permetrina-5-tratar-escabiosis-grave-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Evaluar si la ivermectina oral a 400 µg/kg es superior a la dosis estándar de 200 µg/kg, ambas combinadas con crema de permetrina al 5% y emoliente, para curar la escabiosis grave en adultos.",
+      "answer": "La curación al día 28 fue del 75% con 400 µg/kg frente al 82% con 200 µg/kg de ivermectina oral (OR 0.64; IC 95%, 0.25 a 1.67; valor p no reportado), sin diferencia significativa.",
+      "population": "La población fueron adultos con escabiosis grave, profusa o costrosa, confirmada por un examen parasitológico o por dermatoscopia, atendidos en servicios de dermatología de Francia. La raza y el origen étnico no se registraron, porque la ley francesa no lo permite: No reportado por normativa."
+    },
+    "datePublished": "2026-11-14"
   }
 }
