@@ -8727,5 +8727,25 @@
       "population": "La población fueron adultos de 40 años o más con fibrosis pulmonar idiopática (FPI) según la guía internacional de 2018, confirmada por revisión central de una tomografía computarizada de alta resolución de los 12 meses previos, y con una capacidad vital forzada (FVC) de al menos el 45% del predicho. Procedían de 94 centros de Estados Unidos y Canadá; por autodeclaración, el 90.5% eran blancos, el 4.2% asiáticos y el 1.8%…"
     },
     "datePublished": "2026-11-14"
+  },
+  "322": {
+    "slug": "teligan-telitacicept-nefropatia-iga-analisis-intermedio-ensayo-fase-3",
+    "path": "/trials/teligan-telitacicept-nefropatia-iga-analisis-intermedio-ensayo-fase-3/",
+    "url": "https://resumenestrials.com/trials/teligan-telitacicept-nefropatia-iga-analisis-intermedio-ensayo-fase-3/",
+    "title": "TELIGAN: telitacicept para la nefropatía IgA, análisis intermedio de un ensayo de fase 3",
+    "seo_title": "TELIGAN trial: telitacicept para la nefropatía IgA, análisis intermedio de un ensayo de fase 3 | Resúmenes Trials",
+    "description": "TELIGAN: A las 39 semanas, la razón de medias geométricas del cociente proteína/creatinina en orina de 24 horas frente al basal fue de 0.41 con telitacicept y…",
+    "clusters": [],
+    "images": [
+      "https://resumenestrials.com/images/trials/teligan-telitacicept-nefropatia-iga-analisis-intermedio-ensayo-fase-3-16x9.jpg",
+      "https://resumenestrials.com/images/trials/teligan-telitacicept-nefropatia-iga-analisis-intermedio-ensayo-fase-3-4x3.jpg",
+      "https://resumenestrials.com/images/trials/teligan-telitacicept-nefropatia-iga-analisis-intermedio-ensayo-fase-3-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Evaluar si el telitacicept subcutáneo semanal, frente a placebo, reduce la proteinuria a las 39 semanas en adultos con nefropatía IgA y proteinuria persistente pese al bloqueo del sistema renina-angiotensina.",
+      "answer": "A las 39 semanas, la razón de medias geométricas del cociente proteína/creatinina en orina de 24 horas frente al basal fue de 0.41 con telitacicept y 0.91 con placebo, una diferencia relativa de −55.0% (IC 95% −61.3 a −47.6; P<0.001) .",
+      "population": "La población fueron adultos con nefropatía IgA primaria confirmada por biopsia y proteinuria persistente pese al tratamiento de soporte: un cociente proteína/creatinina en orina de 24 horas (UPCR) de 0.8 o más, o una proteinuria de 1.0 g al día o más, con una tasa de filtración glomerular estimada (TFGe) por CKD-EPI de al menos 30 ml/min/1.73 m2. Llevaban al menos 12 semanas con un inhibidor de la enzima convertidora de…"
+    },
+    "datePublished": "2026-11-14"
   }
 }
