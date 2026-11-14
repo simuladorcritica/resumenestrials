@@ -4,8 +4,15 @@
   <id>https://resumenestrials.com/</id>
   <link href="https://resumenestrials.com/"/>
   <link rel="self" type="application/atom+xml" href="https://resumenestrials.com/feed.xml"/>
-  <updated>2026-11-13T00:00:00Z</updated>
+  <updated>2026-11-14T00:00:00Z</updated>
   <subtitle>Resúmenes críticos en español de ensayos clínicos.</subtitle>
+  <entry>
+    <title>SYNCHRONIZE-1: survodutida una vez por semana para el tratamiento de adultos con obesidad</title>
+    <id>https://resumenestrials.com/trials/synchronize-1-survodutida-vez-semana-tratamiento-adultos-obesidad/</id>
+    <link href="https://resumenestrials.com/trials/synchronize-1-survodutida-vez-semana-tratamiento-adultos-obesidad/"/>
+    <updated>2026-11-14T00:00:00Z</updated>
+    <summary>Evaluar la eficacia y la seguridad de la survodutida subcutánea una vez por semana, con dosis objetivo de 3.6 mg o 6.0 mg, frente a placebo, sumada a consejo sobre dieta y ejercicio, para reducir el peso corporal en adultos con obesidad sin diabetes.</summary>
+  </entry>
   <entry>
     <title>TRIDENT: tres antihipertensivos a dosis bajas en una sola píldora tras una hemorragia intracerebral</title>
     <id>https://resumenestrials.com/trials/trident-tres-antihipertensivos-dosis-bajas-sola-pildora-tras-hemorragia-intracerebral/</id>
@@ -348,12 +355,5 @@
     <link href="https://resumenestrials.com/trials/expres-puntaje-predictivo-extubacion-reducir-reintubacion-cuidados-intensivos/"/>
     <updated>2026-11-10T00:00:00Z</updated>
     <summary>Determinar si guiar la decisión de extubar con el Extubation Predictive Score (ExPreS) reduce la reintubación dentro de las 48 horas frente al protocolo habitual en adultos ventilados que superan una prueba de respiración espontánea.</summary>
-  </entry>
-  <entry>
-    <title>CLEANSE: hemoadsorción con HA-330 en el shock séptico que requiere dosis altas de noradrenalina: ensayo multicéntrico aleatorizado y controlado</title>
-    <id>https://resumenestrials.com/trials/cleanse-hemoadsorcion-ha-330-shock-septico-requiere-dosis-altas-noradrenalina/</id>
-    <link href="https://resumenestrials.com/trials/cleanse-hemoadsorcion-ha-330-shock-septico-requiere-dosis-altas-noradrenalina/"/>
-    <updated>2026-11-10T00:00:00Z</updated>
-    <summary>Determinar si añadir dos sesiones de hemoadsorción con el cartucho HA-330 al tratamiento estándar reduce la mortalidad a 28 días en adultos con shock séptico que requieren dosis altas de vasopresores.</summary>
   </entry>
 </feed>
