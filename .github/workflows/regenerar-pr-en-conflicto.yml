@@ -45,7 +45,7 @@ jobs:
 
       - name: Configurar Python
         if: steps.token.outputs.ok == 'true'
-        uses: actions/setup-python@v7.0.0
+        uses: actions/setup-python@v7.1.0
         with:
           python-version: "3.13"
 
