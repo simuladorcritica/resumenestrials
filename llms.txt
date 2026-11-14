@@ -28,6 +28,8 @@ Material educativo para profesionales de la salud. La referencia final es siempr
 
 ## Resúmenes de ensayos
 
+- [TETON-1: ensayos de fase 3 de treprostinil inhalado para la fibrosis pulmonar idiopática](https://resumenestrials.com/trials/teton-1-ensayos-fase-3-treprostinil-inhalado-fibrosis-pulmonar-idiopatica/): NEJM, 2026.
+- [B-Well 1 and B-Well 2: resultados de fase 3 del tratamiento con bepirovirsén en la infección crónica por el virus de la hepatitis B](https://resumenestrials.com/trials/b-well-1-and-b-well-2-resultados-fase-3-tratamiento-bepirovirsen-infeccion-cronica-virus/): NEJM, 2026.
 - [SYNCHRONIZE-1: survodutida una vez por semana para el tratamiento de adultos con obesidad](https://resumenestrials.com/trials/synchronize-1-survodutida-vez-semana-tratamiento-adultos-obesidad/): NEJM, 2026.
 - [OVERLORD-MS: rituximab frente a ocrelizumab en la esclerosis múltiple recurrente de diagnóstico reciente](https://resumenestrials.com/trials/overlord-ms-rituximab-ocrelizumab-esclerosis-multiple-recurrente-diagnostico-reciente/): NEJM, 2026.
 - [TRANSCEND: setmelanotida para el tratamiento de la obesidad hipotalámica adquirida](https://resumenestrials.com/trials/transcend-setmelanotida-tratamiento-obesidad-hipotalamica-adquirida/): NEJM, 2026.
