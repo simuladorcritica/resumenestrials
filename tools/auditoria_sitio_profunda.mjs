@@ -237,6 +237,24 @@ async function main() {
   }
   await basicA11y(page, 'archivo');
 
+  // Mapa de evidencia: un punto por registro, un único buscador y una casilla que abre su panel con los ensayos enlazados.
+  await guardedGoto(page, `${BASE}/mapa/`, 'mapa');
+  await page.waitForFunction(() => document.querySelector('[data-ev-map]')?.dataset.ready, null, { timeout: 15000 }).catch(() => {});
+  const evidenceMap = await page.evaluate(() => ({
+    dots: document.querySelectorAll('.ev-map tbody i[data-id]').length,
+    cells: document.querySelectorAll('button.ev-map-cell').length,
+    h1: document.querySelectorAll('h1').length,
+    searches: document.querySelectorAll('input[type=search]').length,
+  }));
+  if (evidenceMap.dots !== data.length) add('ALTO', 'mapa', 'integridad', `el mapa muestra ${evidenceMap.dots} puntos para ${data.length} registros`);
+  if (!evidenceMap.cells || evidenceMap.h1 !== 1) add('ALTO', 'mapa', 'integridad', 'el mapa no tiene casillas o título único', JSON.stringify(evidenceMap));
+  if (evidenceMap.searches !== 1) add('MEDIO', 'mapa', 'UX', 'el mapa debe mostrar un único buscador', JSON.stringify(evidenceMap));
+  await page.locator('button.ev-map-cell').first().click().catch(() => {});
+  const mapLinks = await page.locator('#ev-map-panel a[href*="/trials/"]').first().waitFor({ timeout: 10000 })
+    .then(() => page.locator('#ev-map-panel a[href*="/trials/"]').count()).catch(() => 0);
+  if (mapLinks < 1) add('ALTO', 'mapa', 'panel', 'la casilla del mapa no abrió sus ensayos');
+  await basicA11y(page, 'mapa');
+
   for (const route of ['privacidad/', 'terminos/', 'login.html', 'registro.html', 'recuperar.html']) {
     await guardedGoto(page, `${BASE}/${route}`, route);
     await basicA11y(page, route);

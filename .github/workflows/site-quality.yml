@@ -77,6 +77,7 @@ jobs:
           node --check ui/archive.js
           node --check agregar-editorial-dates.js
           node --check recommendations.js
+          node --check map-page.js
           node --check library-store.js
           node --check client-monitor.js
           node --check app-version.js

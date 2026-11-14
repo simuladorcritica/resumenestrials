@@ -391,6 +391,7 @@ def generar_llms(items: list[dict]) -> None:
         f"- [Medicina Crítica]({BASE_URL}/medicina-critica/): índice de resúmenes de Medicina Crítica.",
         f"- [Medicina Interna]({BASE_URL}/medicina-interna/): índice de resúmenes de Medicina Interna.",
         f"- [Archivo]({BASE_URL}/archivo/): todos los resúmenes, con buscador y filtros.",
+        f"- [Mapa de evidencia]({BASE_URL}/mapa/): todos los resúmenes por año del artículo y por tema, subespecialidad o revista.",
         "",
         "## Ediciones semanales",
         "",

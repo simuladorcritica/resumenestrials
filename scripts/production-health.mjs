@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { belongsToCategory } from './article-inventory.mjs';
 import { editions } from './editions.mjs';
+import { evidenceMap } from './evidence-map.mjs';
 
 const BASE=(process.env.RT_BASE_URL||'https://resumenestrials.com').replace(/\/$/,'');
 const CANONICAL_ORIGIN='https://resumenestrials.com';
@@ -70,12 +71,24 @@ await check('/',(b)=>{
   editionCheck(weeks.at(-1),'La portada')(b);
   assert(b.includes('<h1>Evidencia sin ruido</h1>')&&(b.match(/<h1\b/g)||[]).length===1,'Portada sin su único h1');
   assert(!b.includes('class="ev-card" data-id=')&&!b.includes('data-ev-ids='),'La portada no debe incluir el archivo');
+  assert((b.match(/class="ev-band"/g)||[]).length===1&&b.includes('<a class="ev-btn" href="/mapa/">Explorar el mapa</a>'),'Portada sin la franja del mapa de evidencia');
 });
 await check('/archivo/',(b)=>{
   const rows=(b.match(/class="ev-card" data-id=/g)||[]).length;
   assert(rows===expected.length,'El archivo no prerenderiza todos los ensayos');
   assert(b.includes('id="ev-count"')&&b.includes(expected.length+' resúmenes'),'Contador del archivo incorrecto');
   assert(b.includes(sampleEntry.path),`el archivo no enlaza al trial canónico de muestra ${sample.id}`);
+});
+// Mapa de evidencia: un punto por resumen ya en el HTML, cada uno en la fila y el año que dictan los datos.
+const mapModel=evidenceMap(expected,clusters);
+await check('/mapa/',(b)=>{
+  assert(b.includes('<h1>Mapa de evidencia</h1>')&&b.includes('/map-page.js?v='),'El mapa no es la página esperada');
+  const rows=[...b.matchAll(/<tr data-ev-row="([^"]+)">([\s\S]*?)<\/tr>/g)],placed=new Map();
+  for(const [,key,cells] of rows)[...cells.matchAll(/<td>([\s\S]*?)<\/td>/g)].forEach((cell,bin)=>{for(const dot of cell[1].matchAll(/<i data-id="(\d+)"/g))placed.set(dot[1],{row:key,bin})});
+  assert(placed.size===expected.length&&(b.match(/<i data-id="/g)||[]).length===expected.length,'El mapa no dibuja un punto por resumen');
+  assert(rows.map(row=>row[1]).join('|')===mapModel.rows.map(row=>row.key).join('|'),'Filas del mapa distintas de las esperadas');
+  for(const [id,trial] of mapModel.trials)assert(placed.get(id)?.row===trial.row&&placed.get(id)?.bin===trial.bin,`el mapa coloca mal el ensayo ${id}`);
+  assert(b.includes(`"${sample.id}":"${sampleEntry.path}"`),`el mapa no lleva la ruta del trial de muestra ${sample.id}`);
 });
 for(const edition of weeks.slice(0,-1))await check(edition.route,editionCheck(edition,`La edición ${edition.route}`));
 
@@ -111,7 +124,7 @@ if(sample.corto){
 }
 await check('/ui/pdf.js',b=>{for(const token of ['JSPDF_SRI','item.corto','item.cuerpo','generatePDF','function signal(','resumenestrials@outlook.com'])assert(b.includes(token),'PDF sin '+token)});
 await check('/site-runtime.js',b=>{for(const token of ['data-ev-sections','data-ev-save','data-ev-pdf','SpecialtyClassification'])assert(b.includes(token),'Runtime sin '+token)});
-for(const path of ['/auth.js','/supabase-config.js','/turnstile.js','/turnstile-config.js','/library-store.js','/library-page.js','/recommendations.js','/trial-data.js'])await check(path,body=>assert(createHash('sha256').update(body.replace(/\r\n/g,'\n')).digest('hex')===createHash('sha256').update(readFileSync(path.slice(1),'utf8').replace(/\r\n/g,'\n')).digest('hex'),'Dependencia pública ausente o distinta'));
+for(const path of ['/auth.js','/supabase-config.js','/turnstile.js','/turnstile-config.js','/library-store.js','/library-page.js','/recommendations.js','/map-page.js','/trial-data.js'])await check(path,body=>assert(createHash('sha256').update(body.replace(/\r\n/g,'\n')).digest('hex')===createHash('sha256').update(readFileSync(path.slice(1),'utf8').replace(/\r\n/g,'\n')).digest('hex'),'Dependencia pública ausente o distinta'));
 for(const [path,count] of [['/medicina-critica/',expectedCrit],['/medicina-interna/',expectedInt]])await check(path,b=>assert((b.match(/class="ev-card" data-id=/g)||[]).length===count,'Hub sin todos los ensayos'));
 for(const path of ['/medicina-critica/','/medicina-interna/','/metodologia/','/equipo-editorial/','/privacidad/','/terminos/']){
   await check(path,(b)=>{assert(/Resúmenes Trials|Resumenes Trials/.test(b),'HTML editorial inesperado')});
@@ -123,7 +136,7 @@ for(const entry of Object.values(clusters)){
 await check('/sitemap.xml',(b)=>{
   for(const entry of Object.values(manifest))assert(b.includes(entry.url),`sitemap sin ${entry.url}`);
   for(const entry of Object.values(clusters))assert(b.includes(`${CANONICAL_ORIGIN}${entry.path}`),`sitemap sin cluster ${entry.path}`);
-  for(const path of ['/archivo/',...weeks.slice(0,-1).map(edition=>edition.route),'/medicina-critica/','/medicina-interna/','/metodologia/','/equipo-editorial/','/privacidad/','/terminos/'])assert(b.includes(`<loc>${CANONICAL_ORIGIN}${path}</loc>`),`sitemap sin ${path}`);
+  for(const path of ['/archivo/','/mapa/',...weeks.slice(0,-1).map(edition=>edition.route),'/medicina-critica/','/medicina-interna/','/metodologia/','/equipo-editorial/','/privacidad/','/terminos/'])assert(b.includes(`<loc>${CANONICAL_ORIGIN}${path}</loc>`),`sitemap sin ${path}`);
 });
 
 await check('/login.html',(b)=>{for(const x of ['turnstile-login','turnstile.js','auth.js'])assert(b.includes(x),`falta ${x}`)});

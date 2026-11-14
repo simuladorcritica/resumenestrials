@@ -71,7 +71,8 @@ details>summary::-webkit-details-marker{display:none}
 .ev-area[data-tone=critica]{color:var(--ev-critica)}
 .ev-area[data-tone=interna]{color:var(--ev-interna)}
 .ev-tag{color:var(--ev-accent)}
-.ev-tag[data-sub]{color:var(--ev-sub-otra)}.ev-tag[data-sub=cardio]{color:var(--ev-sub-cardio)}.ev-tag[data-sub=endo]{color:var(--ev-sub-endo)}.ev-tag[data-sub=neuro]{color:var(--ev-sub-neuro)}.ev-tag[data-sub=nefro]{color:var(--ev-sub-nefro)}.ev-tag[data-sub=neumo]{color:var(--ev-sub-neumo)}.ev-tag[data-sub=infecto]{color:var(--ev-sub-infecto)}.ev-tag[data-sub=gastro]{color:var(--ev-sub-gastro)}.ev-tag[data-sub=onco]{color:var(--ev-sub-onco)}
+/* Un tono por subespecialidad (y por área en el mapa) para cualquier elemento con data-sub: etiquetas y puntos. */
+[data-sub]{color:var(--ev-sub-otra)}[data-sub=cardio]{color:var(--ev-sub-cardio)}[data-sub=endo]{color:var(--ev-sub-endo)}[data-sub=neuro]{color:var(--ev-sub-neuro)}[data-sub=nefro]{color:var(--ev-sub-nefro)}[data-sub=neumo]{color:var(--ev-sub-neumo)}[data-sub=infecto]{color:var(--ev-sub-infecto)}[data-sub=gastro]{color:var(--ev-sub-gastro)}[data-sub=onco]{color:var(--ev-sub-onco)}[data-sub=critica]{color:var(--ev-critica)}[data-sub=interna]{color:var(--ev-interna)}
 .ev-type{color:var(--ev-muted)}
 .ev-badge{display:inline-flex;align-items:center;justify-content:center;min-width:22px;height:22px;padding:0 6px;border-radius:var(--ev-pill);background:var(--ev-accent-strong);color:var(--ev-on-accent);font-size:.75rem}
 .ev-status{min-height:1.4em;margin:12px 0 0;color:var(--ev-muted);font-size:.9rem}
@@ -134,10 +135,8 @@ details>summary::-webkit-details-marker{display:none}
 .ev-main:focus{outline:none}
 
 /* ---------- Hero ---------- */
-.ev-hero{display:grid;grid-template-columns:minmax(0,1fr);gap:28px 56px;align-items:end;padding:24px 0 36px}
-.ev-hero h1{max-width:15ch}
-.ev-hero-compact{grid-template-columns:minmax(0,1fr);padding-bottom:20px}
-.ev-hero-compact h1{max-width:24ch;font-size:clamp(2rem,1.3rem + 2.6vw,3rem)}
+.ev-hero{display:grid;grid-template-columns:minmax(0,1fr);padding:24px 0 20px}
+.ev-hero h1{max-width:24ch;font-size:clamp(2rem,1.3rem + 2.6vw,3rem)}
 
 /* ---------- Portada: edición semanal ---------- */
 .ev-edition .ev-main{padding-top:14px}
@@ -159,7 +158,7 @@ span.ev-ednav-step{opacity:.35}
 .ev-ednav li a::before{content:"";position:absolute;left:50%;top:27px;height:7px;border-left:1px solid var(--ev-line-strong)}
 .ev-ednav li a:hover{color:var(--ev-ink)}
 .ev-ednav li a[aria-current]{color:var(--ev-ink);font-weight:600}
-.ev-ednav li a:focus-visible{outline-offset:-3px}
+.ev-ednav li a:focus-visible,.ev-map-cell:focus-visible{outline-offset:-3px}
 .ev-ed-grid{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:40px 64px;padding:26px 0 40px}
 .ev-ed-label{margin:0;color:var(--ev-muted);font-family:var(--ev-ui);line-height:1.4}
 .ev-ed-top{display:flex;flex-wrap:wrap;align-items:center;gap:0 18px}
@@ -190,6 +189,36 @@ span.ev-ednav-step{opacity:.35}
 .ev-ed-more{margin-top:14px}
 .ev-ed-more[open]>summary span:first-child,.ev-ed-more:not([open])>summary span+span{display:none}
 .ev-ed-more[open]>summary{margin-bottom:6px}
+
+/* ---------- Mapa de evidencia ---------- */
+/* Tabla: una fila por tema, subespecialidad o revista y una columna por año. Los puntos (<i>) son decorativos y toman
+   el color de data-sub; el control es la casilla, un botón de 44 px como mínimo. En pantallas estrechas la tabla se
+   desplaza dentro de su contenedor (empieza por el año más reciente: direction:rtl) y la primera columna queda fija. La franja de la portada (.ev-band) lleva la
+   miniatura (.ev-mini): un punto por resumen apilado por año. .ev-about es el texto final de especialidades y subtemas. */
+.ev-map-ctl{display:flex;flex-wrap:wrap;align-items:flex-end;gap:14px 28px}
+.ev-map-ctl .ev-quick-label{display:block;margin-bottom:6px}
+.ev-map-ctl .ev-segment{display:flex;gap:0;margin:0;padding:0}
+.ev-map-ctl .ev-segment span{padding-inline:12px}
+.ev-map-ctl>:last-child{flex:0 1 300px}
+.ev-map-scroll{overflow-x:auto;direction:rtl;margin-top:8px;border-top:1px solid var(--ev-ink)}
+.ev-map table{width:100%;border-spacing:0;table-layout:fixed;direction:ltr}
+.ev-map :is(th,td){padding:0;border:solid var(--ev-line);border-width:0 0 1px 1px;color:var(--ev-muted);font-size:.74rem;font-weight:500;vertical-align:top}
+.ev-map thead th{width:46px;padding:8px 0;text-align:center;white-space:nowrap}
+.ev-map tr>:first-child{position:sticky;left:0;z-index:1;width:176px;padding:10px 12px 10px 0;border-left:0;background:var(--ev-bg);color:var(--ev-ink);font-size:.86rem;line-height:1.3}
+.ev-map small{display:block;margin-top:2px;color:var(--ev-muted);font-size:.74rem}
+.ev-map-cell{display:flex;flex-wrap:wrap;align-content:flex-start;gap:3px;width:100%;padding:9px 4px;border:0;background:none}
+.ev-map-cell:hover,.ev-map-cell[aria-pressed=true]{background:var(--ev-accent-soft)}
+.ev-map-cell i,.ev-mini i,.ev-map-legend i{width:10px;height:10px;border-radius:50%;background:currentColor}
+.ev-map [data-dim]{opacity:.15}
+.ev-map-legend{display:flex;flex-wrap:wrap;gap:6px 18px;margin:14px 0 0;padding:0;list-style:none;color:var(--ev-muted);font-size:.82rem}
+.ev-map-legend li{display:flex;align-items:center;gap:6px}
+.ev-map-panel{margin-top:28px;border-top:1px solid var(--ev-ink)}
+.ev-map-panel .ev-count{flex:1}
+.ev-band,.ev-about{margin-top:32px;padding-top:28px;border-top:1px solid var(--ev-line)}
+.ev-mini{display:grid;grid-template-rows:1fr auto;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);align-items:end;gap:6px;min-height:44px;color:var(--ev-interna);text-decoration:none}
+.ev-mini span{display:flex;flex-wrap:wrap-reverse;justify-content:center;gap:2px}
+.ev-mini i{width:6px;height:6px}
+.ev-mini small{color:var(--ev-muted);font-size:.68rem;text-align:center;white-space:nowrap}
 
 /* ---------- Archive ---------- */
 section.ev-archive{scroll-margin-top:96px;padding-top:12px}
@@ -589,13 +618,13 @@ html .ev-field-error[hidden]{display:block!important;visibility:hidden}
  .ev-more-tools .ev-tool{justify-content:flex-start}
  .ev-toolbar.ev-more-open .ev-more-tools{display:flex}
  .ev-toolbar .ev-more-toggle{margin-left:auto}
+ .ev-header-nav a{padding:8px;font-size:.88rem}
 }
 @media(max-width:1099px){
  .ev-header-nav{display:none}
  .ev-menu-toggle{display:inline-flex}
  .ev-search{max-width:none}
  .ev-list{grid-template-columns:repeat(2,minmax(0,1fr))}
- .ev-hero{grid-template-columns:minmax(0,1fr)}
  .ev-reader-grid{grid-template-columns:minmax(0,1fr)}
  .ev-rail{display:none}
  .ev-footer-inner{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -622,7 +651,7 @@ html .ev-field-error[hidden]{display:block!important;visibility:hidden}
  .ev-search-panel{top:calc(100% + 6px);left:-56px;width:auto;max-height:calc(100dvh - var(--ev-header-h) - var(--ev-top-h) - 96px)}
  .ev-member .ev-search-panel,.ev-internal .ev-search-panel{right:-54px}
  .ev-main{padding:22px 16px 112px}
- .ev-hero{padding:6px 0 22px;gap:18px}
+ .ev-hero{padding:6px 0 22px}
  .ev-hero h1{font-size:2.05rem;max-width:none}
  .ev-lead{font-size:1rem}
  .ev-eyebrow{font-size:.7rem;letter-spacing:.04em}
@@ -637,6 +666,11 @@ html .ev-field-error[hidden]{display:block!important;visibility:hidden}
  .ev-filters{padding:14px}
  .ev-filters-grid{grid-template-columns:minmax(0,1fr)}
  .ev-list{grid-template-columns:minmax(0,1fr);gap:14px}
+ .ev-map tr>:first-child{width:128px}
+ .ev-mini{gap:3px}
+ .ev-mini i{width:4px;height:4px}
+ .ev-mini small{font-size:.56rem}
+ .ev-mini small:nth-of-type(even){visibility:hidden}
  .ev-list>.ev-card{padding:14px 0 4px}
  .ev-dense .ev-list>.ev-card{grid-template-columns:minmax(0,1fr);grid-template-areas:"title" "meta" "tags" "actions";padding:14px 16px}
  .ev-dense .ev-card-foot{justify-self:start}

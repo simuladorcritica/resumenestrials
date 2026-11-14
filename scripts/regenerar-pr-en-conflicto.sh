@@ -20,7 +20,7 @@ elif ! git rev-parse -q --verify MERGE_HEAD >/dev/null; then
 fi
 conflicted=$(git diff --name-only --diff-filter=U || true)
 # Fuentes: nunca se resuelven solas. Todo lo demás son salidas que la secuencia de CLAUDE.md reescribe.
-sources=$(printf '%s\n' "$conflicted" | grep -E '^(resumenes\.json|clinical-correction-authorizations\.json|ui/(tokens|site)\.css|ui/[^/]+\.js$|templates/|scripts/|tools/|docs/|\.github/|fonts/|vendor/|[^/]+\.py$|package(-lock)?\.json|pnpm-lock\.yaml|CLAUDE\.md|_config\.yml)' || true)
+sources=$(printf '%s\n' "$conflicted" | grep -E '^(resumenes\.json|clinical-correction-authorizations\.json|ui/(tokens|site)\.css|ui/[^/]+\.js$|map-page\.js|templates/|scripts/|tools/|docs/|\.github/|fonts/|vendor/|[^/]+\.py$|package(-lock)?\.json|pnpm-lock\.yaml|CLAUDE\.md|_config\.yml)' || true)
 if [ -n "$sources" ]; then
   echo "Conflicto en fuentes; requiere revisión humana:"; printf '  %s\n' $sources
   git merge --abort
