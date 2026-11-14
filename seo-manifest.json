@@ -8623,5 +8623,25 @@
       "population": "Se estudió a personas desde los 4 años con obesidad hipotalámica adquirida, es decir, la ganancia de peso sostenida que aparece cuando un tumor, su tratamiento o una lesión dañan el hipotálamo. Debían tener un craneofaringioma u otra lesión hipotalámica tratada al menos 6 meses antes, o una lesión documentada, con ganancia de peso ligada a ella. El índice de masa corporal (IMC) debía estar en el percentil 95 o más en menores…"
     },
     "datePublished": "2026-11-13"
+  },
+  "318": {
+    "slug": "overlord-ms-rituximab-ocrelizumab-esclerosis-multiple-recurrente-diagnostico-reciente",
+    "path": "/trials/overlord-ms-rituximab-ocrelizumab-esclerosis-multiple-recurrente-diagnostico-reciente/",
+    "url": "https://resumenestrials.com/trials/overlord-ms-rituximab-ocrelizumab-esclerosis-multiple-recurrente-diagnostico-reciente/",
+    "title": "OVERLORD-MS: rituximab frente a ocrelizumab en la esclerosis múltiple recurrente de diagnóstico reciente",
+    "seo_title": "OVERLORD-MS trial: rituximab frente a ocrelizumab en la esclerosis múltiple recurrente de diagnóstico reciente | Resúmenes Trials",
+    "description": "OVERLORD-MS: Entre los meses 6 y 24, la probabilidad estimada de no tener lesiones nuevas o agrandadas en T2 fue del 92.2% con rituximab frente al 94.8% con…",
+    "clusters": [],
+    "images": [
+      "https://resumenestrials.com/images/trials/overlord-ms-rituximab-ocrelizumab-esclerosis-multiple-recurrente-diagnostico-reciente-16x9.jpg",
+      "https://resumenestrials.com/images/trials/overlord-ms-rituximab-ocrelizumab-esclerosis-multiple-recurrente-diagnostico-reciente-4x3.jpg",
+      "https://resumenestrials.com/images/trials/overlord-ms-rituximab-ocrelizumab-esclerosis-multiple-recurrente-diagnostico-reciente-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si el rituximab es no inferior al ocrelizumab para evitar lesiones nuevas o agrandadas en T2 en la resonancia cerebral entre los meses 6 y 24 en adultos con esclerosis múltiple recurrente de diagnóstico reciente y actividad reciente.",
+      "answer": "Entre los meses 6 y 24, la probabilidad estimada de no tener lesiones nuevas o agrandadas en T2 fue del 92.2% con rituximab frente al 94.8% con ocrelizumab , con una diferencia de −2.6 puntos (IC 95% −9.4 a 4.3; P bilateral = 0.03 para no inferioridad) , cuyo límite inferior quedó por encima del margen de −10 puntos.",
+      "population": "La población fueron adultos de 18 a 60 años con esclerosis múltiple recurrente diagnosticada en los 12 meses previos, sin tratamiento modificador previo y con actividad reciente: al menos un brote o una lesión nueva o agrandada en la resonancia en esos 12 meses. Procedían de 12 servicios de neurología de Noruega y Suecia. Raza y etnia: No reportado; los autores describen una población predominantemente de ascendencia del norte…"
+    },
+    "datePublished": "2026-11-13"
   }
 }

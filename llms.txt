@@ -28,6 +28,7 @@ Material educativo para profesionales de la salud. La referencia final es siempr
 
 ## Resúmenes de ensayos
 
+- [OVERLORD-MS: rituximab frente a ocrelizumab en la esclerosis múltiple recurrente de diagnóstico reciente](https://resumenestrials.com/trials/overlord-ms-rituximab-ocrelizumab-esclerosis-multiple-recurrente-diagnostico-reciente/): NEJM, 2026.
 - [TRANSCEND: setmelanotida para el tratamiento de la obesidad hipotalámica adquirida](https://resumenestrials.com/trials/transcend-setmelanotida-tratamiento-obesidad-hipotalamica-adquirida/): NEJM, 2026.
 - [DAPT-MVD: doble antiagregación plaquetaria prolongada para la enfermedad arterial coronaria multivaso](https://resumenestrials.com/trials/dapt-mvd-doble-antiagregacion-plaquetaria-prolongada-enfermedad-arterial-coronaria-multivaso/): NEJM, 2026.
 - [ACACIA-HCM: aficamten para la miocardiopatía hipertrófica no obstructiva sintomática](https://resumenestrials.com/trials/acacia-hcm-aficamten-miocardiopatia-hipertrofica-no-obstructiva-sintomatica/): NEJM, 2026.
