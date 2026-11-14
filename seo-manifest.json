@@ -8767,5 +8767,31 @@
       "population": "La población fueron adultos con escabiosis grave, profusa o costrosa, confirmada por un examen parasitológico o por dermatoscopia, atendidos en servicios de dermatología de Francia. La raza y el origen étnico no se registraron, porque la ley francesa no lo permite: No reportado por normativa."
     },
     "datePublished": "2026-11-14"
+  },
+  "324": {
+    "slug": "avant-guard-ablacion-campo-pulsado-como-tratamiento-inicial-fibrilacion-auricular-persistente",
+    "path": "/trials/avant-guard-ablacion-campo-pulsado-como-tratamiento-inicial-fibrilacion-auricular-persistente/",
+    "url": "https://resumenestrials.com/trials/avant-guard-ablacion-campo-pulsado-como-tratamiento-inicial-fibrilacion-auricular-persistente/",
+    "title": "AVANT GUARD: ablación de campo pulsado como tratamiento inicial de la fibrilación auricular persistente",
+    "seo_title": "AVANT GUARD trial: ablación de campo pulsado como tratamiento inicial de la fibrilación auricular persistente | Resúmenes Trials",
+    "description": "AVANT GUARD: El éxito del tratamiento a 12 meses fue del 56% con ablación de campo pulsado frente al 30% con fármacos antiarrítmicos (diferencia 26 puntos…",
+    "clusters": [
+      {
+        "name": "Cardiología y prevención cardiovascular",
+        "path": "/medicina-interna/cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-interna/cardiovascular/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/avant-guard-ablacion-campo-pulsado-como-tratamiento-inicial-fibrilacion-auricular-persistente-16x9.jpg",
+      "https://resumenestrials.com/images/trials/avant-guard-ablacion-campo-pulsado-como-tratamiento-inicial-fibrilacion-auricular-persistente-4x3.jpg",
+      "https://resumenestrials.com/images/trials/avant-guard-ablacion-campo-pulsado-como-tratamiento-inicial-fibrilacion-auricular-persistente-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Evaluar si la ablación de campo pulsado como tratamiento inicial, frente a los fármacos antiarrítmicos, aumenta el éxito del tratamiento a 12 meses en pacientes con fibrilación auricular persistente sin tratamiento antiarrítmico previo.",
+      "answer": "El éxito del tratamiento a 12 meses fue del 56% con ablación de campo pulsado frente al 30% con fármacos antiarrítmicos (diferencia 26 puntos porcentuales; IC 95% 14 a 38), con un hazard ratio de fracaso compuesto de 0.46 (IC 95% 0.33 a 0.65; P<0.001) ; el desenlace primario de seguridad ocurrió en 13 de los 257 pacientes de la…",
+      "population": "La población fueron adultos con fibrilación auricular persistente sintomática, continua durante 7 a 365 días, documentada en los 180 días previos y sin tratamiento antiarrítmico previo: se excluyó a quien hubiera tomado un antiarrítmico de clase I o III más de 7 días seguidos, o amiodarona más de 24 horas, en los 6 meses anteriores. La raza la informaron los pacientes y la mayoría eran blancos, el 90% con ablación y el 87% con…"
+    },
+    "datePublished": "2026-11-14"
   }
 }
