@@ -130,8 +130,9 @@
     "category": "Medicina Crítica",
     "path": "/medicina-critica/neurocriticos/",
     "url": "https://resumenestrials.com/medicina-critica/neurocriticos/",
-    "count": 15,
+    "count": 16,
     "trial_ids": [
+      "17",
       "19",
       "40",
       "45",
