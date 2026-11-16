@@ -1256,6 +1256,306 @@
           ]
         }
       ]
+    },
+    {
+      "slug": "restriccion-liquidos-choque-septico-hipotension-sepsis",
+      "pregunta": "¿Restringir los líquidos intravenosos en el choque séptico o la hipotensión inducida por sepsis?",
+      "nombre": "Restricción de líquidos intravenosos en el choque séptico o la hipotensión inducida por sepsis",
+      "revisado_hasta": 332,
+      "descripcion": "Los ensayos clínicos {ensayos} sobre restringir los líquidos intravenosos, con o sin vasopresores más tempranos, en adultos con choque séptico o hipotensión inducida por sepsis: qué preguntó cada uno, su hallazgo principal y sus diferencias de diseño.",
+      "condicion": "Choque séptico o hipotensión inducida por sepsis",
+      "area": "Medicina Crítica",
+      "fecha_publicacion": "2026-11-16",
+      "fecha_revision": "2026-11-16",
+      "criterio": "Publicación principal de un ensayo clínico aleatorizado en adultos con choque séptico o hipotensión inducida por sepsis cuya comparación principal es la CANTIDAD de líquidos intravenosos que se administran, en la reanimación inicial o después de ella: una estrategia que restringe los líquidos, con o sin inicio más temprano de vasopresores, frente a una estrategia con más líquidos o al tratamiento habitual sin límite de volumen. En esta pregunta la «intervención» es siempre la estrategia que restringe los líquidos y el «comparador» la otra, sea cual sea la hipótesis del ensayo. No pertenecen al núcleo: los ensayos sobre el tipo de líquido (cristaloides balanceados, solución salina, coloides o albúmina), sobre la reanimación dirigida por objetivos hemodinámicos o por metas de perfusión, sobre qué vasopresor usar o qué presión arterial buscar, los que comparan solo el momento de inicio del vasopresor sin una regla que restrinja los líquidos, ni los de eliminación de líquidos (diuréticos o ultrafiltración); ni los ensayos piloto o de factibilidad, los análisis secundarios, los seguimientos o los metaanálisis. Cuáles de esos van como relacionados lo dice `criterio_relacionados`; los demás no se añaden. Ante la duda, no se añade al núcleo.",
+      "criterio_relacionados": "Solo ensayos clínicos aleatorizados en adultos con choque séptico sobre CÓMO guiar la reanimación hemodinámica inicial, en uno de estos aspectos y solo estos: reanimación temprana dirigida por objetivos o reanimación guiada por la perfusión periférica (tiempo de llenado capilar). No se añaden los de tipo de líquido (cristaloides balanceados, solución salina, coloides o albúmina), los de qué vasopresor usar o qué presión arterial buscar, los de corticoides, los de antibióticos ni los de eliminación de líquidos. Ante la duda, no se añade.",
+      "creacion": {
+        "fecha": "2026-11-16",
+        "marco": "VERDE",
+        "barrido": "coincide",
+        "nota": "Tres rondas de revisión independiente: el título pasó a nombrar la hipotensión inducida por sepsis y se corrigieron frases de los tres ensayos. El texto final tiene el VERDE de sus tres revisores por ensayo y del revisor de la pregunta; el barrido se repitió con el criterio final."
+      },
+      "ejes": [
+        {
+          "clave": "intervencion",
+          "entrada": "La estrategia que restringe los líquidos no se define igual en estos ensayos.",
+          "guia": "La estrategia que RESTRINGE los líquidos, con el nombre que el resumen da a ese brazo (grupo de vasopresores, estrategia restrictiva, grupo de restricción de fluidos…), el verbo de la cita y lo que el protocolo suspendía o permitía (bolos, volumen máximo, vasopresor), como lo dé el resumen: «SIGLA, en su <nombre del brazo>, …». Reglas del protocolo, nunca los volúmenes recibidos. Una oración breve.",
+          "tipo": "diseno",
+          "lugar": "juntos",
+          "obligatorio": true,
+          "max": 260
+        },
+        {
+          "clave": "comparador",
+          "entrada": "La estrategia de comparación también cambia.",
+          "guia": "La estrategia con MÁS líquidos o el tratamiento habitual, con el nombre que el resumen da a ese brazo (grupo de líquidos, estrategia liberal, tratamiento estándar…) y lo que el protocolo indicaba (bolos, volumen inicial, cuándo se usaba el vasopresor): «SIGLA, en su <nombre del brazo>, …». Nunca los volúmenes recibidos. Una oración breve.",
+          "tipo": "diseno",
+          "lugar": "juntos",
+          "obligatorio": true,
+          "max": 260
+        },
+        {
+          "clave": "poblacion",
+          "entrada": "Las poblaciones no coinciden.",
+          "guia": "Criterios de inclusión tal como los da el apartado de población del resumen (no las características de la muestra reclutada), con el lugar si es criterio (urgencias o unidad de cuidados intensivos) y, al final, si el resumen los da, el número y el tipo de centros y el país o países, con sus mismas palabras: «SIGLA incluyó …, en N <centros> de <país>.» Un centro único se escribe «en un centro …», sin «solo» ni «único». Una oración breve.",
+          "tipo": "diseno",
+          "lugar": "juntos",
+          "obligatorio": true,
+          "max": 260
+        },
+        {
+          "clave": "desenlace",
+          "entrada": "El desenlace primario no es el mismo en todos.",
+          "guia": "El desenlace o los desenlaces primarios, con la palabra del resumen («primario» o «principal»), el plazo solo si la cita lo da y el subgrupo si se definió en uno; sin resultado: «SIGLA midió como desenlace primario …[, a N días].» Si hay coprimarios, se nombran todos. Una oración breve.",
+          "tipo": "diseno",
+          "lugar": "juntos",
+          "obligatorio": true,
+          "max": 260
+        },
+        {
+          "clave": "tamano",
+          "entrada": "",
+          "guia": "Pacientes analizados (o aleatorizados, si el resumen no da los analizados), con el mismo verbo que la cita: «SIGLA analizó N pacientes.» El tamaño previsto va solo si el resumen dice que no se alcanzó o que el ensayo terminó antes de tiempo; el motivo, solo si el resumen lo da, copiado como hecho y con sus palabras (futilidad, señales de daño, pandemia, reclutamiento lento, fin de la financiación): «SIGLA analizó N pacientes de los M previstos[, <motivo>].» Nunca su consecuencia ni su interpretación: ni «poco poder», ni a qué grupo afectaba, ni a qué lo atribuyen los autores. Una oración breve.",
+          "tipo": "diseno",
+          "lugar": "juntos",
+          "obligatorio": true,
+          "max": 260
+        },
+        {
+          "clave": "pacientes",
+          "entrada": "Para interpretarlo.",
+          "guia": "A quién se incluyó de verdad, en lo decisivo: el rasgo que más condiciona a qué pacientes se parece el ensayo (dónde y en qué momento de la reanimación se les incluyó, cuánto líquido habían recibido ya, gravedad, a quién se excluyó), con una o dos cifras. «SIGLA incluyó pacientes …». No se enumeran todas las características basales.",
+          "tipo": "contexto",
+          "lugar": "ficha",
+          "obligatorio": true,
+          "max": 260
+        },
+        {
+          "clave": "separacion",
+          "entrada": "Para interpretarlo.",
+          "guia": "Cómo se separaron las dos estrategias en la práctica, en lo esencial: el volumen de líquido de cada grupo y, si el resumen lo da, el uso de vasopresores. Una oración con las cifras clave y cada cifra en su grupo, tal como las da la cita.",
+          "tipo": "contexto",
+          "lugar": "ficha",
+          "obligatorio": true,
+          "max": 260
+        },
+        {
+          "clave": "limitacion",
+          "entrada": "Para interpretarlo.",
+          "guia": "La limitación o las dos limitaciones principales que señala la evaluación crítica del resumen (centro único, estudio abierto, cierre anticipado, falta de poder, validez externa), en una oración y atribuyendo lo que sea valoración («según su resumen», «sus autores advierten»). La cita son las oraciones del resumen que las enuncian.",
+          "tipo": "contexto",
+          "lugar": "ficha",
+          "obligatorio": true,
+          "max": 260
+        },
+        {
+          "clave": "no_informa",
+          "entrada": "Para interpretarlo.",
+          "guia": "Solo si falta el dato central de la separación (o de otro eje) y el resumen dice algo sobre él sin dar las cifras: lo que el resumen no informa, como {\"sin_dato\": \"…\"}, que completa «El resumen de SIGLA no informa …». Si no hace falta, no se escribe.",
+          "tipo": "ausencia",
+          "lugar": "ficha",
+          "obligatorio": false
+        }
+      ],
+      "nucleo": [
+        {
+          "id": 2,
+          "diseno": {
+            "intervencion": {
+              "frase": "ARISE FLUIDS, en su grupo de vasopresores, suspendía la reanimación con líquidos e iniciaba de inmediato el vasopresor, permitiendo solo bolos de 250 ml ante indicaciones concretas.",
+              "cita": [
+                "La intervención, en el grupo de vasopresores, fue una estrategia de líquidos restringidos y vasopresores tempranos: tras la aleatorización se suspendía la reanimación con líquidos y se iniciaba de inmediato el vasopresor, con el tipo, la vía y la presión arterial media objetivo a criterio del clínico, permitiendo solo bolos de 250 ml ante indicaciones concretas y desaconsejando los líquidos de mantenimiento."
+              ]
+            },
+            "comparador": {
+              "frase": "ARISE FLUIDS, en su grupo de líquidos, daba un bolo inicial de hasta 1000 ml en 60 minutos y bolos adicionales de 500 ml según necesidad, con vasopresores más tardíos.",
+              "cita": "El comparador, el grupo de líquidos, recibió mayores volúmenes y vasopresores más tardíos, con un bolo inicial de hasta 1000 ml en 60 minutos, bolos adicionales de 500 ml según necesidad"
+            },
+            "poblacion": {
+              "frase": "ARISE FLUIDS incluyó adultos que llegaron al servicio de urgencias con choque séptico, con hipotensión pese a al menos 1000 ml de líquido en bolos y lactato mayor de 2.0 mmol/l, en 51 centros metropolitanos y regionales de Australia, Nueva Zelanda e Irlanda.",
+              "cita": [
+                "La población fueron adultos que llegaron al servicio de urgencias con shock séptico, definido por infección clínicamente sospechada, presión sistólica menor de 90 mmHg o presión arterial media menor de 65 mmHg pese a haber recibido al menos 1000 ml de líquido en bolos, lactato mayor de 2.0 mmol/l",
+                "con hipotensión pese a al menos 1000 ml de líquido y lactato elevado",
+                "El estudio se realizó en servicios de urgencias de 51 centros metropolitanos y regionales de Australia, Nueva Zelanda e Irlanda"
+              ]
+            },
+            "desenlace": {
+              "frase": "ARISE FLUIDS midió como desenlace principal los días vivo y fuera del hospital hasta el día 90.",
+              "cita": "El desenlace principal fueron los días vivo y fuera del hospital hasta el día 90."
+            },
+            "tamano": {
+              "frase": "ARISE FLUIDS analizó 963 pacientes por intención de tratar.",
+              "cita": "con 963 analizados por intención de tratar"
+            },
+            "pacientes": {
+              "frase": "ARISE FLUIDS incluyó pacientes que antes de aleatorizar habían recibido una mediana de 1500 ml de líquido, y excluyó a quienes habían recibido más de 2000 ml o tenían comorbilidades que obligaran a restringir o a administrar líquidos.",
+              "cita": [
+                "antes de aleatorizar ambos grupos habían recibido una mediana de 1500 ml de líquido",
+                "entre los criterios de exclusión más relevantes estuvieron haber recibido más de 2000 ml de líquido intravenoso, que hubieran pasado más de 6 horas desde la llegada a urgencias, la hipotensión de causa no séptica, y la presencia de barreras para aplicar la intervención, como limitación del esfuerzo terapéutico, cirugía inmediata o comorbilidades que obligaran a restringir o a administrar líquidos"
+              ]
+            },
+            "separacion": {
+              "frase": "ARISE FLUIDS dio vasopresor en las primeras 24 horas al 86.5% del grupo de vasopresores frente al 67.6% del de líquidos, y la mediana del volumen de líquido a las 24 horas fue de 1140 frente a 2248 ml.",
+              "cita": [
+                "en las primeras 24 horas recibió vasopresor el 86.5% del grupo de vasopresores frente al 67.6% del de líquidos (diferencia de 18.9 puntos; IC 95%, 13.3 a 24.5), con una mediana de tiempo hasta el vasopresor de 0.4 frente a 1.4 horas, y la mediana del volumen de líquido a las 24 horas fue de 1140 frente a 2248 ml"
+              ]
+            },
+            "limitacion": {
+              "frase": "ARISE FLUIDS fue abierto y, según su resumen, la separación, aunque real, fue parcial y sus resultados aplican a un choque séptico temprano sin limitación del esfuerzo terapéutico, comorbilidades que exigían restringir líquidos ni más de 2000 ml ya recibidos.",
+              "cita": [
+                "tres limitaciones principales: el diseño abierto, inevitable por la naturaleza de la intervención, que expone los desenlaces subjetivos al sesgo de notificación",
+                "la generalizabilidad limitada, porque se excluyó a una proporción considerable de pacientes por limitación del esfuerzo terapéutico, por comorbilidades que exigían restringir líquidos como la insuficiencia cardiaca, o por haber recibido ya más de 2000 ml, de modo que los resultados aplican a un shock séptico temprano sin esas condiciones",
+                "y una separación entre estrategias que, aunque real, fue parcial"
+              ]
+            }
+          },
+          "revision": {
+            "fecha": "2026-11-16",
+            "cotejo": "VERDE",
+            "fiscal": "VERDE",
+            "omisiones": "VERDE"
+          }
+        },
+        {
+          "id": 69,
+          "diseno": {
+            "intervencion": {
+              "frase": "CLOVERS, en su estrategia restrictiva, suspendía los líquidos de mantenimiento y en bolo y permitía solo bolos de rescate hasta un máximo de 2 litros totales ante criterios estrictos de hipoperfusión persistente, mientras se iniciaba o ajustaba noradrenalina.",
+              "cita": [
+                "La intervención fue una estrategia restrictiva de fluidos con priorización temprana de vasopresores: se suspendían los líquidos de mantenimiento y en bolo, permitiendo solo bolos de rescate hasta un máximo de 2 litros totales cuando el paciente cumplía criterios estrictos de hipoperfusión persistente, mientras se iniciaba o ajustaba noradrenalina"
+              ]
+            },
+            "comparador": {
+              "frase": "CLOVERS, en su estrategia liberal, preveía una infusión inicial de 2000 ml de cristaloide isotónico y bolos adicionales de 500 ml guiados por criterios clínicos concretos, reservando los vasopresores de rescate para la hipotensión grave y otros criterios.",
+              "cita": [
+                "El comparador fue una estrategia liberal de fluidos: una infusión inicial recomendada de 2000 ml de cristaloide isotónico a completar en un máximo de 180 minutos, con reevaluación clínica tras el primer litro para decidir si omitir el segundo, seguida de bolos adicionales de 500 ml guiados por criterios clínicos concretos",
+                "reservando el uso de vasopresores de rescate para hipotensión grave, lactato persistentemente elevado, taquicardia extrema o haber superado los 5 litros de fluido total"
+              ]
+            },
+            "poblacion": {
+              "frase": "CLOVERS incluyó adultos con hipotensión inducida por sepsis que persistía pese a haber recibido entre 1 y 3 litros de fluido, en 60 centros de Estados Unidos.",
+              "cita": [
+                "La población fueron adultos de 18 años o más, con infección sospechada o confirmada e hipotensión inducida por sepsis, definida como presión arterial sistólica menor de 100 mmHg o presión arterial media menor de 65 mmHg tras recibir al menos 1 litro de cristaloide intravenoso, siempre que la hipotensión persistiera pese a haber recibido entre 1 y 3 litros de fluido",
+                "Los participantes procedían de 60 centros de Estados Unidos"
+              ]
+            },
+            "desenlace": {
+              "frase": "CLOVERS midió como desenlace primario la muerte por cualquier causa antes del alta a domicilio a los 90 días.",
+              "cita": "El desenlace primario fue la muerte por cualquier causa antes del alta a domicilio a los 90 días."
+            },
+            "tamano": {
+              "frase": "CLOVERS aleatorizó 1563 pacientes de los 2320 planeados, al detenerse el reclutamiento por futilidad.",
+              "cita": [
+                "Se aleatorizaron 1563 pacientes, 782 al grupo restrictivo y 781 al liberal.",
+                "El reclutamiento se detuvo por futilidad antes de alcanzar los 2320 pacientes planeados"
+              ]
+            },
+            "pacientes": {
+              "frase": "CLOVERS incluyó pacientes aleatorizados en urgencias en 91.9%, con una mediana de 2050 ml de fluido antes de aleatorizar en ambos brazos, y excluyó a aquellos con sobrecarga de volumen evidente o cuyo médico tratante rechazara cualquiera de los dos brazos.",
+              "cita": [
+                "la mayoría de los pacientes, 91.9%, fueron aleatorizados en el servicio de urgencias",
+                "volumen de fluido recibido antes de aleatorizar prácticamente idéntico, con una mediana de 2050 ml en ambos brazos",
+                "los más relevantes para interpretar los resultados son la exclusión de pacientes con sobrecarga de volumen evidente y la posibilidad de que el médico tratante rechazara cualquiera de los dos brazos",
+                "negativa del médico tratante a administrar más fluidos según el protocolo liberal o a usar vasopresores según el restrictivo"
+              ]
+            },
+            "separacion": {
+              "frase": "CLOVERS dio 2134 ml menos de fluido en las primeras 24 horas al grupo restrictivo, y los vasopresores se usaron en 59.0% de los pacientes restrictivos frente a 37.2% de los liberales.",
+              "cita": [
+                "el volumen de fluido en las primeras 24 horas fue 2134 ml menor en el grupo restrictivo (IC 95%, -2318 a -1949), mientras que los vasopresores se usaron en 59.0% de los pacientes restrictivos frente a 37.2% de los liberales"
+              ]
+            },
+            "limitacion": {
+              "frase": "CLOVERS fue un ensayo abierto con interrupción anticipada del reclutamiento por futilidad y, según su resumen, su validez externa no se extiende a pacientes con reconocimiento tardío de la hipotensión ni con sobrecarga o depleción extrema de volumen.",
+              "cita": [
+                "Entre las limitaciones sobresalen tres: el diseño abierto, que pudo introducir sesgo de detección en la notificación de eventos adversos como la sobrecarga de líquidos; la interrupción anticipada del reclutamiento por futilidad, que dejó al estudio con menos poder del planeado",
+                "pero no se extiende a pacientes con reconocimiento tardío de la hipotensión, a quienes presentan sobrecarga o depleción extrema de volumen, ni a aquellos en quienes el médico tratante consideró que ninguna de las dos estrategias era apropiada"
+              ]
+            }
+          },
+          "revision": {
+            "fecha": "2026-11-16",
+            "cotejo": "VERDE",
+            "fiscal": "VERDE",
+            "omisiones": "VERDE"
+          }
+        },
+        {
+          "id": 113,
+          "diseno": {
+            "intervencion": {
+              "frase": "CLASSIC, en su grupo de restricción de fluidos, solo permitía administrar un bolo de 250 a 500 mililitros de cristaloide isotónico si el paciente cumplía alguno de cuatro criterios explícitos de hipoperfusión grave.",
+              "cita": [
+                "La intervención fue la restricción de fluidos intravenosos: solo se permitía administrar un bolo de 250 a 500 mililitros de cristaloide isotónico si el paciente cumplía alguno de cuatro criterios explícitos de hipoperfusión grave",
+                "770 al grupo de restricción de fluidos"
+              ]
+            },
+            "comparador": {
+              "frase": "CLASSIC, en su tratamiento estándar con fluidos, no tenía límite superior de volumen y se guiaba por la mejoría hemodinámica según las guías de sepsis de 2016, la reposición de pérdidas y las necesidades de mantenimiento según el protocolo de cada unidad.",
+              "cita": [
+                "El comparador fue el tratamiento estándar con fluidos, sin límite superior de volumen, guiado por la mejoría hemodinámica según las guías de la Campaña Sobreviviendo a la Sepsis de 2016, la reposición de pérdidas y las necesidades de mantenimiento según el protocolo de cada unidad."
+              ]
+            },
+            "poblacion": {
+              "frase": "CLASSIC incluyó adultos ingresados en la unidad de cuidados intensivos con choque séptico de inicio en las 12 horas anteriores y al menos 1 litro de fluidos intravenosos en las 24 horas previas, en 31 unidades de ocho países europeos.",
+              "cita": [
+                "La población fueron adultos de 18 años o más, ingresados en la unidad de cuidados intensivos con shock séptico, definido como infección sospechada o confirmada, un nivel de lactato plasmático de 2 mmol por litro o más, el uso de un vasopresor o inotrópico en infusión continua, y haber recibido al menos 1 litro de fluidos intravenosos en las 24 horas previas al cribado, siempre que el inicio del shock hubiera ocurrido en las 12 horas anteriores",
+                "Los pacientes procedían de 31 unidades de cuidados intensivos en ocho países europeos."
+              ]
+            },
+            "desenlace": {
+              "frase": "CLASSIC midió como desenlace principal la muerte por cualquier causa a los 90 días.",
+              "cita": "El desenlace principal fue la muerte por cualquier causa a los 90 días."
+            },
+            "tamano": {
+              "frase": "CLASSIC aleatorizó 1554 pacientes.",
+              "cita": "Se aleatorizaron 1554 pacientes, 770 al grupo de restricción de fluidos y 784 al grupo estándar"
+            },
+            "pacientes": {
+              "frase": "CLASSIC incluyó pacientes con un vasopresor o inotrópico en infusión continua, con 3200 y 3000 mililitros de fluidos ya recibidos en las 24 horas previas en los dos grupos y una mortalidad predicha a 90 días, en mediana, de 40% en ambos grupos.",
+              "cita": [
+                "ingresados en la unidad de cuidados intensivos con shock séptico, definido como infección sospechada o confirmada, un nivel de lactato plasmático de 2 mmol por litro o más, el uso de un vasopresor o inotrópico en infusión continua",
+                "y el volumen de fluidos ya recibido en las 24 horas previas (3200 frente a 3000 mililitros)",
+                "con una mortalidad predicha a 90 días, según el puntaje simplificado de mortalidad para cuidados intensivos (SMS-ICU, que va de 0 a 42 puntos y predice una mortalidad de 3.3% a 91.0%, con puntuaciones más altas indicando peor pronóstico), en mediana, de 40% en ambos grupos"
+              ]
+            },
+            "separacion": {
+              "frase": "CLASSIC administró una mediana de 1798 mililitros de fluido intravenoso en la unidad de cuidados intensivos con la restricción, frente a 3811 mililitros con el tratamiento estándar.",
+              "cita": [
+                "una mediana de 1798 mililitros de fluido intravenoso en la unidad de cuidados intensivos con la restricción, frente a 3811 mililitros con el tratamiento estándar"
+              ]
+            },
+            "limitacion": {
+              "frase": "CLASSIC fue un ensayo abierto y, según su resumen, tuvo poder solo para detectar una diferencia de 7 puntos porcentuales en la mortalidad y su validez externa se acota a unidades europeas con un patrón de uso de fluidos similar al de su grupo estándar.",
+              "cita": [
+                "La primera es el diseño abierto, que puede haber influido en decisiones clínicas no protocolizadas",
+                "La tercera es que el estudio tuvo poder solo para detectar una diferencia relativamente grande, de 7 puntos porcentuales en la mortalidad",
+                "la validez externa se acota a unidades de cuidados intensivos europeas con un patrón de uso de fluidos similar al observado en el grupo estándar del estudio"
+              ]
+            }
+          },
+          "revision": {
+            "fecha": "2026-11-16",
+            "cotejo": "VERDE",
+            "fiscal": "VERDE",
+            "omisiones": "VERDE"
+          }
+        }
+      ],
+      "relacionados": [
+        {
+          "motivo": "Reanimación temprana dirigida por objetivos",
+          "ids": [
+            149
+          ]
+        },
+        {
+          "motivo": "Reanimación guiada por el tiempo de llenado capilar",
+          "ids": [
+            230
+          ]
+        }
+      ]
     }
   ]
 }

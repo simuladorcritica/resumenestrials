@@ -170,14 +170,15 @@ if question_home:
  assert re.findall(r'<a class="ev-q-title" href="/preguntas/([a-z0-9-]+)/">',question_home[0])==[q["slug"] for q in recent[:3]] and question_home[0].count('<article class="ev-q-card">')==min(3,len(questions)) and "Hallazgo" not in question_home[0],"portada: una tarjeta por cada una de las tres preguntas más recientes, sin hallazgos"
  more=re.search(r'<details class="ev-q-more"><summary class="ev-btn">[^<]+</summary><ul>(.*?)</ul></details>',question_home[0])
  assert bool(more)==(len(questions)>3) and (re.findall(r'<li><a href="/preguntas/([a-z0-9-]+)/">',more[1]) if more else [])==[q["slug"] for q in recent[3:]],"portada: las demás preguntas van enlazadas en el desplegable"
+home_cards={q["slug"] for q in sorted(questions,key=lambda q:q["fecha_publicacion"],reverse=True)[:3]}
 for q in questions:
- route="/preguntas/"+q["slug"]+"/";s=(ROOT/route.strip("/")/"index.html").read_text(encoding="utf8")
+ route="/preguntas/"+q["slug"]+"/";s=(ROOT/route.strip("/")/"index.html").read_text(encoding="utf8");card=q["slug"] in home_cards;title=html_module.escape(q["pregunta"],quote=True)
  assert s.count(question_css)==1 and "ev-eyebrow" not in s.split('<main',1)[1].split('</main>',1)[0],route+": hoja de preguntas, y sin rótulo sobre el título"
- assert question_home[0].count(f'<a class="ev-q-title" href="{route}">'+html_module.escape(q["pregunta"],quote=True)+'</a>')==1,route+": falta en la portada"
+ assert question_home[0].count(f'<a class="ev-q-title" href="{route}">{title}</a>')==(1 if card else 0) and question_home[0].count(f'<li><a href="{route}">{title}</a></li>')==(0 if card else 1),route+": falta en la portada (tarjeta si es de las tres más recientes; si no, un enlace en el desplegable)"
  for n in q["nucleo"]:
   mark=f'ensayo-{n["id"]}'
   assert s.count(f'<section class="ev-q-card" id="{mark}">')==1 and s.count(f'<a class="ev-q-t" href="#{mark}">')==1,f"{route}: ficha y punto de {n['id']}"
-  assert question_home[0].count(f'<a class="ev-q-t" href="{route}#{mark}">')==1,f"portada: punto de {n['id']}"
+  assert question_home[0].count(f'<a class="ev-q-t" href="{route}#{mark}">')==(1 if card else 0),f"portada: punto de {n['id']} (solo en las preguntas con tarjeta)"
  assert s.count('<input type="radio" name="ev-q-eje"')==s.count('<section class="ev-q-panel">')>=1 and s.count('name="ev-q-eje" checked')==1,route+": una pestaña por panel y una sola elegida"
 for p in future.candidates():
  if p.exists() and p not in [ROOT/"_includes/index-source.html",ROOT/"index.html"]+[ROOT/"preguntas"/q["slug"]/"index.html" for q in questions]:assert "/ui/preguntas.css" not in p.read_text(encoding="utf8"),f"{p}: la hoja de preguntas solo va en sus páginas y en la portada"

@@ -32,6 +32,7 @@ Material educativo para profesionales de la salud. La referencia final es siempr
 - [¿Cuándo iniciar la terapia de reemplazo renal en la lesión renal aguda?](https://resumenestrials.com/preguntas/cuando-iniciar-terapia-reemplazo-renal-lesion-renal-aguda/): ensayos resumidos sobre esta pregunta, con su resultado primario y sus diferencias de diseño.
 - [¿Corticoides en el choque séptico?](https://resumenestrials.com/preguntas/corticoides-choque-septico/): ensayos resumidos sobre esta pregunta, con su resultado primario y sus diferencias de diseño.
 - [¿Qué meta de oxigenación en el paciente crítico?](https://resumenestrials.com/preguntas/meta-oxigenacion-paciente-critico/): ensayos resumidos sobre esta pregunta, con su resultado primario y sus diferencias de diseño.
+- [¿Restringir los líquidos intravenosos en el choque séptico o la hipotensión inducida por sepsis?](https://resumenestrials.com/preguntas/restriccion-liquidos-choque-septico-hipotension-sepsis/): ensayos resumidos sobre esta pregunta, con su resultado primario y sus diferencias de diseño.
 
 ## Resúmenes de ensayos
 
