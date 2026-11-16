@@ -370,7 +370,10 @@ else:
 
 # 10. Portada con más de tres preguntas: tarjeta para las tres más recientes y las demás enlazadas en un desplegable.
 reales_q = st.load_questions
-extra = [dict(copy.deepcopy(preguntas[0]), slug=f"pregunta-de-prueba-{letra}", pregunta=f"¿Pregunta de prueba {letra}?", fecha_publicacion=dia, fecha_revision=dia) for letra, dia in (("a", "2026-12-01"), ("b", "2026-12-02"))]
+import datetime  # noqa: E402
+ultimo_dia = datetime.date.fromisoformat(max(y["fecha_publicacion"] for y in preguntas))
+extra = [dict(copy.deepcopy(preguntas[0]), slug=f"pregunta-de-prueba-{letra}", pregunta=f"¿Pregunta de prueba {letra}?", fecha_publicacion=dia, fecha_revision=dia)
+         for letra, dia in (("a", (ultimo_dia + datetime.timedelta(days=1)).isoformat()), ("b", (ultimo_dia + datetime.timedelta(days=2)).isoformat()))]
 try:
     st.load_questions = lambda: preguntas + extra
     portada = st.question_cover(list(trials.values()))
@@ -378,11 +381,13 @@ finally:
     st.load_questions = reales_q
 import re  # noqa: E402
 orden = re.findall(r'<a class="ev-q-title" href="/preguntas/([a-z0-9-]+)/">', portada)
-assert orden == [extra[1]["slug"], extra[0]["slug"], preguntas[0]["slug"]], "la portada muestra las tres preguntas más recientes, la última primero"
+# Las dos de prueba son las más recientes; detrás van las reales, de la más reciente a la más antigua (las de un mismo día, en el orden del archivo).
+esperado = [extra[1], extra[0]] + sorted(preguntas, key=lambda y: y["fecha_publicacion"], reverse=True)
+assert orden == [y["slug"] for y in esperado[:st.QUESTION_HOME]], "la portada muestra las tres preguntas más recientes, la última primero"
 resto = re.search(r'<details class="ev-q-more"><summary class="ev-btn">Ver las (\d+) preguntas restantes</summary><ul>(.*?)</ul></details>', portada)
-assert resto and int(resto[1]) == len(preguntas) - 1 and re.findall(r'<li><a href="/preguntas/([a-z0-9-]+)/">', resto[2]) == [y["slug"] for y in preguntas[1:]], "las demás preguntas van enlazadas en el desplegable"
+assert resto and int(resto[1]) == len(esperado) - st.QUESTION_HOME and re.findall(r'<li><a href="/preguntas/([a-z0-9-]+)/">', resto[2]) == [y["slug"] for y in esperado[st.QUESTION_HOME:]], "las demás preguntas van enlazadas en el desplegable"
 assert portada.count('<article class="ev-q-card">') == 3 and "Hallazgo" not in portada
-assert "<details" not in st.question_cover(list(trials.values())) or len(preguntas) > st.QUESTION_HOME
+assert ("<details" in st.question_cover(list(trials.values()))) == (len(preguntas) > st.QUESTION_HOME), "el desplegable solo aparece cuando hay más preguntas que tarjetas"
 
 assert st.QUESTIONS_PATH.read_bytes() == antes, "las pruebas no deben modificar preguntas-clinicas.json"
 print("PREGUNTAS CLÍNICAS PASS: guardas por tipo de eje, citas literales, «sin dato» sellado, omisión automática, orden, descripción, herramienta (añadir, reponer y crear una pregunta con todos sus candados), constancia de decisión de cada resumen nuevo y portada con más de tres preguntas")
