@@ -1,3 +1,14 @@
+## 2026-11-16 · Portada con tarjetas, lector sin etiquetas sobre el título y pie compacto
+
+- **Portada.** Debajo de «Edición actual» vuelven las tarjetas, como antes del rediseño: todos los resúmenes publicados, del último que se subió al sitio al primero (aunque el artículo sea de años anteriores). Se ven 12 y el botón «Ver más» muestra otros 12 cada vez. Después van las **Preguntas clínicas** y al final el **Mapa de evidencia**. Se retiran el ensayo destacado en grande y la lista «En esta edición», así ningún ensayo aparece dos veces.
+- **Ediciones anteriores.** Cada semana muestra sus tarjetas con la misma regla.
+- **Al volver de un resumen**, la portada queda como estaba: con las tarjetas que ya se habían desplegado y en el mismo punto. Una visita nueva empieza con 12.
+- **El buscador con filtros sigue en Archivo.** Sin JavaScript, «Ver más» lleva al archivo, y todos los ensayos siguen enlazados desde la portada.
+- **Resumen (completo y breve).** Se quita la línea de arriba del título («Medicina Interna · tipo de estudio · año · subespecialidad»). Esos datos siguen en la ficha técnica; la subespecialidad se ve en las tarjetas.
+- **Pie de página.** Ocupa todo el ancho y es bastante más bajo (en la portada de escritorio pasa de unos 760 a unos 425 px de alto): Explorar, Transparencia y Comunidad pasan de columnas a tres renglones de enlaces, y el aviso de Google AdSense, los derechos y el aviso clínico usan todo el ancho en lugar de una columna estrecha. Los enlaces dentro del aviso ya no separan los renglones. El texto no cambia.
+- La auditoría nocturna del sitio comprueba ahora la subespecialidad en las tarjetas del archivo (antes, en el lector) y avisa si la línea de etiquetas reaparece.
+- El contenido clínico no cambia.
+
 ## 2026-11-15 · Preguntas clínicas: diseño interactivo y sección en la portada
 
 - **Página de cada pregunta, rediseñada.** El título ocupa una o dos líneas, sin rótulo encima. Debajo, una **línea de tiempo** con los ensayos (año, sigla y revista): cada punto lleva a la ficha de su ensayo y la deja resaltada. Las fichas van **todas a la vista**, en dos columnas: a la izquierda «Qué preguntó» y «Hallazgo principal» (destacado); a la derecha «Para interpretarlo», en tres apartados rotulados: a quién se incluyó, cómo se separaron las estrategias y limitación principal.

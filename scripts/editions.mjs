@@ -1,7 +1,8 @@
 // Ediciones semanales del sitio: una por semana ISO (lunes a domingo) según `fecha_publicacion_resumen`.
 // Misma regla que site_templates.editions(): la edición actual es la última semana con datos y vive en la
-// portada (/); cada edición anterior tiene página propia en /ediciones/<lunes>/. Dentro de una edición el
-// primer ensayo (artículo más reciente; empate: id más alto) es el destacado.
+// portada (/); cada edición anterior tiene página propia en /ediciones/<lunes>/. Dentro de una edición, y en
+// las tarjetas de la portada, los resúmenes van en orden de publicación en el sitio: primero lo último publicado
+// (`fecha_publicacion_resumen`; empate: id más alto). Misma regla que site_templates.published().
 const ISO = /^(\d{4})-(\d{2})-(\d{2})$/;
 
 function isoDate(value) {
@@ -9,6 +10,12 @@ function isoDate(value) {
   if (!match) return null;
   const date = new Date(Date.UTC(+match[1], +match[2] - 1, +match[3]));
   return date.getUTCFullYear() === +match[1] && date.getUTCMonth() === +match[2] - 1 && date.getUTCDate() === +match[3] ? date : null;
+}
+
+// Orden de publicación en el sitio; un resumen sin fecha de publicación válida va al final.
+export function published(data) {
+  const day = (item) => (isoDate(item.fecha_publicacion_resumen) ? String(item.fecha_publicacion_resumen).trim() : '');
+  return data.slice().sort((a, b) => day(b).localeCompare(day(a)) || Number(b.id) - Number(a.id));
 }
 
 export function editions(data) {
@@ -21,12 +28,11 @@ export function editions(data) {
     if (!weeks.has(monday)) weeks.set(monday, []);
     weeks.get(monday).push(item);
   }
-  const article = (item) => (isoDate(item.fecha) ? String(item.fecha).trim() : '');
   return [...weeks.keys()].sort().map((monday, index, all) => ({
     monday,
     route: index === all.length - 1 ? '/' : `/ediciones/${monday}/`,
     file: index === all.length - 1 ? '_includes/index-source.html' : `ediciones/${monday}/index.html`,
-    items: weeks.get(monday).slice().sort((a, b) => article(b).localeCompare(article(a)) || Number(b.id) - Number(a.id)),
+    items: published(weeks.get(monday)),
   }));
 }
 
