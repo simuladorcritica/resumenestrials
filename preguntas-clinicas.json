@@ -97,6 +97,25 @@
           "frase": "Determinar si decidir la intervención coronaria percutánea con la reserva fraccional de flujo derivada de la angiografía (FFRangio) es no inferior a hacerlo con la guía de presión intracoronaria"
         }
       }
+    },
+    {
+      "id": 329,
+      "fecha": "2026-11-16",
+      "huella": "fd9e6b6154849b00",
+      "preguntas": {
+        "corticoides-choque-septico": {
+          "rol": "nada",
+          "frase": "Evaluar si el treprostinil inhalado, frente a placebo, reduce la caída de la capacidad vital forzada a las 52 semanas en pacientes con fibrosis pulmonar idiopática."
+        },
+        "cuando-iniciar-terapia-reemplazo-renal-lesion-renal-aguda": {
+          "rol": "nada",
+          "frase": "Evaluar si el treprostinil inhalado, frente a placebo, reduce la caída de la capacidad vital forzada a las 52 semanas en pacientes con fibrosis pulmonar idiopática."
+        },
+        "meta-oxigenacion-paciente-critico": {
+          "rol": "nada",
+          "frase": "Evaluar si el treprostinil inhalado, frente a placebo, reduce la caída de la capacidad vital forzada a las 52 semanas en pacientes con fibrosis pulmonar idiopática."
+        }
+      }
     }
   ],
   "preguntas": [
