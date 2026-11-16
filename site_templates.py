@@ -103,12 +103,37 @@ def question_entry_shape(axis,v):
  if axis_type(axis)=="ausencia":return False
  if axis_type(axis)=="literal":return set(v)=={"cita"} and bool(question_quotes(v["cita"]))
  return set(v)=={"frase","cita"} and text(v["frase"]) and bool(question_quotes(v["cita"]))
+# Constancia de decisión. Cada pregunta guarda hasta qué resumen llegó su curación (`revisado_hasta`); todo resumen posterior
+# debe estar en la pregunta o tener anotada aquí su decisión para ella: «nada» (los dos decisores coinciden en que no pertenece),
+# «duda» (difieren: no se añade y lo resuelve el editor) o «sin_anadir» (pertenece, pero no pasó la revisión: lo resuelve el editor).
+# Así ningún resumen nuevo queda sin comparar con las preguntas: `question_undecided()` lista los que faltan.
+QUESTION_DECISIONS=("nada","duda","sin_anadir")
+def question_decision_ok(d):
+ text=lambda v:isinstance(v,str) and bool(v.strip())
+ return (isinstance(d,dict) and set(d)=={"id","fecha","huella","preguntas"} and type(d["id"]) is int and isinstance(d["fecha"],str) and iso_date(d["fecha"]) is not None
+  and isinstance(d["huella"],str) and bool(re.fullmatch(r"[0-9a-f]{16}",d["huella"])) and isinstance(d["preguntas"],dict) and bool(d["preguntas"])
+  and all(isinstance(v,dict) and set(v)<={"rol","frase","propuesto","nota"} and v.get("rol") in QUESTION_DECISIONS and text(v.get("frase")) and len(v["frase"])>=20
+   and (v.get("propuesto") in ("nucleo","relacionado") if v["rol"]=="sin_anadir" else "propuesto" not in v) and isinstance(v.get("nota",""),str) and len(v.get("nota",""))<=300 for v in d["preguntas"].values()))
+def question_undecided(data,trials):
+ """Resúmenes posteriores a la curación de una pregunta que no están en ella ni tienen decisión anotada para ella: [(id, slug)]."""
+ decided={d["id"]:d["preguntas"] for d in data.get("decisiones",[])};ids=sorted(int(i) for i in trials if str(i).isdigit());out=[]
+ for q in data["preguntas"]:
+  members=set(question_ids(q))|{i for g in q["relacionados"] for i in g["ids"]}
+  out+=[(i,q["slug"]) for i in ids if i>q["revisado_hasta"] and i not in members and q["slug"] not in decided.get(i,{})]
+ return sorted(out)
+def question_unresolved(data):
+ """Decisiones que esperan al editor: [(id, slug, rol, nota)] con rol «duda» o «sin_anadir», salvo que el resumen ya esté en la pregunta."""
+ members={q["slug"]:set(question_ids(q))|{i for g in q["relacionados"] for i in g["ids"]} for q in data["preguntas"]}
+ return sorted((d["id"],slug,v["rol"],v.get("nota","")) for d in data.get("decisiones",[]) for slug,v in d["preguntas"].items() if v["rol"]!="nada" and d["id"] not in members.get(slug,set()))
 def parse_questions(data):
  def fail(slug,why):raise ValueError(f"preguntas-clinicas.json · {slug}: {why}")
  text=lambda v:isinstance(v,str) and bool(v.strip())
  if not isinstance(data,dict) or not isinstance(data.get("preguntas"),list):raise ValueError('preguntas-clinicas.json debe ser {"preguntas": [...]}')
  for k in ("pertenencia","reglas"):
   if not isinstance(data.get(k,[]),list) or any(not text(x) for x in data.get(k,[])):raise ValueError(f'preguntas-clinicas.json: {k} debe ser una lista de textos')
+ decisions=data.get("decisiones",[])
+ if not isinstance(decisions,list) or any(not question_decision_ok(d) for d in decisions) or len({d["id"] for d in decisions})!=len(decisions):
+  raise ValueError('preguntas-clinicas.json: decisiones debe ser una lista de {id, fecha, huella, preguntas: {slug: {rol: nada | duda | sin_anadir, frase}}} sin ids repetidos (la escribe la herramienta)')
  slugs=set();cores=set()
  for q in data["preguntas"]:
   slug=q.get("slug") if isinstance(q,dict) else None
@@ -121,6 +146,7 @@ def parse_questions(data):
   for f in ("fecha_publicacion","fecha_revision"):
    if not isinstance(q.get(f),str) or iso_date(q[f]) is None:fail(slug,f"{f} debe ser AAAA-MM-DD")
   if q["fecha_revision"]<q["fecha_publicacion"]:fail(slug,"fecha_revision anterior a fecha_publicacion")
+  if type(q.get("revisado_hasta")) is not int or q["revisado_hasta"]<0:fail(slug,"falta revisado_hasta: el id del último resumen que cubrió la curación de la pregunta (los posteriores llevan decisión anotada)")
   axes=q.get("ejes")
   if not isinstance(axes,list) or not axes or any(not isinstance(a,dict) or not re.fullmatch(r"[a-z_]+",str(a.get("clave") or "")) or not isinstance(a.get("entrada"),str) or not isinstance(a.get("guia",""),str) or axis_type(a) not in QUESTION_AXIS_TYPES or axis_place(a) not in QUESTION_AXIS_PLACES or not isinstance(axis_required(a),bool) or type(a.get("max",500)) is not int or not 100<=a.get("max",500)<=500 for a in axes) or len({a["clave"] for a in axes})!=len(axes):fail(slug,"ejes debe ser una lista de {clave, entrada, guia, tipo, lugar, obligatorio} con claves distintas")
   for a in axes:
@@ -144,6 +170,7 @@ def parse_questions(data):
    gids=g.get("ids") if isinstance(g,dict) else None
    if not isinstance(g,dict) or not text(g.get("motivo")) or re.search(r"\d",g["motivo"]) or len(g["motivo"])>80 or not isinstance(gids,list) or not gids or any(type(i) is not int for i in gids) or seen&set(gids):fail(slug,"cada grupo de relacionados lleva motivo (sin cifras) e ids enteros que no se repiten ni están en el núcleo")
    seen|=set(gids)
+ if any(slug not in slugs for d in decisions for slug in d["preguntas"]):raise ValueError("preguntas-clinicas.json: una decisión nombra una pregunta que no existe")
  return data["preguntas"]
 def load_questions():
  """Preguntas vigentes, leídas una vez por proceso y por versión del archivo. Sin archivo no hay preguntas."""

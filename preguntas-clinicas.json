@@ -1,5 +1,5 @@
 {
-  "version": 13,
+  "version": 14,
   "pertenencia": [
     "Se decide solo con el resumen publicado (título, `tipo_estudio`, objetivo, resumen breve y cuerpo), aplicando el criterio a la letra, incluidas sus exclusiones.",
     "Si el resumen no indica la edad y nada apunta a una población pediátrica, se considera de adultos.",
@@ -21,11 +21,13 @@
     "Un relacionado se añade solo si cumple el `criterio_relacionados` de la pregunta, bajo un motivo ya publicado que sea literalmente cierto para ese ensayo o, si ninguno lo es, bajo un motivo nuevo que solo nombre el tema.",
     "Antes de añadir, tres revisores independientes: uno coteja cada frase contra su cita; otro busca juicios, consejos o interpretación de más; otro lee el resumen completo y dice si falta algo DECISIVO. Si uno objeta y no se resuelve, el ensayo no se añade."
   ],
+  "decisiones": [],
   "preguntas": [
     {
       "slug": "cuando-iniciar-terapia-reemplazo-renal-lesion-renal-aguda",
       "pregunta": "¿Cuándo iniciar la terapia de reemplazo renal en la lesión renal aguda?",
       "nombre": "Inicio de la terapia de reemplazo renal en la lesión renal aguda",
+      "revisado_hasta": 324,
       "descripcion": "Los ensayos clínicos {ensayos} sobre cuándo iniciar la terapia de reemplazo renal en el paciente crítico con lesión renal aguda: qué preguntó cada uno, su hallazgo principal y sus diferencias de diseño.",
       "condicion": "Lesión renal aguda",
       "area": "Medicina Crítica",
@@ -390,6 +392,7 @@
       "slug": "corticoides-choque-septico",
       "pregunta": "¿Corticoides en el choque séptico?",
       "nombre": "Corticoides en el choque séptico",
+      "revisado_hasta": 324,
       "descripcion": "Los ensayos clínicos {ensayos} sobre hidrocortisona, con o sin fludrocortisona, en el choque séptico: qué preguntó cada uno, su hallazgo principal y sus diferencias de diseño.",
       "condicion": "Choque séptico",
       "area": "Medicina Crítica",
@@ -736,6 +739,7 @@
       "slug": "meta-oxigenacion-paciente-critico",
       "pregunta": "¿Qué meta de oxigenación en el paciente crítico?",
       "nombre": "Meta de oxigenación en el paciente crítico",
+      "revisado_hasta": 324,
       "descripcion": "Los ensayos clínicos {ensayos} sobre metas de oxigenación más bajas o más altas en el paciente crítico: qué preguntó cada uno, su hallazgo principal y sus diferencias de diseño.",
       "condicion": "Enfermedad crítica",
       "area": "Medicina Crítica",

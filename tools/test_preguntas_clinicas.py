@@ -184,5 +184,72 @@ if viva:
         assert nueva["diseno"][e] == original
         tool.PATH = st.QUESTIONS_PATH
 
+# 7. Constancia de decisión: ningún resumen nuevo queda sin comparar con las preguntas. Se prueba sobre una copia del archivo
+#    y con un resumen «nuevo» simulado (el contenido de uno real con un id posterior a la curación).
+assert all(type(y["revisado_hasta"]) is int for y in preguntas), "cada pregunta guarda hasta qué resumen llegó su curación"
+# Un resumen sin decidir NO es un fallo de esta prueba: su alta se publica igual y la rutina lo compara en su siguiente pasada.
+assert all(i > next(y for y in preguntas if y["slug"] == slug)["revisado_hasta"] for i, slug in st.question_undecided(datos, trials))
+sin_campo = copy.deepcopy(datos); sin_campo["preguntas"][0].pop("revisado_hasta")
+try:
+    st.parse_questions(sin_campo); raise AssertionError("una pregunta sin revisado_hasta no es válida")
+except ValueError as e:
+    assert "revisado_hasta" in str(e)
+nuevo_id = max(int(i) for i in trials) + 1
+con_nuevo = {**trials, str(nuevo_id): {**libre, "id": nuevo_id}}
+slugs = [y["slug"] for y in preguntas]
+assert st.question_undecided(datos, con_nuevo) == sorted((nuevo_id, y) for y in slugs), "un resumen nuevo queda SIN DECIDIR para cada pregunta"
+frase = st.published_text(libre)[1][:80]
+assert len(frase) >= 20
+with tempfile.TemporaryDirectory() as tmp:
+    copia = Path(tmp) / "preguntas-clinicas.json"; copia.write_text(json.dumps(datos, ensure_ascii=False), encoding="utf-8")
+    tool.PATH = copia; reales = tool.resumenes; tool.resumenes = lambda: con_nuevo
+    c = Path(tmp) / "decision.json"
+    orden = lambda **k: argparse.Namespace(**{"id": nuevo_id, "constancia": str(c), "sin_anadir": None, "fecha": "2026-11-16", "ensayo": False, **k})
+    escribe = lambda filas: c.write_text(json.dumps({"decisiones": filas}, ensure_ascii=False), encoding="utf-8")
+    fila = lambda y, rol="nada", revisor="coincide", texto=frase: {"pregunta": y, "rol": rol, "frase_que_decide": texto, "revisor": revisor}
+    salida = io.StringIO()
+    with contextlib.redirect_stdout(salida):
+        assert tool.cmd_validar(argparse.Namespace(estricto=True)) == (1 if any(st.question_design(y, trials)[1] for y in preguntas) else 0), "sin decidir no es un error: el resumen se publica igual"
+        escribe([fila(y) for y in slugs[1:]])
+        assert tool.cmd_decidir(orden()) == 1, "la constancia debe traer una decisión por cada pregunta pendiente"
+        escribe([fila(y, texto="Una frase que no está en el resumen publicado.") for y in slugs])
+        assert tool.cmd_decidir(orden()) == 1, "la frase que decide debe ser un pasaje literal de ese resumen"
+        escribe([fila(y, revisor="") for y in slugs])
+        assert tool.cmd_decidir(orden()) == 1, "sin el veredicto del decisor independiente no se anota"
+        escribe([fila(slugs[0], rol="nucleo")] + [fila(y) for y in slugs[1:]])
+        assert tool.cmd_decidir(orden()) == 1, "si los dos decisores coinciden en que pertenece, se añade con agregar; no se anota como decidido"
+        assert json.loads(copia.read_text(encoding="utf-8")) == datos, "un rechazo no escribe nada"
+        assert tool.cmd_decidir(orden(ensayo=True, sin_anadir="No pasó la revisión de omisiones")) == 0 and json.loads(copia.read_text(encoding="utf-8")) == datos
+        assert tool.cmd_decidir(orden(sin_anadir="No pasó la revisión de omisiones")) == 0
+        anotado = json.loads(copia.read_text(encoding="utf-8")); st.parse_questions(copy.deepcopy(anotado))
+        d = next(x for x in anotado["decisiones"] if x["id"] == nuevo_id)
+        assert d["huella"] == st.summary_print(con_nuevo[str(nuevo_id)]) and d["preguntas"][slugs[0]] == {"rol": "sin_anadir", "frase": " ".join(frase.split()), "propuesto": "nucleo", "nota": "No pasó la revisión de omisiones"}
+        assert all(d["preguntas"][y]["rol"] == "nada" for y in slugs[1:]) and not st.question_undecided(anotado, con_nuevo)
+        assert st.question_unresolved(anotado) == [(nuevo_id, slugs[0], "sin_anadir", "No pasó la revisión de omisiones")]
+        assert tool.cmd_validar(argparse.Namespace(estricto=False)) == 0
+        escribe([fila(y, revisor="difiere") for y in slugs])
+        assert tool.cmd_decidir(orden()) == 0 and json.loads(copia.read_text(encoding="utf-8")) == anotado, "una decisión anotada no se cambia"
+        # Cuando el editor lo resuelve y el ensayo entra en la pregunta, la decisión pendiente deja de contar.
+        resuelto = copy.deepcopy(anotado); next(y for y in resuelto["preguntas"] if y["slug"] == slugs[0])["relacionados"].append({"motivo": "Motivo de prueba", "ids": [nuevo_id]})
+        assert not st.question_unresolved(resuelto) and not st.question_undecided(resuelto, con_nuevo)
+        # Los decisores difieren: queda como duda para el editor y no se añade.
+        copia.write_text(json.dumps(datos, ensure_ascii=False), encoding="utf-8")
+        escribe([fila(slugs[0], rol="relacionado", revisor="difiere")] + [fila(y) for y in slugs[1:]])
+        assert tool.cmd_decidir(orden()) == 0
+        dudoso = json.loads(copia.read_text(encoding="utf-8"))
+        assert st.question_unresolved(dudoso) == [(nuevo_id, slugs[0], "duda", "")] and all(nuevo_id not in st.question_ids(y) and all(nuevo_id not in g["ids"] for g in y["relacionados"]) for y in dudoso["preguntas"])
+    texto = salida.getvalue()
+    assert f"SIN DECIDIR · resumen {nuevo_id}" in texto and "POR RESOLVER" in texto and "ANOTADO" in texto and "NO SE ANOTA" in texto and "NADA QUE ANOTAR" in texto, texto
+    destino = Path(tmp) / "criterios.json"; copia.write_text(json.dumps(datos, ensure_ascii=False), encoding="utf-8")
+    with contextlib.redirect_stdout(io.StringIO()):
+        assert tool.cmd_criterios(argparse.Namespace(salida=str(destino))) == 0
+    assert json.loads(destino.read_text(encoding="utf-8"))["sin_decidir"] == [{"id": nuevo_id, "titulo": libre["titulo"], "preguntas": sorted(slugs)}], "criterios dice a la rutina qué resúmenes faltan por comparar"
+    tool.PATH = st.QUESTIONS_PATH; tool.resumenes = reales
+mala = copy.deepcopy(datos); mala["decisiones"] = [{"id": 1, "fecha": "2026-11-16", "huella": "0" * 16, "preguntas": {"no-existe": {"rol": "nada", "frase": "x" * 25}}}]
+try:
+    st.parse_questions(mala); raise AssertionError("una decisión sobre una pregunta inexistente no es válida")
+except ValueError:
+    pass
+
 assert st.QUESTIONS_PATH.read_bytes() == antes, "las pruebas no deben modificar preguntas-clinicas.json"
-print("PREGUNTAS CLÍNICAS PASS: guardas por tipo de eje, citas literales, «sin dato» sellado, omisión automática, orden, descripción y herramienta (añadir y reponer)")
+print("PREGUNTAS CLÍNICAS PASS: guardas por tipo de eje, citas literales, «sin dato» sellado, omisión automática, orden, descripción, herramienta (añadir y reponer) y constancia de decisión de cada resumen nuevo")
