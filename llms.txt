@@ -17,6 +17,7 @@ Material educativo para profesionales de la salud. La referencia final es siempr
 ## Ediciones semanales
 
 - [Edición actual](https://resumenestrials.com/): resúmenes publicados en la semana más reciente.
+- [Edición del 9 al 15 de noviembre de 2026](https://resumenestrials.com/ediciones/2026-11-09/)
 - [Edición del 2 al 8 de noviembre de 2026](https://resumenestrials.com/ediciones/2026-11-02/)
 - [Edición del 26 de octubre al 1 de noviembre de 2026](https://resumenestrials.com/ediciones/2026-10-26/)
 - [Edición del 19 al 25 de octubre de 2026](https://resumenestrials.com/ediciones/2026-10-19/)
@@ -34,6 +35,7 @@ Material educativo para profesionales de la salud. La referencia final es siempr
 
 ## Resúmenes de ensayos
 
+- [OCEANIC-STROKE: asundexián para la prevención secundaria del ictus](https://resumenestrials.com/trials/oceanic-stroke-asundexian-prevencion-secundaria-ictus/): NEJM, 2026.
 - [AVANT GUARD: ablación de campo pulsado como tratamiento inicial de la fibrilación auricular persistente](https://resumenestrials.com/trials/avant-guard-ablacion-campo-pulsado-como-tratamiento-inicial-fibrilacion-auricular-persistente/): NEJM, 2026.
 - [GALE CRUSTED: ivermectina oral combinada con crema de permetrina al 5% para tratar la escabiosis grave](https://resumenestrials.com/trials/gale-crusted-ivermectina-oral-combinada-crema-permetrina-5-tratar-escabiosis-grave/): NEJM, 2026.
 - [TELIGAN: telitacicept para la nefropatía IgA, análisis intermedio de un ensayo de fase 3](https://resumenestrials.com/trials/teligan-telitacicept-nefropatia-iga-analisis-intermedio-ensayo-fase-3/): NEJM, 2026.

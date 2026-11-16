@@ -21,7 +21,27 @@
     "Un relacionado se añade solo si cumple el `criterio_relacionados` de la pregunta, bajo un motivo ya publicado que sea literalmente cierto para ese ensayo o, si ninguno lo es, bajo un motivo nuevo que solo nombre el tema.",
     "Antes de añadir, tres revisores independientes: uno coteja cada frase contra su cita; otro busca juicios, consejos o interpretación de más; otro lee el resumen completo y dice si falta algo DECISIVO. Si uno objeta y no se resuelve, el ensayo no se añade."
   ],
-  "decisiones": [],
+  "decisiones": [
+    {
+      "id": 325,
+      "fecha": "2026-11-16",
+      "huella": "86817db0bfab9897",
+      "preguntas": {
+        "corticoides-choque-septico": {
+          "rol": "nada",
+          "frase": "Intervención: asundexián, inhibidor oral del factor XI activado, 50 mg una vez al día por vía oral"
+        },
+        "cuando-iniciar-terapia-reemplazo-renal-lesion-renal-aguda": {
+          "rol": "nada",
+          "frase": "Determinar si añadir asundexián 50 mg al día a la antiagregación reduce el ictus isquémico frente a placebo en pacientes con ictus isquémico no cardioembólico o accidente isquémico transitorio de alto riesgo."
+        },
+        "meta-oxigenacion-paciente-critico": {
+          "rol": "nada",
+          "frase": "Comparador: placebo idéntico. Ambos grupos recibieron antiagregación simple o doble a criterio del médico"
+        }
+      }
+    }
+  ],
   "preguntas": [
     {
       "slug": "cuando-iniciar-terapia-reemplazo-renal-lesion-renal-aguda",
@@ -397,7 +417,7 @@
       "condicion": "Choque séptico",
       "area": "Medicina Crítica",
       "fecha_publicacion": "2026-11-15",
-      "fecha_revision": "2026-11-15",
+      "fecha_revision": "2026-11-16",
       "criterio": "Publicación principal de un ensayo clínico aleatorizado en adultos cuya población de inclusión es el choque séptico y cuya comparación principal es hidrocortisona, sola o con fludrocortisona, frente a placebo o a no darla. No pertenecen al núcleo: los que usan otro corticoide; los que comparan dos pautas de corticoides entre sí (dosis, duración, momento de inicio, bolo o infusión, o añadir fludrocortisona a la hidrocortisona); aquellos cuyo objetivo y desenlace primario corresponden a otra comparación (el corticoide como factor secundario o como parte de una combinación con otros fármacos); los de sepsis sin choque; los de corticoides en otras enfermedades (neumonía, síndrome de dificultad respiratoria aguda); ni los ensayos piloto o de factibilidad, los análisis secundarios, los seguimientos o los metaanálisis. Cuáles de esos van como relacionados lo dice `criterio_relacionados`; los demás no se añaden. Ante la duda, no se añade al núcleo.",
       "criterio_relacionados": "Solo ensayos clínicos aleatorizados en adultos: (a) en sepsis o choque séptico, cuando un corticoide es un factor secundario o parte de una combinación, o cuando se comparan dos pautas de corticoides; (b) de corticoides sistémicos en la neumonía adquirida en la comunidad o en el síndrome de dificultad respiratoria aguda. No se añaden los de Covid-19 ni los de corticoides en otras enfermedades. Ante la duda, no se añade.",
       "ejes": [
@@ -493,20 +513,15 @@
             },
             "tamano": {
               "frase": "Annane 2002 analizó 299 pacientes.",
-              "cita": "Se aleatorizaron 300 pacientes, 149 al placebo y 151 a los corticoides, y se analizaron 299, 149 y 150."
+              "cita": "Se aleatorizaron 300 pacientes, 149 al placebo y 151 a los corticoides, y el análisis por intención de tratar incluyó a 299, 149 y 150."
             },
             "pacientes": {
-              "frase": "Annane 2002 analizó 299 pacientes, de los que 229 fueron no respondedores a la corticotropina y 70 respondedores; todos necesitaban ventilación mecánica y vasopresores, y alrededor del 60% eran pacientes médicos.",
+              "frase": "Annane 2002 incluyó pacientes con un choque séptico grave y precoz, aleatorizado en las primeras 8 horas, y todos necesitaban ventilación mecánica y vasopresores; 229 de 299 fueron no respondedores y alrededor del 60% eran pacientes médicos.",
               "cita": [
-                "Alrededor del 60% eran pacientes médicos y el 37% venía de cirugía urgente.",
-                "En el conjunto, la edad media fue de 60 años con placebo y de 62 con corticoides, y el 70% y el 64% eran hombres.",
-                "La escala SAPS II, que estima el riesgo de muerte en cuidados intensivos a partir de variables fisiológicas y crónicas y donde más puntos significan más gravedad, fue de 57 frente a 60.",
-                "La presión arterial media fue de 55 frente a 54 mm Hg y el lactato de 4.3 frente a 4.6 mmol/L.",
-                "Antes de la aleatorización a todos se les hizo una prueba corta de estimulación con corticotropina.",
-                "La respuesta de cortisol fue mayor con corticoides que con placebo en el conjunto, 9 frente a 3 µg/dL (p = 0.04), aunque la distribución por la clasificación pronóstica de tres niveles fue similar.",
-                "Se aleatorizaron 300 pacientes, 149 al placebo y 151 a los corticoides, y se analizaron 299, 149 y 150.",
+                "Hay un dato que pesa al interpretar: todos necesitaban ventilación mecánica y vasopresores, así que los resultados se refieren a un shock séptico grave y precoz, aleatorizado en las primeras 8 horas.",
                 "Hubo 229 no respondedores, 115 con placebo y 114 con corticoides, y 70 respondedores, 34 y 36.",
-                "todos necesitaban ventilación mecánica y vasopresores"
+                "Se aleatorizaron 300 pacientes, 149 al placebo y 151 a los corticoides, y el análisis por intención de tratar incluyó a 299, 149 y 150.",
+                "Alrededor del 60% eran pacientes médicos y el 37% venía de cirugía urgente."
               ]
             },
             "separacion": {
@@ -528,11 +543,10 @@
             }
           },
           "revision": {
-            "fecha": "2026-11-15",
+            "fecha": "2026-11-16",
             "cotejo": "VERDE",
             "fiscal": "VERDE",
-            "omisiones": "VERDE",
-            "nota": "Versión breve: cotejo de cada frase contra su cita y revisión del fiscal, que además comprobó que las tres frases de la ficha dicen lo decisivo; sus propuestas se aplicaron."
+            "omisiones": "VERDE"
           }
         },
         {

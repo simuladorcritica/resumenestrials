@@ -1,14 +1,13 @@
 {
   "schema_version": 1,
-  "actualizado": "2026-11-15",
+  "actualizado": "2026-11-16",
   "estandar": "noviembre de 2026",
   "archivo": {
-    "total": 324,
-    "auditados": 237,
-    "sin_auditar": 87
+    "total": 325,
+    "auditados": 239,
+    "sin_auditar": 86
   },
   "en_revision": [
-    18,
     19,
     20,
     21,
@@ -63,9 +62,6 @@
     70,
     71,
     72,
-    198,
-    206,
-    207,
     209,
     210,
     211,
@@ -99,10 +95,9 @@
     239,
     240,
     241,
-    309
+    324
   ],
   "sin_auditar": [
-    19,
     20,
     21,
     22,
@@ -191,18 +186,112 @@
     241
   ],
   "con_errores_abiertos": [
-    18,
-    198,
-    206,
-    207,
-    309
+    19,
+    324
   ],
   "errores_abiertos": {
-    "CRÍTICO": 1,
-    "MAYOR": 8,
-    "MENOR": 300
+    "CRÍTICO": 0,
+    "MAYOR": 11,
+    "MENOR": 285
   },
   "correcciones": [
+    {
+      "id": 309,
+      "fecha": "2026-11-15",
+      "pr": 286,
+      "campos": [
+        "cuerpo",
+        "corto"
+      ],
+      "errores": {
+        "CRÍTICO": 0,
+        "MAYOR": 1,
+        "MENOR": 7
+      },
+      "texto": "Corregimos 8 errores (1 mayor y 7 menores) que encontró nuestro equipo crítico: datos bibliográficos, estadística, interpretación de resultados, omisiones y redacción clínica. Cambió: resumen completo y resumen breve."
+    },
+    {
+      "id": 208,
+      "fecha": "2026-11-15",
+      "pr": 286,
+      "campos": [
+        "hallazgo",
+        "cuerpo",
+        "corto"
+      ],
+      "errores": {
+        "CRÍTICO": 0,
+        "MAYOR": 0,
+        "MENOR": 5
+      },
+      "texto": "Corregimos 5 errores (5 menores) que encontró nuestro equipo crítico: conflictos de interés y interpretación de resultados. Cambió: hallazgo principal, resumen completo y resumen breve."
+    },
+    {
+      "id": 207,
+      "fecha": "2026-11-15",
+      "pr": 286,
+      "campos": [
+        "financiacion",
+        "hallazgo",
+        "cuerpo",
+        "corto"
+      ],
+      "errores": {
+        "CRÍTICO": 0,
+        "MAYOR": 1,
+        "MENOR": 8
+      },
+      "texto": "Corregimos 9 errores (1 mayor y 8 menores) que encontró nuestro equipo crítico: cifras, conflictos de interés y interpretación de resultados. Cambió: financiación y conflictos de interés, hallazgo principal, resumen completo y resumen breve."
+    },
+    {
+      "id": 206,
+      "fecha": "2026-11-15",
+      "pr": 286,
+      "campos": [
+        "hallazgo",
+        "cuerpo",
+        "corto"
+      ],
+      "errores": {
+        "CRÍTICO": 0,
+        "MAYOR": 1,
+        "MENOR": 5
+      },
+      "texto": "Corregimos 6 errores (1 mayor y 5 menores) que encontró nuestro equipo crítico: cifras y interpretación de resultados. Cambió: hallazgo principal, resumen completo y resumen breve."
+    },
+    {
+      "id": 198,
+      "fecha": "2026-11-15",
+      "pr": 286,
+      "campos": [
+        "financiacion",
+        "cuerpo",
+        "corto"
+      ],
+      "errores": {
+        "CRÍTICO": 0,
+        "MAYOR": 1,
+        "MENOR": 6
+      },
+      "texto": "Corregimos 7 errores (1 mayor y 6 menores) que encontró nuestro equipo crítico: cifras, conflictos de interés y interpretación de resultados. Cambió: financiación y conflictos de interés, resumen completo y resumen breve."
+    },
+    {
+      "id": 18,
+      "fecha": "2026-11-15",
+      "pr": 286,
+      "campos": [
+        "financiacion",
+        "hallazgo",
+        "cuerpo",
+        "corto"
+      ],
+      "errores": {
+        "CRÍTICO": 1,
+        "MAYOR": 4,
+        "MENOR": 16
+      },
+      "texto": "Corregimos 21 errores (1 crítico, 4 mayores y 16 menores) que encontró nuestro equipo crítico: cifras, conflictos de interés, datos bibliográficos, estadística, fuentes externas, interpretación de resultados, omisiones y redacción clínica. Cambió: financiación y conflictos de interés, hallazgo principal, resumen completo y resumen breve."
+    },
     {
       "id": 312,
       "fecha": "2026-11-13",
