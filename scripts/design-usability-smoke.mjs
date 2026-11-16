@@ -9,9 +9,9 @@ for(const type of [chromium,webkit]){const b=await type.launch();try{for(const w
  function result(task,max=3){assert(taps<=max,task+' '+taps+' taps');report.push({task,engine:type.name(),width,theme,taps,result:'OK'});console.log(task+' '+type.name()+' '+width+' '+theme+' '+taps+' taps PASS')}
  try{
   await visit('/archivo/');await tap('.ev-header #ev-q');await p.fill('#ev-q','sepsis');await p.waitForURL(/q=sepsis/);await p.locator('#ev-list>.ev-card:visible').first().waitFor();await tap('#ev-list>.ev-card:visible .ev-card-title');await p.waitForURL(/\/trials\//);result('Buscar sepsis y abrir');
-  // Cover (home): instant results, the first card and the way to the archive.
+  // Cover (home): instant results, the featured trial and the way to the archive.
   await visit('/');await tap('.ev-header #ev-q');await p.fill('#ev-q','sepsis');await p.locator('#ev-search-results a').first().waitFor();await tap('#ev-search-results a');await p.waitForURL(/\/trials\//);result('Buscar sepsis desde la portada y abrir');
-  await visit('/');await tap('[data-ev-feed]>.ev-card a.ev-card-title');await p.waitForURL(/\/trials\//);result('Abrir el primer resumen de la portada',1);
+  await visit('/');await tap('.ev-ed-lead a[data-ev-read]');await p.waitForURL(/\/trials\//);result('Abrir el ensayo destacado de la portada',1);
   await visit('/');if(width<720){await tap('.ev-mobile-nav [data-ev-menu]');await tap('#ev-menu a[href="/archivo/"]')}else await tap('.ev-header-nav a[href="/archivo/"]');await p.waitForURL(base+'/archivo/');await p.waitForFunction(()=>document.querySelector('#ev-count')?.dataset.ready);result('Abrir el archivo desde la portada',2);
   await visit('/');await tap('.ev-band a.ev-btn');await p.waitForURL(base+'/mapa/');await p.waitForFunction(()=>document.querySelector('[data-ev-map]')?.dataset.ready);await tap('button.ev-map-cell');await p.locator('#ev-map-panel a.ev-card-title').first().waitFor();await tap('#ev-map-panel a.ev-card-title');await p.waitForURL(/\/trials\//);result('Abrir un ensayo desde el mapa de evidencia');
   await visit(map['1'].path);await tap('.ev-header #ev-q');await p.fill('#ev-q','sepsis');await p.locator('#ev-search-results a').first().waitFor();await tap('#ev-search-results a');await p.waitForURL(u=>/\/trials\//.test(u.pathname)&&u.pathname!==map['1'].path);result('Buscar sepsis desde un ensayo y abrir');

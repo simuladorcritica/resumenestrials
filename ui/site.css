@@ -65,7 +65,7 @@ details>summary::-webkit-details-marker{display:none}
 .ev-chip-ghost{border-style:dashed;color:var(--ev-muted)}
 .ev-skip{position:fixed;top:12px;left:12px;z-index:100;padding:12px 18px;border-radius:var(--ev-pill);background:var(--ev-accent-strong);color:var(--ev-on-accent);font-weight:600;transform:translateY(-200%);transition:transform var(--ev-fast)}
 .ev-skip:focus{transform:none}
-.ev-area,.ev-tag{display:inline-flex;align-items:center;gap:6px;padding:2px 0;font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;line-height:1.3}
+.ev-area,.ev-tag,.ev-type{display:inline-flex;align-items:center;gap:6px;padding:2px 0;font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;line-height:1.3}
 .ev-area{color:var(--ev-muted)}
 
 .ev-area[data-tone=critica]{color:var(--ev-critica)}
@@ -73,6 +73,7 @@ details>summary::-webkit-details-marker{display:none}
 .ev-tag{color:var(--ev-accent)}
 /* Un tono por subespecialidad (y por área en el mapa) para cualquier elemento con data-sub: etiquetas y puntos. */
 [data-sub]{color:var(--ev-sub-otra)}[data-sub=cardio]{color:var(--ev-sub-cardio)}[data-sub=endo]{color:var(--ev-sub-endo)}[data-sub=neuro]{color:var(--ev-sub-neuro)}[data-sub=nefro]{color:var(--ev-sub-nefro)}[data-sub=neumo]{color:var(--ev-sub-neumo)}[data-sub=infecto]{color:var(--ev-sub-infecto)}[data-sub=gastro]{color:var(--ev-sub-gastro)}[data-sub=onco]{color:var(--ev-sub-onco)}[data-sub=critica]{color:var(--ev-critica)}[data-sub=interna]{color:var(--ev-interna)}
+.ev-type{color:var(--ev-muted)}
 .ev-badge{display:inline-flex;align-items:center;justify-content:center;min-width:22px;height:22px;padding:0 6px;border-radius:var(--ev-pill);background:var(--ev-accent-strong);color:var(--ev-on-accent);font-size:.75rem}
 .ev-status{min-height:1.4em;margin:12px 0 0;color:var(--ev-muted);font-size:.9rem}
 
@@ -158,10 +159,36 @@ span.ev-ednav-step{opacity:.35}
 .ev-ednav li a:hover{color:var(--ev-ink)}
 .ev-ednav li a[aria-current]{color:var(--ev-ink);font-weight:600}
 .ev-ednav li a:focus-visible,.ev-map-cell:focus-visible{outline-offset:-3px}
+.ev-ed-grid{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:40px 64px;padding:26px 0 40px}
 .ev-ed-label{margin:0;color:var(--ev-muted);font-family:var(--ev-ui);line-height:1.4}
 .ev-ed-top{display:flex;flex-wrap:wrap;align-items:center;gap:0 18px}
-.ev-ed>.ev-ed-label,.ev-ed-top{margin-top:22px}
 .ev-ed-top a{font-size:.84rem;font-weight:600}
+.ev-ed-lead .ev-card-tags{gap:4px 12px;margin-top:22px}
+.ev-ed-top+.ev-card-tags{margin-top:8px}
+.ev-ed-title{margin:14px 0 0;font-weight:500}
+.ev-ed-acr{display:block;font-size:clamp(2.5rem,1.5rem + 3.8vw,4.7rem);line-height:.98;letter-spacing:-.025em;overflow-wrap:anywhere}
+.ev-ed-deck{display:block;margin-top:12px;font-size:clamp(1.3rem,1.05rem + 1vw,1.9rem);font-weight:400;line-height:1.22;letter-spacing:0}
+.ev-ed-deck::first-letter{text-transform:uppercase}
+.ev-ed-title-long{font-size:clamp(1.9rem,1.3rem + 2.2vw,3rem);line-height:1.08;letter-spacing:-.015em}
+.ev-ed-lead .ev-byline{margin-top:14px;margin-bottom:0;font-size:.92rem}
+.ev-ed-finding{margin-top:26px;padding-top:16px;border-top:1px solid var(--ev-ink)}
+.ev-ed-finding h3{margin:0;color:var(--ev-muted);font:600 .72rem/1.3 var(--ev-ui);letter-spacing:.09em;text-transform:uppercase}
+.ev-ed-finding p{max-width:64ch;margin:8px 0 22px;color:var(--ev-muted);font:400 1.06rem/1.6 var(--ev-reading)}
+.ev-ed-finding .ev-ed-answer{margin-bottom:0;color:var(--ev-text);font-size:1.2rem;line-height:1.62}
+.ev-ed-answer strong{font-weight:600;color:var(--ev-ink)}
+.ev-ed-lead .ev-actions-row{margin-top:24px}
+.ev-ed-toc-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding-bottom:10px;border-bottom:1px solid var(--ev-ink)}
+.ev-ed-toc-head h2{margin:0;font-size:1.5rem;font-weight:500;line-height:1.1}
+.ev-ed-toc h3{display:flex;margin:20px 0 2px;font-family:var(--ev-ui)}
+.ev-ed-list{list-style:none;margin:0;padding:0}
+.ev-ed-item{display:block;padding:11px 0;border-bottom:1px solid var(--ev-line);color:var(--ev-ink);text-decoration:none}
+.ev-ed-item-title{display:block;font:400 1.06rem/1.3 var(--ev-display)}
+.ev-ed-item-title b{font-weight:600}
+.ev-ed-item:hover .ev-ed-item-title{text-decoration:underline;text-decoration-color:var(--ev-brand);text-underline-offset:3px}
+.ev-ed-item .ev-card-meta{margin-top:4px;font-size:.8rem}
+.ev-ed-more{margin-top:14px}
+.ev-ed-more[open]>summary span:first-child,.ev-ed-more:not([open])>summary span+span{display:none}
+.ev-ed-more[open]>summary{margin-bottom:6px}
 
 /* ---------- Mapa de evidencia ---------- */
 /* Tabla: una fila por tema, subespecialidad o revista y una columna por año. Los puntos (<i>) son decorativos y toman
@@ -187,7 +214,7 @@ span.ev-ednav-step{opacity:.35}
 .ev-map-legend li{display:flex;align-items:center;gap:6px}
 .ev-map-panel{margin-top:28px;border-top:1px solid var(--ev-ink)}
 .ev-map-panel .ev-count{flex:1}
-.ev-band,.ev-about{margin-top:32px;padding-top:28px;border-top:1px solid var(--ev-line)}
+.ev-band,.ev-about,.ev-feed{margin-top:32px;padding-top:28px;border-top:1px solid var(--ev-line)}
 .ev-mini{display:grid;grid-template-rows:1fr auto;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);align-items:end;gap:6px;min-height:44px;color:var(--ev-interna);text-decoration:none}
 .ev-mini span{display:flex;flex-wrap:wrap-reverse;justify-content:center;gap:2px}
 .ev-mini i{width:6px;height:6px}
@@ -610,6 +637,7 @@ html .ev-field-error[hidden]{display:block!important;visibility:hidden}
 }
 @media(max-width:899px){
  .ev-tagline span{display:none}
+ .ev-ed-grid{grid-template-columns:minmax(0,1fr);gap:36px;padding:20px 0 24px}
 }
 @media(max-width:719px){
  :root{--ev-header-h:64px}

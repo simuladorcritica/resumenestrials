@@ -14,9 +14,10 @@ assert (ROOT/"index.html").read_text(encoding="utf8")==home
 # Portada = edición actual (última semana con datos); cada edición anterior tiene página propia con todos sus ensayos enlazados.
 from site_templates import editions,edition_route
 weeks=editions(data);assert weeks,"At least one edition"
-# Desde el 16-nov-2026 (decisión del editor) la portada lleva tarjetas: todos los resúmenes en orden de publicación en el
-# sitio (lo último publicado primero; empate: id más alto), todas en el HTML y solo las 12 primeras a la vista. Cada
-# edición anterior lleva las de su semana. El buscador con filtros sigue solo en /archivo/.
+# Desde el 16-nov-2026 (decisión del editor) la portada lleva, debajo del bloque de la edición (ensayo destacado y «En esta
+# edición»), las tarjetas de todos los resúmenes en orden de publicación en el sitio (lo último publicado primero; empate:
+# id más alto), todas en el HTML y solo las 12 primeras a la vista. Las ediciones anteriores no llevan tarjetas. El
+# buscador con filtros sigue solo en /archivo/.
 assert 'data-ev-ids=' not in home and 'id="ev-list"' not in home and 'id="ev-filters"' not in home and 'id="ev-count"' not in home,"The cover must not carry the archive controls"
 by_publication=sorted(data,key=lambda r:(str(r["fecha_publicacion_resumen"]),int(r["id"])),reverse=True)
 assert home.count('<h1>Evidencia sin ruido</h1>')==1 and home.count("<h1")==1 and 'data-ev-recs' in home
@@ -26,15 +27,19 @@ for monday,rows,path in pages:
  assert s.count('data-ev-edition="'+monday+'"')==1,f"{path}: edition"
  assert s.count('class="ev-signal"')==1 and s.count("<h1")==1,f"{path}: one signal line and one h1"
  for r in rows:assert 'href="'+manifest[str(r["id"])]["path"]+'"' in s,f"{path}: missing trial {r['id']}"
+ assert s.count('class="ev-ed-grid"')==1 and s.count('<article class="ev-ed-lead">')==1 and s.count('class="ev-ed-toc"')==1,f"{path}: the edition block keeps its featured trial and its weekly list"
+ if path.parent.parent.name=="ediciones":assert '<link rel="canonical" href="https://resumenestrials.com'+edition_route(monday)+'">' in s
+ if path.name!="index-source.html":
+  assert "data-ev-feed" not in s,f"{path}: a past edition has no cover cards"
+  continue
  feed=re.search(r'<ul class="ev-list" data-ev-feed>(.*?)</ul>',s,re.S);assert feed and s.count("data-ev-feed>")==1,f"{path}: one card list"
- expected=by_publication if path.name=="index-source.html" else [r for r in by_publication if r in rows]
+ assert '</aside></div><div class="ev-feed"><div class="ev-archive-head"><h2>Biblioteca de ensayos</h2></div><ul class="ev-list" data-ev-feed>' in s,f"{path}: the cards sit right below the edition block"
+ expected=by_publication
  cards=re.findall(r'<li class="ev-card" data-id="(\d+)" data-tone="[a-z]+"(?: data-ev-topics="[^"]*")?( hidden)?>',feed[1])
  assert feed[1].count('<li class="ev-card"')==len(cards) and [c[0] for c in cards]==[str(r["id"]) for r in expected],f"{path}: every card, newest publication first"
  assert [bool(c[1]) for c in cards]==[i>=12 for i in range(len(expected))],f"{path}: only the first 12 cards are visible"
  assert s.count("data-ev-feed-more")==(1 if len(expected)>12 else 0)==s.count('</ul><a class="ev-btn ev-more" href="/archivo/" data-ev-feed-more>Ver más</a>'),f"{path}: «Ver más» only when there are more than 12 cards, right after the list"
  for r in expected:assert feed[1].count('<a class="ev-card-title" href="'+manifest[str(r["id"])]["path"]+'" data-ev-read="'+str(r["id"])+'">')==1,f"{path}: card of trial {r['id']}"
- assert "ev-ed-lead" not in s and "ev-ed-toc" not in s and "ev-ed-grid" not in s,f"{path}: the featured block and the weekly list were replaced by cards"
- if path.parent.parent.name=="ediciones":assert '<link rel="canonical" href="https://resumenestrials.com'+edition_route(monday)+'">' in s
 assert sorted(d.name for d in (ROOT/"ediciones").iterdir())==[monday for monday,_ in weeks[:-1]] if len(weeks)>1 else not (ROOT/"ediciones").exists(),"Stale or missing edition pages"
 # Mapa de evidencia: un punto por resumen ya en el HTML, las rutas incrustadas iguales a las del manifiesto y su módulo con la huella vigente.
 import hashlib
@@ -54,7 +59,7 @@ columns=[[0,0] for _ in map_bins(data)]
 for r in data:columns[map_bin(r)][0]+=1;columns[map_bin(r)][1]+=area_of(r)=="Medicina Crítica"
 for monday,rows,path in pages:
  s=path.read_text(encoding="utf8");band=re.search(r'<section class="ev-band"[\s\S]*?</section>',s)
- assert band and s.count('class="ev-band"')==1 and s.index('class="ev-band"')>s.index("data-ev-feed>"),f"{path}: map band below the edition"
+ assert band and s.count('class="ev-band"')==1 and s.index('class="ev-band"')>s.index('class="ev-ed-grid"'),f"{path}: map band below the edition"
  mini=re.search(r'<a class="ev-mini" href="/mapa/" aria-label="[^"]+">(.*?)</a>',band[0])
  assert mini and [[c.count("<i"),c.count('data-sub="critica"')] for c in re.findall(r'<span>(.*?)</span>',mini[1])]==columns,f"{path}: miniature"
  assert re.findall(r'<small>([^<]+)</small>',mini[1])==map_bins(data) and '<a class="ev-btn" href="/mapa/">Explorar el mapa</a>' in band[0]

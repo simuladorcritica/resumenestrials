@@ -21,7 +21,7 @@ try{
     await page.waitForTimeout(700);
     await page.screenshot({path:`future-screenshots/${name}.png`,fullPage:true});
   }
-  await shot('/index.html','01-home-desktop','[data-ev-feed]>.ev-card');
+  await shot('/index.html','01-home-desktop','.ev-ed-lead');
   await shot('/archivo/','09-archivo-desktop','[data-ev-ids]');
   await shot('/mapa/','11-mapa-desktop','[data-ev-map][data-ready]');
   await shot(trial,'02-trial-desktop','[data-ev-reader]');
@@ -29,7 +29,7 @@ try{
   await shot('/medicina-critica/','04-hub-desktop','[data-ev-ids]');
   await shot('/login.html','05-login-desktop','body.ev-member');
   await page.setViewportSize({width:390,height:844});
-  await shot('/index.html','06-home-mobile','[data-ev-feed]>.ev-card');
+  await shot('/index.html','06-home-mobile','.ev-ed-lead');
   await shot('/archivo/','10-archivo-mobile','[data-ev-ids]');
   await shot('/mapa/','12-mapa-mobile','[data-ev-map][data-ready]');
   await shot(trial,'07-trial-mobile','article');

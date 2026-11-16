@@ -1,7 +1,7 @@
 ## 2026-11-16 · Portada con tarjetas, lector sin etiquetas sobre el título y pie compacto
 
-- **Portada.** Debajo de «Edición actual» vuelven las tarjetas, como antes del rediseño: todos los resúmenes publicados, del último que se subió al sitio al primero (aunque el artículo sea de años anteriores). Se ven 12 y el botón «Ver más» muestra otros 12 cada vez. Después van las **Preguntas clínicas** y al final el **Mapa de evidencia**. Se retiran el ensayo destacado en grande y la lista «En esta edición», así ningún ensayo aparece dos veces.
-- **Ediciones anteriores.** Cada semana muestra sus tarjetas con la misma regla.
+- **Portada.** El bloque de la edición no cambia: el ensayo destacado en grande y la lista «En esta edición» siguen arriba. Debajo vuelven las tarjetas, como antes del rediseño, bajo el título «Biblioteca de ensayos»: todos los resúmenes publicados, del último que se subió al sitio al primero (aunque el artículo sea de años anteriores). Se ven 12 y el botón «Ver más» muestra otros 12 cada vez. Después van las **Preguntas clínicas** y al final el **Mapa de evidencia**. (Corrección del mismo día: una primera versión quitó el bloque de la edición; el editor pidió conservarlo y se repuso.)
+- **Ediciones anteriores.** Quedan como estaban, con su destacado y su lista; no llevan tarjetas.
 - **Al volver de un resumen**, la portada queda como estaba: con las tarjetas que ya se habían desplegado y en el mismo punto. Una visita nueva empieza con 12.
 - **El buscador con filtros sigue en Archivo.** Sin JavaScript, «Ver más» lleva al archivo, y todos los ensayos siguen enlazados desde la portada.
 - **Resumen (completo y breve).** Se quita la línea de arriba del título («Medicina Interna · tipo de estudio · año · subespecialidad»). Esos datos siguen en la ficha técnica; la subespecialidad se ve en las tarjetas.
