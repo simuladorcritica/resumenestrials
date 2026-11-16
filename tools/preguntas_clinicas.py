@@ -6,8 +6,8 @@ La usan las rutinas que publican resúmenes: cuando un ensayo nuevo pertenece a 
 añade aquí y la página de la pregunta, los enlaces entre ensayos, el sitemap y `llms.txt` se regeneran solos.
 
 Nada se edita a mano. Esta herramienta es la única que escribe el archivo y solo SABE AÑADIR y REPONER:
-añade ensayos, y repone una frase únicamente cuando el sitio ya la omite (porque una corrección cambió el pasaje que
-citaba). Nunca cambia ni borra una frase que el sitio está publicando.
+añade ensayos y preguntas, y repone una frase únicamente cuando el sitio ya la omite (porque una corrección cambió el
+pasaje que citaba). Nunca cambia ni borra una frase ni una pregunta que el sitio está publicando.
 
     python tools/preguntas_clinicas.py criterios [--salida ARCHIVO.json]
         Reglas de pertenencia y de redacción comunes y, por pregunta, su criterio de pertenencia (núcleo y relacionados), sus ejes
@@ -29,6 +29,21 @@ citaba). Nunca cambia ni borra una frase que el sitio está publicando.
     python tools/preguntas_clinicas.py reponer --pregunta SLUG --id N --diseno FRASES.json --revision REVISION.json [--fecha] [--ensayo]
         Repone, para un ensayo que ya está en el núcleo, las frases que `validar` informa como OMITIDAS.
         FRASES.json lleva solo esos ejes. Se niega si alguno de esos ejes tiene hoy una frase publicada.
+
+    python tools/preguntas_clinicas.py crear --propuesta PREGUNTA.json [--fecha AAAA-MM-DD] [--ensayo]
+        Crea una pregunta NUEVA (decisión del editor, 2026-11-16: «automático con candados»). Es la única forma de
+        añadir una pregunta. PREGUNTA.json lleva slug, pregunta, nombre, descripcion (con {ensayos}), condicion, area,
+        criterio, criterio_relacionados, ejes, nucleo, relacionados (opcional), marco y barrido:
+          · nucleo: tres ensayos o más, cada uno {"id": N, "etiqueta"?: "Autor 2026", "diseno": {eje: entrada},
+            "revision": {"cotejo": "VERDE", "fiscal": "VERDE", "omisiones": "VERDE"},
+            "decision": {"frase_que_decide": "<pasaje literal de ese resumen>", "revisor": "coincide"}};
+          · marco: {"revisor": "VERDE"}: un revisor independiente comprobó que la pregunta promete solo lo que sus
+            ensayos responden, que el criterio es preciso y que los ensayos son comparables;
+          · barrido: {"hasta": <id más alto de resumenes.json>, "revisor": "coincide"}: el redactor y un decisor
+            independiente compararon el criterio con todo el archivo y coinciden en qué ensayos pertenecen.
+        Se niega si la pregunta ya existe, si un ensayo ya está en el núcleo de otra, si falta alguna constancia, si
+        ya se creó una pregunta con esa fecha (una por día) o si alguna frase incumple las guardas. No escribe nada si
+        algo no cumple. --ensayo comprueba sin escribir.
 
     python tools/preguntas_clinicas.py decidir --id N --constancia DECISION.json [--sin-anadir "motivo"] [--fecha] [--ensayo]
         Anota que el resumen N se comparó con cada pregunta en la que no está. `validar` lista como SIN DECIDIR todo
@@ -59,6 +74,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
+import unicodedata
+
 import site_templates as st  # noqa: E402  (fuente única de las guardas)
 
 PATH = st.QUESTIONS_PATH
@@ -169,7 +186,13 @@ def cmd_criterios(args):
     for i, slug in st.question_undecided(datos, trials):
         faltan.setdefault(i, []).append(slug)
     sin_decidir = [{"id": i, "titulo": trials[st.trial_id(i)]["titulo"], "preguntas": slugs} for i, slugs in sorted(faltan.items())]
-    texto = json.dumps({"pertenencia": datos.get("pertenencia", []), "reglas": datos.get("reglas", []), "sin_decidir": sin_decidir, "preguntas": salida}, ensure_ascii=False, indent=1)
+    # Para crear una pregunta nueva (orden `crear`): cuántos ensayos pide el núcleo, hasta qué resumen llega el barrido,
+    # qué ensayos ya están en el núcleo de alguna pregunta (no pueden entrar en otro) y si hoy ya se creó una.
+    hoy = datetime.date.today().isoformat()
+    crear = {"minimo_nucleo": st.QUESTION_MIN_CORE, "ultimo_id": max(int(i) for i in trials if str(i).isdigit()),
+             "ya_se_creo_hoy": any(q["fecha_publicacion"] == hoy for q in datos["preguntas"]),
+             "en_nucleo": sorted(i for q in datos["preguntas"] for i in st.question_ids(q))}
+    texto = json.dumps({"pertenencia": datos.get("pertenencia", []), "reglas": datos.get("reglas", []), "sin_decidir": sin_decidir, "crear": crear, "preguntas": salida}, ensure_ascii=False, indent=1)
     if args.salida:
         with open(args.salida, "w", encoding="utf-8", newline="\n") as f:
             f.write(texto + "\n")
@@ -353,6 +376,143 @@ def cmd_agregar(args):
     return 0
 
 
+CAMPOS_PROPUESTA = ("slug", "pregunta", "nombre", "descripcion", "condicion", "area", "criterio", "criterio_relacionados",
+                    "ejes", "nucleo", "relacionados", "marco", "barrido")
+
+
+def cmd_crear(args):
+    """Crea una pregunta nueva a partir de una propuesta completa y revisada. Solo añade; es la única forma de añadir una pregunta."""
+    datos, trials = cargar(), resumenes()
+    previas = {(s, i, e) for s, i, e, _ in problemas(datos, trials)[1]}
+    def no(motivo):
+        print("NO SE CREA ·", motivo)
+        return 1
+    try:
+        p = json.loads(Path(args.propuesta).read_text(encoding="utf-8-sig"))
+    except (OSError, ValueError) as e:
+        return no(f"no pude leer {args.propuesta}: {e}")
+    if not isinstance(p, dict):
+        return no("--propuesta debe ser un objeto con " + ", ".join(CAMPOS_PROPUESTA))
+    sobran = sorted(set(p) - set(CAMPOS_PROPUESTA))
+    if sobran:
+        return no("campos que la propuesta no admite: " + ", ".join(sobran))
+    limpio = lambda t: " ".join(str(t).split()) if isinstance(t, str) else ""
+    norma = lambda t: "".join(c for c in unicodedata.normalize("NFD", limpio(t).lower()) if unicodedata.category(c) != "Mn" and c.isalnum())
+    fecha = args.fecha or datetime.date.today().isoformat()
+    if st.iso_date(fecha) is None or fecha <= st.QUESTION_CREATION_SINCE:
+        return no(f"la fecha debe ser AAAA-MM-DD y posterior a {st.QUESTION_CREATION_SINCE}")
+    slug = p.get("slug")
+    if not isinstance(slug, str) or any(q["slug"] == slug for q in datos["preguntas"]):
+        return no(f"ya existe la pregunta {slug!r} o el slug no es un texto")
+    for campo, que in (("pregunta", "título"), ("nombre", "nombre")):
+        if not norma(p.get(campo)) or any(norma(q[campo]) == norma(p.get(campo)) for q in datos["preguntas"]):
+            return no(f"falta {campo} o ya hay una pregunta publicada con ese mismo {que}")
+    if any(q["fecha_publicacion"] == fecha for q in datos["preguntas"]):
+        return no(f"ya se creó una pregunta con fecha {fecha}: como máximo una pregunta nueva por día")
+    marco, barrido = p.get("marco"), p.get("barrido")
+    if not isinstance(marco, dict) or marco.get("revisor") != "VERDE":
+        return no('falta la revisión independiente de la pregunta en VERDE ("marco": {"revisor": "VERDE"}): con un ROJO sin resolver, la pregunta no se crea')
+    ultimo = max(int(i) for i in trials if str(i).isdigit())
+    if not isinstance(barrido, dict) or barrido.get("revisor") != "coincide" or type(barrido.get("hasta")) is not int or barrido["hasta"] != ultimo:
+        return no(f'falta el barrido de todo el archivo ("barrido": {{"hasta": {ultimo}, "revisor": "coincide"}}): el criterio se compara con todos los resúmenes publicados, hasta el {ultimo}, y los dos decisores deben coincidir')
+    nucleo = p.get("nucleo")
+    if not isinstance(nucleo, list) or len(nucleo) < st.QUESTION_MIN_CORE or any(not isinstance(n, dict) or type(n.get("id")) is not int for n in nucleo):
+        return no(f"una pregunta nueva nace con {st.QUESTION_MIN_CORE} ensayos o más en el núcleo, cada uno con su id entero")
+    ids = [n["id"] for n in nucleo]
+    if len(set(ids)) != len(ids):
+        return no("un ensayo aparece dos veces en el núcleo")
+    ya_nucleo = {i: x["slug"] for x in datos["preguntas"] for i in st.question_ids(x)}
+    for i in ids:
+        if st.trial_id(i) not in trials:
+            return no(f"el resumen {i} no existe en resumenes.json")
+        if i in ya_nucleo:
+            return no(f"el resumen {i} ya está en el núcleo de {ya_nucleo[i]}: un ensayo solo puede estar en el núcleo de una pregunta")
+    ejes = p.get("ejes")
+    if not isinstance(ejes, list) or not ejes or any(not isinstance(a, dict) or not isinstance(a.get("clave"), str) for a in ejes) or len({a["clave"] for a in ejes}) != len(ejes):
+        return no("ejes debe ser una lista de ejes con clave única (clave, entrada, guia, tipo, lugar, obligatorio, max)")
+    creacion = {"fecha": fecha, "marco": "VERDE", "barrido": "coincide"}
+    nota = limpio(marco.get("nota"))[:300]
+    if nota:
+        creacion["nota"] = nota
+    q = {"slug": slug, "pregunta": limpio(p.get("pregunta")), "nombre": limpio(p.get("nombre")), "revisado_hasta": ultimo,
+         "descripcion": limpio(p.get("descripcion")), "condicion": limpio(p.get("condicion")), "area": p.get("area"),
+         "fecha_publicacion": fecha, "fecha_revision": fecha, "criterio": limpio(p.get("criterio")),
+         "criterio_relacionados": limpio(p.get("criterio_relacionados")), "creacion": creacion, "ejes": ejes, "nucleo": [],
+         "relacionados": p.get("relacionados") if p.get("relacionados") is not None else []}
+    entradas = []
+    for n in nucleo:
+        r = trials[st.trial_id(n["id"])]
+        de = f"resumen {n['id']}"
+        extra = sorted(set(n) - {"id", "etiqueta", "diseno", "revision", "decision"})
+        if extra:
+            return no(f"{de}: campos que no admite un ensayo del núcleo: " + ", ".join(extra))
+        decision = n.get("decision")
+        frase = limpio(decision.get("frase_que_decide")) if isinstance(decision, dict) else ""
+        if not isinstance(decision, dict) or decision.get("revisor") != "coincide":
+            return no(f'{de}: falta su decisión de pertenencia con los dos decisores de acuerdo ("decision": {{"frase_que_decide": "…", "revisor": "coincide"}}); si difieren, el ensayo no entra')
+        if len(frase) < 20 or not any(frase in campo for campo in st.published_text(r)):
+            return no(f"{de}: frase_que_decide debe ser un pasaje literal (20 caracteres o más) de ese resumen publicado: es la prueba de que se leyó ESTE resumen")
+        revision = n.get("revision")
+        malos = [k for k in st.QUESTION_REVIEWERS if not isinstance(revision, dict) or revision.get(k) != "VERDE"]
+        if malos:
+            return no(f"{de}: no están en VERDE las revisiones de: " + ", ".join(malos))
+        diseno = n.get("diseno")
+        if not isinstance(diseno, dict):
+            return no(f"{de}: diseno debe ser un objeto {{eje: {{frase, cita}}}}")
+        entrada = {"id": n["id"]}
+        if limpio(n.get("etiqueta")):
+            entrada["etiqueta"] = limpio(n["etiqueta"])
+        entrada["diseno"] = diseno
+        try:
+            sigla = st.trial_label(r, entrada)
+        except ValueError as e:
+            return no(str(e))
+        if len(st.question_sections(r)) != len(st.QUESTION_SECTIONS):
+            return no(f"{de}: su resumen breve no tiene las secciones que la ficha muestra literales")
+        claves = [a["clave"] for a in ejes]
+        sobran = [k for k in diseno if k not in claves]
+        try:
+            faltan = [k for k in obligatorios(q) if k not in diseno]
+        except (KeyError, TypeError, AttributeError):
+            return no("ejes mal formados: cada eje lleva clave, entrada, guia, tipo, lugar, obligatorio y max")
+        if sobran or faltan:
+            return no(f"{de}: ejes" + (f" que no son de esta pregunta: {', '.join(sobran)}" if sobran else "")
+                      + (";" if sobran and faltan else "") + (f" obligatorios que faltan: {', '.join(faltan)}" if faltan else ""))
+        entrada["revision"] = {"fecha": fecha, **{k: "VERDE" for k in st.QUESTION_REVIEWERS}}
+        if isinstance(revision.get("nota"), str) and revision["nota"].strip():
+            entrada["revision"]["nota"] = revision["nota"].strip()[:300]
+        entradas.append((entrada, sigla, r))
+    siglas = [sigla for _, sigla, _ in entradas]
+    if len(set(siglas)) != len(siglas):
+        return no("dos ensayos del núcleo comparten sigla; distínguelos con etiqueta")
+    for entrada, sigla, r in entradas:
+        try:
+            fallos = revisar_entradas(q, entrada["diseno"], sigla, r, siglas)
+        except (KeyError, TypeError, AttributeError):
+            return no("ejes mal formados: cada eje lleva clave, entrada, guia, tipo, lugar, obligatorio y max")
+        if fallos:
+            return no(f"resumen {entrada['id']} · frases que no cumplen · " + " | ".join(fallos))
+        q["nucleo"].append(entrada)
+    datos["preguntas"].append(q)
+    try:
+        st.parse_questions(json.loads(json.dumps(datos)))
+    except (ValueError, KeyError, TypeError, AttributeError) as e:
+        return no(str(e) if isinstance(e, ValueError) else "la propuesta no tiene la forma de una pregunta (revisa ejes, nucleo y relacionados)")
+    errores, omitidas = problemas(datos, trials)
+    nuevas = [f"{s}·{i}·{e}" for s, i, e, _ in omitidas if (s, i, e) not in previas]
+    if errores or nuevas:
+        return no("el archivo no quedaría limpio: " + "; ".join(errores + nuevas))
+    if st.question_undecided(datos, trials) != st.question_undecided({**datos, "preguntas": datos["preguntas"][:-1]}, trials):
+        return no("la pregunta dejaría resúmenes sin decidir: el barrido debe cubrir todo el archivo")
+    resumen = f"«{q['pregunta']}» ({slug}) con {len(q['nucleo'])} ensayos en el núcleo: " + ", ".join(siglas)
+    if args.ensayo:
+        print("ENSAYO · se crearía la pregunta", resumen + ".")
+        return 0
+    escribir(datos)
+    print("CREADA · pregunta", resumen + f"; revisada hasta el resumen {ultimo}.")
+    return 0
+
+
 def cmd_reponer(args):
     datos, trials = cargar(), resumenes()
     def no(motivo):
@@ -417,6 +577,9 @@ def main():
     r.add_argument("--pregunta", required=True); r.add_argument("--id", type=int, required=True)
     r.add_argument("--diseno", required=True); r.add_argument("--fecha"); r.add_argument("--ensayo", action="store_true"); r.add_argument("--revision")
     r.set_defaults(f=cmd_reponer)
+    n = sub.add_parser("crear")
+    n.add_argument("--propuesta", required=True); n.add_argument("--fecha"); n.add_argument("--ensayo", action="store_true")
+    n.set_defaults(f=cmd_crear)
     d = sub.add_parser("decidir")
     d.add_argument("--id", type=int, required=True); d.add_argument("--constancia", required=True); d.add_argument("--sin-anadir", dest="sin_anadir")
     d.add_argument("--fecha"); d.add_argument("--ensayo", action="store_true")
