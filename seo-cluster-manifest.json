@@ -466,7 +466,7 @@
     "category": "Medicina Interna",
     "path": "/medicina-interna/neumologia/",
     "url": "https://resumenestrials.com/medicina-interna/neumologia/",
-    "count": 16,
+    "count": 17,
     "trial_ids": [
       "17",
       "43",
@@ -483,7 +483,8 @@
       "295",
       "299",
       "321",
-      "329"
+      "329",
+      "331"
     ]
   }
 }
