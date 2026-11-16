@@ -117,11 +117,10 @@ async function checkArticle(page, record) {
   if (body.length < 250) add('ALTO', label, 'render', 'cuerpo largo ausente o demasiado corto');
   if (/\bundefined\b|\bNaN\b|\[object Object\]/.test(await page.locator('body').innerText().catch(() => ''))) add('ALTO', label, 'render', 'texto de error/valor JavaScript visible');
 
-  // Decisión editorial (2026-10-26): si Medicina Interna es solo la especialidad secundaria y no
-  // hay subtema aplicable, el resumen se queda sin subtema. Solo se exige con Interna como principal.
-  if (record.especialidad_principal === 'Medicina Interna') {
-    if (!(await page.locator('[data-ev-subspecialty]').count())) add('MEDIO', label, 'clasificación', 'Medicina Interna sin subespecialidad visible');
-  }
+  // Decisión editorial (2026-11-16): el lector no lleva línea de etiquetas sobre el título (especialidad, tipo
+  // de estudio, año y subespecialidad); esos datos están en la ficha técnica. La subespecialidad visible se
+  // comprueba en las tarjetas del archivo (más abajo).
+  if (await page.locator('.ev-reading-head .ev-card-tags, .ev-reading-head [data-ev-subspecialty]').count()) add('MEDIO', label, 'diseño', 'el lector volvió a mostrar la línea de etiquetas sobre el título');
 
   const canonical = await page.locator('link[rel="canonical"]').getAttribute('href').catch(() => null);
   const expectedCanonical = `https://resumenestrials.com${manifest[String(id)].path}`;
@@ -158,7 +157,7 @@ async function checkArticle(page, record) {
 
     const shortBody = await page.locator('article.ev-body').innerText().catch(() => '');
     if (shortBody.length < 120) add('ALTO', shortLabel, 'render', 'versión breve ausente o demasiado corta');
-    if (record.especialidad_principal === 'Medicina Interna' && !(await page.locator('[data-ev-subspecialty]').count())) add('MEDIO', shortLabel, 'clasificación', 'subespecialidad ausente en la versión breve');
+    if (await page.locator('.ev-reading-head .ev-card-tags, .ev-reading-head [data-ev-subspecialty]').count()) add('MEDIO', shortLabel, 'diseño', 'la versión breve volvió a mostrar la línea de etiquetas sobre el título');
 
     const briefVisible = await page.locator('[data-pdf-version="breve"]:visible').count();
     const fullVisibleOnBrief = await page.locator('[data-pdf-version="completo"]:visible').count();
@@ -192,15 +191,18 @@ async function main() {
   // se usa la clave de prueba oficial de Turnstile, igual que en las demás suites.
   if (['localhost', '127.0.0.1', '::1'].includes(new URL(BASE).hostname)) await installTurnstileTestRoutes(page, BASE);
 
-  // Portada: edición actual con su ensayo destacado y un único buscador. El archivo completo vive en /archivo/.
+  // Portada: edición actual con las tarjetas en orden de publicación (12 a la vista) y un único buscador.
+  // El archivo completo, con filtros, vive en /archivo/.
   await guardedGoto(page, `${BASE}/index.html`, 'index');
   const cover = await page.evaluate(() => ({
-    lead: document.querySelectorAll('.ev-ed-lead a[href*="/trials/"]').length,
+    lead: [...document.querySelectorAll('[data-ev-feed]>.ev-card:not([hidden]) a.ev-card-title[href*="/trials/"]')].length,
+    cards: document.querySelectorAll('[data-ev-feed]>.ev-card').length,
     signal: document.querySelectorAll('.ev-signal').length,
     h1: document.querySelectorAll('h1').length,
     searches: document.querySelectorAll('input[type=search]').length,
   }));
   if (!cover.lead || cover.signal !== 1 || cover.h1 !== 1) add('ALTO', 'index', 'integridad', 'la portada no muestra la edición actual', JSON.stringify(cover));
+  if (cover.cards !== data.length) add('ALTO', 'index', 'integridad', `la portada lleva ${cover.cards} tarjetas para ${data.length} registros`);
   if (cover.searches !== 1) add('MEDIO', 'index', 'UX', 'la portada debe mostrar un único buscador', JSON.stringify(cover));
   await basicA11y(page, 'index');
 
@@ -211,6 +213,14 @@ async function main() {
 
   const cards = await page.locator('#ev-list>.ev-card').count();
   if (cards !== data.length) add('ALTO', 'archivo', 'integridad', `el archivo muestra ${cards} filas para ${data.length} registros`);
+  // Decisión editorial (2026-10-26): si Medicina Interna es solo la especialidad secundaria y no hay subtema
+  // aplicable, el resumen se queda sin subtema. Solo se exige con Interna como principal. Desde 2026-11-16 se
+  // comprueba en la tarjeta del archivo: el lector ya no muestra la etiqueta.
+  await page.waitForFunction(() => document.querySelector('#ev-count')?.dataset.ready, null, { timeout: 15000 }).catch(() => {});
+  const tagged = new Set(await page.locator('#ev-list>.ev-card:has([data-ev-subspecialty])').evaluateAll((nodes) => nodes.map((node) => node.dataset.id)));
+  for (const record of data) {
+    if (record.especialidad_principal === 'Medicina Interna' && !tagged.has(String(record.id))) add('MEDIO', `resumen ${record.id}`, 'clasificación', 'Medicina Interna sin subespecialidad visible');
+  }
 
   const align = await page.evaluate(() => ({
     searches: document.querySelectorAll('input[type=search]').length,

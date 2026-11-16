@@ -79,6 +79,17 @@ E.card=(r,path)=>{const area=E.area(r),tone=E.tone(area),t=E.esc(r.titulo),p=E.e
 // Fichas de las tarjetas prerenderizadas: se rellenan al abrirlas con el índice ligero, que la
 // portada ya usa para buscar y filtrar. Así el HTML inicial no carga ~9,000 elementos ocultos.
 document.addEventListener('toggle',e=>{const d=e.target;if(!(d instanceof HTMLDetailsElement)||!d.open||!d.matches('.ev-card-facts[data-ev-facts]')||d.querySelector('dl'))return;E.data().then(rows=>{const r=rows.find(x=>String(x.id)===d.dataset.evFacts);if(r&&!d.querySelector('dl'))d.insertAdjacentHTML('beforeend',E.facts(r))}).catch(()=>{})},true);
+// Portada y ediciones: todas las tarjetas van en el HTML y solo las 12 primeras a la vista. «Ver más» (sin JavaScript,
+// un enlace al archivo) muestra otras 12. Lo ya desplegado se recuerda en la pestaña y se repone al volver de un
+// resumen, al retroceder o al recargar, antes de que reading-context.js recupere la posición de lectura.
+E.ready(()=>{const list=document.querySelector('[data-ev-feed]'),more=document.querySelector('[data-ev-feed-more]');if(!list||!more)return;
+ const key='rt-feed:'+location.pathname,page=12,nav=performance.getEntriesByType('navigation')[0]?.type;let extra=0,from='';
+ const show=n=>{const rest=[...list.querySelectorAll(':scope>.ev-card[hidden]')];for(const c of rest.slice(0,n))c.hidden=false;more.hidden=rest.length<=n;return rest[0]};
+ try{from=new URL(document.referrer).pathname}catch{}
+ if(nav==='back_forward'||nav==='reload'||/^\/(trials\/|resumen\.html$)/.test(from)){try{extra=Math.max(0,Number(sessionStorage.getItem(key))||0)}catch{}if(extra)show(extra)}
+ const save=()=>{try{sessionStorage.setItem(key,String(extra))}catch{}};save();
+ more.addEventListener('click',e=>{e.preventDefault();const first=show(page);extra+=page;save();first?.querySelector('a')?.focus({preventScroll:true})});
+});
 E.device=()=>root.dataset.evDevice||(innerWidth<720?'movil':innerWidth<1100?'tableta':'escritorio');
 E.defaultFormat=()=>E.device()==='movil'?'mobile':'a4';
 E.pdf=async(r,brief=false,format=E.defaultFormat())=>{const m=await import('/ui/pdf.js?v='+E.version);return m.generatePDF(r,{brief,format})};

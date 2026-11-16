@@ -208,6 +208,17 @@ E.card=(r,path)=>{const area=E.area(r),tone=E.tone(area),t=E.esc(r.titulo),p=E.e
 // Fichas de las tarjetas prerenderizadas: se rellenan al abrirlas con el índice ligero, que la
 // portada ya usa para buscar y filtrar. Así el HTML inicial no carga ~9,000 elementos ocultos.
 document.addEventListener('toggle',e=>{const d=e.target;if(!(d instanceof HTMLDetailsElement)||!d.open||!d.matches('.ev-card-facts[data-ev-facts]')||d.querySelector('dl'))return;E.data().then(rows=>{const r=rows.find(x=>String(x.id)===d.dataset.evFacts);if(r&&!d.querySelector('dl'))d.insertAdjacentHTML('beforeend',E.facts(r))}).catch(()=>{})},true);
+// Portada y ediciones: todas las tarjetas van en el HTML y solo las 12 primeras a la vista. «Ver más» (sin JavaScript,
+// un enlace al archivo) muestra otras 12. Lo ya desplegado se recuerda en la pestaña y se repone al volver de un
+// resumen, al retroceder o al recargar, antes de que reading-context.js recupere la posición de lectura.
+E.ready(()=>{const list=document.querySelector('[data-ev-feed]'),more=document.querySelector('[data-ev-feed-more]');if(!list||!more)return;
+ const key='rt-feed:'+location.pathname,page=12,nav=performance.getEntriesByType('navigation')[0]?.type;let extra=0,from='';
+ const show=n=>{const rest=[...list.querySelectorAll(':scope>.ev-card[hidden]')];for(const c of rest.slice(0,n))c.hidden=false;more.hidden=rest.length<=n;return rest[0]};
+ try{from=new URL(document.referrer).pathname}catch{}
+ if(nav==='back_forward'||nav==='reload'||/^\/(trials\/|resumen\.html$)/.test(from)){try{extra=Math.max(0,Number(sessionStorage.getItem(key))||0)}catch{}if(extra)show(extra)}
+ const save=()=>{try{sessionStorage.setItem(key,String(extra))}catch{}};save();
+ more.addEventListener('click',e=>{e.preventDefault();const first=show(page);extra+=page;save();first?.querySelector('a')?.focus({preventScroll:true})});
+});
 E.device=()=>root.dataset.evDevice||(innerWidth<720?'movil':innerWidth<1100?'tableta':'escritorio');
 E.defaultFormat=()=>E.device()==='movil'?'mobile':'a4';
 E.pdf=async(r,brief=false,format=E.defaultFormat())=>{const m=await import('/ui/pdf.js?v='+E.version);return m.generatePDF(r,{brief,format})};
@@ -420,9 +431,9 @@ function updateMetadata(r,path,brief){
 }
 const tool=(attr,icon,label,extra='')=>'<button type="button" class="ev-tool" '+attr+extra+'>'+E.icon(icon)+'<span>'+label+'</span></button>';
 function markup(r,path,brief,audit){
- const status=auditMarkup(audit,r.id),area=E.area(r),original=String(r.original).startsWith('https://')?'<a href="'+E.esc(r.original)+'" target="_blank" rel="noopener noreferrer">'+E.esc(r.original)+E.icon('external')+'</a>':E.esc(r.original);
+ const status=auditMarkup(audit,r.id),original=String(r.original).startsWith('https://')?'<a href="'+E.esc(r.original)+'" target="_blank" rel="noopener noreferrer">'+E.esc(r.original)+E.icon('external')+'</a>':E.esc(r.original);
  return '<section class="ev-reading" data-ev-reader="'+r.id+'" data-ev-brief="'+brief+'"><nav class="ev-breadcrumb" aria-label="Ruta"><a href="/" data-ev-return>'+E.icon('left')+'Volver a la lista</a><a href="/metodologia/">Metodología</a></nav>'
- +'<header class="ev-reading-head"><div class="ev-signal" aria-hidden="true"><i></i><svg width="96" height="18" viewBox="0 0 96 18"><path d="M0 17C44 17 46 6 84 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="90" cy="6" r="5"/></svg></div><div class="ev-card-tags"><span class="ev-area" data-tone="'+E.tone(area)+'">'+E.esc(area)+'</span><span class="ev-type">'+E.esc(r.tipo_estudio)+' · '+E.esc(r.anio)+'</span></div><h1 data-ev-field="titulo">'+E.esc(r.titulo)+'</h1><p class="ev-byline"><span data-ev-field="autor">'+E.esc(r.autor)+'</span><span data-ev-field="revista">'+E.esc(r.revista)+'</span><span data-ev-field="fecha">'+E.esc(E.humanDate(r.fecha))+'</span></p>'
+ +'<header class="ev-reading-head"><div class="ev-signal" aria-hidden="true"><i></i><svg width="96" height="18" viewBox="0 0 96 18"><path d="M0 17C44 17 46 6 84 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="90" cy="6" r="5"/></svg></div><h1 data-ev-field="titulo">'+E.esc(r.titulo)+'</h1><p class="ev-byline"><span data-ev-field="autor">'+E.esc(r.autor)+'</span><span data-ev-field="revista">'+E.esc(r.revista)+'</span><span data-ev-field="fecha">'+E.esc(E.humanDate(r.fecha))+'</span></p>'
  +'<div class="ev-keyfinding"><p class="ev-keyfinding-label">'+E.icon('spark')+'Hallazgo principal</p><p data-ev-field="hallazgo" class="ev-lead">'+E.safe(r.hallazgo)+'</p></div><p class="ev-readtime">'+E.readtime(r)+'</p>'+editorialDates(r)+status.notice+'</header>'
  +'<details class="ev-facts" open><summary>Ficha técnica del estudio</summary>'+E.facts(r)+'</details>'
  +'<div class="ev-toolbar" role="region" aria-label="Controles de lectura"><div class="ev-version" role="group" aria-label="Versión del resumen"><a href="'+E.esc(path)+'"'+(!brief?' aria-current="page"':'')+'>Completo</a><a href="/resumen.html?id='+r.id+'&amp;v=corto"'+(brief?' aria-current="page"':'')+'>Breve</a></div>'
@@ -484,7 +495,6 @@ E.ready(async()=>{
   const share=reader.querySelector('[data-ev-share]'),shareUrl='https://resumenestrials.com'+path;
   share.onclick=async()=>{const data={title:E.plain(r.titulo),text:E.plain(r.titulo)+' · Resúmenes Trials',url:shareUrl};try{if(navigator.share&&root.dataset.evPointer==='tactil'){await navigator.share(data);return}await navigator.clipboard.writeText(shareUrl);E.status(status,'Enlace copiado. Ya puedes pegarlo donde quieras.')}catch(e){if(e?.name!=='AbortError')E.status(status,'Copia este enlace: '+shareUrl)}};
   if(dynamic)import('/reader-advertising.js').then(m=>m.loadReaderAdvertising(r,article)).catch(()=>{});
-  const inferred=E.inferSubspecialty(r);if(inferred){const tag=document.createElement('span');tag.className='ev-tag';tag.dataset.evSubspecialty='true';tag.textContent=inferred;reader.querySelector('.ev-reading-head .ev-card-tags').append(tag)}
   for(const a of reader.querySelectorAll('[data-ev-return]')){a.href=window.RTReadingContext?.destination()||'/';a.onclick=()=>window.RTReadingContext?.requestReturn()}
   // Continuity and related evidence: background, non-blocking.
   (async()=>{try{

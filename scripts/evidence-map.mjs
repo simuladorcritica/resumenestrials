@@ -13,7 +13,7 @@ import { loadClassifier } from './build-data-index.mjs';
 const CRITICAL = 'Medicina Crítica';
 const INTERNAL = 'Medicina Interna';
 const INTERNAL_SPECIALTIES = ['Cardiología', 'Cirugía', 'Endocrinología', 'Enfermedades Infecciosas', 'Gastroenterología', 'Geriatría', 'Hematología', 'Infectología', 'Medicina de Urgencias', 'Medicina Física y Rehabilitación', 'Nefrología', 'Neumología', 'Neurología', 'Oncología', 'Oftalmología', 'Reumatología', 'VIH'];
-const TONES = { 'Cardiología': 'cardio', 'Endocrinología': 'endo', 'Neurología': 'neuro', 'Nefrología': 'nefro', 'Neumología': 'neumo', 'Infectología': 'infecto', 'Enfermedades Infecciosas': 'infecto', VIH: 'infecto', 'Gastroenterología': 'gastro', 'Oncología': 'onco', 'Hematología': 'onco' };
+export const TONES = { 'Cardiología': 'cardio', 'Endocrinología': 'endo', 'Neurología': 'neuro', 'Nefrología': 'nefro', 'Neumología': 'neumo', 'Infectología': 'infecto', 'Enfermedades Infecciosas': 'infecto', VIH: 'infecto', 'Gastroenterología': 'gastro', 'Oncología': 'onco', 'Hematología': 'onco' };
 const MIN_ROW = 5;
 
 export const JOURNALS = ['NEJM', 'JAMA', 'Critical Care', 'Intensive Care Med', 'Lancet', 'Otras revistas'];
