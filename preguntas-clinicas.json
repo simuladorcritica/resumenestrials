@@ -59,6 +59,25 @@
           "frase": "Evaluar si el trabajo en equipo con un protocolo intensivo baja la sistólica a los 18 meses más que la atención habitual mejorada en pacientes de bajos ingresos."
         }
       }
+    },
+    {
+      "id": 327,
+      "fecha": "2026-11-16",
+      "huella": "95d74acfde36e2aa",
+      "preguntas": {
+        "corticoides-choque-septico": {
+          "rol": "nada",
+          "frase": "Determinar si la intervención coronaria percutánea compleja de alto riesgo guiada por ecografía intravascular con criterios preespecificados de optimización del stent reduce el fracaso del vaso diana frente a la guiada solo por angiografía."
+        },
+        "cuando-iniciar-terapia-reemplazo-renal-lesion-renal-aguda": {
+          "rol": "nada",
+          "frase": "Determinar si la intervención coronaria percutánea compleja de alto riesgo guiada por ecografía intravascular con criterios preespecificados de optimización del stent reduce el fracaso del vaso diana frente a la guiada solo por angiografía."
+        },
+        "meta-oxigenacion-paciente-critico": {
+          "rol": "nada",
+          "frase": "Determinar si la intervención coronaria percutánea compleja de alto riesgo guiada por ecografía intravascular con criterios preespecificados de optimización del stent reduce el fracaso del vaso diana frente a la guiada solo por angiografía."
+        }
+      }
     }
   ],
   "preguntas": [

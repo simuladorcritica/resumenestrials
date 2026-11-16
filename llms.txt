@@ -35,6 +35,7 @@ Material educativo para profesionales de la salud. La referencia final es siempr
 
 ## Resúmenes de ensayos
 
+- [IVUS-CHIP: intervención coronaria percutánea compleja de alto riesgo guiada por ecografía intravascular o por angiografía](https://resumenestrials.com/trials/ivus-chip-intervencion-coronaria-percutanea-compleja-alto-riesgo-guiada-ecografia-intravascular/): NEJM, 2026.
 - [IMPACTS-BP: estrategias multifacéticas para el control de la hipertensión en pacientes de bajos ingresos](https://resumenestrials.com/trials/impacts-bp-estrategias-multifaceticas-control-hipertension-pacientes-bajos-ingresos/): NEJM, 2026.
 - [OCEANIC-STROKE: asundexián para la prevención secundaria del ictus](https://resumenestrials.com/trials/oceanic-stroke-asundexian-prevencion-secundaria-ictus/): NEJM, 2026.
 - [AVANT GUARD: ablación de campo pulsado como tratamiento inicial de la fibrilación auricular persistente](https://resumenestrials.com/trials/avant-guard-ablacion-campo-pulsado-como-tratamiento-inicial-fibrilacion-auricular-persistente/): NEJM, 2026.
