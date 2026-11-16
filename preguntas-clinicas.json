@@ -78,6 +78,25 @@
           "frase": "Determinar si la intervención coronaria percutánea compleja de alto riesgo guiada por ecografía intravascular con criterios preespecificados de optimización del stent reduce el fracaso del vaso diana frente a la guiada solo por angiografía."
         }
       }
+    },
+    {
+      "id": 328,
+      "fecha": "2026-11-16",
+      "huella": "f919beb89c5f6264",
+      "preguntas": {
+        "corticoides-choque-septico": {
+          "rol": "nada",
+          "frase": "La población fueron adultos en coronariografía invasiva con al menos una estenosis intermedia, del 50 al 90% a simple vista, que justificara una evaluación fisiológica."
+        },
+        "cuando-iniciar-terapia-reemplazo-renal-lesion-renal-aguda": {
+          "rol": "nada",
+          "frase": "Determinar si decidir la intervención coronaria percutánea con la reserva fraccional de flujo derivada de la angiografía (FFRangio) es no inferior a hacerlo con la guía de presión intracoronaria"
+        },
+        "meta-oxigenacion-paciente-critico": {
+          "rol": "nada",
+          "frase": "Determinar si decidir la intervención coronaria percutánea con la reserva fraccional de flujo derivada de la angiografía (FFRangio) es no inferior a hacerlo con la guía de presión intracoronaria"
+        }
+      }
     }
   ],
   "preguntas": [
