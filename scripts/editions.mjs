@@ -1,8 +1,9 @@
 // Ediciones semanales del sitio: una por semana ISO (lunes a domingo) según `fecha_publicacion_resumen`.
 // Misma regla que site_templates.editions(): la edición actual es la última semana con datos y vive en la
-// portada (/); cada edición anterior tiene página propia en /ediciones/<lunes>/. Dentro de una edición, y en
-// las tarjetas de la portada, los resúmenes van en orden de publicación en el sitio: primero lo último publicado
-// (`fecha_publicacion_resumen`; empate: id más alto). Misma regla que site_templates.published().
+// portada (/); cada edición anterior tiene página propia en /ediciones/<lunes>/. Dentro de una edición el
+// primer ensayo (artículo más reciente; empate: id más alto) es el destacado. Las tarjetas de la portada van
+// aparte, en orden de publicación en el sitio: primero lo último publicado (`fecha_publicacion_resumen`;
+// empate: id más alto), misma regla que site_templates.published().
 const ISO = /^(\d{4})-(\d{2})-(\d{2})$/;
 
 function isoDate(value) {
@@ -28,11 +29,12 @@ export function editions(data) {
     if (!weeks.has(monday)) weeks.set(monday, []);
     weeks.get(monday).push(item);
   }
+  const article = (item) => (isoDate(item.fecha) ? String(item.fecha).trim() : '');
   return [...weeks.keys()].sort().map((monday, index, all) => ({
     monday,
     route: index === all.length - 1 ? '/' : `/ediciones/${monday}/`,
     file: index === all.length - 1 ? '_includes/index-source.html' : `ediciones/${monday}/index.html`,
-    items: published(weeks.get(monday)),
+    items: weeks.get(monday).slice().sort((a, b) => article(b).localeCompare(article(a)) || Number(b.id) - Number(a.id)),
   }));
 }
 

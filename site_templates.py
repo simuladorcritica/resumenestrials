@@ -595,14 +595,17 @@ def editions(items):
 
  Devuelve [(lunes ISO, ensayos)] de la más antigua a la más reciente. La edición actual es la última
  semana con datos, nunca la fecha de hoy: regenerar el sitio da siempre el mismo resultado. Dentro de
- cada edición van en orden de publicación en el sitio: primero lo último publicado (empate: id más alto).
+ cada edición van primero los artículos más recientes (empate: id más alto); el primero es el destacado.
  Un resumen sin fecha de publicación válida no entra en ninguna edición; sigue en el archivo.
  """
  weeks={}
  for r in items:
   d=iso_date(r.get("fecha_publicacion_resumen"))
   if d:weeks.setdefault((d-timedelta(days=d.weekday())).isoformat(),[]).append(r)
- return [(monday,published(rows)) for monday,rows in sorted(weeks.items())]
+ def order(r):
+  id=trial_id(r["id"])
+  return (str(r["fecha"]).strip() if iso_date(r.get("fecha")) else "",int(id) if id.isdigit() else 0)
+ return [(monday,sorted(rows,key=order,reverse=True)) for monday,rows in sorted(weeks.items())]
 def edition_route(monday):return f"/ediciones/{monday}/"
 def edition_range(monday,sentence=False):
  """«9–15 de noviembre de 2026»; con sentence=True, «del 9 al 15 de noviembre de 2026»."""
@@ -611,6 +614,10 @@ def edition_range(monday,sentence=False):
  start=str(a.day)+("" if a.month==b.month else f" de {MONTHS[a.month-1]}"+("" if a.year==b.year else f" de {a.year}"))
  if sentence:return f"del {start} al {end}"
  return f"{start}–{end}" if a.month==b.month else f"{start} – {end}"
+def title_parts(title,limit=44):
+ """Sigla del ensayo (lo que precede a «:») y resto del título; sin sigla utilizable, ("", título)."""
+ title=str(title or "");k=title.find(":")
+ return (title[:k].strip(),title[k+1:].strip()) if 0<k<=limit and title[k+1:].strip() else ("",title)
 def edition_nav(eds,index):
  """Línea de señal como navegador: una marca por edición (hasta 12) y el punto sobre la edición mostrada."""
  last=len(eds)-1
@@ -625,23 +632,59 @@ def edition_nav(eds,index):
   if 0<=i<=last:return f'<a class="ev-ednav-step" href="{href(i)}" aria-label="{label}: {edition_range(eds[i][0])}">{icon(name)}</a>'
   return f'<span class="ev-ednav-step" aria-hidden="true">{icon(name)}</span>'
  return '<nav class="ev-ednav" aria-label="Ediciones semanales">'+step(index-1,"Edición anterior","arrow-left")+'<div class="ev-ednav-track"><ol>'+ticks+'</ol></div>'+step(index+1,"Edición siguiente","arrow-right")+'</nav>'
+def edition_lead(r,manifest,label):
+ id=trial_id(r["id"]);path=esc(manifest[id]["path"]);area=area_of(r);acronym,rest=title_parts(r["titulo"],22)
+ sub=next((s for s in (plain(r.get("especialidad_principal")).strip(),plain(r.get("especialidad_secundaria")).strip()) if s and s!=area and s not in ("Medicina Crítica","Medicina Interna")),"")
+ tags=('<div class="ev-card-tags"><span class="ev-type">Ensayo destacado</span>'+f'<span class="ev-area" data-tone="{tone(area)}">{esc(area)}</span>'
+  +(f'<span class="ev-tag" data-sub="{SUB_TONE.get(sub,"otra")}">{esc(sub)}</span>' if sub else '')+'</div>')
+ # La sigla va como titular grande y el resto del título como bajada; el texto del h2 sigue siendo el título completo.
+ title=(f'<h2 class="ev-ed-title"><span class="ev-ed-acr">{esc(acronym)}<span class="ev-sr">: </span></span><span class="ev-ed-deck">{esc(rest)}</span></h2>' if acronym
+  else f'<h2 class="ev-ed-title ev-ed-title-long">{esc(r["titulo"])}</h2>')
+ author=plain(r.get("autor")).strip()
+ if author and not re.search(r"(?i)\b(group|investigators|team|collaborat\w*|network|consortium|grupo|investigadores)\b",author):author+=" et al."
+ source='<p class="ev-byline">'+''.join(f'<span>{esc(x)}</span>' for x in (author,r.get("revista"),human_date(r.get("fecha"))) if x)+'</p>'
+ finding=((f'<h3>Pregunta</h3><p class="ev-intro">{esc(r["objetivo"])}</p>' if r.get("objetivo") else '')
+  +(f'<h3>Hallazgo principal</h3><p class="ev-intro ev-ed-answer">{r["hallazgo"]}</p>' if r.get("hallazgo") else ''))
+ brief=f'<a class="ev-btn" href="/resumen.html?id={id}&amp;v=corto">En breve · {minutes(r.get("corto"))} min</a>' if r.get("corto") else ''
+ return (f'<article class="ev-ed-lead">{label}{tags}{title}{source}'+(f'<div class="ev-ed-finding">{finding}</div>' if finding else '')
+  +f'<div class="ev-actions-row"><a class="ev-btn ev-btn-primary" href="{path}" data-ev-read="{id}">Leer el resumen · {minutes(r.get("cuerpo"))} min</a>{brief}</div></article>')
+def edition_item(r,manifest):
+ id=trial_id(r["id"]);acronym,rest=title_parts(r["titulo"]);d=iso_date(r.get("fecha"))
+ when=f"{d.day} {MONTHS3[d.month-1]} {d.year}" if d else str(r.get("fecha") or "")
+ return (f'<li><a class="ev-ed-item" href="{esc(manifest[id]["path"])}" data-ev-read="{id}"><span class="ev-ed-item-title">'+(f'<b>{esc(acronym)}</b>: ' if acronym else '')+f'{esc(rest)}</span>'
+  f'<span class="ev-card-meta"><span>{esc(r["revista"])}</span><span>{esc(when)}</span><span>{minutes(r.get("cuerpo"))} min</span></span></a></li>')
+def edition_toc(rest,manifest,total):
+ """Sumario: los demás ensayos de la semana por área; los siete primeros a la vista y el resto en un desplegable."""
+ shown=hidden="";left=7
+ for area in ("Medicina Crítica","Medicina Interna"):
+  rows=[r for r in rest if (area_of(r)=="Medicina Crítica")==(area=="Medicina Crítica")]
+  if not rows:continue
+  head=f'<h3 class="ev-area" data-tone="{tone(area)}">{area}</h3>';first,later=rows[:left],rows[left:];left-=len(first)
+  if first:shown+=head+'<ul class="ev-ed-list">'+''.join(edition_item(r,manifest) for r in first)+'</ul>'
+  if later:hidden+=('' if first else head)+'<ul class="ev-ed-list">'+''.join(edition_item(r,manifest) for r in later)+'</ul>'
+ more=len(rest)-7
+ details=('<details class="ev-ed-more"><summary class="ev-btn"><span>'+(f'Ver los {more} restantes' if more!=1 else 'Ver el restante')+'</span><span>Mostrar menos</span></summary>'+hidden+'</details>') if hidden else ''
+ count="1 resumen" if total==1 else f"{total} resúmenes"
+ return f'<aside class="ev-ed-toc" aria-labelledby="ev-ed-toc-h"><div class="ev-ed-toc-head"><h2 id="ev-ed-toc-h">En esta edición</h2><p class="ev-count">{count}</p></div>'+shown+details+'</aside>'
 FEED_PAGE=12  # Tarjetas a la vista en la portada y en cada edición; «Ver más» muestra otras tantas (ui/core.js).
 def feed(rows,manifest):
- """Tarjetas en el orden recibido. Todas van en el HTML (cada ensayo queda enlazado sin JavaScript); a partir de la
- decimotercera salen ocultas y «Ver más» las va mostrando. Sin JavaScript, «Ver más» lleva al archivo."""
+ """Tarjetas de la portada, en el orden recibido. Todas van en el HTML (cada ensayo queda enlazado sin JavaScript); a
+ partir de la decimotercera salen ocultas y «Ver más» las va mostrando. Sin JavaScript, «Ver más» lleva al archivo."""
  subs=map_subs(rows)
  more='<a class="ev-btn ev-more" href="/archivo/" data-ev-feed-more>Ver más</a>' if len(rows)>FEED_PAGE else ''
  return '<ul class="ev-list" data-ev-feed>'+''.join(card(r,manifest,subs[trial_id(r["id"])],i>=FEED_PAGE) for i,r in enumerate(rows))+'</ul>'+more
 def cover(items,manifest,monday=None):
- """Portada: navegador de ediciones, rótulo de la semana y tarjetas en orden de publicación; después las preguntas
- clínicas (solo en /) y la franja del mapa. Sin `monday`, la edición actual (ruta /), que muestra todos los resúmenes
- publicados; con `monday`, una edición anterior, que muestra los de su semana."""
+ """Portada de una edición: navegador, ensayo destacado y sumario «En esta edición»; después, solo en la portada (/), las
+ tarjetas de todos los resúmenes en orden de publicación y las preguntas clínicas; al final, la franja del mapa.
+ Sin `monday`, la edición actual (ruta /)."""
  eds=editions(items)
  if not eds:return '<div class="ev-doc"><p class="ev-eyebrow">Edición actual</p><h2>Todavía no hay una edición semanal</h2><div class="ev-actions-row"><a class="ev-btn ev-btn-primary" href="/archivo/">Ir al archivo</a></div></div>'
  home=monday is None;index=len(eds)-1 if home else [m for m,_ in eds].index(monday);monday,rows=eds[index]
  label=(f'<p class="ev-eyebrow ev-ed-label">Edición actual · {edition_range(monday)}</p>' if home
   else f'<div class="ev-ed-top"><h1 class="ev-eyebrow ev-ed-label">Edición anterior · {edition_range(monday)}</h1><a href="/">Volver a la edición actual</a></div>')
- return (f'<section class="ev-ed" data-ev-edition="{monday}">'+edition_nav(eds,index)+label+feed(published(items) if home else rows,manifest)
+ # Tarjetas (decisión del editor, 16-nov-2026): debajo del bloque de la edición, como en la portada anterior al rediseño.
+ cards=('<div class="ev-feed"><div class="ev-archive-head"><h2>Biblioteca de ensayos</h2></div>'+feed(published(items),manifest)+'</div>') if home else ''
+ return (f'<section class="ev-ed" data-ev-edition="{monday}">'+edition_nav(eds,index)+'<div class="ev-ed-grid">'+edition_lead(rows[0],manifest,label)+edition_toc(rows[1:],manifest,len(rows))+'</div>'+cards
   # Ancla de «Para ti» (recommendations.js): solo en la portada, debajo de las tarjetas.
   +('<div data-ev-recs></div>' if home else '')+'</section>'+(question_cover(items) if home else '')+map_band(items))
 # ---------- Mapa de evidencia ----------
@@ -768,8 +811,8 @@ def archive_page(items,manifest):
  return document(head,archive(items,manifest),"/archivo/","archive")
 def edition_page(items,manifest,monday):
  """Página propia de una edición anterior (la actual vive en la portada)."""
- route=edition_route(monday);name="Edición "+edition_range(monday,True)
- description=f"Edición semanal de Resúmenes Trials {edition_range(monday,True)}: resúmenes críticos en español de los ensayos clínicos publicados esa semana."
+ route=edition_route(monday);name="Edición "+edition_range(monday,True);rows=dict(editions(items))[monday];acronym=title_parts(rows[0]["titulo"],22)[0]
+ description=f"Edición semanal de Resúmenes Trials {edition_range(monday,True)}: resúmenes críticos en español de los ensayos clínicos publicados esa semana"+(f", con {acronym} como ensayo destacado." if acronym else ".")
  return document(simple_head(name+" | Resúmenes Trials",description,route,collection_schema(name,route)),cover(items,manifest,monday),route,"edition")
 def video_page(r,v,manifest):
  """Página del video: el video es el contenido principal (requisito de Google para mostrarlo en resultados de video)."""
