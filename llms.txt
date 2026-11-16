@@ -35,6 +35,7 @@ Material educativo para profesionales de la salud. La referencia final es siempr
 
 ## Resúmenes de ensayos
 
+- [FIBRONEER-IPF: nerandomilast en pacientes con fibrosis pulmonar idiopática](https://resumenestrials.com/trials/fibroneer-ipf-nerandomilast-pacientes-fibrosis-pulmonar-idiopatica/): NEJM, 2025.
 - [VERITAS: broncoscopia de navegación o biopsia transtorácica con aguja para los nódulos pulmonares](https://resumenestrials.com/trials/veritas-broncoscopia-navegacion-biopsia-transtoracica-aguja-nodulos-pulmonares/): NEJM, 2025.
 - [VAYHIT2: ianalumab más eltrombopag en la trombocitopenia inmunitaria](https://resumenestrials.com/trials/vayhit2-ianalumab-mas-eltrombopag-trombocitopenia-inmunitaria/): NEJM, 2025.
 - [TETON-2: treprostinil inhalado para la fibrosis pulmonar idiopática](https://resumenestrials.com/trials/teton-2-treprostinil-inhalado-fibrosis-pulmonar-idiopatica/): NEJM, 2026.

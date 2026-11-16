@@ -8964,5 +8964,31 @@
       "population": "La población fueron adultos remitidos a biopsia de un único nódulo pulmonar periférico indeterminado de 10 a 30 mm, en el tercio medio o externo del pulmón, con una probabilidad de cáncer de al menos el 10% según el modelo de Brock o, si había tomografía por emisión de positrones (PET), el de Herder, y accesible por ambas técnicas según paneles centrales. Participaron siete centros académicos y comunitarios de Estados Unidos…"
     },
     "datePublished": "2026-11-16"
+  },
+  "332": {
+    "slug": "fibroneer-ipf-nerandomilast-pacientes-fibrosis-pulmonar-idiopatica",
+    "path": "/trials/fibroneer-ipf-nerandomilast-pacientes-fibrosis-pulmonar-idiopatica/",
+    "url": "https://resumenestrials.com/trials/fibroneer-ipf-nerandomilast-pacientes-fibrosis-pulmonar-idiopatica/",
+    "title": "FIBRONEER-IPF: nerandomilast en pacientes con fibrosis pulmonar idiopática",
+    "seo_title": "FIBRONEER-IPF trial: nerandomilast en pacientes con fibrosis pulmonar idiopática | Resúmenes Trials",
+    "description": "FIBRONEER-IPF: A las 52 semanas, la media ajustada del cambio de la FVC fue de −114.7 ml con nerandomilast 18 mg, −138.6 ml con 9 mg y −183.5 ml con placebo…",
+    "clusters": [
+      {
+        "name": "Neumología",
+        "path": "/medicina-interna/neumologia/",
+        "url": "https://resumenestrials.com/medicina-interna/neumologia/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/fibroneer-ipf-nerandomilast-pacientes-fibrosis-pulmonar-idiopatica-16x9.jpg",
+      "https://resumenestrials.com/images/trials/fibroneer-ipf-nerandomilast-pacientes-fibrosis-pulmonar-idiopatica-4x3.jpg",
+      "https://resumenestrials.com/images/trials/fibroneer-ipf-nerandomilast-pacientes-fibrosis-pulmonar-idiopatica-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Evaluar si el nerandomilast a 18 o 9 mg dos veces al día, frente a placebo, reduce la caída de la capacidad vital forzada a las 52 semanas en pacientes con fibrosis pulmonar idiopática.",
+      "answer": "A las 52 semanas, la media ajustada del cambio de la FVC fue de −114.7 ml con nerandomilast 18 mg, −138.6 ml con 9 mg y −183.5 ml con placebo: diferencia ajustada frente a placebo de 68.8 ml con 18 mg (IC 95% 30.3 a 107.4; P<0.001) y de 44.9 ml con 9 mg (IC 95% 6.4 a 83.3; P = 0.02).",
+      "population": "La población fueron adultos de 40 años o más con fibrosis pulmonar idiopática (FPI), con una tomografía computarizada de alta resolución (TCAR) de no más de 12 meses y patrón de neumonía intersticial usual (NIU) o probable NIU confirmado centralmente; con otro patrón entraban si una biopsia previa confirmaba la FPI. Se exigía una capacidad vital forzada (FVC) de al menos el 45% del predicho y una capacidad de difusión de…"
+    },
+    "datePublished": "2026-11-16"
   }
 }

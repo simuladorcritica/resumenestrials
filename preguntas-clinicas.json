@@ -154,6 +154,25 @@
           "frase": "Determinar si, en adultos con un nódulo pulmonar periférico indeterminado de 10 a 30 mm y una probabilidad de cáncer de al menos el 10%, la broncoscopia de navegación electromagnética con tomosíntesis digital no es inferior a la biopsia transtorácica con aguja guiada por TC en la precisión diagnóstica confirmada a los 12 meses."
         }
       }
+    },
+    {
+      "id": 332,
+      "fecha": "2026-11-16",
+      "huella": "c6f169293fb8f96b",
+      "preguntas": {
+        "corticoides-choque-septico": {
+          "rol": "nada",
+          "frase": "Evaluar si el nerandomilast a 18 o 9 mg dos veces al día, frente a placebo, reduce la caída de la capacidad vital forzada a las 52 semanas en pacientes con fibrosis pulmonar idiopática."
+        },
+        "cuando-iniciar-terapia-reemplazo-renal-lesion-renal-aguda": {
+          "rol": "nada",
+          "frase": "Evaluar si el nerandomilast a 18 o 9 mg dos veces al día, frente a placebo, reduce la caída de la capacidad vital forzada a las 52 semanas en pacientes con fibrosis pulmonar idiopática."
+        },
+        "meta-oxigenacion-paciente-critico": {
+          "rol": "nada",
+          "frase": "Evaluar si el nerandomilast a 18 o 9 mg dos veces al día, frente a placebo, reduce la caída de la capacidad vital forzada a las 52 semanas en pacientes con fibrosis pulmonar idiopática."
+        }
+      }
     }
   ],
   "preguntas": [
