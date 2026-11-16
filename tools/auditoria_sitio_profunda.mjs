@@ -191,7 +191,7 @@ async function main() {
   // se usa la clave de prueba oficial de Turnstile, igual que en las demás suites.
   if (['localhost', '127.0.0.1', '::1'].includes(new URL(BASE).hostname)) await installTurnstileTestRoutes(page, BASE);
 
-  // Portada: edición actual con su ensayo destacado, debajo las tarjetas en orden de publicación (12 a la vista)
+  // Portada: edición actual con su ensayo destacado, debajo las tarjetas por fecha del artículo en su revista (12 a la vista)
   // y un único buscador. El archivo completo, con filtros, vive en /archivo/.
   await guardedGoto(page, `${BASE}/index.html`, 'index');
   const cover = await page.evaluate(() => ({

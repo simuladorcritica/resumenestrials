@@ -601,13 +601,14 @@ def archive(items,manifest,title="Archivo de evidencia",scope=""):
   '<button id="ev-more" type="button" class="ev-btn ev-more" hidden>Mostrar más</button></section>'+(question_links(title) if scope in ("medicina-critica","medicina-interna") else '')+(topic_intro(scope) if scope else ''))
 # ---------- Ediciones semanales y portada ----------
 SUB_TONE={"Cardiología":"cardio","Endocrinología":"endo","Neurología":"neuro","Nefrología":"nefro","Neumología":"neumo","Infectología":"infecto","Enfermedades Infecciosas":"infecto","VIH":"infecto","Gastroenterología":"gastro","Oncología":"onco","Hematología":"onco"}
-def published(items):
- """Orden de publicación en el sitio: primero lo último publicado (fecha_publicacion_resumen; empate: id más alto).
+def library(items):
+ """Orden de la «Biblioteca de ensayos» de la portada: del ensayo más reciente al más antiguo según `fecha`, la fecha
+ de publicación del artículo en su revista (empate: id más alto). Decisión del editor, 16-nov-2026.
 
- Un resumen sin fecha de publicación válida va al final. scripts/editions.mjs repite la regla para las pruebas.
+ Un resumen sin fecha de artículo válida va al final. scripts/editions.mjs repite la regla para las pruebas.
  """
  def order(r):
-  id=trial_id(r["id"]);d=iso_date(r.get("fecha_publicacion_resumen"))
+  id=trial_id(r["id"]);d=iso_date(r.get("fecha"))
   return (d.isoformat() if d else "",int(id) if id.isdigit() else 0)
  return sorted(items,key=order,reverse=True)
 def editions(items):
@@ -703,7 +704,7 @@ def cover(items,manifest,monday=None):
  label=(f'<p class="ev-eyebrow ev-ed-label">Edición actual · {edition_range(monday)}</p>' if home
   else f'<div class="ev-ed-top"><h1 class="ev-eyebrow ev-ed-label">Edición anterior · {edition_range(monday)}</h1><a href="/">Volver a la edición actual</a></div>')
  # Tarjetas (decisión del editor, 16-nov-2026): debajo del bloque de la edición, como en la portada anterior al rediseño.
- cards=('<div class="ev-feed"><div class="ev-archive-head"><h2>Biblioteca de ensayos</h2></div>'+feed(published(items),manifest)+'</div>') if home else ''
+ cards=('<div class="ev-feed"><div class="ev-archive-head"><h2>Biblioteca de ensayos</h2></div>'+feed(library(items),manifest)+'</div>') if home else ''
  return (f'<section class="ev-ed" data-ev-edition="{monday}">'+edition_nav(eds,index)+'<div class="ev-ed-grid">'+edition_lead(rows[0],manifest,label)+edition_toc(rows[1:],manifest,len(rows))+'</div>'+cards
   # Ancla de «Para ti» (recommendations.js): solo en la portada, debajo de las tarjetas.
   +('<div data-ev-recs></div>' if home else '')+'</section>'+(question_cover(items) if home else '')+map_band(items))

@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import assert from 'node:assert/strict';
 import {chromium,webkit} from 'playwright';
 import {installTurnstileTestRoutes,assertLoopbackBase} from './turnstile-test-helpers.mjs';
-import {editions,editionSample,published} from './editions.mjs';
+import {editions,editionSample,library} from './editions.mjs';
 import {evidenceMap as mapModel,journalRows,trialCount,JOURNALS,TONES} from './evidence-map.mjs';
 import {loadClassifier} from './build-data-index.mjs';
 const data=JSON.parse(fs.readFileSync('resumenes.json','utf8')),map=JSON.parse(fs.readFileSync('seo-manifest.json','utf8')),clusters=JSON.parse(fs.readFileSync('seo-cluster-manifest.json','utf8'));
@@ -165,7 +165,7 @@ async function evidenceMap(p,base,width){
  await geometry(p);
 }
 // Cover band: a static miniature (one dot per record stacked by year, coloured by area), a two-item legend and the way to the map.
-// Tarjetas de la portada y de cada edición: todas en el HTML y en orden de publicación en el sitio; 12 a la vista y
+// Tarjetas de la portada: todas en el HTML, del ensayo más reciente al más antiguo según la fecha del artículo en su revista; 12 a la vista y
 // «Ver más» (sin JavaScript, un enlace al archivo) muestra otras 12 cada vez.
 async function feed(p,rows,label){
  const cards=p.locator('[data-ev-feed]>.ev-card'),visible=p.locator('[data-ev-feed]>.ev-card:visible'),more=p.locator('[data-ev-feed-more]');
@@ -220,8 +220,8 @@ async function navigation(p,base,width){
  assert.equal((await p.locator('.ev-ed-toc .ev-count').textContent()).trim(),current.items.length===1?'1 resumen':current.items.length+' resúmenes');
  assert.deepEqual((await p.locator('.ev-ed-toc a.ev-ed-item').evaluateAll(ns=>ns.map(n=>n.getAttribute('href')))).sort(),rest.map(r=>map[String(r.id)].path).sort(),'Every other trial of the week is prerendered as a link');
  assert.equal(await p.locator('.ev-ed-toc a.ev-ed-item:visible').count(),Math.min(7,rest.length));if(rest.length>7){await p.locator('.ev-ed-more>summary').click();assert.equal(await p.locator('.ev-ed-toc a.ev-ed-item:visible').count(),rest.length)}
- // Below the edition block, every published summary as a card, newest publication first (editor decision, 16 Nov 2026).
- assert.equal(await p.locator('.ev-ed-grid+.ev-feed>.ev-archive-head h2').textContent(),'Biblioteca de ensayos','The cards sit right below the edition block');await feed(p,published(data),'Cover');
+ // Below the edition block, every published summary as a card, newest journal article first (editor decision, 16 Nov 2026).
+ assert.equal(await p.locator('.ev-ed-grid+.ev-feed>.ev-archive-head h2').textContent(),'Biblioteca de ensayos','The cards sit right below the edition block');await feed(p,library(data),'Cover');
  assert(await p.evaluate(()=>{const order=['.ev-ed-grid','.ev-feed','.ev-q-home','.ev-band'].map(s=>document.querySelector(s));return order.every(Boolean)&&order.every((n,i)=>!i||order[i-1].getBoundingClientRect().bottom<=n.getBoundingClientRect().top)}),'Cover order: edition block, cards, clinical questions, evidence map');
  await mapBand(p,'Cover');
  await p.fill('#ev-q','sepsis');await p.waitForTimeout(200);assert(await p.locator('#ev-search-panel').isVisible(),'The cover searches with instant results');assert.equal(new URL(p.url()).pathname+new URL(p.url()).search,'/','Typing on the cover does not navigate');await p.keyboard.press('Escape');await geometry(p);
@@ -270,7 +270,7 @@ async function reader(p,base,width){
  // A trial opened from the cover returns to the cover.
  // Portada: lo desplegado con «Ver más» se repone al volver de un resumen, y también al recargar.
  await ready(p,'/',base);await p.locator('.ev-ed-lead a[data-ev-read]').click();await p.waitForFunction(()=>document.querySelector('[data-ev-sections]')?.onclick);assert.equal(await p.locator('[data-ev-return]').first().getAttribute('href'),'/');await p.locator('[data-ev-return]').first().click();await p.waitForURL(base+'/',{waitUntil:'domcontentloaded'});assert.equal(await p.locator('.ev-ed-lead').count(),1);
- await ready(p,'/',base);const feedOrder=published(data),deep=feedOrder[Math.min(13,feedOrder.length-1)],shownCards=()=>p.locator('[data-ev-feed]>.ev-card:visible').count();if(feedOrder.length>12)await p.locator('[data-ev-feed-more]').click();const expanded=await shownCards();assert.equal(expanded,Math.min(24,feedOrder.length));
+ await ready(p,'/',base);const feedOrder=library(data),deep=feedOrder[Math.min(13,feedOrder.length-1)],shownCards=()=>p.locator('[data-ev-feed]>.ev-card:visible').count();if(feedOrder.length>12)await p.locator('[data-ev-feed-more]').click();const expanded=await shownCards();assert.equal(expanded,Math.min(24,feedOrder.length));
  await p.locator('[data-ev-feed]>.ev-card[data-id="'+deep.id+'"] a.ev-card-title').click();await p.waitForFunction(()=>document.querySelector('[data-ev-sections]')?.onclick);assert.equal(new URL(p.url()).pathname,map[String(deep.id)].path);assert.equal(await p.locator('[data-ev-return]').first().getAttribute('href'),'/');await p.locator('[data-ev-return]').first().click();await p.waitForURL(base+'/',{waitUntil:'domcontentloaded'});assert.equal(await p.locator('[data-ev-feed]').count(),1);assert.equal(await p.locator('.ev-ed-lead').count(),1);
  await p.waitForFunction(n=>document.querySelectorAll('[data-ev-feed]>.ev-card:not([hidden])').length===n,expanded);assert(await p.locator('[data-ev-feed]>.ev-card[data-id="'+deep.id+'"]').isVisible(),'The card that was opened is still on screen after returning');
  await p.reload({waitUntil:'domcontentloaded'});await p.waitForFunction(n=>document.querySelectorAll('[data-ev-feed]>.ev-card:not([hidden])').length===n,expanded);
