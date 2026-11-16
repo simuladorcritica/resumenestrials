@@ -71,8 +71,8 @@ def video_block(r,manifest,videos):
 # publica. Así, si una corrección cambia una cifra citada, la frase desfasada desaparece sola al regenerar.
 QUESTIONS_PATH=ROOT/"preguntas-clinicas.json"
 QUESTION_CONTEXT="Esta página reúne, en breve, ensayos resumidos en Resúmenes Trials relacionados con esta pregunta; no es una revisión de toda la evidencia ni una guía clínica. De cada ensayo da solo lo esencial para situarlo: el detalle está en su resumen."
-QUESTION_NOTE=('<div class="ev-method"><span class="ev-original-label">Cómo se elaboró</span>'
- '<span>Página elaborada por la Editorial EMEICRÍTICA con apoyo de herramientas de inteligencia artificial, solo a partir de los resúmenes ya publicados en este sitio. En cada ensayo, «Qué preguntó» y «Hallazgo principal» son el texto de su resumen; cada frase añadida está respaldada por una cita literal de ese resumen y pasó revisores independientes de exactitud, de exceso de interpretación y de omisiones. El detalle completo de cada ensayo está en su resumen. No recomienda un tratamiento.'
+QUESTION_NOTE=('<div class="ev-method ev-q-note">'
+ '<span><strong>Cómo se elaboró.</strong> Elaborada por la Editorial EMEICRÍTICA con apoyo de inteligencia artificial, solo a partir de los resúmenes publicados en este sitio: «Qué preguntó» y «Hallazgo principal» son texto del resumen, y cada frase añadida tiene una cita literal que la respalda y pasó revisores independientes. No recomienda un tratamiento.'
  '</span><span class="ev-method-links"><a href="/metodologia/">Metodología</a><a href="/correcciones/">Correcciones</a><a href="/equipo-editorial/">Cómo trabajamos</a><a href="mailto:resumenestrials@outlook.com">Reportar un error</a></span></div>')
 QUESTION_AREAS={"Medicina Crítica":"/medicina-critica/","Medicina Interna":"/medicina-interna/"}
 QUESTION_NUMBER=re.compile(r"(?<![\w.,])\d+(?:[.,]\d+)?(?!\w)")
@@ -126,6 +126,7 @@ def parse_questions(data):
   for a in axes:
    if re.search(r"\d",a["entrada"]) or QUESTION_BANNED.search(a["entrada"]):fail(slug,f"la entrada del eje {a['clave']} no puede llevar cifras ni lenguaje de resultado")
   if any(axis_place(a)=="ficha" and not a["entrada"].strip() for a in axes):fail(slug,"un eje de ficha necesita su rótulo en entrada")
+  if any("rotulo" in a and (not text(a["rotulo"]) or len(a["rotulo"])>60 or re.search(r"\d",a["rotulo"]) or QUESTION_BANNED.search(a["rotulo"])) for a in axes):fail(slug,"el rotulo de un eje es un texto breve, sin cifras ni lenguaje de resultado")
   keys={a["clave"]:a for a in axes};core=q.get("nucleo")
   if not isinstance(core,list) or len(core)<2:fail(slug,"nucleo debe tener al menos dos ensayos")
   ids=[]
@@ -249,16 +250,33 @@ def question_sections(r):
   if re.search(r"<(?!/?strong>)",body):body=esc(plain(body))
   if m.group(1) in QUESTION_SECTIONS and body:found[m.group(1)]=body
  return [(k,found[k]) for k in QUESTION_SECTIONS if k in found]
+# Rótulos de interfaz de los ejes (no son texto clínico): la pestaña de «Cómo leerlos juntos» y el apartado de la ficha.
+# Un eje puede fijar el suyo con `rotulo` en preguntas-clinicas.json.
+QUESTION_AXIS_LABELS={"intervencion":"Intervención","comparador":"Comparador","poblacion":"Población","desenlace":"Desenlace primario","tamano":"Tamaño",
+ "pacientes":"A quién se incluyó","separacion":"Cómo se separaron las estrategias","limitacion":"Limitación principal","no_informa":"Lo que el resumen no informa"}
+def axis_label(a):return (a.get("rotulo") or QUESTION_AXIS_LABELS.get(a["clave"]) or a["clave"].replace("_"," ").capitalize()).strip()
 def question_notes(q,n,texts):
- """Párrafos de la ficha de un ensayo: [(rótulo, texto)]; los ejes seguidos con el mismo rótulo comparten párrafo."""
- out=[]
- for axis in q["ejes"]:
-  text=texts.get((n["id"],axis["clave"])) if axis_place(axis)=="ficha" else None
-  if not text:continue
-  label=axis["entrada"].strip()
-  if out and out[-1][0]==label:out[-1]=(label,out[-1][1]+" "+text)
-  else:out.append((label,text))
- return out
+ """Apartados de la ficha de un ensayo: [(grupo, rótulo, texto)]. El grupo es la entrada del eje («Para interpretarlo»); el rótulo, el del eje."""
+ return [(axis["entrada"].strip().rstrip("."),axis_label(axis),texts[(n["id"],axis["clave"])]) for axis in q["ejes"] if axis_place(axis)=="ficha" and texts.get((n["id"],axis["clave"]))]
+def question_anchor(id):return f"ensayo-{int(id)}"
+def question_timeline(q,core,base="",label="Ensayos en orden cronológico"):
+ """Línea de tiempo de los ensayos del núcleo (año, sigla y revista); cada punto enlaza a la ficha del ensayo en la página de la pregunta."""
+ return (f'<nav class="ev-q-line" aria-label="{esc(label)}">'+"".join(f'<a class="ev-q-t" href="{base}#{question_anchor(n["id"])}"><small>{esc(r["anio"])}</small><i></i><b>{esc(trial_label(r,n))}</b><span>{esc(r["revista"])}</span></a>' for n,r in core)+'</nav>')
+def question_css():
+ """Hoja propia de las preguntas clínicas (su página y la sección de la portada), fuera del runtime único. Lleva en su URL la huella de su contenido."""
+ import hashlib
+ return '<link rel="stylesheet" href="/ui/preguntas.css?v='+hashlib.sha256((ROOT/"ui/preguntas.css").read_bytes().replace(b"\r\n",b"\n")).hexdigest()[:12]+'">'
+def question_cover(items):
+ """Sección de la portada: una tarjeta por pregunta clínica, con la línea de tiempo de sus ensayos. No muestra hallazgos: esos van en la página, junto a sus límites."""
+ qs=load_questions()
+ if not qs:return ""
+ trials={trial_id(r["id"]):r for r in items}
+ def card(q):
+  core=question_core(q,trials);route=question_route(q)
+  return (f'<article class="ev-q-card"><div class="ev-q-card-head"><h3><a class="ev-q-title" href="{route}">{esc(q["pregunta"])}</a></h3><a class="ev-q-read" href="{route}">Ver los {len(core)} ensayos{icon("arrow-right")}</a></div>'
+   +question_timeline(q,core,route,"Ensayos: "+q["nombre"])+'</article>')
+ return ('<section class="ev-q ev-q-home" aria-labelledby="ev-q-h"><div class="ev-archive-head"><h2 id="ev-q-h">Preguntas clínicas</h2><p class="ev-count">Los ensayos resumidos sobre una misma pregunta</p></div>'
+  +"".join(card(q) for q in qs)+'</section>')
 def question_block(r,manifest):
  """Enlazado entre ensayos: el de núcleo enlaza su pregunta y a los otros del núcleo; el relacionado, solo la pregunta.
  Los enlaces van en su propia fila (.ev-method-links): dentro de una frase, el alto mínimo de pulsación la partiría."""
@@ -292,20 +310,31 @@ def question_page(q,items,manifest):
  («Cómo leerlos juntos», compuestas con las frases publicables de cada ensayo) y los vecinos."""
  trials={trial_id(r["id"]):r for r in items};route=question_route(q);hub=QUESTION_AREAS[q["area"]];core=question_core(q,trials);texts,_=question_texts(q,trials)
  def ficha(n,r):
-  path=esc(manifest[trial_id(r["id"])]["path"]);label=esc(trial_label(r,n))
-  notes="".join(f'<p><strong>{esc(k)}</strong> {esc(v)}</p>' for k,v in question_notes(q,n,texts))
-  sections="".join(f'<p><strong>{esc(k)}.</strong> {v}</p>' for k,v in question_sections(r))
-  return (f'<h3><a href="{path}">{label}</a> · {esc(r["revista"])}, {esc(r["anio"])}</h3><p><strong>Qué preguntó.</strong> {esc(r["objetivo"])}</p>'
-   f'<p><strong>Hallazgo principal.</strong> {r["hallazgo"]}</p>{sections}{notes}<p><a href="{path}">Leer el resumen de {label}</a></p>')
+  # Las fichas van siempre todas a la vista. Izquierda: lo que preguntó y lo que halló; derecha: lo necesario para interpretarlo.
+  path=esc(manifest[trial_id(r["id"])]["path"]);label=esc(trial_label(r,n));notes="";group=None
+  for g,k,v in question_notes(q,n,texts):
+   if g!=group:notes+=f'<h4>{esc(g)}</h4>';group=g
+   notes+=f'<h5>{esc(k)}</h5><p>{esc(v)}</p>'
+  sections="".join(f'<h4>{esc(k)}</h4><p>{v}</p>' for k,v in question_sections(r))
+  return (f'<section class="ev-q-card" id="{question_anchor(n["id"])}"><div class="ev-q-card-head"><h3><a href="{path}">{label}</a> <span>· {esc(r["revista"])}, {esc(r["anio"])}</span></h3>'
+   f'<a class="ev-q-read" href="{path}">Leer el resumen de {label}{icon("arrow-right")}</a></div>'
+   f'<div class="ev-q-cols"><div><h4>Qué preguntó</h4><p>{esc(r["objetivo"])}</p><div class="ev-q-finding"><h4>Hallazgo principal</h4><p>{r["hallazgo"]}</p></div>{sections}</div>'
+   f'<div class="ev-q-notes">{notes}</div></div></section>')
  # Cada vecino va solo en su elemento de lista: un enlace dentro de una frase justificada partiría la línea.
- related="".join('<h3>'+esc(g["motivo"])+'</h3><ul>'+"".join(f'<li><a href="{esc(manifest[trial_id(i)]["path"])}">{esc(question_trial(q,i,trials)["titulo"])}</a></li>' for i in g["ids"])+'</ul>' for g in q["relacionados"])
- design,_=question_design(q,trials)
- together="".join('<p>'+esc(((lead+" ") if lead else "")+" ".join(sentences))+'</p>' for _,lead,sentences in design)
- content=(f'<p>{QUESTION_CONTEXT}</p><h2>Los ensayos</h2>'+"".join(ficha(n,r) for n,r in core)+(f'<h2>Cómo leerlos juntos</h2>{together}' if together else '')
-  +(f'<h2>Ver también</h2>{related}' if related else '')+'<p>Editorial EMEICRÍTICA</p>')
- dates=f'Publicado el <time datetime="{q["fecha_publicacion"]}">{esc(human_date(q["fecha_publicacion"]))}</time>'+(f' · Revisado el <time datetime="{q["fecha_revision"]}">{esc(human_date(q["fecha_revision"]))}</time>' if q["fecha_revision"]!=q["fecha_publicacion"] else '')
- body=(f'<div class="ev-doc ev-doc-text" data-ev-question-page><nav class="ev-breadcrumb" aria-label="Ruta"><a href="{hub}">{icon("arrow-left")}{esc(q["area"])}</a></nav>'
-  f'<p class="ev-eyebrow">Pregunta clínica</p><h1>{esc(q["pregunta"])}</h1><p class="ev-doc-date">{dates}</p><article class="ev-prose">{content}</article>{QUESTION_NOTE}</div>')
+ related="".join('<section><h3>'+esc(g["motivo"])+'</h3><ul>'+"".join(f'<li><a href="{esc(manifest[trial_id(i)]["path"])}">{esc(question_trial(q,i,trials)["titulo"])}</a></li>' for i in g["ids"])+'</ul></section>' for g in q["relacionados"])
+ # «Cómo leerlos juntos»: un panel por eje con una fila por ensayo. Las pestañas son botones de opción sin JavaScript;
+ # donde el navegador no admite :has(), ui/preguntas.css deja todos los paneles a la vista.
+ design=[(a,[(n,r,texts[(n["id"],a["clave"])]) for n,r in core if (n["id"],a["clave"]) in texts]) for a in q["ejes"] if axis_place(a)=="juntos"];design=[d for d in design if d[1]]
+ tabs="".join(f'<label class="ev-q-tab"><input type="radio" name="ev-q-eje"{" checked" if i==0 else ""}><span>{esc(axis_label(a))}</span></label>' for i,(a,_) in enumerate(design))
+ panels="".join(f'<section class="ev-q-panel"><h3>{esc(axis_label(a))}</h3>'+(f'<p class="ev-q-lead">{esc(a["entrada"].strip())}</p>' if a["entrada"].strip() else '')
+  +"".join(f'<div class="ev-q-row"><b>{esc(trial_label(r,n))}{"" if trial_label(r,n).endswith(str(r["anio"])) else f' <small>{esc(r["anio"])}</small>'}</b><p>{esc(t)}</p></div>' for n,r,t in rows)+'</section>' for a,rows in design)
+ together=f'<div class="ev-q-cmp"><div class="ev-q-tabs" role="radiogroup" aria-label="Aspecto del diseño">{tabs}</div>{panels}</div>'
+ content=(f'<p>{QUESTION_CONTEXT}</p><h2 class="ev-sr">Los ensayos</h2>'+question_timeline(q,core)+"".join(ficha(n,r) for n,r in core)+(f'<h2>Cómo leerlos juntos</h2>{together}' if design else '')
+  +(f'<h2>Ver también</h2><div class="ev-q-rel">{related}</div>' if related else ''))
+ years=sorted({str(r["anio"]) for _,r in core});span=years[0] if len(years)==1 else f"{years[0]} a {years[-1]}"
+ dates=f'{len(core)} ensayos resumidos · {esc(span)} · Publicado el <time datetime="{q["fecha_publicacion"]}">{esc(human_date(q["fecha_publicacion"]))}</time>'+(f' · Revisado el <time datetime="{q["fecha_revision"]}">{esc(human_date(q["fecha_revision"]))}</time>' if q["fecha_revision"]!=q["fecha_publicacion"] else '')
+ body=(f'<div class="ev-doc ev-doc-text ev-q" data-ev-question-page><nav class="ev-breadcrumb" aria-label="Ruta"><a href="{hub}">{icon("arrow-left")}{esc(q["area"])}</a></nav>'
+  f'<h1>{esc(q["pregunta"])}</h1><p class="ev-doc-date">{dates}</p><article class="ev-prose">{content}</article>{QUESTION_NOTE}</div>')
  description=question_description(q,trials)
  return document(simple_head(q["pregunta"]+" | Resúmenes Trials",description,route,question_schema(q,[r for _,r in core],manifest,description),"article"),body,route)
 def editorial_dates(r):
@@ -460,6 +489,7 @@ def clean_head(source,title=None,route=""):
 def document(source,body,route,kind="document",scripts="",title=None):
  head=clean_head(source,title,route)
  if route=="/":scripts+='<script type="module" src="/recommendations.js?v=20261113-revista-v1"></script>'
+ if route.startswith("/preguntas/") or (route=="/" and load_questions()):head+=question_css()
  if route not in EXCLUDED and route!="/resumen.html" and not route.startswith("/resumen/"):head+=ADSENSE_SCRIPT
  mode="list" if kind=="archive" or route=="/biblioteca.html" else "quick"
  return '<!DOCTYPE html><html lang="es-MX"><head>'+head+'</head><body class="'+("ev-reader" if kind=="reader" else "ev-"+kind)+'" data-ev-search-mode="'+mode+'"><div class="ev-aurora" aria-hidden="true"></div>'+header(route=="/")+'<main id="ev-main" class="ev-main" tabindex="-1">'+body+'</main>'+footer(route=="/")+dialogs()+scripts+f'<script src="/site-runtime.js?v={version()}" defer></script></body></html>\n'
@@ -606,7 +636,7 @@ def cover(items,manifest,monday=None):
   else f'<div class="ev-ed-top"><h1 class="ev-eyebrow ev-ed-label">Edición anterior · {edition_range(monday)}</h1><a href="/">Volver a la edición actual</a></div>')
  return (f'<section class="ev-ed" data-ev-edition="{monday}">'+edition_nav(eds,index)+'<div class="ev-ed-grid">'+edition_lead(rows[0],manifest,label)+edition_toc(rows[1:],manifest,len(rows))+'</div>'
   # Ancla de «Para ti» (recommendations.js): solo en la portada, debajo de la edición.
-  +('<div data-ev-recs></div>' if home else '')+'</section>'+map_band(items))
+  +('<div data-ev-recs></div>' if home else '')+'</section>'+(question_cover(items) if home else '')+map_band(items))
 # ---------- Mapa de evidencia ----------
 # Un punto por resumen. Columnas: el año del artículo (todo lo anterior a 2010 en una sola). Filas: los ensayos de
 # Medicina Crítica por subtema (seo-cluster-manifest.json; si un ensayo está en varios, el de menos ensayos; en ninguno,
