@@ -8794,5 +8794,31 @@
       "population": "La población fueron adultos con fibrilación auricular persistente sintomática, continua durante 7 a 365 días, documentada en los 180 días previos y sin tratamiento antiarrítmico previo: se excluyó a quien hubiera tomado un antiarrítmico de clase I o III más de 7 días seguidos, o amiodarona más de 24 horas, en los 6 meses anteriores. La raza la informaron los pacientes y la mayoría eran blancos, el 90% con ablación y el 87% con…"
     },
     "datePublished": "2026-11-14"
+  },
+  "325": {
+    "slug": "oceanic-stroke-asundexian-prevencion-secundaria-ictus",
+    "path": "/trials/oceanic-stroke-asundexian-prevencion-secundaria-ictus/",
+    "url": "https://resumenestrials.com/trials/oceanic-stroke-asundexian-prevencion-secundaria-ictus/",
+    "title": "OCEANIC-STROKE: asundexián para la prevención secundaria del ictus",
+    "seo_title": "OCEANIC-STROKE trial: asundexián para la prevención secundaria del ictus | Resúmenes Trials",
+    "description": "OCEANIC-STROKE: Añadir asundexián a la antiagregación redujo el ictus isquémico: 6.2% con asundexián frente a 8.4% con placebo (hazard ratio por causa…",
+    "clusters": [
+      {
+        "name": "Neurología",
+        "path": "/medicina-interna/neurologia/",
+        "url": "https://resumenestrials.com/medicina-interna/neurologia/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/oceanic-stroke-asundexian-prevencion-secundaria-ictus-16x9.jpg",
+      "https://resumenestrials.com/images/trials/oceanic-stroke-asundexian-prevencion-secundaria-ictus-4x3.jpg",
+      "https://resumenestrials.com/images/trials/oceanic-stroke-asundexian-prevencion-secundaria-ictus-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si añadir asundexián 50 mg al día a la antiagregación reduce el ictus isquémico frente a placebo en pacientes con ictus isquémico no cardioembólico o accidente isquémico transitorio de alto riesgo.",
+      "answer": "Añadir asundexián a la antiagregación redujo el ictus isquémico: 6.2% con asundexián frente a 8.4% con placebo (hazard ratio por causa específica 0.74; IC 95% 0.65 a 0.84; P<0.001).",
+      "population": "Población: adultos con ictus isquémico no cardioembólico y 15 puntos o menos en la escala de ictus de los Institutos Nacionales de Salud (NIHSS, de 0 a 42; más puntos, ictus más grave), o con accidente isquémico transitorio (AIT) de alto riesgo, definido por una puntuación ABCD2 de 6 o 7 (escala de 0 a 7 que estima el riesgo de ictus según edad, presión arterial, clínica, duración y diabetes), aleatorizados en 72 horas y con…"
+    },
+    "datePublished": "2026-11-16"
   }
 }
