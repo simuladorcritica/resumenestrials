@@ -8892,5 +8892,31 @@
       "population": "La población fueron adultos en coronariografía invasiva con al menos una estenosis intermedia, del 50 al 90% a simple vista, que justificara una evaluación fisiológica. La raza la declaró el paciente: eran blancos el 59.7% del grupo FFRangio y el 61.8% del grupo de guía de presión, y asiáticos el 24.7% y el 23.5%, respectivamente."
     },
     "datePublished": "2026-11-16"
+  },
+  "329": {
+    "slug": "teton-2-treprostinil-inhalado-fibrosis-pulmonar-idiopatica",
+    "path": "/trials/teton-2-treprostinil-inhalado-fibrosis-pulmonar-idiopatica/",
+    "url": "https://resumenestrials.com/trials/teton-2-treprostinil-inhalado-fibrosis-pulmonar-idiopatica/",
+    "title": "TETON-2: treprostinil inhalado para la fibrosis pulmonar idiopática",
+    "seo_title": "TETON-2 trial: treprostinil inhalado para la fibrosis pulmonar idiopática | Resúmenes Trials",
+    "description": "TETON-2: A las 52 semanas, la mediana estimada del cambio de la capacidad vital forzada (FVC) fue de −49.9 ml con treprostinil inhalado y −136.4 ml con…",
+    "clusters": [
+      {
+        "name": "Neumología",
+        "path": "/medicina-interna/neumologia/",
+        "url": "https://resumenestrials.com/medicina-interna/neumologia/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/teton-2-treprostinil-inhalado-fibrosis-pulmonar-idiopatica-16x9.jpg",
+      "https://resumenestrials.com/images/trials/teton-2-treprostinil-inhalado-fibrosis-pulmonar-idiopatica-4x3.jpg",
+      "https://resumenestrials.com/images/trials/teton-2-treprostinil-inhalado-fibrosis-pulmonar-idiopatica-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Evaluar si el treprostinil inhalado, frente a placebo, reduce la caída de la capacidad vital forzada a las 52 semanas en pacientes con fibrosis pulmonar idiopática.",
+      "answer": "A las 52 semanas, la mediana estimada del cambio de la capacidad vital forzada (FVC) fue de −49.9 ml con treprostinil inhalado y −136.4 ml con placebo (diferencia de Hodges-Lehmann 95.6 ml ; IC 95% 52.2 a 139.0; P<0.001).",
+      "population": "Se incluyó a adultos de 40 años o más con fibrosis pulmonar idiopática (FPI) diagnosticada según la guía internacional de 2018, con revisión central de la tomografía de alta resolución y, si la había, de la biopsia quirúrgica, y con una capacidad vital forzada (FVC, por su sigla en inglés) de al menos el 45% del predicho. Procedían de 107 centros de 16 países de Latinoamérica, Europa y Asia-Pacífico, fuera de Estados Unidos y…"
+    },
+    "datePublished": "2026-11-16"
   }
 }
