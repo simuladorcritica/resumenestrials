@@ -135,6 +135,25 @@
           "frase": "Evaluar si añadir cuatro infusiones mensuales de ianalumab, a 9 o 3 mg/kg, al eltrombopag alarga el tiempo hasta el fracaso del tratamiento frente a placebo más eltrombopag en adultos con trombocitopenia inmunitaria primaria tras fallar los glucocorticoides."
         }
       }
+    },
+    {
+      "id": 331,
+      "fecha": "2026-11-16",
+      "huella": "d3097e3c0960fb5a",
+      "preguntas": {
+        "corticoides-choque-septico": {
+          "rol": "nada",
+          "frase": "Determinar si, en adultos con un nódulo pulmonar periférico indeterminado de 10 a 30 mm y una probabilidad de cáncer de al menos el 10%, la broncoscopia de navegación electromagnética con tomosíntesis digital no es inferior a la biopsia transtorácica con aguja guiada por TC en la precisión diagnóstica confirmada a los 12 meses."
+        },
+        "cuando-iniciar-terapia-reemplazo-renal-lesion-renal-aguda": {
+          "rol": "nada",
+          "frase": "Determinar si, en adultos con un nódulo pulmonar periférico indeterminado de 10 a 30 mm y una probabilidad de cáncer de al menos el 10%, la broncoscopia de navegación electromagnética con tomosíntesis digital no es inferior a la biopsia transtorácica con aguja guiada por TC en la precisión diagnóstica confirmada a los 12 meses."
+        },
+        "meta-oxigenacion-paciente-critico": {
+          "rol": "nada",
+          "frase": "Determinar si, en adultos con un nódulo pulmonar periférico indeterminado de 10 a 30 mm y una probabilidad de cáncer de al menos el 10%, la broncoscopia de navegación electromagnética con tomosíntesis digital no es inferior a la biopsia transtorácica con aguja guiada por TC en la precisión diagnóstica confirmada a los 12 meses."
+        }
+      }
     }
   ],
   "preguntas": [

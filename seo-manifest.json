@@ -8938,5 +8938,31 @@
       "population": "La población fueron adultos con trombocitopenia inmunitaria (PTI) primaria y respuesta insuficiente (no superar 30×10⁹ plaquetas por litro o necesitar glucocorticoides más de 8 semanas) o recaída tras glucocorticoides de primera línea, con menos de 30×10⁹/L en el cribado e indicación de eltrombopag. Procedían de 73 centros de 24 países; eran asiáticos el 44%, 47% y 49% y blancos el 50%, 51% y 43% en los grupos de 9 mg, 3 mg y…"
     },
     "datePublished": "2026-11-16"
+  },
+  "331": {
+    "slug": "veritas-broncoscopia-navegacion-biopsia-transtoracica-aguja-nodulos-pulmonares",
+    "path": "/trials/veritas-broncoscopia-navegacion-biopsia-transtoracica-aguja-nodulos-pulmonares/",
+    "url": "https://resumenestrials.com/trials/veritas-broncoscopia-navegacion-biopsia-transtoracica-aguja-nodulos-pulmonares/",
+    "title": "VERITAS: broncoscopia de navegación o biopsia transtorácica con aguja para los nódulos pulmonares",
+    "seo_title": "VERITAS trial: broncoscopia de navegación o biopsia transtorácica con aguja para los nódulos pulmonares | Resúmenes Trials",
+    "description": "VERITAS: La broncoscopia de navegación fue no inferior, con un margen de 10 puntos porcentuales, a la biopsia transtorácica con aguja guiada por TC: la…",
+    "clusters": [
+      {
+        "name": "Neumología",
+        "path": "/medicina-interna/neumologia/",
+        "url": "https://resumenestrials.com/medicina-interna/neumologia/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/veritas-broncoscopia-navegacion-biopsia-transtoracica-aguja-nodulos-pulmonares-16x9.jpg",
+      "https://resumenestrials.com/images/trials/veritas-broncoscopia-navegacion-biopsia-transtoracica-aguja-nodulos-pulmonares-4x3.jpg",
+      "https://resumenestrials.com/images/trials/veritas-broncoscopia-navegacion-biopsia-transtoracica-aguja-nodulos-pulmonares-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si, en adultos con un nódulo pulmonar periférico indeterminado de 10 a 30 mm y una probabilidad de cáncer de al menos el 10%, la broncoscopia de navegación electromagnética con tomosíntesis digital no es inferior a la biopsia transtorácica con aguja guiada por TC en la precisión diagnóstica confirmada a los 12 meses.",
+      "answer": "La broncoscopia de navegación fue no inferior, con un margen de 10 puntos porcentuales, a la biopsia transtorácica con aguja guiada por TC: la precisión diagnóstica a 12 meses fue del 79.0% con broncoscopia frente al 73.6% con biopsia transtorácica (diferencia absoluta 5.4 puntos porcentuales; IC 95%, -6.5 a 17.2; p=0.003 para…",
+      "population": "La población fueron adultos remitidos a biopsia de un único nódulo pulmonar periférico indeterminado de 10 a 30 mm, en el tercio medio o externo del pulmón, con una probabilidad de cáncer de al menos el 10% según el modelo de Brock o, si había tomografía por emisión de positrones (PET), el de Herder, y accesible por ambas técnicas según paneles centrales. Participaron siete centros académicos y comunitarios de Estados Unidos…"
+    },
+    "datePublished": "2026-11-16"
   }
 }
