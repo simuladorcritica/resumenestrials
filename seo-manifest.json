@@ -487,7 +487,7 @@
     "url": "https://resumenestrials.com/trials/vesalius-cv-evolocumab-pacientes-infarto-miocardio-ni-ictus-previos/",
     "title": "VESALIUS-CV: evolocumab en pacientes sin infarto de miocardio ni ictus previos",
     "seo_title": "VESALIUS-CV trial: evolocumab en pacientes sin infarto de miocardio ni ictus previos | Resúmenes Trials",
-    "description": "VESALIUS-CV: El MACE de 3 puntos bajo del 8.0% al 6.2% a cinco anos (HR 0.75; IC 95% 0.65-0.86; P<0.001), con un numero necesario a tratar de 56. El…",
+    "description": "VESALIUS-CV: El MACE de 3 puntos bajó del 8.0% al 6.2% a cinco años (HR 0.75; IC 95% 0.65-0.86; P<0.001), con un número necesario a tratar de 56. El…",
     "clusters": [
       {
         "name": "Cardiología y prevención cardiovascular",
@@ -502,11 +502,11 @@
     ],
     "intent": {
       "question": "Determinar si el evolocumab, un inhibidor de PCSK9, sumado al tratamiento hipolipemiante de base, es superior al placebo para prevenir el primer gran evento cardiovascular en adultos con aterosclerosis o diabetes de alto riesgo pero sin infarto de miocardio ni ictus previos.",
-      "answer": "El MACE de 3 puntos bajo del 8.0% al 6.2% a cinco anos (HR 0.75; IC 95% 0.65-0.86; P<0.001), con un numero necesario a tratar de 56.",
-      "population": "La población fueron adultos de alto riesgo cardiovascular, varones de 50 a 79 años y mujeres de 55 a 79, con aterosclerosis o diabetes de alto riesgo pero sin antecedente de infarto de miocardio ni de ictus. El 93% se identificó como de raza blanca y el 17% de origen hispano, según reporte del propio paciente. Debían tener un colesterol LDL de al menos 90 mg/dl, o un colesterol no-HDL de al menos 120 mg/dl, o una…"
+      "answer": "El MACE de 3 puntos bajó del 8.0% al 6.2% a cinco años (HR 0.75; IC 95% 0.65-0.86; P<0.001), con un número necesario a tratar de 56.",
+      "population": "La población fueron adultos de alto riesgo cardiovascular, varones de 50 a 79 años y mujeres de 55 a 79, con aterosclerosis o diabetes de alto riesgo (de 10 años o más de evolución, tratada con insulina diaria o con enfermedad microvascular) y al menos un criterio adicional de alto riesgo, como edad de 65 años o más, tabaquismo activo, lípidos muy elevados o aterosclerosis y diabetes a la vez, pero sin antecedente de infarto…"
     },
     "datePublished": "2026-08-16",
-    "dateModified": "2026-10-28"
+    "dateModified": "2026-11-15"
   },
   "19": {
     "slug": "oriental-mevo-trombectomia-endovascular-ictus-oclusion-vaso-mediano",
@@ -5463,7 +5463,7 @@
       "population": "La población fueron pacientes de 65 años o más ingresados en 65 unidades de cuidados intensivos generales del Servicio Nacional de Salud del Reino Unido, en Inglaterra, Gales e Irlanda del Norte, que recibían vasopresores por hipotensión vasodilatadora según el criterio del clínico. La raza o etnia de los participantes no se reportó."
     },
     "datePublished": "2026-10-19",
-    "dateModified": "2026-10-27"
+    "dateModified": "2026-11-15"
   },
   "199": {
     "slug": "epvent-2-peep-guiada-presion-esofagica-tabla-empirica-peep-alta-sindrome",
@@ -5619,11 +5619,11 @@
     ],
     "intent": {
       "question": "Comparar una estrategia de PEEP alta titulada hasta una presión meseta de 28 a 30 cm H2O frente a una PEEP moderada, ambas con volumen corriente bajo, para reducir la mortalidad a 28 días en la lesión pulmonar aguda y el síndrome de dificultad respiratoria aguda.",
-      "answer": "La mortalidad a 28 días fue del 31.2% con distensión mínima frente al 27.8% con reclutamiento aumentado (riesgo relativo 1.12; IC 95%, 0.90 a 1.40; p = 0.31) , sin diferencia significativa; los días libres de ventilador fueron 7 frente a 3 (p = 0.04) a favor del reclutamiento aumentado.",
+      "answer": "La mortalidad a 28 días fue del 31.2% con distensión mínima frente al 27.8% con reclutamiento aumentado (riesgo relativo 1.12; IC 95%, 0.90 a 1.40; p = 0.31) , sin diferencia significativa; la mediana de días libres de ventilador hasta el día 28, un desenlace secundario sin ajuste por multiplicidad, fue de 7 (RIC, 0 a 19) frente…",
       "population": "La población fueron adultos con ventilación mecánica endotraqueal por insuficiencia respiratoria hipoxémica y lesión pulmonar aguda, con una PaO2:FIO2 de 300 mm Hg o menos, infiltrados pulmonares bilaterales recientes compatibles con edema y sin evidencia clínica de hipertensión auricular izquierda, con una presión de enclavamiento de 18 mm Hg o menos cuando se medía. Estos criterios debían cumplirse desde no más de 48 horas…"
     },
     "datePublished": "2026-10-19",
-    "dateModified": "2026-10-20"
+    "dateModified": "2026-11-15"
   },
   "207": {
     "slug": "survive-levosimendan-dobutamina-insuficiencia-cardiaca-aguda-descompensada",
@@ -5646,11 +5646,11 @@
     ],
     "intent": {
       "question": "Comparar una infusión corta de levosimendán frente a dobutamina en la insuficiencia cardiaca aguda descompensada que requiere un inotrópico, para reducir la mortalidad por cualquier causa a 180 días.",
-      "answer": "La mortalidad a 180 días fue del 26% con levosimendán frente al 28% con dobutamina (hazard ratio 0.91; IC 95%, 0.74 a 1.13; p = 0.40) , sin diferencia significativa; el BNP bajó más con levosimendán a las 24 horas, 631 frente a 397 pg/ml (p menor de 0.001) .",
+      "answer": "La mortalidad a 180 días fue del 26% con levosimendán frente al 28% con dobutamina (hazard ratio 0.91; IC 95%, 0.74 a 1.13; p = 0.40) , sin diferencia significativa; el BNP bajó más con levosimendán a las 24 horas, con un descenso medio de 631 frente a 397 pg/ml (p menor de 0.001) , un desenlace secundario subrogado.",
       "population": "La población fueron adultos de 18 años o más hospitalizados por insuficiencia cardiaca aguda descompensada, con una fracción de eyección del 30% o menos en los 12 meses previos y necesidad de un inotrópico intravenoso por respuesta insuficiente a diuréticos o vasodilatadores intravenosos. Además debían tener al menos uno de tres criterios: disnea en reposo o ventilación mecánica por la descompensación; oliguria no debida a…"
     },
     "datePublished": "2026-10-19",
-    "dateModified": "2026-10-20"
+    "dateModified": "2026-11-15"
   },
   "208": {
     "slug": "hidrocortisona-y-fludrocortisona-en-dosis-bajas-en-el-shock-septico-con-insuficiencia",
@@ -5678,11 +5678,11 @@
     ],
     "intent": {
       "question": "Evaluar si la hidrocortisona y la fludrocortisona en dosis bajas durante 7 días mejoran la supervivencia a 28 días en el shock séptico con insuficiencia suprarrenal relativa.",
-      "answer": "En los no respondedores a la corticotropina, la mortalidad a 28 días fue del 53% con corticoides frente al 63% con placebo (HR 0.67; IC 95%, 0.47 a 0.95; p = 0.02) ; en los respondedores no hubo diferencia (p = 0.81).",
+      "answer": "En los no respondedores a la corticotropina, la mortalidad a 28 días fue del 53% con corticoides frente al 63% con placebo (HR 0.67; IC 95%, 0.47 a 0.95; p = 0.02) ; en los respondedores no hubo diferencia significativa (p = 0.81).",
       "population": "La población fueron adultos de 18 años o más con shock séptico, ingresados en 19 unidades de cuidados intensivos de Francia, que debían cumplir siete criterios a la vez: una infección documentada o con sospecha fuerte; temperatura mayor de 38.3 °C o menor de 35.6 °C; frecuencia cardiaca mayor de 90 latidos por minuto; presión sistólica menor de 90 mm Hg durante al menos 1 hora pese a una reposición adecuada de líquidos y más…"
     },
     "datePublished": "2026-10-19",
-    "dateModified": "2026-10-20"
+    "dateModified": "2026-11-15"
   },
   "209": {
     "slug": "pelican-terapia-hemodinamica-individualizada-guiada-indice-cardiaco-pacientes-alto-riesgo",
@@ -8425,7 +8425,8 @@
       "answer": "En el análisis final de eficacia, el secundario clave de la jerarquía, el cambio medio de la TFGe a la semana 52, fue de −0.11 mL/min/1.73 m² con atacicept frente a −5.69 con placebo (diferencia 5.58 ; IC 95% 3.68 a 7.48; p<0.001), y la progresión renal compuesta, siempre iniciada por un descenso sostenido de la TFGe de al menos…",
       "population": "La población fueron adultos con nefropatía por IgA confirmada por biopsia, proteinuria persistente y un inhibidor de la enzima convertidora de angiotensina (IECA) o un antagonista del receptor de angiotensina II (ARA II) estable (salvo intolerancia), de Asia, Europa, Australia, Norteamérica y Sudamérica; por autoinforme, eran asiáticos el 54.7% del grupo atacicept y el 53.3% del grupo placebo."
     },
-    "datePublished": "2026-11-12"
+    "datePublished": "2026-11-12",
+    "dateModified": "2026-11-15"
   },
   "310": {
     "slug": "synchronize-2-survodutida-vez-semana-adultos-obesidad-diabetes-tipo-2",
