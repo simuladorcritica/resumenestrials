@@ -15,11 +15,11 @@ assert (ROOT/"index.html").read_text(encoding="utf8")==home
 from site_templates import editions,edition_route
 weeks=editions(data);assert weeks,"At least one edition"
 # Desde el 16-nov-2026 (decisión del editor) la portada lleva, debajo del bloque de la edición (ensayo destacado y «En esta
-# edición»), las tarjetas de todos los resúmenes en orden de publicación en el sitio (lo último publicado primero; empate:
-# id más alto), todas en el HTML y solo las 12 primeras a la vista. Las ediciones anteriores no llevan tarjetas. El
+# edición»), las tarjetas de todos los resúmenes, del ensayo más reciente al más antiguo según la fecha del artículo en su revista
+# (`fecha`; empate: id más alto), todas en el HTML y solo las 12 primeras a la vista. Las ediciones anteriores no llevan tarjetas. El
 # buscador con filtros sigue solo en /archivo/.
 assert 'data-ev-ids=' not in home and 'id="ev-list"' not in home and 'id="ev-filters"' not in home and 'id="ev-count"' not in home,"The cover must not carry the archive controls"
-by_publication=sorted(data,key=lambda r:(str(r["fecha_publicacion_resumen"]),int(r["id"])),reverse=True)
+by_article=sorted(data,key=lambda r:(str(r["fecha"]),int(r["id"])),reverse=True)
 assert home.count('<h1>Evidencia sin ruido</h1>')==1 and home.count("<h1")==1 and 'data-ev-recs' in home
 pages=[(monday,rows,ROOT/"ediciones"/monday/"index.html") for monday,rows in weeks[:-1]]+[(weeks[-1][0],weeks[-1][1],ROOT/"_includes/index-source.html")]
 for monday,rows,path in pages:
@@ -34,9 +34,9 @@ for monday,rows,path in pages:
   continue
  feed=re.search(r'<ul class="ev-list" data-ev-feed>(.*?)</ul>',s,re.S);assert feed and s.count("data-ev-feed>")==1,f"{path}: one card list"
  assert '</aside></div><div class="ev-feed"><div class="ev-archive-head"><h2>Biblioteca de ensayos</h2></div><ul class="ev-list" data-ev-feed>' in s,f"{path}: the cards sit right below the edition block"
- expected=by_publication
+ expected=by_article
  cards=re.findall(r'<li class="ev-card" data-id="(\d+)" data-tone="[a-z]+"(?: data-ev-topics="[^"]*")?( hidden)?>',feed[1])
- assert feed[1].count('<li class="ev-card"')==len(cards) and [c[0] for c in cards]==[str(r["id"]) for r in expected],f"{path}: every card, newest publication first"
+ assert feed[1].count('<li class="ev-card"')==len(cards) and [c[0] for c in cards]==[str(r["id"]) for r in expected],f"{path}: every card, newest journal article first"
  assert [bool(c[1]) for c in cards]==[i>=12 for i in range(len(expected))],f"{path}: only the first 12 cards are visible"
  assert s.count("data-ev-feed-more")==(1 if len(expected)>12 else 0)==s.count('</ul><a class="ev-btn ev-more" href="/archivo/" data-ev-feed-more>Ver más</a>'),f"{path}: «Ver más» only when there are more than 12 cards, right after the list"
  for r in expected:assert feed[1].count('<a class="ev-card-title" href="'+manifest[str(r["id"])]["path"]+'" data-ev-read="'+str(r["id"])+'">')==1,f"{path}: card of trial {r['id']}"

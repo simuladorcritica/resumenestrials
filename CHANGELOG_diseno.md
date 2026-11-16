@@ -1,3 +1,8 @@
+## 2026-11-16 · Biblioteca por fecha del artículo y Neumología en azul
+
+- **Biblioteca de ensayos (portada).** Las tarjetas van del ensayo más reciente al más antiguo según la fecha en que el artículo se publicó en su revista (antes: según cuándo se subió el resumen al sitio). Un resumen nuevo de un artículo antiguo aparece en el lugar que le toca por su fecha, no arriba. El bloque de la edición, las 12 tarjetas a la vista y «Ver más» no cambian.
+- **Color de Neumología.** Se confundía con el turquesa de Medicina Interna, que siempre va a su lado. Ahora es un azul intenso. Para que los azules no se confundan entre sí, Nefrología pasa a lavanda y Neurología queda un poco más púrpura (opción elegida por el editor entre tres). Contraste ≥ 4,5:1 en claro y oscuro; el cambio vale también para los puntos del mapa de evidencia.
+
 ## 2026-11-16 · Preguntas clínicas: el motor puede abrir preguntas nuevas, con candados
 
 - **Qué cambia para el lector.** Nada todavía: siguen las tres preguntas. Cuando haya más, la portada dará tarjeta a las tres más recientes y enlazará las demás en un desplegable («Ver las N preguntas restantes»); cada especialidad sigue enlazando todas las suyas.

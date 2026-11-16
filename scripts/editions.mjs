@@ -1,9 +1,9 @@
 // Ediciones semanales del sitio: una por semana ISO (lunes a domingo) según `fecha_publicacion_resumen`.
 // Misma regla que site_templates.editions(): la edición actual es la última semana con datos y vive en la
 // portada (/); cada edición anterior tiene página propia en /ediciones/<lunes>/. Dentro de una edición el
-// primer ensayo (artículo más reciente; empate: id más alto) es el destacado. Las tarjetas de la portada van
-// aparte, en orden de publicación en el sitio: primero lo último publicado (`fecha_publicacion_resumen`;
-// empate: id más alto), misma regla que site_templates.published().
+// primer ensayo (artículo más reciente; empate: id más alto) es el destacado. Las tarjetas de la portada
+// («Biblioteca de ensayos») van aparte: del ensayo más reciente al más antiguo según `fecha`, la fecha de
+// publicación del artículo en su revista (empate: id más alto), misma regla que site_templates.library().
 const ISO = /^(\d{4})-(\d{2})-(\d{2})$/;
 
 function isoDate(value) {
@@ -13,9 +13,9 @@ function isoDate(value) {
   return date.getUTCFullYear() === +match[1] && date.getUTCMonth() === +match[2] - 1 && date.getUTCDate() === +match[3] ? date : null;
 }
 
-// Orden de publicación en el sitio; un resumen sin fecha de publicación válida va al final.
-export function published(data) {
-  const day = (item) => (isoDate(item.fecha_publicacion_resumen) ? String(item.fecha_publicacion_resumen).trim() : '');
+// Orden de la biblioteca de la portada: por fecha del artículo en su revista; sin fecha válida, al final.
+export function library(data) {
+  const day = (item) => (isoDate(item.fecha) ? String(item.fecha).trim() : '');
   return data.slice().sort((a, b) => day(b).localeCompare(day(a)) || Number(b.id) - Number(a.id));
 }
 
