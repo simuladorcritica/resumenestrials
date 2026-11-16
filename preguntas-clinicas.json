@@ -446,6 +446,7 @@
         {
           "clave": "separacion",
           "entrada": "Para interpretarlo.",
+          "rotulo": "Cómo se aplicó la comparación",
           "guia": "Cómo se aplicó la comparación en la práctica, en lo esencial: plazo de inicio, cumplimiento o un cambio del protocolo durante el ensayo. Una oración con las cifras clave y cada cifra en su grupo.",
           "tipo": "contexto",
           "lugar": "ficha",
@@ -791,6 +792,7 @@
         {
           "clave": "separacion",
           "entrada": "Para interpretarlo.",
+          "rotulo": "Cómo se separaron los grupos",
           "guia": "Cómo se separaron los grupos en la práctica, en lo esencial: los valores de oxigenación alcanzados en cada grupo. Una oración con las cifras clave y cada cifra en su grupo.",
           "tipo": "contexto",
           "lugar": "ficha",

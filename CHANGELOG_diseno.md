@@ -1,3 +1,13 @@
+## 2026-11-15 · Preguntas clínicas: diseño interactivo y sección en la portada
+
+- **Página de cada pregunta, rediseñada.** El título ocupa una o dos líneas, sin rótulo encima. Debajo, una **línea de tiempo** con los ensayos (año, sigla y revista): cada punto lleva a la ficha de su ensayo y la deja resaltada. Las fichas van **todas a la vista**, en dos columnas: a la izquierda «Qué preguntó» y «Hallazgo principal» (destacado); a la derecha «Para interpretarlo», en tres apartados rotulados: a quién se incluyó, cómo se separaron las estrategias y limitación principal.
+- **«Cómo leerlos juntos» con pestañas** por aspecto del diseño (intervención, comparador, población, desenlace primario, tamaño): cada una muestra a todos los ensayos, uno por fila. Funcionan sin JavaScript; en un navegador antiguo o al imprimir se ven todos los aspectos seguidos.
+- **«Ver también»** en tarjetas por motivo y **«Cómo se elaboró»** en un solo párrafo, más breve.
+- **Portada: sección «Preguntas clínicas»**, entre la edición y el mapa: una tarjeta por pregunta con su línea de tiempo. No muestra hallazgos sueltos: el hallazgo solo aparece en la página, junto a sus límites.
+- **Ningún texto clínico cambia**: son los mismos campos y las mismas frases con cita; las guardas no se tocan. Lo nuevo son rótulos de interfaz.
+- En teléfono la línea de tiempo baja en vertical y el texto se alinea a la izquierda, como en el resto del sitio; en tableta y escritorio va justificado.
+- Estilos en una hoja propia, `ui/preguntas.css`, que solo cargan estas páginas y la portada: el CSS común no crece.
+
 ## 2026-11-13 · Preguntas clínicas (piloto)
 
 - **Tres páginas nuevas en `/preguntas/`**: cuándo iniciar la terapia de reemplazo renal en la lesión renal aguda, corticoides en el choque séptico y meta de oxigenación en el paciente crítico. Cada una resume en breve los ensayos ya publicados sobre esa pregunta: de cada ensayo, lo que preguntó, su hallazgo principal y un párrafo «Para interpretarlo» (a quién se incluyó de verdad, cómo se separaron los grupos y su limitación principal), con el enlace a su resumen para el detalle. Un apartado «Cómo leerlos juntos» compara el diseño y «Ver también» enlaza los ensayos vecinos. Avisa de que no es una guía clínica ni una revisión de toda la evidencia.

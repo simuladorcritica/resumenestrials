@@ -116,7 +116,7 @@ for q in questions:
  texts,dropped=questions_source.question_texts(q,records);axes={a["clave"]:a for a in q["ejes"]}
  for n in q["nucleo"]:
   i=n["id"];r=records[str(i)];path=manifest[str(i)]["path"];question_ids.add(str(i));fields=[flat(r.get(k)) for k in ("titulo","objetivo","hallazgo","corto","cuerpo","tipo_estudio")]
-  assert "<p><strong>Qué preguntó.</strong> "+html_module.escape(r["objetivo"],quote=True)+"</p>" in s and "<p><strong>Hallazgo principal.</strong> "+r["hallazgo"]+"</p>" in s,f"{route}: ficha de {i}"
+  assert "<h4>Qué preguntó</h4><p>"+html_module.escape(r["objetivo"],quote=True)+"</p>" in s and "<h4>Hallazgo principal</h4><p>"+r["hallazgo"]+"</p>" in s,f"{route}: ficha de {i}"
   label=questions_source.trial_label(r,n)
   for axis,entry in n["diseno"].items():
    # Lo que se publicaría de esta entrada; debe estar en la página si y solo si pasa las guardas.
@@ -140,6 +140,26 @@ for q in questions:
  assert f'href="{route}"' in (ROOT/hubs[q["area"]]/"index.html").read_text(encoding="utf8"),route+": el hub no la enlaza"
 for r in data:
  if str(r["id"]) not in question_ids:assert 'data-ev-question=' not in trial_page(r["id"]),f'{r["id"]}: bloque de pregunta sin pregunta'
+# Diseño de las preguntas: hoja propia (ui/preguntas.css) con la huella vigente, solo en estas páginas y en la portada; línea de
+# tiempo con un punto por ensayo que lleva a su ficha; un panel por pestaña en «Cómo leerlos juntos»; y sección de la portada,
+# entre la edición y el mapa, con una tarjeta por pregunta. La portada no muestra hallazgos: van en la página, junto a sus límites.
+question_css='<link rel="stylesheet" href="/ui/preguntas.css?v='+hashlib.sha256((ROOT/"ui/preguntas.css").read_bytes().replace(b"\r\n",b"\n")).hexdigest()[:12]+'">'
+question_home=re.search(r'<section class="ev-q ev-q-home"[\s\S]*?</section>',home)
+assert bool(question_home)==bool(questions) and home.count(question_css)==(1 if questions else 0),"portada: sección de preguntas clínicas y su hoja"
+if question_home:
+ assert home.index('class="ev-ed-grid"')<home.index(question_home[0])<home.index('class="ev-band"'),"portada: las preguntas van entre la edición y el mapa"
+ assert question_home[0].count('<article class="ev-q-card">')==len(questions) and "Hallazgo" not in question_home[0],"portada: una tarjeta por pregunta, sin hallazgos"
+for q in questions:
+ route="/preguntas/"+q["slug"]+"/";s=(ROOT/route.strip("/")/"index.html").read_text(encoding="utf8")
+ assert s.count(question_css)==1 and "ev-eyebrow" not in s.split('<main',1)[1].split('</main>',1)[0],route+": hoja de preguntas, y sin rótulo sobre el título"
+ assert question_home[0].count(f'<a class="ev-q-title" href="{route}">'+html_module.escape(q["pregunta"],quote=True)+'</a>')==1,route+": falta en la portada"
+ for n in q["nucleo"]:
+  mark=f'ensayo-{n["id"]}'
+  assert s.count(f'<section class="ev-q-card" id="{mark}">')==1 and s.count(f'<a class="ev-q-t" href="#{mark}">')==1,f"{route}: ficha y punto de {n['id']}"
+  assert question_home[0].count(f'<a class="ev-q-t" href="{route}#{mark}">')==1,f"portada: punto de {n['id']}"
+ assert s.count('<input type="radio" name="ev-q-eje"')==s.count('<section class="ev-q-panel">')>=1 and s.count('name="ev-q-eje" checked')==1,route+": una pestaña por panel y una sola elegida"
+for p in future.candidates():
+ if p.exists() and p not in [ROOT/"_includes/index-source.html",ROOT/"index.html"]+[ROOT/"preguntas"/q["slug"]/"index.html" for q in questions]:assert "/ui/preguntas.css" not in p.read_text(encoding="utf8"),f"{p}: la hoja de preguntas solo va en sus páginas y en la portada"
 generated=sorted(p.parent.name for p in (ROOT/"preguntas").glob("*/index.html")) if (ROOT/"preguntas").exists() else []
 assert generated==sorted(q["slug"] for q in questions),"preguntas/: sobran o faltan páginas"
 print(f"DESIGN CONTRACT PASS {len(data)} trials / {len(clusters)} active collections / evidence map / {version}")
