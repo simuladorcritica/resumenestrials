@@ -40,6 +40,25 @@
           "frase": "Comparador: placebo idéntico. Ambos grupos recibieron antiagregación simple o doble a criterio del médico"
         }
       }
+    },
+    {
+      "id": 326,
+      "fecha": "2026-11-16",
+      "huella": "ae81330ebca7af0b",
+      "preguntas": {
+        "corticoides-choque-septico": {
+          "rol": "nada",
+          "frase": "La intervención combinó atención en equipo, un protocolo escalonado con meta de sistólica menor de 120 mm Hg, tensiómetro en casa y coaching."
+        },
+        "cuando-iniciar-terapia-reemplazo-renal-lesion-renal-aguda": {
+          "rol": "nada",
+          "frase": "Adultos de 40 años o más con hipertensión no controlada de 36 clínicas comunitarias de Luisiana y Misisipi"
+        },
+        "meta-oxigenacion-paciente-critico": {
+          "rol": "nada",
+          "frase": "Evaluar si el trabajo en equipo con un protocolo intensivo baja la sistólica a los 18 meses más que la atención habitual mejorada en pacientes de bajos ingresos."
+        }
+      }
     }
   ],
   "preguntas": [

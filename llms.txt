@@ -35,6 +35,7 @@ Material educativo para profesionales de la salud. La referencia final es siempr
 
 ## Resúmenes de ensayos
 
+- [IMPACTS-BP: estrategias multifacéticas para el control de la hipertensión en pacientes de bajos ingresos](https://resumenestrials.com/trials/impacts-bp-estrategias-multifaceticas-control-hipertension-pacientes-bajos-ingresos/): NEJM, 2026.
 - [OCEANIC-STROKE: asundexián para la prevención secundaria del ictus](https://resumenestrials.com/trials/oceanic-stroke-asundexian-prevencion-secundaria-ictus/): NEJM, 2026.
 - [AVANT GUARD: ablación de campo pulsado como tratamiento inicial de la fibrilación auricular persistente](https://resumenestrials.com/trials/avant-guard-ablacion-campo-pulsado-como-tratamiento-inicial-fibrilacion-auricular-persistente/): NEJM, 2026.
 - [GALE CRUSTED: ivermectina oral combinada con crema de permetrina al 5% para tratar la escabiosis grave](https://resumenestrials.com/trials/gale-crusted-ivermectina-oral-combinada-crema-permetrina-5-tratar-escabiosis-grave/): NEJM, 2026.

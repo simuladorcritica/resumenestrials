@@ -8820,5 +8820,25 @@
       "population": "Población: adultos con ictus isquémico no cardioembólico y 15 puntos o menos en la escala de ictus de los Institutos Nacionales de Salud (NIHSS, de 0 a 42; más puntos, ictus más grave), o con accidente isquémico transitorio (AIT) de alto riesgo, definido por una puntuación ABCD2 de 6 o 7 (escala de 0 a 7 que estima el riesgo de ictus según edad, presión arterial, clínica, duración y diabetes), aleatorizados en 72 horas y con…"
     },
     "datePublished": "2026-11-16"
+  },
+  "326": {
+    "slug": "impacts-bp-estrategias-multifaceticas-control-hipertension-pacientes-bajos-ingresos",
+    "path": "/trials/impacts-bp-estrategias-multifaceticas-control-hipertension-pacientes-bajos-ingresos/",
+    "url": "https://resumenestrials.com/trials/impacts-bp-estrategias-multifaceticas-control-hipertension-pacientes-bajos-ingresos/",
+    "title": "IMPACTS-BP: estrategias multifacéticas para el control de la hipertensión en pacientes de bajos ingresos",
+    "seo_title": "IMPACTS-BP trial: estrategias multifacéticas para el control de la hipertensión en pacientes de bajos ingresos | Resúmenes Trials",
+    "description": "IMPACTS-BP: A los 18 meses, la presión sistólica bajó en promedio 15.5 mm Hg con la estrategia multifacética frente a 9.1 mm Hg con la atención habitual…",
+    "clusters": [],
+    "images": [
+      "https://resumenestrials.com/images/trials/impacts-bp-estrategias-multifaceticas-control-hipertension-pacientes-bajos-ingresos-16x9.jpg",
+      "https://resumenestrials.com/images/trials/impacts-bp-estrategias-multifaceticas-control-hipertension-pacientes-bajos-ingresos-4x3.jpg",
+      "https://resumenestrials.com/images/trials/impacts-bp-estrategias-multifaceticas-control-hipertension-pacientes-bajos-ingresos-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Evaluar si una estrategia multifacética basada en el trabajo en equipo, con un protocolo intensivo de control de la presión, reduce la presión arterial sistólica a los 18 meses y mejora la adherencia al manejo de la hipertensión, frente a la atención habitual mejorada, en pacientes de bajos ingresos atendidos en centros de salud comunitarios de Luisiana y Misisipi.",
+      "answer": "A los 18 meses, la presión sistólica bajó en promedio 15.5 mm Hg con la estrategia multifacética frente a 9.1 mm Hg con la atención habitual mejorada (diferencia de menos 6.4 mm Hg; IC 95% menos 9.0 a menos 3.8; P<0.001).",
+      "population": "La población fueron adultos de 40 años o más con hipertensión no controlada atendidos en clínicas de centros de salud con calificación federal (FQHC, por sus siglas en inglés), centros comunitarios con fondos federales para población sobre todo de bajos ingresos, en Luisiana y Misisipi, Estados Unidos. No controlada significaba una sistólica de al menos 140 mm Hg sin antihipertensivos o de al menos 130 mm Hg con ellos…"
+    },
+    "datePublished": "2026-11-16"
   }
 }
