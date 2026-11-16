@@ -8840,5 +8840,31 @@
       "population": "La población fueron adultos de 40 años o más con hipertensión no controlada atendidos en clínicas de centros de salud con calificación federal (FQHC, por sus siglas en inglés), centros comunitarios con fondos federales para población sobre todo de bajos ingresos, en Luisiana y Misisipi, Estados Unidos. No controlada significaba una sistólica de al menos 140 mm Hg sin antihipertensivos o de al menos 130 mm Hg con ellos…"
     },
     "datePublished": "2026-11-16"
+  },
+  "327": {
+    "slug": "ivus-chip-intervencion-coronaria-percutanea-compleja-alto-riesgo-guiada-ecografia-intravascular",
+    "path": "/trials/ivus-chip-intervencion-coronaria-percutanea-compleja-alto-riesgo-guiada-ecografia-intravascular/",
+    "url": "https://resumenestrials.com/trials/ivus-chip-intervencion-coronaria-percutanea-compleja-alto-riesgo-guiada-ecografia-intravascular/",
+    "title": "IVUS-CHIP: intervención coronaria percutánea compleja de alto riesgo guiada por ecografía intravascular o por angiografía",
+    "seo_title": "IVUS-CHIP trial: intervención coronaria percutánea compleja de alto riesgo guiada por ecografía intravascular o por angiografía | Resúmenes Trials",
+    "description": "IVUS-CHIP: Con una mediana de 19.0 meses, el fracaso del vaso diana ocurrió en el 13.9% con la guía por ecografía intravascular frente al 11.1% con la guía…",
+    "clusters": [
+      {
+        "name": "Cardiología y prevención cardiovascular",
+        "path": "/medicina-interna/cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-interna/cardiovascular/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/ivus-chip-intervencion-coronaria-percutanea-compleja-alto-riesgo-guiada-ecografia-intravascular-16x9.jpg",
+      "https://resumenestrials.com/images/trials/ivus-chip-intervencion-coronaria-percutanea-compleja-alto-riesgo-guiada-ecografia-intravascular-4x3.jpg",
+      "https://resumenestrials.com/images/trials/ivus-chip-intervencion-coronaria-percutanea-compleja-alto-riesgo-guiada-ecografia-intravascular-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si la intervención coronaria percutánea compleja de alto riesgo guiada por ecografía intravascular con criterios preespecificados de optimización del stent reduce el fracaso del vaso diana frente a la guiada solo por angiografía.",
+      "answer": "Con una mediana de 19.0 meses, el fracaso del vaso diana ocurrió en el 13.9% con la guía por ecografía intravascular frente al 11.1% con la guía angiográfica (HR 1.25 ; IC 95% 0.97 a 1.60; P = 0.08), sin diferencia significativa; el intervalo excluye el beneficio previsto en la hipótesis (HR 0.65).",
+      "population": "La población fueron adultos europeos con un síndrome coronario agudo sin elevación del ST (infarto sin elevación del ST o angina inestable) o con cardiopatía isquémica estable (angina estable o isquemia silente), programados para una intervención coronaria percutánea (ICP) de al menos una lesión compleja o con soporte circulatorio mecánico planificado. Los grupos demográficos censales no se recogieron; según los autores…"
+    },
+    "datePublished": "2026-11-16"
   }
 }
