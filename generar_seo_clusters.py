@@ -377,6 +377,9 @@ def update_sitemap(items: list[dict], clusters: list[dict], active: dict[str, li
     manifest_seo = json.loads((base.ROOT / "seo-manifest.json").read_text(encoding="utf-8")) if videos else {}
     video_urls = {f"{base.BASE_URL}{site_templates.video_path(manifest_seo, i)}": v["fecha_subida"] for i, v in videos.items()}
     urls.extend(video_urls)
+    # Preguntas clínicas: una página por pregunta, con la fecha de su última revisión.
+    question_urls = {f"{base.BASE_URL}{site_templates.question_route(q)}": q["fecha_revision"] for q in site_templates.load_questions()}
+    urls.extend(question_urls)
     root = ET.Element("urlset", xmlns="http://www.sitemaps.org/schemas/sitemap/0.9")
     dates = {
         base.url_trial(item): str(
@@ -390,6 +393,7 @@ def update_sitemap(items: list[dict], clusters: list[dict], active: dict[str, li
     if revisiones:
         dates[f"{base.BASE_URL}/correcciones/"] = revisiones[-1]
     dates.update(video_urls)
+    dates.update(question_urls)
     dates.update(edition_urls)
     for url in dict.fromkeys(urls):
         node = ET.SubElement(root, "url")

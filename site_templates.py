@@ -61,6 +61,253 @@ def video_block(r,manifest,videos):
  return (f'<section class="ev-video" aria-labelledby="ev-video-h"><h2 id="ev-video-h">En video</h2><div class="ev-video-frame">'
   f'<button type="button" class="ev-video-play" data-ev-video="{y}" data-ev-video-title="{t}">{icon("play")}<span>Reproducir: {t}</span></button></div>'
   f'<p class="ev-video-meta">EMEICRÍTICA · {video_minutes(v["duracion"])} min</p><div class="ev-method-links"><a href="{video_path(manifest,r["id"])}">Página del video</a><a href="https://www.youtube.com/watch?v={y}" target="_blank" rel="noopener noreferrer">Ver en YouTube</a></div></section>')
+# ---------- Preguntas clínicas ----------
+# preguntas-clinicas.json es una fuente: cada pregunta reúne ensayos ya resumidos (núcleo) y enlaza los vecinos
+# (relacionados). De cada ensayo se muestran sus campos publicados (`objetivo`, `hallazgo`, revista y año) sin
+# reescribirlos. El texto propio vive POR ENSAYO: una frase por eje de diseño (intervención, comparador, población,
+# desenlace, tamaño). Añadir un ensayo a una pregunta es añadir su entrada; nada de lo ya escrito se toca.
+# Guardas mecánicas (question_sentence_errors): una frase que no empieza por la sigla de su ensayo, que cita una
+# cifra ausente del resumen publicado de ese ensayo, o que usa lenguaje de resultado o de recomendación, NO se
+# publica. Así, si una corrección cambia una cifra citada, la frase desfasada desaparece sola al regenerar.
+QUESTIONS_PATH=ROOT/"preguntas-clinicas.json"
+QUESTION_CONTEXT="Esta página reúne, en breve, ensayos resumidos en Resúmenes Trials relacionados con esta pregunta; no es una revisión de toda la evidencia ni una guía clínica. De cada ensayo da solo lo esencial para situarlo: el detalle está en su resumen."
+QUESTION_NOTE=('<div class="ev-method"><span class="ev-original-label">Cómo se elaboró</span>'
+ '<span>Página elaborada por la Editorial EMEICRÍTICA con apoyo de herramientas de inteligencia artificial, solo a partir de los resúmenes ya publicados en este sitio. En cada ensayo, «Qué preguntó» y «Hallazgo principal» son el texto de su resumen; cada frase añadida está respaldada por una cita literal de ese resumen y pasó revisores independientes de exactitud, de exceso de interpretación y de omisiones. El detalle completo de cada ensayo está en su resumen. No recomienda un tratamiento.'
+ '</span><span class="ev-method-links"><a href="/metodologia/">Metodología</a><a href="/correcciones/">Correcciones</a><a href="/equipo-editorial/">Cómo trabajamos</a><a href="mailto:resumenestrials@outlook.com">Reportar un error</a></span></div>')
+QUESTION_AREAS={"Medicina Crítica":"/medicina-critica/","Medicina Interna":"/medicina-interna/"}
+QUESTION_NUMBER=re.compile(r"(?<![\w.,])\d+(?:[.,]\d+)?(?!\w)")
+# Lenguaje que una frase de diseño no puede llevar: resultados, juicios, recomendaciones y afirmaciones sobre el conjunto.
+QUESTION_BANNED=re.compile(r"\b(?:conviene|deber[ií]an?|recomend\w*|preferibles?|mejor(?:es)?|peor(?:es)?|apoyan?|respaldan?|demuestr\w*|demostr\w*|confirm\w*|[úu]nic[oa]s?|ning[úu]n\w*|significativ\w*|reduj\w*|reduc[eí]\w*|aument[oó]|aumentaron|disminuy\w*|mejor[oó]|mejoraron|empeor\w*|benefici\w*|eficaz|eficaces|eficacia|efectiv\w*|tuvo|tuvieron|muri[oó]|murieron|sobrevivi\w*|fue (?:de|del|menor|mayor|similar|igual)|no (?:hubo|encontr\w+|difiri\w+|mostr\w+)|riesgo relativo|raz[oó]n de (?:riesgo|momios)|IC 95|HR|OR|NNT|NNH|todos los ensayos|ambos ensayos|en conjunto|los otros|l[oa]s (?:dos|tres|cuatro|cinco|seis|siete|ocho|nueve|diez|\d+) (?:ensayos|estudios))\b",re.I)
+# En una frase de contexto (lo que ocurrió en el ensayo) caben hechos observados, pero no consejos, juicios ni afirmaciones sobre el conjunto.
+QUESTION_ADVICE=re.compile(r"\b(?:conviene|deber[ií]an?|recomend\w*|preferibles?|mejor(?:es)?|peor(?:es)?|apoyan?|respaldan?|demuestr\w*|demostr\w*|confirm\w*|todos los ensayos|ambos ensayos|en conjunto|los otros|l[oa]s (?:dos|tres|cuatro|cinco|seis|siete|ocho|nueve|diez|\d+) (?:ensayos|estudios))\b",re.I)
+QUESTION_AXIS_TYPES=("diseno","contexto","literal","ausencia")
+# La ficha es un resumen breve: no copia secciones del resumen del ensayo (para lo demás está el enlace al resumen).
+QUESTION_SECTIONS=();QUESTION_AXIS_PLACES=("juntos","ficha")
+def axis_type(a):return a.get("tipo","diseno")
+def axis_place(a):return a.get("lugar","juntos")
+def axis_required(a):return a.get("obligatorio",a["clave"]!="tamano")
+_QUESTIONS_CACHE={}
+def question_quotes(value):
+ """Citas literales de una frase: un texto o una lista de textos; [] si el valor no es válido."""
+ quotes=[value] if isinstance(value,str) else value if isinstance(value,list) else []
+ return [re.sub(r"\s+"," ",q).strip() for q in quotes] if quotes and all(isinstance(q,str) and len(q.strip())>=12 for q in quotes) else []
+QUESTION_REVIEWERS=("cotejo","fiscal","omisiones")
+def question_review_ok(v):
+ """Constancia de que el ensayo pasó las tres revisiones independientes: sin ella no entra en una pregunta."""
+ return isinstance(v,dict) and isinstance(v.get("fecha"),str) and iso_date(v["fecha"]) is not None and all(v.get(k)=="VERDE" for k in QUESTION_REVIEWERS) and isinstance(v.get("nota",""),str)
+def question_entry_shape(axis,v):
+ """Forma de una entrada: {sin_dato} (el resumen no da ese dato), {cita} en un eje literal o {frase, cita} en los demás."""
+ text=lambda x:isinstance(x,str) and len(x.strip())>=10
+ if not isinstance(v,dict):return False
+ if "sin_dato" in v:return set(v)<={"sin_dato","huella"} and text(v["sin_dato"]) and isinstance(v.get("huella",""),str)
+ if axis_type(axis)=="ausencia":return False
+ if axis_type(axis)=="literal":return set(v)=={"cita"} and bool(question_quotes(v["cita"]))
+ return set(v)=={"frase","cita"} and text(v["frase"]) and bool(question_quotes(v["cita"]))
+def parse_questions(data):
+ def fail(slug,why):raise ValueError(f"preguntas-clinicas.json · {slug}: {why}")
+ text=lambda v:isinstance(v,str) and bool(v.strip())
+ if not isinstance(data,dict) or not isinstance(data.get("preguntas"),list):raise ValueError('preguntas-clinicas.json debe ser {"preguntas": [...]}')
+ for k in ("pertenencia","reglas"):
+  if not isinstance(data.get(k,[]),list) or any(not text(x) for x in data.get(k,[])):raise ValueError(f'preguntas-clinicas.json: {k} debe ser una lista de textos')
+ slugs=set();cores=set()
+ for q in data["preguntas"]:
+  slug=q.get("slug") if isinstance(q,dict) else None
+  if not isinstance(slug,str) or not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*",slug) or slug in slugs:raise ValueError(f"preguntas-clinicas.json: slug inválido o repetido {slug!r}")
+  slugs.add(slug)
+  for f in ("pregunta","nombre","descripcion","condicion","criterio","criterio_relacionados"):
+   if not text(q.get(f)):fail(slug,f"falta {f}")
+  if q["descripcion"].count("{ensayos}")!=1 or re.search(r"\d",q["descripcion"]):fail(slug,"descripcion lleva {ensayos} una vez (ahí van las siglas del núcleo) y ninguna cifra")
+  if q.get("area") not in QUESTION_AREAS:fail(slug,"area debe ser Medicina Crítica o Medicina Interna")
+  for f in ("fecha_publicacion","fecha_revision"):
+   if not isinstance(q.get(f),str) or iso_date(q[f]) is None:fail(slug,f"{f} debe ser AAAA-MM-DD")
+  if q["fecha_revision"]<q["fecha_publicacion"]:fail(slug,"fecha_revision anterior a fecha_publicacion")
+  axes=q.get("ejes")
+  if not isinstance(axes,list) or not axes or any(not isinstance(a,dict) or not re.fullmatch(r"[a-z_]+",str(a.get("clave") or "")) or not isinstance(a.get("entrada"),str) or not isinstance(a.get("guia",""),str) or axis_type(a) not in QUESTION_AXIS_TYPES or axis_place(a) not in QUESTION_AXIS_PLACES or not isinstance(axis_required(a),bool) or type(a.get("max",500)) is not int or not 100<=a.get("max",500)<=500 for a in axes) or len({a["clave"] for a in axes})!=len(axes):fail(slug,"ejes debe ser una lista de {clave, entrada, guia, tipo, lugar, obligatorio} con claves distintas")
+  for a in axes:
+   if re.search(r"\d",a["entrada"]) or QUESTION_BANNED.search(a["entrada"]):fail(slug,f"la entrada del eje {a['clave']} no puede llevar cifras ni lenguaje de resultado")
+  if any(axis_place(a)=="ficha" and not a["entrada"].strip() for a in axes):fail(slug,"un eje de ficha necesita su rótulo en entrada")
+  keys={a["clave"]:a for a in axes};core=q.get("nucleo")
+  if not isinstance(core,list) or len(core)<2:fail(slug,"nucleo debe tener al menos dos ensayos")
+  ids=[]
+  for n in core:
+   if not isinstance(n,dict) or type(n.get("id")) is not int or not isinstance(n.get("diseno"),dict) or any(k not in keys or not question_entry_shape(keys[k],v) for k,v in n["diseno"].items()) or ("etiqueta" in n and not text(n["etiqueta"])):fail(slug,"cada ensayo del núcleo lleva id entero, diseno {eje: {frase, cita} | {cita} en un eje literal | {sin_dato}} con ejes declarados y, si no tiene sigla, etiqueta")
+   if any(axis_required(a) and a["clave"] not in n["diseno"] for a in axes):fail(slug,f"al ensayo {n['id']} le falta un eje obligatorio (o su sin_dato)")
+   if not question_review_ok(n.get("revision")):fail(slug,f"el ensayo {n['id']} no tiene la constancia de sus tres revisiones independientes en VERDE (revision: fecha, cotejo, fiscal, omisiones)")
+   ids.append(n["id"])
+  if len(set(ids))!=len(ids) or cores&set(ids):fail(slug,"un ensayo solo puede estar una vez en el núcleo, y en el de una sola pregunta")
+  cores|=set(ids)
+  groups=q.setdefault("relacionados",[])
+  if not isinstance(groups,list):fail(slug,"relacionados debe ser una lista")
+  seen=set(ids)
+  for g in groups:
+   gids=g.get("ids") if isinstance(g,dict) else None
+   if not isinstance(g,dict) or not text(g.get("motivo")) or re.search(r"\d",g["motivo"]) or len(g["motivo"])>80 or not isinstance(gids,list) or not gids or any(type(i) is not int for i in gids) or seen&set(gids):fail(slug,"cada grupo de relacionados lleva motivo (sin cifras) e ids enteros que no se repiten ni están en el núcleo")
+   seen|=set(gids)
+ return data["preguntas"]
+def load_questions():
+ """Preguntas vigentes, leídas una vez por proceso y por versión del archivo. Sin archivo no hay preguntas."""
+ try:key=QUESTIONS_PATH.stat().st_mtime_ns
+ except OSError:return []
+ if key not in _QUESTIONS_CACHE:_QUESTIONS_CACHE.clear();_QUESTIONS_CACHE[key]=parse_questions(json.loads(QUESTIONS_PATH.read_text(encoding="utf-8")))
+ return _QUESTIONS_CACHE[key]
+_TRIALS_CACHE={}
+def _trials():
+ path=ROOT/"resumenes.json";key=path.stat().st_mtime_ns
+ if key not in _TRIALS_CACHE:_TRIALS_CACHE.clear();_TRIALS_CACHE[key]={trial_id(r["id"]):r for r in json.loads(path.read_text(encoding="utf-8"))}
+ return _TRIALS_CACHE[key]
+def question_route(q):return "/preguntas/"+q["slug"]+"/"
+def question_trial(q,id,trials=None):
+ r=(trials if trials is not None else _trials()).get(trial_id(id))
+ if r is None:raise ValueError(f"preguntas-clinicas.json · {q['slug']}: el resumen {id} no existe")
+ return r
+def question_core(q,trials=None):
+ """Ensayos del núcleo en orden cronológico del artículo: [(entrada, resumen)]. El orden del archivo no importa."""
+ rows=[(n,question_trial(q,n["id"],trials)) for n in q["nucleo"]]
+ return sorted(rows,key=lambda x:(str(x[1].get("fecha") or ""),int(x[0]["id"])))
+def question_ids(q):return [n["id"] for n in q["nucleo"]]
+def question_description(q,trials=None):
+ """Descripción de la página: la plantilla de la pregunta con las siglas del núcleo, en orden cronológico («A, B y C»)."""
+ labels=[trial_label(r,n) for n,r in question_core(q,trials)]
+ last=labels[-1];joiner=" e " if re.match(r"(?i)h?i(?![aeou])",last) else " y "
+ return q["descripcion"].replace("{ensayos}",(", ".join(labels[:-1])+joiner+last) if len(labels)>1 else last)
+def trial_label(r,entry):
+ """Sigla del ensayo (lo que precede a los dos puntos del título) o la etiqueta fijada en su entrada."""
+ if entry.get("etiqueta"):return entry["etiqueta"].strip()
+ head,sep,_=str(r["titulo"]).partition(":")
+ if not sep or len(head)>30:raise ValueError(f"preguntas-clinicas.json: el resumen {r['id']} no tiene sigla; añade su etiqueta")
+ return head.strip()
+def published_text(r):
+ """Texto publicado de un resumen, sin etiquetas y con los espacios normalizados: donde se buscan las citas."""
+ return [re.sub(r"\s+"," ",html.unescape(re.sub(r"<[^>]*>"," ",str(r.get(k) or ""))).replace("\u00a0"," ")).strip() for k in ("titulo","objetivo","hallazgo","corto","cuerpo","tipo_estudio")]
+def question_sentence_errors(sentence,label,r,other_labels=(),quote=None,kind="diseno",limit=500):
+ """Motivos por los que una frase de diseño NO puede publicarse (lista vacía: puede).
+ `quote` es la cita literal (o las citas) del resumen publicado que la respalda: cada una debe seguir en el resumen
+ y entre todas deben contener cada cifra de la frase."""
+ errors=[];s=str(sentence or "").strip();quotes=question_quotes(quote);fields=published_text(r)
+ if not s.startswith((label+" ",label+", ")):errors.append(f"no empieza por «{label}»")
+ if not s.endswith(".") or len(s)>limit or "\n" in s or re.search(r"<\s*/?[a-zA-Z]",s):errors.append(f"debe ser una sola frase de texto, terminada en punto y de {limit} caracteres como máximo (tiene {len(s)})")
+ for other in other_labels:
+  if other and other!=label and re.search(r"(?<!\w)"+re.escape(other)+r"(?!\w)",s):errors.append(f"nombra otro ensayo («{other}»)")
+ bad=(QUESTION_ADVICE if kind=="contexto" else QUESTION_BANNED).search(s)
+ if bad:errors.append((f"lenguaje de consejo, juicio o conjunto («{bad[0]}»)" if kind=="contexto" else f"lenguaje de resultado, juicio o conjunto («{bad[0]}»)"))
+ if not quotes or any(not any(c in field for field in fields) for c in quotes):errors.append("la cita no está literalmente en el resumen publicado")
+ known={m.replace(",",".") for c in quotes for m in QUESTION_NUMBER.findall(c)};body=s[len(label):] if s.startswith(label) else s
+ missing=[m for m in QUESTION_NUMBER.findall(body) if m.replace(",",".") not in known]
+ if missing:errors.append("cifras que no están en la cita: "+", ".join(missing))
+ return errors
+def question_literal_errors(quote,r):
+ """Motivos por los que una cita literal (lo que el propio resumen dice, entre comillas) NO puede publicarse."""
+ quotes=question_quotes(quote);fields=published_text(r);errors=[]
+ if not quotes or any(not any(c in field for field in fields) for c in quotes):errors.append("la cita no está literalmente en el resumen publicado")
+ if any(len(c)<40 or len(c)>1500 or not c.endswith(".") for c in quotes):errors.append("cada cita literal es una o varias oraciones completas del resumen, de 40 a 1500 caracteres")
+ return errors
+def summary_print(r):
+ """Huella del texto publicado de un resumen: cambia si una corrección lo toca."""
+ import hashlib
+ return hashlib.sha256("\n".join(published_text(r)).encode("utf-8")).hexdigest()[:16]
+def question_missing_errors(text,entry,r):
+ """Motivos por los que un «el resumen no informa…» NO puede publicarse: forma, o el resumen cambió desde que se anotó."""
+ t=str(text or "").strip();errors=[]
+ if len(t)<10 or len(t)>300 or not t[0].islower() or t.endswith(".") or "<" in t or "\n" in t or QUESTION_ADVICE.search(t):errors.append("sin_dato completa la frase «El resumen de X no informa …»: empieza en minúscula, sin punto final, 300 caracteres como máximo y sin juicios")
+ if entry.get("huella")!=summary_print(r):errors.append("el resumen cambió desde que se anotó que no daba este dato (o falta la huella)")
+ return errors
+def question_entry_text(axis,entry,label,r,labels=()):
+ """(texto publicable, motivos). Lo que no pasa las guardas no se publica."""
+ if "sin_dato" in entry:
+  errors=question_missing_errors(entry["sin_dato"],entry,r)
+  return (None,errors) if errors else (f"El resumen de {label} no informa {entry['sin_dato'].strip()}.",[])
+ if axis_type(axis)=="literal":
+  errors=question_literal_errors(entry["cita"],r)
+  # Al quitar las etiquetas del resumen quedan espacios sueltos ante la puntuación: se limpian solo al mostrar la cita.
+  return (None,errors) if errors else (" ".join("«"+re.sub(r"\(\s+","(",re.sub(r"\s+([.,;:)])",r"\1",c))+"»" for c in question_quotes(entry["cita"])),[])
+ errors=question_sentence_errors(entry["frase"],label,r,labels,entry["cita"],axis_type(axis),axis.get("max",500))
+ return (None,errors) if errors else (entry["frase"].strip(),[])
+def question_texts(q,trials=None):
+ """Lo publicable de cada ensayo y eje {(id, clave): texto} y lo que se omite [(id, clave, motivos)]."""
+ core=question_core(q,trials);labels=[trial_label(r,n) for n,r in core];texts={};dropped=[]
+ for axis in q["ejes"]:
+  for (n,r),label in zip(core,labels):
+   entry=n["diseno"].get(axis["clave"])
+   if not entry:continue
+   text,errors=question_entry_text(axis,entry,label,r,labels)
+   if errors:dropped.append((n["id"],axis["clave"],errors))
+   elif text:texts[(n["id"],axis["clave"])]=text
+ return texts,dropped
+def question_design(q,trials=None):
+ """«Cómo leerlos juntos»: frases publicables por eje, en el orden de la página [(clave, entrada, [frases])], y todo lo omitido con su motivo."""
+ texts,dropped=question_texts(q,trials);shown=[]
+ for axis in q["ejes"]:
+  if axis_place(axis)!="juntos":continue
+  ok=[texts[(n["id"],axis["clave"])] for n,_ in question_core(q,trials) if (n["id"],axis["clave"]) in texts]
+  if ok:shown.append((axis["clave"],axis["entrada"].strip(),ok))
+ return shown,dropped
+def question_sections(r):
+ """Secciones del resumen breve que la ficha muestra completas y literales: [(título, html)]. Sin texto nuevo: es lo ya publicado."""
+ found={}
+ for m in re.finditer(r"<h2>\s*([^<]+?)\s*</h2>(.*?)(?=<h2>|$)",str(r.get("corto") or ""),re.S):
+  body=re.sub(r"\s+"," ",re.sub(r"</?p[^>]*>"," ",m.group(2))).strip()
+  if re.search(r"<(?!/?strong>)",body):body=esc(plain(body))
+  if m.group(1) in QUESTION_SECTIONS and body:found[m.group(1)]=body
+ return [(k,found[k]) for k in QUESTION_SECTIONS if k in found]
+def question_notes(q,n,texts):
+ """Párrafos de la ficha de un ensayo: [(rótulo, texto)]; los ejes seguidos con el mismo rótulo comparten párrafo."""
+ out=[]
+ for axis in q["ejes"]:
+  text=texts.get((n["id"],axis["clave"])) if axis_place(axis)=="ficha" else None
+  if not text:continue
+  label=axis["entrada"].strip()
+  if out and out[-1][0]==label:out[-1]=(label,out[-1][1]+" "+text)
+  else:out.append((label,text))
+ return out
+def question_block(r,manifest):
+ """Enlazado entre ensayos: el de núcleo enlaza su pregunta y a los otros del núcleo; el relacionado, solo la pregunta.
+ Los enlaces van en su propia fila (.ev-method-links): dentro de una frase, el alto mínimo de pulsación la partiría."""
+ id=int(trial_id(r["id"])) if trial_id(r["id"]).isdigit() else None;out=""
+ for q in load_questions():
+  link=f'<span class="ev-method-links"><a href="{question_route(q)}">{esc(q["pregunta"])}</a></span>'
+  if id in question_ids(q):
+   others="".join(f'<a href="{esc(manifest[trial_id(x["id"])]["path"])}">{esc(x["titulo"])}</a>' for _,x in question_core(q) if int(trial_id(x["id"]))!=id)
+   out+=f'<div class="ev-method" data-ev-question="nucleo"><span class="ev-original-label">Pregunta clínica</span>{link}<span>Otros ensayos de esta pregunta:</span><span class="ev-method-links">{others}</span></div>'
+  elif any(id in g["ids"] for g in q["relacionados"]):
+   out+=f'<div class="ev-method" data-ev-question="relacionado"><span class="ev-original-label">Ver también</span><span>Pregunta clínica relacionada con este ensayo:</span>{link}</div>'
+ return out
+def question_links(area):
+ """Los hubs de especialidad enlazan sus preguntas clínicas."""
+ qs=[q for q in load_questions() if q["area"]==area]
+ if not qs:return ""
+ return '<div class="ev-method" data-ev-questions><span class="ev-original-label">Preguntas clínicas</span><span class="ev-method-links">'+"".join(f'<a href="{question_route(q)}">{esc(q["pregunta"])}</a>' for q in qs)+'</span></div>'
+def question_schema(q,core,manifest,description):
+ route=question_route(q);hub=QUESTION_AREAS[q["area"]]
+ def study(r):
+  s={"@type":"ScholarlyArticle","name":plain(r["titulo"]),"url":BASE+manifest[trial_id(r["id"])]["path"]};doi=plain(r.get("doi")).strip()
+  if re.fullmatch(r"10\.\d{4,9}/\S+",doi):s["identifier"]={"@type":"PropertyValue","propertyID":"DOI","value":doi};s["sameAs"]=f"https://doi.org/{doi}"
+  return s
+ return {"@context":"https://schema.org","@graph":[
+  {"@type":"Article","headline":q["pregunta"],"description":description,"inLanguage":"es-MX","mainEntityOfPage":BASE+route,"url":BASE+route,
+   "datePublished":q["fecha_publicacion"],"dateModified":q["fecha_revision"],"author":{"@type":"Organization","name":"Editorial EMEICRÍTICA","url":f"{BASE}/equipo-editorial/"},
+   "publisher":PUBLISHER,"image":f"{BASE}/logo.png","about":{"@type":"MedicalCondition","name":q["condicion"]},"isBasedOn":[study(r) for r in core]},
+  {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":f"{BASE}/"},{"@type":"ListItem","position":2,"name":q["area"],"item":BASE+hub},{"@type":"ListItem","position":3,"name":q["nombre"],"item":BASE+route}]}]}
+def question_page(q,items,manifest):
+ """Página de una pregunta clínica: una ficha por ensayo del núcleo con sus campos publicados, las diferencias de diseño
+ («Cómo leerlos juntos», compuestas con las frases publicables de cada ensayo) y los vecinos."""
+ trials={trial_id(r["id"]):r for r in items};route=question_route(q);hub=QUESTION_AREAS[q["area"]];core=question_core(q,trials);texts,_=question_texts(q,trials)
+ def ficha(n,r):
+  path=esc(manifest[trial_id(r["id"])]["path"]);label=esc(trial_label(r,n))
+  notes="".join(f'<p><strong>{esc(k)}</strong> {esc(v)}</p>' for k,v in question_notes(q,n,texts))
+  sections="".join(f'<p><strong>{esc(k)}.</strong> {v}</p>' for k,v in question_sections(r))
+  return (f'<h3><a href="{path}">{label}</a> · {esc(r["revista"])}, {esc(r["anio"])}</h3><p><strong>Qué preguntó.</strong> {esc(r["objetivo"])}</p>'
+   f'<p><strong>Hallazgo principal.</strong> {r["hallazgo"]}</p>{sections}{notes}<p><a href="{path}">Leer el resumen de {label}</a></p>')
+ # Cada vecino va solo en su elemento de lista: un enlace dentro de una frase justificada partiría la línea.
+ related="".join('<h3>'+esc(g["motivo"])+'</h3><ul>'+"".join(f'<li><a href="{esc(manifest[trial_id(i)]["path"])}">{esc(question_trial(q,i,trials)["titulo"])}</a></li>' for i in g["ids"])+'</ul>' for g in q["relacionados"])
+ design,_=question_design(q,trials)
+ together="".join('<p>'+esc(((lead+" ") if lead else "")+" ".join(sentences))+'</p>' for _,lead,sentences in design)
+ content=(f'<p>{QUESTION_CONTEXT}</p><h2>Los ensayos</h2>'+"".join(ficha(n,r) for n,r in core)+(f'<h2>Cómo leerlos juntos</h2>{together}' if together else '')
+  +(f'<h2>Ver también</h2>{related}' if related else '')+'<p>Editorial EMEICRÍTICA</p>')
+ dates=f'Publicado el <time datetime="{q["fecha_publicacion"]}">{esc(human_date(q["fecha_publicacion"]))}</time>'+(f' · Revisado el <time datetime="{q["fecha_revision"]}">{esc(human_date(q["fecha_revision"]))}</time>' if q["fecha_revision"]!=q["fecha_publicacion"] else '')
+ body=(f'<div class="ev-doc ev-doc-text" data-ev-question-page><nav class="ev-breadcrumb" aria-label="Ruta"><a href="{hub}">{icon("arrow-left")}{esc(q["area"])}</a></nav>'
+  f'<p class="ev-eyebrow">Pregunta clínica</p><h1>{esc(q["pregunta"])}</h1><p class="ev-doc-date">{dates}</p><article class="ev-prose">{content}</article>{QUESTION_NOTE}</div>')
+ description=question_description(q,trials)
+ return document(simple_head(q["pregunta"]+" | Resúmenes Trials",description,route,question_schema(q,[r for _,r in core],manifest,description),"article"),body,route)
 def editorial_dates(r):
  values=[("fecha_publicacion_resumen","Publicado en Resúmenes Trials"),("fecha_revision","Última revisión")]
  parts=[EDITORIAL_SIGNATURE]
@@ -271,7 +518,7 @@ def archive(items,manifest,title="Archivo de evidencia",scope=""):
   +segment+quick+'<div class="ev-archive-bar"><button type="button" class="ev-btn ev-filter-toggle" data-ev-filters aria-expanded="false" aria-controls="ev-filters">'+icon("filter")+'<span>Filtros</span><b class="ev-badge" data-ev-filter-count hidden></b></button><div class="ev-chips" id="ev-chips" role="group" aria-label="Filtros activos"></div><button type="button" class="ev-btn ev-view-toggle" id="ev-view" aria-pressed="false" aria-label="Vista compacta">'+icon("list")+'<span>Vista compacta</span></button></div>'
   +filters+'<ul class="ev-list" id="ev-list">'+''.join(card(r,manifest) for r in by_date(items))+'</ul>'
   '<div id="ev-empty" class="ev-empty" hidden><p class="ev-empty-title">No encontramos coincidencias</p><p>Prueba con otra palabra, por ejemplo «sepsis», el nombre corto del estudio o el año.</p><button type="button" class="ev-btn ev-btn-primary" data-ev-reset>Ver todos los resúmenes</button></div>'
-  '<button id="ev-more" type="button" class="ev-btn ev-more" hidden>Mostrar más</button></section>'+(topic_intro(scope) if scope else ''))
+  '<button id="ev-more" type="button" class="ev-btn ev-more" hidden>Mostrar más</button></section>'+(question_links(title) if scope in ("medicina-critica","medicina-interna") else '')+(topic_intro(scope) if scope else ''))
 # ---------- Ediciones semanales y portada ----------
 SUB_TONE={"Cardiología":"cardio","Endocrinología":"endo","Neurología":"neuro","Nefrología":"nefro","Neumología":"neumo","Infectología":"infecto","Enfermedades Infecciosas":"infecto","VIH":"infecto","Gastroenterología":"gastro","Oncología":"onco","Hematología":"onco"}
 def editions(items):
@@ -466,7 +713,7 @@ def reading(r,manifest,brief=False,legacy=False):
   f'<p class="ev-readtime">{readtime(r)}</p>{editorial_dates(r)}{audit_notice(id,audit())}</header>'
   '<details class="ev-facts" open><summary>Ficha técnica del estudio</summary>'+facts(r)+'</details>'+toolbar+'<progress class="ev-progress" max="100" value="0" aria-label="Progreso de lectura"></progress>'
   '<div class="ev-reader-grid">'+article+'<aside class="ev-rail"><p class="ev-rail-title">En esta página</p><nav data-ev-toc aria-label="Secciones del artículo"></nav></aside></div>'
-  f'<div class="ev-endmatter">{audit_errata(id,audit())}{video_block(r,manifest,load_videos()) if not legacy else ""}<p class="ev-original"><span class="ev-original-label">Artículo original</span>{original}</p>{METHOD_NOTE}{SUBSCRIBE_NOTE}<nav class="ev-neighbors" aria-label="Continuidad de lectura" data-ev-neighbors></nav><section class="ev-related"><h2>Evidencia relacionada</h2><ul class="ev-list" data-ev-related></ul></section><p class="ev-status" id="ev-reader-status" role="status"></p></div></section>')
+  f'<div class="ev-endmatter">{audit_errata(id,audit())}{video_block(r,manifest,load_videos()) if not legacy else ""}<p class="ev-original"><span class="ev-original-label">Artículo original</span>{original}</p>{question_block(r,manifest) if not legacy else ""}{METHOD_NOTE}{SUBSCRIBE_NOTE}<nav class="ev-neighbors" aria-label="Continuidad de lectura" data-ev-neighbors></nav><section class="ev-related"><h2>Evidencia relacionada</h2><ul class="ev-list" data-ev-related></ul></section><p class="ev-status" id="ev-reader-status" role="status"></p></div></section>')
 def simple_head(title,description,route,schema,og_type="website"):
  canonical=BASE+route
  return ('<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">'
@@ -577,6 +824,13 @@ def render_all():
   if r is None:raise ValueError(f"videos.json: el resumen {id} no existe")
   route=video_path(manifest,id);expected.add(route.strip("/").split("/")[-1])
   write(ROOT/route.lstrip("/")/"index.html",video_page(r,v,manifest))
+ qdir=ROOT/"preguntas";questions=load_questions()
+ for q in questions:write(qdir/q["slug"]/"index.html",question_page(q,items,manifest))
+ if qdir.exists():
+  import shutil
+  for d in qdir.iterdir():
+   if d.is_dir() and d.name not in {q["slug"] for q in questions}:shutil.rmtree(d)
+  if not any(qdir.iterdir()):qdir.rmdir()
  vdir=ROOT/"videos"
  if vdir.exists():
   import shutil

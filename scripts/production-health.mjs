@@ -60,6 +60,7 @@ assert(sample&&sampleEntry?.path,'No hay muestra canónica para la auditoría');
 // La portada es la edición actual (última semana con datos); el archivo completo vive en /archivo/
 // y cada edición anterior tiene su página en /ediciones/<lunes>/.
 const weeks=editions(expected);
+let questions=[];try{questions=JSON.parse(readFileSync('preguntas-clinicas.json','utf8')).preguntas}catch{}
 const editionCheck=(edition,label)=>(b)=>{
   assert(b.includes(`data-ev-edition="${edition.monday}"`),`${label} no muestra la edición del ${edition.monday}`);
   assert((b.match(/class="ev-signal"/g)||[]).length===1,`${label} sin la línea de señal`);
@@ -136,7 +137,7 @@ for(const entry of Object.values(clusters)){
 await check('/sitemap.xml',(b)=>{
   for(const entry of Object.values(manifest))assert(b.includes(entry.url),`sitemap sin ${entry.url}`);
   for(const entry of Object.values(clusters))assert(b.includes(`${CANONICAL_ORIGIN}${entry.path}`),`sitemap sin cluster ${entry.path}`);
-  for(const path of ['/archivo/','/mapa/',...weeks.slice(0,-1).map(edition=>edition.route),'/medicina-critica/','/medicina-interna/','/metodologia/','/equipo-editorial/','/privacidad/','/terminos/'])assert(b.includes(`<loc>${CANONICAL_ORIGIN}${path}</loc>`),`sitemap sin ${path}`);
+  for(const path of ['/archivo/','/mapa/',...questions.map(q=>'/preguntas/'+q.slug+'/'),...weeks.slice(0,-1).map(edition=>edition.route),'/medicina-critica/','/medicina-interna/','/metodologia/','/equipo-editorial/','/privacidad/','/terminos/'])assert(b.includes(`<loc>${CANONICAL_ORIGIN}${path}</loc>`),`sitemap sin ${path}`);
 });
 
 await check('/login.html',(b)=>{for(const x of ['turnstile-login','turnstile.js','auth.js'])assert(b.includes(x),`falta ${x}`)});

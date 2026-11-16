@@ -401,6 +401,12 @@ def generar_llms(items: list[dict]) -> None:
     from site_templates import editions, edition_range, edition_route
     for lunes, _ in reversed(editions(items)[:-1]):
         lines.append(f"- [Edición {edition_range(lunes, True)}]({BASE_URL}{edition_route(lunes)})")
+    # Preguntas clínicas: cada página reúne los ensayos ya resumidos sobre una misma pregunta.
+    from site_templates import load_questions, question_route
+    preguntas = load_questions()
+    if preguntas:
+        lines += ["", "## Preguntas clínicas", ""]
+        lines += [f"- [{q['pregunta']}]({BASE_URL}{question_route(q)}): ensayos resumidos sobre esta pregunta, con su resultado primario y sus diferencias de diseño." for q in preguntas]
     lines += ["", "## Resúmenes de ensayos", ""]
     def clave(item: dict) -> tuple:
         try:

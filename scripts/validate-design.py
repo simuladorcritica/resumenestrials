@@ -90,5 +90,57 @@ assert '18' not in clusters.get('neurologia',{}).get('trial_ids',[])
 for name in ["metodologia","correcciones","equipo-editorial"]:
  s=(ROOT/name/"index.html").read_text(encoding="utf8");assert 'rel="canonical"' in s and 'sameAs' in s
 assert '/agregar-editorial-dates.js?v=1' in (ROOT/"agregar.html").read_text(encoding="utf8")
+# Preguntas clínicas (preguntas-clinicas.json): cada página lleva su pregunta, la advertencia de que no es una guía,
+# una ficha por ensayo del núcleo (en orden cronológico) con sus campos publicados sin reescribir, y las diferencias
+# de diseño compuestas SOLO con frases que pasan las guardas: citas literales del resumen de ese ensayo y cifras
+# presentes en ellas. Una frase que ya no las pasa no puede aparecer. Los ensayos del núcleo se enlazan entre sí y
+# con su pregunta, los relacionados enlazan la pregunta y el hub la lista.
+import site_templates as questions_source
+questions_path=ROOT/"preguntas-clinicas.json"
+questions=questions_source.parse_questions(json.loads(questions_path.read_text(encoding="utf8"))) if questions_path.exists() else []
+records={str(r["id"]):r for r in data};hubs={"Medicina Crítica":"medicina-critica","Medicina Interna":"medicina-interna"}
+trial_page=lambda i:(ROOT/manifest[str(i)]["path"].strip("/")/"index.html").read_text(encoding="utf8")
+flat=lambda value:re.sub(r"\s+"," ",html_module.unescape(re.sub(r"<[^>]*>"," ",str(value or ""))).replace("\u00a0"," ")).strip()
+number=re.compile(r"(?<![\w.,])\d+(?:[.,]\d+)?(?!\w)")
+question_ids=set()
+for q in questions:
+ route="/preguntas/"+q["slug"]+"/";s=(ROOT/route.strip("/")/"index.html").read_text(encoding="utf8");core=[n["id"] for n in q["nucleo"]]
+ assert f'<link rel="canonical" href="https://resumenestrials.com{route}">' in s and s.count("<h1")==1 and "<h1>"+html_module.escape(q["pregunta"],quote=True)+"</h1>" in s,route
+ assert "Esta página reúne, en breve, ensayos resumidos en Resúmenes Trials relacionados con esta pregunta; no es una revisión de toda la evidencia ni una guía clínica. De cada ensayo da solo lo esencial para situarlo: el detalle está en su resumen." in s,route+": falta la advertencia"
+ description=questions_source.question_description(q,records);labels=[questions_source.trial_label(records[str(n["id"])],n) for n in q["nucleo"]]
+ assert '<meta name="description" content="'+html_module.escape(description,quote=True)+'">' in s and all(x in description for x in labels),route+": la descripción no nombra a todos los ensayos del núcleo"
+ assert '"@type":"Article"' in s and '"@type":"BreadcrumbList"' in s and '"@type":"MedicalCondition"' in s and s.count('"@type":"ScholarlyArticle"')==len(core),route+": datos estructurados"
+ assert f'<loc>https://resumenestrials.com{route}</loc><lastmod>{q["fecha_revision"]}</lastmod>' in (ROOT/"sitemap.xml").read_text(encoding="utf8"),route+": sitemap"
+ order=sorted(core,key=lambda i:(str(records[str(i)].get("fecha") or ""),i));positions=[s.index(f'<h3><a href="{manifest[str(i)]["path"]}">') for i in order]
+ assert positions==sorted(positions),route+": las fichas no van en orden cronológico"
+ texts,dropped=questions_source.question_texts(q,records);axes={a["clave"]:a for a in q["ejes"]}
+ for n in q["nucleo"]:
+  i=n["id"];r=records[str(i)];path=manifest[str(i)]["path"];question_ids.add(str(i));fields=[flat(r.get(k)) for k in ("titulo","objetivo","hallazgo","corto","cuerpo","tipo_estudio")]
+  assert "<p><strong>Qué preguntó.</strong> "+html_module.escape(r["objetivo"],quote=True)+"</p>" in s and "<p><strong>Hallazgo principal.</strong> "+r["hallazgo"]+"</p>" in s,f"{route}: ficha de {i}"
+  label=questions_source.trial_label(r,n)
+  for axis,entry in n["diseno"].items():
+   # Lo que se publicaría de esta entrada; debe estar en la página si y solo si pasa las guardas.
+   quotes=[re.sub(r"\s+"," ",c).strip() for c in ([entry["cita"]] if isinstance(entry.get("cita"),str) else entry.get("cita") or [])]
+   would=(f"El resumen de {label} no informa {entry['sin_dato'].strip()}." if "sin_dato" in entry else " ".join("«"+re.sub(r"\(\s+","(",re.sub(r"\s+([.,;:)])",r"\1",c))+"»" for c in quotes) if axes[axis].get("tipo")=="literal" else entry["frase"].strip())
+   inside=html_module.escape(would,quote=True) in s
+   assert inside==((i,axis) in texts),f"{route}: lo de {i}·{axis} está publicado sin pasar las guardas, o falta"
+   if inside:
+    # Comprobación independiente de las guardas: la huella del resumen, o citas literales con las cifras de la frase dentro.
+    if "sin_dato" in entry:assert entry.get("huella")==hashlib.sha256("\n".join(fields).encode("utf8")).hexdigest()[:16],f"{route}: el resumen de {i} cambió y sigue publicado «no informa» en {axis}"
+    else:
+     assert quotes and all(any(c in field for field in fields) for c in quotes),f"{route}: cita de {i}·{axis} ausente del resumen publicado"
+     if "frase" in entry:
+      known={m.replace(",",".") for c in quotes for m in number.findall(c)}
+      assert would.startswith((label+" ",label+", ")) and all(m.replace(",",".") in known for m in number.findall(would[len(label):])),f"{route}: cifra de {i}·{axis} fuera de su cita"
+  page=trial_page(i);assert page.count('data-ev-question="nucleo"')==1 and f'href="{route}"' in page and all(f'href="{manifest[str(j)]["path"]}"' in page for j in core if j!=i),f"{path}: enlazado del núcleo"
+ for group in q.get("relacionados",[]):
+  for i in group["ids"]:
+   path=manifest[str(i)]["path"];question_ids.add(str(i));assert f'href="{path}"' in s,f"{route}: relacionado {i}"
+   page=trial_page(i);assert 'data-ev-question="relacionado"' in page and f'href="{route}"' in page,f"{path}: enlace a la pregunta"
+ assert f'href="{route}"' in (ROOT/hubs[q["area"]]/"index.html").read_text(encoding="utf8"),route+": el hub no la enlaza"
+for r in data:
+ if str(r["id"]) not in question_ids:assert 'data-ev-question=' not in trial_page(r["id"]),f'{r["id"]}: bloque de pregunta sin pregunta'
+generated=sorted(p.parent.name for p in (ROOT/"preguntas").glob("*/index.html")) if (ROOT/"preguntas").exists() else []
+assert generated==sorted(q["slug"] for q in questions),"preguntas/: sobran o faltan páginas"
 print(f"DESIGN CONTRACT PASS {len(data)} trials / {len(clusters)} active collections / evidence map / {version}")
 

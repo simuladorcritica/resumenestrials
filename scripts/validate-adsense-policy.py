@@ -64,6 +64,8 @@ for name in ['_includes/index-source.html', 'archivo/index.html', 'mapa/index.ht
     assert ROOT / name in paths and future.adsense_allowed(ROOT / name), f'{name}: must retain AdSense'
 editions = sorted((ROOT / 'ediciones').glob('*/index.html'))
 assert all(path in paths and future.adsense_allowed(path) for path in editions), 'ediciones: must be regeneration candidates and retain AdSense'
+questions = sorted((ROOT / 'preguntas').glob('*/index.html'))
+assert all(path in paths and future.adsense_allowed(path) for path in questions), 'preguntas: must be regeneration candidates and retain AdSense'
 for path in paths:
     verify(path, path.read_text(encoding='utf-8'), future.adsense_allowed(path))
 

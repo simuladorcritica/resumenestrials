@@ -39,6 +39,8 @@ function validatePage(file, expectedCanonical, expectedImages = null) {
 validatePage('_includes/index-source.html', `${BASE}/`);
 validatePage('archivo/index.html', `${BASE}/archivo/`);
 validatePage('mapa/index.html', `${BASE}/mapa/`);
+const questions = existsSync(join(ROOT, 'preguntas-clinicas.json')) ? JSON.parse(readFileSync(join(ROOT, 'preguntas-clinicas.json'), 'utf8')).preguntas : [];
+for (const q of questions) validatePage(`preguntas/${q.slug}/index.html`, `${BASE}/preguntas/${q.slug}/`);
 for (const edition of past) validatePage(edition.file, `${BASE}${edition.route}`);
 validatePage('medicina-critica/index.html', `${BASE}/medicina-critica/`);
 validatePage('medicina-interna/index.html', `${BASE}/medicina-interna/`);
