@@ -30,6 +30,15 @@ citaba). Nunca cambia ni borra una frase que el sitio está publicando.
         Repone, para un ensayo que ya está en el núcleo, las frases que `validar` informa como OMITIDAS.
         FRASES.json lleva solo esos ejes. Se niega si alguno de esos ejes tiene hoy una frase publicada.
 
+    python tools/preguntas_clinicas.py decidir --id N --constancia DECISION.json [--sin-anadir "motivo"] [--fecha] [--ensayo]
+        Anota que el resumen N se comparó con cada pregunta en la que no está. `validar` lista como SIN DECIDIR todo
+        resumen posterior a la curación de una pregunta (`revisado_hasta`) que no esté en ella ni tenga decisión.
+        DECISION.json es {"decisiones": [{"pregunta": "<slug>", "rol": "nucleo|relacionado|nada",
+        "frase_que_decide": "<pasaje literal del resumen>", "revisor": "coincide|difiere"}]}, con una decisión por cada
+        pregunta pendiente. Anota «nada» si los dos decisores coinciden en que no pertenece y «duda» si difieren (no se
+        añade; lo resuelve el editor). Si coinciden en que pertenece se usa `agregar`; solo cuando no pasó la revisión
+        se anota con --sin-anadir "motivo" (lo resuelve el editor). Solo añade: nunca cambia una decisión anotada.
+
 Reglas que hace cumplir (las mismas con las que el sitio decide qué frase publica):
 - cada frase empieza por la sigla del ensayo, es una sola oración y no nombra a otro ensayo;
 - cada cita es texto literal del resumen publicado de ESE ensayo, y entre las citas están todas las cifras de la frase;
@@ -156,7 +165,11 @@ def cmd_criterios(args):
                       "entrada": a["entrada"], "guia": a.get("guia", "")} for a in q["ejes"]],
             "ejemplo_de_frases": ejemplo,
         })
-    texto = json.dumps({"pertenencia": datos.get("pertenencia", []), "reglas": datos.get("reglas", []), "preguntas": salida}, ensure_ascii=False, indent=1)
+    faltan = {}
+    for i, slug in st.question_undecided(datos, trials):
+        faltan.setdefault(i, []).append(slug)
+    sin_decidir = [{"id": i, "titulo": trials[st.trial_id(i)]["titulo"], "preguntas": slugs} for i, slugs in sorted(faltan.items())]
+    texto = json.dumps({"pertenencia": datos.get("pertenencia", []), "reglas": datos.get("reglas", []), "sin_decidir": sin_decidir, "preguntas": salida}, ensure_ascii=False, indent=1)
     if args.salida:
         with open(args.salida, "w", encoding="utf-8", newline="\n") as f:
             f.write(texto + "\n")
@@ -169,13 +182,89 @@ def cmd_criterios(args):
 def cmd_validar(args):
     datos, trials = cargar(), resumenes()
     errores, omitidas = problemas(datos, trials)
+    sin_decidir, por_resolver = st.question_undecided(datos, trials), st.question_unresolved(datos)
     for e in errores:
         print("ERROR ·", e)
     for slug, i, eje, motivos in omitidas:
         print(f"OMITIDA · {slug} · resumen {i} · eje {eje}: " + "; ".join(motivos))
+    for i, slug in sin_decidir:
+        print(f"SIN DECIDIR · resumen {i} · {slug}: falta comparar este resumen con el criterio de la pregunta y anotar la decisión")
+    for i, slug, rol, nota in por_resolver:
+        print(f"POR RESOLVER · resumen {i} · {slug} · " + ("los dos decisores no coincidieron" if rol == "duda" else "pertenece, pero no se pudo añadir") + (f": {nota}" if nota else "") + " (lo decide el editor)")
     total = sum(len(n["diseno"]) for q in datos["preguntas"] for n in q["nucleo"])
-    print(f"Preguntas clínicas: {len(datos['preguntas'])} preguntas, {total} frases, {len(omitidas)} omitidas, {len(errores)} errores.")
+    print(f"Preguntas clínicas: {len(datos['preguntas'])} preguntas, {total} frases, {len(omitidas)} omitidas, {len(errores)} errores, "
+          f"{len({i for i, _ in sin_decidir})} resúmenes sin decidir, {len(por_resolver)} por resolver.")
     return 1 if errores or (args.estricto and omitidas) else 0
+
+
+def cmd_decidir(args):
+    """Anota la decisión de un resumen para las preguntas en las que no está: «nada», «duda» o «sin_anadir». Solo añade; nunca cambia una decisión anotada."""
+    datos, trials = cargar(), resumenes()
+    def no(motivo):
+        print("NO SE ANOTA ·", motivo)
+        return 1
+    r = trials.get(st.trial_id(args.id))
+    if r is None:
+        return no(f"el resumen {args.id} no existe en resumenes.json")
+    pendientes = [slug for i, slug in st.question_undecided(datos, trials) if i == args.id]
+    if not pendientes:
+        print(f"NADA QUE ANOTAR · el resumen {args.id} ya está en sus preguntas o ya tiene decisión para todas.")
+        return 0
+    try:
+        v = json.loads(Path(args.constancia).read_text(encoding="utf-8-sig"))
+    except (OSError, ValueError) as e:
+        return no(f"no pude leer {args.constancia}: {e}")
+    lista = v.get("decisiones") if isinstance(v, dict) else None
+    if not isinstance(lista, list) or any(not isinstance(x, dict) for x in lista):
+        return no('--constancia debe ser {"decisiones": [{"pregunta": "<slug>", "rol": "nucleo|relacionado|nada", "frase_que_decide": "…", "revisor": "coincide|difiere"}]}')
+    por_slug = {x.get("pregunta"): x for x in lista}
+    if len(por_slug) != len(lista):
+        return no("la constancia repite una pregunta")
+    fecha = args.fecha or datetime.date.today().isoformat()
+    if st.iso_date(fecha) is None:
+        return no("la fecha debe ser AAAA-MM-DD")
+    publicado = st.published_text(r)
+    limpio = lambda t: " ".join(str(t).split())
+    nuevas = {}
+    for slug in pendientes:
+        x = por_slug.get(slug)
+        if x is None:
+            return no(f"falta la decisión para la pregunta {slug}: el resumen se compara con TODAS las preguntas en las que no está")
+        rol, revisor, frase = x.get("rol"), x.get("revisor"), limpio(x.get("frase_que_decide") or "")
+        if rol not in ("nucleo", "relacionado", "nada") or revisor not in ("coincide", "difiere"):
+            return no(f"{slug}: rol debe ser nucleo, relacionado o nada, y revisor coincide o difiere (el veredicto del decisor independiente)")
+        if len(frase) < 20 or not any(frase in campo for campo in publicado):
+            return no(f"{slug}: frase_que_decide debe ser un pasaje literal (20 caracteres o más) del resumen publicado {args.id}: es la prueba de que se leyó ESTE resumen")
+        nota = limpio(x.get("nota") or "")[:300]
+        if revisor == "difiere":
+            nuevas[slug] = {"rol": "duda", "frase": frase}
+        elif rol == "nada":
+            nuevas[slug] = {"rol": "nada", "frase": frase}
+        else:
+            motivo = limpio(args.sin_anadir or "")[:300]
+            if not motivo:
+                return no(f"{slug}: los dos decisores coinciden en que pertenece ({rol}): añádelo con `agregar`. Solo si no pasó la revisión o la herramienta lo rechazó, anótalo con --sin-anadir \"motivo\" para que lo resuelva el editor")
+            nuevas[slug] = {"rol": "sin_anadir", "frase": frase, "propuesto": rol}
+            nota = motivo
+        if nota:
+            nuevas[slug]["nota"] = nota
+    entrada = next((d for d in datos["decisiones"] if d["id"] == args.id), None) if "decisiones" in datos else None
+    if entrada is None:
+        entrada = {"id": args.id, "fecha": fecha, "huella": st.summary_print(r), "preguntas": {}}
+        datos.setdefault("decisiones", []).append(entrada)
+        datos["decisiones"].sort(key=lambda d: d["id"])
+    entrada["preguntas"].update(nuevas)
+    try:
+        st.parse_questions(json.loads(json.dumps(datos)))
+    except ValueError as e:
+        return no(str(e))
+    resumen = ", ".join(f"{slug}: {v['rol']}" for slug, v in nuevas.items())
+    if args.ensayo:
+        print(f"ENSAYO · se anotaría la decisión del resumen {args.id} ({resumen}).")
+        return 0
+    escribir(datos)
+    print(f"ANOTADO · decisión del resumen {args.id} ({resumen}).")
+    return 0
 
 
 def cmd_agregar(args):
@@ -244,6 +333,10 @@ def cmd_agregar(args):
         entrada["revision"] = revision
         q["nucleo"].append(entrada)
     q["fecha_revision"] = max(q["fecha_revision"], fecha)
+    # Si el resumen tenía una decisión pendiente para esta pregunta (duda o sin_anadir que el editor resolvió), deja de hacer falta.
+    for d in list(datos.get("decisiones", [])):
+        if d["id"] == args.id and d["preguntas"].pop(q["slug"], None) is not None and not d["preguntas"]:
+            datos["decisiones"].remove(d)
     try:
         st.parse_questions(json.loads(json.dumps(datos)))
     except ValueError as e:
@@ -324,6 +417,10 @@ def main():
     r.add_argument("--pregunta", required=True); r.add_argument("--id", type=int, required=True)
     r.add_argument("--diseno", required=True); r.add_argument("--fecha"); r.add_argument("--ensayo", action="store_true"); r.add_argument("--revision")
     r.set_defaults(f=cmd_reponer)
+    d = sub.add_parser("decidir")
+    d.add_argument("--id", type=int, required=True); d.add_argument("--constancia", required=True); d.add_argument("--sin-anadir", dest="sin_anadir")
+    d.add_argument("--fecha"); d.add_argument("--ensayo", action="store_true")
+    d.set_defaults(f=cmd_decidir)
     args = p.parse_args()
     for flujo in (sys.stdout, sys.stderr):  # la consola de Windows no siempre es UTF-8
         try:
