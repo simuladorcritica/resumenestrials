@@ -4,8 +4,50 @@
   <id>https://resumenestrials.com/</id>
   <link href="https://resumenestrials.com/"/>
   <link rel="self" type="application/atom+xml" href="https://resumenestrials.com/feed.xml"/>
-  <updated>2026-11-14T00:00:00Z</updated>
+  <updated>2026-11-15T00:00:00Z</updated>
   <subtitle>Resúmenes críticos en español de ensayos clínicos.</subtitle>
+  <entry>
+    <title>VESALIUS-CV: evolocumab en pacientes sin infarto de miocardio ni ictus previos</title>
+    <id>https://resumenestrials.com/trials/vesalius-cv-evolocumab-pacientes-infarto-miocardio-ni-ictus-previos/</id>
+    <link href="https://resumenestrials.com/trials/vesalius-cv-evolocumab-pacientes-infarto-miocardio-ni-ictus-previos/"/>
+    <updated>2026-11-15T00:00:00Z</updated>
+    <summary>Determinar si el evolocumab, un inhibidor de PCSK9, sumado al tratamiento hipolipemiante de base, es superior al placebo para prevenir el primer gran evento cardiovascular en adultos con aterosclerosis o diabetes de alto riesgo pero sin infarto de miocardio ni ictus previos.</summary>
+  </entry>
+  <entry>
+    <title>65: efecto de la menor exposición a vasopresores sobre la mortalidad a 90 días en pacientes mayores en estado crítico con hipotensión vasodilatadora</title>
+    <id>https://resumenestrials.com/trials/65-hipotension-permisiva-atencion-habitual-mayores-65-anos-hipotension-vasodilatadora/</id>
+    <link href="https://resumenestrials.com/trials/65-hipotension-permisiva-atencion-habitual-mayores-65-anos-hipotension-vasodilatadora/"/>
+    <updated>2026-11-15T00:00:00Z</updated>
+    <summary>Determinar si reducir la exposición a vasopresores mediante hipotensión permisiva disminuye la mortalidad a 90 días en pacientes de 65 años o más con hipotensión vasodilatadora en cuidados intensivos.</summary>
+  </entry>
+  <entry>
+    <title>Express: ajuste de la presión positiva al final de la espiración en adultos con lesión pulmonar aguda y síndrome de dificultad respiratoria aguda</title>
+    <id>https://resumenestrials.com/trials/express-peep-alta-titulada-presion-meseta-peep-moderada-lesion-pulmonar/</id>
+    <link href="https://resumenestrials.com/trials/express-peep-alta-titulada-presion-meseta-peep-moderada-lesion-pulmonar/"/>
+    <updated>2026-11-15T00:00:00Z</updated>
+    <summary>Comparar una estrategia de PEEP alta titulada hasta una presión meseta de 28 a 30 cm H2O frente a una PEEP moderada, ambas con volumen corriente bajo, para reducir la mortalidad a 28 días en la lesión pulmonar aguda y el síndrome de dificultad respiratoria aguda.</summary>
+  </entry>
+  <entry>
+    <title>SURVIVE: levosimendán frente a dobutamina en pacientes con insuficiencia cardiaca aguda descompensada</title>
+    <id>https://resumenestrials.com/trials/survive-levosimendan-dobutamina-insuficiencia-cardiaca-aguda-descompensada/</id>
+    <link href="https://resumenestrials.com/trials/survive-levosimendan-dobutamina-insuficiencia-cardiaca-aguda-descompensada/"/>
+    <updated>2026-11-15T00:00:00Z</updated>
+    <summary>Comparar una infusión corta de levosimendán frente a dobutamina en la insuficiencia cardiaca aguda descompensada que requiere un inotrópico, para reducir la mortalidad por cualquier causa a 180 días.</summary>
+  </entry>
+  <entry>
+    <title>Efecto del tratamiento con dosis bajas de hidrocortisona y fludrocortisona sobre la mortalidad en pacientes con shock séptico</title>
+    <id>https://resumenestrials.com/trials/hidrocortisona-y-fludrocortisona-en-dosis-bajas-en-el-shock-septico-con-insuficiencia/</id>
+    <link href="https://resumenestrials.com/trials/hidrocortisona-y-fludrocortisona-en-dosis-bajas-en-el-shock-septico-con-insuficiencia/"/>
+    <updated>2026-11-15T00:00:00Z</updated>
+    <summary>Evaluar si la hidrocortisona y la fludrocortisona en dosis bajas durante 7 días mejoran la supervivencia a 28 días en el shock séptico con insuficiencia suprarrenal relativa.</summary>
+  </entry>
+  <entry>
+    <title>ORIGIN 3: atacicept en la nefropatía por IgA, análisis final de eficacia del ensayo de fase 3</title>
+    <id>https://resumenestrials.com/trials/origin-3-atacicept-nefropatia-iga-analisis-final-eficacia-ensayo-fase-3/</id>
+    <link href="https://resumenestrials.com/trials/origin-3-atacicept-nefropatia-iga-analisis-final-eficacia-ensayo-fase-3/"/>
+    <updated>2026-11-15T00:00:00Z</updated>
+    <summary>Evaluar si atacicept subcutáneo semanal, frente a placebo, frena la pérdida de función renal estimada, medida como cambio de la TFGe a la semana 52 y pendiente anualizada hasta la semana 104, en adultos con nefropatía por IgA y proteinuria persistente.</summary>
+  </entry>
   <entry>
     <title>SYNCHRONIZE-1: survodutida una vez por semana para el tratamiento de adultos con obesidad</title>
     <id>https://resumenestrials.com/trials/synchronize-1-survodutida-vez-semana-tratamiento-adultos-obesidad/</id>
@@ -308,52 +350,10 @@
     <summary>Determinar si el ácido acetilsalicílico no es inferior a la warfarina ni al rivaroxabán para prevenir la muerte o la tromboembolia venosa sintomática tras una artroplastia total de cadera o de rodilla, y si estos anticoagulantes no son inferiores a él en seguridad.</summary>
   </entry>
   <entry>
-    <title>ORIGIN 3: atacicept en la nefropatía por IgA, análisis final de eficacia del ensayo de fase 3</title>
-    <id>https://resumenestrials.com/trials/origin-3-atacicept-nefropatia-iga-analisis-final-eficacia-ensayo-fase-3/</id>
-    <link href="https://resumenestrials.com/trials/origin-3-atacicept-nefropatia-iga-analisis-final-eficacia-ensayo-fase-3/"/>
-    <updated>2026-11-12T00:00:00Z</updated>
-    <summary>Evaluar si atacicept subcutáneo semanal, frente a placebo, frena la pérdida de función renal estimada, medida como cambio de la TFGe a la semana 52 y pendiente anualizada hasta la semana 104, en adultos con nefropatía por IgA y proteinuria persistente.</summary>
-  </entry>
-  <entry>
     <title>SYNCHRONIZE-2: survodutida una vez a la semana en adultos con obesidad y diabetes tipo 2</title>
     <id>https://resumenestrials.com/trials/synchronize-2-survodutida-vez-semana-adultos-obesidad-diabetes-tipo-2/</id>
     <link href="https://resumenestrials.com/trials/synchronize-2-survodutida-vez-semana-adultos-obesidad-diabetes-tipo-2/"/>
     <updated>2026-11-12T00:00:00Z</updated>
     <summary>Evaluar si la survodutida semanal, a dosis de 3.6 mg o 6.0 mg, reduce el peso corporal a las 76 semanas más que el placebo en adultos con obesidad o sobrepeso y diabetes tipo 2.</summary>
-  </entry>
-  <entry>
-    <title>TRIUMPH-1: retatrutida, un agonista triple de receptores hormonales, para el tratamiento de la obesidad</title>
-    <id>https://resumenestrials.com/trials/triumph-1-retatrutida-agonista-triple-receptores-hormonales-tratamiento-obesidad/</id>
-    <link href="https://resumenestrials.com/trials/triumph-1-retatrutida-agonista-triple-receptores-hormonales-tratamiento-obesidad/"/>
-    <updated>2026-11-12T00:00:00Z</updated>
-    <summary>Determinar si la retatrutida subcutánea semanal (4, 9 o 12 mg) reduce el peso corporal a las 80 semanas frente a placebo en adultos con obesidad sin diabetes, y si mejora el dolor de la artrosis de rodilla y el índice de apnea-hipopnea en las subpoblaciones con esas complicaciones.</summary>
-  </entry>
-  <entry>
-    <title>EPoS II: intervalos de colonoscopia e incidencia de cáncer colorrectal tras la extirpación de adenomas</title>
-    <id>https://resumenestrials.com/trials/epos-ii-intervalos-colonoscopia-incidencia-cancer-colorrectal-tras-extirpacion-adenomas/</id>
-    <link href="https://resumenestrials.com/trials/epos-ii-intervalos-colonoscopia-incidencia-cancer-colorrectal-tras-extirpacion-adenomas/"/>
-    <updated>2026-11-12T00:00:00Z</updated>
-    <summary>Determinar si, tras extirpar adenomas de alto riesgo, empezar la vigilancia con colonoscopia a los 5 años no es inferior a empezarla a los 3 años en la incidencia acumulada de cáncer colorrectal.</summary>
-  </entry>
-  <entry>
-    <title>ZEUS: inhibición de la interleucina-6 con ziltivekimab en la enfermedad aterosclerótica</title>
-    <id>https://resumenestrials.com/trials/zeus-inhibicion-interleucina-6-ziltivekimab-enfermedad-aterosclerotica/</id>
-    <link href="https://resumenestrials.com/trials/zeus-inhibicion-interleucina-6-ziltivekimab-enfermedad-aterosclerotica/"/>
-    <updated>2026-11-11T00:00:00Z</updated>
-    <summary>Determinar si el ziltivekimab subcutáneo mensual, un anticuerpo contra la interleucina-6, reduce los eventos cardiovasculares adversos mayores frente a placebo en adultos con enfermedad cardiovascular aterosclerótica, enfermedad renal crónica e inflamación sistémica.</summary>
-  </entry>
-  <entry>
-    <title>OPTIMAL-DIABETES: reducción intensiva de la presión arterial en pacientes con diabetes tipo 2</title>
-    <id>https://resumenestrials.com/trials/optimal-diabetes-reduccion-intensiva-presion-arterial-pacientes-diabetes-tipo-2/</id>
-    <link href="https://resumenestrials.com/trials/optimal-diabetes-reduccion-intensiva-presion-arterial-pacientes-diabetes-tipo-2/"/>
-    <updated>2026-11-11T00:00:00Z</updated>
-    <summary>Determinar si un objetivo de presión arterial sistólica menor de 120 mm Hg, frente a menor de 140 mm Hg, reduce los eventos cardiovasculares mayores en adultos con diabetes tipo 2, presión arterial elevada y alto riesgo cardiovascular.</summary>
-  </entry>
-  <entry>
-    <title>OPTIMAL-STROKE: control intensivo de la presión arterial en pacientes con ictus isquémico previo</title>
-    <id>https://resumenestrials.com/trials/optimal-stroke-control-intensivo-presion-arterial-pacientes-ictus-isquemico-previo/</id>
-    <link href="https://resumenestrials.com/trials/optimal-stroke-control-intensivo-presion-arterial-pacientes-ictus-isquemico-previo/"/>
-    <updated>2026-11-11T00:00:00Z</updated>
-    <summary>Determinar si un objetivo de presión arterial sistólica menor de 120 mm Hg reduce los eventos cardiovasculares mayores frente a un objetivo menor de 140 mm Hg en pacientes con ictus isquémico o accidente isquémico transitorio previos.</summary>
   </entry>
 </feed>
