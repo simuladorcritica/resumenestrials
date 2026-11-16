@@ -1,0 +1,37 @@
+{
+ "_nota": "Plan de las muestras de voz (python tools/voz.py muestras). Cambiar este archivo en main vuelve a lanzar el flujo «Voz · muestras».",
+ "idiomas": [
+  "es-US"
+ ],
+ "familias": [
+  {
+   "nombre": "Chirp3-HD",
+   "FEMALE": 2,
+   "MALE": 2
+  },
+  {
+   "nombre": "Neural2",
+   "FEMALE": 1,
+   "MALE": 1
+  },
+  {
+   "nombre": "Wavenet",
+   "FEMALE": 1,
+   "MALE": 1
+  }
+ ],
+ "preferidas": [
+  "Kore",
+  "Aoede",
+  "Charon",
+  "Orus"
+ ],
+ "muestras": [
+  {
+   "id": 2,
+   "seccion": "Resultados",
+   "caracteres": 1100,
+   "presentacion": true
+  }
+ ]
+}

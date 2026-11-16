@@ -1,0 +1,395 @@
+{
+ "_nota": "Léxico de la voz de los resúmenes completos (tools/voz.py). Solo cambia CÓMO SE LEE el texto publicado; nunca qué dice. Si se cambia algo aquí, sube VERSION en tools/voz.py para que el audio se vuelva a generar.",
+ "revistas": {
+  "NEJM": "The New England Journal of Medicine",
+  "NEJM Evidence": "NEJM Evidence",
+  "JAMA": "JAMA",
+  "JAMA Netw Open": "JAMA Network Open",
+  "JAMA Intern Med": "JAMA Internal Medicine",
+  "JAMA Surg": "JAMA Surgery",
+  "Lancet": "The Lancet",
+  "Lancet Respir Med": "The Lancet Respiratory Medicine",
+  "Intensive Care Med": "Intensive Care Medicine",
+  "Critical Care": "Critical Care",
+  "Ann Intensive Care": "Annals of Intensive Care",
+  "J Am Coll Cardiol": "Journal of the American College of Cardiology",
+  "Am J Respir Crit Care Med": "American Journal of Respiratory and Critical Care Medicine"
+ },
+ "literales": [
+  [
+   "PaO2/FiO2",
+   "relación entre la presión arterial de oxígeno y la fracción inspirada de oxígeno"
+  ],
+  [
+   "PaO2/FIO2",
+   "relación entre la presión arterial de oxígeno y la fracción inspirada de oxígeno"
+  ],
+  [
+   "PaO₂/FiO₂",
+   "relación entre la presión arterial de oxígeno y la fracción inspirada de oxígeno"
+  ],
+  [
+   "PaCO2",
+   "presión arterial de dióxido de carbono"
+  ],
+  [
+   "PaCO₂",
+   "presión arterial de dióxido de carbono"
+  ],
+  [
+   "PaO2",
+   "presión arterial de oxígeno"
+  ],
+  [
+   "PaO₂",
+   "presión arterial de oxígeno"
+  ],
+  [
+   "FiO2",
+   "fracción inspirada de oxígeno"
+  ],
+  [
+   "FIO2",
+   "fracción inspirada de oxígeno"
+  ],
+  [
+   "FiO₂",
+   "fracción inspirada de oxígeno"
+  ],
+  [
+   "SpO2",
+   "saturación de oxígeno"
+  ],
+  [
+   "SpO₂",
+   "saturación de oxígeno"
+  ],
+  [
+   "SaO2",
+   "saturación arterial de oxígeno"
+  ],
+  [
+   "cmH2O",
+   "centímetros de agua"
+  ],
+  [
+   "cm H2O",
+   "centímetros de agua"
+  ],
+  [
+   "cm de H2O",
+   "centímetros de agua"
+  ],
+  [
+   "cmH₂O",
+   "centímetros de agua"
+  ],
+  [
+   "cm H₂O",
+   "centímetros de agua"
+  ],
+  [
+   "CO2",
+   "dióxido de carbono"
+  ],
+  [
+   "CO₂",
+   "dióxido de carbono"
+  ],
+  [
+   "IIb/IIIa",
+   "dos b tres a"
+  ],
+  [
+   "130/0.4",
+   "130 0.4"
+  ],
+  [
+   "Gy·cm²",
+   "gray centímetro cuadrado"
+  ],
+  [
+   "Gy cm²",
+   "gray centímetro cuadrado"
+  ]
+ ],
+ "unidades": {
+  "mmHg": [
+   "milímetro de mercurio",
+   "milímetros de mercurio"
+  ],
+  "mm": [
+   "milímetro",
+   "milímetros"
+  ],
+  "cm": [
+   "centímetro",
+   "centímetros"
+  ],
+  "km": [
+   "kilómetro",
+   "kilómetros"
+  ],
+  "kg": [
+   "kilogramo",
+   "kilogramos"
+  ],
+  "mg": [
+   "miligramo",
+   "miligramos"
+  ],
+  "g": [
+   "gramo",
+   "gramos"
+  ],
+  "µg": [
+   "microgramo",
+   "microgramos"
+  ],
+  "μg": [
+   "microgramo",
+   "microgramos"
+  ],
+  "mcg": [
+   "microgramo",
+   "microgramos"
+  ],
+  "ng": [
+   "nanogramo",
+   "nanogramos"
+  ],
+  "pg": [
+   "picogramo",
+   "picogramos"
+  ],
+  "ml": [
+   "mililitro",
+   "mililitros"
+  ],
+  "mL": [
+   "mililitro",
+   "mililitros"
+  ],
+  "dl": [
+   "decilitro",
+   "decilitros"
+  ],
+  "dL": [
+   "decilitro",
+   "decilitros"
+  ],
+  "l": [
+   "litro",
+   "litros"
+  ],
+  "L": [
+   "litro",
+   "litros"
+  ],
+  "mmol": [
+   "milimol",
+   "milimoles"
+  ],
+  "µmol": [
+   "micromol",
+   "micromoles"
+  ],
+  "μmol": [
+   "micromol",
+   "micromoles"
+  ],
+  "nmol": [
+   "nanomol",
+   "nanomoles"
+  ],
+  "pmol": [
+   "picomol",
+   "picomoles"
+  ],
+  "mEq": [
+   "miliequivalente",
+   "miliequivalentes"
+  ],
+  "mOsm": [
+   "miliosmol",
+   "miliosmoles"
+  ],
+  "UI": [
+   "unidad internacional",
+   "unidades internacionales"
+  ],
+  "U": [
+   "unidad",
+   "unidades"
+  ],
+  "h": [
+   "hora",
+   "horas"
+  ],
+  "min": [
+   "minuto",
+   "minutos"
+  ],
+  "minuto": [
+   "minuto",
+   "minutos"
+  ],
+  "seg": [
+   "segundo",
+   "segundos"
+  ],
+  "s": [
+   "segundo",
+   "segundos"
+  ],
+  "m": [
+   "metro",
+   "metros"
+  ],
+  "m²": [
+   "metro cuadrado",
+   "metros cuadrados"
+  ],
+  "mm³": [
+   "milímetro cúbico",
+   "milímetros cúbicos"
+  ],
+  "kPa": [
+   "kilopascal",
+   "kilopascales"
+  ],
+  "kcal": [
+   "kilocaloría",
+   "kilocalorías"
+  ],
+  "°C": [
+   "grado Celsius",
+   "grados Celsius"
+  ],
+  "mm²": [
+   "milímetro cuadrado",
+   "milímetros cuadrados"
+  ],
+  "cm²": [
+   "centímetro cuadrado",
+   "centímetros cuadrados"
+  ],
+  "m³": [
+   "metro cúbico",
+   "metros cúbicos"
+  ],
+  "µl": [
+   "microlitro",
+   "microlitros"
+  ],
+  "μl": [
+   "microlitro",
+   "microlitros"
+  ],
+  "µL": [
+   "microlitro",
+   "microlitros"
+  ],
+  "μL": [
+   "microlitro",
+   "microlitros"
+  ],
+  "mcl": [
+   "microlitro",
+   "microlitros"
+  ],
+  "litro": [
+   "litro",
+   "litros"
+  ],
+  "día": [
+   "día",
+   "días"
+  ],
+  "d": [
+   "día",
+   "días"
+  ],
+  "semana": [
+   "semana",
+   "semanas"
+  ],
+  "mes": [
+   "mes",
+   "meses"
+  ],
+  "año": [
+   "año",
+   "años"
+  ],
+  "hora": [
+   "hora",
+   "horas"
+  ]
+ },
+ "unidades_sueltas": [
+  "mmHg",
+  "mm",
+  "cm",
+  "km",
+  "kg",
+  "mg",
+  "g",
+  "µg",
+  "μg",
+  "mcg",
+  "ng",
+  "pg",
+  "ml",
+  "mL",
+  "dl",
+  "dL",
+  "L",
+  "mmol",
+  "mEq",
+  "UI",
+  "U",
+  "h",
+  "min",
+  "kPa",
+  "kcal",
+  "m²",
+  "mm³",
+  "°C",
+  "mm²",
+  "cm²"
+ ],
+ "siglas": {
+  "IC": "intervalo de confianza",
+  "HR": "hazard ratio",
+  "OR": "odds ratio",
+  "RR": "riesgo relativo",
+  "DE": "desviación estándar",
+  "RIC": "rango intercuartílico",
+  "NNT": "número necesario a tratar",
+  "NNH": "número necesario para dañar",
+  "RAR": "reducción absoluta del riesgo",
+  "RRR": "reducción relativa del riesgo"
+ },
+ "romanos_tras": [
+  "fase",
+  "fases",
+  "clase",
+  "clases",
+  "clase funcional",
+  "tipo",
+  "tipos",
+  "grado",
+  "grados",
+  "estadio",
+  "estadios",
+  "nivel",
+  "APACHE",
+  "SAPS",
+  "Killip",
+  "angiotensina",
+  "CEAP",
+  "ASA",
+  "factor"
+ ]
+}
