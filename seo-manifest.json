@@ -8866,5 +8866,31 @@
       "population": "La población fueron adultos europeos con un síndrome coronario agudo sin elevación del ST (infarto sin elevación del ST o angina inestable) o con cardiopatía isquémica estable (angina estable o isquemia silente), programados para una intervención coronaria percutánea (ICP) de al menos una lesión compleja o con soporte circulatorio mecánico planificado. Los grupos demográficos censales no se recogieron; según los autores…"
     },
     "datePublished": "2026-11-16"
+  },
+  "328": {
+    "slug": "all-rise-reserva-fraccional-flujo-derivada-angiografia-guiar-intervencion-coronaria-percutanea",
+    "path": "/trials/all-rise-reserva-fraccional-flujo-derivada-angiografia-guiar-intervencion-coronaria-percutanea/",
+    "url": "https://resumenestrials.com/trials/all-rise-reserva-fraccional-flujo-derivada-angiografia-guiar-intervencion-coronaria-percutanea/",
+    "title": "ALL-RISE: reserva fraccional de flujo derivada de la angiografía para guiar la intervención coronaria percutánea",
+    "seo_title": "ALL-RISE trial: reserva fraccional de flujo derivada de la angiografía para guiar la intervención coronaria percutánea | Resúmenes Trials",
+    "description": "ALL-RISE: A 1 año, el compuesto de muerte, infarto o revascularización no planificada ocurrió en el 6.9% con FFRangio frente al 7.1% con guía de presión…",
+    "clusters": [
+      {
+        "name": "Cardiología y prevención cardiovascular",
+        "path": "/medicina-interna/cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-interna/cardiovascular/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/all-rise-reserva-fraccional-flujo-derivada-angiografia-guiar-intervencion-coronaria-percutanea-16x9.jpg",
+      "https://resumenestrials.com/images/trials/all-rise-reserva-fraccional-flujo-derivada-angiografia-guiar-intervencion-coronaria-percutanea-4x3.jpg",
+      "https://resumenestrials.com/images/trials/all-rise-reserva-fraccional-flujo-derivada-angiografia-guiar-intervencion-coronaria-percutanea-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si decidir la intervención coronaria percutánea con la reserva fraccional de flujo derivada de la angiografía (FFRangio) es no inferior a hacerlo con la guía de presión intracoronaria en el compuesto de muerte, infarto o revascularización no planificada a 1 año.",
+      "answer": "A 1 año, el compuesto de muerte, infarto o revascularización no planificada ocurrió en el 6.9% con FFRangio frente al 7.1% con guía de presión (hazard ratio 0.98; IC 95% 0.70 a 1.39; diferencia −0.2 puntos; límite superior del IC unilateral del 97.5%, 2.1 puntos , por debajo del margen de 3.5; P<0.001 para no inferioridad), por…",
+      "population": "La población fueron adultos en coronariografía invasiva con al menos una estenosis intermedia, del 50 al 90% a simple vista, que justificara una evaluación fisiológica. La raza la declaró el paciente: eran blancos el 59.7% del grupo FFRangio y el 61.8% del grupo de guía de presión, y asiáticos el 24.7% y el 23.5%, respectivamente."
+    },
+    "datePublished": "2026-11-16"
   }
 }
