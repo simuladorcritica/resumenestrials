@@ -116,6 +116,25 @@
           "frase": "Evaluar si el treprostinil inhalado, frente a placebo, reduce la caída de la capacidad vital forzada a las 52 semanas en pacientes con fibrosis pulmonar idiopática."
         }
       }
+    },
+    {
+      "id": 330,
+      "fecha": "2026-11-16",
+      "huella": "83518c7a57db2e3d",
+      "preguntas": {
+        "corticoides-choque-septico": {
+          "rol": "nada",
+          "frase": "Evaluar si añadir cuatro infusiones mensuales de ianalumab, a 9 o 3 mg/kg, al eltrombopag alarga el tiempo hasta el fracaso del tratamiento frente a placebo más eltrombopag en adultos con trombocitopenia inmunitaria primaria tras fallar los glucocorticoides."
+        },
+        "cuando-iniciar-terapia-reemplazo-renal-lesion-renal-aguda": {
+          "rol": "nada",
+          "frase": "Evaluar si añadir cuatro infusiones mensuales de ianalumab, a 9 o 3 mg/kg, al eltrombopag alarga el tiempo hasta el fracaso del tratamiento frente a placebo más eltrombopag en adultos con trombocitopenia inmunitaria primaria tras fallar los glucocorticoides."
+        },
+        "meta-oxigenacion-paciente-critico": {
+          "rol": "nada",
+          "frase": "Evaluar si añadir cuatro infusiones mensuales de ianalumab, a 9 o 3 mg/kg, al eltrombopag alarga el tiempo hasta el fracaso del tratamiento frente a placebo más eltrombopag en adultos con trombocitopenia inmunitaria primaria tras fallar los glucocorticoides."
+        }
+      }
     }
   ],
   "preguntas": [

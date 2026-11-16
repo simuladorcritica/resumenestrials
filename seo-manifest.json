@@ -8918,5 +8918,25 @@
       "population": "Se incluyó a adultos de 40 años o más con fibrosis pulmonar idiopática (FPI) diagnosticada según la guía internacional de 2018, con revisión central de la tomografía de alta resolución y, si la había, de la biopsia quirúrgica, y con una capacidad vital forzada (FVC, por su sigla en inglés) de al menos el 45% del predicho. Procedían de 107 centros de 16 países de Latinoamérica, Europa y Asia-Pacífico, fuera de Estados Unidos y…"
     },
     "datePublished": "2026-11-16"
+  },
+  "330": {
+    "slug": "vayhit2-ianalumab-mas-eltrombopag-trombocitopenia-inmunitaria",
+    "path": "/trials/vayhit2-ianalumab-mas-eltrombopag-trombocitopenia-inmunitaria/",
+    "url": "https://resumenestrials.com/trials/vayhit2-ianalumab-mas-eltrombopag-trombocitopenia-inmunitaria/",
+    "title": "VAYHIT2: ianalumab más eltrombopag en la trombocitopenia inmunitaria",
+    "seo_title": "VAYHIT2 trial: ianalumab más eltrombopag en la trombocitopenia inmunitaria | Resúmenes Trials",
+    "description": "VAYHIT2: Frente a placebo más eltrombopag, el hazard ratio de fracaso del tratamiento fue de 0.55 (IC 95% 0.32 a 0.92; P=0.04) con ianalumab de 9 mg/kg y de…",
+    "clusters": [],
+    "images": [
+      "https://resumenestrials.com/images/trials/vayhit2-ianalumab-mas-eltrombopag-trombocitopenia-inmunitaria-16x9.jpg",
+      "https://resumenestrials.com/images/trials/vayhit2-ianalumab-mas-eltrombopag-trombocitopenia-inmunitaria-4x3.jpg",
+      "https://resumenestrials.com/images/trials/vayhit2-ianalumab-mas-eltrombopag-trombocitopenia-inmunitaria-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Evaluar si añadir cuatro infusiones mensuales de ianalumab, a 9 o 3 mg/kg, al eltrombopag alarga el tiempo hasta el fracaso del tratamiento frente a placebo más eltrombopag en adultos con trombocitopenia inmunitaria primaria tras fallar los glucocorticoides.",
+      "answer": "Frente a placebo más eltrombopag, el hazard ratio de fracaso del tratamiento fue de 0.55 (IC 95% 0.32 a 0.92; P=0.04) con ianalumab de 9 mg/kg y de 0.58 (IC 95% 0.34 a 0.98; P=0.045) con 3 mg/kg; a los 12 meses seguía libre de fracaso el 54% con 9 mg, el 51% con 3 mg y el 30% con placebo.",
+      "population": "La población fueron adultos con trombocitopenia inmunitaria (PTI) primaria y respuesta insuficiente (no superar 30×10⁹ plaquetas por litro o necesitar glucocorticoides más de 8 semanas) o recaída tras glucocorticoides de primera línea, con menos de 30×10⁹/L en el cribado e indicación de eltrombopag. Procedían de 73 centros de 24 países; eran asiáticos el 44%, 47% y 49% y blancos el 50%, 51% y 43% en los grupos de 9 mg, 3 mg y…"
+    },
+    "datePublished": "2026-11-16"
   }
 }
