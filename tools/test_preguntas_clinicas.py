@@ -251,5 +251,138 @@ try:
 except ValueError:
     pass
 
+# 9. Preguntas nuevas (orden `crear`; decisión del editor, 2026-11-16: «automático con candados»). La herramienta es la
+# única que añade una pregunta y exige todos los candados. La propuesta de prueba es una pregunta ya publicada, retirada
+# de una copia del archivo: contenido real y ya revisado, sin texto clínico inventado.
+ultimo = max(int(i) for i in trials if str(i).isdigit())
+limpias = [y for y in preguntas if len(y["nucleo"]) >= st.QUESTION_MIN_CORE and not st.question_design(y, trials)[1]]
+if not limpias:
+    print("AVISO · crear: ninguna pregunta está hoy sin frases omitidas; la prueba de creación espera a que se repongan")
+else:
+    modelo = next(y for y in datos["preguntas"] if y["slug"] == limpias[0]["slug"])
+    base = copy.deepcopy(datos); base["preguntas"] = [y for y in base["preguntas"] if y["slug"] != modelo["slug"]]
+    for d in base.get("decisiones", []):
+        d["preguntas"].pop(modelo["slug"], None)
+    base["decisiones"] = [d for d in base.get("decisiones", []) if d["preguntas"]]
+    st.parse_questions(copy.deepcopy(base))
+    otra = base["preguntas"][0]
+    literal = lambda i: st.published_text(trials[st.trial_id(i)])[1][:60]
+
+    def propuesta(**cambios):
+        nucleo = []
+        for m in modelo["nucleo"]:
+            item = {"id": m["id"], "diseno": {k: ({"sin_dato": v["sin_dato"]} if "sin_dato" in v else copy.deepcopy(v)) for k, v in m["diseno"].items()},
+                    "revision": {k: "VERDE" for k in st.QUESTION_REVIEWERS}, "decision": {"frase_que_decide": literal(m["id"]), "revisor": "coincide"}}
+            if m.get("etiqueta"):
+                item["etiqueta"] = m["etiqueta"]
+            nucleo.append(item)
+        pr = {k: copy.deepcopy(modelo[k]) for k in ("slug", "pregunta", "nombre", "descripcion", "condicion", "area", "criterio", "criterio_relacionados", "ejes", "relacionados")}
+        pr.update(nucleo=nucleo, marco={"revisor": "VERDE"}, barrido={"hasta": ultimo, "revisor": "coincide"})
+        pr.update(cambios)
+        return pr
+
+    def con(camino, valor):
+        """Propuesta con un cambio en un ensayo del núcleo: con((0, "revision", "fiscal"), "ROJO")."""
+        pr = propuesta(); nodo = pr["nucleo"]
+        for k in camino[:-1]:
+            nodo = nodo[k]
+        if valor is None:
+            nodo.pop(camino[-1])
+        else:
+            nodo[camino[-1]] = valor
+        return pr
+
+    with tempfile.TemporaryDirectory() as tmp:
+        copia = Path(tmp) / "preguntas-clinicas.json"; f = Path(tmp) / "pregunta.json"
+
+        def crear(pr, fecha="2026-12-01", ensayo=False, sobre=base):
+            copia.write_text(json.dumps(sobre, ensure_ascii=False), encoding="utf-8"); f.write_text(json.dumps(pr, ensure_ascii=False), encoding="utf-8")
+            with contextlib.redirect_stdout(io.StringIO()) as salida:
+                codigo = tool.cmd_crear(argparse.Namespace(propuesta=str(f), fecha=fecha, ensayo=ensayo))
+            return codigo, salida.getvalue(), json.loads(copia.read_text(encoding="utf-8"))
+
+        tool.PATH = copia
+        try:
+            codigo, salida, despues = crear(propuesta(), ensayo=True)
+            assert codigo == 0 and salida.startswith("ENSAYO") and despues == base, "con --ensayo comprueba sin escribir: " + salida
+            codigo, salida, creada = crear(propuesta())
+            assert codigo == 0 and salida.startswith("CREADA"), salida
+            nueva = st.parse_questions(copy.deepcopy(creada))[-1]
+            assert creada["preguntas"][:-1] == base["preguntas"] and creada.get("decisiones") == base.get("decisiones"), "crear solo añade: no toca las demás preguntas ni las decisiones"
+            assert nueva["slug"] == modelo["slug"] and nueva["creacion"] == {"fecha": "2026-12-01", "marco": "VERDE", "barrido": "coincide"} and nueva["revisado_hasta"] == ultimo
+            assert nueva["fecha_publicacion"] == nueva["fecha_revision"] == "2026-12-01" and all(n["revision"] == {"fecha": "2026-12-01", **{k: "VERDE" for k in st.QUESTION_REVIEWERS}} for n in nueva["nucleo"])
+            assert st.question_texts(nueva, trials) == st.question_texts(limpias[0], trials), "la pregunta creada publica exactamente las frases revisadas"
+            assert all(slug != modelo["slug"] for _, slug in st.question_undecided(creada, trials)), "el barrido cubre todo el archivo: no deja resúmenes sin decidir"
+            # Cada candado, uno por uno: no se crea y el archivo queda como estaba.
+            repetido = con((0, "id"), otra["nucleo"][0]["id"])
+            casos = [
+                ("slug que ya existe", propuesta(slug=otra["slug"]), {}),
+                ("título de una pregunta ya publicada", propuesta(pregunta=otra["pregunta"].upper()), {}),
+                ("nombre de una pregunta ya publicada", propuesta(nombre=otra["nombre"]), {}),
+                ("campo que la propuesta no admite", propuesta(revisado_hasta=0), {}),
+                ("menos de tres ensayos en el núcleo", propuesta(nucleo=propuesta()["nucleo"][:st.QUESTION_MIN_CORE - 1]), {}),
+                ("un ensayo que ya está en el núcleo de otra pregunta", repetido, {}),
+                ("un ensayo que no existe", con((0, "id"), ultimo + 1000), {}),
+                ("sin la revisión independiente de la pregunta", {k: v for k, v in propuesta().items() if k != "marco"}, {}),
+                ("revisión de la pregunta en ROJO", propuesta(marco={"revisor": "ROJO"}), {}),
+                ("sin barrido del archivo", {k: v for k, v in propuesta().items() if k != "barrido"}, {}),
+                ("barrido que no llega al último resumen", propuesta(barrido={"hasta": ultimo - 1, "revisor": "coincide"}), {}),
+                ("barrido en el que los decisores difieren", propuesta(barrido={"hasta": ultimo, "revisor": "difiere"}), {}),
+                ("un revisor del ensayo en ROJO", con((0, "revision", "fiscal"), "ROJO"), {}),
+                ("un ensayo sin constancia de revisión", con((1, "revision"), None), {}),
+                ("un ensayo sin decisión de pertenencia", con((0, "decision"), None), {}),
+                ("decisores que difieren sobre un ensayo", con((0, "decision", "revisor"), "difiere"), {}),
+                ("frase que decide que no es literal", con((0, "decision", "frase_que_decide"), "Un pasaje que no está en el resumen de este ensayo."), {}),
+                ("un eje obligatorio que falta", con((0, "diseno", next(a["clave"] for a in modelo["ejes"] if st.axis_required(a))), None), {}),
+                ("un eje que no es de la pregunta", con((0, "diseno", "eje_inventado"), {"sin_dato": "el dato de prueba"}), {}),
+                ("fecha anterior a la regla", propuesta(), {"fecha": st.QUESTION_CREATION_SINCE}),
+                ("fecha mal escrita", propuesta(), {"fecha": "1 de diciembre"}),
+            ]
+            eje, entrada = next((k, v) for k, v in modelo["nucleo"][0]["diseno"].items() if "frase" in v)
+            casos.append(("una cifra que no está en la cita", con((0, "diseno", eje, "frase"), entrada["frase"].rstrip(".") + " en 987654 pacientes."), {}))
+            casos.append(("una cita que no es literal", con((0, "diseno", eje, "cita"), "Este pasaje no aparece en el resumen publicado del ensayo."), {}))
+            for nombre, pr, extra in casos:
+                codigo, salida, despues = crear(pr, **extra)
+                assert codigo == 1 and salida.startswith("NO SE CREA") and despues == base, f"crear debe rechazar {nombre}: {salida}"
+            segunda = propuesta(slug="pregunta-de-prueba", pregunta="¿Pregunta de prueba?", nombre="Pregunta de prueba")
+            codigo, salida, despues = crear(segunda, sobre=creada)
+            assert codigo == 1 and "por día" in salida and despues == creada, "como máximo una pregunta nueva por día: " + salida
+            codigo, salida, despues = crear(segunda, fecha="2026-12-02", sobre=creada)
+            assert codigo == 1 and "ya está en el núcleo" in salida and despues == creada, salida
+        finally:
+            tool.PATH = st.QUESTIONS_PATH
+    # Una pregunta nueva sin su constancia de creación (o con ella alterada) no es válida: no se puede añadir a mano.
+    for cambio in (lambda y: y.pop("creacion"), lambda y: y["creacion"].update(marco="ROJO"), lambda y: y["creacion"].update(barrido="difiere"), lambda y: y["creacion"].update(fecha="2026-11-30")):
+        mala = copy.deepcopy(creada); cambio(mala["preguntas"][-1])
+        try:
+            st.parse_questions(mala); raise AssertionError("una pregunta nueva sin constancia de creación válida debe rechazarse")
+        except ValueError:
+            pass
+    # Las preguntas de la curación inicial (hasta el 15-nov-2026) no llevan constancia de creación y siguen siendo válidas.
+    assert all("creacion" not in y or st.question_creation_ok(y["creacion"], y) for y in preguntas)
+    # `criterios` da a la rutina lo que necesita para proponer una pregunta.
+    with tempfile.TemporaryDirectory() as tmp:
+        destino = Path(tmp) / "criterios.json"
+        with contextlib.redirect_stdout(io.StringIO()):
+            assert tool.cmd_criterios(argparse.Namespace(salida=str(destino))) == 0
+        info = json.loads(destino.read_text(encoding="utf-8"))["crear"]
+        assert info["minimo_nucleo"] == st.QUESTION_MIN_CORE and info["ultimo_id"] == ultimo and info["en_nucleo"] == sorted(i for y in preguntas for i in st.question_ids(y)) and isinstance(info["ya_se_creo_hoy"], bool)
+
+# 10. Portada con más de tres preguntas: tarjeta para las tres más recientes y las demás enlazadas en un desplegable.
+reales_q = st.load_questions
+extra = [dict(copy.deepcopy(preguntas[0]), slug=f"pregunta-de-prueba-{letra}", pregunta=f"¿Pregunta de prueba {letra}?", fecha_publicacion=dia, fecha_revision=dia) for letra, dia in (("a", "2026-12-01"), ("b", "2026-12-02"))]
+try:
+    st.load_questions = lambda: preguntas + extra
+    portada = st.question_cover(list(trials.values()))
+finally:
+    st.load_questions = reales_q
+import re  # noqa: E402
+orden = re.findall(r'<a class="ev-q-title" href="/preguntas/([a-z0-9-]+)/">', portada)
+assert orden == [extra[1]["slug"], extra[0]["slug"], preguntas[0]["slug"]], "la portada muestra las tres preguntas más recientes, la última primero"
+resto = re.search(r'<details class="ev-q-more"><summary class="ev-btn">Ver las (\d+) preguntas restantes</summary><ul>(.*?)</ul></details>', portada)
+assert resto and int(resto[1]) == len(preguntas) - 1 and re.findall(r'<li><a href="/preguntas/([a-z0-9-]+)/">', resto[2]) == [y["slug"] for y in preguntas[1:]], "las demás preguntas van enlazadas en el desplegable"
+assert portada.count('<article class="ev-q-card">') == 3 and "Hallazgo" not in portada
+assert "<details" not in st.question_cover(list(trials.values())) or len(preguntas) > st.QUESTION_HOME
+
 assert st.QUESTIONS_PATH.read_bytes() == antes, "las pruebas no deben modificar preguntas-clinicas.json"
-print("PREGUNTAS CLÍNICAS PASS: guardas por tipo de eje, citas literales, «sin dato» sellado, omisión automática, orden, descripción, herramienta (añadir y reponer) y constancia de decisión de cada resumen nuevo")
+print("PREGUNTAS CLÍNICAS PASS: guardas por tipo de eje, citas literales, «sin dato» sellado, omisión automática, orden, descripción, herramienta (añadir, reponer y crear una pregunta con todos sus candados), constancia de decisión de cada resumen nuevo y portada con más de tres preguntas")

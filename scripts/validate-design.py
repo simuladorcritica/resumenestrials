@@ -160,7 +160,11 @@ question_home=re.search(r'<section class="ev-q ev-q-home"[\s\S]*?</section>',hom
 assert bool(question_home)==bool(questions) and home.count(question_css)==(1 if questions else 0),"portada: sección de preguntas clínicas y su hoja"
 if question_home:
  assert home.index("data-ev-feed-more" if len(data)>12 else "data-ev-feed>")<home.index("data-ev-recs")<home.index(question_home[0])<home.index('class="ev-band"'),"portada: tarjetas, después las preguntas clínicas y al final el mapa"
- assert question_home[0].count('<article class="ev-q-card">')==len(questions) and "Hallazgo" not in question_home[0],"portada: una tarjeta por pregunta, sin hallazgos"
+ # Tarjeta para las tres preguntas más recientes (las de un mismo día, en el orden del archivo); las demás, enlazadas en un desplegable.
+ recent=sorted(questions,key=lambda q:q["fecha_publicacion"],reverse=True)
+ assert re.findall(r'<a class="ev-q-title" href="/preguntas/([a-z0-9-]+)/">',question_home[0])==[q["slug"] for q in recent[:3]] and question_home[0].count('<article class="ev-q-card">')==min(3,len(questions)) and "Hallazgo" not in question_home[0],"portada: una tarjeta por cada una de las tres preguntas más recientes, sin hallazgos"
+ more=re.search(r'<details class="ev-q-more"><summary class="ev-btn">[^<]+</summary><ul>(.*?)</ul></details>',question_home[0])
+ assert bool(more)==(len(questions)>3) and (re.findall(r'<li><a href="/preguntas/([a-z0-9-]+)/">',more[1]) if more else [])==[q["slug"] for q in recent[3:]],"portada: las demás preguntas van enlazadas en el desplegable"
 for q in questions:
  route="/preguntas/"+q["slug"]+"/";s=(ROOT/route.strip("/")/"index.html").read_text(encoding="utf8")
  assert s.count(question_css)==1 and "ev-eyebrow" not in s.split('<main',1)[1].split('</main>',1)[0],route+": hoja de preguntas, y sin rótulo sobre el título"

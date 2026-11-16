@@ -92,6 +92,16 @@ def question_quotes(value):
  quotes=[value] if isinstance(value,str) else value if isinstance(value,list) else []
  return [re.sub(r"\s+"," ",q).strip() for q in quotes] if quotes and all(isinstance(q,str) and len(q.strip())>=12 for q in quotes) else []
 QUESTION_REVIEWERS=("cotejo","fiscal","omisiones")
+# Preguntas nuevas (decisión del editor, 16-nov-2026: «automático con candados»). Una pregunta solo nace con la orden
+# `crear` de tools/preguntas_clinicas.py, que exige tres ensayos o más en el núcleo, la decisión de pertenencia de cada
+# uno con dos decisores, sus tres revisiones, la revisión independiente de la pregunta («marco») y el barrido de todo
+# el archivo. De ello queda aquí la constancia `creacion`; toda pregunta publicada después del 15-nov-2026 la lleva.
+QUESTION_MIN_CORE=3
+QUESTION_CREATION_SINCE="2026-11-15"
+def question_creation_ok(v,q):
+ """Constancia de creación: fecha (la de publicación), marco en VERDE y barrido en el que los dos decisores coinciden."""
+ return (isinstance(v,dict) and set(v)<={"fecha","marco","barrido","nota"} and v.get("fecha")==q.get("fecha_publicacion") and v.get("marco")=="VERDE"
+  and v.get("barrido")=="coincide" and isinstance(v.get("nota",""),str) and len(v.get("nota",""))<=300)
 def question_review_ok(v):
  """Constancia de que el ensayo pasó las tres revisiones independientes: sin ella no entra en una pregunta."""
  return isinstance(v,dict) and isinstance(v.get("fecha"),str) and iso_date(v["fecha"]) is not None and all(v.get(k)=="VERDE" for k in QUESTION_REVIEWERS) and isinstance(v.get("nota",""),str)
@@ -147,6 +157,8 @@ def parse_questions(data):
    if not isinstance(q.get(f),str) or iso_date(q[f]) is None:fail(slug,f"{f} debe ser AAAA-MM-DD")
   if q["fecha_revision"]<q["fecha_publicacion"]:fail(slug,"fecha_revision anterior a fecha_publicacion")
   if type(q.get("revisado_hasta")) is not int or q["revisado_hasta"]<0:fail(slug,"falta revisado_hasta: el id del último resumen que cubrió la curación de la pregunta (los posteriores llevan decisión anotada)")
+  if "creacion" in q or q["fecha_publicacion"]>QUESTION_CREATION_SINCE:
+   if not question_creation_ok(q.get("creacion"),q):fail(slug,"una pregunta nueva solo se crea con `python tools/preguntas_clinicas.py crear`, que deja su constancia (creacion: fecha, marco VERDE y barrido en el que los decisores coinciden)")
   axes=q.get("ejes")
   if not isinstance(axes,list) or not axes or any(not isinstance(a,dict) or not re.fullmatch(r"[a-z_]+",str(a.get("clave") or "")) or not isinstance(a.get("entrada"),str) or not isinstance(a.get("guia",""),str) or axis_type(a) not in QUESTION_AXIS_TYPES or axis_place(a) not in QUESTION_AXIS_PLACES or not isinstance(axis_required(a),bool) or type(a.get("max",500)) is not int or not 100<=a.get("max",500)<=500 for a in axes) or len({a["clave"] for a in axes})!=len(axes):fail(slug,"ejes debe ser una lista de {clave, entrada, guia, tipo, lugar, obligatorio} con claves distintas")
   for a in axes:
@@ -293,17 +305,25 @@ def question_css():
  """Hoja propia de las preguntas clínicas (su página y la sección de la portada), fuera del runtime único. Lleva en su URL la huella de su contenido."""
  import hashlib
  return '<link rel="stylesheet" href="/ui/preguntas.css?v='+hashlib.sha256((ROOT/"ui/preguntas.css").read_bytes().replace(b"\r\n",b"\n")).hexdigest()[:12]+'">'
+QUESTION_HOME=3  # Preguntas con tarjeta en la portada; las demás van enlazadas en un desplegable.
+def question_recent(qs):
+ """Preguntas de la más reciente a la más antigua por fecha de publicación; las de un mismo día, en el orden del archivo."""
+ return sorted(qs,key=lambda q:q["fecha_publicacion"],reverse=True)
 def question_cover(items):
- """Sección de la portada: una tarjeta por pregunta clínica, con la línea de tiempo de sus ensayos. No muestra hallazgos: esos van en la página, junto a sus límites."""
- qs=load_questions()
+ """Sección de la portada: las preguntas clínicas más recientes, cada una en una tarjeta con la línea de tiempo de sus
+ ensayos; si hay más, van todas enlazadas en un desplegable. No muestra hallazgos: esos van en la página, junto a sus límites."""
+ qs=question_recent(load_questions())
  if not qs:return ""
  trials={trial_id(r["id"]):r for r in items}
  def card(q):
   core=question_core(q,trials);route=question_route(q)
   return (f'<article class="ev-q-card"><div class="ev-q-card-head"><h3><a class="ev-q-title" href="{route}">{esc(q["pregunta"])}</a></h3><a class="ev-q-read" href="{route}">Ver los {len(core)} ensayos{icon("arrow-right")}</a></div>'
    +question_timeline(q,core,route,"Ensayos: "+q["nombre"])+'</article>')
+ rest=qs[QUESTION_HOME:]
+ more=('<details class="ev-q-more"><summary class="ev-btn">'+("Ver la pregunta restante" if len(rest)==1 else f"Ver las {len(rest)} preguntas restantes")+'</summary><ul>'
+  +"".join(f'<li><a href="{question_route(q)}">{esc(q["pregunta"])}</a></li>' for q in rest)+'</ul></details>') if rest else ''
  return ('<section class="ev-q ev-q-home" aria-labelledby="ev-q-h"><div class="ev-archive-head"><h2 id="ev-q-h">Preguntas clínicas</h2><p class="ev-count">Los ensayos resumidos sobre una misma pregunta</p></div>'
-  +"".join(card(q) for q in qs)+'</section>')
+  +"".join(card(q) for q in qs[:QUESTION_HOME])+more+'</section>')
 def question_block(r,manifest):
  """Enlazado entre ensayos: el de núcleo enlaza su pregunta y a los otros del núcleo; el relacionado, solo la pregunta.
  Los enlaces van en su propia fila (.ev-method-links): dentro de una frase, el alto mínimo de pulsación la partiría."""

@@ -1,3 +1,10 @@
+## 2026-11-16 · Preguntas clínicas: el motor puede abrir preguntas nuevas, con candados
+
+- **Qué cambia para el lector.** Nada todavía: siguen las tres preguntas. Cuando haya más, la portada dará tarjeta a las tres más recientes y enlazará las demás en un desplegable («Ver las N preguntas restantes»); cada especialidad sigue enlazando todas las suyas.
+- **Cómo nace una pregunta nueva.** Solo con la orden `crear` de la herramienta de preguntas, que no escribe nada si falta un candado: tres ensayos o más, ninguno repetido en otra pregunta; de cada ensayo, dos decisores de acuerdo en que pertenece, tres revisores en verde y frases con su cita literal; un revisor independiente de la pregunta entera; el barrido de todo el archivo; y una pregunta nueva por día como máximo.
+- **Constancia.** Cada pregunta nueva guarda cómo se creó; una pregunta sin esa constancia no pasa la validación y no se publica.
+- Las preguntas ya publicadas y sus textos no cambian.
+
 ## 2026-11-16 · Portada con tarjetas, lector sin etiquetas sobre el título y pie compacto
 
 - **Portada.** Debajo de «Edición actual» vuelven las tarjetas, como antes del rediseño: todos los resúmenes publicados, del último que se subió al sitio al primero (aunque el artículo sea de años anteriores). Se ven 12 y el botón «Ver más» muestra otros 12 cada vez. Después van las **Preguntas clínicas** y al final el **Mapa de evidencia**. Se retiran el ensayo destacado en grande y la lista «En esta edición», así ningún ensayo aparece dos veces.
