@@ -7,6 +7,8 @@ import {evidenceMap as mapModel,journalRows,trialCount,JOURNALS} from './evidenc
 const data=JSON.parse(fs.readFileSync('resumenes.json','utf8')),map=JSON.parse(fs.readFileSync('seo-manifest.json','utf8')),clusters=JSON.parse(fs.readFileSync('seo-cluster-manifest.json','utf8'));
 const norm=s=>String(s).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
 const model=mapModel(data,clusters);
+// Preguntas clínicas (preguntas-clinicas.json): sus páginas entran en el barrido general.
+const questions=fs.existsSync('preguntas-clinicas.json')?JSON.parse(fs.readFileSync('preguntas-clinicas.json','utf8')).preguntas:[];
 export const anonModule="export function createClient(){return {auth:{async getUser(){return {data:{user:null},error:null}},async getSession(){return {data:{session:null},error:null}},onAuthStateChange(){return {data:{subscription:{unsubscribe(){}}},error:null}},mfa:{async getAuthenticatorAssuranceLevel(){return {data:{currentLevel:null,nextLevel:null},error:null}},async listFactors(){return {data:{totp:[]},error:null}}}}}}";
 export async function isolate(context,base,{signedIn=false}={}){
  assertLoopbackBase(base);
@@ -261,7 +263,7 @@ async function downloads(p,base){
  }
 }
 async function shell(p,base){
- const paths=['/','/archivo/','/mapa/',...editionSample(data).map(e=>e.route),map['1'].path,'/resumen.html?id=1&v=corto','/medicina-critica/','/medicina-interna/',...Object.values(clusters).map(c=>c.path),'/metodologia/','/correcciones/','/equipo-editorial/','/privacidad/','/terminos/','/login.html','/registro.html','/recuperar.html','/biblioteca.html','/agregar.html','/404.html'];
+ const paths=['/','/archivo/','/mapa/',...questions.map(q=>'/preguntas/'+q.slug+'/'),...questions.slice(0,1).map(q=>map[String(q.nucleo[0].id)].path),...editionSample(data).map(e=>e.route),map['1'].path,'/resumen.html?id=1&v=corto','/medicina-critica/','/medicina-interna/',...Object.values(clusters).map(c=>c.path),'/metodologia/','/correcciones/','/equipo-editorial/','/privacidad/','/terminos/','/login.html','/registro.html','/recuperar.html','/biblioteca.html','/agregar.html','/404.html'];
  for(const path of paths){
   await ready(p,path,base);await geometry(p);assert.equal(await p.locator('input[type=search]').count(),1,path+' single search');const undersized=await p.locator('a,button,input:not([type=hidden]),select,textarea,summary').evaluateAll(ns=>ns.filter(n=>n.getClientRects().length&&getComputedStyle(n).visibility!=='hidden'&&!n.closest('.ev-skip')).map(n=>{const r=n.getBoundingClientRect();return {tag:n.tagName,id:n.id,text:(n.textContent||n.getAttribute('aria-label')||'').trim().slice(0,80),width:r.width,height:r.height}}).filter(r=>r.width<43.99||r.height<43.99));assert.deepEqual(undersized,[],path+' targets below 44 px');await p.addScriptTag({path:'node_modules/axe-core/axe.min.js'});const result=await p.evaluate(async()=>{const r=await axe.run(document,{runOnly:{type:'tag',values:['wcag2a','wcag2aa','wcag21aa','wcag22aa']}});return r.violations.filter(v=>['serious','critical'].includes(v.impact)).map(v=>({id:v.id,impact:v.impact,nodes:v.nodes.map(n=>n.target)}))});assert.deepEqual(result,[],path+' accessibility '+JSON.stringify(result));
   if(['/login.html','/registro.html','/recuperar.html','/biblioteca.html','/agregar.html','/privacidad/','/terminos/','/404.html'].includes(path))assert.equal(await p.locator('script[src*="adsbygoogle"]').count(),0,path+' ads');

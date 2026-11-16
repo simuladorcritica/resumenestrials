@@ -1,3 +1,13 @@
+## 2026-11-13 · Preguntas clínicas (piloto)
+
+- **Tres páginas nuevas en `/preguntas/`**: cuándo iniciar la terapia de reemplazo renal en la lesión renal aguda, corticoides en el choque séptico y meta de oxigenación en el paciente crítico. Cada una resume en breve los ensayos ya publicados sobre esa pregunta: de cada ensayo, lo que preguntó, su hallazgo principal y un párrafo «Para interpretarlo» (a quién se incluyó de verdad, cómo se separaron los grupos y su limitación principal), con el enlace a su resumen para el detalle. Un apartado «Cómo leerlos juntos» compara el diseño y «Ver también» enlaza los ensayos vecinos. Avisa de que no es una guía clínica ni una revisión de toda la evidencia.
+- **En cada ensayo de una pregunta**, al final, un bloque «Pregunta clínica» enlaza la pregunta y los otros ensayos; en los vecinos, «Ver también».
+- **En Medicina Crítica**, bajo el listado, la lista «Preguntas clínicas».
+- Usa los estilos que ya existían; solo añade la separación de esa lista (39 bytes de CSS).
+- **Se actualizan solas.** Cuando se publica un ensayo nuevo que pertenece a una pregunta, la rutina lo añade en el mismo PR: aparece su ficha breve (cada frase respaldada por una cita literal de su resumen) y su sigla en la descripción, en orden cronológico. Si una corrección cambia un pasaje citado, lo afectado deja de mostrarse solo hasta que se repone.
+- Quien suba las páginas generadas con una lista fija de carpetas debe incluir `preguntas/` y `preguntas-clinicas.json`.
+- El contenido clínico de los resúmenes no cambia.
+
 ## 2026-11-13 · Mapa de evidencia
 
 - **Página nueva, `/mapa/`.** Todo el archivo en una sola vista: cada ensayo resumido es un punto. De izquierda a derecha, el año en que se publicó el artículo (lo anterior a 2010 va junto en «2000–09»). Cada fila es un tema de Medicina Crítica o una subespecialidad de Medicina Interna, con su nombre, su área y cuántos ensayos tiene. Las subespecialidades con menos de cinco ensayos (hoy Cirugía, Oncología, Geriatría, Reumatología y Medicina de Urgencias) comparten la fila «Otras subespecialidades».

@@ -1,0 +1,1108 @@
+{
+  "version": 13,
+  "pertenencia": [
+    "Se decide solo con el resumen publicado (título, `tipo_estudio`, objetivo, resumen breve y cuerpo), aplicando el criterio a la letra, incluidas sus exclusiones.",
+    "Si el resumen no indica la edad y nada apunta a una población pediátrica, se considera de adultos.",
+    "«Piloto o de factibilidad» se decide por lo que el resumen declara en `tipo_estudio`, en el título o en su apartado de diseño, no por la sigla. La aleatorización por conglomerados cuenta como ensayo aleatorizado.",
+    "Al núcleo solo entra la publicación principal de un ensayo: no entran los piloto o de factibilidad, los análisis secundarios, los seguimientos ni los metaanálisis. Como relacionados sí cuentan los ensayos piloto o de factibilidad; no los análisis secundarios, los seguimientos ni los metaanálisis.",
+    "Un ensayo solo puede estar en el núcleo de una pregunta. Ante la duda entre núcleo, relacionado o nada, es nada."
+  ],
+  "reglas": [
+    "La página es un resumen breve de los ensayos de una pregunta: de cada uno da solo lo esencial para situarlo. El detalle (criterios completos, secundarios, seguridad, todas las limitaciones) está en el resumen del ensayo, que la ficha enlaza. No se copian secciones ni párrafos del resumen.",
+    "Breve no es incompleto: lo que cambia cómo se interpreta el hallazgo o a quién se aplica no se omite (a quién se incluyó de verdad —médicos o quirúrgicos, cirugía cardiaca, sepsis—, cómo se separaron los grupos, centro único, estudio abierto, cierre anticipado, la limitación principal).",
+    "Cada frase es una sola oración, dentro del máximo de caracteres de su eje, y lleva su cita literal del resumen publicado de ESE ensayo, que contiene todas sus cifras.",
+    "Específico antes que genérico: la cifra o el rasgo exacto del resumen, no una etiqueta vaga. Se elige lo decisivo; no se enumera todo.",
+    "Ejes de diseño (lo que establecía el protocolo): sin resultados. Ejes de contexto (lo que ocurrió): hechos observados con sus cifras, sin interpretarlos; lo que es valoración se atribuye («según su resumen», «sus autores advierten»).",
+    "Un grupo se rotula solo si la cita lo nombra en ese pasaje; si no, «X y Y en los dos grupos». Nunca «según el grupo».",
+    "Si el resumen breve y el cuerpo del resumen se contradicen en un dato, ese dato no se usa y se anota para la revisión nocturna.",
+    "Si el resumen no da el dato central de un eje obligatorio, se registra `sin_dato` y la página lo dice («El resumen de X no informa …»). No se infiere ni se completa con conocimiento externo.",
+    "Ningún adjetivo ni adverbio que no esté en la cita; no se recorta un calificador que delimita. La frase empieza por la sigla del ensayo, nombra el brazo como lo nombra el resumen y no nombra ni alude a otro ensayo ni al conjunto. Sin consejos ni juicios propios.",
+    "Vocabulario fijo: «choque» (no «shock»), «la terapia» (de reemplazo renal), «presión arterial de oxígeno», «saturación», «microgramos».",
+    "Un relacionado se añade solo si cumple el `criterio_relacionados` de la pregunta, bajo un motivo ya publicado que sea literalmente cierto para ese ensayo o, si ninguno lo es, bajo un motivo nuevo que solo nombre el tema.",
+    "Antes de añadir, tres revisores independientes: uno coteja cada frase contra su cita; otro busca juicios, consejos o interpretación de más; otro lee el resumen completo y dice si falta algo DECISIVO. Si uno objeta y no se resuelve, el ensayo no se añade."
+  ],
+  "preguntas": [
+    {
+      "slug": "cuando-iniciar-terapia-reemplazo-renal-lesion-renal-aguda",
+      "pregunta": "¿Cuándo iniciar la terapia de reemplazo renal en la lesión renal aguda?",
+      "nombre": "Inicio de la terapia de reemplazo renal en la lesión renal aguda",
+      "descripcion": "Los ensayos clínicos {ensayos} sobre cuándo iniciar la terapia de reemplazo renal en el paciente crítico con lesión renal aguda: qué preguntó cada uno, su hallazgo principal y sus diferencias de diseño.",
+      "condicion": "Lesión renal aguda",
+      "area": "Medicina Crítica",
+      "fecha_publicacion": "2026-11-15",
+      "fecha_revision": "2026-11-15",
+      "criterio": "Publicación principal de un ensayo clínico aleatorizado en adultos en estado crítico con lesión renal aguda cuya comparación principal es el MOMENTO de inicio de la terapia de reemplazo renal (una estrategia de inicio más temprano frente a una de inicio más tardío o diferido). En esta pregunta la «intervención» es siempre la estrategia de inicio más temprano y el «comparador» la más tardía, sea cual sea la hipótesis del ensayo. No pertenecen al núcleo: los ensayos sobre la modalidad, la intensidad o la dosis de la terapia, la ultrafiltración, la anticoagulación del circuito o la retirada de la terapia; ni los ensayos piloto o de factibilidad, los análisis secundarios, los seguimientos o los metaanálisis. Cuáles de esos van como relacionados lo dice `criterio_relacionados`; los demás no se añaden. Ante la duda, no se añade al núcleo.",
+      "criterio_relacionados": "Solo ensayos clínicos aleatorizados en adultos en estado crítico sobre CÓMO dar la terapia de reemplazo renal en la lesión renal aguda, en uno de estos aspectos y solo estos: modalidad, intensidad o dosis, ultrafiltración o balance de líquidos durante la terapia, anticoagulación del circuito o retirada de la terapia. No se añaden los de catéteres o accesos vasculares, los de configuración o conexión del circuito, los de diálisis crónica ni los de prevención de la lesión renal. Ante la duda, no se añade.",
+      "ejes": [
+        {
+          "clave": "intervencion",
+          "entrada": "La estrategia de inicio más temprano no se define igual en estos ensayos.",
+          "guia": "La estrategia de inicio MÁS TEMPRANO, con el nombre que el resumen da a ese brazo (estrategia o grupo; temprana, acelerada…), el verbo de la cita y el plazo y el estadio o criterio del protocolo que la activaban, como los dé el resumen: «SIGLA, en su estrategia <nombre>, iniciaba la terapia <plazo y estadio o criterio>.» Plazos y criterios del protocolo, nunca los tiempos observados. Una oración breve.",
+          "tipo": "diseno",
+          "lugar": "juntos",
+          "obligatorio": true,
+          "max": 260
+        },
+        {
+          "clave": "comparador",
+          "entrada": "La estrategia de comparación también cambia.",
+          "guia": "La estrategia de inicio MÁS TARDÍO, con el nombre que el resumen da a ese brazo (tardía, diferida, estándar…) y los criterios o el plazo del protocolo con los que iniciaba: «SIGLA, en su estrategia <nombre>, esperaba …». Nunca los tiempos observados ni la proporción que llegó a recibir la terapia. Una oración breve.",
+          "tipo": "diseno",
+          "lugar": "juntos",
+          "obligatorio": true,
+          "max": 260
+        },
+        {
+          "clave": "poblacion",
+          "entrada": "Las poblaciones no coinciden.",
+          "guia": "Criterios de inclusión tal como los da el apartado de población del resumen (no las características de la muestra reclutada) y, al final, si el resumen los da, el número y el tipo de centros (unidades, centros u hospitales) y el país o países, con sus mismas palabras: «SIGLA incluyó …, en N unidades de <país>.» Un centro único se escribe «en un centro …», sin «solo» ni «único». En esta pregunta el estadio de la lesión renal no se repite aquí: va en la intervención. Una oración breve.",
+          "tipo": "diseno",
+          "lugar": "juntos",
+          "obligatorio": true,
+          "max": 260
+        },
+        {
+          "clave": "desenlace",
+          "entrada": "El desenlace primario no es el mismo en todos.",
+          "guia": "El desenlace o los desenlaces primarios, con la palabra del resumen («primario» o «principal»), el plazo solo si la cita lo da y el subgrupo si se definió en uno; sin resultado: «SIGLA midió como desenlace primario …[, a N días].» Si hay coprimarios, se nombran todos. Una oración breve.",
+          "tipo": "diseno",
+          "lugar": "juntos",
+          "obligatorio": true,
+          "max": 260
+        },
+        {
+          "clave": "tamano",
+          "entrada": "",
+          "guia": "Pacientes analizados (o aleatorizados, si el resumen no da los analizados), con el mismo verbo que la cita: «SIGLA analizó N pacientes.» El tamaño previsto va solo si el resumen dice que no se alcanzó o que el ensayo terminó antes de tiempo; el motivo, solo si el resumen lo da, copiado como hecho y con sus palabras (futilidad, señales de daño, pandemia, reclutamiento lento, fin de la financiación): «SIGLA analizó N pacientes de los M previstos[, <motivo>].» Nunca su consecuencia ni su interpretación: ni «poco poder», ni a qué grupo afectaba, ni a qué lo atribuyen los autores. Una oración breve.",
+          "tipo": "diseno",
+          "lugar": "juntos",
+          "obligatorio": true,
+          "max": 260
+        },
+        {
+          "clave": "pacientes",
+          "entrada": "Para interpretarlo.",
+          "guia": "A quién se incluyó de verdad, en lo decisivo: el rasgo que más condiciona a qué pacientes se parece el ensayo (médicos o quirúrgicos, cirugía cardiaca, sepsis, gravedad), con una o dos cifras. «SIGLA incluyó pacientes …». No se enumeran todas las características basales.",
+          "tipo": "contexto",
+          "lugar": "ficha",
+          "obligatorio": true,
+          "max": 260
+        },
+        {
+          "clave": "separacion",
+          "entrada": "Para interpretarlo.",
+          "guia": "Cómo se separaron las dos estrategias en la práctica, en lo esencial: cuánto tardó cada grupo en iniciar la terapia y qué proporción del grupo de inicio más tardío llegó a recibirla. Una oración con las cifras clave y cada cifra en su grupo.",
+          "tipo": "contexto",
+          "lugar": "ficha",
+          "obligatorio": true,
+          "max": 260
+        },
+        {
+          "clave": "limitacion",
+          "entrada": "Para interpretarlo.",
+          "guia": "La limitación o las dos limitaciones principales que señala la evaluación crítica del resumen (centro único, estudio abierto, cierre anticipado, falta de poder, validez externa), en una oración y atribuyendo lo que sea valoración («según su resumen», «sus autores advierten»). La cita son las oraciones del resumen que las enuncian.",
+          "tipo": "contexto",
+          "lugar": "ficha",
+          "obligatorio": true,
+          "max": 260
+        },
+        {
+          "clave": "no_informa",
+          "entrada": "Para interpretarlo.",
+          "guia": "Solo si falta el dato central de la separación (o de otro eje) y el resumen dice algo sobre él sin dar las cifras: lo que el resumen no informa, como {\"sin_dato\": \"…\"}, que completa «El resumen de SIGLA no informa …». Si no hace falta, no se escribe.",
+          "tipo": "ausencia",
+          "lugar": "ficha",
+          "obligatorio": false
+        }
+      ],
+      "nucleo": [
+        {
+          "id": 135,
+          "diseno": {
+            "intervencion": {
+              "frase": "AKIKI, en su estrategia temprana, iniciaba la terapia dentro de las 6 horas siguientes a documentar el estadio 3 de KDIGO.",
+              "cita": [
+                "La intervención fue una estrategia de inicio temprano, en la que la terapia de reemplazo renal se iniciaba tan pronto como fuera posible tras la aleatorización, dentro de las 6 horas siguientes a la documentación de la lesión renal en estadio 3",
+                "lesión renal aguda en estadio 3 de la clasificación KDIGO"
+              ]
+            },
+            "comparador": {
+              "frase": "AKIKI, en su estrategia tardía, esperaba a una hiperpotasemia grave, una acidosis grave, un edema pulmonar, un nitrógeno ureico muy elevado o una oliguria de más de 72 horas.",
+              "cita": "La estrategia temprana iniciaba la diálisis de inmediato; la tardía solo la iniciaba ante hiperpotasemia grave, acidosis grave, edema pulmonar, un nitrógeno ureico muy elevado u oliguria de más de 72 horas."
+            },
+            "poblacion": {
+              "frase": "AKIKI incluyó adultos en cuidados intensivos con ventilación mecánica, vasopresores o ambos, en 31 unidades de Francia.",
+              "cita": [
+                "Se incluyeron 619 adultos en cuidados intensivos con lesión renal aguda en estadio 3 de la clasificación KDIGO que recibían ventilación mecánica, vasopresores, o ambos.",
+                "El estudio se hizo en 31 unidades de cuidados intensivos de Francia."
+              ]
+            },
+            "desenlace": {
+              "frase": "AKIKI midió como desenlace principal la supervivencia a 60 días.",
+              "cita": "El desenlace principal fue la supervivencia global a 60 días."
+            },
+            "tamano": {
+              "frase": "AKIKI analizó 619 pacientes.",
+              "cita": "Población estudiada Se evaluaron 5528 pacientes y se aleatorizaron 620: 312 a la estrategia temprana y 308 a la tardía; un paciente del grupo temprano retiró el permiso para usar sus datos, por lo que el análisis incluyó a 619 pacientes, 311 y 308, respectivamente."
+            },
+            "pacientes": {
+              "frase": "AKIKI incluyó pacientes con ventilación mecánica invasiva en 86% a 87% y soporte vasopresor en 85%, con choque séptico en dos tercios de los pacientes de ambos grupos.",
+              "cita": [
+                "la edad media fue de 64.8 años en el grupo temprano y 67.4 en el tardío; la puntuación SAPS III (Simplified Acute Physiology Score, de 0 a 146, donde un valor más alto indica mayor gravedad y riesgo de muerte) fue de alrededor de 73 en ambos grupos; la puntuación SOFA (Sepsis-related Organ Failure Assessment, de 0 a 24, donde un valor más alto indica peor disfunción orgánica) fue de casi 11 en ambos grupos; la ventilación mecánica invasiva se usó en 86% a 87% de los pacientes, y el soporte vasopresor en 85%; el choque séptico estuvo presente en dos tercios de los pacientes de ambos grupos.",
+                "Cerca del 63% de los pacientes había estado expuesto a algún agente nefrotóxico en los 2 días previos, sobre todo aminoglucósidos"
+              ]
+            },
+            "separacion": {
+              "frase": "AKIKI inició la terapia a una mediana de 2 horas tras la aleatorización con la estrategia temprana frente a 57 horas con la tardía, y en la estrategia tardía 157 de 308 pacientes (51%) recibieron finalmente la terapia.",
+              "cita": [
+                "el tiempo hasta el inicio fue de una mediana de 2 horas tras la aleatorización con la estrategia temprana frente a 57 horas con la tardía.",
+                "En la estrategia tardía, 157 de 308 pacientes (51%) recibieron finalmente terapia de reemplazo renal"
+              ]
+            },
+            "limitacion": {
+              "frase": "AKIKI fue un ensayo abierto y, según su resumen, su validez externa se limita a pacientes con lesión renal aguda grave, en estadio 3 de KDIGO, que requerían ventilación mecánica o vasopresores.",
+              "cita": [
+                "Frente a ellas, tres limitaciones: el diseño abierto, que expone a sesgo de desempeño en decisiones no protocolizadas, como la limitación del tratamiento; un pequeño número de desviaciones del protocolo, seis pacientes de la estrategia temprana que no recibieron ninguna sesión de terapia de reemplazo renal por inclusión errónea, muerte antes del inicio o error del investigador, y cinco pacientes de la estrategia tardía que recibieron la terapia antes de cumplir los criterios por una mala interpretación del protocolo, aunque todos se conservaron en el análisis por intención de tratar salvo los casos de inclusión errónea; y el predominio de la hemodiálisis intermitente como primer método de tratamiento, en más de la mitad de los pacientes, frente a solo 30% con técnicas continuas exclusivas, lo que limita la generalización a unidades que prefieren la terapia continua.",
+                "La validez interna es alta, gracias a la aleatorización adecuada y al seguimiento casi completo; la validez externa se limita a pacientes con lesión renal aguda grave, en estadio 3 de la clasificación KDIGO, que requerían ventilación mecánica o vasopresores, y no puede extenderse a formas menos graves de lesión renal aguda."
+              ]
+            }
+          },
+          "revision": {
+            "fecha": "2026-11-15",
+            "cotejo": "VERDE",
+            "fiscal": "VERDE",
+            "omisiones": "VERDE",
+            "nota": "Versión breve: cotejo de cada frase contra su cita y revisión del fiscal, que además comprobó que las tres frases de la ficha dicen lo decisivo; sus propuestas se aplicaron."
+          }
+        },
+        {
+          "id": 204,
+          "diseno": {
+            "intervencion": {
+              "frase": "ELAIN, en su grupo temprano, empezó la terapia en las 8 horas siguientes al estadio 2 de KDIGO.",
+              "cita": [
+                "Pacientes críticos con lesión renal aguda en estadio 2 de KDIGO",
+                "El grupo temprano empezó la hemodiafiltración continua en las 8 horas siguientes al estadio 2"
+              ]
+            },
+            "comparador": {
+              "frase": "ELAIN, en su grupo diferido, empezó la terapia en las 12 horas siguientes al estadio 3 o ante una indicación absoluta.",
+              "cita": "El grupo temprano empezó la hemodiafiltración continua en las 8 horas siguientes al estadio 2; el diferido, en las 12 horas siguientes al estadio 3 o ante una indicación absoluta."
+            },
+            "poblacion": {
+              "frase": "ELAIN incluyó pacientes críticos con lesión renal aguda en estadio 2 de KDIGO y NGAL plasmática mayor de 150 ng/mL, casi todos quirúrgicos, en un hospital universitario de Alemania.",
+              "cita": "Pacientes críticos con lesión renal aguda en estadio 2 de KDIGO y NGAL plasmática mayor de 150 ng/mL, casi todos quirúrgicos, en un hospital universitario de Alemania."
+            },
+            "desenlace": {
+              "frase": "ELAIN midió como desenlace primario la mortalidad a 90 días.",
+              "cita": "El desenlace primario fue la mortalidad a 90 días."
+            },
+            "tamano": {
+              "frase": "ELAIN analizó 231 pacientes.",
+              "cita": "con 231 pacientes, 112 en el grupo temprano y 119 en el diferido, analizado por intención de tratar."
+            },
+            "pacientes": {
+              "frase": "ELAIN incluyó pacientes que, según los autores, eran casi todos quirúrgicos: cerca de la mitad ingresó por causa cardiaca, sobre todo tras cirugía, y cerca de un tercio por causa abdominal.",
+              "cita": [
+                "Un rasgo decisivo es el origen de los pacientes: cerca de la mitad ingresó por causa cardiaca, el 50.0% frente al 43.7%, sobre todo tras cirugía, y cerca de un tercio por causa abdominal; según los autores, casi todos eran quirúrgicos, lo que limita la aplicación a otros perfiles, como el shock séptico médico.",
+                "La edad media fue de 67 años y el 63.2% eran hombres.",
+                "La gravedad fue muy alta: la escala SOFA, que mide la disfunción de órganos y donde más puntos indican más disfunción, fue de 15.6 frente a 16.0, y la escala APACHE II, que estima el riesgo de muerte en cuidados intensivos y donde más puntos indican mayor gravedad, de 30.6 frente a 32.7.",
+                "El 87.5% y el 88.2% estaban con ventilación mecánica, y el 85.7% y el 90.8% recibían vasopresores.",
+                "Un rasgo decisivo es el origen de los pacientes: cerca de la mitad ingresó por causa cardiaca, el 50.0% frente al 43.7%, sobre todo tras cirugía, y cerca de un tercio por causa abdominal; según los autores, casi todos eran quirúrgicos"
+              ]
+            },
+            "separacion": {
+              "frase": "ELAIN inició la terapia a una mediana de 6.0 horas en el grupo temprano y de 25.5 horas en el diferido, y la recibieron todos los pacientes del grupo temprano y 108 de 119 del diferido.",
+              "cita": [
+                "la terapia empezó a una mediana de 6.0 horas en el grupo temprano y de 25.5 horas en el diferido",
+                "Todos los pacientes del grupo temprano recibieron la terapia, frente a 108 de 119 del diferido; en 11 no se inició porque 6 no progresaron al estadio 3, 3 por recuperación espontánea y 3 porque murieron antes, 4 por violaciones del protocolo y 1 por falta de equipo.",
+                "solo 6 de 119 pacientes del grupo diferido no progresaron al estadio 3, 3 por recuperación espontánea y 3 porque murieron antes",
+                "En el grupo diferido, 18 pacientes tuvieron una indicación absoluta."
+              ]
+            },
+            "limitacion": {
+              "frase": "ELAIN fue unicéntrico, pequeño y sin cegamiento; sus autores advierten que el efecto observado probablemente está inflado, y su resumen señala que no se puede extrapolar sin más a la población médica general de cuidados intensivos.",
+              "cita": [
+                "La primera es que es un ensayo unicéntrico y pequeño, que buscaba un efecto muy grande; los propios autores advierten que el efecto observado probablemente está inflado, y el intervalo de confianza de la diferencia absoluta va de −28.1% a −2.6%, compatible con un beneficio mucho menor.",
+                "La segunda es la falta de cegamiento, que puede influir en desenlaces dependientes de decisiones clínicas, como la duración de la terapia o la estancia.",
+                "La tercera es la validez externa: casi todos eran pacientes quirúrgicos, cerca de la mitad cardiacos, con gravedad muy alta y en un solo centro, por lo que no se puede extrapolar sin más a la población médica general de cuidados intensivos.",
+                "A esto se suman pequeños desequilibrios basales propios de una muestra reducida."
+              ]
+            }
+          },
+          "revision": {
+            "fecha": "2026-11-15",
+            "cotejo": "VERDE",
+            "fiscal": "VERDE",
+            "omisiones": "VERDE",
+            "nota": "Versión breve: cotejo de cada frase contra su cita y revisión del fiscal, que además comprobó que las tres frases de la ficha dicen lo decisivo; sus propuestas se aplicaron."
+          }
+        },
+        {
+          "id": 147,
+          "diseno": {
+            "intervencion": {
+              "frase": "IDEAL-ICU, en su estrategia temprana, iniciaba la terapia dentro de las 12 horas siguientes a documentar el estadio de fallo de RIFLE.",
+              "cita": [
+                "La intervención fue el inicio de la terapia de reemplazo renal dentro de las 12 horas siguientes a la documentación de la lesión renal en estadio de fallo",
+                "lesión renal aguda en estadio de fallo de la clasificación RIFLE",
+                "488 se aleatorizaron: 246 a la estrategia temprana y 242 a la diferida"
+              ]
+            },
+            "comparador": {
+              "frase": "IDEAL-ICU, en su estrategia diferida, esperaba 48 horas, salvo hiperpotasemia grave, acidosis metabólica grave o sobrecarga de volumen refractaria a diuréticos.",
+              "cita": [
+                "a iniciar la diálisis dentro de las 12 horas, o a diferirla 48 horas salvo que apareciera hiperpotasemia grave, acidosis metabólica grave o sobrecarga de volumen refractaria a diuréticos.",
+                "488 se aleatorizaron: 246 a la estrategia temprana y 242 a la diferida"
+              ]
+            },
+            "poblacion": {
+              "frase": "IDEAL-ICU incluyó pacientes con choque séptico, en 29 unidades de cuidados intensivos de Francia.",
+              "cita": [
+                "Se aleatorizó a 488 pacientes con choque séptico y lesión renal aguda en estadio de fallo de la clasificación RIFLE",
+                "en 29 unidades de cuidados intensivos de Francia"
+              ]
+            },
+            "desenlace": {
+              "frase": "IDEAL-ICU midió como desenlace primario la muerte por cualquier causa a los 90 días.",
+              "cita": "El desenlace primario fue la muerte por cualquier causa a los 90 días."
+            },
+            "tamano": {
+              "frase": "IDEAL-ICU aleatorizó 488 pacientes de los 864 calculados y se detuvo por futilidad.",
+              "cita": [
+                "se detuvo antes de tiempo por futilidad, con solo 488 de los 864 pacientes calculados originalmente",
+                "Se aleatorizó a 488 pacientes con choque séptico y lesión renal aguda en estadio de fallo de la clasificación RIFLE"
+              ]
+            },
+            "pacientes": {
+              "frase": "IDEAL-ICU incluyó pacientes con choque séptico, con edad media de 69.3 y 68.7 años y SOFA medio de 12.2 y 12.4 en los dos grupos.",
+              "cita": [
+                "Las características basales fueron similares entre los grupos: edad media de 69.3 y 68.7 años, cerca de 60% hombres, puntajes medios de SAPS II de 65.1 y 64.1 (escala de 0 a 163, valores más altos indican mayor gravedad) y de SOFA de 12.2 y 12.4 (escala de 0 a 24, mismo sentido); la insuficiencia renal crónica previa fue algo más frecuente en el grupo diferido (18% frente a 13%) y la exposición a agentes nefrotóxicos algo más frecuente en el grupo temprano (52% frente a 44%), sin que ninguna diferencia alcanzara significancia estadística",
+                "Se aleatorizó a 488 pacientes con choque séptico y lesión renal aguda en estadio de fallo de la clasificación RIFLE"
+              ]
+            },
+            "separacion": {
+              "frase": "IDEAL-ICU inició la terapia a un tiempo mediano de 7.6 horas en el grupo temprano frente a 51.5 horas en el diferido; en el grupo diferido, 93 de 242 pacientes (38%) no llegaron a recibirla, 70 de ellos porque la función renal se recuperó espontáneamente.",
+              "cita": [
+                "El tiempo mediano hasta el inicio de la terapia fue de 7.6 horas (rango intercuartílico, 4.4 a 11.5) en el grupo temprano frente a 51.5 horas (rango intercuartílico, 34.6 a 59.5) en el diferido.",
+                "En el grupo diferido, 38% de los pacientes (93 de 242) no llegó a recibir terapia de reemplazo renal, la mayoría (75% de ellos, es decir 70 pacientes) porque la función renal se recuperó espontáneamente; 17% (41 pacientes) cumplió criterios de urgencia y recibió la terapia antes de las 48 horas."
+              ]
+            },
+            "limitacion": {
+              "frase": "IDEAL-ICU se interrumpió antes de tiempo por futilidad, con menos de 500 de los 864 pacientes calculados, lo que según su resumen le dejó menor capacidad de detectar diferencias moderadas entre estrategias.",
+              "cita": [
+                "Entre las limitaciones se cuentan la interrupción anticipada del reclutamiento por futilidad, que dejó al ensayo con menos de 500 de los 864 pacientes calculados y por tanto con menor capacidad de detectar diferencias moderadas entre estrategias; el uso de la clasificación RIFLE, menos sensible que clasificaciones más recientes de lesión renal aguda, para definir la elegibilidad; y la elección de un retraso de solo 48 horas en el grupo diferido, que pudo ser insuficiente para permitir la recuperación renal en algunos pacientes o para poner de manifiesto una diferencia real entre estrategias.",
+                "La validez interna es alta gracias a la aleatorización estratificada y el análisis por intención de tratar; la validez externa se limita a centros franceses con la infraestructura y los protocolos de este país, aunque la diversidad de 29 centros, universitarios y generales, atenúa esta limitación."
+              ]
+            }
+          },
+          "revision": {
+            "fecha": "2026-11-15",
+            "cotejo": "VERDE",
+            "fiscal": "VERDE",
+            "omisiones": "VERDE",
+            "nota": "Versión breve: cotejo de cada frase contra su cita y revisión del fiscal, que además comprobó que las tres frases de la ficha dicen lo decisivo; sus propuestas se aplicaron."
+          }
+        },
+        {
+          "id": 146,
+          "diseno": {
+            "intervencion": {
+              "frase": "STARRT-AKI, en su estrategia acelerada, iniciaba la terapia dentro de las 12 horas de cumplir la elegibilidad, con estadio 2 o 3 de KDIGO.",
+              "cita": [
+                "lesión renal aguda grave (estadio 2 o 3 de KDIGO) a iniciar la terapia de reemplazo renal dentro de las 12 horas de cumplir elegibilidad",
+                "La intervención fue una estrategia acelerada de inicio de la terapia de reemplazo renal, iniciada dentro de las 12 horas siguientes al cumplimiento de la elegibilidad completa."
+              ]
+            },
+            "comparador": {
+              "frase": "STARRT-AKI, en su estrategia estándar, esperaba a las indicaciones convencionales o a que la lesión persistiera más de 72 horas.",
+              "cita": [
+                "a iniciar la terapia de reemplazo renal dentro de las 12 horas de cumplir elegibilidad, o a diferirla hasta que aparecieran indicaciones convencionales o la lesión persistiera más de 72 horas.",
+                "una estrategia estándar que difiere el inicio hasta que aparezcan indicaciones convencionales o la lesión persista más de 72 horas"
+              ]
+            },
+            "poblacion": {
+              "frase": "STARRT-AKI incluyó adultos en cuidados intensivos de 168 hospitales de 15 países.",
+              "cita": [
+                "La población fueron adultos de 18 años o más ingresados a una unidad de cuidados intensivos",
+                "El estudio se realizó en unidades de cuidados intensivos de 168 hospitales en 15 países."
+              ]
+            },
+            "desenlace": {
+              "frase": "STARRT-AKI midió como desenlace primario la muerte por cualquier causa a los 90 días.",
+              "cita": "El desenlace primario fue la muerte por cualquier causa a los 90 días."
+            },
+            "tamano": {
+              "frase": "STARRT-AKI analizó 2927 pacientes.",
+              "cita": "Población estudiada De 3019 pacientes aleatorizados (1512 a la estrategia acelerada y 1507 a la estándar), se incluyeron 2927 (1465 y 1462, respectivamente) en el análisis de intención de tratar modificada, tras excluir a quienes resultaron no elegibles, retiraron el consentimiento o se perdieron durante el seguimiento."
+            },
+            "pacientes": {
+              "frase": "STARRT-AKI incluyó pacientes con sepsis en 58% y 57% y enfermedad renal crónica previa en 44% y 43% en los dos grupos, con SOFA medio de 11.6 y 11.8.",
+              "cita": [
+                "Las características basales fueron similares entre los grupos: edad media de 64.6 y 64.7 años, cerca de un tercio de mujeres, enfermedad renal crónica previa en 44% y 43%, sepsis en 58% y 57%, y puntajes medios de SAPS II de 58.1 y 59.4 (escala de 0 a 163, con valores más altos indicando mayor gravedad) y de SOFA de 11.6 y 11.8"
+              ]
+            },
+            "separacion": {
+              "sin_dato": "cuánto tardó cada grupo en iniciar la terapia ni qué proporción del grupo de estrategia estándar llegó a recibirla",
+              "huella": "e90975cca9f40aaa"
+            },
+            "limitacion": {
+              "frase": "STARRT-AKI fue un ensayo abierto y su elegibilidad dependía de la incertidumbre clínica de cada médico, un criterio que su resumen califica de subjetivo.",
+              "cita": [
+                "Entre las limitaciones se cuentan el diseño abierto, que pudo introducir sesgo de desempeño en la decisión de iniciar la terapia en el grupo estándar; la naturaleza subjetiva del criterio de incertidumbre clínica usado para la elegibilidad, que pudo introducir heterogeneidad entre pacientes según el juicio de cada médico, aunque no se observó heterogeneidad relevante del efecto entre subgrupos; y la mayor frecuencia de eventos adversos con la estrategia acelerada, que en parte podría explicarse simplemente por la mayor exposición a la terapia y a sus catéteres en ese grupo."
+              ]
+            }
+          },
+          "revision": {
+            "fecha": "2026-11-15",
+            "cotejo": "VERDE",
+            "fiscal": "VERDE",
+            "omisiones": "VERDE",
+            "nota": "Versión breve: cotejo de cada frase contra su cita y revisión del fiscal, que además comprobó que las tres frases de la ficha dicen lo decisivo; sus propuestas se aplicaron."
+          }
+        }
+      ],
+      "relacionados": [
+        {
+          "motivo": "Modalidad de la terapia",
+          "ids": [
+            193,
+            225,
+            226
+          ]
+        },
+        {
+          "motivo": "Intensidad de la terapia",
+          "ids": [
+            228,
+            234
+          ]
+        },
+        {
+          "motivo": "Ultrafiltración",
+          "ids": [
+            12
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "corticoides-choque-septico",
+      "pregunta": "¿Corticoides en el choque séptico?",
+      "nombre": "Corticoides en el choque séptico",
+      "descripcion": "Los ensayos clínicos {ensayos} sobre hidrocortisona, con o sin fludrocortisona, en el choque séptico: qué preguntó cada uno, su hallazgo principal y sus diferencias de diseño.",
+      "condicion": "Choque séptico",
+      "area": "Medicina Crítica",
+      "fecha_publicacion": "2026-11-15",
+      "fecha_revision": "2026-11-15",
+      "criterio": "Publicación principal de un ensayo clínico aleatorizado en adultos cuya población de inclusión es el choque séptico y cuya comparación principal es hidrocortisona, sola o con fludrocortisona, frente a placebo o a no darla. No pertenecen al núcleo: los que usan otro corticoide; los que comparan dos pautas de corticoides entre sí (dosis, duración, momento de inicio, bolo o infusión, o añadir fludrocortisona a la hidrocortisona); aquellos cuyo objetivo y desenlace primario corresponden a otra comparación (el corticoide como factor secundario o como parte de una combinación con otros fármacos); los de sepsis sin choque; los de corticoides en otras enfermedades (neumonía, síndrome de dificultad respiratoria aguda); ni los ensayos piloto o de factibilidad, los análisis secundarios, los seguimientos o los metaanálisis. Cuáles de esos van como relacionados lo dice `criterio_relacionados`; los demás no se añaden. Ante la duda, no se añade al núcleo.",
+      "criterio_relacionados": "Solo ensayos clínicos aleatorizados en adultos: (a) en sepsis o choque séptico, cuando un corticoide es un factor secundario o parte de una combinación, o cuando se comparan dos pautas de corticoides; (b) de corticoides sistémicos en la neumonía adquirida en la comunidad o en el síndrome de dificultad respiratoria aguda. No se añaden los de Covid-19 ni los de corticoides en otras enfermedades. Ante la duda, no se añade.",
+      "ejes": [
+        {
+          "clave": "intervencion",
+          "entrada": "La pauta de corticoides no es la misma en estos ensayos.",
+          "guia": "El corticoide con la dosis, la vía y la duración que dé el resumen, y contra qué se comparó: «SIGLA dio hidrocortisona, <dosis y duración>, [más fludrocortisona, <dosis>,] frente a <placebo | no darla, como lo diga el resumen>.» La fludrocortisona se nombra cuando se dio; «sin fludrocortisona», solo si el resumen lo dice literalmente. Una oración breve.",
+          "tipo": "diseno",
+          "lugar": "juntos",
+          "obligatorio": true,
+          "max": 260
+        },
+        {
+          "clave": "poblacion",
+          "entrada": "Los criterios de entrada son distintos.",
+          "guia": "Criterios de inclusión tal como los da el apartado de población del resumen (no las características de la muestra reclutada) y, al final, si el resumen los da, el número y el tipo de centros (unidades, centros u hospitales) y el país o países, con sus mismas palabras: «SIGLA incluyó …, en N unidades de <país>.» Un centro único se escribe «en un centro …», sin «solo» ni «único». Una oración breve.",
+          "tipo": "diseno",
+          "lugar": "juntos",
+          "obligatorio": true,
+          "max": 260
+        },
+        {
+          "clave": "desenlace",
+          "entrada": "El desenlace primario no es el mismo en todos.",
+          "guia": "El desenlace o los desenlaces primarios, con la palabra del resumen («primario» o «principal»), el plazo solo si la cita lo da y el subgrupo si se definió en uno; sin resultado: «SIGLA midió como desenlace primario …[, a N días].» Si hay coprimarios, se nombran todos. Una oración breve.",
+          "tipo": "diseno",
+          "lugar": "juntos",
+          "obligatorio": true,
+          "max": 260
+        },
+        {
+          "clave": "tamano",
+          "entrada": "",
+          "guia": "Pacientes analizados (o aleatorizados, si el resumen no da los analizados), con el mismo verbo que la cita: «SIGLA analizó N pacientes.» El tamaño previsto va solo si el resumen dice que no se alcanzó o que el ensayo terminó antes de tiempo; el motivo, solo si el resumen lo da, copiado como hecho y con sus palabras (futilidad, señales de daño, pandemia, reclutamiento lento, fin de la financiación): «SIGLA analizó N pacientes de los M previstos[, <motivo>].» Nunca su consecuencia ni su interpretación: ni «poco poder», ni a qué grupo afectaba, ni a qué lo atribuyen los autores. Una oración breve.",
+          "tipo": "diseno",
+          "lugar": "juntos",
+          "obligatorio": true,
+          "max": 260
+        },
+        {
+          "clave": "pacientes",
+          "entrada": "Para interpretarlo.",
+          "guia": "A quién se incluyó de verdad, en lo decisivo: el rasgo que más condiciona a qué pacientes se parece el ensayo (médicos o quirúrgicos, cirugía cardiaca, sepsis, gravedad), con una o dos cifras. «SIGLA incluyó pacientes …». No se enumeran todas las características basales.",
+          "tipo": "contexto",
+          "lugar": "ficha",
+          "obligatorio": true,
+          "max": 260
+        },
+        {
+          "clave": "separacion",
+          "entrada": "Para interpretarlo.",
+          "guia": "Cómo se aplicó la comparación en la práctica, en lo esencial: plazo de inicio, cumplimiento o un cambio del protocolo durante el ensayo. Una oración con las cifras clave y cada cifra en su grupo.",
+          "tipo": "contexto",
+          "lugar": "ficha",
+          "obligatorio": true,
+          "max": 260
+        },
+        {
+          "clave": "limitacion",
+          "entrada": "Para interpretarlo.",
+          "guia": "La limitación o las dos limitaciones principales que señala la evaluación crítica del resumen (centro único, estudio abierto, cierre anticipado, falta de poder, validez externa), en una oración y atribuyendo lo que sea valoración («según su resumen», «sus autores advierten»). La cita son las oraciones del resumen que las enuncian.",
+          "tipo": "contexto",
+          "lugar": "ficha",
+          "obligatorio": true,
+          "max": 260
+        },
+        {
+          "clave": "no_informa",
+          "entrada": "Para interpretarlo.",
+          "guia": "Solo si falta el dato central de la separación (o de otro eje) y el resumen dice algo sobre él sin dar las cifras: lo que el resumen no informa, como {\"sin_dato\": \"…\"}, que completa «El resumen de SIGLA no informa …». Si no hace falta, no se escribe.",
+          "tipo": "ausencia",
+          "lugar": "ficha",
+          "obligatorio": false
+        }
+      ],
+      "nucleo": [
+        {
+          "id": 208,
+          "etiqueta": "Annane 2002",
+          "diseno": {
+            "intervencion": {
+              "frase": "Annane 2002 dio hidrocortisona, 50 mg intravenosos cada 6 horas, más fludrocortisona, 50 microgramos al día, durante 7 días, frente a placebo.",
+              "cita": "Recibieron hidrocortisona, 50 mg intravenosos cada 6 horas, más fludrocortisona, 50 µg al día, o placebo durante 7 días."
+            },
+            "poblacion": {
+              "frase": "Annane 2002 incluyó adultos con choque séptico grave, con vasopresores y ventilación mecánica, en 19 unidades de cuidados intensivos de Francia.",
+              "cita": "Adultos con shock séptico grave, con vasopresores y ventilación mecánica, en 19 unidades de cuidados intensivos de Francia."
+            },
+            "desenlace": {
+              "frase": "Annane 2002 midió como desenlace primario la supervivencia a 28 días en los pacientes sin respuesta a la prueba de corticotropina.",
+              "cita": "El desenlace primario fue la distribución de la supervivencia a 28 días desde la aleatorización en los pacientes con insuficiencia suprarrenal relativa, definidos como no respondedores a la prueba de corticotropina."
+            },
+            "tamano": {
+              "frase": "Annane 2002 analizó 299 pacientes.",
+              "cita": "Se aleatorizaron 300 pacientes, 149 al placebo y 151 a los corticoides, y se analizaron 299, 149 y 150."
+            },
+            "pacientes": {
+              "frase": "Annane 2002 analizó 299 pacientes, de los que 229 fueron no respondedores a la corticotropina y 70 respondedores; todos necesitaban ventilación mecánica y vasopresores, y alrededor del 60% eran pacientes médicos.",
+              "cita": [
+                "Alrededor del 60% eran pacientes médicos y el 37% venía de cirugía urgente.",
+                "En el conjunto, la edad media fue de 60 años con placebo y de 62 con corticoides, y el 70% y el 64% eran hombres.",
+                "La escala SAPS II, que estima el riesgo de muerte en cuidados intensivos a partir de variables fisiológicas y crónicas y donde más puntos significan más gravedad, fue de 57 frente a 60.",
+                "La presión arterial media fue de 55 frente a 54 mm Hg y el lactato de 4.3 frente a 4.6 mmol/L.",
+                "Antes de la aleatorización a todos se les hizo una prueba corta de estimulación con corticotropina.",
+                "La respuesta de cortisol fue mayor con corticoides que con placebo en el conjunto, 9 frente a 3 µg/dL (p = 0.04), aunque la distribución por la clasificación pronóstica de tres niveles fue similar.",
+                "Se aleatorizaron 300 pacientes, 149 al placebo y 151 a los corticoides, y se analizaron 299, 149 y 150.",
+                "Hubo 229 no respondedores, 115 con placebo y 114 con corticoides, y 70 respondedores, 34 y 36.",
+                "todos necesitaban ventilación mecánica y vasopresores"
+              ]
+            },
+            "separacion": {
+              "frase": "Annane 2002 aleatorizó en las primeras 8 horas del choque y cambió tres criterios durante el reclutamiento; ningún paciente suspendió el tratamiento ni se perdió en el seguimiento.",
+              "cita": [
+                "Hay un dato que pesa al interpretar: todos necesitaban ventilación mecánica y vasopresores, así que los resultados se refieren a un shock séptico grave y precoz, aleatorizado en las primeras 8 horas.",
+                "Durante el reclutamiento se cambiaron tres criterios: el lactato dejó de ser obligatorio; el plazo máximo desde el inicio del shock pasó de 3 a 8 horas, en julio de 1996; y desde junio de 1997 se excluyó a quienes habían recibido etomidato en las 6 horas previas, porque inhibe la síntesis de cortisol y altera la prueba.",
+                "Ningún paciente suspendió el tratamiento ni se perdió en el seguimiento, por lo que no hubo abandonos por eventos adversos; el único abandono fue el retiro del consentimiento de un paciente del grupo de corticoides."
+              ]
+            },
+            "limitacion": {
+              "frase": "Annane 2002 basó la significancia de su desenlace primario en un modelo ajustado por seis variables; el riesgo relativo bruto de muerte a 28 días en los no respondedores, 0.83 (IC 95%, 0.66 a 1.04), no fue significativo.",
+              "cita": [
+                "La primera, estadística: la significancia del primario proviene de un modelo de Cox ajustado por seis variables; el artículo no reporta el análisis de supervivencia sin ajustar, y el riesgo relativo bruto de muerte a 28 días en los no respondedores, 0.83 (IC 95%, 0.66 a 1.04), no fue significativo; además, los supuestos del tamaño de muestra se alejaron mucho de la realidad, y el límite superior del intervalo del número necesario a tratar, 49, muestra lo impreciso del beneficio.",
+                "La segunda, la población: el criterio de no respondedor, un aumento de cortisol de 9 µg/dL o menos, clasificó como tales a 3 de cada 4 pacientes, y el etomidato, que altera la prueba, solo se excluyó a mitad del estudio.",
+                "La tercera, la validez externa: un shock séptico precoz y grave, todos en ventilación mecánica, en un solo país y con el cuidado de finales de los noventa, sin número de registro del ensayo ni declaración de conflictos de interés en el artículo.",
+                "A esto se suman los cambios de criterios durante el reclutamiento."
+              ]
+            }
+          },
+          "revision": {
+            "fecha": "2026-11-15",
+            "cotejo": "VERDE",
+            "fiscal": "VERDE",
+            "omisiones": "VERDE",
+            "nota": "Versión breve: cotejo de cada frase contra su cita y revisión del fiscal, que además comprobó que las tres frases de la ficha dicen lo decisivo; sus propuestas se aplicaron."
+          }
+        },
+        {
+          "id": 189,
+          "diseno": {
+            "intervencion": {
+              "frase": "CORTICUS dio hidrocortisona, 50 mg cada 6 horas durante 5 días con retirada progresiva hasta el día 11, sin fludrocortisona, frente a placebo.",
+              "cita": [
+                "Recibieron hidrocortisona intravenosa, 50 mg cada 6 horas durante 5 días con retirada progresiva hasta el día 11, o placebo.",
+                "No se administró fludrocortisona"
+              ]
+            },
+            "poblacion": {
+              "frase": "CORTICUS incluyó adultos con choque séptico de menos de 72 horas, en 52 unidades de cuidados intensivos de nueve países.",
+              "cita": "Adultos con shock séptico de menos de 72 horas, en 52 unidades de cuidados intensivos de nueve países."
+            },
+            "desenlace": {
+              "frase": "CORTICUS midió como desenlace primario la muerte a los 28 días en los pacientes sin respuesta a la prueba de corticotropina.",
+              "cita": "Desenlaces El desenlace primario fue la muerte por cualquier causa a los 28 días en los pacientes sin respuesta a la corticotropina, un desenlace clínico de máxima relevancia."
+            },
+            "tamano": {
+              "frase": "CORTICUS analizó 499 pacientes de los 800 previstos, por un reclutamiento lento, el fin de la financiación y la caducidad del fármaco del estudio.",
+              "cita": [
+                "con 499 pacientes analizados por intención de tratar: 251 con hidrocortisona y 248 con placebo. Se previeron 800",
+                "Solo se incluyeron 500 pacientes, por un reclutamiento lento, que los autores atribuyen a la pérdida de equilibrio clínico ante las guías que ya recomendaban los corticoides, por el fin de la financiación y por la caducidad del fármaco del estudio."
+              ]
+            },
+            "pacientes": {
+              "frase": "CORTICUS incluyó una población en buena parte quirúrgica: el 55% y el 54% de los dos grupos ingresaron tras una cirugía de urgencia, y habían recibido etomidato el 20.3% y el 18.1%.",
+              "cita": [
+                "En el grupo hidrocortisona y en el grupo placebo, respectivamente, la edad media fue de 63 años en ambos y los varones fueron el 66% y el 67%.",
+                "La escala SAPS II, que va de 0 a 163 y en la que una puntuación mayor indica mayor gravedad, promedió 49.5 y 48.6.",
+                "El lactato fue de 3.9 y 4.1 mmol/l, y la presión sistólica, de 94 y 95 mm Hg.",
+                "Recibían vasopresores o inotrópicos el 99% y el 98%, sobre todo noradrenalina, y ventilación mecánica el 91% y el 86%.",
+                "Fue una población en buena parte quirúrgica: el 55% y el 54% ingresaron tras una cirugía de urgencia, y el foco más frecuente fue el abdominal.",
+                "Este perfil importa porque limita la extrapolación a otros focos, como el pulmonar, presente en menos de 4 de cada 10 pacientes.",
+                "Recibieron etomidato antes de entrar el 20.3% y el 18.1%; una sola dosis de este anestésico puede inhibir el metabolismo de los corticoides durante al menos 24 horas, y en el estudio se asoció con más falta de respuesta a la corticotropina.",
+                "La escala SOFA, que mide la disfunción de seis órganos de 0 a 24 puntos y en la que una puntuación mayor indica más disfunción, promedió 10.6 en ambos."
+              ]
+            },
+            "separacion": {
+              "frase": "CORTICUS admitió el choque iniciado en las 72 horas previas, tras ampliar la ventana durante el estudio de 24 a 72 horas, y el 87% de ambos grupos recibió al menos el 90% de las dosis.",
+              "cita": [
+                "Tenían shock séptico de inicio en las 72 horas previas y debían seguir hipotensos o con vasopresores en el momento de entrar.",
+                "La segunda es la población: la ventana para entrar se amplió durante el estudio de 24 a 72 horas, para entrar bastaba con recibir vasopresores, sin exigir hipotensión persistente pese a ellos, y predominó el shock abdominal posquirúrgico, lo que limita la aplicación a pacientes con shock refractario o tratados en las primeras horas.",
+                "El 87% de ambos grupos recibió al menos el 90% de las dosis.",
+                "Recibieron corticoides abiertos después de entrar 11 pacientes con hidrocortisona y 10 con placebo, el 4.2% del total.",
+                "a esto se suman 15 pacientes que cumplían criterios de exclusión y se conservaron en el análisis por intención de tratar, y un análisis de seguridad por protocolo"
+              ]
+            },
+            "limitacion": {
+              "frase": "CORTICUS incluyó a 500 de los 800 pacientes previstos y la mortalidad fue menor de la supuesta; según su resumen, sus intervalos de confianza no permiten descartar ni un beneficio moderado ni un daño.",
+              "cita": [
+                "La primera y más importante es la falta de poder: se incluyó a 500 de los 800 pacientes previstos y la mortalidad fue menor de la supuesta, de modo que los intervalos de confianza son amplios y no permiten descartar ni un beneficio moderado ni un daño.",
+                "Solo se incluyeron 500 pacientes, por un reclutamiento lento, que los autores atribuyen a la pérdida de equilibrio clínico ante las guías que ya recomendaban los corticoides, por el fin de la financiación y por la caducidad del fármaco del estudio.",
+                "La segunda es la población: la ventana para entrar se amplió durante el estudio de 24 a 72 horas, para entrar bastaba con recibir vasopresores, sin exigir hipotensión persistente pese a ellos, y predominó el shock abdominal posquirúrgico, lo que limita la aplicación a pacientes con shock refractario o tratados en las primeras horas.",
+                "La tercera es la clasificación de la respuesta suprarrenal, alterada por el etomidato en casi 1 de cada 5 pacientes; a esto se suman 15 pacientes que cumplían criterios de exclusión y se conservaron en el análisis por intención de tratar, y un análisis de seguridad por protocolo."
+              ]
+            }
+          },
+          "revision": {
+            "fecha": "2026-11-15",
+            "cotejo": "VERDE",
+            "fiscal": "VERDE",
+            "omisiones": "VERDE",
+            "nota": "Versión breve: cotejo de cada frase contra su cita y revisión del fiscal, que además comprobó que las tres frases de la ficha dicen lo decisivo; sus propuestas se aplicaron."
+          }
+        },
+        {
+          "id": 52,
+          "diseno": {
+            "intervencion": {
+              "frase": "ADRENAL dio hidrocortisona, 200 mg al día en infusión continua durante hasta 7 días, frente a placebo.",
+              "cita": "Recibieron hidrocortisona, 200 mg al día en infusión continua durante hasta 7 días, o un placebo equivalente."
+            },
+            "poblacion": {
+              "frase": "ADRENAL incluyó adultos con choque séptico y ventilación mecánica, con al menos 4 horas de vasopresores, en 69 unidades de cuidados intensivos de Australia, el Reino Unido, Nueva Zelanda, Arabia Saudita y Dinamarca.",
+              "cita": "Se incluyeron 3800 adultos con shock séptico y ventilación mecánica en 69 unidades de cuidados intensivos de Australia, el Reino Unido, Nueva Zelanda, Arabia Saudita y Dinamarca, todos con al menos 4 horas de vasopresores previos a la aleatorización."
+            },
+            "desenlace": {
+              "frase": "ADRENAL midió como desenlace primario la muerte por cualquier causa a los 90 días.",
+              "cita": "El desenlace primario fue la muerte por cualquier causa a los 90 días."
+            },
+            "tamano": {
+              "frase": "ADRENAL analizó 3658 pacientes.",
+              "cita": "Diseño Ensayo aleatorizado, multicéntrico, doble ciego, con análisis por intención de tratar sobre 3658 pacientes evaluables."
+            },
+            "pacientes": {
+              "frase": "ADRENAL incluyó pacientes de los que aproximadamente un tercio en cada grupo tuvo un ingreso quirúrgico y dos tercios uno médico, con una mediana de APACHE II de 24.0 puntos en el grupo de hidrocortisona y de 23.0 en el grupo placebo.",
+              "cita": [
+                "La gravedad, medida con el puntaje APACHE II, una escala de 0 a 71 puntos en la que valores más altos indican mayor riesgo de muerte y en la que un puntaje de 25 o más suele usarse como punto de corte para identificar a los pacientes de mayor riesgo, fue prácticamente idéntica en ambos grupos: mediana de 24.0 puntos (rango intercuartílico, 19.0 a 29.0) en el grupo de hidrocortisona y de 23.0 puntos (rango intercuartílico, 18.0 a 29.0) en el grupo placebo.",
+                "La edad media fue de 62.3±14.9 años en el grupo de hidrocortisona y 62.7±15.2 años en el grupo placebo, con una proporción de varones de 60.4% y 61.3%, respectivamente.",
+                "El origen de la infección fue predominantemente pulmonar en los pacientes con ingreso médico y abdominal en los pacientes con ingreso quirúrgico, con distribución similar entre los dos grupos; aproximadamente un tercio de los pacientes en cada grupo tuvo un ingreso quirúrgico y dos tercios uno médico."
+              ]
+            },
+            "separacion": {
+              "frase": "ADRENAL administró el régimen asignado a 1834 de 1837 pacientes (99.8%) en el grupo de hidrocortisona y a 1838 de 1843 (99.7%) en el grupo placebo, con una adherencia media superior al 95% en ambos grupos.",
+              "cita": [
+                "El régimen asignado fue recibido por 1834 de 1837 pacientes (99.8%) en el grupo de hidrocortisona y por 1838 de 1843 (99.7%) en el grupo placebo, con una adherencia media al esquema de dosificación superior al 95% en ambos grupos.",
+                "Segundo, el material suplementario documenta un número considerable de desviaciones de protocolo, incluida la aleatorización de pacientes que en realidad no cumplían todos los criterios de inclusión, por ejemplo, por no llevar al menos 4 horas con vasopresores al momento de la aleatorización o por haber recibido etomidato previamente, con una frecuencia similar en ambos grupos (73 desviaciones de este tipo en el grupo de hidrocortisona y 63 en el grupo placebo); también se registraron errores en la administración del fármaco del estudio, como dosis omitidas o interrupciones tempranas del tratamiento, en más de 300 ocasiones por grupo.",
+                "Un análisis de sensibilidad post hoc que excluyó a los pacientes que habían recibido corticosteroides de rescate fuera del protocolo tampoco modificó el resultado principal (razón de momios, 0.96; IC 95%, 0.82 a 1.12; P=0.59)."
+              ]
+            },
+            "limitacion": {
+              "frase": "ADRENAL registró los eventos adversos únicamente cuando el clínico tratante los consideró relacionados con el fármaco, y aleatorizó a pacientes que no cumplían todos los criterios de inclusión, que se mantuvieron en el análisis.",
+              "cita": [
+                "Primero, un riesgo de sesgo de notificación en la evaluación de la seguridad: los eventos adversos se registraron únicamente cuando el clínico tratante los consideró relacionados con el fármaco del estudio, sin adjudicación independiente de ese juicio, lo que pudo subestimar o sobreestimar de forma desigual el perfil de seguridad real.",
+                "Segundo, el material suplementario documenta un número considerable de desviaciones de protocolo, incluida la aleatorización de pacientes que en realidad no cumplían todos los criterios de inclusión, por ejemplo, por no llevar al menos 4 horas con vasopresores al momento de la aleatorización o por haber recibido etomidato previamente, con una frecuencia similar en ambos grupos (73 desviaciones de este tipo en el grupo de hidrocortisona y 63 en el grupo placebo); también se registraron errores en la administración del fármaco del estudio, como dosis omitidas o interrupciones tempranas del tratamiento, en más de 300 ocasiones por grupo.",
+                "Ninguna de estas desviaciones motivó la exclusión de los pacientes afectados, que se mantuvieron en el análisis por intención de tratar, lo que preserva la validez del resultado principal pero pudo diluir ligeramente el efecto real de la intervención.",
+                "Tercero, el ensayo no recogió todas las infecciones secundarias posibles, sino únicamente la bacteriemia y la fungemia, por ser desenlaces menos sujetos a error diagnóstico, lo que pudo dejar fuera otras formas de superinfección asociadas al uso de corticosteroides."
+              ]
+            }
+          },
+          "revision": {
+            "fecha": "2026-11-15",
+            "cotejo": "VERDE",
+            "fiscal": "VERDE",
+            "omisiones": "VERDE",
+            "nota": "Versión breve: cotejo de cada frase contra su cita y revisión del fiscal, que además comprobó que las tres frases de la ficha dicen lo decisivo; sus propuestas se aplicaron."
+          }
+        },
+        {
+          "id": 81,
+          "diseno": {
+            "intervencion": {
+              "frase": "APROCCHSS dio hidrocortisona, 50 mg cada 6 horas, más fludrocortisona, 50 microgramos al día, durante 7 días, frente a placebo.",
+              "cita": "Se comparó hidrocortisona intravenosa (50 mg cada 6 horas) más fludrocortisona oral (50 microgramos al día) durante 7 días, frente a placebo idéntico."
+            },
+            "poblacion": {
+              "frase": "APROCCHSS incluyó adultos con choque séptico indiscutible o probable, con disfunción de al menos dos órganos y vasopresores a dosis relevantes durante al menos 6 horas, en 34 centros de Francia.",
+              "cita": "Adultos con shock séptico indiscutible o probable, con disfunción de al menos dos órganos y que requerían vasopresores a dosis relevantes durante al menos 6 horas, en 34 centros de Francia."
+            },
+            "desenlace": {
+              "frase": "APROCCHSS midió como desenlace primario la mortalidad por cualquier causa a 90 días.",
+              "cita": "El desenlace primario fue la mortalidad por cualquier causa a 90 días."
+            },
+            "tamano": {
+              "frase": "APROCCHSS aleatorizó 1241 pacientes, el 97% del tamaño previsto, y el patrocinador lo dio por terminado cuando vencieron los lotes de los fármacos del estudio.",
+              "cita": [
+                "Se aleatorizaron 1241 pacientes y se analizaron por intención de tratar.",
+                "El patrocinador dio por terminado el ensayo cuando vencieron los lotes de los fármacos del estudio, con 1241 pacientes incluidos, el 97% del tamaño previsto"
+              ]
+            },
+            "pacientes": {
+              "frase": "APROCCHSS incluyó pacientes con SOFA de 12 en promedio, ventilación mecánica en el 92% y una dosis media de noradrenalina de aproximadamente 1 microgramo por kilogramo por minuto.",
+              "cita": [
+                "La gravedad fue considerable: la puntuación SAPS II, que valora la gravedad de la enfermedad crítica en un rango de 0 a 163 donde las cifras más altas indican mayor gravedad, promedió 56 puntos, y la puntuación SOFA, que mide la disfunción de seis órganos en un rango de 0 a 24 donde más puntos significan peor estado, promedió 12.",
+                "La infección adquirida en la comunidad fue la más frecuente (77%), con el pulmón como sitio más común (59%).",
+                "La dosis media de noradrenalina fue de aproximadamente 1 microgramo por kilogramo por minuto, el 92% recibía ventilación mecánica y el 28% terapia de reemplazo renal, un conjunto que describe una población con shock séptico grave y establecido.",
+                "Las características basales fueron similares entre los dos grupos, aunque los autores señalan cierto desequilibrio en la distribución de los patógenos, con algo más de infecciones virales en el grupo de hidrocortisona más fludrocortisona."
+              ]
+            },
+            "separacion": {
+              "frase": "APROCCHSS empezó con un diseño que asignaba además drotrecogina alfa activada o su placebo y, tras el retiro comercial de la drotrecogina en octubre de 2011, continuó únicamente con corticosteroides frente a placebo.",
+              "cita": [
+                "El ensayo se diseñó originalmente con una arquitectura factorial de dos por dos, en la que cada paciente se asignaba de forma independiente a hidrocortisona más fludrocortisona o su placebo, y a drotrecogina alfa activada o su placebo, en bloques permutados de ocho.",
+                "Tras el retiro comercial de la drotrecogina (Xigris) en octubre de 2011 por falta de beneficio confirmado, el ensayo continuó únicamente con los dos grupos de corticosteroides frente a placebo, y quedó sin poder suficiente para evaluar la drotrecogina, cuyos resultados se reportaron de forma independiente en otra publicación.",
+                "Por el diseño factorial original, 103 de los 627 pacientes del grupo placebo recibieron además drotrecogina alfa activada.",
+                "el reclutamiento se pausó además dos veces, primero tras el retiro de la drotrecogina y después por una revisión de seguridad solicitada por el comité de monitoreo"
+              ]
+            },
+            "limitacion": {
+              "frase": "APROCCHSS no ajustó sus desenlaces secundarios por comparaciones múltiples, por lo que según su resumen sus valores de p deben interpretarse con cautela, y se realizó únicamente en Francia.",
+              "cita": [
+                "La primera es que el diseño factorial original quedó truncado por el retiro comercial de la drotrecogina en 2011, lo que obligó a reanalizar el ensayo como una comparación de dos grupos y añadió casi siete meses de pausa en medio del reclutamiento.",
+                "La segunda es que los desenlaces secundarios no se ajustaron por comparaciones múltiples, por lo que sus valores de p deben interpretarse con cautela.",
+                "La tercera es que el estudio se realizó únicamente en Francia, lo que puede limitar la generalización a sistemas de salud con otras prácticas de cuidados intensivos."
+              ]
+            }
+          },
+          "revision": {
+            "fecha": "2026-11-15",
+            "cotejo": "VERDE",
+            "fiscal": "VERDE",
+            "omisiones": "VERDE",
+            "nota": "Versión breve: cotejo de cada frase contra su cita y revisión del fiscal, que además comprobó que las tres frases de la ficha dicen lo decisivo; sus propuestas se aplicaron."
+          }
+        }
+      ],
+      "relacionados": [
+        {
+          "motivo": "Otros ensayos en sepsis que incluyeron hidrocortisona",
+          "ids": [
+            203,
+            257
+          ]
+        },
+        {
+          "motivo": "Corticoides en la neumonía adquirida en la comunidad",
+          "ids": [
+            133,
+            49
+          ]
+        },
+        {
+          "motivo": "Corticoides en el síndrome de dificultad respiratoria aguda",
+          "ids": [
+            190
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "meta-oxigenacion-paciente-critico",
+      "pregunta": "¿Qué meta de oxigenación en el paciente crítico?",
+      "nombre": "Meta de oxigenación en el paciente crítico",
+      "descripcion": "Los ensayos clínicos {ensayos} sobre metas de oxigenación más bajas o más altas en el paciente crítico: qué preguntó cada uno, su hallazgo principal y sus diferencias de diseño.",
+      "condicion": "Enfermedad crítica",
+      "area": "Medicina Crítica",
+      "fecha_publicacion": "2026-11-15",
+      "fecha_revision": "2026-11-15",
+      "criterio": "Publicación principal de un ensayo clínico aleatorizado en adultos ingresados en cuidados intensivos o con ingreso previsto en ellos, con oxígeno suplementario o ventilación mecánica, cuya comparación principal son dos o más METAS de oxigenación (de PaO2, de saturación, u oxigenoterapia conservadora frente a liberal o habitual) mantenidas durante días: toda la ventilación o la estancia, o un periodo fijo de varios días. No pertenecen al núcleo: los ensayos cuya población de inclusión es el paro cardiaco; los hechos solo en pacientes con oxigenación por membrana extracorpórea; los que comparan una fracción fija de oxígeno o una hiperoxia aplicada solo durante horas o durante un procedimiento; los que se inician y se aplican fuera de cuidados intensivos (prehospitalario, quirófano, planta), pero no los que incluyen pacientes en urgencias con ingreso previsto a cuidados intensivos y mantienen la meta en la unidad; los de dispositivos o modos de dar oxígeno (alto flujo, ventilación no invasiva); los de titulación automática; ni los ensayos piloto o de factibilidad, los análisis secundarios, los seguimientos o los metaanálisis. Cuáles de esos van como relacionados lo dice `criterio_relacionados`; los demás no se añaden. Ante la duda, no se añade al núcleo.",
+      "criterio_relacionados": "Solo ensayos clínicos aleatorizados en adultos que comparan METAS de oxigenación en otra población o ámbito (tras un paro cardiaco, con oxigenación por membrana extracorpórea, fuera de cuidados intensivos) o que comparan cómo alcanzar una misma meta de oxigenación (titulación automática frente a manual), en cualquier ámbito hospitalario; un sistema de titulación automática no cuenta como dispositivo de dar oxígeno. No se añaden los de dispositivos o modos de dar oxígeno (alto flujo, ventilación no invasiva, preoxigenación), los de oxigenoterapia domiciliaria ni los de otras intervenciones que solo miden la oxigenación como desenlace. Ante la duda, no se añade.",
+      "ejes": [
+        {
+          "clave": "intervencion",
+          "entrada": "Los ensayos compararon estrategias de oxigenación más y menos restrictivas, pero ni las cifras ni la forma de medirlas coinciden.",
+          "guia": "Las metas de todos los grupos, con las cifras y la variable que dé el resumen (presión arterial de oxígeno, saturación): «SIGLA comparó una <meta> de … con una de …». Si un grupo es el cuidado habitual o no tiene cifra, se describe con las palabras del resumen; si hay más de dos metas, se enumeran todas. Metas del protocolo, nunca los valores alcanzados. Una oración breve.",
+          "tipo": "diseno",
+          "lugar": "juntos",
+          "obligatorio": true,
+          "max": 260
+        },
+        {
+          "clave": "poblacion",
+          "entrada": "Las poblaciones son distintas.",
+          "guia": "Criterios de inclusión tal como los da el apartado de población del resumen (no las características de la muestra reclutada) y, al final, si el resumen los da, el número y el tipo de centros (unidades, centros u hospitales) y el país o países, con sus mismas palabras: «SIGLA incluyó …, en N unidades de <país>.» Un centro único se escribe «en un centro …», sin «solo» ni «único». Una oración breve.",
+          "tipo": "diseno",
+          "lugar": "juntos",
+          "obligatorio": true,
+          "max": 260
+        },
+        {
+          "clave": "desenlace",
+          "entrada": "El desenlace primario no es el mismo en todos.",
+          "guia": "El desenlace o los desenlaces primarios, con la palabra del resumen («primario» o «principal»), el plazo solo si la cita lo da y el subgrupo si se definió en uno; sin resultado: «SIGLA midió como desenlace primario …[, a N días].» Si hay coprimarios, se nombran todos. Una oración breve.",
+          "tipo": "diseno",
+          "lugar": "juntos",
+          "obligatorio": true,
+          "max": 260
+        },
+        {
+          "clave": "tamano",
+          "entrada": "",
+          "guia": "Pacientes analizados (o aleatorizados, si el resumen no da los analizados), con el mismo verbo que la cita: «SIGLA analizó N pacientes.» El tamaño previsto va solo si el resumen dice que no se alcanzó o que el ensayo terminó antes de tiempo; el motivo, solo si el resumen lo da, copiado como hecho y con sus palabras (futilidad, señales de daño, pandemia, reclutamiento lento, fin de la financiación): «SIGLA analizó N pacientes de los M previstos[, <motivo>].» Nunca su consecuencia ni su interpretación: ni «poco poder», ni a qué grupo afectaba, ni a qué lo atribuyen los autores. Una oración breve.",
+          "tipo": "diseno",
+          "lugar": "juntos",
+          "obligatorio": true,
+          "max": 260
+        },
+        {
+          "clave": "pacientes",
+          "entrada": "Para interpretarlo.",
+          "guia": "A quién se incluyó de verdad, en lo decisivo: el rasgo que más condiciona a qué pacientes se parece el ensayo (médicos o quirúrgicos, cirugía cardiaca, sepsis, gravedad), con una o dos cifras. «SIGLA incluyó pacientes …». No se enumeran todas las características basales.",
+          "tipo": "contexto",
+          "lugar": "ficha",
+          "obligatorio": true,
+          "max": 260
+        },
+        {
+          "clave": "separacion",
+          "entrada": "Para interpretarlo.",
+          "guia": "Cómo se separaron los grupos en la práctica, en lo esencial: los valores de oxigenación alcanzados en cada grupo. Una oración con las cifras clave y cada cifra en su grupo.",
+          "tipo": "contexto",
+          "lugar": "ficha",
+          "obligatorio": true,
+          "max": 260
+        },
+        {
+          "clave": "limitacion",
+          "entrada": "Para interpretarlo.",
+          "guia": "La limitación o las dos limitaciones principales que señala la evaluación crítica del resumen (centro único, estudio abierto, cierre anticipado, falta de poder, validez externa), en una oración y atribuyendo lo que sea valoración («según su resumen», «sus autores advierten»). La cita son las oraciones del resumen que las enuncian.",
+          "tipo": "contexto",
+          "lugar": "ficha",
+          "obligatorio": true,
+          "max": 260
+        },
+        {
+          "clave": "no_informa",
+          "entrada": "Para interpretarlo.",
+          "guia": "Solo si falta el dato central de la separación (o de otro eje) y el resumen dice algo sobre él sin dar las cifras: lo que el resumen no informa, como {\"sin_dato\": \"…\"}, que completa «El resumen de SIGLA no informa …». Si no hace falta, no se escribe.",
+          "tipo": "ausencia",
+          "lugar": "ficha",
+          "obligatorio": false
+        }
+      ],
+      "nucleo": [
+        {
+          "id": 60,
+          "diseno": {
+            "intervencion": {
+              "frase": "ICU-ROX comparó una saturación por debajo de 97% con un cuidado habitual sin límite superior de saturación.",
+              "cita": "El grupo conservador mantenía la saturación por debajo de 97%, reduciendo la fracción inspirada de oxígeno hasta 0.21 en cuanto era posible, mientras el grupo habitual no tenía límite superior de saturación ni de oxígeno inspirado."
+            },
+            "poblacion": {
+              "frase": "ICU-ROX incluyó adultos con expectativa de ventilación mecánica prolongada, en 21 unidades de cuidados intensivos de Australia y Nueva Zelanda.",
+              "cita": "Participaron 1000 adultos con expectativa de ventilación mecánica prolongada en 21 unidades de cuidados intensivos de Australia y Nueva Zelanda."
+            },
+            "desenlace": {
+              "frase": "ICU-ROX midió como desenlace primario el número de días libres de ventilador.",
+              "cita": "El desenlace primario fue el número de días libres de ventilador."
+            },
+            "tamano": {
+              "frase": "ICU-ROX analizó 965 pacientes.",
+              "cita": "con 965 pacientes analizados por intención de tratar tras el retiro de consentimiento de 35 participantes."
+            },
+            "pacientes": {
+              "frase": "ICU-ROX incluyó pacientes con una puntuación media APACHE II de aproximadamente 23.5 puntos en ambos brazos y alrededor del 40% con una enfermedad neurológica aguda como motivo de ingreso.",
+              "cita": [
+                "Las características basales fueron similares entre los grupos: la edad media rondaba los 58 años, cerca del 63% eran varones, y la puntuación media en la escala APACHE II, que va de 0 a 71 y donde valores más altos indican mayor gravedad y riesgo de muerte, fue de aproximadamente 23.5 puntos en ambos brazos",
+                "Alrededor del 40% de los pacientes tenía una enfermedad neurológica aguda como motivo de ingreso"
+              ]
+            },
+            "separacion": {
+              "frase": "ICU-ROX registró que la estrategia conservadora pasó más tiempo con una fracción inspirada de oxígeno de 0.21, una mediana de 29 horas frente a 1 hora en el grupo habitual, y menos tiempo con saturación superior a 96%, una mediana de 27 frente a 49 horas.",
+              "cita": [
+                "La estrategia conservadora sí logró separar la exposición al oxígeno entre los grupos: los pacientes pasaron más tiempo con una fracción inspirada de oxígeno de 0.21, con una mediana de 29 horas frente a 1 hora en el grupo habitual (diferencia de 28 horas; IC 95%, 22 a 34), y menos tiempo con saturación superior a 96%, con una mediana de 27 horas frente a 49 horas (diferencia de 22 horas; IC 95%, 14 a 30)."
+              ]
+            },
+            "limitacion": {
+              "frase": "ICU-ROX fue abierto para el personal clínico y, según su resumen, sus hallazgos podrían no extrapolarse a pacientes con ventilación mecánica menos crítica.",
+              "cita": [
+                "Entre las limitaciones, también en tres puntos, se cuenta que el diseño abierto para el personal clínico pudo introducir sesgo de desempeño en decisiones como el destete ventilatorio; que los datos de empleo, cognición y calidad de vida se midieron solo en sobrevivientes, lo que introduce un sesgo de selección posterior a la aleatorización que puede favorecer o perjudicar a cualquiera de los dos grupos de forma impredecible; y que las 67 desviaciones de protocolo relacionadas con el tratamiento, en su mayoría por no lograr reducir la fracción inspirada de oxígeno en el grupo conservador, pudieron atenuar el contraste real entre estrategias.",
+                "La validez interna se apoya en la aleatorización centralizada y el análisis por intención de tratar, mientras que la validez externa se ve limitada porque los pacientes elegibles que no llegaron a aleatorizarse tenían enfermedad menos grave y menor mortalidad que los incluidos, por lo que los hallazgos podrían no extrapolarse a pacientes con ventilación mecánica menos crítica."
+              ]
+            }
+          },
+          "revision": {
+            "fecha": "2026-11-15",
+            "cotejo": "VERDE",
+            "fiscal": "VERDE",
+            "omisiones": "VERDE",
+            "nota": "Versión breve: cotejo de cada frase contra su cita y revisión del fiscal, que además comprobó que las tres frases de la ficha dicen lo decisivo; sus propuestas se aplicaron."
+          }
+        },
+        {
+          "id": 170,
+          "diseno": {
+            "intervencion": {
+              "frase": "LOCO2 comparó una presión arterial de oxígeno de 55 a 70 mmHg y una saturación de 88 a 92% con una presión de 90 a 105 mmHg y una saturación de 96% o más.",
+              "cita": "Durante 7 días, el grupo conservador buscó una PaO2 de 55 a 70 mmHg y una SpO2 de 88 a 92%; el liberal, una PaO2 de 90 a 105 mmHg y una SpO2 de 96% o más."
+            },
+            "poblacion": {
+              "frase": "LOCO2 incluyó adultos con síndrome de dificultad respiratoria aguda, intubados hacía menos de 12 horas, en 13 unidades de cuidados intensivos de Francia.",
+              "cita": "Adultos con síndrome de dificultad respiratoria aguda, intubados hacía menos de 12 horas, en 13 unidades de cuidados intensivos de Francia."
+            },
+            "desenlace": {
+              "frase": "LOCO2 midió como desenlace primario la muerte a los 28 días.",
+              "cita": "El desenlace primario fue la muerte a los 28 días."
+            },
+            "tamano": {
+              "frase": "LOCO2 analizó 201 pacientes y se detuvo con 205 de los 850 planeados, por señales de daño y futilidad.",
+              "cita": "Se planearon 850 pacientes, pero el comité de seguridad lo detuvo con 205 por señales de daño y futilidad. Se analizaron 201."
+            },
+            "pacientes": {
+              "frase": "LOCO2 incluyó pacientes con un síndrome grave: el 75.8% del grupo conservador y el 76.5% del liberal tenían una PaO2/FiO2 de 150 mmHg o menos, y unos 7 de cada 10 recibían catecolaminas.",
+              "cita": [
+                "La edad media fue de 63 años y en torno a dos tercios eran varones.",
+                "Era un síndrome grave: la PaO2/FiO2 media fue de 116.8 y 120.1 mmHg con una FiO2 cercana al 80%, el 75.8% del grupo conservador y el 76.5% del liberal tenían una PaO2/FiO2 de 150 mmHg o menos, y alrededor del 42% de 100 mmHg o menos; unos 7 de cada 10 recibían catecolaminas.",
+                "La gravedad global se midió con el SAPS III, que va de 0 a 217 y en el que más puntos indican mayor riesgo de muerte, con medias de 66.9 y 67.9, y con la escala SOFA de disfunción orgánica, de 0 a 20 en esta versión, en la que más puntos indican más fallo orgánico, con medias de 9.3 y 8.9.",
+                "La causa fue pulmonar en el 78.8% frente al 72.5%."
+              ]
+            },
+            "separacion": {
+              "frase": "LOCO2 registró a lo largo de los 7 días, en el grupo conservador, una presión arterial de oxígeno 28.1 mmHg menor; 58 pacientes de ese grupo tuvieron alguna por debajo de 55 mmHg y 97 superaron en algún momento los 70 mmHg.",
+              "cita": [
+                "La separación entre estrategias fue clara: a lo largo de los 7 días, el grupo conservador tuvo una FiO2 15.5 puntos menor (IC 95%, −19.1 a −12.0), una PaO2 28.1 mmHg menor (IC 95%, −38.4 a −17.7) y una saturación arterial 3.8 puntos menor",
+                "Aun así, 58 pacientes del grupo conservador tuvieron alguna PaO2 por debajo de 55 mmHg, con valores de hasta 33.0 mmHg, y 97 superaron en algún momento los 70 mmHg."
+              ]
+            },
+            "limitacion": {
+              "frase": "LOCO2 se interrumpió con menos de una cuarta parte de la muestra prevista y su grupo conservador recibió menos decúbito prono, una cointervención que según su resumen puede influir por sí misma en la supervivencia.",
+              "cita": [
+                "La primera es la interrupción precoz, con menos de una cuarta parte de la muestra prevista, que deja al ensayo sin poder para su pregunta principal y vuelve inestables las estimaciones, tanto la diferencia a 28 días como la señal de daño a los 90.",
+                "La segunda es el riesgo de sesgo de desempeño propio del diseño abierto: el grupo conservador recibió menos decúbito prono, una cointervención que por sí misma puede influir en la supervivencia del síndrome grave, y esa diferencia podría reflejar ese sesgo o la propia aplicación del protocolo.",
+                "La tercera es la dificultad de mantener una PaO2 tan baja con gasometrías solo cada 6 horas, que pudo exponer a hipoxemias no detectadas, junto con la exclusión de 4 pacientes tras la aleatorización y el cálculo de la muestra con una prueba unilateral.",
+                "Sobre la validez externa, los resultados proceden de unidades francesas y de un síndrome temprano y grave, y no se aplican a pacientes con lesión cerebral o paro cardiaco, que fueron excluidos."
+              ]
+            }
+          },
+          "revision": {
+            "fecha": "2026-11-15",
+            "cotejo": "VERDE",
+            "fiscal": "VERDE",
+            "omisiones": "VERDE",
+            "nota": "Versión breve: cotejo de cada frase contra su cita y revisión del fiscal, que además comprobó que las tres frases de la ficha dicen lo decisivo; sus propuestas se aplicaron."
+          }
+        },
+        {
+          "id": 88,
+          "diseno": {
+            "intervencion": {
+              "frase": "HOT-ICU comparó una presión arterial de oxígeno de 60 mmHg con una de 90 mmHg.",
+              "cita": "Se comparó un objetivo de PaO2 de 60 mmHg frente a uno de 90 mmHg"
+            },
+            "poblacion": {
+              "frase": "HOT-ICU incluyó adultos con insuficiencia respiratoria hipoxémica aguda que recibían al menos 10 litros de oxígeno por minuto o una FiO2 de al menos 0.50, en 35 unidades de cuidados intensivos de siete países europeos.",
+              "cita": [
+                "Adultos ingresados en la UCI con insuficiencia respiratoria hipoxémica aguda que recibían al menos 10 litros de oxígeno por minuto o una FiO2 de al menos 0.50, con catéter arterial colocado.",
+                "realizado en 35 unidades de cuidados intensivos de siete países europeos"
+              ]
+            },
+            "desenlace": {
+              "frase": "HOT-ICU midió como desenlace primario la muerte por cualquier causa a 90 días.",
+              "cita": "El desenlace primario fue la muerte por cualquier causa a 90 días."
+            },
+            "tamano": {
+              "frase": "HOT-ICU analizó 2888 pacientes.",
+              "cita": "Se aleatorizaron 2928 pacientes y se analizaron 2888 por intención de tratar, con un análisis estadístico realizado en ciego pese al diseño abierto."
+            },
+            "pacientes": {
+              "frase": "HOT-ICU incluyó pacientes en su mayoría con ingreso médico (alrededor del 85%), con neumonía como causa aguda más frecuente (cerca del 57%) y cerca del 58% de cada grupo con ventilación invasiva.",
+              "cita": [
+                "La edad mediana fue de 70 años en ambos grupos",
+                "La mayoría de los ingresos fueron médicos (alrededor del 85%), con neumonía como causa aguda más frecuente (cerca del 57%) y aproximadamente 13% de los pacientes con síndrome de dificultad respiratoria aguda.",
+                "Cerca del 58% de los pacientes en cada grupo recibía ventilación invasiva.",
+                "La gravedad basal, medida con la escala SOFA (que evalúa la disfunción de seis órganos en un rango de 0 a 24, donde puntajes más altos indican peor estado), tuvo una mediana de 8 puntos en ambos grupos.",
+                "Las características basales fueron similares entre los grupos, salvo por la presencia de paro cardiaco previo (10.3% frente a 12.8%), un desequilibrio aislado."
+              ]
+            },
+            "separacion": {
+              "frase": "HOT-ICU, según su resumen, logró una separación clara y sostenida entre los valores de presión arterial de oxígeno, saturación arterial y fracción inspirada de oxígeno de ambos grupos.",
+              "cita": [
+                "logrando una separación clara y sostenida entre los valores de PaO2, SaO2 y FiO2 de ambos grupos"
+              ]
+            },
+            "no_informa": {
+              "sin_dato": "los valores de presión arterial de oxígeno, de saturación ni de fracción inspirada de oxígeno alcanzados en cada grupo, ni durante cuánto tiempo se aplicó de hecho el objetivo",
+              "huella": "a6b8fec604450eb9"
+            },
+            "limitacion": {
+              "frase": "HOT-ICU fue abierto y, según sus autores, su población tenía más ingresos médicos y una hipoxemia más grave que la cohorte del cálculo de la muestra, lo que según su resumen limita la extrapolación a poblaciones de menor riesgo.",
+              "cita": [
+                "La primera es el diseño abierto, que expone a sesgo de desempeño y de detección, atenuado por el desenlace primario objetivo y por el análisis estadístico ciego.",
+                "La segunda es que la mortalidad observada duplicó la prevista en el cálculo de tamaño de muestra, lo que, según los autores, pudo deberse en parte a que la población reclutada tenía más ingresos médicos y una hipoxemia más grave que la cohorte en que se basó ese cálculo, lo que limita la extrapolación de estos resultados a poblaciones de menor riesgo.",
+                "La tercera es la imprecisión inherente a algunas mediciones: la conversión de FiO2 en sistemas abiertos se hizo con tablas estandarizadas, y la saturación periférica de oxígeno puede diferir de la SaO2 medida por gasometría en ciertas condiciones clínicas."
+              ]
+            }
+          },
+          "revision": {
+            "fecha": "2026-11-15",
+            "cotejo": "VERDE",
+            "fiscal": "VERDE",
+            "omisiones": "VERDE",
+            "nota": "Versión breve: cotejo de cada frase contra su cita y revisión del fiscal, que además comprobó que las tres frases de la ficha dicen lo decisivo; sus propuestas se aplicaron."
+          }
+        },
+        {
+          "id": 126,
+          "diseno": {
+            "intervencion": {
+              "frase": "PILOT comparó tres objetivos de saturación: 90%, 94% y 98%.",
+              "cita": "a un objetivo de saturación bajo (90%), intermedio (94%) o alto (98%)"
+            },
+            "poblacion": {
+              "frase": "PILOT incluyó adultos con ventilación mecánica, en un centro académico de Estados Unidos.",
+              "cita": [
+                "En un solo centro académico se asignaron por conglomerados 2987 adultos con ventilación mecánica",
+                "El estudio se hizo en un único centro académico de Estados Unidos."
+              ]
+            },
+            "desenlace": {
+              "frase": "PILOT midió como desenlace principal el número de días vivo y libre de ventilador hasta el día 28.",
+              "cita": "El desenlace principal fue el número de días vivo y libre de ventilador hasta el día 28."
+            },
+            "tamano": {
+              "frase": "PILOT analizó 2541 pacientes en su análisis principal.",
+              "cita": "En un solo centro académico se asignaron por conglomerados 2987 adultos con ventilación mecánica (2541 en el análisis principal)"
+            },
+            "pacientes": {
+              "frase": "PILOT incluyó pacientes de los que cerca de dos tercios estaban en la unidad de cuidados intensivos médica al momento de la inclusión y el resto en urgencias, y entre 29% y 34% tenían sepsis o choque séptico al ingreso.",
+              "cita": [
+                "Las características basales fueron similares entre los tres grupos: edad mediana de 57 a 59 años, alrededor de 45% de mujeres, cerca de dos tercios de los pacientes ubicados en la unidad de cuidados intensivos al momento de la inclusión y el resto en urgencias, con antecedentes de enfermedad pulmonar obstructiva crónica en torno al 19% y de enfermedad coronaria entre 18% y 20%; entre 29% y 34% de los pacientes tenían sepsis o choque séptico al ingreso.",
+                "El estudio se realizó en el servicio de urgencias y la unidad de cuidados intensivos médica del Vanderbilt University Medical Center"
+              ]
+            },
+            "separacion": {
+              "frase": "PILOT tuvo, según su resumen, una separación precisa y bien documentada entre los objetivos asignados, que se modificaron en 3.7%, 2.4% y 6.9% de los pacientes de los grupos bajo, intermedio y alto.",
+              "cita": [
+                "con más de 7.8 millones de mediciones de saturación, que permitió una separación precisa y bien documentada entre los objetivos asignados",
+                "el protocolo permitía que el clínico, el paciente o la familia modificaran el objetivo asignado (ocurrió en 3.7%, 2.4% y 6.9% de los pacientes de los grupos bajo, intermedio y alto)"
+              ]
+            },
+            "no_informa": {
+              "sin_dato": "los valores de saturación, de fracción inspirada de oxígeno ni de presión arterial de oxígeno alcanzados con cada objetivo, ni cuánto tiempo estuvo cada paciente bajo su objetivo",
+              "huella": "a2038f89d736e9a7"
+            },
+            "limitacion": {
+              "frase": "PILOT se hizo en un único centro académico y sin cegamiento, lo que según su resumen limita la generalización y expone a un posible sesgo de desempeño en los días libres de ventilador.",
+              "cita": [
+                "Entre las limitaciones, el estudio se hizo en un único centro académico, lo que favorece la validez interna pero limita la generalización a hospitales con otros protocolos de manejo ventilatorio; la ausencia de cegamiento expone a un posible sesgo de desempeño, sobre todo en los días libres de ventilador, que dependen en parte de la decisión de extubar; y el protocolo permitía que el clínico, el paciente o la familia modificaran el objetivo asignado (ocurrió en 3.7%, 2.4% y 6.9% de los pacientes de los grupos bajo, intermedio y alto) y no fijaba el objetivo fuera de la unidad, durante procedimientos, en las pruebas de respiración espontánea ni después del fin del periodo de 2 meses, cuando el objetivo lo elegían los clínicos, lo que pudo diluir en algún grado el contraste entre los tres objetivos.",
+                "La validez interna es alta gracias a la secuencia aleatoria de periodos y al ajuste estadístico por la tendencia temporal; la validez externa está limitada a un solo centro académico estadounidense."
+              ]
+            }
+          },
+          "revision": {
+            "fecha": "2026-11-15",
+            "cotejo": "VERDE",
+            "fiscal": "VERDE",
+            "omisiones": "VERDE",
+            "nota": "Versión breve: cotejo de cada frase contra su cita y revisión del fiscal, que además comprobó que las tres frases de la ficha dicen lo decisivo; sus propuestas se aplicaron."
+          }
+        },
+        {
+          "id": 231,
+          "diseno": {
+            "intervencion": {
+              "frase": "ICONIC comparó una presión arterial de oxígeno de 55 a 80 mmHg con una de 110 a 150 mmHg.",
+              "cita": "Un grupo buscó una PaO2 de 55 a 80 mmHg y el otro de 110 a 150 mmHg, hasta el alta de la UCI o el día 28."
+            },
+            "poblacion": {
+              "frase": "ICONIC incluyó adultos intubados con ventilación prevista de al menos 24 horas, sin síndrome de dificultad respiratoria aguda grave ni enfermedad pulmonar obstructiva crónica descompensada, en ocho UCI de los Países Bajos y una de Italia.",
+              "cita": "Adultos intubados con ventilación prevista de al menos 24 horas, en ocho UCI de los Países Bajos y una de Italia, sin síndrome de dificultad respiratoria aguda grave ni enfermedad pulmonar obstructiva crónica descompensada."
+            },
+            "desenlace": {
+              "frase": "ICONIC midió como desenlace principal la mortalidad a 28 días.",
+              "cita": "El desenlace principal fue la mortalidad a 28 días."
+            },
+            "tamano": {
+              "frase": "ICONIC analizó 664 pacientes y se detuvo por la pandemia; se habían previsto 1512.",
+              "cita": "con 664 pacientes analizados, 335 y 329 por grupo. Se detuvo por la pandemia con menos de la mitad de los 1512 previstos"
+            },
+            "pacientes": {
+              "frase": "ICONIC incluyó pacientes cuyo diagnóstico agudo más frecuente fue el paro cardiaco (26.6% y 29.2% en los dos grupos), y alrededor de 3 de cada 4 ingresos fueron médicos.",
+              "cita": [
+                "La mediana de edad fue de 67 años en ambos grupos",
+                "La gravedad se midió con el puntaje SOFA, que va de 0 a 24 y donde más puntos indican más disfunción orgánica, con una mediana de 9 en ambos grupos, y con el APACHE IV, donde más puntos indican peor pronóstico, con medianas de 87 y 86.",
+                "Alrededor de 3 de cada 4 ingresos fueron médicos.",
+                "El diagnóstico agudo más frecuente fue el paro cardiaco, 26.6% frente a 29.2%, seguido de la neumonía, 16.1% frente a 13.1%, y la sepsis, 15.8% frente a 12.8%.",
+                "más de una cuarta parte de la muestra eran pacientes reanimados de un paro"
+              ]
+            },
+            "separacion": {
+              "frase": "ICONIC registró durante la ventilación mecánica una mediana de presión arterial de oxígeno de 75 mmHg con la estrategia baja frente a 115 mmHg con la alta.",
+              "cita": [
+                "Durante la ventilación mecánica, la mediana de PaO2 fue de 75 mmHg con la estrategia baja frente a 115 mmHg con la alta, una diferencia de 40 mmHg, y la SpO2 mediana fue de 95% frente a 99%; la fracción inspirada mediana fue de 35.5% frente a 48.1%. Ya sin ventilación, la PaO2 fue de 75 frente a 85.5 mmHg. La duración de la ventilación mecánica fue similar, con medianas de 3 y 2.8 días.",
+                "La mediana de estancia en la UCI fue de 4.9 frente a 4.7 días",
+                "Ambos objetivos se mantuvieron hasta el alta de la UCI o hasta 28 días después de la aleatorización, lo que ocurriera antes"
+              ]
+            },
+            "limitacion": {
+              "frase": "ICONIC analizó 664 de sus 882 pacientes aleatorizados y, según su resumen, no se puede comprobar que los analizados sigan siendo comparables; además, algunos pacientes del grupo alto no alcanzaron su objetivo.",
+              "cita": [
+                "La primera, la falta de poder: con 664 de los 1512 pacientes previstos, el intervalo de confianza del riesgo relativo, de 0.9 a 1.4, es compatible tanto con un pequeño beneficio como con un daño apreciable de la estrategia conservadora, de modo que no permite descartar diferencias clínicamente importantes.",
+                "La segunda es el sesgo de selección posterior a la aleatorización: de 882 aleatorizados solo se analizaron 664, porque el resto quedó fuera al no obtenerse el consentimiento diferido o al retirarse en las primeras 24 horas por presentar ya al incluirlos un criterio de exclusión, y la ley neerlandesa impide describir a ese grupo, así que no se puede comprobar que los analizados sigan siendo comparables a lo que la aleatorización generó.",
+                "La tercera es la ejecución y la población: algunos pacientes del grupo alto no alcanzaron su objetivo, lo que pudo reducir el contraste, el diseño fue abierto y se excluyó a los pacientes con síndrome de dificultad respiratoria aguda grave o con enfermedad pulmonar obstructiva crónica descompensada, por lo que los resultados no se aplican a ellos.",
+                "La validez interna es aceptable pero frágil por el consentimiento diferido, y la externa se limita a adultos ventilados sin hipoxemia grave en UCI generales de Europa occidental."
+              ]
+            }
+          },
+          "revision": {
+            "fecha": "2026-11-15",
+            "cotejo": "VERDE",
+            "fiscal": "VERDE",
+            "omisiones": "VERDE",
+            "nota": "Versión breve: cotejo de cada frase contra su cita y revisión del fiscal, que además comprobó que las tres frases de la ficha dicen lo decisivo; sus propuestas se aplicaron."
+          }
+        }
+      ],
+      "relacionados": [
+        {
+          "motivo": "Tras un paro cardiaco",
+          "ids": [
+            251,
+            4
+          ]
+        },
+        {
+          "motivo": "Titulación automática del oxígeno",
+          "ids": [
+            197
+          ]
+        }
+      ]
+    }
+  ]
+}
