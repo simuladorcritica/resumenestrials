@@ -20,6 +20,8 @@ export async function isolate(context,base,{signedIn=false}={}){
   if(u.startsWith(base+'/'))return r.continue();
   if(u.includes('esm.sh/'))return r.fulfill({contentType:'application/javascript',body:anonModule});
   if(u.includes('jspdf'))return r.fulfill({contentType:'application/javascript',path:'node_modules/jspdf/dist/jspdf.umd.min.js'});
+  // El almacén de audios responde 404 con permiso de origen cuando un resumen no tiene audio (comprobado en producción): así se simula «sin audio».
+  if(u.startsWith('https://audio.resumenestrials.com/'))return r.fulfill({status:404,contentType:'text/html',headers:{'access-control-allow-origin':'*'},body:''});
   // All remote requests are intercepted; the suite cannot create users, mail or telemetry.
   return r.fulfill({status:200,contentType:u.includes('fonts.googleapis')?'text/css':'application/javascript',body:''});
  });
@@ -245,6 +247,45 @@ async function navigation(p,base,width){
  assert(await p.locator('a[href="/metodologia/"]').first().isVisible());await geometry(p);
 }
 const tool=async(p,name)=>{const button=p.locator('['+name+']');if(!(await button.isVisible())){await p.locator('[data-ev-more]').click();assert.equal(await p.locator('[data-ev-more]').getAttribute('aria-expanded'),'true')}return button};
+// Audio del resumen completo («Escuchar», reader-audio.js). El almacén de audios se simula: con ficha aparece el acceso bajo
+// el título, un toque lo hace sonar y el reproductor queda a la mano sin mover la barra de controles; sin ficha, con una
+// ficha que no es la que publica el generador o en el resumen breve, no aparece nada.
+async function audio(p,base,width){
+ const r=data[0],id=String(r.id),path=map[id].path,origin='https://audio.resumenestrials.com/',file='resumenes/'+id+'/0123456789abcdef.mp3';
+ const frame=Buffer.concat([Buffer.from([0xff,0xf3,0x84,0xc4]),Buffer.alloc(188)]),mp3=Buffer.concat(Array(5000).fill(frame));// 120 s de silencio
+ const state=()=>p.waitForFunction(()=>['ready','none'].includes(document.querySelector('[data-ev-reader]')?.dataset.evAudio)).then(()=>p.evaluate(()=>document.querySelector('[data-ev-reader]').dataset.evAudio));
+ const toolbar=()=>p.evaluate(()=>{const t=document.querySelector('.ev-toolbar'),o=t.getBoundingClientRect();return JSON.stringify([...t.children].filter(n=>!n.classList.contains('ev-audio')&&getComputedStyle(n).display!=='none').map(n=>{const q=n.getBoundingClientRect();return [Math.round(q.left-o.left),Math.round(q.top-o.top),Math.round(q.width),Math.round(q.height)]}))});
+ let card={id:Number(id),audio:file,huella:'0123456789abcdef',segundos:120,bytes:mp3.length,voz:'es-US-Wavenet-B',version:3};
+ await ready(p,path,base);assert.equal(await state(),'none','Without an audio card there is no listen control');assert.equal(await p.locator('[data-ev-listen],.ev-audio,[data-ev-listen-slot]').count(),0,'No audio: no control and no empty slot left behind');
+ await p.route(origin+'**',route=>{const u=route.request().url();if(u===origin+'resumenes/'+id+'.json')return route.fulfill({contentType:'application/json',headers:{'access-control-allow-origin':'*'},body:JSON.stringify(card)});if(u===origin+file)return route.fulfill({contentType:'audio/mpeg',headers:{'accept-ranges':'bytes','access-control-allow-origin':'*'},body:mp3});return route.fulfill({status:404,body:''})});
+ try{
+  card={...card,audio:'https://otro.example/x.mp3'};await ready(p,path,base);assert.equal(await state(),'none','A card that is not the generator\'s is ignored');assert.equal(await p.locator('[data-ev-listen]').count(),0);
+  card={...card,audio:file};await ready(p,path,base);assert.equal(await state(),'ready');
+  const entry=p.locator('[data-ev-listen=entrada]'),tool=p.locator('[data-ev-listen=barra]'),panel=p.locator('.ev-audio');
+  assert(await entry.isVisible());assert.match(await entry.textContent(),/Escuchar el resumen\s*2 min/);assert(await entry.evaluate(n=>n.parentElement.matches('[data-ev-listen-slot]')&&n.parentElement.previousElementSibling.matches('.ev-byline')&&!!n.closest('.ev-reading-head')),'Listen entry sits in its reserved slot right under the title and byline');
+  const entryBox=await entry.boundingBox();assert(entryBox.height>=44&&entryBox.x>=0&&entryBox.x+entryBox.width<=width,'Listen entry is a full touch target inside the viewport');
+  assert.equal(await tool.isVisible(),width>=900,'Toolbar shortcut only where it fits');assert(await panel.isHidden());assert(!(await p.evaluate(()=>document.documentElement.scrollWidth>innerWidth)),'No horizontal overflow with the listen control');
+  const before=await toolbar();
+  if(await p.evaluate(()=>!!new Audio().canPlayType('audio/mpeg'))){
+   await entry.click();await p.waitForFunction(()=>document.querySelector('.ev-audio')?.dataset.evAudioState==='playing');assert(await panel.isVisible());assert.match(await entry.textContent(),/Pausar el audio/);assert.equal(await entry.getAttribute('aria-pressed'),'true');
+   assert.equal(await toolbar(),before,'The player never moves the reading controls');
+   const barTop=await p.evaluate(()=>document.querySelector('.ev-toolbar').getBoundingClientRect().top);
+   const controls=await panel.locator('button,input').evaluateAll(n=>n.map(x=>{const q=x.getBoundingClientRect();return {w:q.width,h:q.height,l:q.left,r:q.right,b:q.bottom}}));assert.equal(controls.length,6);assert(controls.every(c=>c.w>=44&&c.h>=44&&c.l>=0&&c.r<=width+.5),'Player controls are >=44px and inside the viewport');
+   if(width<720)assert(controls.every(c=>c.b<=barTop+1),'On phones the player sits on top of the bottom bar');
+   assert(!(await p.evaluate(()=>document.documentElement.scrollWidth>innerWidth)));
+   const at=()=>p.locator('[data-ev-audio-bar]').evaluate(n=>Number(n.value));
+   await p.locator('[data-ev-audio-forward]').click();await p.locator('[data-ev-audio-forward]').click();await p.waitForFunction(()=>Number(document.querySelector('[data-ev-audio-bar]').value)>=29);
+   await p.locator('[data-ev-audio-back]').click();await p.waitForFunction(()=>{const v=Number(document.querySelector('[data-ev-audio-bar]').value);return v>=14&&v<=20});
+   await p.locator('[data-ev-audio-rate]').click();assert.equal((await p.locator('[data-ev-audio-rate]').textContent()).trim(),'1,25×');assert.equal(await p.evaluate(()=>localStorage.getItem('ev-audio-rate')),'1.25');
+   await p.locator('[data-ev-audio-bar]').evaluate(n=>{n.value='60';n.dispatchEvent(new Event('input'));n.dispatchEvent(new Event('change'))});await p.waitForFunction(()=>Number(document.querySelector('[data-ev-audio-bar]').value)>=59);assert.match(await p.locator('[data-ev-audio-now]').textContent(),/^1:0\d$/);assert.equal(await p.locator('[data-ev-audio-total]').textContent(),'2:00');
+   await p.locator('[data-ev-audio-play]').click();await p.waitForFunction(()=>document.querySelector('.ev-audio')?.dataset.evAudioState==='paused');assert.match(await entry.textContent(),/Continuar el audio\s*1:0\d de 2:00/);const paused=await at();await p.waitForTimeout(400);assert.equal(await at(),paused,'Paused audio does not advance');
+   await p.locator('[data-ev-audio-close]').click();assert(await panel.isHidden());assert.equal(await toolbar(),before);assert(!(await p.evaluate(()=>document.querySelector('.ev-toolbar').classList.contains('ev-audio-open'))));
+   await ready(p,path,base);assert.equal(await state(),'ready');assert.match(await p.locator('[data-ev-listen=entrada]').textContent(),/Continuar el audio\s*1:0\d de 2:00/,'The listening position is remembered');assert.equal((await p.evaluate(()=>localStorage.getItem('ev-audio-rate'))),'1.25');
+   await p.evaluate(i=>{localStorage.removeItem('ev-audio-rate');localStorage.removeItem('ev-audio-pos:'+i)},id);
+  }
+  await p.locator('.ev-version a').nth(1).click();await p.waitForFunction(()=>document.querySelector('[data-ev-reader]')?.dataset.evBrief==='true'&&document.querySelector('[data-ev-sections]')?.onclick);await p.waitForTimeout(500);assert.equal(await p.locator('[data-ev-listen],.ev-audio').count(),0,'The brief summary has no audio');
+ }finally{await p.unroute(origin+'**')}
+}
 async function reader(p,base,width){
  for(const [id,badge]of [['98','Neumología'],['165','Neumología'],['168','']]){
   const record=data.find(r=>String(r.id)===id);await ready(p,'/archivo/',base);await p.fill('#ev-q',record.titulo);await p.waitForURL(u=>u.searchParams.get('q')===record.titulo);
@@ -277,6 +318,7 @@ async function reader(p,base,width){
  await p.goto(base+'/archivo/');await ready(p,'/',base);assert.equal(await shownCards(),Math.min(12,feedOrder.length),'A fresh visit to the cover starts with 12 cards');
  // Un resumen sin ningún ensayo afín no muestra la sección de evidencia relacionada (mejor ninguno que uno que no viene al caso).
  const lone=Object.keys(map).find(k=>!map[k].relacionados.length);assert(lone,'Some summary has no related evidence');await ready(p,map[lone].path,base);await p.waitForFunction(()=>document.querySelector('[data-ev-reader]')?.dataset.evContinuity==='ready');assert.equal(await p.locator('[data-ev-related] .ev-card').count(),0);assert(await p.locator('.ev-related').isHidden(),'No related evidence, no empty section');
+ await audio(p,base,width);
 }
 async function pdfCheck(download,{brief,format}){const name=download.suggestedFilename();assert(name.endsWith('.pdf'));assert(name.includes(brief?'breve':'completo'),name);if(format)assert(name.endsWith('_'+format+'.pdf'),name);const tmp=await download.path();assert(fs.statSync(tmp).size>3000);const bytes=fs.readFileSync(tmp);assert.equal(bytes.subarray(0,5).toString(),'%PDF-');assert(bytes.includes(Buffer.from('/Subtype /Image')),'No logo image');for(const font of ['Newsreader-Medium','Literata-Regular','RTSans-Regular','RTSansCondensed-SemiBold'])assert(bytes.includes(Buffer.from('/BaseFont /'+font)),'PDF sin la fuente incrustada '+font);assert(bytes.includes(Buffer.from('/FontFile2')),'Fuentes no incrustadas');assert(!bytes.includes(Buffer.from('/ca 0.045')),'Marca de agua');return name}
 async function downloads(p,base){
