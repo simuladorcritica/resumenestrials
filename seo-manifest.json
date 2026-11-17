@@ -9078,5 +9078,31 @@
       "population": "Entraron adultos sin diabetes con un índice de masa corporal (IMC) de 30 o más, o de 27 o más con al menos una complicación de la obesidad (hipertensión, dislipidemia, apnea obstructiva del sueño o enfermedad cardiovascular), y al menos un intento fallido de bajar de peso con dieta. Según su propia declaración, el 76.1% eran blancos, el 19.2% negros y el 26.1% hispanos, todos de Estados Unidos, incluido Puerto Rico."
     },
     "datePublished": "2026-11-17"
+  },
+  "336": {
+    "slug": "matinee-mepolizumab-prevenir-exacerbaciones-epoc-fenotipo-eosinofilico",
+    "path": "/trials/matinee-mepolizumab-prevenir-exacerbaciones-epoc-fenotipo-eosinofilico/",
+    "url": "https://resumenestrials.com/trials/matinee-mepolizumab-prevenir-exacerbaciones-epoc-fenotipo-eosinofilico/",
+    "title": "MATINEE: mepolizumab para prevenir las exacerbaciones de la EPOC con fenotipo eosinofílico",
+    "seo_title": "MATINEE trial: mepolizumab para prevenir las exacerbaciones de la EPOC con fenotipo eosinofílico | Resúmenes Trials",
+    "description": "MATINEE: En pacientes con EPOC, exacerbaciones frecuentes y al menos 300 eosinófilos por microlitro que recibían triple terapia inhalada, la tasa anualizada…",
+    "clusters": [
+      {
+        "name": "Neumología",
+        "path": "/medicina-interna/neumologia/",
+        "url": "https://resumenestrials.com/medicina-interna/neumologia/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/matinee-mepolizumab-prevenir-exacerbaciones-epoc-fenotipo-eosinofilico-16x9.jpg",
+      "https://resumenestrials.com/images/trials/matinee-mepolizumab-prevenir-exacerbaciones-epoc-fenotipo-eosinofilico-4x3.jpg",
+      "https://resumenestrials.com/images/trials/matinee-mepolizumab-prevenir-exacerbaciones-epoc-fenotipo-eosinofilico-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Evaluar si añadir mepolizumab a la triple terapia inhalada reduce la tasa anualizada de exacerbaciones moderadas o graves en pacientes con EPOC, exacerbaciones frecuentes y fenotipo eosinofílico.",
+      "answer": "En pacientes con EPOC, exacerbaciones frecuentes y al menos 300 eosinófilos por microlitro que recibían triple terapia inhalada, la tasa anualizada de exacerbaciones moderadas o graves fue de 0.80 con mepolizumab frente a 1.01 con placebo (razón de tasas 0.79; IC 95% 0.66 a 0.94; P = 0.01) .",
+      "population": "Se estudió a pacientes de 40 años o más con enfermedad pulmonar obstructiva crónica (EPOC) de al menos 1 año, fumadores o exfumadores de al menos 10 paquetes-año, con obstrucción de moderada a muy grave (cociente FEV1/capacidad vital forzada menor de 0.70 y volumen espiratorio forzado en el primer segundo, FEV1, de más del 20% y hasta el 80% del predicho). En los 12 meses previos debían haber tenido al menos dos exacerbaciones…"
+    },
+    "datePublished": "2026-11-17"
   }
 }
