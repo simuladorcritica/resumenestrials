@@ -4,7 +4,7 @@
     "category": "Medicina Crítica",
     "path": "/medicina-critica/sepsis-shock/",
     "url": "https://resumenestrials.com/medicina-critica/sepsis-shock/",
-    "count": 25,
+    "count": 26,
     "trial_ids": [
       "2",
       "9",
@@ -30,7 +30,8 @@
       "230",
       "255",
       "256",
-      "257"
+      "257",
+      "333"
     ]
   },
   "ventilacion-respiratoria": {
@@ -192,7 +193,7 @@
     "category": "Medicina Crítica",
     "path": "/medicina-critica/hemodinamica-cardiovascular/",
     "url": "https://resumenestrials.com/medicina-critica/hemodinamica-cardiovascular/",
-    "count": 22,
+    "count": 23,
     "trial_ids": [
       "2",
       "9",
@@ -215,7 +216,8 @@
       "202",
       "230",
       "233",
-      "257"
+      "257",
+      "333"
     ]
   },
   "paro-resucitacion": {
@@ -245,7 +247,7 @@
     "category": "Medicina Crítica",
     "path": "/medicina-critica/infecciones-antibioticos/",
     "url": "https://resumenestrials.com/medicina-critica/infecciones-antibioticos/",
-    "count": 12,
+    "count": 13,
     "trial_ids": [
       "7",
       "31",
@@ -258,7 +260,8 @@
       "212",
       "229",
       "255",
-      "256"
+      "256",
+      "333"
     ]
   },
   "cardiovascular": {
