@@ -4,10 +4,14 @@ name: Voz · generar
 # almacén (Cloudflare R2): `python tools/voz.py generar`, según tools/voz_plan.json. Solo genera lo que falta: el
 # audio de un resumen se identifica por la huella de lo que se lee, así que nada se genera ni se paga dos veces, y
 # el de un resumen corregido se retira antes de generar el nuevo. Con "automatico": false en el plan solo se generan
-# los resúmenes de "piloto". Respeta el tope mensual de caracteres del plan (la parte gratuita de Google).
+# los resúmenes de "piloto". Atiende primero los corregidos, luego los nuevos y al final el archivo antiguo, y de un
+# resumen corregido solo vuelve a generar la parte que cambió. Nunca pasa del tope mensual de caracteres del plan (la
+# parte gratuita de Google): lo que no cabe se queda en cola para el mes siguiente.
 # Necesita los secretos GOOGLE_TTS_API_KEY, R2_ACCOUNT_ID, R2_ACCESS_KEY_ID, R2_SECRET_ACCESS_KEY y R2_BUCKET;
-# sin ellos termina con un aviso y sin fallar. No toca `main` ni cambia ningún resumen. El informe de cada
-# ejecución queda en la rama suelta `voz-estado` (se sobrescribe; no se publica).
+# sin ellos termina con un aviso y sin fallar. Con TELEGRAM_BOT_TOKEN y TELEGRAM_CHAT_ID (los del canal de alertas)
+# avisa al editor, una sola vez, cuando un resumen se queda sin audio por cupo, por una guarda o por un error.
+# No toca `main` ni cambia ningún resumen. El informe de cada ejecución queda en la rama suelta `voz-estado`
+# (se sobrescribe; no se publica).
 on:
   workflow_dispatch:
     inputs:
@@ -79,6 +83,8 @@ jobs:
           R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
           R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
           R2_BUCKET: ${{ secrets.R2_BUCKET }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           IDS: ${{ inputs.ids }}
           MAXIMO: ${{ inputs.maximo }}
         run: |
