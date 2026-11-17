@@ -383,10 +383,13 @@ import re  # noqa: E402
 orden = re.findall(r'<a class="ev-q-title" href="/preguntas/([a-z0-9-]+)/">', portada)
 # Las dos de prueba son las más recientes; detrás van las reales, de la más reciente a la más antigua (las de un mismo día, en el orden del archivo).
 esperado = [extra[1], extra[0]] + sorted(preguntas, key=lambda y: y["fecha_publicacion"], reverse=True)
-assert orden == [y["slug"] for y in esperado[:st.QUESTION_HOME]], "la portada muestra las tres preguntas más recientes, la última primero"
-resto = re.search(r'<details class="ev-q-more"><summary class="ev-btn">Ver las (\d+) preguntas restantes</summary><ul>(.*?)</ul></details>', portada)
-assert resto and int(resto[1]) == len(esperado) - st.QUESTION_HOME and re.findall(r'<li><a href="/preguntas/([a-z0-9-]+)/">', resto[2]) == [y["slug"] for y in esperado[st.QUESTION_HOME:]], "las demás preguntas van enlazadas en el desplegable"
-assert portada.count('<article class="ev-q-card">') == 3 and "Hallazgo" not in portada
+assert orden == [y["slug"] for y in esperado], "la portada lleva una tarjeta por pregunta, de la más reciente a la más antigua"
+resto = re.search(r'<details class="ev-q-more"><summary class="ev-btn">Ver las (\d+) preguntas restantes</summary>(.*?)</details>', portada, re.S)
+assert resto and re.findall(r'<a class="ev-q-title" href="/preguntas/([a-z0-9-]+)/">', portada[:resto.start()]) == [y["slug"] for y in esperado[:st.QUESTION_HOME]], "a la vista quedan las tres preguntas más recientes, la última primero"
+# Al desplegarse, las demás se ven como las de arriba: la misma tarjeta con su línea de tiempo, no una lista de enlaces (decisión del editor, 16-nov-2026).
+assert int(resto[1]) == len(esperado) - st.QUESTION_HOME and re.findall(r'<a class="ev-q-title" href="/preguntas/([a-z0-9-]+)/">', resto[2]) == [y["slug"] for y in esperado[st.QUESTION_HOME:]], "las demás preguntas van en el desplegable, en orden"
+assert resto[2].count('<article class="ev-q-card">') == resto[2].count('class="ev-q-line') == len(esperado) - st.QUESTION_HOME and "<ul>" not in resto[2], "cada pregunta del desplegable lleva la misma tarjeta, con su línea de tiempo"
+assert portada.count('<article class="ev-q-card">') == len(esperado) and "Hallazgo" not in portada
 assert ("<details" in st.question_cover(list(trials.values()))) == (len(preguntas) > st.QUESTION_HOME), "el desplegable solo aparece cuando hay más preguntas que tarjetas"
 
 assert st.QUESTIONS_PATH.read_bytes() == antes, "las pruebas no deben modificar preguntas-clinicas.json"
