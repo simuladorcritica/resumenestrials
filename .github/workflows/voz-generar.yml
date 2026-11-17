@@ -1,0 +1,102 @@
+name: Voz · generar
+
+# Genera el audio de los resúmenes completos (Google Cloud Text-to-Speech, voz elegida por el editor) y lo sube al
+# almacén (Cloudflare R2): `python tools/voz.py generar`, según tools/voz_plan.json. Solo genera lo que falta: el
+# audio de un resumen se identifica por la huella de lo que se lee, así que nada se genera ni se paga dos veces, y
+# el de un resumen corregido se retira antes de generar el nuevo. Con "automatico": false en el plan solo se generan
+# los resúmenes de "piloto". Respeta el tope mensual de caracteres del plan (la parte gratuita de Google).
+# Necesita los secretos GOOGLE_TTS_API_KEY, R2_ACCOUNT_ID, R2_ACCESS_KEY_ID, R2_SECRET_ACCESS_KEY y R2_BUCKET;
+# sin ellos termina con un aviso y sin fallar. No toca `main` ni cambia ningún resumen. El informe de cada
+# ejecución queda en la rama suelta `voz-estado` (se sobrescribe; no se publica).
+on:
+  workflow_dispatch:
+    inputs:
+      ids:
+        description: 'Solo estos resúmenes (números separados por comas). Vacío: los que falten según el plan.'
+        required: false
+        default: ''
+      maximo:
+        description: 'Máximo de resúmenes en esta ejecución. Vacío: el del plan.'
+        required: false
+        default: ''
+  push:
+    branches: [main]
+    paths:
+      - resumenes.json
+      - tools/voz.py
+      - tools/voz_lexico.json
+      - tools/voz_plan.json
+  schedule:
+    - cron: '17 10 * * *'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: voz-generar
+  cancel-in-progress: false
+
+jobs:
+  generar:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 350
+    steps:
+      - name: Comprobar los secretos
+        id: claves
+        env:
+          GOOGLE_TTS_API_KEY: ${{ secrets.GOOGLE_TTS_API_KEY }}
+          R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          R2_BUCKET: ${{ secrets.R2_BUCKET }}
+        run: |
+          faltan=""
+          for nombre in GOOGLE_TTS_API_KEY R2_ACCOUNT_ID R2_ACCESS_KEY_ID R2_SECRET_ACCESS_KEY R2_BUCKET; do
+            if [ -z "${!nombre:-}" ]; then faltan="$faltan $nombre"; fi
+          done
+          if [ -n "$faltan" ]; then
+            echo "::warning::Faltan secretos:$faltan. No se genera ningún audio. Añádelos en Settings → Secrets and variables → Actions y pulsa «Run workflow»."
+            echo "ok=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "ok=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Descargar el repositorio
+        if: steps.claves.outputs.ok == 'true'
+        uses: actions/checkout@v7.0.1
+
+      - name: Preparar Python
+        if: steps.claves.outputs.ok == 'true'
+        uses: actions/setup-python@v7.1.0
+        with:
+          python-version: '3.12'
+
+      - name: Generar y subir el audio
+        if: steps.claves.outputs.ok == 'true'
+        env:
+          GOOGLE_TTS_API_KEY: ${{ secrets.GOOGLE_TTS_API_KEY }}
+          R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          R2_BUCKET: ${{ secrets.R2_BUCKET }}
+          IDS: ${{ inputs.ids }}
+          MAXIMO: ${{ inputs.maximo }}
+        run: |
+          opciones=(--informe "$RUNNER_TEMP/estado")
+          IDS="${IDS// /}"
+          if [[ "$IDS" =~ ^[0-9,]+$ ]]; then opciones+=(--ids "$IDS"); fi
+          if [[ "${MAXIMO:-}" =~ ^[0-9]+$ ]]; then opciones+=(--maximo "$MAXIMO"); fi
+          python tools/voz.py generar "${opciones[@]}"
+
+      - name: Dejar el informe en la rama voz-estado
+        if: always() && steps.claves.outputs.ok == 'true'
+        run: |
+          mkdir -p "$RUNNER_TEMP/estado"
+          cd "$RUNNER_TEMP/estado"
+          [ -f informe.json ] || echo '{"error": "la orden no llegó a escribir el informe"}' > informe.json
+          git init -q -b voz-estado
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -q -m "Estado del audio ($(date -u +%Y-%m-%dT%H:%MZ), $GITHUB_SHA)"
+          git push -q --force "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" voz-estado

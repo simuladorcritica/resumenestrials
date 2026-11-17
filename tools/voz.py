@@ -16,26 +16,36 @@ las voces que admiten SSML (WaveNet, la elegida) van dentro de <lang xml:lang="e
   python tools/voz.py comprobar             pasa las guardas a todos los resúmenes (sale con 1 si alguno falla)
   python tools/voz.py muestras --salida D   genera las muestras de tools/voz_muestras.json en la carpeta D
                                             (necesita la variable de entorno GOOGLE_TTS_API_KEY; nunca se imprime)
+  python tools/voz.py generar [--ids 2,69] [--maximo N] [--informe D]
+                                            genera el audio de los resúmenes que no lo tienen vigente y lo sube al
+                                            almacén (Cloudflare R2), según tools/voz_plan.json. Necesita además
+                                            R2_ACCOUNT_ID, R2_ACCESS_KEY_ID, R2_SECRET_ACCESS_KEY y R2_BUCKET.
 """
 import argparse
 import base64
+import datetime
+import hashlib
+import hmac
 import html
 import json
 import os
 import re
 import sys
+import time
 import unicodedata
 import urllib.error
+import urllib.parse
 import urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-VERSION = 3  # Sube cuando cambien las reglas de lectura o el léxico: el audio ya generado deja de valer.
+VERSION = 3  # Sube cuando cambien las reglas de lectura o el léxico (queda anotada en cada audio generado).
 LEX = json.loads((ROOT / "tools" / "voz_lexico.json").read_text(encoding="utf-8"))
 SIN_VOZ = {"Referencia y registro"}
 LIMITE_BYTES = 4500  # La API admite 5000 bytes de texto por petición.
 LIMITE_SSML = 4900  # Con SSML las etiquetas también cuentan para esos 5000 bytes.
 IDIOMA_NOMBRES = "en-US"  # Idioma en que se dicen los nombres de ensayos y revistas.
+VOZ = "es-US-Wavenet-B"  # Voz elegida por el editor (16-nov-2026).
 MESES = "enero febrero marzo abril mayo junio julio agosto septiembre octubre noviembre diciembre".split()
 
 # ---------- Texto publicado ----------
@@ -404,27 +414,37 @@ def resumenes():
 # ---------- Google Cloud Text-to-Speech ----------
 
 API = "https://texttospeech.googleapis.com/v1"
+AUDIO = {"audioEncoding": "MP3"}
+REINTENTOS = 4  # Ante un fallo pasajero (429, 5xx o red) se reintenta con espera creciente.
+ESPERA = 5
 
 
 def _api(ruta, clave, cuerpo=None):
     datos = json.dumps(cuerpo).encode("utf-8") if cuerpo is not None else None
-    req = urllib.request.Request(API + ruta, data=datos, headers={"X-Goog-Api-Key": clave, "Content-Type": "application/json; charset=utf-8"})
-    try:
-        with urllib.request.urlopen(req, timeout=120) as resp:
-            return json.loads(resp.read().decode("utf-8"))
-    except urllib.error.HTTPError as e:
+    for intento in range(1, REINTENTOS + 1):
+        req = urllib.request.Request(API + ruta, data=datos, headers={"X-Goog-Api-Key": clave, "Content-Type": "application/json; charset=utf-8"})
         try:
-            detalle = json.loads(e.read().decode("utf-8")).get("error", {}).get("message", "")
-        except (ValueError, OSError):
-            detalle = ""
-        raise SystemExit(f"Google Cloud respondió {e.code} en {ruta.split('?')[0]}: {detalle[:300]}") from None
-    except urllib.error.URLError as e:
-        raise SystemExit(f"No se pudo conectar con Google Cloud: {e.reason}") from None
+            with urllib.request.urlopen(req, timeout=120) as resp:
+                return json.loads(resp.read().decode("utf-8"))
+        except urllib.error.HTTPError as e:
+            if e.code in (429, 500, 502, 503, 504) and intento < REINTENTOS:
+                time.sleep(ESPERA * intento)
+                continue
+            try:
+                detalle = json.loads(e.read().decode("utf-8")).get("error", {}).get("message", "")
+            except (ValueError, OSError):
+                detalle = ""
+            raise SystemExit(f"Google Cloud respondió {e.code} en {ruta.split('?')[0]}: {detalle[:300]}") from None
+        except urllib.error.URLError as e:
+            if intento < REINTENTOS:
+                time.sleep(ESPERA * intento)
+                continue
+            raise SystemExit(f"No se pudo conectar con Google Cloud: {e.reason}") from None
 
 
 def sintetizar(texto, voz, idioma, clave, es_ssml=False):
     """MP3 de un texto o de un SSML (ya dentro del límite de bytes)."""
-    cuerpo = {"input": {"ssml" if es_ssml else "text": texto}, "voice": {"languageCode": idioma, "name": voz}, "audioConfig": {"audioEncoding": "MP3"}}
+    cuerpo = {"input": {"ssml" if es_ssml else "text": texto}, "voice": {"languageCode": idioma, "name": voz}, "audioConfig": AUDIO}
     return base64.b64decode(_api("/text:synthesize", clave, cuerpo)["audioContent"])
 
 
@@ -532,6 +552,236 @@ def cmd_muestras(args):
     return 0
 
 
+# ---------- Almacén de audios (Cloudflare R2, API compatible con S3) ----------
+
+def firma_v4(metodo, host, ruta, cabeceras, hash_cuerpo, clave_id, secreto, region="auto", servicio="s3"):
+    """Cabecera Authorization (AWS Signature V4). `cabeceras` lleva x-amz-date; se firman todas, junto con host."""
+    todas = {k.lower(): " ".join(str(v).split()) for k, v in cabeceras.items()}
+    todas["host"] = host
+    firmadas = ";".join(sorted(todas))
+    canonica = "\n".join([metodo, urllib.parse.quote(ruta, safe="/-_.~"), "", "".join(f"{k}:{todas[k]}\n" for k in sorted(todas)), firmadas, hash_cuerpo])
+    fecha = todas["x-amz-date"]
+    ambito = f"{fecha[:8]}/{region}/{servicio}/aws4_request"
+    a_firmar = "\n".join(["AWS4-HMAC-SHA256", fecha, ambito, hashlib.sha256(canonica.encode("utf-8")).hexdigest()])
+    clave = ("AWS4" + secreto).encode("utf-8")
+    for parte in (fecha[:8], region, servicio, "aws4_request"):
+        clave = hmac.new(clave, parte.encode("utf-8"), hashlib.sha256).digest()
+    firma = hmac.new(clave, a_firmar.encode("utf-8"), hashlib.sha256).hexdigest()
+    return f"AWS4-HMAC-SHA256 Credential={clave_id}/{ambito},SignedHeaders={firmadas},Signature={firma}"
+
+
+class Almacen:
+    """Cubo de Cloudflare R2. Solo lo que hace falta: leer, escribir, comprobar y borrar un objeto.
+    Las claves vienen de variables de entorno (secretos de GitHub) y nunca se imprimen."""
+
+    def __init__(self, cuenta, clave_id, secreto, cubo, base=None):
+        self.base = base or f"https://{cuenta}.r2.cloudflarestorage.com"
+        self.host = urllib.parse.urlsplit(self.base).netloc
+        self.clave_id, self.secreto, self.cubo = clave_id, secreto, cubo
+
+    def _pedir(self, metodo, clave, cuerpo=b"", extra=None):
+        ruta = f"/{self.cubo}/{clave}"
+        for intento in range(1, REINTENTOS + 1):
+            cab = {"x-amz-date": datetime.datetime.now(datetime.timezone.utc).strftime("%Y%m%dT%H%M%SZ"), "x-amz-content-sha256": hashlib.sha256(cuerpo).hexdigest(), **(extra or {})}
+            cab["Authorization"] = firma_v4(metodo, self.host, ruta, cab, cab["x-amz-content-sha256"], self.clave_id, self.secreto)
+            req = urllib.request.Request(self.base + urllib.parse.quote(ruta, safe="/-_.~"), data=cuerpo if metodo == "PUT" else None, headers=cab, method=metodo)
+            try:
+                with urllib.request.urlopen(req, timeout=300) as resp:
+                    return resp.status, resp.read(), dict(resp.headers)
+            except urllib.error.HTTPError as e:
+                if e.code == 404:
+                    return 404, b"", {}
+                if e.code in (429, 500, 502, 503, 504) and intento < REINTENTOS:
+                    time.sleep(ESPERA * intento)
+                    continue
+                # Del error solo se muestran el código y el mensaje: la respuesta completa repite datos de la petición.
+                texto = e.read()[:2000].decode("utf-8", "replace")
+                detalle = " · ".join(m.group(1) for m in (re.search(r"<Code>([^<]*)</Code>", texto), re.search(r"<Message>([^<]*)</Message>", texto)) if m)
+                raise SystemExit(f"El almacén respondió {e.code} a {metodo} {clave}: {detalle[:300]}") from None
+            except urllib.error.URLError as e:
+                if intento < REINTENTOS:
+                    time.sleep(ESPERA * intento)
+                    continue
+                raise SystemExit(f"No se pudo conectar con el almacén: {e.reason}") from None
+
+    def leer(self, clave):
+        estado, cuerpo, _ = self._pedir("GET", clave)
+        return None if estado == 404 else cuerpo
+
+    def existe(self, clave):
+        """Tamaño en bytes del objeto, o None si no existe."""
+        estado, _, cab = self._pedir("HEAD", clave)
+        return None if estado == 404 else int({k.lower(): v for k, v in cab.items()}.get("content-length", 0))
+
+    def escribir(self, clave, datos, tipo, cache):
+        self._pedir("PUT", clave, datos, {"content-type": tipo, "cache-control": cache})
+
+    def borrar(self, clave):
+        self._pedir("DELETE", clave)
+
+
+# ---------- Generación del audio de los resúmenes ----------
+
+PLAN = ROOT / "tools" / "voz_plan.json"
+CACHE_AUDIO = "public, max-age=31536000, immutable"  # El nombre del archivo lleva la huella: nunca cambia.
+CACHE_FICHA = "public, max-age=60"
+
+
+def peticiones(r):
+    """Lo que se envía a Google para leer un resumen entero: SSML con los nombres en inglés."""
+    return trozos_ssml(bloques(r, True))
+
+
+def huella(r):
+    """Identifica el audio vigente de un resumen: cambia solo si cambia lo que se envía a leer (el texto publicado o
+    una regla de lectura que le afecte), la voz o el formato del audio. Un cambio del léxico que no toca a un resumen
+    no le cambia la huella, así que no obliga a generarlo otra vez."""
+    h = hashlib.sha256(f"{VOZ}\n{json.dumps(AUDIO, sort_keys=True)}\n".encode("utf-8"))
+    for p in peticiones(r):
+        h.update(p.encode("utf-8") + b"\n")
+    return h.hexdigest()[:16]
+
+
+def segundos_mp3(datos):
+    """Duración de un MP3 recorriendo sus tramas; falla si entre trama y trama hay algo que no es audio."""
+    i, muestras, frecuencia = 0, 0, 0
+    while i < len(datos):
+        if i + 4 > len(datos) or datos[i] != 0xFF or datos[i + 1] & 0xE0 != 0xE0:
+            raise ValueError(f"el MP3 no es una sucesión limpia de tramas (byte {i})")
+        cab = int.from_bytes(datos[i:i + 4], "big")
+        version, capa, tasa, frec, relleno = (cab >> 19) & 3, (cab >> 17) & 3, (cab >> 12) & 15, (cab >> 10) & 3, (cab >> 9) & 1
+        if version == 1 or capa != 1 or tasa in (0, 15) or frec == 3:
+            raise ValueError(f"trama de MP3 no reconocida (byte {i})")
+        kbps = ((0, 32, 40, 48, 56, 64, 80, 96, 112, 128, 160, 192, 224, 256, 320) if version == 3 else (0, 8, 16, 24, 32, 40, 48, 56, 64, 80, 96, 112, 128, 144, 160))[tasa]
+        frecuencia = {3: (44100, 48000, 32000), 2: (22050, 24000, 16000), 0: (11025, 12000, 8000)}[version][frec]
+        i += (144 if version == 3 else 72) * kbps * 1000 // frecuencia + relleno
+        muestras += 1152 if version == 3 else 576
+    if not muestras or i != len(datos):
+        raise ValueError("el MP3 está vacío o termina a media trama")
+    return muestras / frecuencia
+
+
+def generar(datos, plan, almacen, sintetiza, ahora, ids=None, maximo=None, avisar=print):
+    """Genera el audio de los resúmenes que no lo tienen vigente y devuelve un informe.
+
+    En el almacén quedan: `resumenes/<id>/<huella>.mp3` (el audio), `resumenes/<id>.json` (la ficha que consulta la
+    página; existe solo si el audio vigente existe), `indice.json` (todas las fichas) y `estado/uso.json` (caracteres
+    enviados a Google cada mes). Antes de generar nada, retira la ficha y el audio de todo resumen cuyo texto, voz o
+    reglas hayan cambiado, de modo que la página nunca ofrece un audio que ya no corresponde.
+    Con `"automatico": false` en el plan solo se generan los resúmenes de `piloto`.
+    """
+    mes = ahora[:7]
+    tope = int(plan.get("tope_mensual", 0))
+    indice = json.loads((almacen.leer("indice.json") or b"{}").decode("utf-8")).get("resumenes", {})
+    uso = json.loads((almacen.leer("estado/uso.json") or b"{}").decode("utf-8"))
+    uso.setdefault(mes, 0)
+    informe = {"fecha": ahora, "version": VERSION, "voz": VOZ, "automatico": bool(plan.get("automatico")), "total": len(datos), "generados": [], "recuperados": [],
+               "retirados": [], "con_problemas": {}, "caracteres_ejecucion": 0, "tope_mensual": tope, "detenido_por": "", "error": ""}
+
+    def guardar_indice():
+        cuerpo = {"version": VERSION, "voz": VOZ, "actualizado": ahora, "resumenes": dict(sorted(indice.items(), key=lambda kv: int(kv[0])))}
+        almacen.escribir("indice.json", json.dumps(cuerpo, ensure_ascii=False, indent=1).encode("utf-8"), "application/json; charset=utf-8", CACHE_FICHA)
+
+    # 1. Qué audio le corresponde hoy a cada resumen publicado (solo a los que pasan las guardas).
+    vigente, por_id = {}, {}
+    for r in datos:
+        clave = str(int(r["id"]))
+        por_id[clave] = r
+        problemas = revisar(r)
+        if problemas:
+            informe["con_problemas"][clave] = problemas
+        else:
+            vigente[clave] = huella(r)
+
+    # 2. Retirar lo que ya no corresponde, antes de generar nada.
+    for clave, ficha in list(indice.items()):
+        if vigente.get(clave) != ficha.get("huella"):
+            almacen.borrar(f"resumenes/{clave}.json")
+            if ficha.get("audio"):
+                almacen.borrar(ficha["audio"])
+            del indice[clave]
+            informe["retirados"].append(int(clave))
+    if informe["retirados"]:
+        guardar_indice()
+
+    # 3. Los que faltan: primero los más recientes por fecha del artículo.
+    permitidos = None if plan.get("automatico") else {str(int(x)) for x in plan.get("piloto", [])}
+    if ids is not None:
+        pedidos = {str(int(x)) for x in ids}
+        permitidos = pedidos if permitidos is None else permitidos & pedidos
+    faltan = sorted((c for c in vigente if c not in indice), key=lambda c: (str(por_id[c].get("fecha") or ""), int(c)), reverse=True)
+    cola = [c for c in faltan if permitidos is None or c in permitidos]
+    limite = int(maximo if maximo is not None else plan.get("maximo_por_ejecucion", 0)) or len(cola)
+
+    # 4. Generar, subir y anotar, resumen por resumen (cada uno queda completo antes de pasar al siguiente).
+    for clave in cola:
+        if len(informe["generados"]) + len(informe["recuperados"]) >= limite:
+            informe["detenido_por"] = "máximo por ejecución"
+            break
+        r = por_id[clave]
+        destino = f"resumenes/{clave}/{vigente[clave]}.mp3"
+        envios = peticiones(r)
+        caracteres = sum(len(x) for x in envios)
+        tam = almacen.existe(destino)
+        if tam is None:
+            if tope and uso[mes] + caracteres > tope:
+                informe["detenido_por"] = "tope mensual"
+                break
+            try:
+                audio = b"".join(sintetiza(x) for x in envios)
+                duracion = segundos_mp3(audio)
+            except (SystemExit, ValueError) as e:
+                informe["error"] = f"resumen {clave}: {e}"
+                break
+            uso[mes] += caracteres
+            informe["caracteres_ejecucion"] += caracteres
+            almacen.escribir("estado/uso.json", json.dumps(uso, indent=1).encode("utf-8"), "application/json; charset=utf-8", CACHE_FICHA)
+            almacen.escribir(destino, audio, "audio/mpeg", CACHE_AUDIO)
+            tam = len(audio)
+            informe["generados"].append(int(clave))
+        else:  # el audio ya estaba (se perdió su ficha): no se vuelve a pagar por él
+            duracion = segundos_mp3(almacen.leer(destino))
+            informe["recuperados"].append(int(clave))
+        ficha = {"id": int(clave), "audio": destino, "huella": vigente[clave], "segundos": round(duracion), "bytes": tam, "voz": VOZ, "version": VERSION, "generado": ahora}
+        almacen.escribir(f"resumenes/{clave}.json", json.dumps(ficha, ensure_ascii=False).encode("utf-8"), "application/json; charset=utf-8", CACHE_FICHA)
+        indice[clave] = ficha
+        guardar_indice()
+        avisar(f"resumen {clave}: {round(duracion)} s, {tam} bytes, {caracteres} caracteres")
+
+    if not informe["generados"] and not informe["recuperados"] and not informe["retirados"]:
+        guardar_indice()
+    informe.update({"con_audio": len(indice), "pendientes": [int(c) for c in faltan if c not in indice], "caracteres_mes": uso[mes],
+                    "fuera_del_piloto": 0 if permitidos is None else sum(1 for c in faltan if c not in indice and c not in permitidos)})
+    return informe
+
+
+def cmd_generar(args):
+    nombres = ("GOOGLE_TTS_API_KEY", "R2_ACCOUNT_ID", "R2_ACCESS_KEY_ID", "R2_SECRET_ACCESS_KEY", "R2_BUCKET")
+    valores = {n: os.environ.get(n, "").strip() for n in nombres}
+    faltan = [n for n in nombres if not valores[n]]
+    if faltan:
+        print("Faltan secretos para generar el audio: " + ", ".join(faltan) + ".")
+        return 1
+    plan = json.loads(PLAN.read_text(encoding="utf-8"))
+    ids = [int(x) for x in re.findall(r"\d+", args.ids)] if args.ids else None
+    almacen = Almacen(valores["R2_ACCOUNT_ID"], valores["R2_ACCESS_KEY_ID"], valores["R2_SECRET_ACCESS_KEY"], valores["R2_BUCKET"])
+    ahora = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    idioma = "-".join(VOZ.split("-")[:2])
+    informe = generar(resumenes(), plan, almacen, lambda x: sintetizar(x, VOZ, idioma, valores["GOOGLE_TTS_API_KEY"], True), ahora, ids, args.maximo)
+    if args.informe:
+        Path(args.informe).mkdir(parents=True, exist_ok=True)
+        (Path(args.informe) / "informe.json").write_text(json.dumps(informe, ensure_ascii=False, indent=1), encoding="utf-8")
+    print(f"Audio: {informe['con_audio']} de {informe['total']} resúmenes con audio; generados ahora {len(informe['generados'])}, retirados {len(informe['retirados'])}, "
+          f"pendientes {len(informe['pendientes'])}; {informe['caracteres_ejecucion']} caracteres en esta ejecución y {informe['caracteres_mes']} en el mes (tope {informe['tope_mensual']})."
+          + (f" Detenido por {informe['detenido_por']}." if informe["detenido_por"] else ""))
+    if informe["con_problemas"]:
+        print("Sin audio por no pasar las guardas: " + ", ".join(sorted(informe["con_problemas"], key=int)))
+    if informe["error"]:
+        print("ERROR ·", informe["error"])
+        return 1
+    return 0
+
+
 # ---------- Órdenes ----------
 
 def cmd_texto(args):
@@ -570,6 +820,11 @@ def main():
     p = sub.add_parser("muestras")
     p.add_argument("--salida", required=True)
     p.set_defaults(func=cmd_muestras)
+    p = sub.add_parser("generar")
+    p.add_argument("--ids", default="")
+    p.add_argument("--maximo", type=int, default=None)
+    p.add_argument("--informe", default="")
+    p.set_defaults(func=cmd_generar)
     args = parser.parse_args()
     return args.func(args)
 

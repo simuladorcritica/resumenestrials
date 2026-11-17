@@ -188,4 +188,170 @@ finally:
         os.environ["GOOGLE_TTS_API_KEY"] = previa
 
 assert con_nombres > 1000, "los nombres de ensayos y revistas quedan marcados para decirse en inglés"
-print(f"VOZ PASS: {len(CASOS)} reglas de lectura, {len(MARCAS)} de nombres en inglés, {len(datos)} resúmenes sin perder cifras ni palabras ({total} caracteres para leer; {con_nombres} nombres marcados), guardas, trozos, SSML y plan de muestras")
+# 7. Almacén: la firma de las peticiones coincide con los ejemplos publicados por AWS (Signature V4 para S3).
+import hashlib  # noqa: E402
+import http.server  # noqa: E402
+import threading  # noqa: E402
+# Credenciales de ejemplo de la documentación de AWS (no son claves reales); van partidas para que ningún detector
+# de secretos las confunda con una clave de verdad.
+CLAVE_ID, SECRETO = "AKIA" + "IOSFODNN7" + "EXAMPLE", "wJalrXUtnFEMI/K7MDENG/" + "bPxRfiCY" + "EXAMPLEKEY"
+vacio = hashlib.sha256(b"").hexdigest()
+firma = voz.firma_v4("GET", "examplebucket.s3.amazonaws.com", "/test.txt", {"range": "bytes=0-9", "x-amz-content-sha256": vacio, "x-amz-date": "20130524T000000Z"}, vacio, CLAVE_ID, SECRETO, "us-east-1")
+assert firma == (f"AWS4-HMAC-SHA256 Credential={CLAVE_ID}/20130524/us-east-1/s3/aws4_request,SignedHeaders=host;range;x-amz-content-sha256;x-amz-date,"
+                 "Signature=f0e8bdb87c964420e857bd35b5d6ed310bd44f0170aba48dd91039c6036bdb41"), firma
+cuerpo = hashlib.sha256(b"Welcome to Amazon S3.").hexdigest()
+firma = voz.firma_v4("PUT", "examplebucket.s3.amazonaws.com", "/test$file.text", {"date": "Fri, 24 May 2013 00:00:00 GMT", "x-amz-content-sha256": cuerpo, "x-amz-date": "20130524T000000Z", "x-amz-storage-class": "REDUCED_REDUNDANCY"}, cuerpo, CLAVE_ID, SECRETO, "us-east-1")
+assert firma.endswith("Signature=98ad721746da40c64f1a55b78f14c238d841ea1380cd77a1b5971af0ece108bd"), firma
+
+
+# 7b. El cliente del almacén contra un servidor local que comprueba la firma de cada petición (sin salir a la red).
+class Cubo(http.server.BaseHTTPRequestHandler):
+    objetos, tipos, vistos = {}, {}, []
+
+    def _atender(self):
+        datos = self.rfile.read(int(self.headers.get("Content-Length") or 0))
+        firmadas = re.search(r"SignedHeaders=([^,]+)", self.headers["Authorization"]).group(1).split(";")
+        cab = {k: self.headers[k] for k in firmadas if k != "host"}
+        buena = voz.firma_v4(self.command, self.headers["Host"], self.path, cab, hashlib.sha256(datos).hexdigest(), CLAVE_ID, SECRETO)
+        Cubo.vistos.append(self.command)
+        if self.headers["Authorization"] != buena or self.headers["x-amz-content-sha256"] != hashlib.sha256(datos).hexdigest():
+            return self._responder(403, b"<Error><Code>SignatureDoesNotMatch</Code><Message>firma incorrecta</Message><AWSAccessKeyId>NO-MOSTRAR</AWSAccessKeyId></Error>")
+        if self.command == "PUT":
+            Cubo.objetos[self.path], Cubo.tipos[self.path] = datos, (self.headers["Content-Type"], self.headers["Cache-Control"])
+            return self._responder(200, b"")
+        if self.command == "DELETE":
+            Cubo.objetos.pop(self.path, None)
+            return self._responder(204, b"")
+        if self.path not in Cubo.objetos:
+            return self._responder(404, b"<Error><Code>NoSuchKey</Code></Error>")
+        self._responder(200, Cubo.objetos[self.path])
+
+    def _responder(self, estado, datos):
+        self.send_response(estado)
+        self.send_header("Content-Length", str(len(datos)))
+        self.end_headers()
+        if self.command != "HEAD":
+            self.wfile.write(datos)
+
+    do_GET = do_PUT = do_HEAD = do_DELETE = _atender
+
+    def log_message(self, *_):
+        pass
+
+
+os.environ["NO_PROXY"] = os.environ["no_proxy"] = "127.0.0.1,localhost"
+servidor = http.server.ThreadingHTTPServer(("127.0.0.1", 0), Cubo)
+threading.Thread(target=servidor.serve_forever, daemon=True).start()
+try:
+    base = f"http://127.0.0.1:{servidor.server_address[1]}"
+    cubo = voz.Almacen("cuenta", CLAVE_ID, SECRETO, "audios", base=base)
+    assert cubo.leer("resumenes/2.json") is None and cubo.existe("resumenes/2.json") is None, "lo que no existe se lee como None"
+    cubo.escribir("resumenes/2/abc.mp3", b"\xff\xf3" * 50, "audio/mpeg", voz.CACHE_AUDIO)
+    assert cubo.leer("resumenes/2/abc.mp3") == b"\xff\xf3" * 50 and cubo.existe("resumenes/2/abc.mp3") == 100
+    assert Cubo.tipos["/audios/resumenes/2/abc.mp3"] == ("audio/mpeg", voz.CACHE_AUDIO), "el audio se guarda con su tipo y su caché"
+    cubo.borrar("resumenes/2/abc.mp3")
+    assert cubo.leer("resumenes/2/abc.mp3") is None and Cubo.vistos == ["GET", "HEAD", "PUT", "GET", "HEAD", "DELETE", "GET"]
+    try:
+        voz.Almacen("cuenta", CLAVE_ID, "otro-secreto", "audios", base=base).escribir("x.json", b"{}", "application/json", voz.CACHE_FICHA)
+        raise AssertionError("una firma incorrecta debe detener la orden")
+    except SystemExit as e:
+        assert "403" in str(e) and "SignatureDoesNotMatch" in str(e) and "NO-MOSTRAR" not in str(e) and "otro-secreto" not in str(e), "del error solo se muestran el código y el mensaje"
+finally:
+    servidor.shutdown()
+
+
+# 8. Generación: almacén y voz simulados. Piloto, nada dos veces, retirada al cambiar el texto, topes y recuperación.
+class AlmacenFalso:
+    def __init__(self):
+        self.objetos, self.tipos = {}, {}
+
+    def leer(self, clave):
+        return self.objetos.get(clave)
+
+    def existe(self, clave):
+        return len(self.objetos[clave]) if clave in self.objetos else None
+
+    def escribir(self, clave, datos_, tipo, cache):
+        self.objetos[clave], self.tipos[clave] = datos_, (tipo, cache)
+
+    def borrar(self, clave):
+        self.objetos.pop(clave, None)
+
+
+TRAMA = b"\xff\xf3\x84\xc4" + bytes(188)  # una trama como las de WaveNet: MPEG-2 capa III, 64 kbps, 24 kHz, 576 muestras
+assert voz.segundos_mp3(TRAMA * 125) == 3.0
+for roto in (b"", TRAMA[:100], TRAMA + b"ID3" + TRAMA, b"\x00" + TRAMA):
+    try:
+        voz.segundos_mp3(roto)
+        raise AssertionError("un MP3 roto debe detectarse")
+    except ValueError:
+        pass
+enviados = []
+
+
+def voz_falsa(texto):
+    assert texto.startswith("<speak>") and len(texto.encode("utf-8")) <= 5000
+    enviados.append(texto)
+    return TRAMA * (len(texto) // 100 + 1)
+
+
+AHORA = "2026-11-17T02:00:00Z"
+cuatro = [por_id[i] for i in (2, 69, 113, 230)]
+assert voz.huella(por_id[2]) == voz.huella(json.loads(json.dumps(por_id[2]))) and re.fullmatch(r"[0-9a-f]{16}", voz.huella(por_id[2])), "la huella es determinista"
+assert len({voz.huella(r) for r in cuatro}) == 4
+version_previa, voz.VERSION = voz.VERSION, voz.VERSION + 1
+assert voz.huella(por_id[2]) == voz.huella(json.loads(json.dumps(por_id[2]))), "subir la versión sin cambiar lo que se lee no obliga a generar otra vez"
+voz.VERSION = version_previa
+plan_piloto = {"automatico": False, "piloto": [2, 69], "tope_mensual": 3900000, "maximo_por_ejecucion": 150}
+falso = AlmacenFalso()
+inf = voz.generar(cuatro, plan_piloto, falso, voz_falsa, AHORA, avisar=lambda *_: None)
+assert sorted(inf["generados"]) == [2, 69] and inf["con_audio"] == 2 and sorted(inf["pendientes"]) == [113, 230] and inf["fuera_del_piloto"] == 2 and not inf["error"], inf
+assert inf["generados"] == [2, 69], "primero el más reciente por fecha del artículo"
+ficha = json.loads(falso.objetos["resumenes/2.json"])
+assert ficha["audio"] == f"resumenes/2/{voz.huella(por_id[2])}.mp3" and ficha["bytes"] == len(falso.objetos[ficha["audio"]]) and ficha["segundos"] == round(voz.segundos_mp3(falso.objetos[ficha["audio"]])) and ficha["voz"] == voz.VOZ
+assert falso.tipos[ficha["audio"]] == ("audio/mpeg", voz.CACHE_AUDIO) and falso.tipos["resumenes/2.json"][0].startswith("application/json")
+assert set(json.loads(falso.objetos["indice.json"])["resumenes"]) == {"2", "69"}
+assert "".join(enviados[:len(voz.peticiones(por_id[2]))]) == "".join(voz.peticiones(por_id[2])), "se envía exactamente el SSML del resumen"
+usados = json.loads(falso.objetos["estado/uso.json"])["2026-11"]
+assert usados == inf["caracteres_ejecucion"] == sum(len(x) for x in enviados) == sum(len(x) for i in (2, 69) for x in voz.peticiones(por_id[i]))
+# Segunda ejecución: no se genera ni se paga nada dos veces.
+antes = len(enviados)
+inf = voz.generar(cuatro, plan_piloto, falso, voz_falsa, AHORA, avisar=lambda *_: None)
+assert not inf["generados"] and not inf["retirados"] and inf["caracteres_ejecucion"] == 0 and len(enviados) == antes and inf["con_audio"] == 2
+# Si el texto de un resumen cambia, su audio viejo se retira antes de generar el nuevo.
+corregido = dict(por_id[2], cuerpo=por_id[2]["cuerpo"].replace("mediana", "media", 1))
+assert voz.huella(corregido) != voz.huella(por_id[2])
+viejo = ficha["audio"]
+inf = voz.generar([corregido] + cuatro[1:], plan_piloto, falso, lambda _t: (_ for _ in ()).throw(SystemExit("Google Cloud respondió 429")), AHORA, avisar=lambda *_: None)
+assert inf["retirados"] == [2] and "429" in inf["error"] and "resumenes/2.json" not in falso.objetos and viejo not in falso.objetos and inf["con_audio"] == 1, "aunque la voz falle, el audio viejo ya no se ofrece"
+inf = voz.generar([corregido] + cuatro[1:], plan_piloto, falso, voz_falsa, AHORA, avisar=lambda *_: None)
+assert inf["generados"] == [2] and json.loads(falso.objetos["resumenes/2.json"])["huella"] == voz.huella(corregido) and inf["con_audio"] == 2
+# Si se pierde la ficha pero el audio sigue en el almacén, se recupera sin volver a generarlo.
+del falso.objetos["resumenes/69.json"]
+falso.objetos["indice.json"] = json.dumps({"resumenes": {"2": json.loads(falso.objetos["resumenes/2.json"])}}).encode()
+antes = len(enviados)
+inf = voz.generar([corregido] + cuatro[1:], plan_piloto, falso, voz_falsa, AHORA, avisar=lambda *_: None)
+assert inf["recuperados"] == [69] and not inf["generados"] and len(enviados) == antes and "resumenes/69.json" in falso.objetos
+# En automático: tope mensual, máximo por ejecución y resúmenes que no pasan las guardas.
+uso_mes = json.loads(falso.objetos["estado/uso.json"])["2026-11"]
+falta = sum(len(x) for x in voz.peticiones(por_id[230]))
+inf = voz.generar([corregido] + cuatro[1:], {"automatico": True, "tope_mensual": uso_mes + falta - 1, "maximo_por_ejecucion": 150}, falso, voz_falsa, AHORA, avisar=lambda *_: None)
+assert not inf["generados"] and inf["detenido_por"] == "tope mensual" and json.loads(falso.objetos["estado/uso.json"])["2026-11"] == uso_mes, "nunca se pasa del tope mensual"
+inf = voz.generar([corregido] + cuatro[1:], {"automatico": True, "tope_mensual": 3900000, "maximo_por_ejecucion": 150}, falso, voz_falsa, AHORA, maximo=1, avisar=lambda *_: None)
+assert inf["generados"] == [230] and inf["detenido_por"] == "máximo por ejecución" and inf["pendientes"] == [113]
+inf = voz.generar([corregido] + cuatro[1:], {"automatico": True, "tope_mensual": 3900000, "maximo_por_ejecucion": 150}, falso, voz_falsa, "2026-12-01T00:00:00Z", ids=[113, 2], avisar=lambda *_: None)
+assert inf["generados"] == [113] and inf["con_audio"] == 4 and json.loads(falso.objetos["estado/uso.json"])["2026-12"] == inf["caracteres_ejecucion"] == inf["caracteres_mes"], "cada mes lleva su cuenta"
+sin_regla = dict(por_id[69], cuerpo=por_id[69]["cuerpo"][:por_id[69]["cuerpo"].rindex("</p>")] + " ∆ 5 ⇒ 6</p>")
+inf = voz.generar([corregido, sin_regla] + cuatro[2:], {"automatico": True, "tope_mensual": 3900000}, falso, voz_falsa, AHORA, avisar=lambda *_: None)
+assert inf["retirados"] == [69] and "69" in inf["con_problemas"] and not inf["generados"] and "resumenes/69.json" not in falso.objetos, "un resumen que no pasa las guardas se queda sin audio"
+plan_real = json.loads((voz.ROOT / "tools" / "voz_plan.json").read_text(encoding="utf-8"))
+assert plan_real["automatico"] in (True, False) and 0 < plan_real["tope_mensual"] <= 3900000 and all(int(i) in por_id for i in plan_real["piloto"]), "el plan no pasa de la parte gratuita y su piloto existe"
+previas = {n: os.environ.pop(n, None) for n in ("GOOGLE_TTS_API_KEY", "R2_ACCOUNT_ID", "R2_ACCESS_KEY_ID", "R2_SECRET_ACCESS_KEY", "R2_BUCKET")}
+try:
+    with contextlib.redirect_stdout(io.StringIO()) as salida:
+        assert voz.cmd_generar(argparse.Namespace(ids="", maximo=None, informe="")) == 1
+    assert "R2_BUCKET" in salida.getvalue() and "GOOGLE_TTS_API_KEY" in salida.getvalue(), "sin secretos, generar termina con un mensaje claro y sin tocar nada"
+finally:
+    os.environ.update({n: v for n, v in previas.items() if v is not None})
+
+print(f"VOZ PASS: {len(CASOS)} reglas de lectura, {len(MARCAS)} de nombres en inglés, {len(datos)} resúmenes sin perder cifras ni palabras ({total} caracteres para leer; {con_nombres} nombres marcados), guardas, trozos, SSML, plan de muestras, almacén y generación")

@@ -1,0 +1,11 @@
+{
+ "_nota": "Plan de generación del audio de los resúmenes completos (python tools/voz.py generar). Con \"automatico\": false solo se generan los resúmenes de \"piloto\"; el editor lo pasa a true cuando aprueba el piloto. Cambiar este archivo en main lanza el flujo «Voz · generar».",
+ "automatico": false,
+ "piloto": [
+  2,
+  69,
+  113
+ ],
+ "tope_mensual": 3900000,
+ "maximo_por_ejecucion": 150
+}
