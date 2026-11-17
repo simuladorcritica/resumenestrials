@@ -27,7 +27,7 @@ import urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-VERSION = 1  # Sube cuando cambien las reglas de lectura o el léxico: el audio ya generado deja de valer.
+VERSION = 2  # Sube cuando cambien las reglas de lectura o el léxico: el audio ya generado deja de valer.
 LEX = json.loads((ROOT / "tools" / "voz_lexico.json").read_text(encoding="utf-8"))
 SIN_VOZ = {"Referencia y registro"}
 LIMITE_BYTES = 4500  # La API admite 5000 bytes de texto por petición.
@@ -95,6 +95,46 @@ def canonico(t):
     return t
 
 
+_NOMBRES = None
+
+
+def nombres_ensayos():
+    """{nombre escrito: nombre dicho} de las palabras que forman los nombres de los ensayos resumidos.
+
+    El nombre de un ensayo se dice de corrido, como palabras, no letra por letra (decisión del editor, 16-nov-2026):
+    ARISE FLUIDS → «Arise Fluids». Se toman las palabras con dos o más mayúsculas y más de tres letras de lo que cada título
+    lleva antes de los dos puntos. Las siglas que sí se deletrean (`ensayos_deletreados`) y las de tres letras o menos
+    (ICU, CKD, AF) se dejan como están; `ensayos` del léxico fija los casos que no salen bien con la regla general.
+    """
+    global _NOMBRES
+    if _NOMBRES is None:
+        fijos = {k: v for k, v in LEX["ensayos"].items() if not k.startswith("_")}
+        dejar = set(LEX["ensayos_deletreados"])
+        nombres = {}
+        for r in resumenes():
+            titulo = str(r.get("titulo") or "")
+            if ":" not in titulo:
+                continue
+            for palabra in re.findall(r"[A-Za-z]+", titulo.split(":", 1)[0]):
+                if len(palabra) > 3 and sum(c.isupper() for c in palabra) >= 2 and palabra not in dejar:
+                    nombres[palabra] = fijos.get(palabra, palabra[0].upper() + palabra[1:].lower())
+        nombres.update({k: v for k, v in fijos.items() if k not in dejar})
+        _NOMBRES = nombres
+    return _NOMBRES
+
+
+_RE_NOMBRES = None
+
+
+def decir_nombres(t):
+    """Nombres de ensayos escritos como se dicen. Solo cambia mayúsculas por minúsculas (o lo que fije el léxico)."""
+    global _RE_NOMBRES
+    nombres = nombres_ensayos()
+    if _RE_NOMBRES is None:
+        _RE_NOMBRES = re.compile(r"(?<![" + _LETRA + r"0-9])(" + "|".join(sorted(map(re.escape, nombres), key=len, reverse=True)) + r")(?![" + _LETRA + r"0-9])")
+    return _RE_NOMBRES.sub(lambda m: nombres[m.group(1)], t)
+
+
 def _unidad(clave, singular):
     return _UNI[clave][0 if singular else 1]
 
@@ -133,7 +173,7 @@ def _suelta(m):
 
 def leer(t):
     """Texto para leer en voz alta. No añade, quita ni cambia cifras ni palabras del texto publicado."""
-    t = canonico(t)
+    t = decir_nombres(canonico(t))
     t = re.sub(r"[™®©]", "", t)
     t = re.sub(r"_+", " ", t)
     t = t.replace("&", " y ")
@@ -262,7 +302,7 @@ def revisar(r):
         i = next((k for k, (x, y) in enumerate(zip(a, b)) if x != y), min(len(a), len(b)))
         problemas.append(f"las cifras no coinciden desde la número {i + 1}: publicado {a[i:i + 3]} · leído {b[i:i + 3]}")
     quedan = iter(_palabras(hablado))
-    perdida = next((w for w in _palabras(fuente) if w not in _OMITIBLES and not any(w == x for x in quedan)), None)
+    perdida = next((w for w in _palabras(decir_nombres(canonico(fuente))) if w not in _OMITIBLES and not any(w == x for x in quedan)), None)
     if perdida:
         problemas.append(f"se pierde o cambia de sitio la palabra «{perdida}»")
     raros = sorted(set(_PERMITIDO.findall(texto_voz(r))))
@@ -312,9 +352,22 @@ def fragmento(r, seccion, caracteres, presentacion=False):
         raise SystemExit(f"El resumen {r['id']} no tiene la sección «{seccion}»")
     texto = " ".join(leer(p) for p in parrafos)
     if len(texto) > caracteres:
-        corte = next((c for c in (texto.rfind(marca, 0, caracteres) for marca in (". ", "; ", ", ")) if c >= caracteres * 0.7), caracteres)
+        corte = next((c for c in (texto.rfind(marca, 0, caracteres) for marca in (". ", "; ", ", ", " ")) if c >= caracteres * 0.7), caracteres)
         texto = texto[:corte].rstrip(" ,;.") + "."
     return (bloques(r)[0] + "\n\n" if presentacion else "") + leer(seccion) + ".\n\n" + texto
+
+
+def variantes(texto, muestra):
+    """[(etiqueta, texto)]: el texto tal como lo deja `leer` y, si el plan las pide, variantes de prueba con otra
+    forma de escribir algo (solo para comparar de oído en las muestras; no afectan a los resúmenes)."""
+    out = [("", texto)]
+    for v in muestra.get("variantes", []):
+        cambiado = texto
+        for a, b in v["cambios"].items():
+            cambiado = cambiado.replace(a, b)
+        if cambiado != texto:
+            out.append((re.sub(r"[^a-z0-9-]", "", str(v["etiqueta"]).lower()), cambiado))
+    return out
 
 
 def elegir_voces(plan, disponibles):
@@ -350,13 +403,14 @@ def cmd_muestras(args):
         idioma = "-".join(voz.split("-")[:2])
         for muestra in plan["muestras"]:
             r = datos[int(muestra["id"])]
-            texto = fragmento(r, muestra["seccion"], int(muestra["caracteres"]), bool(muestra.get("presentacion")))
-            audio = b"".join(sintetizar(x, voz, idioma, clave) for x in trozos(texto.split("\n\n")))
-            nombre = f"{numero:02d}_{familia}_{'mujer' if genero == 'FEMALE' else 'hombre'}_{voz.split('-')[-1]}_resumen{r['id']}.mp3"
-            (salida / nombre).write_bytes(audio)
-            total += len(texto)
-            indice.append({"archivo": nombre, "voz": voz, "familia": familia, "genero": genero, "resumen": r["id"], "seccion": muestra["seccion"], "caracteres": len(texto), "bytes": len(audio), "texto": texto})
-            print(f"{nombre}: {len(texto)} caracteres, {len(audio)} bytes")
+            base = fragmento(r, muestra["seccion"], int(muestra["caracteres"]), bool(muestra.get("presentacion")))
+            for etiqueta, texto in variantes(base, muestra):
+                audio = b"".join(sintetizar(x, voz, idioma, clave) for x in trozos(texto.split("\n\n")))
+                nombre = f"{numero:02d}_{familia}_{'mujer' if genero == 'FEMALE' else 'hombre'}_{voz.split('-')[-1]}_resumen{r['id']}{'_' + etiqueta if etiqueta else ''}.mp3"
+                (salida / nombre).write_bytes(audio)
+                total += len(texto)
+                indice.append({"archivo": nombre, "voz": voz, "familia": familia, "genero": genero, "resumen": r["id"], "seccion": muestra["seccion"], "variante": etiqueta, "caracteres": len(texto), "bytes": len(audio), "texto": texto})
+                print(f"{nombre}: {len(texto)} caracteres, {len(audio)} bytes")
     (salida / "indice.json").write_text(json.dumps({"version": VERSION, "caracteres": total, "muestras": indice}, ensure_ascii=False, indent=1), encoding="utf-8")
     print(f"Muestras: {len(indice)} archivos, {total} caracteres en total.")
     return 0

@@ -391,5 +391,36 @@
   "CEAP",
   "ASA",
   "factor"
+ ],
+ "ensayos": {
+  "_nota": "Cómo se dice el nombre de un ensayo cuando no basta con leerlo como palabra (regla general: ARISE FLUIDS → «Arise Fluids»).",
+  "APROCCHSS": "Aproach",
+  "RESCUEicp": "Rescue ICP",
+  "SuDDICU": "Sud ICU",
+  "BaxHTN": "Bax HTN",
+  "CanTreatCOVID": "Can Treat Covid",
+  "CORALreef": "Coral Reef",
+  "VentSetFib": "Vent Set Fib",
+  "OptimaCC": "Optima CC",
+  "EPVent": "EP Vent",
+  "FiiRST": "First",
+  "DeLLphi": "Delphi",
+  "STARRT": "Start",
+  "VASST": "Vast"
+ },
+ "ensayos_deletreados": [
+  "BCIS",
+  "CRRT",
+  "CTCA",
+  "CVOT",
+  "DZHK",
+  "HPTN",
+  "IABP",
+  "NLST",
+  "PADN",
+  "VASSPR",
+  "PROPPR",
+  "ECLS",
+  "DAPT"
  ]
 }
