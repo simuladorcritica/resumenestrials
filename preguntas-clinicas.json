@@ -238,6 +238,29 @@
           "frase": "Determinar si la tirzepatida a la dosis máxima tolerada (10 o 15 mg) es superior a la semaglutida a la dosis máxima tolerada (1.7 o 2.4 mg)"
         }
       }
+    },
+    {
+      "id": 336,
+      "fecha": "2026-11-17",
+      "huella": "f7fa91a2e6a52222",
+      "preguntas": {
+        "corticoides-choque-septico": {
+          "rol": "nada",
+          "frase": "reduce la tasa anualizada de exacerbaciones moderadas o graves en pacientes con EPOC, exacerbaciones frecuentes y fenotipo eosinofílico"
+        },
+        "cuando-iniciar-terapia-reemplazo-renal-lesion-renal-aguda": {
+          "rol": "nada",
+          "frase": "reduce la tasa anualizada de exacerbaciones moderadas o graves en pacientes con EPOC, exacerbaciones frecuentes y fenotipo eosinofílico"
+        },
+        "meta-oxigenacion-paciente-critico": {
+          "rol": "nada",
+          "frase": "reduce la tasa anualizada de exacerbaciones moderadas o graves en pacientes con EPOC, exacerbaciones frecuentes y fenotipo eosinofílico"
+        },
+        "restriccion-liquidos-choque-septico-hipotension-sepsis": {
+          "rol": "nada",
+          "frase": "reduce la tasa anualizada de exacerbaciones moderadas o graves en pacientes con EPOC, exacerbaciones frecuentes y fenotipo eosinofílico"
+        }
+      }
     }
   ],
   "preguntas": [

@@ -5289,7 +5289,9 @@
     "path": "/trials/oberon-y-titania-tozorakimab-prevenir-exacerbaciones-epoc/",
     "url": "https://resumenestrials.com/trials/oberon-y-titania-tozorakimab-prevenir-exacerbaciones-epoc/",
     "title": "OBERON y TITANIA: tozorakimab para prevenir las exacerbaciones de la EPOC",
-    "relacionados": [],
+    "relacionados": [
+      336
+    ],
     "seo_title": "OBERON y TITANIA trial: tozorakimab para prevenir las exacerbaciones de la EPOC | Resúmenes Trials",
     "description": "OBERON y TITANIA: Menos exacerbaciones con tozorakimab en ambos ensayos ( razón de tasas 0.71 y 0.66 ; p=0.002 y p<0.001), sin beneficio significativo en la…",
     "clusters": [
@@ -9361,7 +9363,8 @@
     "url": "https://resumenestrials.com/trials/batura-albuterol-budesonida-demanda-asma-leve/",
     "title": "BATURA: albuterol-budesonida a demanda en el asma leve",
     "relacionados": [
-      84
+      84,
+      336
     ],
     "seo_title": "BATURA trial: albuterol-budesonida a demanda en el asma leve | Resúmenes Trials",
     "description": "BATURA: En el análisis intermedio, en la población de eficacia durante el tratamiento, tuvo una exacerbación grave el 5.1% con albuterol-budesonida frente al…",
@@ -10569,6 +10572,36 @@
       "question": "Determinar si la tirzepatida a la dosis máxima tolerada (10 o 15 mg) es superior a la semaglutida a la dosis máxima tolerada (1.7 o 2.4 mg), ambas subcutáneas una vez por semana, en el cambio porcentual del peso a las 72 semanas en adultos con obesidad, o con sobrepeso y complicaciones, sin diabetes.",
       "answer": "A la semana 72, el cambio medio del peso fue de -20.2% con tirzepatida frente a -13.7% con semaglutida (diferencia -6.5 puntos porcentuales; IC 95% -8.1 a -4.9; P<0.001).",
       "population": "Entraron adultos sin diabetes con un índice de masa corporal (IMC) de 30 o más, o de 27 o más con al menos una complicación de la obesidad (hipertensión, dislipidemia, apnea obstructiva del sueño o enfermedad cardiovascular), y al menos un intento fallido de bajar de peso con dieta. Según su propia declaración, el 76.1% eran blancos, el 19.2% negros y el 26.1% hispanos, todos de Estados Unidos, incluido Puerto Rico."
+    },
+    "datePublished": "2026-11-17"
+  },
+  "336": {
+    "slug": "matinee-mepolizumab-prevenir-exacerbaciones-epoc-fenotipo-eosinofilico",
+    "path": "/trials/matinee-mepolizumab-prevenir-exacerbaciones-epoc-fenotipo-eosinofilico/",
+    "url": "https://resumenestrials.com/trials/matinee-mepolizumab-prevenir-exacerbaciones-epoc-fenotipo-eosinofilico/",
+    "title": "MATINEE: mepolizumab para prevenir las exacerbaciones de la EPOC con fenotipo eosinofílico",
+    "relacionados": [
+      165,
+      295
+    ],
+    "seo_title": "MATINEE trial: mepolizumab para prevenir las exacerbaciones de la EPOC con fenotipo eosinofílico | Resúmenes Trials",
+    "description": "MATINEE: En pacientes con EPOC, exacerbaciones frecuentes y al menos 300 eosinófilos por microlitro que recibían triple terapia inhalada, la tasa anualizada…",
+    "clusters": [
+      {
+        "name": "Neumología",
+        "path": "/medicina-interna/neumologia/",
+        "url": "https://resumenestrials.com/medicina-interna/neumologia/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/matinee-mepolizumab-prevenir-exacerbaciones-epoc-fenotipo-eosinofilico-16x9.jpg",
+      "https://resumenestrials.com/images/trials/matinee-mepolizumab-prevenir-exacerbaciones-epoc-fenotipo-eosinofilico-4x3.jpg",
+      "https://resumenestrials.com/images/trials/matinee-mepolizumab-prevenir-exacerbaciones-epoc-fenotipo-eosinofilico-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Evaluar si añadir mepolizumab a la triple terapia inhalada reduce la tasa anualizada de exacerbaciones moderadas o graves en pacientes con EPOC, exacerbaciones frecuentes y fenotipo eosinofílico.",
+      "answer": "En pacientes con EPOC, exacerbaciones frecuentes y al menos 300 eosinófilos por microlitro que recibían triple terapia inhalada, la tasa anualizada de exacerbaciones moderadas o graves fue de 0.80 con mepolizumab frente a 1.01 con placebo (razón de tasas 0.79; IC 95% 0.66 a 0.94; P = 0.01) .",
+      "population": "Se estudió a pacientes de 40 años o más con enfermedad pulmonar obstructiva crónica (EPOC) de al menos 1 año, fumadores o exfumadores de al menos 10 paquetes-año, con obstrucción de moderada a muy grave (cociente FEV1/capacidad vital forzada menor de 0.70 y volumen espiratorio forzado en el primer segundo, FEV1, de más del 20% y hasta el 80% del predicho). En los 12 meses previos debían haber tenido al menos dos exacerbaciones…"
     },
     "datePublished": "2026-11-17"
   }
