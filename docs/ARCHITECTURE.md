@@ -68,6 +68,12 @@ La secuencia debe ser idempotente: dos ejecuciones consecutivas tienen que produ
 
 El runtime usa hashes deterministas con saltos de línea LF e incluye el módulo PDF en la versión. Auth, biblioteca, recomendaciones y Turnstile conservan sus APIs y comportamiento. El despliegue de backend Auth es manual y requiere opt-in; las verificaciones automáticas usan dobles locales.
 
+## Evidencia relacionada
+
+Al final de cada resumen, «Evidencia relacionada» muestra hasta tres ensayos afines. Los elige `related_trials()` de `site_templates.py` al generar el sitio, solo con lo publicado (título, objetivo, hallazgo, temas y la sección «Pregunta de investigación»): semejanza de texto (TF-IDF y coseno), sin servicios externos, determinista y al día desde que un resumen se publica. `generar_seo.py` guarda la lista de cada resumen en `seo-manifest.json` (`relacionados`) y `ui/reader.js` pinta esas tarjetas; un resumen sin ningún ensayo afín no muestra la sección.
+
+Reglas: como mucho `RELATED_MAX` (3), semejanza mínima `RELATED_MIN`, y por debajo de `RELATED_SAFE` deben compartir alguna palabra de sus temas (evita parecidos solo de forma, como dos «estrategia restrictiva frente a liberal» de cosas distintas). A un ensayo del núcleo de una pregunta clínica no se le repiten los otros ensayos de ese núcleo, que ya enlaza `question_block()`. `tools/test_relacionados.py` lo comprueba contra grupos de ensayos validados editorialmente.
+
 ## Vigilancia posterior a la publicación
 
 El workflow privado de Search Console vuelve a calcular el inventario en cada ejecución y conserva únicamente un snapshot técnico privado, sin métricas GSC, mediante GitHub Actions Cache. Así detecta altas, eliminaciones y modificaciones por ID, DOI y canonical, mantiene la primera fecha de detección y mueve automáticamente cada alta entre `D0_6`, `D7_13`, `D14_27`, `D28_59`, `D60_89` y `D90_PLUS`. Los artículos sin fecha editorial fiable permanecen en `LEGACY` y nunca reciben una fecha inventada.

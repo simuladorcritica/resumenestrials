@@ -503,9 +503,10 @@ E.ready(async()=>{
   const neighbor=(item,dir)=>'<a class="ev-neighbor" data-dir="'+dir+'" href="'+map[String(item.id)].path+'"><small>'+(dir==='prev'?E.icon('left')+'Ensayo anterior':'Ensayo siguiente'+E.icon('right'))+'</small><b>'+E.esc(item.titulo)+'</b></a>';
   reader.querySelector('[data-ev-neighbors]').innerHTML=(index>0?neighbor(ordered[index-1],'prev'):'')+'<a class="ev-btn ev-neighbor-back" href="/" data-ev-return>'+E.icon('list')+'<span>Volver a la lista</span></a>'+(index<ordered.length-1?neighbor(ordered[index+1],'next'):'');
   for(const a of reader.querySelectorAll('[data-ev-return]')){a.href=window.RTReadingContext?.destination()||'/';a.onclick=()=>window.RTReadingContext?.requestReturn()}
-  const categories=record=>E.areas(record).filter(s=>E.MAIN.includes(s)),specialty=categories(r),topics=new Set((r.temas||[]).map(E.norm)),clusters=new Set((map[String(r.id)].clusters||[]).map(c=>c.path));
-  const rank=all.filter(x=>String(x.id)!==String(r.id)).map(x=>({r:x,s:(map[String(x.id)].clusters||[]).filter(c=>clusters.has(c.path)).length*4+(x.temas||[]).filter(t=>topics.has(E.norm(t))).length*2+categories(x).filter(s=>specialty.includes(s)).length})).filter(x=>x.s>0).sort((a,b)=>b.s-a.s||String(b.r.fecha||'').localeCompare(String(a.r.fecha||''))).slice(0,3);
-  reader.querySelector('[data-ev-related]').innerHTML=rank.map(x=>E.card(x.r,map[String(x.r.id)].path)).join('');
+  // Evidencia relacionada: la calcula el generador del sitio (relacionados.py) y viaja en el manifiesto; sin relacionados, la sección no se muestra.
+  const related=(map[String(r.id)].relacionados||[]).map(id=>all.find(x=>String(x.id)===String(id))).filter(x=>x&&map[String(x.id)]);
+  reader.querySelector('.ev-related').hidden=!related.length;
+  reader.querySelector('[data-ev-related]').innerHTML=related.map(x=>E.card(x,map[String(x.id)].path)).join('');
   reader.dataset.evContinuity='ready';
   }catch(error){E.readerContinuityError=error;reader.dataset.evContinuity='error'}})();
  }catch(error){E.readerError=error;if(dynamic)dynamic.innerHTML='<section class="ev-notice ev-doc"><h1>No pudimos cargar el ensayo</h1><p>Revisa tu conexión e inténtalo de nuevo.</p><div class="ev-actions-row"><a class="ev-btn ev-btn-primary" href="">Reintentar</a><a class="ev-btn" href="/archivo/">Ir al archivo</a></div></section>'}
