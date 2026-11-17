@@ -315,7 +315,8 @@ def question_recent(qs):
  return sorted(qs,key=lambda q:q["fecha_publicacion"],reverse=True)
 def question_cover(items):
  """Sección de la portada: las preguntas clínicas más recientes, cada una en una tarjeta con la línea de tiempo de sus
- ensayos; si hay más, van todas enlazadas en un desplegable. No muestra hallazgos: esos van en la página, junto a sus límites."""
+ ensayos; si hay más, van en un desplegable con la misma tarjeta (decisión del editor, 16-nov-2026: al desplegarse deben
+ verse como las de arriba, no como una lista de enlaces). No muestra hallazgos: esos van en la página, junto a sus límites."""
  qs=question_recent(load_questions())
  if not qs:return ""
  trials={trial_id(r["id"]):r for r in items}
@@ -324,8 +325,8 @@ def question_cover(items):
   return (f'<article class="ev-q-card"><div class="ev-q-card-head"><h3><a class="ev-q-title" href="{route}">{esc(q["pregunta"])}</a></h3><a class="ev-q-read" href="{route}">Ver los {len(core)} ensayos{icon("arrow-right")}</a></div>'
    +question_timeline(q,core,route,"Ensayos: "+q["nombre"])+'</article>')
  rest=qs[QUESTION_HOME:]
- more=('<details class="ev-q-more"><summary class="ev-btn">'+("Ver la pregunta restante" if len(rest)==1 else f"Ver las {len(rest)} preguntas restantes")+'</summary><ul>'
-  +"".join(f'<li><a href="{question_route(q)}">{esc(q["pregunta"])}</a></li>' for q in rest)+'</ul></details>') if rest else ''
+ more=('<details class="ev-q-more"><summary class="ev-btn">'+("Ver la pregunta restante" if len(rest)==1 else f"Ver las {len(rest)} preguntas restantes")+'</summary>'
+  +"".join(card(q) for q in rest)+'</details>') if rest else ''
  return ('<section class="ev-q ev-q-home" aria-labelledby="ev-q-h"><div class="ev-archive-head"><h2 id="ev-q-h">Preguntas clínicas</h2><p class="ev-count">Los ensayos resumidos sobre una misma pregunta</p></div>'
   +"".join(card(q) for q in qs[:QUESTION_HOME])+more+'</section>')
 def question_block(r,manifest):
