@@ -18,7 +18,8 @@ Decisión del editor (13 y 16 de noviembre de 2026): cada **resumen completo** s
 - Unidades: `mmHg`, `mg/dl`, `ml/min/1.73 m²`, `µg/kg/min`, `cm H2O`… con todas sus letras.
 - Signos: `−2.7` → «menos 2.7»; `0.41-0.92` → «0.41 a 0.92»; `46.9 − 33.0` → «46.9 menos 33.0»; `≥`, `≤`, `<`, `>`, `±`, `×`, `1:1`, `130/80`.
 - Números romanos tras «fase», «clase», «tipo», APACHE, Killip…: `APACHE II` → «APACHE dos».
-- Siglas clínicas y nombres de ensayos se dejan como están.
+- **Nombres de ensayos:** se dicen de corrido, como palabras, no letra por letra (decisión del editor, 16-nov-2026): `ARISE FLUIDS` → «Arise Fluids», `ProMISe` → «Promise». Las palabras salen de lo que cada título lleva antes de los dos puntos (dos o más mayúsculas y más de tres letras); las siglas cortas (`ICU`, `CKD`, `AF`) y las que sí se deletrean (`ensayos_deletreados` del léxico) no se tocan, y `ensayos` fija los casos especiales (`STARRT` → «Start»).
+- Las siglas clínicas (APACHE, SOFA, UCI, VIH…) se dejan como están.
 
 Las equivalencias viven en `tools/voz_lexico.json`. Si se cambia el léxico o una regla, sube `VERSION` en `tools/voz.py`.
 
@@ -35,7 +36,7 @@ Un resumen que no pasa no recibe audio hasta que se añada la regla que falta. `
 
 ## Muestras de voz
 
-El flujo **«Voz · muestras»** (`.github/workflows/voz-muestras.yml`) sintetiza el fragmento descrito en `tools/voz_muestras.json` con varias voces (Chirp 3 HD, Neural2 y WaveNet; mujer y hombre) y deja los MP3 en la rama suelta `voz-muestras`. Se lanza a mano o al cambiar ese archivo en `main`. Necesita el secreto `GOOGLE_TTS_API_KEY`.
+El flujo **«Voz · muestras»** (`.github/workflows/voz-muestras.yml`) sintetiza el fragmento descrito en `tools/voz_muestras.json` con varias voces (Chirp 3 HD y WaveNet, mujer y hombre; Neural2 se descartó porque en español suena igual que WaveNet y cuesta cuatro veces más), y con las variantes de prueba que el plan pida y deja los MP3 en la rama suelta `voz-muestras`. Se lanza a mano o al cambiar ese archivo en `main`. Necesita el secreto `GOOGLE_TTS_API_KEY`.
 
 ## Lo que falta (siguientes entregas)
 

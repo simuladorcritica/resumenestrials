@@ -10,11 +10,6 @@
    "MALE": 2
   },
   {
-   "nombre": "Neural2",
-   "FEMALE": 1,
-   "MALE": 1
-  },
-  {
    "nombre": "Wavenet",
    "FEMALE": 1,
    "MALE": 1
@@ -29,9 +24,17 @@
  "muestras": [
   {
    "id": 2,
-   "seccion": "Resultados",
-   "caracteres": 1100,
-   "presentacion": true
+   "seccion": "Pregunta de investigación",
+   "caracteres": 170,
+   "presentacion": true,
+   "variantes": [
+    {
+     "etiqueta": "como-suena",
+     "cambios": {
+      "Arise Fluids": "Aráis Flúids"
+     }
+    }
+   ]
   }
  ]
 }

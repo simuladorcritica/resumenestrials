@@ -41,10 +41,24 @@ CASOS = [
     ("COVID-19, IL-6, GLP-1, EQ-5D-5L, CHA2DS2-VASc, P2Y12 y HbA1c no cambian", "COVID-19, IL-6, GLP-1, EQ-5D-5L, CHA2DS2-VASc, P2Y12 y HbA1c no cambian"),
     ("Sedaconda ACD-S® y BIS™", "Sedaconda ACD-S y BIS"),
     ("P de interacción .43", "P de interacción .43"),
+    # El nombre de un ensayo se dice de corrido, como palabras, no letra por letra (decisión del editor, 16-nov-2026).
+    ("ARISE FLUIDS: vasopresores o líquidos", "Arise Fluids: vasopresores o líquidos"),
+    ("los ensayos CLOVERS, CLASSIC y ProMISe", "los ensayos Clovers, Classic y Promise"),
+    ("STARRT-AKI, DAPA-CKD, ECLS-SHOCK, REMAP-CAP e IDEAL-ICU", "Start-AKI, Dapa-CKD, ECLS-Shock, Remap-CAP e Ideal-ICU"),
+    ("RESCUEicp frente a TTM2 (HR 0.9)", "Rescue ICP frente a TTM2 (hazard ratio 0.9)"),
+    ("APACHE II, SOFA, UCI, VIH y SDRA no son nombres de ensayos", "APACHE dos, SOFA, UCI, VIH y SDRA no son nombres de ensayos"),
 ]
 for publicado, leido in CASOS:
     assert voz.leer(publicado) == leido, f"\n  publicado: {publicado}\n  esperado:  {leido}\n  obtenido:  {voz.leer(publicado)}"
     assert voz._cifras(voz.canonico(publicado)) == voz._cifras(leido), f"el caso cambia cifras: {publicado}"
+
+# 1b. Nombres de ensayos: salen de los títulos; la regla general solo cambia mayúsculas por minúsculas.
+nombres = voz.nombres_ensayos()
+fijos = {k: v for k, v in voz.LEX["ensayos"].items() if not k.startswith("_")}
+assert nombres["ARISE"] == "Arise" and nombres["FLUIDS"] == "Fluids" and len(nombres) > 250
+assert all(dicho.lower() == escrito.lower() for escrito, dicho in nombres.items() if escrito not in fijos), "fuera del léxico, un nombre solo cambia de mayúsculas a minúsculas"
+assert all(len(k) > 3 and not any(c.isdigit() for c in k + v) for k, v in nombres.items()), "los nombres no llevan cifras y las siglas cortas no se tocan"
+assert not set(voz.LEX["ensayos_deletreados"]) & set(nombres), "las siglas que se deletrean no se cambian"
 
 # 2. La forma canónica es lo único que toca dígitos, y lo hace igual para el texto publicado y para el leído.
 assert voz.canonico("O₂ 10⁹ 12 000 pacientes m2") == "O2 10^9 12000 pacientes m²"
@@ -90,6 +104,7 @@ assert len(partes) > 1 and all(len(p.encode("utf-8")) <= voz.LIMITE_BYTES for p 
 # 6. Las muestras: plan válido, voces elegidas por familia y género, y fragmento con presentación.
 plan = json.loads((voz.ROOT / "tools" / "voz_muestras.json").read_text(encoding="utf-8"))
 falsas = [{"name": f"es-US-{f}-{n}", "ssmlGender": g, "languageCodes": ["es-US"]} for f in ("Chirp3-HD", "Neural2", "Wavenet", "Studio") for n, g in (("Aoede", "FEMALE"), ("Kore", "FEMALE"), ("Zephyr", "FEMALE"), ("Charon", "MALE"), ("Orus", "MALE"), ("Puck", "MALE"))]
+assert voz.variantes("Arise Fluids: texto", {"variantes": [{"etiqueta": "Como suena", "cambios": {"Arise Fluids": "Aráis Flúids"}}, {"etiqueta": "nada", "cambios": {"no está": "x"}}]}) == [("", "Arise Fluids: texto"), ("comosuena", "Aráis Flúids: texto")]
 elegidas = voz.elegir_voces(plan, falsas)
 assert [v for _, _, v in elegidas][:4] == ["es-US-Chirp3-HD-Kore", "es-US-Chirp3-HD-Aoede", "es-US-Chirp3-HD-Charon", "es-US-Chirp3-HD-Orus"], elegidas
 assert len(elegidas) == sum(int(f.get("FEMALE", 0)) + int(f.get("MALE", 0)) for f in plan["familias"]) and not any("Studio" in v for _, _, v in elegidas)
