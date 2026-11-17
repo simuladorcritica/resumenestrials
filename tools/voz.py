@@ -8,6 +8,9 @@ Nunca cambia una cifra ni quita una palabra; `revisar()` lo comprueba y, si un r
 Se lee el título, la revista, la fecha y todas las secciones del resumen completo menos «Referencia y registro»
 (decisión del editor, 16-nov-2026). El resumen breve no lleva voz.
 
+Los nombres de los ensayos y de las revistas se dicen como suenan en inglés (decisión del editor, 16-nov-2026): con
+las voces que admiten SSML (WaveNet, la elegida) van dentro de <lang xml:lang="en-US">; el texto es el mismo.
+
 Órdenes:
   python tools/voz.py texto ID              imprime lo que se leerá del resumen ID
   python tools/voz.py comprobar             pasa las guardas a todos los resúmenes (sale con 1 si alguno falla)
@@ -27,10 +30,12 @@ import urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-VERSION = 2  # Sube cuando cambien las reglas de lectura o el léxico: el audio ya generado deja de valer.
+VERSION = 3  # Sube cuando cambien las reglas de lectura o el léxico: el audio ya generado deja de valer.
 LEX = json.loads((ROOT / "tools" / "voz_lexico.json").read_text(encoding="utf-8"))
 SIN_VOZ = {"Referencia y registro"}
 LIMITE_BYTES = 4500  # La API admite 5000 bytes de texto por petición.
+LIMITE_SSML = 4900  # Con SSML las etiquetas también cuentan para esos 5000 bytes.
+IDIOMA_NOMBRES = "en-US"  # Idioma en que se dicen los nombres de ensayos y revistas.
 MESES = "enero febrero marzo abril mayo junio julio agosto septiembre octubre noviembre diciembre".split()
 
 # ---------- Texto publicado ----------
@@ -68,7 +73,11 @@ _SUB = str.maketrans("₀₁₂₃₄₅₆₇₈₉", "0123456789")
 _UNI = LEX["unidades"]
 _ATOMO = "|".join(sorted(map(re.escape, _UNI), key=len, reverse=True))
 _SUELTA = "|".join(sorted(map(re.escape, LEX["unidades_sueltas"]), key=len, reverse=True))
-_LETRA = "A-Za-zÁÉÍÓÚÜÑáéíóúüñ"
+_ALFA = "A-Za-zÁÉÍÓÚÜÑáéíóúüñ"
+# Marcas internas de «esto se dice en inglés». Cuentan como letras para que las reglas de lectura den exactamente el
+# mismo resultado con marcas que sin ellas (lo comprueba `revisar`); nunca llegan al texto que se envía como texto plano.
+_INI, _FIN = "\ue000", "\ue001"
+_LETRA = _ALFA + _INI + _FIN
 _NUM = r"\d+(?:[.,]\d+)*"
 _ROMANO = r"(?:VIII|VII|VI|IV|IX|III|II|I|V|X)"
 _ROMANOS = {"I": "uno", "II": "dos", "III": "tres", "IV": "cuatro", "V": "cinco", "VI": "seis", "VII": "siete", "VIII": "ocho", "IX": "nueve", "X": "diez"}
@@ -126,13 +135,31 @@ def nombres_ensayos():
 _RE_NOMBRES = None
 
 
-def decir_nombres(t):
-    """Nombres de ensayos escritos como se dicen. Solo cambia mayúsculas por minúsculas (o lo que fije el léxico)."""
+def decir_nombres(t, marcas=False):
+    """Nombres de ensayos escritos como se dicen. Solo cambia mayúsculas por minúsculas (o lo que fije el léxico) y
+    separa la cifra pegada al nombre (INTERACT4 → «Interact 4»). Con `marcas`, cada nombre queda entre marcas."""
     global _RE_NOMBRES
     nombres = nombres_ensayos()
     if _RE_NOMBRES is None:
-        _RE_NOMBRES = re.compile(r"(?<![" + _LETRA + r"0-9])(" + "|".join(sorted(map(re.escape, nombres), key=len, reverse=True)) + r")(?![" + _LETRA + r"0-9])")
-    return _RE_NOMBRES.sub(lambda m: nombres[m.group(1)], t)
+        _RE_NOMBRES = re.compile(r"(?<![" + _LETRA + r"0-9])(" + "|".join(sorted(map(re.escape, nombres), key=len, reverse=True)) + r")(?![" + _LETRA + r"])(?=(\d?))")
+    ini, fin = (_INI, _FIN) if marcas else ("", "")
+    return _RE_NOMBRES.sub(lambda m: ini + nombres[m.group(1)] + fin + (" " if m.group(2) else ""), t)
+
+
+def sin_marcas(t):
+    return t.replace(_INI, "").replace(_FIN, "")
+
+
+def _unir(t):
+    """Junta en un solo tramo las palabras de un mismo nombre: «Arise Fluids», «Andromeda-Shock», «Remap-CAP»,
+    «ECLS-Shock», «Emperor-Preserved». La cifra final («-2») queda fuera y se dice en español."""
+    previo = None
+    while previo != t:
+        previo = t
+        t = re.sub(_FIN + r"(-[A-Z]{2,5}|-[A-Z][a-z]+)(?![" + _LETRA + r"0-9])", r"\1" + _FIN, t)
+        t = re.sub(r"(?<![" + _LETRA + r"0-9-])([A-Z]{2,5}-)" + _INI, _INI + r"\1", t)
+        t = re.sub(_FIN + r"([ -])" + _INI, r"\1", t)
+    return t
 
 
 def _unidad(clave, singular):
@@ -171,9 +198,10 @@ def _suelta(m):
     return m.group("n") + m.group("c") + " " + _unidad(u, m.group("n") in ("1", "1.0", "1,0"))
 
 
-def leer(t):
-    """Texto para leer en voz alta. No añade, quita ni cambia cifras ni palabras del texto publicado."""
-    t = decir_nombres(canonico(t))
+def leer(t, marcas=False):
+    """Texto para leer en voz alta. No añade, quita ni cambia cifras ni palabras del texto publicado.
+    Con `marcas`, el mismo texto con los nombres de los ensayos entre marcas (para decirlos en inglés)."""
+    t = decir_nombres(canonico(t), marcas)
     t = re.sub(r"[™®©]", "", t)
     t = re.sub(r"_+", " ", t)
     t = t.replace("&", " y ")
@@ -221,24 +249,27 @@ def leer(t):
     t = re.sub(r"[ \t]+", " ", t)
     t = re.sub(r"\(\s+", "(", t)
     t = re.sub(r"\s+([,;:)]|\.(?!\d))", r"\1", t)
-    return t.strip()
+    return _unir(t.strip()) if marcas else t.strip()
 
 
 def revista_hablada(r):
     return LEX["revistas"].get(str(r.get("revista") or "").strip(), str(r.get("revista") or "").strip())
 
 
-def bloques(r):
-    """Lo que se lee, por párrafos y en orden: presentación, cada sección con su título y cierre."""
+def bloques(r, marcas=False):
+    """Lo que se lee, por párrafos y en orden: presentación, cada sección con su título y cierre.
+    Con `marcas`, lo mismo con los nombres de ensayos y la revista entre marcas (se dicen en inglés)."""
     fecha = fecha_hablada(r.get("fecha"))
-    presentacion = "Resúmenes Trials. " + leer(str(r["titulo"]).strip()).rstrip(".") + "."
+    presentacion = "Resúmenes Trials. " + leer(str(r["titulo"]).strip(), marcas).rstrip(".") + "."
     revista = revista_hablada(r)
     if revista:
+        if marcas and str(r.get("revista") or "").strip() in LEX["revistas"]:
+            revista = _INI + revista + _FIN
         presentacion += f" Publicado en {revista}" + (f", el {fecha}." if fecha else ".")
     out = [presentacion]
     for titulo, parrafos in secciones(r):
-        out.append(leer(titulo).rstrip(".") + ".")
-        out.extend(leer(p) for p in parrafos)
+        out.append(leer(titulo, marcas).rstrip(".") + ".")
+        out.extend(leer(p, marcas) for p in parrafos)
     out.append("Fin del resumen.")
     return out
 
@@ -275,9 +306,46 @@ def trozos(parrafos, limite=LIMITE_BYTES):
     return out
 
 
+# ---------- SSML (voces que lo admiten) ----------
+
+def admite_ssml(voz):
+    """Chirp HD y Chirp 3 HD solo aceptan texto; WaveNet, Neural2, Standard, Studio y News aceptan SSML."""
+    return "Chirp" not in voz
+
+
+def ssml(texto):
+    """SSML de un trozo con marcas: un <p> por párrafo y cada tramo marcado dentro de <lang> para que la misma voz
+    lo diga en inglés. No añade ni quita texto; solo cambia por un espacio el guion entre un nombre y su cifra."""
+    def parrafo(p):
+        for signo, escape in (("&", "&amp;"), ("<", "&lt;"), (">", "&gt;"), ('"', "&quot;"), ("'", "&apos;")):
+            p = p.replace(signo, escape)
+        p = re.sub(_FIN + r"-(?=\d)", _FIN + " ", p)
+        return "<p>" + p.replace(_INI, f'<lang xml:lang="{IDIOMA_NOMBRES}">').replace(_FIN, "</lang>") + "</p>"
+    return "<speak>" + "".join(parrafo(p.strip()) for p in texto.split("\n\n") if p.strip()) + "</speak>"
+
+
+def texto_de_ssml(s):
+    """El texto que queda al quitar las etiquetas (para comprobar que el SSML no cambia lo que se lee)."""
+    return html.unescape(re.sub(r"<[^>]+>", "", re.sub(r"</p>\s*<p>", "\n\n", s)))
+
+
+def _junto(t):
+    """Para comparar el SSML con el texto: lo único que el SSML cambia es, por un espacio, el guion entre un nombre y su cifra."""
+    return re.sub(r"[\s-]+", " ", t).strip()
+
+
+def trozos_ssml(parrafos, limite=LIMITE_BYTES):
+    """Peticiones en SSML a partir de párrafos con marcas, todas dentro del límite de la API."""
+    for tope in range(limite, 900, -400):
+        partes = [ssml(x) for x in trozos(parrafos, tope)]
+        if all(len(x.encode("utf-8")) <= LIMITE_SSML for x in partes):
+            return partes
+    raise ValueError("no se pudo partir el texto en peticiones SSML dentro del límite de la API")
+
+
 # ---------- Guardas ----------
 
-_PERMITIDO = re.compile(r"[^" + _LETRA + r"À-ÖØ-öø-ž0-9ªº \n.,;:()¿?¡!%«»\"'’“”-]")
+_PERMITIDO = re.compile(r"[^" + _ALFA + r"À-ÖØ-öø-ž0-9ªº \n.,;:()¿?¡!%«»\"'’“”-]")
 _OMITIBLES = {k for k in _UNI if re.fullmatch(r"[a-záéíóúñ]{4,}", k)}
 
 
@@ -311,6 +379,21 @@ def revisar(r):
     grandes = [len(x.encode("utf-8")) for x in trozos(bloques(r)) if len(x.encode("utf-8")) > LIMITE_BYTES]
     if grandes:
         problemas.append(f"un trozo supera el límite de la API ({max(grandes)} bytes)")
+    # Con marcas (nombres en inglés) se lee exactamente lo mismo, y el SSML no añade más que etiquetas.
+    marcados = bloques(r, True)
+    if [sin_marcas(x) for x in marcados] != bloques(r):
+        i = next((k for k, (x, y) in enumerate(zip(marcados, bloques(r))) if sin_marcas(x) != y), 0)
+        problemas.append(f"las marcas de los nombres cambian la lectura del párrafo {i + 1}")
+    elif any(re.search(_INI + "[^" + _FIN + "]*(?:" + _INI + "|$)|^[^" + _INI + "]*" + _FIN, x) for x in marcados):
+        problemas.append("las marcas de los nombres no cierran bien")
+    else:
+        try:
+            peticiones = trozos_ssml(marcados)
+        except ValueError as e:
+            problemas.append(str(e))
+        else:
+            if _junto(" ".join(texto_de_ssml(x) for x in peticiones)) != _junto(texto_voz(r)):
+                problemas.append("el SSML no dice lo mismo que el texto para leer")
     return problemas
 
 
@@ -339,22 +422,32 @@ def _api(ruta, clave, cuerpo=None):
         raise SystemExit(f"No se pudo conectar con Google Cloud: {e.reason}") from None
 
 
-def sintetizar(texto, voz, idioma, clave):
-    """MP3 de un texto (ya dentro del límite de bytes)."""
-    cuerpo = {"input": {"text": texto}, "voice": {"languageCode": idioma, "name": voz}, "audioConfig": {"audioEncoding": "MP3"}}
+def sintetizar(texto, voz, idioma, clave, es_ssml=False):
+    """MP3 de un texto o de un SSML (ya dentro del límite de bytes)."""
+    cuerpo = {"input": {"ssml" if es_ssml else "text": texto}, "voice": {"languageCode": idioma, "name": voz}, "audioConfig": {"audioEncoding": "MP3"}}
     return base64.b64decode(_api("/text:synthesize", clave, cuerpo)["audioContent"])
 
 
-def fragmento(r, seccion, caracteres, presentacion=False):
-    """Los primeros párrafos de una sección, hasta `caracteres`, cortados en fin de oración."""
+def fragmento(r, seccion, caracteres, presentacion=False, marcas=False):
+    """Los primeros párrafos de una sección, hasta `caracteres`, cortados en fin de oración.
+    Con `marcas`, el mismo fragmento con los nombres entre marcas."""
     parrafos = next((p for t, p in secciones(r) if t == seccion), None)
     if not parrafos:
         raise SystemExit(f"El resumen {r['id']} no tiene la sección «{seccion}»")
     texto = " ".join(leer(p) for p in parrafos)
-    if len(texto) > caracteres:
+    cortado = len(texto) > caracteres
+    if cortado:
         corte = next((c for c in (texto.rfind(marca, 0, caracteres) for marca in (". ", "; ", ", ", " ")) if c >= caracteres * 0.7), caracteres)
-        texto = texto[:corte].rstrip(" ,;.") + "."
-    return (bloques(r)[0] + "\n\n" if presentacion else "") + leer(seccion) + ".\n\n" + texto
+        texto = texto[:corte]
+    if marcas:  # el mismo corte, contado sin las marcas
+        marcado, vistos, hasta = " ".join(leer(p, True) for p in parrafos), 0, 0
+        while vistos < len(texto) or (hasta < len(marcado) and marcado[hasta] == _FIN):
+            vistos += marcado[hasta] not in (_INI, _FIN)
+            hasta += 1
+        texto = marcado[:hasta] + (_FIN if marcado[:hasta].count(_INI) > marcado[:hasta].count(_FIN) else "")
+    if cortado:
+        texto = texto.rstrip(" ,;.") + "."
+    return (bloques(r, marcas)[0] + "\n\n" if presentacion else "") + leer(seccion, marcas) + ".\n\n" + texto
 
 
 def variantes(texto, muestra):
@@ -363,17 +456,35 @@ def variantes(texto, muestra):
     out = [("", texto)]
     for v in muestra.get("variantes", []):
         cambiado = texto
-        for a, b in v["cambios"].items():
+        for a, b in v.get("cambios", {}).items():
             cambiado = cambiado.replace(a, b)
         if cambiado != texto:
             out.append((re.sub(r"[^a-z0-9-]", "", str(v["etiqueta"]).lower()), cambiado))
     return out
 
 
+def versiones(r, muestra):
+    """[(etiqueta, párrafos, con marcas)] de una muestra del plan: el texto tal cual (salvo `"base": false`), las
+    variantes con `cambios` y, con `"ingles": true`, el mismo texto con los nombres marcados para decirse en inglés.
+    `"completo": true` toma el resumen entero en lugar de un fragmento."""
+    def parrafos(marcas):
+        if muestra.get("completo"):
+            return bloques(r, marcas)
+        return fragmento(r, muestra["seccion"], int(muestra["caracteres"]), bool(muestra.get("presentacion")), marcas).split("\n\n")
+    base = "\n\n".join(parrafos(False))
+    out = [(etiqueta, texto.split("\n\n"), False) for etiqueta, texto in variantes(base, muestra) if etiqueta or muestra.get("base", True)]
+    for v in muestra.get("variantes", []):
+        if v.get("ingles"):
+            out.append((re.sub(r"[^a-z0-9-]", "", str(v["etiqueta"]).lower()), parrafos(True), True))
+    return out
+
+
 def elegir_voces(plan, disponibles):
-    """[(familia, género, voz)] según el plan: primero las preferidas que existan y después por orden alfabético."""
-    elegidas = []
-    for familia in plan["familias"]:
+    """[(familia, género, voz)] según el plan: las voces pedidas por su nombre (`voces`) y, por familia, primero las
+    preferidas que existan y después por orden alfabético."""
+    generos = {v["name"]: v.get("ssmlGender", "") for v in disponibles}
+    elegidas = [("-".join(v.split("-")[2:-1]), generos[v], v) for v in plan.get("voces", []) if v in generos]
+    for familia in plan.get("familias", []):
         for genero in ("FEMALE", "MALE"):
             candidatas = sorted(v["name"] for v in disponibles if f"-{familia['nombre']}-" in v["name"] and v.get("ssmlGender") == genero)
             fijas = [c for nombre in plan.get("preferidas", []) for c in candidatas if c.endswith("-" + nombre)]
@@ -403,14 +514,19 @@ def cmd_muestras(args):
         idioma = "-".join(voz.split("-")[:2])
         for muestra in plan["muestras"]:
             r = datos[int(muestra["id"])]
-            base = fragmento(r, muestra["seccion"], int(muestra["caracteres"]), bool(muestra.get("presentacion")))
-            for etiqueta, texto in variantes(base, muestra):
-                audio = b"".join(sintetizar(x, voz, idioma, clave) for x in trozos(texto.split("\n\n")))
-                nombre = f"{numero:02d}_{familia}_{'mujer' if genero == 'FEMALE' else 'hombre'}_{voz.split('-')[-1]}_resumen{r['id']}{'_' + etiqueta if etiqueta else ''}.mp3"
+            for etiqueta, parrafos, con_marcas in versiones(r, muestra):
+                if con_marcas and not admite_ssml(voz):
+                    continue
+                peticiones = trozos_ssml(parrafos) if con_marcas else trozos(parrafos)
+                audio = b"".join(sintetizar(x, voz, idioma, clave, con_marcas) for x in peticiones)
+                sufijo = ("_completo" if muestra.get("completo") else "") + ("_" + etiqueta if etiqueta else "")
+                nombre = f"{numero:02d}_{familia}_{'mujer' if genero == 'FEMALE' else 'hombre'}_{voz.split('-')[-1]}_resumen{r['id']}{sufijo}.mp3"
                 (salida / nombre).write_bytes(audio)
-                total += len(texto)
-                indice.append({"archivo": nombre, "voz": voz, "familia": familia, "genero": genero, "resumen": r["id"], "seccion": muestra["seccion"], "variante": etiqueta, "caracteres": len(texto), "bytes": len(audio), "texto": texto})
-                print(f"{nombre}: {len(texto)} caracteres, {len(audio)} bytes")
+                enviados = sum(len(x) for x in peticiones)
+                total += enviados
+                indice.append({"archivo": nombre, "voz": voz, "familia": familia, "genero": genero, "resumen": r["id"], "seccion": "" if muestra.get("completo") else muestra["seccion"], "completo": bool(muestra.get("completo")),
+                               "variante": etiqueta, "ssml": con_marcas, "caracteres": enviados, "peticiones": len(peticiones), "bytes": len(audio), "texto": sin_marcas("\n\n".join(parrafos))})
+                print(f"{nombre}: {enviados} caracteres en {len(peticiones)} peticiones, {len(audio)} bytes")
     (salida / "indice.json").write_text(json.dumps({"version": VERSION, "caracteres": total, "muestras": indice}, ensure_ascii=False, indent=1), encoding="utf-8")
     print(f"Muestras: {len(indice)} archivos, {total} caracteres en total.")
     return 0
