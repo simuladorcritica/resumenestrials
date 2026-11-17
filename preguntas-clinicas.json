@@ -261,6 +261,75 @@
           "frase": "reduce la tasa anualizada de exacerbaciones moderadas o graves en pacientes con EPOC, exacerbaciones frecuentes y fenotipo eosinofílico"
         }
       }
+    },
+    {
+      "id": 337,
+      "fecha": "2026-11-17",
+      "huella": "acccb482bf86b607",
+      "preguntas": {
+        "corticoides-choque-septico": {
+          "rol": "nada",
+          "frase": "mejora la histología hepática frente al placebo en adultos con esteatohepatitis asociada a disfunción metabólica y fibrosis en estadio 2 o 3"
+        },
+        "cuando-iniciar-terapia-reemplazo-renal-lesion-renal-aguda": {
+          "rol": "nada",
+          "frase": "mejora la histología hepática frente al placebo en adultos con esteatohepatitis asociada a disfunción metabólica y fibrosis en estadio 2 o 3"
+        },
+        "meta-oxigenacion-paciente-critico": {
+          "rol": "nada",
+          "frase": "mejora la histología hepática frente al placebo en adultos con esteatohepatitis asociada a disfunción metabólica y fibrosis en estadio 2 o 3"
+        },
+        "restriccion-liquidos-choque-septico-hipotension-sepsis": {
+          "rol": "nada",
+          "frase": "mejora la histología hepática frente al placebo en adultos con esteatohepatitis asociada a disfunción metabólica y fibrosis en estadio 2 o 3"
+        }
+      }
+    },
+    {
+      "id": 338,
+      "fecha": "2026-11-17",
+      "huella": "d5678b4b4cf30bfb",
+      "preguntas": {
+        "corticoides-choque-septico": {
+          "rol": "nada",
+          "frase": "Determinar si el brensocatib, inhibidor oral de la dipeptidil peptidasa 1 (DPP-1), reduce las exacerbaciones de bronquiectasia frente a placebo"
+        },
+        "cuando-iniciar-terapia-reemplazo-renal-lesion-renal-aguda": {
+          "rol": "nada",
+          "frase": "reduce la tasa anualizada de exacerbaciones pulmonares en adultos y adolescentes con bronquiectasias no debidas a fibrosis quística"
+        },
+        "meta-oxigenacion-paciente-critico": {
+          "rol": "nada",
+          "frase": "reduce la tasa anualizada de exacerbaciones pulmonares en adultos y adolescentes con bronquiectasias no debidas a fibrosis quística"
+        },
+        "restriccion-liquidos-choque-septico-hipotension-sepsis": {
+          "rol": "nada",
+          "frase": "Determinar si el brensocatib, inhibidor oral de la dipeptidil peptidasa 1 (DPP-1), reduce las exacerbaciones de bronquiectasia frente a placebo"
+        }
+      }
+    },
+    {
+      "id": 339,
+      "fecha": "2026-11-17",
+      "huella": "f6cf428799852c3e",
+      "preguntas": {
+        "corticoides-choque-septico": {
+          "rol": "nada",
+          "frase": "Evaluar si una dosis oral única de baloxavir administrada a pacientes con influenza reduce, frente a placebo, la transmisión del virus a sus convivientes hasta el día 5."
+        },
+        "cuando-iniciar-terapia-reemplazo-renal-lesion-renal-aguda": {
+          "rol": "nada",
+          "frase": "Evaluar si una dosis oral única de baloxavir administrada a pacientes con influenza reduce, frente a placebo, la transmisión del virus a sus convivientes hasta el día 5."
+        },
+        "meta-oxigenacion-paciente-critico": {
+          "rol": "nada",
+          "frase": "Evaluar si una dosis oral única de baloxavir administrada a pacientes con influenza reduce, frente a placebo, la transmisión del virus a sus convivientes hasta el día 5."
+        },
+        "restriccion-liquidos-choque-septico-hipotension-sepsis": {
+          "rol": "nada",
+          "frase": "Evaluar si una dosis oral única de baloxavir administrada a pacientes con influenza reduce, frente a placebo, la transmisión del virus a sus convivientes hasta el día 5."
+        }
+      }
     }
   ],
   "preguntas": [
