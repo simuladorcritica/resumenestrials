@@ -30,6 +30,9 @@ EDITORIAL_SIGNATURE='<span class="ev-signature">Por <a href="/equipo-editorial/"
 METHOD_NOTE=('<div class="ev-method"><span class="ev-original-label">Cómo se elaboró</span>'
  '<span>Resumen redactado por la Editorial EMEICRÍTICA con apoyo de herramientas de inteligencia artificial, con criterios editoriales fijos, y verificado con controles automáticos contra el artículo original.'
  '</span><span class="ev-method-links"><a href="/metodologia/">Metodología</a><a href="/correcciones/">Correcciones</a><a href="/equipo-editorial/">Cómo trabajamos</a><a href="mailto:resumenestrials@outlook.com">Reportar un error</a></span></div>')
+# Sitio reservado, bajo el título y la firma del resumen completo, para «Escuchar el resumen» (reader-audio.js): así el
+# texto no salta cuando el botón aparece. Si el resumen no tiene audio, el módulo lo retira.
+LISTEN_SLOT='<div class="ev-listen-slot" data-ev-listen-slot></div>'
 SUBSCRIBE_NOTE=('<div class="ev-method ev-subscribe"><span class="ev-original-label">Avisos por correo</span>'
  '<span>Recibe un aviso cuando publiquemos un resumen nuevo. Es gratis y puedes darte de baja cuando quieras.</span>'
  '<span class="ev-method-links"><a href="/registro.html">Crear cuenta y activar avisos</a><a href="/cuenta.html">Ya tengo cuenta</a></span></div>')
@@ -885,7 +888,7 @@ def reading(r,manifest,brief=False,legacy=False):
  original=(f'<a href="{esc(r["original"])}" target="_blank" rel="noopener noreferrer">{esc(r["original"])}{icon("external")}</a>' if str(r["original"]).startswith("https://") else esc(r["original"]))
  return (f'<section class="ev-reading" data-ev-reader="{id}" data-ev-brief="{str(brief).lower()}"><nav class="ev-breadcrumb" aria-label="Ruta"><a href="/" data-ev-return>{icon("arrow-left")}Volver a la lista</a><a href="/metodologia/">Metodología</a></nav>'
   f'<header class="ev-reading-head">{SIGNAL}<h1 data-ev-field="titulo">{esc(r["titulo"])}</h1>'
-  f'<p class="ev-byline"><span data-ev-field="autor">{esc(r["autor"])}</span><span data-ev-field="revista">{esc(r["revista"])}</span><span data-ev-field="fecha">{esc(human_date(r["fecha"]))}</span></p>'
+  f'<p class="ev-byline"><span data-ev-field="autor">{esc(r["autor"])}</span><span data-ev-field="revista">{esc(r["revista"])}</span><span data-ev-field="fecha">{esc(human_date(r["fecha"]))}</span></p>{"" if brief else LISTEN_SLOT}'
   f'<div class="ev-keyfinding"><p class="ev-keyfinding-label">{icon("spark")}Hallazgo principal</p><p data-ev-field="hallazgo" class="ev-lead">{r["hallazgo"]}</p></div>'
   f'<p class="ev-readtime">{readtime(r)}</p>{editorial_dates(r)}{audit_notice(id,audit())}</header>'
   '<details class="ev-facts" open><summary>Ficha técnica del estudio</summary>'+facts(r)+'</details>'+toolbar+'<progress class="ev-progress" max="100" value="0" aria-label="Progreso de lectura"></progress>'

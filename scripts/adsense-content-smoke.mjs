@@ -25,6 +25,12 @@ export async function checkContentAdvertising(base, output = 'future-screenshots
         await context.route(base + '/', route => route.fulfill({ contentType: 'text/html', body: readFileSync('_includes/index-source.html', 'utf8') }));
       }
       await context.addInitScript(t=>localStorage.setItem('rt-tema',t),theme);
+      // El almacén de audios solo da permiso de lectura al origen del sitio publicado. Contra la copia local se simula su respuesta
+      // real cuando un resumen no tiene audio (404 con permiso de origen), igual que en design-browser-suites.mjs; sin esto la consulta
+      // de «Escuchar» queda bloqueada por el navegador y WebKit la anota como error de página (PR #322, 17-nov-2026).
+      if (['localhost', '127.0.0.1'].includes(new URL(base).hostname)) {
+        await context.route('https://audio.resumenestrials.com/**', route => route.fulfill({ status: 404, contentType: 'text/html', headers: { 'access-control-allow-origin': '*' }, body: '' }));
+      }
       if(path===moved)await context.route('https://resumenestrials.com/**',async route=>{const u=new URL(route.request().url()),response=await context.request.get(base+u.pathname+u.search);await route.fulfill({response})});
       const requests = [], errors = [], consoleMessages = [], failedResponses = [];
       context.on('request', r => requests.push({ url: r.url(), document: r.frame().url() }));

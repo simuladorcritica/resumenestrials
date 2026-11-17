@@ -1,0 +1,39 @@
+/* Audio del resumen completo («Escuchar»). Lo carga reader-audio.js solo cuando el resumen tiene audio.
+   Usa los colores y medidas del sistema de diseño (ui/tokens.css); no define ninguno propio. */
+/* Acceso principal: bajo el título y la firma, en cualquier pantalla, dentro del sitio que la página le reserva
+   (.ev-listen-slot, en el CSS del sitio) para que el texto no salte cuando aparece. */
+.ev-listen{display:inline-flex;align-items:center;gap:10px;min-height:48px;margin:0;padding:10px 18px;font-weight:600}
+.ev-listen .ev-svg{color:var(--ev-accent)}
+.ev-listen small{padding-left:10px;border-left:1px solid var(--ev-line-strong);color:var(--ev-muted);font-size:.86rem;font-weight:500;font-variant-numeric:tabular-nums}
+.ev-listen[aria-pressed=true]{border-color:var(--ev-accent);background:var(--ev-accent-soft)}
+/* El mismo acceso en la barra de controles, solo donde cabe sin apretar a los demás. */
+.ev-listen-tool{display:none}
+@media(min-width:900px){.ev-listen-tool{display:inline-flex;min-width:120px}}
+.ev-toolbar.ev-audio-open{flex-wrap:wrap}
+.ev-audio{flex:1 0 100%;order:99;display:flex;align-items:center;gap:6px;min-width:0;margin-top:6px;padding-top:6px;border-top:1px solid var(--ev-line)}
+.ev-audio[hidden]{display:none}
+.ev-audio-play{display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;width:44px;height:44px;padding:0;border:0;border-radius:var(--ev-pill);background:var(--ev-accent);color:var(--ev-on-accent);cursor:pointer;transition:background var(--ev-fast)}
+.ev-audio-play:hover{background:var(--ev-accent-strong)}
+.ev-audio-play .ev-svg{width:22px;height:22px}
+.ev-audio .ev-tool{flex:0 0 auto;padding:8px 10px;gap:4px;font-variant-numeric:tabular-nums}
+.ev-audio-rate{min-width:58px}
+.ev-audio-time{flex:0 0 auto;min-width:3.2em;color:var(--ev-muted);font-size:.86rem;font-variant-numeric:tabular-nums;text-align:center}
+.ev-audio-bar{flex:1 1 120px;min-width:0;height:44px;margin:0;accent-color:var(--ev-accent);background:transparent;cursor:pointer}
+@media(max-width:719px){
+ .ev-listen{display:flex;width:100%;justify-content:center}
+ /* En el teléfono la barra de controles está fija abajo: el reproductor se apoya encima, sin mover sus botones. */
+ .ev-toolbar.ev-audio-open{flex-wrap:nowrap;border-radius:0}
+ .ev-audio{position:absolute;left:0;right:0;bottom:100%;display:grid;grid-template-columns:auto 1fr auto 1fr auto;grid-template-areas:"now bar bar bar total" "rate back play forward close";gap:2px 6px;margin:0;padding:8px 12px 6px;border:1px solid var(--ev-line);border-width:1px 0;border-radius:var(--ev-r) 22px 0 0;background:inherit}
+ .ev-audio-play{grid-area:play;justify-self:center}
+ .ev-audio [data-ev-audio-back]{grid-area:back;justify-self:end}
+ .ev-audio [data-ev-audio-forward]{grid-area:forward;justify-self:start}
+ .ev-audio [data-ev-audio-now]{grid-area:now}
+ .ev-audio [data-ev-audio-total]{grid-area:total}
+ .ev-audio-bar{grid-area:bar;width:100%}
+ .ev-audio-rate{grid-area:rate;justify-self:start}
+ .ev-audio-close{grid-area:close;justify-self:end}
+ /* Con el reproductor abierto, el final de la página deja sitio para que no lo tape. */
+ :root.ev-audio-on .ev-footer{padding-bottom:var(--ev-audio-h,0px)}
+ :root.ev-audio-on .ev-reader .ev-top{bottom:calc(96px + var(--ev-audio-h,0px))}
+}
+@media print{.ev-listen,.ev-audio{display:none}}

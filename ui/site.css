@@ -374,7 +374,7 @@ section.ev-archive{scroll-margin-top:96px;padding-top:12px}
 .ev-reading-head{max-width:880px}
 .ev-reading-head h1{font-size:clamp(1.9rem,1.2rem + 2.6vw,3.1rem);max-width:26ch}
 .ev-byline{--ev-sep:32px;display:flex;flex-wrap:wrap;row-gap:4px;margin-top:0;margin-right:0;margin-bottom:22px;color:var(--ev-muted);font-size:.95rem}
-.ev-keyfinding{position:relative;margin:0 0 18px;padding:18px 22px;border:0;border-top:2px solid var(--ev-brand);border-radius:0;background:var(--ev-bg-soft);overflow:hidden}
+.ev-listen-slot{min-height:48px;margin:4px 0 18px}.ev-keyfinding{position:relative;margin:0 0 18px;padding:18px 22px;border:0;border-top:2px solid var(--ev-brand);border-radius:0;background:var(--ev-bg-soft);overflow:hidden}
 .ev-keyfinding::before{display:none}
 .ev-keyfinding-label{display:flex;align-items:center;gap:8px;margin:0 0 8px;color:var(--ev-accent);font-size:.8rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
 .ev-keyfinding-label .ev-svg{width:18px;height:18px}
