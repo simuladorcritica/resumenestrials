@@ -1,5 +1,5 @@
 {
- "_nota": "Plan de generación del audio de los resúmenes completos (python tools/voz.py generar). Con \"automatico\": false solo se generan los resúmenes de \"piloto\"; el editor lo pasa a true cuando aprueba el piloto. Cambiar este archivo en main lanza el flujo «Voz · generar».",
+ "_nota": "Plan de generación del audio de los resúmenes completos (python tools/voz.py generar). Con \"automatico\": false solo se generan los resúmenes de \"piloto\"; el editor lo pasa a true cuando aprueba el piloto. Orden de lo que falta: los corregidos y los de \"prioridad\", los nuevos (publicados en el sitio en los últimos \"dias_nuevo\" días) y al final el archivo antiguo. \"tope_mensual\" es la parte gratuita de Google y nunca se pasa: lo que no cabe espera en cola al mes siguiente. \"reserva_mensual\" son los caracteres de ese tope que el archivo antiguo no puede usar; se liberan día a día, así que lo antiguo solo gasta el cupo que va sobrando. Cambiar este archivo en main lanza el flujo «Voz · generar».",
  "automatico": true,
  "piloto": [
   2,
@@ -7,5 +7,11 @@
   113
  ],
  "tope_mensual": 3900000,
- "maximo_por_ejecucion": 300
+ "maximo_por_ejecucion": 300,
+ "prioridad": [
+  19,
+  324
+ ],
+ "reserva_mensual": 2400000,
+ "dias_nuevo": 30
 }

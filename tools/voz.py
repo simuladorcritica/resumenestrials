@@ -20,9 +20,18 @@ las voces que admiten SSML (WaveNet, la elegida) van dentro de <lang xml:lang="e
                                             genera el audio de los resúmenes que no lo tienen vigente y lo sube al
                                             almacén (Cloudflare R2), según tools/voz_plan.json. Necesita además
                                             R2_ACCOUNT_ID, R2_ACCESS_KEY_ID, R2_SECRET_ACCESS_KEY y R2_BUCKET.
+                                            Con TELEGRAM_BOT_TOKEN y TELEGRAM_CHAT_ID avisa al editor cuando un
+                                            resumen se queda sin audio (cupo del mes, guarda o error).
+
+El audio sigue al texto publicado: un resumen nuevo recibe su audio y uno corregido pierde el anterior en la misma
+ejecución y recibe el nuevo. Cada resumen se lee por partes (presentación, cada sección y cierre) y el audio de cada
+parte se guarda: al corregir un resumen solo se vuelve a generar la parte que cambió. Van primero los corregidos,
+luego los nuevos y al final el archivo antiguo. Nunca se pasa de la parte gratuita del mes: lo que no cabe espera
+en cola al mes siguiente (decisiones del editor, 17-nov-2026).
 """
 import argparse
 import base64
+import calendar
 import datetime
 import hashlib
 import hmac
@@ -39,7 +48,7 @@ import urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-VERSION = 4  # Sube cuando cambien las reglas de lectura o el léxico (queda anotada en cada audio generado).
+VERSION = 5  # Sube cuando cambien las reglas de lectura o el léxico (queda anotada en cada audio generado).
 LEX = json.loads((ROOT / "tools" / "voz_lexico.json").read_text(encoding="utf-8"))
 SIN_VOZ = {"Referencia y registro"}
 LIMITE_BYTES = 4500  # La API admite 5000 bytes de texto por petición.
@@ -402,11 +411,11 @@ def revisar(r):
         problemas.append("las marcas de los nombres no cierran bien")
     else:
         try:
-            peticiones = trozos_ssml(marcados)
+            envios = peticiones(r)
         except ValueError as e:
             problemas.append(str(e))
         else:
-            if _junto(" ".join(texto_de_ssml(x) for x in peticiones)) != _junto(texto_voz(r)):
+            if _junto(" ".join(texto_de_ssml(x) for x in envios)) != _junto(texto_voz(r)):
                 problemas.append("el SSML no dice lo mismo que el texto para leer")
     return problemas
 
@@ -631,19 +640,59 @@ CACHE_AUDIO = "public, max-age=31536000, immutable"  # El nombre del archivo lle
 CACHE_FICHA = "public, max-age=60"
 
 
+def partes(r, marcas=True):
+    """Lo que se lee, en partes estables: la presentación, cada sección (su título y sus párrafos) y el cierre.
+    Cada parte se envía y se guarda por separado, así que corregir una sección no obliga a generar las demás."""
+    todo = bloques(r, marcas)
+    grupos, i = [todo[:1]], 1
+    for _titulo, parrafos in secciones(r):
+        grupos.append(todo[i:i + 1 + len(parrafos)])
+        i += 1 + len(parrafos)
+    grupos.append(todo[i:])
+    return [g for g in grupos if g]
+
+
 def peticiones(r):
-    """Lo que se envía a Google para leer un resumen entero: SSML con los nombres en inglés."""
+    """Lo que se envía a Google para leer un resumen entero: SSML con los nombres en inglés, parte por parte."""
+    return [p for grupo in partes(r) for p in trozos_ssml(grupo)]
+
+
+def peticiones_anteriores(r):
+    """Cómo se partía el texto hasta el 17-nov-2026: de corrido, sin atender a las secciones. Solo sirve para
+    reconocer los audios generados entonces, que siguen siendo válidos mientras su texto no cambie."""
     return trozos_ssml(bloques(r, True))
+
+
+def _huella(envios):
+    h = hashlib.sha256(f"{VOZ}\n{json.dumps(AUDIO, sort_keys=True)}\n".encode("utf-8"))
+    for p in envios:
+        h.update(p.encode("utf-8") + b"\n")
+    return h.hexdigest()[:16]
 
 
 def huella(r):
     """Identifica el audio vigente de un resumen: cambia solo si cambia lo que se envía a leer (el texto publicado o
     una regla de lectura que le afecte), la voz o el formato del audio. Un cambio del léxico que no toca a un resumen
     no le cambia la huella, así que no obliga a generarlo otra vez."""
-    h = hashlib.sha256(f"{VOZ}\n{json.dumps(AUDIO, sort_keys=True)}\n".encode("utf-8"))
-    for p in peticiones(r):
-        h.update(p.encode("utf-8") + b"\n")
-    return h.hexdigest()[:16]
+    return _huella(peticiones(r))
+
+
+def huella_anterior(r):
+    """La huella de un audio generado antes de leer por partes (ver `peticiones_anteriores`)."""
+    return _huella(peticiones_anteriores(r))
+
+
+def fuente(r):
+    """Huella del texto publicado que se lee (título, revista, fecha y cuerpo), sin reglas de lectura. Distingue una
+    corrección del resumen (el audio anterior deja de valer) de un cambio en la forma de leerlo (el audio sigue siendo
+    fiel al texto y vale hasta que se renueve)."""
+    return hashlib.sha256(json.dumps([str(r.get(k) or "") for k in ("titulo", "revista", "fecha", "cuerpo")], ensure_ascii=False).encode("utf-8")).hexdigest()[:16]
+
+
+def clave_parte(envio):
+    """Dónde se guarda el audio de una parte: depende solo de lo que se envía, de la voz y del formato, así que dos
+    resúmenes que dicen lo mismo («Fin del resumen.») comparten audio y una parte sin cambios no se paga dos veces."""
+    return "partes/" + hashlib.sha256(f"{VOZ}\n{json.dumps(AUDIO, sort_keys=True)}\n{envio}".encode("utf-8")).hexdigest()[:32] + ".mp3"
 
 
 def segundos_mp3(datos):
@@ -665,57 +714,159 @@ def segundos_mp3(datos):
     return muestras / frecuencia
 
 
-def generar(datos, plan, almacen, sintetiza, ahora, ids=None, maximo=None, avisar=print):
+GRUPOS = ("corregidos", "nuevos", "archivo", "renovar")  # El orden en que se atiende lo que falta. Los de «renovar» tienen audio.
+
+
+def _nombre(r):
+    """Cómo se nombra un resumen en un aviso: su número y, si el título lo lleva, el nombre del ensayo."""
+    titulo = str(r.get("titulo") or "")
+    corto = titulo.split(":")[0].strip()
+    return f"{int(r['id'])} {corto}" if ":" in titulo and 0 < len(corto) <= 28 else str(int(r["id"]))
+
+
+def _lista(claves, por_id, maximo=12):
+    nombres = [_nombre(por_id[c]) if c in por_id else c for c in claves]
+    return ", ".join(nombres[:maximo]) + (f" y {len(nombres) - maximo} más" if len(nombres) > maximo else "")
+
+
+def componer_aviso(informe, por_id, previo, ahora):
+    """Lo que el editor debe saber y no se le ha dicho todavía. Devuelve (texto, anotado): `texto` vacío si no hay nada
+    nuevo; `anotado` es lo que se guarda, una vez enviado el aviso, para no repetirlo en la ejecución siguiente."""
+    mes = ahora[:7]
+    siguiente = MESES[int(mes[5:7]) % 12]
+    cola = informe["en_cola"]
+    esperan = [str(c) for c in cola["corregidos"] + cola["nuevos"]] if informe["detenido_por"] == "tope mensual" else []
+    ya = set(previo.get("cupo", [])) if previo.get("mes") == mes else set()
+    pendientes = {str(c) for c in informe["pendientes"]} | set(informe["con_problemas"])
+    lineas = []
+    nuevos = [c for c in esperan if c not in ya]
+    if nuevos:
+        corregidos = [c for c in nuevos if int(c) in cola["corregidos"]]
+        recientes = [c for c in nuevos if int(c) in cola["nuevos"]]
+        lineas.append(f"Se acabó la parte gratuita de este mes: {len(esperan)} en cola hasta el 1 de {siguiente}."
+                      + (f" Corregidos: {_lista(corregidos, por_id)}." if corregidos else "")
+                      + (f" Nuevos: {_lista(recientes, por_id)}." if recientes else ""))
+    atendidos = [c for c in previo.get("cupo", []) if c in por_id and c not in pendientes]
+    if atendidos and not esperan:
+        lineas.append(f"Ya tienen audio los {len(atendidos)} que esperaban cupo." if len(atendidos) > 1 else f"Ya tiene audio el que esperaba cupo ({_lista(atendidos, por_id)}).")
+    guardas = {c: "; ".join(m)[:200] for c, m in informe["con_problemas"].items()}
+    for c in sorted((c for c in guardas if previo.get("guardas", {}).get(c) != guardas[c]), key=int):
+        lineas.append(f"Sin audio hasta arreglar su lectura: {_nombre(por_id[c]) if c in por_id else c} ({guardas[c]}).")
+    if informe["error"] and informe["error"] != previo.get("error"):
+        lineas.append(f"Falló la generación ({informe['error'][:300]}). Se reintenta en la próxima ejecución.")
+    anotado = {"mes": mes, "cupo": sorted(esperan, key=int), "guardas": guardas, "error": informe["error"]}
+    if not esperan and not atendidos and previo.get("mes") != mes and previo.get("cupo"):
+        anotado["cupo"], anotado["mes"] = previo["cupo"], previo["mes"]  # siguen esperando por otro motivo: se dirá cuando tengan audio
+    return ("Audio de los resúmenes · " + " · ".join(lineas) if lineas else ""), anotado
+
+
+def generar(datos, plan, almacen, sintetiza, ahora, ids=None, maximo=None, avisar=print, notificar=None):
     """Genera el audio de los resúmenes que no lo tienen vigente y devuelve un informe.
 
     En el almacén quedan: `resumenes/<id>/<huella>.mp3` (el audio), `resumenes/<id>.json` (la ficha que consulta la
-    página; existe solo si el audio vigente existe), `indice.json` (todas las fichas) y `estado/uso.json` (caracteres
-    enviados a Google cada mes). Antes de generar nada, retira la ficha y el audio de todo resumen cuyo texto, voz o
-    reglas hayan cambiado, de modo que la página nunca ofrece un audio que ya no corresponde.
+    página; existe solo si el audio vigente existe), `partes/<huella>.mp3` (el audio de cada parte leída, para no
+    pagarla dos veces), `indice.json` (todas las fichas y los corregidos que esperan su audio), `estado/uso.json`
+    (caracteres enviados a Google cada mes) y `estado/avisos.json` (lo ya avisado al editor).
+
+    Antes de generar nada, retira la ficha y el audio de todo resumen cuyo texto publicado haya cambiado, de modo que la
+    página nunca ofrece un audio que ya no corresponde. Si lo que cambia es solo la forma de leerlo (una regla, el
+    léxico o la voz), el audio sigue siendo fiel al texto: se conserva y se renueva cuando haya cupo, así que un cambio
+    de reglas nunca deja de golpe sin audio a muchos resúmenes. Después atiende lo que falta en este orden: los
+    corregidos (y los que el plan pone en `prioridad`), los nuevos (publicados en el sitio en los últimos `dias_nuevo`
+    días), el archivo antiguo y los que hay que renovar. Nunca pasa de `tope_mensual`; el archivo antiguo y las
+    renovaciones, además, no tocan la `reserva_mensual`, que se libera día a día: solo usan el cupo que va sobrando.
+    Lo que no cabe se queda en cola para el mes siguiente.
     Con `"automatico": false` en el plan solo se generan los resúmenes de `piloto`.
     """
     mes = ahora[:7]
     tope = int(plan.get("tope_mensual", 0))
-    indice = json.loads((almacen.leer("indice.json") or b"{}").decode("utf-8")).get("resumenes", {})
+    guardado = json.loads((almacen.leer("indice.json") or b"{}").decode("utf-8"))
+    indice = guardado.get("resumenes", {})
+    corregidos = guardado.get("corregidos", {})  # resúmenes cuyo audio se retiró por un cambio y aún no tienen el nuevo
     uso = json.loads((almacen.leer("estado/uso.json") or b"{}").decode("utf-8"))
     uso.setdefault(mes, 0)
     informe = {"fecha": ahora, "version": VERSION, "voz": VOZ, "automatico": bool(plan.get("automatico")), "total": len(datos), "generados": [], "recuperados": [],
-               "retirados": [], "con_problemas": {}, "caracteres_ejecucion": 0, "tope_mensual": tope, "detenido_por": "", "error": ""}
+               "retirados": [], "con_problemas": {}, "caracteres_ejecucion": 0, "tope_mensual": tope, "detenido_por": "", "error": "", "aviso": "", "aviso_enviado": False}
 
     def guardar_indice():
-        cuerpo = {"version": VERSION, "voz": VOZ, "actualizado": ahora, "resumenes": dict(sorted(indice.items(), key=lambda kv: int(kv[0])))}
+        cuerpo = {"version": VERSION, "voz": VOZ, "actualizado": ahora, "resumenes": dict(sorted(indice.items(), key=lambda kv: int(kv[0]))),
+                  "corregidos": dict(sorted(corregidos.items(), key=lambda kv: int(kv[0])))}
         almacen.escribir("indice.json", json.dumps(cuerpo, ensure_ascii=False, indent=1).encode("utf-8"), "application/json; charset=utf-8", CACHE_FICHA)
 
+    def limpiar(candidatas):
+        """Borra del almacén las partes que ya no usa ningún audio vigente ni espera ningún corregido."""
+        usadas = {k for e in indice.values() for k in e.get("partes", [])} | {k for e in corregidos.values() for k in e.get("partes", [])}
+        for k in dict.fromkeys(candidatas):
+            if k not in usadas:
+                almacen.borrar(k)
+
     # 1. Qué audio le corresponde hoy a cada resumen publicado (solo a los que pasan las guardas).
-    vigente, por_id = {}, {}
+    vigente, anterior, por_id = {}, {}, {}
     for r in datos:
         clave = str(int(r["id"]))
         por_id[clave] = r
         problemas = revisar(r)
         if problemas:
             informe["con_problemas"][clave] = problemas
-        else:
-            vigente[clave] = huella(r)
+            continue
+        vigente[clave] = huella(r)
+        try:
+            anterior[clave] = huella_anterior(r)
+        except ValueError:
+            anterior[clave] = None
 
-    # 2. Retirar lo que ya no corresponde, antes de generar nada.
+    # 2. Retirar lo que ya no corresponde, antes de generar nada. Un audio de antes de leer por partes sigue valiendo
+    #    mientras su texto no cambie. El resumen que pierde su audio y sigue publicado es un corregido: va primero, y
+    #    sus partes se conservan hasta que tenga el audio nuevo, para pagar solo la que cambió. Si el texto publicado
+    #    es el mismo y solo cambió la forma de leerlo, el audio se queda y pasa a la cola de renovación.
+    sueltas, renovar, anotar = [], [], False
     for clave, ficha in list(indice.items()):
-        if vigente.get(clave) != ficha.get("huella"):
-            almacen.borrar(f"resumenes/{clave}.json")
-            if ficha.get("audio"):
-                almacen.borrar(ficha["audio"])
-            del indice[clave]
-            informe["retirados"].append(int(clave))
-    if informe["retirados"]:
+        if clave in vigente and ficha.get("huella") in (vigente[clave], anterior[clave]):
+            if ficha.get("texto") != fuente(por_id[clave]):  # se anota el texto al que corresponde este audio
+                ficha["texto"], anotar = fuente(por_id[clave]), True
+            continue
+        if clave in vigente and ficha.get("texto") == fuente(por_id[clave]):
+            renovar.append(clave)
+            continue
+        almacen.borrar(f"resumenes/{clave}.json")
+        if ficha.get("audio"):
+            almacen.borrar(ficha["audio"])
+        del indice[clave]
+        informe["retirados"].append(int(clave))
+        if clave in por_id:
+            corregidos[clave] = {"desde": corregidos.get(clave, {}).get("desde", ahora), "partes": list(dict.fromkeys(corregidos.get(clave, {}).get("partes", []) + ficha.get("partes", [])))}
+        else:
+            sueltas += ficha.get("partes", [])
+    for clave in [c for c in corregidos if c not in por_id or c in indice]:
+        sueltas += corregidos.pop(clave).get("partes", [])
+    if informe["retirados"] or sueltas or anotar:
+        limpiar(sueltas)
         guardar_indice()
 
-    # 3. Los que faltan: primero los más recientes por fecha del artículo.
+    # 3. Los que faltan, en orden: corregidos, nuevos y archivo antiguo.
     permitidos = None if plan.get("automatico") else {str(int(x)) for x in plan.get("piloto", [])}
     if ids is not None:
         pedidos = {str(int(x)) for x in ids}
         permitidos = pedidos if permitidos is None else permitidos & pedidos
-    faltan = sorted((c for c in vigente if c not in indice), key=lambda c: (str(por_id[c].get("fecha") or ""), int(c)), reverse=True)
-    cola = [c for c in faltan if permitidos is None or c in permitidos]
+    momento = datetime.datetime.strptime(ahora, "%Y-%m-%dT%H:%M:%SZ")
+    delante = [str(int(x)) for x in plan.get("prioridad", [])]
+    desde_nuevo = (momento.date() - datetime.timedelta(days=int(plan.get("dias_nuevo", 30)))).isoformat()
+    publicado = lambda c: str(por_id[c].get("fecha_publicacion_resumen") or "")  # noqa: E731
+
+    def grupo(c):
+        return 3 if c in renovar else 0 if c in corregidos or c in delante else 1 if publicado(c) >= desde_nuevo else 2
+
+    faltan = [c for c in vigente if c not in indice]
+    faltan = (sorted((c for c in faltan if grupo(c) == 0), key=lambda c: (delante.index(c) if c in delante else len(delante), corregidos.get(c, {}).get("desde", ""), int(c)))
+              + sorted((c for c in faltan if grupo(c) == 1), key=lambda c: (publicado(c), int(c)), reverse=True)
+              + sorted((c for c in faltan if grupo(c) == 2), key=lambda c: (str(por_id[c].get("fecha") or ""), int(c)), reverse=True))
+    renovar.sort(key=lambda c: (publicado(c), int(c)), reverse=True)
+    cola = [c for c in faltan + renovar if permitidos is None or c in permitidos]
     limite = int(maximo if maximo is not None else plan.get("maximo_por_ejecucion", 0)) or len(cola)
+    # El archivo antiguo no toca la reserva del mes, que se va liberando con los días: al final del mes ya no reserva nada.
+    dias_mes = calendar.monthrange(momento.year, momento.month)[1]
+    queda = 1 - ((momento.day - 1) * 86400 + momento.hour * 3600 + momento.minute * 60 + momento.second) / (dias_mes * 86400)
+    tope_archivo = max(0, tope - int(int(plan.get("reserva_mensual", 0)) * queda))
 
     # 4. Generar, subir y anotar, resumen por resumen (cada uno queda completo antes de pasar al siguiente).
     for clave in cola:
@@ -725,38 +876,86 @@ def generar(datos, plan, almacen, sintetiza, ahora, ids=None, maximo=None, avisa
         r = por_id[clave]
         destino = f"resumenes/{clave}/{vigente[clave]}.mp3"
         envios = peticiones(r)
-        caracteres = sum(len(x) for x in envios)
+        claves = [clave_parte(x) for x in envios]
         tam = almacen.existe(destino)
         if tam is None:
-            if tope and uso[mes] + caracteres > tope:
-                informe["detenido_por"] = "tope mensual"
+            hecha = {k: almacen.existe(k) is not None for k in dict.fromkeys(claves)}
+            por_pagar = sum(len(x) for k, x in dict(zip(claves, envios)).items() if not hecha[k])
+            if tope and por_pagar and uso[mes] + por_pagar > (tope if grupo(clave) < 2 else tope_archivo):
+                # No se paga nunca: lo que no cabe en la parte gratuita se queda en cola para el mes siguiente.
+                informe["detenido_por"] = "tope mensual" if uso[mes] + por_pagar > tope else "reserva del mes"
                 break
+            pagado, trozos_audio = 0, []
             try:
-                audio = b"".join(sintetiza(x) for x in envios)
+                for k, x in zip(claves, envios):
+                    parte = almacen.leer(k) if hecha[k] else None
+                    if parte is None:
+                        parte = sintetiza(x)
+                        segundos_mp3(parte)
+                        almacen.escribir(k, parte, "audio/mpeg", CACHE_AUDIO)
+                        hecha[k] = True
+                        pagado += len(x)
+                    trozos_audio.append(parte)
+                audio = b"".join(trozos_audio)
                 duracion = segundos_mp3(audio)
             except (SystemExit, ValueError) as e:
                 informe["error"] = f"resumen {clave}: {e}"
+            finally:
+                if pagado:  # lo ya generado queda guardado y contado aunque el resumen no llegue a completarse
+                    uso[mes] += pagado
+                    informe["caracteres_ejecucion"] += pagado
+                    almacen.escribir("estado/uso.json", json.dumps(uso, indent=1).encode("utf-8"), "application/json; charset=utf-8", CACHE_FICHA)
+            if informe["error"]:
                 break
-            uso[mes] += caracteres
-            informe["caracteres_ejecucion"] += caracteres
-            almacen.escribir("estado/uso.json", json.dumps(uso, indent=1).encode("utf-8"), "application/json; charset=utf-8", CACHE_FICHA)
             almacen.escribir(destino, audio, "audio/mpeg", CACHE_AUDIO)
             tam = len(audio)
             informe["generados"].append(int(clave))
         else:  # el audio ya estaba (se perdió su ficha): no se vuelve a pagar por él
             duracion = segundos_mp3(almacen.leer(destino))
+            pagado = 0
             informe["recuperados"].append(int(clave))
         ficha = {"id": int(clave), "audio": destino, "huella": vigente[clave], "segundos": round(duracion), "bytes": tam, "voz": VOZ, "version": VERSION, "generado": ahora}
         almacen.escribir(f"resumenes/{clave}.json", json.dumps(ficha, ensure_ascii=False).encode("utf-8"), "application/json; charset=utf-8", CACHE_FICHA)
-        indice[clave] = ficha
+        viejas = corregidos.pop(clave, {}).get("partes", []) + indice.get(clave, {}).get("partes", [])
+        sustituido = indice.get(clave, {}).get("audio")
+        indice[clave] = dict(ficha, partes=list(dict.fromkeys(claves)), texto=fuente(r))
+        if sustituido and sustituido != destino:  # un audio renovado: el anterior deja de ofrecerse al escribirse la ficha nueva
+            almacen.borrar(sustituido)
+        limpiar(viejas)
         guardar_indice()
-        avisar(f"resumen {clave}: {round(duracion)} s, {tam} bytes, {caracteres} caracteres")
+        avisar(f"resumen {clave}: {round(duracion)} s, {tam} bytes, {pagado} caracteres nuevos de {sum(len(x) for x in envios)}")
 
-    if not informe["generados"] and not informe["recuperados"] and not informe["retirados"]:
+    if not informe["generados"] and not informe["recuperados"] and not informe["retirados"] and not sueltas and not anotar:
         guardar_indice()
-    informe.update({"con_audio": len(indice), "pendientes": [int(c) for c in faltan if c not in indice], "caracteres_mes": uso[mes],
-                    "fuera_del_piloto": 0 if permitidos is None else sum(1 for c in faltan if c not in indice and c not in permitidos)})
+    sin_audio = [c for c in faltan if c not in indice]
+    por_renovar = [c for c in renovar if indice[c].get("huella") != vigente[c]]
+    informe.update({"con_audio": len(indice), "pendientes": [int(c) for c in sin_audio], "caracteres_mes": uso[mes],
+                    "en_cola": {nombre: [int(c) for c in sin_audio + por_renovar if grupo(c) == n] for n, nombre in enumerate(GRUPOS)},
+                    "fuera_del_piloto": 0 if permitidos is None else sum(1 for c in sin_audio if c not in permitidos)})
+
+    # 5. Avisar al editor de lo que se queda sin audio (solo en las ejecuciones completas, y solo lo que no sabe ya).
+    if ids is None and plan.get("automatico"):
+        previo = json.loads((almacen.leer("estado/avisos.json") or b"{}").decode("utf-8"))
+        informe["aviso"], anotado = componer_aviso(informe, por_id, previo, ahora)
+        if informe["aviso"] and notificar is not None:
+            informe["aviso_enviado"] = bool(notificar(informe["aviso"]))
+        if anotado != previo and (not informe["aviso"] or informe["aviso_enviado"]):
+            # Lo avisado se anota solo si el aviso salió: si no, se vuelve a intentar en la ejecución siguiente.
+            almacen.escribir("estado/avisos.json", json.dumps(anotado, ensure_ascii=False, indent=1).encode("utf-8"), "application/json; charset=utf-8", CACHE_FICHA)
     return informe
+
+
+def enviar_telegram(texto, token, chat):
+    """Manda el aviso al canal de alertas del editor. Devuelve si salió; del fallo solo se muestra el código, nunca la dirección."""
+    datos = urllib.parse.urlencode({"chat_id": chat, "text": texto[:3900], "disable_web_page_preview": "true"}).encode("utf-8")
+    try:
+        with urllib.request.urlopen(urllib.request.Request(f"https://api.telegram.org/bot{token}/sendMessage", data=datos), timeout=60) as resp:
+            return resp.status == 200
+    except urllib.error.HTTPError as e:
+        print(f"No se pudo enviar el aviso por Telegram (respuesta {e.code}).")
+    except Exception:  # noqa: BLE001 - cualquier otro fallo: el mensaje del error lleva la dirección, que no se muestra
+        print("No se pudo enviar el aviso por Telegram (sin conexión o dirección no válida).")
+    return False
 
 
 def cmd_generar(args):
@@ -771,15 +970,31 @@ def cmd_generar(args):
     almacen = Almacen(valores["R2_ACCOUNT_ID"], valores["R2_ACCESS_KEY_ID"], valores["R2_SECRET_ACCESS_KEY"], valores["R2_BUCKET"])
     ahora = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     idioma = "-".join(VOZ.split("-")[:2])
-    informe = generar(resumenes(), plan, almacen, lambda x: sintetizar(x, VOZ, idioma, valores["GOOGLE_TTS_API_KEY"], True), ahora, ids, args.maximo)
+    token, chat = os.environ.get("TELEGRAM_BOT_TOKEN", "").strip(), os.environ.get("TELEGRAM_CHAT_ID", "").strip()
+    notificar = (lambda texto: enviar_telegram(texto, token, chat)) if token and chat else None
+    try:
+        informe = generar(resumenes(), plan, almacen, lambda x: sintetizar(x, VOZ, idioma, valores["GOOGLE_TTS_API_KEY"], True), ahora, ids, args.maximo, notificar=notificar)
+    except SystemExit as e:
+        # El almacén no respondió: no se pudo ni leer el estado. Se avisa (sin poder anotar que ya se avisó) y se deja constancia.
+        aviso = f"Audio de los resúmenes · Falló la generación ({str(e)[:300]}). Se reintenta en la próxima ejecución."
+        enviado = bool(notificar(aviso)) if notificar else False
+        if args.informe:
+            Path(args.informe).mkdir(parents=True, exist_ok=True)
+            (Path(args.informe) / "informe.json").write_text(json.dumps({"fecha": ahora, "version": VERSION, "error": str(e)[:300], "aviso": aviso, "aviso_enviado": enviado}, ensure_ascii=False, indent=1), encoding="utf-8")
+        print("ERROR ·", str(e)[:300])
+        return 1
     if args.informe:
         Path(args.informe).mkdir(parents=True, exist_ok=True)
         (Path(args.informe) / "informe.json").write_text(json.dumps(informe, ensure_ascii=False, indent=1), encoding="utf-8")
+    cola = informe["en_cola"]
     print(f"Audio: {informe['con_audio']} de {informe['total']} resúmenes con audio; generados ahora {len(informe['generados'])}, retirados {len(informe['retirados'])}, "
-          f"pendientes {len(informe['pendientes'])}; {informe['caracteres_ejecucion']} caracteres en esta ejecución y {informe['caracteres_mes']} en el mes (tope {informe['tope_mensual']})."
-          + (f" Detenido por {informe['detenido_por']}." if informe["detenido_por"] else ""))
+          f"pendientes {len(informe['pendientes'])} (corregidos {len(cola['corregidos'])}, nuevos {len(cola['nuevos'])}, archivo {len(cola['archivo'])}) y {len(cola['renovar'])} por renovar; "
+          f"{informe['caracteres_ejecucion']} caracteres en esta ejecución y {informe['caracteres_mes']} en el mes (tope {informe['tope_mensual']})."
+          + (f" Detenido por {informe['detenido_por']}: lo pendiente queda en cola." if informe["detenido_por"] else ""))
     if informe["con_problemas"]:
         print("Sin audio por no pasar las guardas: " + ", ".join(sorted(informe["con_problemas"], key=int)))
+    if informe["aviso"]:
+        print("Aviso al editor" + (" (enviado)" if informe["aviso_enviado"] else " (NO enviado: faltan TELEGRAM_BOT_TOKEN y TELEGRAM_CHAT_ID o falló el envío)") + ": " + informe["aviso"])
     if informe["error"]:
         print("ERROR ·", informe["error"])
         return 1
