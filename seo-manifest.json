@@ -9052,5 +9052,31 @@
       "population": "La población fueron adultos con sarcoidosis pulmonar nunca tratada y con indicación pulmonar de tratarla, es decir, síntomas moderados o graves y riesgo de deterioro o de muerte. Todos se reclutaron en hospitales de Países Bajos, con el requisito de leer y entender neerlandés, y el 85% se declaró blanco, el 7% negro y el 7% de otro origen."
     },
     "datePublished": "2026-11-17"
+  },
+  "335": {
+    "slug": "surmount-5-tirzepatida-comparacion-semaglutida-tratamiento-obesidad",
+    "path": "/trials/surmount-5-tirzepatida-comparacion-semaglutida-tratamiento-obesidad/",
+    "url": "https://resumenestrials.com/trials/surmount-5-tirzepatida-comparacion-semaglutida-tratamiento-obesidad/",
+    "title": "SURMOUNT-5: tirzepatida en comparación con semaglutida para el tratamiento de la obesidad",
+    "seo_title": "SURMOUNT-5 trial: tirzepatida en comparación con semaglutida para el tratamiento de la obesidad | Resúmenes Trials",
+    "description": "SURMOUNT-5: A la semana 72, el cambio medio del peso fue de -20.2% con tirzepatida frente a -13.7% con semaglutida (diferencia -6.5 puntos porcentuales; IC…",
+    "clusters": [
+      {
+        "name": "Renal y metabolismo",
+        "path": "/medicina-interna/renal-metabolica/",
+        "url": "https://resumenestrials.com/medicina-interna/renal-metabolica/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/surmount-5-tirzepatida-comparacion-semaglutida-tratamiento-obesidad-16x9.jpg",
+      "https://resumenestrials.com/images/trials/surmount-5-tirzepatida-comparacion-semaglutida-tratamiento-obesidad-4x3.jpg",
+      "https://resumenestrials.com/images/trials/surmount-5-tirzepatida-comparacion-semaglutida-tratamiento-obesidad-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si la tirzepatida a la dosis máxima tolerada (10 o 15 mg) es superior a la semaglutida a la dosis máxima tolerada (1.7 o 2.4 mg), ambas subcutáneas una vez por semana, en el cambio porcentual del peso a las 72 semanas en adultos con obesidad, o con sobrepeso y complicaciones, sin diabetes.",
+      "answer": "A la semana 72, el cambio medio del peso fue de -20.2% con tirzepatida frente a -13.7% con semaglutida (diferencia -6.5 puntos porcentuales; IC 95% -8.1 a -4.9; P<0.001).",
+      "population": "Entraron adultos sin diabetes con un índice de masa corporal (IMC) de 30 o más, o de 27 o más con al menos una complicación de la obesidad (hipertensión, dislipidemia, apnea obstructiva del sueño o enfermedad cardiovascular), y al menos un intento fallido de bajar de peso con dieta. Según su propia declaración, el 76.1% eran blancos, el 19.2% negros y el 26.1% hispanos, todos de Estados Unidos, incluido Puerto Rico."
+    },
+    "datePublished": "2026-11-17"
   }
 }

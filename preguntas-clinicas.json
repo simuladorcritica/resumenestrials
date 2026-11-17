@@ -215,6 +215,29 @@
           "frase": "Determinar si, en adultos con sarcoidosis pulmonar sin tratamiento previo, el metotrexato no es inferior a la prednisona como primer tratamiento"
         }
       }
+    },
+    {
+      "id": 335,
+      "fecha": "2026-11-17",
+      "huella": "becb714c392fb13c",
+      "preguntas": {
+        "corticoides-choque-septico": {
+          "rol": "nada",
+          "frase": "Determinar si la tirzepatida a la dosis máxima tolerada (10 o 15 mg) es superior a la semaglutida a la dosis máxima tolerada (1.7 o 2.4 mg)"
+        },
+        "cuando-iniciar-terapia-reemplazo-renal-lesion-renal-aguda": {
+          "rol": "nada",
+          "frase": "Determinar si la tirzepatida a la dosis máxima tolerada (10 o 15 mg) es superior a la semaglutida a la dosis máxima tolerada (1.7 o 2.4 mg)"
+        },
+        "meta-oxigenacion-paciente-critico": {
+          "rol": "nada",
+          "frase": "Determinar si la tirzepatida a la dosis máxima tolerada (10 o 15 mg) es superior a la semaglutida a la dosis máxima tolerada (1.7 o 2.4 mg)"
+        },
+        "restriccion-liquidos-choque-septico-hipotension-sepsis": {
+          "rol": "nada",
+          "frase": "Determinar si la tirzepatida a la dosis máxima tolerada (10 o 15 mg) es superior a la semaglutida a la dosis máxima tolerada (1.7 o 2.4 mg)"
+        }
+      }
     }
   ],
   "preguntas": [
