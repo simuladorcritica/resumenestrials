@@ -4,8 +4,15 @@
   <id>https://resumenestrials.com/</id>
   <link href="https://resumenestrials.com/"/>
   <link rel="self" type="application/atom+xml" href="https://resumenestrials.com/feed.xml"/>
-  <updated>2026-11-16T00:00:00Z</updated>
+  <updated>2026-11-17T00:00:00Z</updated>
   <subtitle>Resúmenes críticos en español de ensayos clínicos.</subtitle>
+  <entry>
+    <title>Un paquete de reanimación de 1 hora para el manejo prehospitalario del shock séptico</title>
+    <id>https://resumenestrials.com/trials/un-paquete-de-reanimacion-de-1-hora-para-el-manejo-prehospitalario-del-shock-septico/</id>
+    <link href="https://resumenestrials.com/trials/un-paquete-de-reanimacion-de-1-hora-para-el-manejo-prehospitalario-del-shock-septico/"/>
+    <updated>2026-11-17T00:00:00Z</updated>
+    <summary>Evaluar si un paquete de reanimación de una hora, iniciado en la fase prehospitalaria por una unidad de cuidados intensivos móvil, reduce la mortalidad a 28 días en adultos con shock séptico frente a la atención habitual.</summary>
+  </entry>
   <entry>
     <title>ORIENTAL-MeVO: tratamiento endovascular del ictus por oclusión de vaso mediano</title>
     <id>https://resumenestrials.com/trials/oriental-mevo-trombectomia-endovascular-ictus-oclusion-vaso-mediano/</id>
@@ -348,12 +355,5 @@
     <link href="https://resumenestrials.com/trials/air-stemi-revascularizacion-completa-guiada-angiografia-coronaria-funcional-infarto-elevacion-st/"/>
     <updated>2026-11-12T00:00:00Z</updated>
     <summary>Determinar si una estrategia de revascularización coronaria completa guiada por angiografía coronaria funcional reduce, frente a la guiada por angiografía convencional, un compuesto de muerte, infarto de miocardio, accidente cerebrovascular o revascularización guiada por isquemia en pacientes con…</summary>
-  </entry>
-  <entry>
-    <title>OBERON y TITANIA: tozorakimab para prevenir las exacerbaciones de la EPOC</title>
-    <id>https://resumenestrials.com/trials/oberon-y-titania-tozorakimab-prevenir-exacerbaciones-epoc/</id>
-    <link href="https://resumenestrials.com/trials/oberon-y-titania-tozorakimab-prevenir-exacerbaciones-epoc/"/>
-    <updated>2026-11-12T00:00:00Z</updated>
-    <summary>Determinar si tozorakimab, añadido al tratamiento inhalado estándar, reduce la tasa anualizada de exacerbaciones moderadas o severas de EPOC frente a placebo, en dos ensayos réplica (OBERON y TITANIA).</summary>
   </entry>
 </feed>

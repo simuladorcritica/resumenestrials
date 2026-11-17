@@ -173,6 +173,25 @@
           "frase": "Evaluar si el nerandomilast a 18 o 9 mg dos veces al día, frente a placebo, reduce la caída de la capacidad vital forzada a las 52 semanas en pacientes con fibrosis pulmonar idiopática."
         }
       }
+    },
+    {
+      "id": 333,
+      "fecha": "2026-11-17",
+      "huella": "16216299bdd27b31",
+      "preguntas": {
+        "cuando-iniciar-terapia-reemplazo-renal-lesion-renal-aguda": {
+          "rol": "nada",
+          "frase": "Evaluar si un paquete de reanimación de una hora, iniciado en la fase prehospitalaria por una unidad de cuidados intensivos móvil, reduce la mortalidad a 28 días en adultos con shock séptico frente a la atención habitual."
+        },
+        "meta-oxigenacion-paciente-critico": {
+          "rol": "nada",
+          "frase": "se daba soporte respiratorio según la oximetría, desde oxígeno hasta ventilación mecánica invasiva"
+        },
+        "restriccion-liquidos-choque-septico-hipotension-sepsis": {
+          "rol": "nada",
+          "frase": "un bolo de cristaloides en 30 minutos de al menos 1000 mL y hasta 35 mL/kg de peso ideal"
+        }
+      }
     }
   ],
   "preguntas": [
@@ -550,7 +569,7 @@
       "condicion": "Choque séptico",
       "area": "Medicina Crítica",
       "fecha_publicacion": "2026-11-15",
-      "fecha_revision": "2026-11-16",
+      "fecha_revision": "2026-11-17",
       "criterio": "Publicación principal de un ensayo clínico aleatorizado en adultos cuya población de inclusión es el choque séptico y cuya comparación principal es hidrocortisona, sola o con fludrocortisona, frente a placebo o a no darla. No pertenecen al núcleo: los que usan otro corticoide; los que comparan dos pautas de corticoides entre sí (dosis, duración, momento de inicio, bolo o infusión, o añadir fludrocortisona a la hidrocortisona); aquellos cuyo objetivo y desenlace primario corresponden a otra comparación (el corticoide como factor secundario o como parte de una combinación con otros fármacos); los de sepsis sin choque; los de corticoides en otras enfermedades (neumonía, síndrome de dificultad respiratoria aguda); ni los ensayos piloto o de factibilidad, los análisis secundarios, los seguimientos o los metaanálisis. Cuáles de esos van como relacionados lo dice `criterio_relacionados`; los demás no se añaden. Ante la duda, no se añade al núcleo.",
       "criterio_relacionados": "Solo ensayos clínicos aleatorizados en adultos: (a) en sepsis o choque séptico, cuando un corticoide es un factor secundario o parte de una combinación, o cuando se comparan dos pautas de corticoides; (b) de corticoides sistémicos en la neumonía adquirida en la comunidad o en el síndrome de dificultad respiratoria aguda. No se añaden los de Covid-19 ni los de corticoides en otras enfermedades. Ante la duda, no se añade.",
       "ejes": [
@@ -864,7 +883,8 @@
           "motivo": "Otros ensayos en sepsis que incluyeron hidrocortisona",
           "ids": [
             203,
-            257
+            257,
+            333
           ]
         },
         {
