@@ -64,4 +64,6 @@ Secretos de GitHub (los crea y guarda el editor; nunca se imprimen): `GOOGLE_TTS
 
 ## Lo que falta (siguientes entregas)
 
-Aprobado el piloto: pasar el plan a automático (todo el archivo, dentro del tope mensual) y el control «Escuchar» en la página del resumen completo, que aparece solo si la ficha del audio existe.
+El control «Escuchar» en la página del resumen completo, que aparece solo si la ficha del audio existe.
+
+Estado (16-nov-2026): tras el piloto (resúmenes 2, 69 y 113), el editor aprobó generar todo el archivo **sin salir de la parte gratuita**: el plan está en automático con el tope de 3 900 000 caracteres al mes, de modo que en noviembre se generan los más recientes hasta el tope y el resto el 1 de diciembre.
