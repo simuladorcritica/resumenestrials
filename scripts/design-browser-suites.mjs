@@ -260,13 +260,13 @@ const tool=async(p,name)=>{const button=p.locator('['+name+']');if(!(await butto
 // el título, un toque lo hace sonar y el reproductor queda a la mano sin mover la barra de controles; sin ficha, con una
 // ficha que no es la que publica el generador o en el resumen breve, no aparece nada.
 async function audio(p,base,width){
- const r=data[0],id=String(r.id),path=map[id].path,origin='https://audio.resumenestrials.com/',file='resumenes/'+id+'/0123456789abcdef.mp3';
+ const r=data[0],id=String(r.id),path=map[id].path,origin='https://audio.resumenestrials.com/',file='resumenes/'+id+'/0123456789abcdef.mp3',corrected='resumenes/'+id+'/fedcba9876543210.mp3';
  const frame=Buffer.concat([Buffer.from([0xff,0xf3,0x84,0xc4]),Buffer.alloc(188)]),mp3=Buffer.concat(Array(5000).fill(frame));// 120 s de silencio
  const state=()=>p.waitForFunction(()=>['ready','none'].includes(document.querySelector('[data-ev-reader]')?.dataset.evAudio)).then(()=>p.evaluate(()=>document.querySelector('[data-ev-reader]').dataset.evAudio));
  const toolbar=()=>p.evaluate(()=>{const t=document.querySelector('.ev-toolbar'),o=t.getBoundingClientRect();return JSON.stringify([...t.children].filter(n=>!n.classList.contains('ev-audio')&&getComputedStyle(n).display!=='none').map(n=>{const q=n.getBoundingClientRect();return [Math.round(q.left-o.left),Math.round(q.top-o.top),Math.round(q.width),Math.round(q.height)]}))});
- let card={id:Number(id),audio:file,huella:'0123456789abcdef',segundos:120,bytes:mp3.length,voz:'es-US-Wavenet-B',version:3};
+ let card={id:Number(id),audio:file,huella:'0123456789abcdef',segundos:120,bytes:mp3.length,voz:'es-US-Wavenet-B',version:3};const asked=[];
  await ready(p,path,base);assert.equal(await state(),'none','Without an audio card there is no listen control');assert.equal(await p.locator('[data-ev-listen],.ev-audio,[data-ev-listen-slot]').count(),0,'No audio: no control and no empty slot left behind');
- await p.route(origin+'**',route=>{const u=route.request().url();if(u===origin+'resumenes/'+id+'.json')return route.fulfill({contentType:'application/json',headers:{'access-control-allow-origin':'*'},body:JSON.stringify(card)});if(u===origin+file)return route.fulfill({contentType:'audio/mpeg',headers:{'accept-ranges':'bytes','access-control-allow-origin':'*'},body:mp3});return route.fulfill({status:404,body:''})});
+ await p.route(origin+'**',route=>{const u=route.request().url();if(u===origin+'resumenes/'+id+'.json')return route.fulfill({contentType:'application/json',headers:{'access-control-allow-origin':'*'},body:JSON.stringify(card)});if(u===origin+file||u===origin+corrected){asked.push(u);return route.fulfill({contentType:'audio/mpeg',headers:{'accept-ranges':'bytes','access-control-allow-origin':'*'},body:mp3})}return route.fulfill({status:404,body:''})});
  try{
   card={...card,audio:'https://otro.example/x.mp3'};await ready(p,path,base);assert.equal(await state(),'none','A card that is not the generator\'s is ignored');assert.equal(await p.locator('[data-ev-listen]').count(),0);
   card={...card,audio:file};await ready(p,path,base);assert.equal(await state(),'ready');
@@ -290,7 +290,17 @@ async function audio(p,base,width){
    await p.locator('[data-ev-audio-play]').click();await p.waitForFunction(()=>document.querySelector('.ev-audio')?.dataset.evAudioState==='paused');assert.match(await entry.textContent(),/Continuar el audio\s*1:0\d de 2:00/);const paused=await at();await p.waitForTimeout(400);assert.equal(await at(),paused,'Paused audio does not advance');
    await p.locator('[data-ev-audio-close]').click();assert(await panel.isHidden());assert.equal(await toolbar(),before);assert(!(await p.evaluate(()=>document.querySelector('.ev-toolbar').classList.contains('ev-audio-open'))));
    await ready(p,path,base);assert.equal(await state(),'ready');assert.match(await p.locator('[data-ev-listen=entrada]').textContent(),/Continuar el audio\s*1:0\d de 2:00/,'The listening position is remembered');assert.equal((await p.evaluate(()=>localStorage.getItem('ev-audio-rate'))),'1.25');
-   await p.evaluate(i=>{localStorage.removeItem('ev-audio-rate');localStorage.removeItem('ev-audio-pos:'+i)},id);
+   // La posición es de esa versión del audio. Si el resumen se corrige (otra huella, otro archivo), el audio nuevo empieza desde
+   // el principio y lo recordado de la versión anterior se borra, igual que lo guardado con la clave antigua, sin versión.
+   const keys=()=>p.evaluate(()=>Object.keys(localStorage).filter(k=>k.startsWith('ev-audio-pos:')).sort());
+   assert.deepEqual(await keys(),['ev-audio-pos:'+id+':0123456789abcdef'],'The position is stored per audio version');
+   await p.evaluate(i=>{localStorage.setItem('ev-audio-pos:'+i,'45');localStorage.setItem('ev-audio-pos:'+i+'9:0123456789abcdef','30')},id);
+   card={...card,audio:corrected,huella:'fedcba9876543210'};await ready(p,path,base);assert.equal(await state(),'ready');
+   assert.match(await p.locator('[data-ev-listen=entrada]').textContent(),/Escuchar el resumen\s*2 min/,'A corrected summary starts its new audio from the beginning');
+   assert.deepEqual(await keys(),['ev-audio-pos:'+id+'9:0123456789abcdef'],'Positions of earlier versions of this summary are dropped; other summaries keep theirs');
+   await p.locator('[data-ev-listen=entrada]').click();await p.waitForFunction(()=>document.querySelector('.ev-audio')?.dataset.evAudioState==='playing');assert.equal(asked.at(-1),origin+corrected,'The player loads the corrected audio');
+   await p.locator('[data-ev-audio-close]').click();card={...card,audio:file,huella:'0123456789abcdef'};
+   await p.evaluate(()=>{for(const k of Object.keys(localStorage))if(k==='ev-audio-rate'||k.startsWith('ev-audio-pos:'))localStorage.removeItem(k)});
   }
   await p.locator('.ev-version a').nth(1).click();await p.waitForFunction(()=>document.querySelector('[data-ev-reader]')?.dataset.evBrief==='true'&&document.querySelector('[data-ev-sections]')?.onclick);await p.waitForTimeout(500);assert.equal(await p.locator('[data-ev-listen],.ev-audio').count(),0,'The brief summary has no audio');
  }finally{await p.unroute(origin+'**')}
