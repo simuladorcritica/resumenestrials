@@ -8990,5 +8990,41 @@
       "population": "La población fueron adultos de 40 años o más con fibrosis pulmonar idiopática (FPI), con una tomografía computarizada de alta resolución (TCAR) de no más de 12 meses y patrón de neumonía intersticial usual (NIU) o probable NIU confirmado centralmente; con otro patrón entraban si una biopsia previa confirmaba la FPI. Se exigía una capacidad vital forzada (FVC) de al menos el 45% del predicho y una capacidad de difusión de…"
     },
     "datePublished": "2026-11-16"
+  },
+  "333": {
+    "slug": "un-paquete-de-reanimacion-de-1-hora-para-el-manejo-prehospitalario-del-shock-septico",
+    "path": "/trials/un-paquete-de-reanimacion-de-1-hora-para-el-manejo-prehospitalario-del-shock-septico/",
+    "url": "https://resumenestrials.com/trials/un-paquete-de-reanimacion-de-1-hora-para-el-manejo-prehospitalario-del-shock-septico/",
+    "title": "Un paquete de reanimación de 1 hora para el manejo prehospitalario del shock séptico",
+    "seo_title": "Un paquete de reanimación de 1 hora para el manejo prehospitalario del shock séptico | Resúmenes Trials",
+    "description": "Un paquete de reanimación de 1 hora para el manejo prehospitalario del shock séptico: La mortalidad a 28 días fue del 22% con el paquete de una hora frente al…",
+    "clusters": [
+      {
+        "name": "Sepsis y shock",
+        "path": "/medicina-critica/sepsis-shock/",
+        "url": "https://resumenestrials.com/medicina-critica/sepsis-shock/"
+      },
+      {
+        "name": "Hemodinámica y cardiovascular",
+        "path": "/medicina-critica/hemodinamica-cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-critica/hemodinamica-cardiovascular/"
+      },
+      {
+        "name": "Infecciones y antibióticos",
+        "path": "/medicina-critica/infecciones-antibioticos/",
+        "url": "https://resumenestrials.com/medicina-critica/infecciones-antibioticos/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/un-paquete-de-reanimacion-de-1-hora-para-el-manejo-prehospitalario-del-shock-septico-16x9.jpg",
+      "https://resumenestrials.com/images/trials/un-paquete-de-reanimacion-de-1-hora-para-el-manejo-prehospitalario-del-shock-septico-4x3.jpg",
+      "https://resumenestrials.com/images/trials/un-paquete-de-reanimacion-de-1-hora-para-el-manejo-prehospitalario-del-shock-septico-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Evaluar si un paquete de reanimación de una hora, iniciado en la fase prehospitalaria por una unidad de cuidados intensivos móvil, reduce la mortalidad a 28 días en adultos con shock séptico frente a la atención habitual.",
+      "answer": "La mortalidad a 28 días fue del 22% con el paquete de una hora frente al 27% con atención habitual , sin diferencia significativa (riesgo relativo [RR] 0.81; IC 95%, 0.61 a 1.08; p=0.16).",
+      "population": "La población fueron adultos de 18 años o más atendidos por una unidad de cuidados intensivos móvil (UCI móvil: médico de urgencias, enfermero y conductor) por sospecha de shock séptico. Para entrar bastaba uno de estos signos: presión arterial sistólica menor de 90 mm Hg o presión arterial media (PAM) menor de 65 mm Hg antes de cualquier aporte de líquidos, lactato mayor de 4 mmol/L si se podía medir, escala de coma de Glasgow…"
+    },
+    "datePublished": "2026-11-17"
   }
 }
