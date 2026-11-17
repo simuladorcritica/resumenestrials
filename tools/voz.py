@@ -39,7 +39,7 @@ import urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-VERSION = 3  # Sube cuando cambien las reglas de lectura o el léxico (queda anotada en cada audio generado).
+VERSION = 4  # Sube cuando cambien las reglas de lectura o el léxico (queda anotada en cada audio generado).
 LEX = json.loads((ROOT / "tools" / "voz_lexico.json").read_text(encoding="utf-8"))
 SIN_VOZ = {"Referencia y registro"}
 LIMITE_BYTES = 4500  # La API admite 5000 bytes de texto por petición.
@@ -370,6 +370,10 @@ def _palabras(t):
 def revisar(r):
     """Problemas que impiden generar la voz de un resumen (lista vacía = se puede leer)."""
     problemas = []
+    # La revista se dice con su nombre completo, en inglés. Sin ese nombre la voz leería la abreviatura tal cual («Crit Care Med»).
+    revista = str(r.get("revista") or "").strip()
+    if revista and revista not in LEX["revistas"]:
+        problemas.append(f"la revista «{revista}» no tiene nombre para leerse (tools/voz_lexico.json, «revistas»)")
     partes = secciones(r)
     if not partes or any(not p for _, p in partes):
         problemas.append("una sección no tiene párrafos")

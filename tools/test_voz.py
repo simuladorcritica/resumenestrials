@@ -106,7 +106,11 @@ for r in datos:
     assert "\n\n".join(voz.trozos(partes)).split() == voz.texto_voz(r).split(), f"resumen {r['id']}: los trozos no suman el texto completo"
     marcadas = voz.bloques(r, True)
     assert [voz.sin_marcas(x) for x in marcadas] == partes, f"resumen {r['id']}: con marcas no se lee lo mismo"
-    assert I in marcadas[0] and all(re.fullmatch(f"(?:[^{I}{F}]|{I}[^{I}{F}]+{F})*", x) for x in marcadas), f"resumen {r['id']}: marcas mal cerradas"
+    assert all(re.fullmatch(f"(?:[^{I}{F}]|{I}[^{I}{F}]+{F})*", x) for x in marcadas), f"resumen {r['id']}: marcas mal cerradas"
+    # La presentación siempre lleva algo en inglés: la revista con su nombre completo (y el nombre del ensayo, si lo tiene).
+    # El 17-nov-2026 llegó el primer resumen de «Crit Care Med», que no estaba en el léxico, y este control lo detectó.
+    assert str(r.get("revista") or "").strip() in voz.LEX["revistas"], f"resumen {r['id']}: la revista «{r.get('revista')}» no tiene nombre para leerse (tools/voz_lexico.json, «revistas»)"
+    assert I in marcadas[0], f"resumen {r['id']}: la presentación no lleva la revista en inglés"
     peticiones = voz.trozos_ssml(marcadas)
     assert all(x.startswith("<speak><p>") and x.endswith("</p></speak>") and len(x.encode("utf-8")) <= 5000 for x in peticiones), f"resumen {r['id']}: petición SSML fuera de límite"
     assert all(x.count("<lang ") == x.count("</lang>") and not re.search(r"<(?!/?(?:speak|p|lang)\b)", x) for x in peticiones), f"resumen {r['id']}: SSML mal formado"
@@ -136,6 +140,10 @@ finally:
 corte = modelo["cuerpo"].rindex("</p>")
 raro = dict(modelo, cuerpo=modelo["cuerpo"][:corte] + " ∆ 5 ⇒ 6" + modelo["cuerpo"][corte:])
 assert any("signos sin regla" in p for p in voz.revisar(raro)), "un signo sin regla de lectura debe detectarse"
+# Una revista sin nombre en el léxico impide generar el audio: la voz leería su abreviatura tal cual.
+sin_revista = dict(datos[0], revista="Rev Inexistente Med")
+assert any("no tiene nombre para leerse" in p for p in voz.revisar(sin_revista)), "una revista sin nombre hablado debe detectarse"
+assert voz.LEX["revistas"]["Crit Care Med"] == "Critical Care Medicine" and not voz.revisar(dict(datos[0], revista="")), "sin revista no hay nada que nombrar"
 
 # 5. Un párrafo más largo que el límite de la API se parte por oraciones sin perder nada.
 largo = " ".join(f"Oración número {i} con sus datos." for i in range(400))
