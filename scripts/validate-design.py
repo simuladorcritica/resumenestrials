@@ -186,6 +186,17 @@ for q in questions:
  assert s.count('<input type="radio" name="ev-q-eje"')==s.count('<section class="ev-q-panel">')>=1 and s.count('name="ev-q-eje" checked')==1,route+": una pestaña por panel y una sola elegida"
 for p in future.candidates():
  if p.exists() and p not in [ROOT/"_includes/index-source.html",ROOT/"index.html"]+[ROOT/"preguntas"/q["slug"]/"index.html" for q in questions]:assert "/ui/preguntas.css" not in p.read_text(encoding="utf8"),f"{p}: la hoja de preguntas solo va en sus páginas y en la portada"
+# Fuentes: cada página precarga las que usa nada más abrirse (titulares e interfaz en todas; la de lectura solo donde hay texto
+# de lectura: resúmenes, ediciones y preguntas), para que el texto no cambie de tamaño al llegar la fuente (auditoría del 17-nov-2026:
+# sin ellas el texto saltaba al cargar, sobre todo en el teléfono). Todas son archivos del propio sitio.
+ui_fonts=["newsreader-normal-latin","rtsans-400-latin","rtsans-600-latin"];reading_font="literata-normal-latin"
+assert all((ROOT/"fonts"/(f+".woff2")).is_file() for f in ui_fonts+[reading_font]),"fonts/: falta una fuente precargada"
+for p in future.candidates():
+ if not p.exists():continue
+ s=p.read_text(encoding="utf8");rel=p.relative_to(ROOT).as_posix()
+ reading='<body class="ev-reader"' in s or '<body class="ev-edition"' in s or rel.startswith("preguntas/")
+ assert re.findall(r'<link rel="preload" href="/fonts/([a-z0-9-]+)\.woff2" as="font" type="font/woff2" crossorigin>',s)==ui_fonts+([reading_font] if reading else []),f"{rel}: precarga de fuentes"
+ assert s.index('rel="preload" href="/fonts/')<s.index('rel="stylesheet" href="/site-runtime.css'),f"{rel}: las fuentes se piden antes que la hoja de estilos"
 generated=sorted(p.parent.name for p in (ROOT/"preguntas").glob("*/index.html")) if (ROOT/"preguntas").exists() else []
 assert generated==sorted(q["slug"] for q in questions),"preguntas/: sobran o faltan páginas"
 print(f"DESIGN CONTRACT PASS {len(data)} trials / {len(clusters)} active collections / evidence map / {version}")

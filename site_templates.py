@@ -599,7 +599,10 @@ HEAD_SCRIPT=('<script>window.evNavigatingAway=false;for(const e of ["beforeunloa
  'try{if(/^\\/(trials\\/|resumen(\\.html|\\/))/.test(location.pathname)&&localStorage.getItem("ev-focus")==="true")d.dataset.evReadingMode="on"}catch{}})()</script>')
 # Los enlaces antiguos al archivo en la portada (/?q=…, /?esp=…, /#ev-archivo) pasan a /archivo/ antes de pintar, con sus parámetros y ancla.
 HOME_REDIRECT='<script>if(/[?&](q|esp|sub|tema|anio|revista|tipo|orden|n|vista)=/.test(location.search)||location.hash==="#ev-archivo")location.replace("/archivo/"+location.search+location.hash)</script>'
-def clean_head(source,title=None,route=""):
+# Fuentes que cada página usa nada más abrirse. Precargadas llegan antes del primer pintado y el texto no cambia de tamaño al cargar.
+FONT_PRELOAD=("newsreader-normal-latin","rtsans-400-latin","rtsans-600-latin")
+FONT_PRELOAD_READING="literata-normal-latin"
+def clean_head(source,title=None,route="",reading=False):
  h=re.search(r"<head[^>]*>([\s\S]*?)</head>",source,re.I)
  head=h[1] if h else '<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
  head=re.sub(r"<style\b[^>]*>[\s\S]*?</style>","",head,flags=re.I)
@@ -610,11 +613,11 @@ def clean_head(source,title=None,route=""):
  if not re.search(r'<meta\b[^>]*name=["\']viewport["\']',head,re.I):head+='<meta name="viewport" content="width=device-width,initial-scale=1">'
  if not re.search(r'<title>',head,re.I):head+=f'<title>{esc(title or "Resúmenes Trials")}</title>'
  head+='<meta name="theme-color" content="#0f1b2d" media="(prefers-color-scheme: dark)"><meta name="theme-color" content="#f6f4f0" media="(prefers-color-scheme: light)">'+(HOME_REDIRECT if route=="/" else "")+HEAD_SCRIPT
- # Fuentes propias (/fonts): ninguna dependencia externa bloquea el primer render.
- head+=f'<link rel="preload" href="/fonts/newsreader-normal-latin.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="/site-runtime.css?v={version()}">'
+ # Fuentes propias (/fonts): ninguna dependencia externa bloquea el primer render. La de lectura solo donde hay texto de lectura.
+ head+="".join(f'<link rel="preload" href="/fonts/{font}.woff2" as="font" type="font/woff2" crossorigin>' for font in FONT_PRELOAD+((FONT_PRELOAD_READING,) if reading else ()))+f'<link rel="stylesheet" href="/site-runtime.css?v={version()}">'
  return head
 def document(source,body,route,kind="document",scripts="",title=None):
- head=clean_head(source,title,route)
+ head=clean_head(source,title,route,kind in ("reader","edition") or route.startswith("/preguntas/"))
  if route=="/":scripts+='<script type="module" src="/recommendations.js?v=20261113-revista-v1"></script>'
  if route.startswith("/preguntas/") or (route=="/" and load_questions()):head+=question_css()
  if route not in EXCLUDED and route!="/resumen.html" and not route.startswith("/resumen/"):head+=ADSENSE_SCRIPT

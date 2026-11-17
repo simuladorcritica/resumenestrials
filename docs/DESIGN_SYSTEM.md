@@ -80,7 +80,7 @@ Todo párrafo de prosa (cuerpo, breve, documentos, avisos, textos de apoyo) y la
 En celular (pantallas de hasta 480 px) la prosa se alinea a la izquierda con la misma partición: en columnas tan angostas el justificado abría huecos de más de 2em entre palabras (139 de 231 resúmenes con letra grande). Tablet, escritorio y PDF siguen justificados. Decisión del editor, octubre de 2026.
 
 ## Tipografía
-Literata, Newsreader y RT Sans se sirven desde `/fonts/` (WOFF2, latin y latin-ext, licencia OFL) con `font-display: swap`. Ninguna página depende de Google Fonts: una hoja de estilos externa bloquea el primer render y dejaba la pantalla en blanco en redes móviles. `validate-editorial.mjs` falla si vuelve a aparecer.
+Literata, Newsreader y RT Sans se sirven desde `/fonts/` (WOFF2, latin y latin-ext, licencia OFL) con `font-display: swap`. Ninguna página depende de Google Fonts: una hoja de estilos externa bloquea el primer render y dejaba la pantalla en blanco en redes móviles. `validate-editorial.mjs` falla si vuelve a aparecer. Cada página precarga (`<link rel="preload">`, en `clean_head` de `site_templates.py`) las fuentes que usa nada más abrirse: Newsreader y RT Sans 400 y 600 en todas, y Literata donde hay texto de lectura (resúmenes, ediciones y preguntas). Así llegan antes del primer pintado y el texto no cambia de tamaño al cargar; `scripts/validate-design.py` lo comprueba página por página.
 
 ## Identidad editorial: PDF y tarjetas sociales
 Alcance: los PDF descargables y las imágenes para X, Telegram y Google; la web aplica la misma identidad con los tokens de arriba. Todo sale del logo (`logo.png`): el papel crema del círculo, la tinta de la R, el petróleo de la T y el punto ocre en el que termina la curva.

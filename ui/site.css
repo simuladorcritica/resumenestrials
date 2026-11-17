@@ -297,6 +297,7 @@ section.ev-archive{scroll-margin-top:96px;padding-top:12px}
 .ev-notice{padding:24px;border:1px solid var(--ev-line);border-radius:var(--ev-r-lg);background:var(--ev-panel);color:var(--ev-muted)}
 .ev-notice h1,.ev-notice h2{color:var(--ev-text)}
 .ev-loading{display:grid;gap:14px;max-width:720px;margin:40px auto;color:var(--ev-muted)}
+#ev-dynamic-reader:has(.ev-loading){display:flow-root;min-height:100vh}
 .ev-loading-bar{display:block;height:4px;border-radius:4px;background:var(--ev-grad);opacity:.7}
 
 /* ---------- Dialogs ---------- */
@@ -510,7 +511,7 @@ body.ev-reader :where(p,li){-webkit-hyphens:manual;hyphens:manual}
 .ev-sub{color:var(--ev-muted)}
 .ev-campo{margin:16px 0}
 .ev-campo label,.ev-member .ev-panel label:not(.ev-topic),.ev-formside label{display:block;margin-bottom:8px;color:var(--ev-text);font-size:.9rem;font-weight:600}
-.ev-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 16px}
+.ev-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:0 16px}
 .ev-check{display:flex;align-items:flex-start;gap:12px;margin:14px 0}
 .ev-check label{margin:0;font-weight:500;font-size:.92rem;color:var(--ev-text)}
 .ev-member input[type=checkbox]{flex:0 0 auto;width:44px;height:44px;margin:0}
@@ -706,10 +707,10 @@ html .ev-field-error[hidden]{display:block!important;visibility:hidden}
  .ev-member .ev-header .ev-menu-toggle,.ev-internal .ev-header .ev-menu-toggle{display:inline-flex}
  .ev-member .ev-footer-legal,.ev-internal .ev-footer-legal{padding-bottom:40px}
  .ev-member .ev-top,.ev-internal .ev-top{bottom:20px}
- .ev-toolbar{position:fixed;top:auto;left:0;right:0;bottom:0;z-index:40;gap:2px;padding:6px 6px max(6px,env(safe-area-inset-bottom));border-width:1px 0 0;border-radius:var(--ev-r) 22px 0 0}
+ .ev-toolbar{position:fixed;top:auto;left:0;right:0;bottom:0;z-index:40;gap:2px;padding:6px 4px max(6px,env(safe-area-inset-bottom));border-width:1px 0 0;border-radius:var(--ev-r) 22px 0 0}
  .ev-version{flex:0 0 auto;padding:2px;border-radius:var(--ev-r)}
  .ev-version a{min-width:48px;padding:6px 8px;font-size:.78rem;border-radius:var(--ev-r)}
- .ev-toolbar>.ev-tool{flex:1 1 0;flex-direction:column;gap:2px;min-width:48px;padding:4px 2px;font-size:.66rem;line-height:1.1;white-space:normal;text-align:center}
+ .ev-toolbar>.ev-tool{flex:1 1 0;flex-direction:column;gap:2px;min-width:44px;padding:4px 2px;font-size:.66rem;line-height:1.1;white-space:normal;text-align:center}
  .ev-toolbar .ev-more-toggle{margin-left:0}
  .ev-more-tools{top:auto;bottom:calc(100% + 8px);right:8px}
  .ev-progress{top:var(--ev-header-h)}
