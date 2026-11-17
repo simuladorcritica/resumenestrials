@@ -9026,5 +9026,31 @@
       "population": "La población fueron adultos de 18 años o más atendidos por una unidad de cuidados intensivos móvil (UCI móvil: médico de urgencias, enfermero y conductor) por sospecha de shock séptico. Para entrar bastaba uno de estos signos: presión arterial sistólica menor de 90 mm Hg o presión arterial media (PAM) menor de 65 mm Hg antes de cualquier aporte de líquidos, lactato mayor de 4 mmol/L si se podía medir, escala de coma de Glasgow…"
     },
     "datePublished": "2026-11-17"
+  },
+  "334": {
+    "slug": "predmeth-tratamiento-primera-linea-sarcoidosis-pulmonar-prednisona-metotrexato",
+    "path": "/trials/predmeth-tratamiento-primera-linea-sarcoidosis-pulmonar-prednisona-metotrexato/",
+    "url": "https://resumenestrials.com/trials/predmeth-tratamiento-primera-linea-sarcoidosis-pulmonar-prednisona-metotrexato/",
+    "title": "PREDMETH: tratamiento de primera línea de la sarcoidosis pulmonar con prednisona o metotrexato",
+    "seo_title": "PREDMETH trial: tratamiento de primera línea de la sarcoidosis pulmonar con prednisona o metotrexato | Resúmenes Trials",
+    "description": "PREDMETH: El metotrexato no fue inferior a la prednisona: el cambio medio sin ajustar del porcentaje de la capacidad vital forzada (FVC) predicha a la semana…",
+    "clusters": [
+      {
+        "name": "Neumología",
+        "path": "/medicina-interna/neumologia/",
+        "url": "https://resumenestrials.com/medicina-interna/neumologia/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/predmeth-tratamiento-primera-linea-sarcoidosis-pulmonar-prednisona-metotrexato-16x9.jpg",
+      "https://resumenestrials.com/images/trials/predmeth-tratamiento-primera-linea-sarcoidosis-pulmonar-prednisona-metotrexato-4x3.jpg",
+      "https://resumenestrials.com/images/trials/predmeth-tratamiento-primera-linea-sarcoidosis-pulmonar-prednisona-metotrexato-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si, en adultos con sarcoidosis pulmonar sin tratamiento previo, el metotrexato no es inferior a la prednisona como primer tratamiento en el cambio del porcentaje de la capacidad vital forzada predicha entre la basal y la semana 24.",
+      "answer": "El metotrexato no fue inferior a la prednisona: el cambio medio sin ajustar del porcentaje de la capacidad vital forzada (FVC) predicha a la semana 24 fue de 6.11 puntos con metotrexato y de 6.75 con prednisona, con una diferencia ajustada de -1.17 puntos porcentuales (IC 95%, -4.27 a 1.93; sin valor p informado) , dentro del…",
+      "population": "La población fueron adultos con sarcoidosis pulmonar nunca tratada y con indicación pulmonar de tratarla, es decir, síntomas moderados o graves y riesgo de deterioro o de muerte. Todos se reclutaron en hospitales de Países Bajos, con el requisito de leer y entender neerlandés, y el 85% se declaró blanco, el 7% negro y el 7% de otro origen."
+    },
+    "datePublished": "2026-11-17"
   }
 }

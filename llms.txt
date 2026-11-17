@@ -36,6 +36,7 @@ Material educativo para profesionales de la salud. La referencia final es siempr
 
 ## Resúmenes de ensayos
 
+- [PREDMETH: tratamiento de primera línea de la sarcoidosis pulmonar con prednisona o metotrexato](https://resumenestrials.com/trials/predmeth-tratamiento-primera-linea-sarcoidosis-pulmonar-prednisona-metotrexato/): NEJM, 2025.
 - [Un paquete de reanimación de 1 hora para el manejo prehospitalario del shock séptico](https://resumenestrials.com/trials/un-paquete-de-reanimacion-de-1-hora-para-el-manejo-prehospitalario-del-shock-septico/): Crit Care Med, 2026.
 - [FIBRONEER-IPF: nerandomilast en pacientes con fibrosis pulmonar idiopática](https://resumenestrials.com/trials/fibroneer-ipf-nerandomilast-pacientes-fibrosis-pulmonar-idiopatica/): NEJM, 2025.
 - [VERITAS: broncoscopia de navegación o biopsia transtorácica con aguja para los nódulos pulmonares](https://resumenestrials.com/trials/veritas-broncoscopia-navegacion-biopsia-transtoracica-aguja-nodulos-pulmonares/): NEJM, 2025.

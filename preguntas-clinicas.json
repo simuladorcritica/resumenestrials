@@ -192,6 +192,29 @@
           "frase": "un bolo de cristaloides en 30 minutos de al menos 1000 mL y hasta 35 mL/kg de peso ideal"
         }
       }
+    },
+    {
+      "id": 334,
+      "fecha": "2026-11-17",
+      "huella": "2dcb2191bfeae49e",
+      "preguntas": {
+        "corticoides-choque-septico": {
+          "rol": "nada",
+          "frase": "Determinar si, en adultos con sarcoidosis pulmonar sin tratamiento previo, el metotrexato no es inferior a la prednisona como primer tratamiento"
+        },
+        "cuando-iniciar-terapia-reemplazo-renal-lesion-renal-aguda": {
+          "rol": "nada",
+          "frase": "Determinar si, en adultos con sarcoidosis pulmonar sin tratamiento previo, el metotrexato no es inferior a la prednisona como primer tratamiento"
+        },
+        "meta-oxigenacion-paciente-critico": {
+          "rol": "nada",
+          "frase": "Determinar si, en adultos con sarcoidosis pulmonar sin tratamiento previo, el metotrexato no es inferior a la prednisona como primer tratamiento"
+        },
+        "restriccion-liquidos-choque-septico-hipotension-sepsis": {
+          "rol": "nada",
+          "frase": "Determinar si, en adultos con sarcoidosis pulmonar sin tratamiento previo, el metotrexato no es inferior a la prednisona como primer tratamiento"
+        }
+      }
     }
   ],
   "preguntas": [
