@@ -74,6 +74,10 @@ Al final de cada resumen, «Evidencia relacionada» muestra hasta tres ensayos a
 
 Reglas: como mucho `RELATED_MAX` (3), semejanza mínima `RELATED_MIN`, y por debajo de `RELATED_SAFE` deben compartir alguna palabra de sus temas (evita parecidos solo de forma, como dos «estrategia restrictiva frente a liberal» de cosas distintas). A un ensayo del núcleo de una pregunta clínica no se le repiten los otros ensayos de ese núcleo, que ya enlaza `question_block()`. `tools/test_relacionados.py` lo comprueba contra grupos de ensayos validados editorialmente.
 
+## Audio del resumen completo («Escuchar»)
+
+Los audios no viven en este repositorio: los genera `tools/voz.py` y están en `https://audio.resumenestrials.com/` (ver `docs/VOZ.md`). La página solo los ofrece: `ui/reader.js` carga `reader-audio.js` en la versión completa de un resumen; el módulo pide `resumenes/<id>.json` (la ficha existe solo si el audio vigente existe) y, si la respuesta tiene exactamente la forma que publica el generador, añade «Escuchar el resumen · N min» bajo el título y la firma, el mismo acceso en la barra de controles desde 900 px y el reproductor, que queda en la barra de controles (fija abajo en el teléfono). Sin ficha, sin red o en el resumen breve no añade nada. El audio no se descarga hasta pulsar. Sus estilos están en `reader-audio.css`, fuera del CSS del runtime, y solo usan los tokens del sistema.
+
 ## Vigilancia posterior a la publicación
 
 El workflow privado de Search Console vuelve a calcular el inventario en cada ejecución y conserva únicamente un snapshot técnico privado, sin métricas GSC, mediante GitHub Actions Cache. Así detecta altas, eliminaciones y modificaciones por ID, DOI y canonical, mantiene la primera fecha de detección y mueve automáticamente cada alta entre `D0_6`, `D7_13`, `D14_27`, `D28_59`, `D60_89` y `D90_PLUS`. Los artículos sin fecha editorial fiable permanecen en `LEGACY` y nunca reciben una fecha inventada.
