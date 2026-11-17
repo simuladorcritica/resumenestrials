@@ -36,6 +36,10 @@ Material educativo para profesionales de la salud. La referencia final es siempr
 
 ## Resúmenes de ensayos
 
+- [Advance-HTN: eficacia y seguridad del lorundrostat en pacientes con hipertensión no controlada](https://resumenestrials.com/trials/advance-htn-eficacia-seguridad-lorundrostat-pacientes-hipertension-no-controlada/): NEJM, 2025.
+- [CENTERSTONE: eficacia del tratamiento con baloxavir para prevenir la transmisión de la influenza](https://resumenestrials.com/trials/centerstone-eficacia-tratamiento-baloxavir-prevenir-transmision-influenza/): NEJM, 2025.
+- [ASPEN: ensayo de fase 3 del inhibidor de la DPP-1 brensocatib en las bronquiectasias](https://resumenestrials.com/trials/aspen-ensayo-fase-3-inhibidor-dpp-1-brensocatib-bronquiectasias/): NEJM, 2025.
+- [ESSENCE: ensayo de fase 3 de semaglutida en la esteatohepatitis asociada a disfunción metabólica](https://resumenestrials.com/trials/essence-ensayo-fase-3-semaglutida-esteatohepatitis-asociada-disfuncion-metabolica/): NEJM, 2025.
 - [MATINEE: mepolizumab para prevenir las exacerbaciones de la EPOC con fenotipo eosinofílico](https://resumenestrials.com/trials/matinee-mepolizumab-prevenir-exacerbaciones-epoc-fenotipo-eosinofilico/): NEJM, 2025.
 - [SURMOUNT-5: tirzepatida en comparación con semaglutida para el tratamiento de la obesidad](https://resumenestrials.com/trials/surmount-5-tirzepatida-comparacion-semaglutida-tratamiento-obesidad/): NEJM, 2025.
 - [PREDMETH: tratamiento de primera línea de la sarcoidosis pulmonar con prednisona o metotrexato](https://resumenestrials.com/trials/predmeth-tratamiento-primera-linea-sarcoidosis-pulmonar-prednisona-metotrexato/): NEJM, 2025.
