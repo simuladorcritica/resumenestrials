@@ -496,7 +496,7 @@ E.ready(async()=>{
   share.onclick=async()=>{const data={title:E.plain(r.titulo),text:E.plain(r.titulo)+' · Resúmenes Trials',url:shareUrl};try{if(navigator.share&&root.dataset.evPointer==='tactil'){await navigator.share(data);return}await navigator.clipboard.writeText(shareUrl);E.status(status,'Enlace copiado. Ya puedes pegarlo donde quieras.')}catch(e){if(e?.name!=='AbortError')E.status(status,'Copia este enlace: '+shareUrl)}};
   if(dynamic)import('/reader-advertising.js').then(m=>m.loadReaderAdvertising(r,article)).catch(()=>{});
   // Audio del resumen completo: módulo aparte que solo añade «Escuchar» si ese resumen tiene audio vigente.
-  if(!brief)import('/reader-audio.js?v=20261116').then(m=>m.loadReaderAudio(reader,r)).catch(()=>{});
+  if(!brief)import('/reader-audio.js?v=20261117').then(m=>m.loadReaderAudio(reader,r)).catch(()=>{});
   for(const a of reader.querySelectorAll('[data-ev-return]')){a.href=window.RTReadingContext?.destination()||'/';a.onclick=()=>window.RTReadingContext?.requestReturn()}
   // Continuity and related evidence: background, non-blocking.
   (async()=>{try{

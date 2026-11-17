@@ -29,11 +29,14 @@ const spoken = seconds => {
   return (m ? m + (m === 1 ? ' minuto' : ' minutos') + ' ' : '') + r + (r === 1 ? ' segundo' : ' segundos');
 };
 // La ficha es dato externo: solo se acepta la forma exacta que publica el generador (tools/voz.py).
+// `version` es la huella del audio (el nombre del archivo): cambia cada vez que el resumen se corrige y se vuelve a generar.
 export const audioFile = card => (card && typeof card.audio === 'string' && /^resumenes\/\d+\/[0-9a-f]{8,64}\.mp3$/.test(card.audio)
-  && Number.isFinite(card.segundos) && card.segundos > 0 ? { url: BASE + card.audio, seconds: card.segundos } : null);
+  && Number.isFinite(card.segundos) && card.segundos > 0 ? { url: BASE + card.audio, seconds: card.segundos, version: card.audio.slice(card.audio.lastIndexOf('/') + 1, -4) } : null);
 const memory = {
   get(key) { try { return localStorage.getItem(key) } catch { return null } },
   set(key, value) { try { value === null ? localStorage.removeItem(key) : localStorage.setItem(key, String(value)) } catch { /* sin almacenamiento: no pasa nada */ } },
+  // Borra lo recordado de un resumen (`base` y `base:…`) salvo la clave vigente.
+  prune(base, keep) { try { for (let i = localStorage.length - 1; i >= 0; i--) { const key = localStorage.key(i); if (key !== keep && (key === base || key.startsWith(base + ':'))) localStorage.removeItem(key) } } catch { /* sin almacenamiento */ } },
 };
 const styles = () => new Promise(done => {
   if (document.querySelector('link[data-ev-audio-css]')) return done();
@@ -62,7 +65,10 @@ export async function loadReaderAudio(reader, record) {
 
   const audio = new Audio();
   audio.preload = 'none';
-  const posKey = 'ev-audio-pos:' + id, rateKey = 'ev-audio-rate';
+  // Por dónde iba el lector se recuerda por versión del audio: si el resumen se corrige, el audio nuevo no es el mismo
+  // (ni dura lo mismo) y empieza desde el principio. Lo recordado de versiones anteriores se borra.
+  const posKey = 'ev-audio-pos:' + id + ':' + file.version, rateKey = 'ev-audio-rate';
+  memory.prune('ev-audio-pos:' + id, posKey);
   let total = file.seconds, rate = RATES.includes(Number(memory.get(rateKey))) ? Number(memory.get(rateKey)) : 1;
   let pending = Math.min(Math.max(Number(memory.get(posKey)) || 0, 0), Math.max(total - 10, 0)), loaded = false, dragging = false, saved = 0;
 
