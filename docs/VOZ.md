@@ -18,7 +18,8 @@ Decisión del editor (13 y 16 de noviembre de 2026): cada **resumen completo** s
 - Unidades: `mmHg`, `mg/dl`, `ml/min/1.73 m²`, `µg/kg/min`, `cm H2O`… con todas sus letras.
 - Signos: `−2.7` → «menos 2.7»; `0.41-0.92` → «0.41 a 0.92»; `46.9 − 33.0` → «46.9 menos 33.0»; `≥`, `≤`, `<`, `>`, `±`, `×`, `1:1`, `130/80`.
 - Números romanos tras «fase», «clase», «tipo», APACHE, Killip…: `APACHE II` → «APACHE dos».
-- **Nombres de ensayos:** se dicen de corrido, como palabras, no letra por letra (decisión del editor, 16-nov-2026): `ARISE FLUIDS` → «Arise Fluids», `ProMISe` → «Promise». Las palabras salen de lo que cada título lleva antes de los dos puntos (dos o más mayúsculas y más de tres letras); las siglas cortas (`ICU`, `CKD`, `AF`) y las que sí se deletrean (`ensayos_deletreados` del léxico) no se tocan, y `ensayos` fija los casos especiales (`STARRT` → «Start»).
+- **Nombres de ensayos:** se dicen de corrido, como palabras, no letra por letra (decisión del editor, 16-nov-2026): `ARISE FLUIDS` → «Arise Fluids», `ProMISe` → «Promise», `INTERACT4` → «Interact 4». Las palabras salen de lo que cada título lleva antes de los dos puntos (dos o más mayúsculas y más de tres letras); las siglas cortas (`ICU`, `CKD`, `AF`) y las que sí se deletrean (`ensayos_deletreados` del léxico) no se tocan, y `ensayos` fija los casos especiales (`STARRT` → «Start»).
+- **En inglés:** los nombres de los ensayos y de las revistas se dicen **como suenan en inglés** (decisión del editor, 16-nov-2026). Con las voces que admiten SSML, `leer(texto, marcas=True)` y `bloques(resumen, marcas=True)` devuelven el mismo texto con cada nombre entre marcas, y `ssml()` las convierte en `<lang xml:lang="en-US">…</lang>`: la misma voz dice el nombre en inglés, también en los ensayos que entren después, sin escribir a mano la pronunciación de cada uno. Solo se marca lo que en el texto publicado está escrito como nombre de ensayo (`OPTIMAL-DIABETES` sí; la palabra «Diabetes» no). La cifra final (`ANDROMEDA-SHOCK-2`) queda fuera y se dice en español.
 - Las siglas clínicas (APACHE, SOFA, UCI, VIH…) se dejan como están.
 
 Las equivalencias viven en `tools/voz_lexico.json`. Si se cambia el léxico o una regla, sube `VERSION` en `tools/voz.py`.
@@ -30,14 +31,17 @@ Las equivalencias viven en `tools/voz_lexico.json`. Si se cambia el léxico o un
 - las **cifras** del texto leído son las mismas y en el mismo orden que las del publicado;
 - no se pierde ni cambia de sitio **ninguna palabra**;
 - no queda ningún signo sin regla de lectura;
-- ningún trozo supera el límite de la API.
+- ningún trozo supera el límite de la API;
+- con las marcas de los nombres se lee **exactamente** lo mismo, y el SSML no añade más que etiquetas.
 
 Un resumen que no pasa no recibe audio hasta que se añada la regla que falta. `python tools/test_voz.py` cubre las reglas, las guardas y los 332 resúmenes.
 
 ## Muestras de voz
 
-El flujo **«Voz · muestras»** (`.github/workflows/voz-muestras.yml`) sintetiza el fragmento descrito en `tools/voz_muestras.json` con varias voces (Chirp 3 HD y WaveNet, mujer y hombre; Neural2 se descartó porque en español suena igual que WaveNet y cuesta cuatro veces más), y con las variantes de prueba que el plan pida y deja los MP3 en la rama suelta `voz-muestras`. Se lanza a mano o al cambiar ese archivo en `main`. Necesita el secreto `GOOGLE_TTS_API_KEY`.
+**Voz elegida por el editor (16-nov-2026): `es-US-Wavenet-B`** (hombre). Se descartaron Chirp 3 HD (no admite SSML y cuesta más) y Neural2 (en español suena igual que WaveNet y cuesta cuatro veces más).
+
+El flujo **«Voz · muestras»** (`.github/workflows/voz-muestras.yml`) sintetiza lo que describe `tools/voz_muestras.json` y deja los MP3 en la rama suelta `voz-muestras`. Se lanza a mano o al cambiar ese archivo en `main`. Necesita el secreto `GOOGLE_TTS_API_KEY`. El plan admite voces por su nombre (`voces`) o por familia y género (`familias`), fragmentos o el resumen entero (`"completo": true`) y variantes de prueba: `cambios` (otra forma de escribir algo, solo en la muestra) e `"ingles": true` (los nombres en inglés con SSML; solo en voces que lo admiten).
 
 ## Lo que falta (siguientes entregas)
 
-Elegida la voz: generación automática del audio de cada resumen al publicarse o corregirse, almacén externo, y el control «Escuchar» en la página del resumen completo.
+Aprobada la pronunciación con un resumen entero: generación automática del audio de cada resumen al publicarse o corregirse, almacén externo, y el control «Escuchar» en la página del resumen completo.

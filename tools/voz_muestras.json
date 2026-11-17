@@ -3,24 +3,11 @@
  "idiomas": [
   "es-US"
  ],
- "familias": [
-  {
-   "nombre": "Chirp3-HD",
-   "FEMALE": 2,
-   "MALE": 2
-  },
-  {
-   "nombre": "Wavenet",
-   "FEMALE": 1,
-   "MALE": 1
-  }
+ "voces": [
+  "es-US-Wavenet-B"
  ],
- "preferidas": [
-  "Kore",
-  "Aoede",
-  "Charon",
-  "Orus"
- ],
+ "familias": [],
+ "preferidas": [],
  "muestras": [
   {
    "id": 2,
@@ -29,10 +16,64 @@
    "presentacion": true,
    "variantes": [
     {
+     "etiqueta": "en-ingles",
+     "ingles": true
+    },
+    {
      "etiqueta": "como-suena",
      "cambios": {
       "Arise Fluids": "Aráis Flúids"
      }
+    }
+   ]
+  },
+  {
+   "id": 230,
+   "seccion": "Pregunta de investigación",
+   "caracteres": 190,
+   "presentacion": true,
+   "base": false,
+   "variantes": [
+    {
+     "etiqueta": "en-ingles",
+     "ingles": true
+    }
+   ]
+  },
+  {
+   "id": 149,
+   "seccion": "Pregunta de investigación",
+   "caracteres": 170,
+   "presentacion": true,
+   "base": false,
+   "variantes": [
+    {
+     "etiqueta": "en-ingles",
+     "ingles": true
+    }
+   ]
+  },
+  {
+   "id": 69,
+   "seccion": "Pregunta de investigación",
+   "caracteres": 150,
+   "presentacion": true,
+   "base": false,
+   "variantes": [
+    {
+     "etiqueta": "en-ingles",
+     "ingles": true
+    }
+   ]
+  },
+  {
+   "id": 2,
+   "completo": true,
+   "base": false,
+   "variantes": [
+    {
+     "etiqueta": "en-ingles",
+     "ingles": true
     }
    ]
   }

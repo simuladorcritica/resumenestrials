@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Pruebas de la voz de los resúmenes completos (tools/voz.py). No llaman a Google Cloud ni necesitan claves."""
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -46,6 +47,7 @@ CASOS = [
     ("los ensayos CLOVERS, CLASSIC y ProMISe", "los ensayos Clovers, Classic y Promise"),
     ("STARRT-AKI, DAPA-CKD, ECLS-SHOCK, REMAP-CAP e IDEAL-ICU", "Start-AKI, Dapa-CKD, ECLS-Shock, Remap-CAP e Ideal-ICU"),
     ("RESCUEicp frente a TTM2 (HR 0.9)", "Rescue ICP frente a TTM2 (hazard ratio 0.9)"),
+    ("INTERACT4, PARAMEDIC2 y CORE2-TIMI 72b", "Interact 4, Paramedic 2 y Core 2-Timi 72b"),
     ("APACHE II, SOFA, UCI, VIH y SDRA no son nombres de ensayos", "APACHE dos, SOFA, UCI, VIH y SDRA no son nombres de ensayos"),
 ]
 for publicado, leido in CASOS:
@@ -60,6 +62,28 @@ assert all(dicho.lower() == escrito.lower() for escrito, dicho in nombres.items(
 assert all(len(k) > 3 and not any(c.isdigit() for c in k + v) for k, v in nombres.items()), "los nombres no llevan cifras y las siglas cortas no se tocan"
 assert not set(voz.LEX["ensayos_deletreados"]) & set(nombres), "las siglas que se deletrean no se cambian"
 
+# 1c. Los nombres se dicen en inglés (decisión del editor, 16-nov-2026): con marcas se lee exactamente lo mismo y cada
+# nombre queda en un solo tramo; una palabra corriente que coincide con un nombre («Diabetes») no se marca.
+I, F = voz._INI, voz._FIN
+MARCAS = [
+    ("ARISE FLUIDS: vasopresores o líquidos", f"{I}Arise Fluids{F}: vasopresores o líquidos"),
+    ("ANDROMEDA-SHOCK-2 mostró", f"{I}Andromeda-Shock{F}-2 mostró"),
+    ("ECLS-SHOCK y DanGer-Shock", f"{I}ECLS-Shock{F} y {I}Danger-Shock{F}"),
+    ("STARRT-AKI, REMAP-CAP e IDEAL-ICU", f"{I}Start-AKI{F}, {I}Remap-CAP{F} e {I}Ideal-ICU{F}"),
+    ("EMPA-REG OUTCOME y EMPEROR-Preserved", f"{I}Empa-REG Outcome{F} y {I}Emperor-Preserved{F}"),
+    ("Diabetes al inicio; OPTIMAL-DIABETES", f"Diabetes al inicio; {I}Optimal-Diabetes{F}"),
+    ("INTERACT4 y CORE2-TIMI 72b", f"{I}Interact{F} 4 y {I}Core{F} 2-{I}Timi{F} 72b"),
+    ("los ensayos CLOVERS, CLASSIC y ProMISe (HR 0.9; IC 95% 0.8-1.1)", f"los ensayos {I}Clovers{F}, {I}Classic{F} y {I}Promise{F} (hazard ratio 0.9; intervalo de confianza del 95 por ciento 0.8 a 1.1)"),
+    ("APACHE II, SOFA, UCI y el modelo de Fine-Gray", "APACHE dos, SOFA, UCI y el modelo de Fine-Gray"),
+]
+for publicado, marcado in MARCAS:
+    assert voz.leer(publicado, True) == marcado, f"\n  publicado: {publicado}\n  esperado:  {marcado!r}\n  obtenido:  {voz.leer(publicado, True)!r}"
+    assert voz.sin_marcas(marcado) == voz.leer(publicado), f"las marcas cambian la lectura: {publicado}"
+assert voz.ssml(voz.leer('ANDROMEDA-SHOCK-2 "mostró" que ARISE FLUIDS', True) + "\n\nL'Hôpital") == (
+    '<speak><p><lang xml:lang="en-US">Andromeda-Shock</lang> 2 &quot;mostró&quot; que <lang xml:lang="en-US">Arise Fluids</lang></p><p>L&apos;Hôpital</p></speak>')
+assert voz.texto_de_ssml(voz.ssml('Uno "dos"\n\ntres')) == 'Uno "dos"\n\ntres'
+assert voz.admite_ssml("es-US-Wavenet-B") and voz.admite_ssml("es-US-Neural2-A") and not voz.admite_ssml("es-US-Chirp3-HD-Kore")
+
 # 2. La forma canónica es lo único que toca dígitos, y lo hace igual para el texto publicado y para el leído.
 assert voz.canonico("O₂ 10⁹ 12 000 pacientes m2") == "O2 10^9 12000 pacientes m²"
 assert voz.canonico("en 2020 150 pacientes") == "en 2020 150 pacientes", "dos números seguidos no son miles"
@@ -67,7 +91,8 @@ assert voz.canonico("en 2020 150 pacientes") == "en 2020 150 pacientes", "dos n�
 # 3. Todos los resúmenes publicados: se lee todo menos «Referencia y registro», sin perder cifras ni palabras.
 datos = voz.resumenes()
 assert len(datos) >= 332
-total = 0
+total = con_nombres = 0
+junto = voz._junto  # el SSML solo cambia por un espacio el guion entre un nombre y su cifra
 for r in datos:
     problemas = voz.revisar(r)
     assert not problemas, f"resumen {r['id']}: " + " | ".join(problemas)
@@ -79,6 +104,14 @@ for r in datos:
     for trozo in voz.trozos(partes):
         assert 0 < len(trozo.encode("utf-8")) <= voz.LIMITE_BYTES
     assert "\n\n".join(voz.trozos(partes)).split() == voz.texto_voz(r).split(), f"resumen {r['id']}: los trozos no suman el texto completo"
+    marcadas = voz.bloques(r, True)
+    assert [voz.sin_marcas(x) for x in marcadas] == partes, f"resumen {r['id']}: con marcas no se lee lo mismo"
+    assert I in marcadas[0] and all(re.fullmatch(f"(?:[^{I}{F}]|{I}[^{I}{F}]+{F})*", x) for x in marcadas), f"resumen {r['id']}: marcas mal cerradas"
+    peticiones = voz.trozos_ssml(marcadas)
+    assert all(x.startswith("<speak><p>") and x.endswith("</p></speak>") and len(x.encode("utf-8")) <= 5000 for x in peticiones), f"resumen {r['id']}: petición SSML fuera de límite"
+    assert all(x.count("<lang ") == x.count("</lang>") and not re.search(r"<(?!/?(?:speak|p|lang)\b)", x) for x in peticiones), f"resumen {r['id']}: SSML mal formado"
+    assert junto(" ".join(voz.texto_de_ssml(x) for x in peticiones)) == junto(voz.texto_voz(r)), f"resumen {r['id']}: el SSML no dice lo mismo que el texto"
+    con_nombres += sum(x.count("<lang ") for x in peticiones)
     total += len(voz.texto_voz(r))
 assert voz.texto_voz(datos[0]) == voz.texto_voz(json.loads(json.dumps(datos[0]))), "el texto para leer es determinista"
 
@@ -86,12 +119,20 @@ assert voz.texto_voz(datos[0]) == voz.texto_voz(json.loads(json.dumps(datos[0]))
 modelo = next(r for r in datos if int(r["id"]) == 2)
 original = voz.leer
 try:
-    voz.leer = lambda t: original(t).replace("76", "67", 1)
+    voz.leer = lambda t, marcas=False: original(t, marcas).replace("76", "67", 1)
     assert any("cifras" in p for p in voz.revisar(modelo)), "una cifra cambiada debe detectarse"
-    voz.leer = lambda t: original(t).replace("mediana", "", 1)
+    voz.leer = lambda t, marcas=False: original(t, marcas).replace("mediana", "", 1)
     assert any("palabra" in p for p in voz.revisar(modelo)), "una palabra perdida debe detectarse"
 finally:
     voz.leer = original
+bloques_bien = voz.bloques
+try:
+    voz.bloques = lambda r, marcas=False: [x.replace("Arise", "Arise ya", 1) if marcas else x for x in bloques_bien(r, marcas)]
+    assert any("marcas" in p for p in voz.revisar(modelo)), "una lectura distinta con marcas debe detectarse"
+    voz.bloques = lambda r, marcas=False: [x.replace(F, "", 1) if marcas else x for x in bloques_bien(r, marcas)]
+    assert any("no cierran" in p for p in voz.revisar(modelo)), "una marca sin cerrar debe detectarse"
+finally:
+    voz.bloques = bloques_bien
 corte = modelo["cuerpo"].rindex("</p>")
 raro = dict(modelo, cuerpo=modelo["cuerpo"][:corte] + " ∆ 5 ⇒ 6" + modelo["cuerpo"][corte:])
 assert any("signos sin regla" in p for p in voz.revisar(raro)), "un signo sin regla de lectura debe detectarse"
@@ -105,13 +146,34 @@ assert len(partes) > 1 and all(len(p.encode("utf-8")) <= voz.LIMITE_BYTES for p 
 plan = json.loads((voz.ROOT / "tools" / "voz_muestras.json").read_text(encoding="utf-8"))
 falsas = [{"name": f"es-US-{f}-{n}", "ssmlGender": g, "languageCodes": ["es-US"]} for f in ("Chirp3-HD", "Neural2", "Wavenet", "Studio") for n, g in (("Aoede", "FEMALE"), ("Kore", "FEMALE"), ("Zephyr", "FEMALE"), ("Charon", "MALE"), ("Orus", "MALE"), ("Puck", "MALE"))]
 assert voz.variantes("Arise Fluids: texto", {"variantes": [{"etiqueta": "Como suena", "cambios": {"Arise Fluids": "Aráis Flúids"}}, {"etiqueta": "nada", "cambios": {"no está": "x"}}]}) == [("", "Arise Fluids: texto"), ("comosuena", "Aráis Flúids: texto")]
-elegidas = voz.elegir_voces(plan, falsas)
+por_familias = {"familias": [{"nombre": "Chirp3-HD", "FEMALE": 2, "MALE": 2}, {"nombre": "Wavenet", "FEMALE": 1, "MALE": 1}], "preferidas": ["Kore", "Aoede", "Charon", "Orus"]}
+elegidas = voz.elegir_voces(por_familias, falsas)
 assert [v for _, _, v in elegidas][:4] == ["es-US-Chirp3-HD-Kore", "es-US-Chirp3-HD-Aoede", "es-US-Chirp3-HD-Charon", "es-US-Chirp3-HD-Orus"], elegidas
-assert len(elegidas) == sum(int(f.get("FEMALE", 0)) + int(f.get("MALE", 0)) for f in plan["familias"]) and not any("Studio" in v for _, _, v in elegidas)
+assert len(elegidas) == sum(int(f.get("FEMALE", 0)) + int(f.get("MALE", 0)) for f in por_familias["familias"]) and not any("Studio" in v for _, _, v in elegidas)
+assert voz.elegir_voces({"voces": ["es-US-Wavenet-Puck", "es-US-Wavenet-NoExiste"]}, falsas) == [("Wavenet", "MALE", "es-US-Wavenet-Puck")], "una voz pedida por su nombre se toma solo si existe"
+assert len(voz.elegir_voces(plan, falsas + [{"name": v, "ssmlGender": "MALE", "languageCodes": ["es-US"]} for v in plan.get("voces", [])])) >= 1, "el plan elige al menos una voz"
 por_id = {int(r["id"]): r for r in datos}
+hay_completo = hay_ingles = False
 for muestra in plan["muestras"]:
-    texto = voz.fragmento(por_id[int(muestra["id"])], muestra["seccion"], int(muestra["caracteres"]), bool(muestra.get("presentacion")))
-    assert texto.startswith("Resúmenes Trials. ") and len(texto) < int(muestra["caracteres"]) + 400 and not voz._PERMITIDO.search(texto)
+    r = por_id[int(muestra["id"])]
+    todas = voz.versiones(r, muestra)
+    assert todas, "cada muestra del plan produce al menos un audio"
+    for etiqueta, parrafos, con_marcas in todas:
+        texto = "\n\n".join(parrafos)
+        assert texto.startswith("Resúmenes Trials. ") and not voz._PERMITIDO.search(voz.sin_marcas(texto))
+        assert con_marcas == (I in texto) and (con_marcas or F not in texto), "solo la variante en inglés lleva marcas"
+        if muestra.get("completo"):
+            assert voz.sin_marcas(texto) == voz.texto_voz(r), "la muestra completa es el resumen entero"
+            hay_completo = True
+        else:
+            assert len(voz.sin_marcas(texto)) < int(muestra["caracteres"]) + 400
+        if con_marcas:
+            limpio = voz.fragmento(r, muestra["seccion"], int(muestra["caracteres"]), bool(muestra.get("presentacion"))) if not muestra.get("completo") else voz.texto_voz(r)
+            assert voz.sin_marcas(texto) == limpio, "la variante en inglés dice el mismo texto"
+            assert all(len(x.encode("utf-8")) <= 5000 for x in voz.trozos_ssml(parrafos))
+            hay_ingles = True
+assert hay_ingles, "el plan incluye la variante con los nombres en inglés"
+assert voz.versiones(por_id[2], {"seccion": "Pregunta de investigación", "caracteres": 60, "base": False, "variantes": [{"etiqueta": "x", "cambios": {"población": "muestra"}}]})[0][0] == "x", "sin base solo quedan las variantes"
 import os  # noqa: E402
 import contextlib  # noqa: E402
 import io  # noqa: E402
@@ -125,4 +187,5 @@ finally:
     if previa is not None:
         os.environ["GOOGLE_TTS_API_KEY"] = previa
 
-print(f"VOZ PASS: {len(CASOS)} reglas de lectura, {len(datos)} resúmenes sin perder cifras ni palabras ({total} caracteres para leer), guardas, trozos y plan de muestras")
+assert con_nombres > 1000, "los nombres de ensayos y revistas quedan marcados para decirse en inglés"
+print(f"VOZ PASS: {len(CASOS)} reglas de lectura, {len(MARCAS)} de nombres en inglés, {len(datos)} resúmenes sin perder cifras ni palabras ({total} caracteres para leer; {con_nombres} nombres marcados), guardas, trozos, SSML y plan de muestras")
