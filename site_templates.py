@@ -1,7 +1,8 @@
 """Single presentation template source. Editorial data and SEO are read-only inputs."""
 from pathlib import Path
 from datetime import date,timedelta
-import json, re, html
+import json, re, html, math, unicodedata
+from collections import Counter
 ROOT=Path(__file__).resolve().parent
 BASE="https://resumenestrials.com"
 EXCLUDED=frozenset({"/login.html","/registro.html","/recuperar.html","/cuenta.html","/biblioteca.html","/privacidad.html","/privacidad/","/privacidad/index.html","/terminos/","/terminos/index.html","/agregar.html","/medicina-interna/hematologia-oncologia/","/medicina-interna/hematologia-oncologia/index.html","/404.html"})
@@ -384,6 +385,81 @@ def question_page(q,items,manifest):
   f'<h1>{esc(q["pregunta"])}</h1><p class="ev-doc-date">{dates}</p><article class="ev-prose">{content}</article>{QUESTION_NOTE}</div>')
  description=question_description(q,trials)
  return document(simple_head(q["pregunta"]+" | Resúmenes Trials",description,route,question_schema(q,[r for _,r in core],manifest,description),"article"),body,route)
+# ---------- Evidencia relacionada ----------
+# Qué otros ensayos resumidos acompañan a cada resumen. Se calcula al generar el sitio y solo con lo ya publicado en
+# `resumenes.json` (título, objetivo, hallazgo, temas y la sección «Pregunta de investigación» del resumen completo). No usa
+# ningún servicio externo: es determinista, no cuesta nada y cada resumen nuevo trae sus relacionados desde que se publica.
+# Método: cada resumen es un vector de palabras y pares de palabras ponderado (TF-IDF): pesan más las que aparecen en pocos
+# resúmenes (un fármaco, una técnica, una enfermedad) y nada las que aparecen en casi todos. La semejanza entre dos resúmenes
+# es el coseno de sus vectores. Se muestran, como mucho, los RELATED_MAX más parecidos que superan RELATED_MIN; entre
+# RELATED_MIN y RELATED_SAFE la coincidencia puede ser solo de forma (dos ensayos de «estrategia restrictiva frente a liberal»
+# de cosas distintas), así que ahí se exige además que compartan alguna palabra de sus temas. Si ninguno pasa, el resumen no
+# lleva relacionados (mejor ninguno que uno que no viene al caso). No se repite lo que la página ya enlaza: a un ensayo del
+# núcleo de una pregunta clínica no se le proponen los otros ensayos de ese núcleo («Otros ensayos de esta pregunta»).
+RELATED_MAX=3
+RELATED_MIN=0.12
+RELATED_SAFE=0.16
+# Qué se compara y cuánto pesa cada parte.
+RELATED_WEIGHTS=(("titulo",3),("objetivo",2),("temas",3),("hallazgo",1),("pregunta",1))
+# Palabras que no distinguen un ensayo de otro: gramática y vocabulario común a casi todos los resúmenes.
+RELATED_STOP=frozenset("""a al algo algunas algunos ante antes como con contra cual cuando de del desde donde dos durante e el ella ellas
+ellos en entre era es esa ese eso esta este esto fue ha han hasta la las le lo los mas me mi muy no nos o otra otro para pero por que
+se ser si sin sobre su sus tambien tras un una uno y ya frente fueron cada tanto asi grupo grupos pacientes paciente ensayo estudio
+clinico aleatorizado resultados resultado diferencia significativa mayor menor dias anos adultos tratamiento intervencion control
+comparacion desenlace principal mostro redujo reducir efecto riesgo intervalo confianza""".split())
+# Palabras de los temas que no dicen de qué trata el ensayo.
+RELATED_GENERIC=frozenset("""inferioridad superioridad pragmatico mortalidad terapia enfermedad cronica aguda agudo cronico seguridad eficacia
+prevencion estrategia manejo cuidados intensivos critico critica tipo""".split())
+def _related_plain(text):
+ text=unicodedata.normalize("NFD",re.sub(r"<[^>]+>"," ",str(text or "")).lower())
+ return "".join(c for c in text if unicodedata.category(c)!="Mn")
+def _related_words(text):return [w for w in re.findall(r"[a-z][a-z0-9-]{2,}",_related_plain(text)) if w not in RELATED_STOP]
+def _related_parts(r):
+ topics=r.get("temas") or [];question=re.search(r"<h2>\s*Pregunta de investigación\s*</h2>(.*?)(?=<h2>|$)",str(r.get("cuerpo") or ""),re.S)
+ return {"titulo":r.get("titulo"),"objetivo":r.get("objetivo"),"hallazgo":r.get("hallazgo"),
+  "temas":" ".join(map(str,topics)) if isinstance(topics,(list,tuple)) else str(topics),"pregunta":question.group(1) if question else ""}
+def _related_document(r):
+ parts,count=_related_parts(r),Counter()
+ for field,weight in RELATED_WEIGHTS:
+  words=_related_words(parts[field])
+  for w in words:count[w]+=weight
+  for a,b in zip(words,words[1:]):count[a+"_"+b]+=weight
+ return count
+def _related_topic_words(r):return {w for w in _related_words(_related_parts(r)["temas"]) if len(w)>3 and w not in RELATED_GENERIC}
+def _related_key(value):return str(int(value))
+def related_similarities(items):
+ """{id: [(semejanza, id), …]} de cada resumen con todos los demás, del más parecido al menos."""
+ docs={_related_key(r["id"]):_related_document(r) for r in items}
+ present=Counter(w for d in docs.values() for w in d);total=len(docs);vectors={}
+ for key,d in docs.items():
+  v={w:(1+math.log(c))*math.log(total/present[w]) for w,c in d.items() if present[w]>1}
+  norm=math.sqrt(sum(x*x for x in v.values())) or 1.0
+  vectors[key]={w:x/norm for w,x in v.items()}
+ dates={_related_key(r["id"]):str(r.get("fecha") or "") for r in items}
+ keys=sorted(vectors,key=int);pairs={k:[] for k in keys}
+ for n,a in enumerate(keys):
+  va=vectors[a]
+  for b in keys[n+1:]:
+   vb=vectors[b];short,long=(va,vb) if len(va)<=len(vb) else (vb,va)
+   s=round(sum(x*long[w] for w,x in short.items() if w in long),6)
+   if s>0:pairs[a].append((s,b));pairs[b].append((s,a))
+ # Del más parecido al menos; a igual semejanza, primero el artículo más reciente y después el id menor.
+ return {k:sorted(v,key=lambda p:(-p[0],[-ord(x) for x in dates[p[1]]],int(p[1]))) for k,v in pairs.items()}
+def related_trials(items,linked=None):
+ """{id: [ids]} con los relacionados de cada resumen (enteros, del más parecido al menos; puede ser una lista vacía).
+ `linked` = {id: {ids}} que la página de ese resumen ya enlaza por otra vía y no se repiten aquí."""
+ linked=linked or {};topics={_related_key(r["id"]):_related_topic_words(r) for r in items};out={}
+ for key,ranked in related_similarities(items).items():
+  skip={_related_key(x) for x in linked.get(key,())}
+  out[key]=[int(b) for s,b in ranked if s>=RELATED_MIN and b not in skip and (s>=RELATED_SAFE or topics[key]&topics[b])][:RELATED_MAX]
+ return out
+def related_linked():
+ """{id: {ids}}: para cada ensayo del núcleo de una pregunta clínica, los otros ensayos de ese núcleo."""
+ out={}
+ for q in load_questions():
+  ids=[_related_key(i) for i in question_ids(q)]
+  for i in ids:out.setdefault(i,set()).update(x for x in ids if x!=i)
+ return out
 def editorial_dates(r):
  values=[("fecha_publicacion_resumen","Publicado en Resúmenes Trials"),("fecha_revision","Última revisión")]
  parts=[EDITORIAL_SIGNATURE]

@@ -537,6 +537,8 @@ def main() -> None:
 
     manifest = {}
     categorias_contenido = {nombre: [] for nombre in CATEGORY_PATHS}
+    from site_templates import related_trials, related_linked
+    evidencia_relacionada = related_trials(items, related_linked())
 
     for item in items:
         slug = slug_para_item(item)
@@ -548,6 +550,7 @@ def main() -> None:
             "path": ruta_trial(item),
             "url": url_trial(item),
             "title": texto_plano(item.get("titulo")),
+            "relacionados": evidencia_relacionada.get(id_texto(item["id"]), []),
         }
         for cat in categorias(item):
             categorias_contenido[cat].append(item)
