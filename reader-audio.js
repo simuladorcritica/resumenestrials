@@ -58,9 +58,11 @@ export async function loadReaderAudio(reader, record) {
     const response = await fetch(BASE + 'resumenes/' + id + '.json', { cache: 'no-store', keepalive: true });
     if (response.ok) file = audioFile(await response.json());
   } catch { /* sin red o sin permiso: el resumen se lee igual */ }
-  // La página reserva un sitio para el botón (así el texto no salta al aparecer); sin audio, el sitio se retira.
+  // La página reserva un sitio para el botón (así el texto no salta al aparecer) y otro en la barra de controles (así
+  // sus botones no se desplazan); sin audio, los dos se retiran.
   let slot = reader.querySelector('[data-ev-listen-slot]');
-  if (!file) { slot?.remove(); reader.dataset.evAudio = 'none'; return false }
+  const gap = toolbar.querySelector('[data-ev-listen-gap]');
+  if (!file) { slot?.remove(); gap?.remove(); reader.dataset.evAudio = 'none'; return false }
   await styles();
 
   const audio = new Audio();
@@ -167,7 +169,8 @@ export async function loadReaderAudio(reader, record) {
   // A la vista nada más abrir el resumen: justo bajo el título y la firma.
   if (!slot) { slot = document.createElement('div'); slot.className = 'ev-listen-slot'; slot.dataset.evListenSlot = ''; (reader.querySelector('.ev-reading-head .ev-byline') || reader.querySelector('.ev-reading-head h1')).after(slot) }
   slot.replaceChildren(entry);
-  (toolbar.querySelector('[data-ev-pdf]') || toolbar.lastElementChild).after(button);
+  // En la barra entra en el sitio que la página le guarda, para no desplazar a los demás controles.
+  if (gap?.isConnected) gap.replaceWith(button); else (toolbar.querySelector('[data-ev-pdf]') || toolbar.lastElementChild).after(button);
   toolbar.append(panel);
   paint();
   reader.dataset.evAudio = 'ready';
