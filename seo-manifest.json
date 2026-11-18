@@ -270,7 +270,7 @@
     "relacionados": [
       20,
       181,
-      129
+      333
     ],
     "seo_title": "CLEANSE trial: hemoadsorción con HA-330 en el shock séptico que requiere dosis altas de noradrenalina: ensayo multicéntrico aleatorizado y controlado | Resúmenes Trials",
     "description": "CLEANSE: La mortalidad a 28 días fue del 44% con hemoadsorción frente al 58% con tratamiento estándar , sin diferencia significativa (riesgo relativo [RR]…",
@@ -788,8 +788,8 @@
     "title": "VentSetFib: ajustes del ventilador para la fibrobroncoscopia durante la ventilación mecánica",
     "relacionados": [
       205,
-      174,
-      48
+      48,
+      174
     ],
     "seo_title": "VentSetFib trial: ajustes del ventilador para la fibrobroncoscopia durante la ventilación mecánica | Resúmenes Trials",
     "description": "VentSetFib: Los ajustes optimizados casi eliminaron el evento adverso grave: ocurrió en 1 de 23 (4%) frente a 22 de 23 (96%) con los ajustes convencionales…",
@@ -2339,9 +2339,9 @@
     "url": "https://resumenestrials.com/trials/empact-mi-empagliflozina-tras-infarto-agudo-no-reduce-insuficiencia-cardiaca-ni/",
     "title": "EMPACT-MI: empagliflozina tras un infarto agudo de miocardio",
     "relacionados": [
-      59,
       73,
-      101
+      59,
+      280
     ],
     "seo_title": "EMPACT-MI trial: empagliflozina tras un infarto agudo de miocardio | Resúmenes Trials",
     "description": "EMPACT-MI: La empagliflozina no redujo de forma significativa el compuesto de hospitalización por insuficiencia cardiaca o muerte por cualquier causa frente a…",
@@ -2415,7 +2415,7 @@
     "relacionados": [
       75,
       100,
-      76
+      291
     ],
     "seo_title": "EMPA-KIDNEY trial: empagliflozina en pacientes con enfermedad renal crónica | Resúmenes Trials",
     "description": "EMPA-KIDNEY: La empagliflozina redujo la progresión de la enfermedad renal o la muerte cardiovascular frente a placebo ( 13.1% vs 16.9%; razón de riesgo 0.72…",
@@ -3109,7 +3109,7 @@
     "relacionados": [
       96,
       61,
-      76
+      125
     ],
     "seo_title": "CANVAS Program trial: canagliflozina y eventos cardiovasculares y renales en la diabetes tipo 2 | Resúmenes Trials",
     "description": "CANVAS Program: La canagliflozina redujo el compuesto de muerte cardiovascular, infarto no fatal o ictus no fatal frente a placebo ( 26.9 frente a 31.5…",
@@ -3487,7 +3487,7 @@
     "relacionados": [
       276,
       274,
-      103
+      94
     ],
     "seo_title": "SWITCH-SWEDEHEART trial: prasugrel frente a ticagrelor en los síndromes coronarios agudos | Resúmenes Trials",
     "description": "SWITCH-SWEDEHEART: El compuesto de muerte, infarto o ictus a 1 año no difirió significativamente entre políticas: 11.8% con ticagrelor frente a 11.1% con…",
@@ -3611,7 +3611,7 @@
     "relacionados": [
       66,
       62,
-      268
+      59
     ],
     "seo_title": "PADN-HF-PH trial: denervación pulmonar en la hipertensión pulmonar relacionada con insuficiencia cardiaca | Resúmenes Trials",
     "description": "PADN-HF-PH: El empeoramiento clínico fue menos frecuente con la denervación de la arteria pulmonar: 25 de 134 pacientes (25.7% a 2 años) frente a 42 de 130…",
@@ -3674,7 +3674,7 @@
     "relacionados": [
       333,
       149,
-      230
+      52
     ],
     "seo_title": "CLASSIC trial: restricción de líquidos intravenosos en pacientes de UCI con shock séptico | Resúmenes Trials",
     "description": "CLASSIC: La mortalidad a los 90 días no mostró diferencia significativa entre los grupos: 42.3% en el grupo de restricción de fluidos frente a 42.1% en el…",
@@ -4668,8 +4668,8 @@
     "title": "HYPERION: manejo específico de la temperatura en el paro cardiaco con ritmo no desfibrilable",
     "relacionados": [
       83,
-      131,
-      134
+      23,
+      131
     ],
     "seo_title": "HYPERION trial: manejo específico de la temperatura en el paro cardiaco con ritmo no desfibrilable | Resúmenes Trials",
     "description": "HYPERION: La supervivencia con resultado neurológico favorable a 90 días fue 10.2% con hipotermia frente a 5.7% con normotermia (diferencia, 4.5 puntos…",
@@ -5354,8 +5354,8 @@
     "title": "SINGLE-AF: anticoagulación en la fibrilación auricular con riesgo intermedio de ictus",
     "relacionados": [
       36,
-      37,
-      29
+      29,
+      37
     ],
     "seo_title": "SINGLE-AF trial: anticoagulación en la fibrilación auricular con riesgo intermedio de ictus | Resúmenes Trials",
     "description": "SINGLE-AF: El desenlace primario ocurrió en 0.5% de los pacientes con anticoagulación frente a 1.5% sin anticoagulación (hazard ratio de subdistribución, HR…",
@@ -5496,8 +5496,8 @@
     "title": "OSCILLATE: ventilación oscilatoria de alta frecuencia en el síndrome de dificultad respiratoria aguda temprano",
     "relacionados": [
       183,
-      174,
-      205
+      205,
+      174
     ],
     "seo_title": "OSCILLATE trial: ventilación oscilatoria de alta frecuencia en el síndrome de dificultad respiratoria aguda temprano | Resúmenes Trials",
     "description": "OSCILLATE: La oscilación temprana aumentó la mortalidad hospitalaria: 47% frente a 35% (riesgo relativo 1.33; IC 95%, 1.09 a 1.64; p=0.005) , con más uso de…",
@@ -5837,7 +5837,7 @@
     "relacionados": [
       171,
       205,
-      110
+      201
     ],
     "seo_title": "OSCAR trial: ventilación oscilatoria de alta frecuencia en el síndrome de dificultad respiratoria aguda | Resúmenes Trials",
     "description": "OSCAR: Sin diferencia significativa en la mortalidad a 30 días ( 41.7% frente a 41.1% ; p = 0.85 ; odds ratio ajustada de supervivencia del grupo convencional…",
@@ -6930,8 +6930,8 @@
     "title": "WOMAN: efecto de la administración precoz de ácido tranexámico sobre la mortalidad, la histerectomía y otras morbilidades en mujeres con hemorragia posparto",
     "relacionados": [
       214,
-      239,
-      177
+      177,
+      239
     ],
     "seo_title": "WOMAN trial: efecto de la administración precoz de ácido tranexámico sobre la mortalidad, la histerectomía y otras morbilidades en mujeres con hemorragia posparto | Resúmenes Trials",
     "description": "WOMAN: Sin diferencia significativa en el desenlace primario de muerte o histerectomía: 5.3% con ácido tranexámico frente a 5.5% con placebo, riesgo relativo…",
@@ -8206,8 +8206,7 @@
     "title": "VICTAS: efecto de la vitamina C, la tiamina y la hidrocortisona sobre los días libres de ventilador y vasopresores en pacientes con sepsis",
     "relacionados": [
       87,
-      195,
-      189
+      195
     ],
     "seo_title": "VICTAS trial: efecto de la vitamina C, la tiamina y la hidrocortisona sobre los días libres de ventilador y vasopresores en pacientes con sepsis | Resúmenes Trials",
     "description": "VICTAS: La mediana de días libres de ventilador y vasopresores a 30 días fue de 25 con la combinación frente a 26 con placebo (diferencia de medianas −1 día…",
@@ -8451,8 +8450,8 @@
     "title": "MOST: argatrobán o eptifibatida intravenosos adyuvantes en el ictus isquémico",
     "relacionados": [
       216,
-      293,
-      118
+      345,
+      293
     ],
     "seo_title": "MOST trial: argatrobán o eptifibatida intravenosos adyuvantes en el ictus isquémico | Resúmenes Trials",
     "description": "MOST: Ningún fármaco alcanzó el umbral de eficacia de 0.985: la probabilidad posterior de superioridad frente a placebo fue de 0.002 con argatrobán…",
@@ -8775,7 +8774,7 @@
     "title": "OASIS 4: semaglutida oral a dosis de 25 mg en adultos con sobrepeso u obesidad",
     "relacionados": [
       335,
-      319,
+      341,
       106
     ],
     "seo_title": "OASIS 4 trial: semaglutida oral a dosis de 25 mg en adultos con sobrepeso u obesidad | Resúmenes Trials",
@@ -9277,9 +9276,9 @@
     "url": "https://resumenestrials.com/trials/glory-1-mazdutida-vez-semana-adultos-chinos-obesidad-sobrepeso/",
     "title": "GLORY-1: mazdutida una vez por semana en adultos chinos con obesidad o sobrepeso",
     "relacionados": [
+      341,
       310,
-      319,
-      270
+      319
     ],
     "seo_title": "GLORY-1 trial: mazdutida una vez por semana en adultos chinos con obesidad o sobrepeso | Resúmenes Trials",
     "description": "GLORY-1: A la semana 32, el peso cambió −10.09% con 4 mg, −12.55% con 6 mg y 0.45% con placebo: diferencias de −10.54 puntos porcentuales (IC 95% −11.83 a…",
@@ -9310,7 +9309,7 @@
     "relacionados": [
       19,
       236,
-      216
+      345
     ],
     "seo_title": "BRIDGE-TNK trial: tenecteplasa intravenosa antes de la trombectomía en el ictus | Resúmenes Trials",
     "description": "BRIDGE-TNK: La independencia funcional a 90 días (Rankin de 0 a 2) fue del 52.9% con tenecteplasa intravenosa más trombectomía frente al 44.1% con…",
@@ -9832,7 +9831,7 @@
     "relacionados": [
       319,
       292,
-      288
+      341
     ],
     "seo_title": "SYNCHRONIZE-2 trial: survodutida una vez a la semana en adultos con obesidad y diabetes tipo 2 | Resúmenes Trials",
     "description": "SYNCHRONIZE-2: Con el estimando primario de régimen de tratamiento, el peso cambió un −8.2% con 3.6 mg y un −9.8% con 6.0 mg, frente a −3.9% con placebo…",
@@ -10037,8 +10036,8 @@
     "title": "TRANSCEND: setmelanotida para el tratamiento de la obesidad hipotalámica adquirida",
     "relacionados": [
       270,
-      319,
-      335
+      341,
+      319
     ],
     "seo_title": "TRANSCEND trial: setmelanotida para el tratamiento de la obesidad hipotalámica adquirida | Resúmenes Trials",
     "description": "TRANSCEND: A las 52 semanas tras la escalada, el cambio medio estimado del IMC fue de -16.5% con setmelanotida frente a 3.3% con placebo (diferencia -19.8…",
@@ -10066,7 +10065,10 @@
     "path": "/trials/overlord-ms-rituximab-ocrelizumab-esclerosis-multiple-recurrente-diagnostico-reciente/",
     "url": "https://resumenestrials.com/trials/overlord-ms-rituximab-ocrelizumab-esclerosis-multiple-recurrente-diagnostico-reciente/",
     "title": "OVERLORD-MS: rituximab frente a ocrelizumab en la esclerosis múltiple recurrente de diagnóstico reciente",
-    "relacionados": [],
+    "relacionados": [
+      343,
+      342
+    ],
     "seo_title": "OVERLORD-MS trial: rituximab frente a ocrelizumab en la esclerosis múltiple recurrente de diagnóstico reciente | Resúmenes Trials",
     "description": "OVERLORD-MS: Entre los meses 6 y 24, la probabilidad estimada de no tener lesiones nuevas o agrandadas en T2 fue del 92.2% con rituximab frente al 94.8% con…",
     "clusters": [],
@@ -10089,8 +10091,8 @@
     "title": "SYNCHRONIZE-1: survodutida una vez por semana para el tratamiento de adultos con obesidad",
     "relacionados": [
       310,
-      270,
-      292
+      341,
+      270
     ],
     "seo_title": "SYNCHRONIZE-1 trial: survodutida una vez por semana para el tratamiento de adultos con obesidad | Resúmenes Trials",
     "description": "SYNCHRONIZE-1: A la semana 76, el cambio medio estimado del peso fue de -12.2% con 3.6 mg y -13.0% con 6.0 mg de survodutida frente a -5.4% con placebo…",
@@ -10405,7 +10407,9 @@
     "path": "/trials/vayhit2-ianalumab-mas-eltrombopag-trombocitopenia-inmunitaria/",
     "url": "https://resumenestrials.com/trials/vayhit2-ianalumab-mas-eltrombopag-trombocitopenia-inmunitaria/",
     "title": "VAYHIT2: ianalumab más eltrombopag en la trombocitopenia inmunitaria",
-    "relacionados": [],
+    "relacionados": [
+      344
+    ],
     "seo_title": "VAYHIT2 trial: ianalumab más eltrombopag en la trombocitopenia inmunitaria | Resúmenes Trials",
     "description": "VAYHIT2: Frente a placebo más eltrombopag, el hazard ratio de fracaso del tratamiento fue de 0.55 (IC 95% 0.32 a 0.92; P=0.04) con ianalumab de 9 mg/kg y de…",
     "clusters": [],
@@ -10561,7 +10565,7 @@
     "relacionados": [
       270,
       121,
-      106
+      341
     ],
     "seo_title": "SURMOUNT-5 trial: tirzepatida en comparación con semaglutida para el tratamiento de la obesidad | Resúmenes Trials",
     "description": "SURMOUNT-5: A la semana 72, el cambio medio del peso fue de -20.2% con tirzepatida frente a -13.7% con semaglutida (diferencia -6.5 puntos porcentuales; IC…",
@@ -10734,5 +10738,145 @@
       "population": "La población fueron adultos que tomaban de dos a cinco antihipertensivos y tenían en consulta una sistólica de 140 a 180 mm Hg con diastólica de 65 a 110 mm Hg, o una diastólica de 90 a 110 mm Hg. Dejaban su tratamiento y pasaban 3 semanas con un régimen estandarizado: olmesartán 40 mg diarios más indapamida 2.5 mg o hidroclorotiazida 25 mg, con amlodipino 10 mg si tomaban de tres a cinco fármacos, y placebo en simple ciego…"
     },
     "datePublished": "2026-11-17"
+  },
+  "341": {
+    "slug": "gemini-1-ribupatida-vez-semana-perder-peso-adultos-china-sobrepeso-u",
+    "path": "/trials/gemini-1-ribupatida-vez-semana-perder-peso-adultos-china-sobrepeso-u/",
+    "url": "https://resumenestrials.com/trials/gemini-1-ribupatida-vez-semana-perder-peso-adultos-china-sobrepeso-u/",
+    "title": "GEMINI-1: ribupatida una vez por semana para perder peso en adultos de China con sobrepeso u obesidad",
+    "relacionados": [
+      319,
+      270,
+      292
+    ],
+    "seo_title": "GEMINI-1 trial: ribupatida una vez por semana para perder peso en adultos de China con sobrepeso u obesidad | Resúmenes Trials",
+    "description": "GEMINI-1: A la semana 48, el cambio medio estimado del peso fue de -10.7%, -16.4% y -17.7% con ribupatida 2, 4 y 6 mg, frente a -1.4% con placebo (diferencias…",
+    "clusters": [
+      {
+        "name": "Renal y metabolismo",
+        "path": "/medicina-interna/renal-metabolica/",
+        "url": "https://resumenestrials.com/medicina-interna/renal-metabolica/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/gemini-1-ribupatida-vez-semana-perder-peso-adultos-china-sobrepeso-u-16x9.jpg",
+      "https://resumenestrials.com/images/trials/gemini-1-ribupatida-vez-semana-perder-peso-adultos-china-sobrepeso-u-4x3.jpg",
+      "https://resumenestrials.com/images/trials/gemini-1-ribupatida-vez-semana-perder-peso-adultos-china-sobrepeso-u-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Evaluar la eficacia y la seguridad de la ribupatida subcutánea una vez por semana (dosis objetivo de 2, 4 o 6 mg) frente a placebo, sumada a modificación del estilo de vida, para reducir el peso corporal en adultos de China con sobrepeso u obesidad sin diabetes.",
+      "answer": "A la semana 48, el cambio medio estimado del peso fue de -10.7%, -16.4% y -17.7% con ribupatida 2, 4 y 6 mg, frente a -1.4% con placebo (diferencias de -9.3 [IC 95% -11.4 a -7.3], -15.0 [IC 95% -17.1 a -12.9] y -16.3 [IC 95% -18.4 a -14.2] puntos porcentuales; P<0.001 para todas).",
+      "population": "Población: adultos de China, de 18 años o más y sin diabetes, con un índice de masa corporal (IMC) de 28 o más, o de 24 o más con al menos una comorbilidad ligada al peso, como prediabetes o hipertensión, según los umbrales chinos de obesidad y sobrepeso. Entre el 92.2% y el 97.9% de cada grupo se declaró de etnia han. Intervención: ribupatida (HRS9531), un agonista dual de los receptores del polipéptido insulinotrópico…"
+    },
+    "datePublished": "2026-11-18"
+  },
+  "342": {
+    "slug": "gemini-1-y-gemini-2-tolebrutinib-teriflunomida-esclerosis-multiple-recurrente",
+    "path": "/trials/gemini-1-y-gemini-2-tolebrutinib-teriflunomida-esclerosis-multiple-recurrente/",
+    "url": "https://resumenestrials.com/trials/gemini-1-y-gemini-2-tolebrutinib-teriflunomida-esclerosis-multiple-recurrente/",
+    "title": "GEMINI 1 y GEMINI 2: tolebrutinib frente a teriflunomida en la esclerosis múltiple recurrente",
+    "relacionados": [
+      343,
+      318,
+      338
+    ],
+    "seo_title": "GEMINI 1 y GEMINI 2 trial: tolebrutinib frente a teriflunomida en la esclerosis múltiple recurrente | Resúmenes Trials",
+    "description": "GEMINI 1 y GEMINI 2: La tasa anualizada de brotes no mostró diferencia significativa entre tolebrutinib y teriflunomida ni en GEMINI 1 ( 0.13 con tolebrutinib…",
+    "clusters": [],
+    "images": [
+      "https://resumenestrials.com/images/trials/gemini-1-y-gemini-2-tolebrutinib-teriflunomida-esclerosis-multiple-recurrente-16x9.jpg",
+      "https://resumenestrials.com/images/trials/gemini-1-y-gemini-2-tolebrutinib-teriflunomida-esclerosis-multiple-recurrente-4x3.jpg",
+      "https://resumenestrials.com/images/trials/gemini-1-y-gemini-2-tolebrutinib-teriflunomida-esclerosis-multiple-recurrente-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si el tolebrutinib, un inhibidor oral de la tirosina cinasa de Bruton que penetra en el sistema nervioso central, reduce la tasa anualizada de brotes frente a la teriflunomida en adultos con esclerosis múltiple recurrente, en dos ensayos gemelos.",
+      "answer": "La tasa anualizada de brotes no mostró diferencia significativa entre tolebrutinib y teriflunomida ni en GEMINI 1 ( 0.13 con tolebrutinib frente a 0.12 con teriflunomida ; razón de tasas 1.06; IC 95%, 0.81 a 1.39; P = 0.67) ni en GEMINI 2 (0.11 en ambos grupos; razón de tasas 1.00; IC 95%, 0.75 a 1.32; P = 0.98).",
+      "population": "Población. Adultos de 18 a 55 años con esclerosis múltiple recurrente (criterios de McDonald de 2017) y enfermedad activa: al menos un brote en el último año, dos en los últimos dos años o una lesión captante de gadolinio en la resonancia del último año. Debían puntuar 5.5 o menos en la Expanded Disability Status Scale (EDSS), que mide la discapacidad neurológica de 0 a 10.0: a más puntos, más discapacidad. La mayoría era de…"
+    },
+    "datePublished": "2026-11-18"
+  },
+  "343": {
+    "slug": "hercules-tolebrutinib-esclerosis-multiple-secundaria-progresiva-no-recurrente",
+    "path": "/trials/hercules-tolebrutinib-esclerosis-multiple-secundaria-progresiva-no-recurrente/",
+    "url": "https://resumenestrials.com/trials/hercules-tolebrutinib-esclerosis-multiple-secundaria-progresiva-no-recurrente/",
+    "title": "HERCULES: tolebrutinib en la esclerosis múltiple secundaria progresiva no recurrente",
+    "relacionados": [
+      342,
+      318
+    ],
+    "seo_title": "HERCULES trial: tolebrutinib en la esclerosis múltiple secundaria progresiva no recurrente | Resúmenes Trials",
+    "description": "HERCULES: La progresión confirmada de la discapacidad sostenida 6 meses ocurrió en el 22.6% con tolebrutinib frente al 30.7% con placebo (HR 0.69; IC 95% 0.55…",
+    "clusters": [
+      {
+        "name": "Neurología",
+        "path": "/medicina-interna/neurologia/",
+        "url": "https://resumenestrials.com/medicina-interna/neurologia/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/hercules-tolebrutinib-esclerosis-multiple-secundaria-progresiva-no-recurrente-16x9.jpg",
+      "https://resumenestrials.com/images/trials/hercules-tolebrutinib-esclerosis-multiple-secundaria-progresiva-no-recurrente-4x3.jpg",
+      "https://resumenestrials.com/images/trials/hercules-tolebrutinib-esclerosis-multiple-secundaria-progresiva-no-recurrente-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si el tolebrutinib, un inhibidor oral de la tirosina cinasa de Bruton, retrasa frente a placebo la progresión confirmada de la discapacidad sostenida 6 meses en adultos con esclerosis múltiple secundaria progresiva no recurrente.",
+      "answer": "La progresión confirmada de la discapacidad sostenida 6 meses ocurrió en el 22.6% con tolebrutinib frente al 30.7% con placebo (HR 0.69; IC 95% 0.55 a 0.88; P=0.003).",
+      "population": "Se incluyó a adultos de 18 a 60 años con esclerosis múltiple secundaria progresiva no recurrente: diagnóstico previo de la forma remitente-recurrente según los criterios de McDonald de 2017, progresión documentada de la discapacidad en los 12 meses previos, ningún brote en los 24 meses previos y una puntuación de 3.0 a 6.5 en la escala ampliada del estado de discapacidad (EDSS, por Expanded Disability Status Scale), que va de…"
+    },
+    "datePublished": "2026-11-18"
+  },
+  "344": {
+    "slug": "mint-ensayo-fase-3-inebilizumab-miastenia-gravis-generalizada",
+    "path": "/trials/mint-ensayo-fase-3-inebilizumab-miastenia-gravis-generalizada/",
+    "url": "https://resumenestrials.com/trials/mint-ensayo-fase-3-inebilizumab-miastenia-gravis-generalizada/",
+    "title": "MINT: ensayo de fase 3 de inebilizumab en la miastenia gravis generalizada",
+    "relacionados": [
+      330
+    ],
+    "seo_title": "MINT trial: ensayo de fase 3 de inebilizumab en la miastenia gravis generalizada | Resúmenes Trials",
+    "description": "MINT: A las 26 semanas, la MG-ADL bajó 4.2 puntos con inebilizumab y 2.2 con placebo (diferencia ajustada −1.9 ; IC 95% −2.9 a −1.0; P<0.001), y la QMG, 4.8…",
+    "clusters": [],
+    "images": [
+      "https://resumenestrials.com/images/trials/mint-ensayo-fase-3-inebilizumab-miastenia-gravis-generalizada-16x9.jpg",
+      "https://resumenestrials.com/images/trials/mint-ensayo-fase-3-inebilizumab-miastenia-gravis-generalizada-4x3.jpg",
+      "https://resumenestrials.com/images/trials/mint-ensayo-fase-3-inebilizumab-miastenia-gravis-generalizada-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Evaluar si el inebilizumab, frente a placebo, mejora el cambio en la escala de actividades de la vida diaria de la miastenia gravis (MG-ADL) a las 26 semanas en adultos con miastenia gravis generalizada con anticuerpos contra el receptor de acetilcolina o contra la cinasa específica del músculo.",
+      "answer": "A las 26 semanas, la MG-ADL bajó 4.2 puntos con inebilizumab y 2.2 con placebo (diferencia ajustada −1.9 ; IC 95% −2.9 a −1.0; P<0.001), y la QMG, 4.8 con inebilizumab y 2.3 con placebo (diferencia −2.5 ; IC 95% −3.8 a −1.2; P<0.001).",
+      "population": "Se estudió a adultos de 18 años o más con miastenia gravis generalizada autoinmune, clase II, III o IV de la Fundación de Miastenia Gravis de América (MGFA), y anticuerpos contra el receptor de acetilcolina (AChR) o contra la cinasa específica del músculo (MuSK), con control insuficiente de los síntomas pese a tratamiento estable con glucocorticoides, inmunosupresores no esteroideos o ambos. De los participantes, el 53% eran…"
+    },
+    "datePublished": "2026-11-18"
+  },
+  "345": {
+    "slug": "expects-alteplasa-ictus-isquemico-circulacion-posterior-4-5-24-horas",
+    "path": "/trials/expects-alteplasa-ictus-isquemico-circulacion-posterior-4-5-24-horas/",
+    "url": "https://resumenestrials.com/trials/expects-alteplasa-ictus-isquemico-circulacion-posterior-4-5-24-horas/",
+    "title": "EXPECTS: alteplasa para el ictus isquémico de la circulación posterior entre las 4.5 y las 24 horas",
+    "relacionados": [
+      293,
+      19,
+      216
+    ],
+    "seo_title": "EXPECTS trial: alteplasa para el ictus isquémico de la circulación posterior entre las 4.5 y las 24 horas | Resúmenes Trials",
+    "description": "EXPECTS: La independencia funcional a 90 días (Rankin de 0 a 2) se logró en el 89.6% con alteplasa frente al 72.6% con tratamiento estándar (riesgo relativo…",
+    "clusters": [
+      {
+        "name": "Neurología",
+        "path": "/medicina-interna/neurologia/",
+        "url": "https://resumenestrials.com/medicina-interna/neurologia/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/expects-alteplasa-ictus-isquemico-circulacion-posterior-4-5-24-horas-16x9.jpg",
+      "https://resumenestrials.com/images/trials/expects-alteplasa-ictus-isquemico-circulacion-posterior-4-5-24-horas-4x3.jpg",
+      "https://resumenestrials.com/images/trials/expects-alteplasa-ictus-isquemico-circulacion-posterior-4-5-24-horas-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si la alteplasa intravenosa administrada entre las 4.5 y las 24 horas tras el inicio aumenta la independencia funcional a 90 días, frente al tratamiento médico estándar, en adultos con ictus isquémico de la circulación posterior sin hipodensidad extensa en la tomografía y sin trombectomía planeada.",
+      "answer": "La independencia funcional a 90 días (Rankin de 0 a 2) se logró en el 89.6% con alteplasa frente al 72.6% con tratamiento estándar (riesgo relativo ajustado 1.16 ; IC 95% 1.03 a 1.30; p=0.01).",
+      "population": "La población fueron adultos con ictus isquémico agudo de la circulación posterior, atendidos entre 4.5 y 24 horas después del inicio y sin trombectomía planeada; el artículo pide 18 años o más, y el protocolo, más de 18. En el ictus del despertar o sin testigos, el inicio era el punto medio entre la última vez que se vio bien al paciente y el hallazgo de los síntomas. El diagnóstico se confirmaba con resonancia magnética (RM)…"
+    },
+    "datePublished": "2026-11-18"
   }
 }
