@@ -36,6 +36,7 @@ Material educativo para profesionales de la salud. La referencia final es siempr
 
 ## Resúmenes de ensayos
 
+- [ZENITH: sotatercept en pacientes con hipertensión arterial pulmonar con alto riesgo de muerte](https://resumenestrials.com/trials/zenith-sotatercept-pacientes-hipertension-arterial-pulmonar-alto-riesgo-muerte/): NEJM, 2025.
 - [SELECT-GCA: ensayo de fase 3 de upadacitinib para la arteritis de células gigantes](https://resumenestrials.com/trials/select-gca-ensayo-fase-3-upadacitinib-arteritis-celulas-gigantes/): NEJM, 2025.
 - [EXPECTS: alteplasa para el ictus isquémico de la circulación posterior entre las 4.5 y las 24 horas](https://resumenestrials.com/trials/expects-alteplasa-ictus-isquemico-circulacion-posterior-4-5-24-horas/): NEJM, 2025.
 - [MINT: ensayo de fase 3 de inebilizumab en la miastenia gravis generalizada](https://resumenestrials.com/trials/mint-ensayo-fase-3-inebilizumab-miastenia-gravis-generalizada/): NEJM, 2025.

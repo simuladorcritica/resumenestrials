@@ -491,6 +491,29 @@
           "frase": "Se incluyó a adultos de 50 años o más con arteritis de células gigantes (ACG) de debut"
         }
       }
+    },
+    {
+      "id": 347,
+      "fecha": "2026-11-18",
+      "huella": "3a2aae73b7d81e28",
+      "preguntas": {
+        "corticoides-choque-septico": {
+          "rol": "nada",
+          "frase": "Evaluar si añadir sotatercept al tratamiento de fondo máximo tolerado reduce la muerte, el trasplante pulmonar o la hospitalización por empeoramiento en adultos con hipertensión arterial pulmonar en clase funcional III o IV y alto riesgo de muerte."
+        },
+        "cuando-iniciar-terapia-reemplazo-renal-lesion-renal-aguda": {
+          "rol": "nada",
+          "frase": "Evaluar si añadir sotatercept al tratamiento de fondo máximo tolerado reduce la muerte, el trasplante pulmonar o la hospitalización por empeoramiento en adultos con hipertensión arterial pulmonar en clase funcional III o IV y alto riesgo de muerte."
+        },
+        "meta-oxigenacion-paciente-critico": {
+          "rol": "nada",
+          "frase": "Evaluar si añadir sotatercept al tratamiento de fondo máximo tolerado reduce la muerte, el trasplante pulmonar o la hospitalización por empeoramiento en adultos con hipertensión arterial pulmonar en clase funcional III o IV y alto riesgo de muerte."
+        },
+        "restriccion-liquidos-choque-septico-hipotension-sepsis": {
+          "rol": "nada",
+          "frase": "Evaluar si añadir sotatercept al tratamiento de fondo máximo tolerado reduce la muerte, el trasplante pulmonar o la hospitalización por empeoramiento en adultos con hipertensión arterial pulmonar en clase funcional III o IV y alto riesgo de muerte."
+        }
+      }
     }
   ],
   "preguntas": [
