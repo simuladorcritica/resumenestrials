@@ -629,10 +629,11 @@
     "title": "Tigris: hemoadsorción con polimixina B en el shock séptico endotóxico",
     "relacionados": [
       9,
-      149
+      2,
+      195
     ],
     "seo_title": "Tigris trial: hemoadsorción con polimixina B en el shock séptico endotóxico | Resúmenes Trials",
-    "description": "Tigris: La mortalidad a 28 días fue del 39% frente al 45% a favor de la polimixina B, con una probabilidad posterior de beneficio del 95.3%, justo en el…",
+    "description": "Tigris: La mortalidad a 28 días fue del 39% con polimixina B frente al 45% con el tratamiento estándar , con una probabilidad posterior de beneficio del…",
     "clusters": [
       {
         "name": "Sepsis y shock",
@@ -647,11 +648,11 @@
     ],
     "intent": {
       "question": "Determinar si dos sesiones de hemoadsorción con polimixina B, añadidas al tratamiento estándar, reducen la mortalidad a 28 días en adultos con shock séptico endotóxico definido por actividad de endotoxina elevada y fallo multiorgánico.",
-      "answer": "La mortalidad a 28 días fue del 39% frente al 45% a favor de la polimixina B, con una probabilidad posterior de beneficio del 95.3%, justo en el umbral de éxito (OR ajustado 0.67; ICr 95%, 0.39-1.08).",
-      "population": "La población fueron adultos, de 18 años o más, con shock séptico endotóxico, un subtipo de shock séptico caracterizado por endotoxina circulante alta y fallo de varios órganos. Para entrar debían tener hipotensión que requiriera noradrenalina por encima de 0.05 mcg/kg/min durante al menos dos horas, reanimación previa con más de 30 mL/kg de líquidos, infección documentada o sospechada con antibióticos, disfunción multiorgánica…"
+      "answer": "La mortalidad a 28 días fue del 39% con polimixina B frente al 45% con el tratamiento estándar , con una probabilidad posterior de beneficio del 95.3%, justo en el umbral de éxito (razón de momios [OR] ajustada 0.67; intervalo creíble [ICr] del 95%, 0.39-1.08).",
+      "population": "La población fueron adultos, de 18 años o más, con shock séptico endotóxico, un subtipo de shock séptico caracterizado por endotoxina circulante alta y fallo de varios órganos. Para entrar debían tener hipotensión que requiriera más de 0.05 mcg/kg/min de noradrenalina o un vasopresor equivalente durante al menos dos horas y hasta 30 horas antes de la aleatorización, reanimación previa con más de 30 mL/kg de líquidos, infección…"
     },
     "datePublished": "2026-08-17",
-    "dateModified": "2026-10-20"
+    "dateModified": "2026-11-17"
   },
   "21": {
     "slug": "e-crrt-integracion-separacion-circuito-depuracion-renal-continua-paciente-ecmo",
@@ -2414,7 +2415,7 @@
     "relacionados": [
       75,
       100,
-      291
+      76
     ],
     "seo_title": "EMPA-KIDNEY trial: empagliflozina en pacientes con enfermedad renal crónica | Resúmenes Trials",
     "description": "EMPA-KIDNEY: La empagliflozina redujo la progresión de la enfermedad renal o la muerte cardiovascular frente a placebo ( 13.1% vs 16.9%; razón de riesgo 0.72…",
@@ -6805,7 +6806,7 @@
       "population": "La población fueron pacientes de 16 años o más con un traumatismo grave y una hemorragia activa que obligó a activar el protocolo local de hemorragia masiva, y que ya habían empezado a recibir al menos 1 unidad de algún componente sanguíneo. En todos los centros, uno de los criterios de activación era una presión sistólica menor de 90 mm Hg en algún momento. Se atendieron en 25 centros de trauma mayor del Reino Unido y 1 de…"
     },
     "datePublished": "2026-10-20",
-    "dateModified": "2026-10-27"
+    "dateModified": "2026-11-17"
   },
   "218": {
     "slug": "procoag-eficacia-seguridad-administracion-temprana-concentrado-complejo-protrombinico-4-factores",
@@ -6827,10 +6828,11 @@
     ],
     "intent": {
       "question": "Evaluar si añadir concentrado de complejo protrombínico de 4 factores a una transfusión guiada por proporciones reduce el consumo total de componentes sanguíneos en 24 horas en pacientes con trauma en riesgo de transfusión masiva.",
-      "answer": "La mediana de consumo total en 24 horas fue de 12 unidades con el concentrado frente a 11 con placebo (diferencia absoluta de medias 0.2 unidades; IC 95%, −2.99 a 3.33; p = 0.72) , sin diferencia; como desenlace secundario de seguridad sin ajuste por multiplicidad, los eventos tromboembólicos fueron más frecuentes con el…",
+      "answer": "La mediana de consumo total en 24 horas fue de 12 unidades con el concentrado frente a 11 con placebo (diferencia absoluta de medias 0.2 unidades; IC 95%, −2.99 a 3.33; p = 0.72) , sin diferencia significativa; como desenlace secundario de seguridad sin ajuste por multiplicidad, los eventos tromboembólicos fueron más frecuentes…",
       "population": "La población fueron adultos de 18 años o más con un traumatismo grave, llevados directamente desde el lugar de la lesión a uno de 12 centros de trauma de nivel I en Francia con la activación de trauma de máximo nivel, que se reserva para pacientes con una puntuación de Glasgow menor de 9, una presión sistólica menor de 90 mm Hg o dificultad respiratoria aguda. Además, debían estar en riesgo de transfusión masiva: haber…"
     },
-    "datePublished": "2026-10-20"
+    "datePublished": "2026-10-20",
+    "dateModified": "2026-11-17"
   },
   "219": {
     "slug": "prevent-clot-aspirina-heparina-peso-molecular-tromboprofilaxis-despues-fractura",
@@ -6861,7 +6863,8 @@
       "answer": "La mortalidad a 90 días fue del 0.78% con aspirina frente al 0.73% con heparina de bajo peso molecular (diferencia 0.05 puntos porcentuales; IC 96.2%, −0.27 a 0.38; p < 0.001 para no inferioridad) , por lo que la aspirina no fue inferior, aunque la trombosis venosa profunda, un secundario sin ajuste por multiplicidad, fue más…",
       "population": "La población fueron adultos de 18 años o más con una fractura de una extremidad tratada con cirugía, desde la cadera hasta el mediopié o desde el hombro hasta la muñeca, o con cualquier fractura de pelvis o de acetábulo, operada o no. Se atendieron en 21 centros de trauma de Estados Unidos y Canadá. La raza o etnia la informó el paciente o su representante: el 63.2% eran blancos no hispanos, el 20.1% negros no hispanos y el…"
     },
-    "datePublished": "2026-10-20"
+    "datePublished": "2026-10-20",
+    "dateModified": "2026-11-17"
   },
   "220": {
     "slug": "avert-shock-efecto-suplementacion-dosis-bajas-arginina-vasopresina-necesidad-transfusiones",
@@ -6886,7 +6889,8 @@
       "answer": "La mediana de hemoderivados en 48 horas fue de 1.7 L con vasopresina frente a 3.0 L con placebo (diferencia −1.00 L; IC 95%, −2.03 a 0.00; p = 0.03) en el análisis por intención de tratar, con una mortalidad similar ( 12% en ambos grupos; p = 0.94 ) en un estudio sin poder para ese desenlace.",
       "population": "La población fueron pacientes con trauma de 18 a 65 años en shock hemorrágico que habían recibido al menos 6 unidades de cualquier hemoderivado en las 12 horas siguientes a la lesión, atendidos en un único centro de trauma urbano de nivel 1 en Filadelfia, Estados Unidos. Se incluían en cuanto se terminaba de infundir la sexta unidad. La mayoría eran varones jóvenes negros con heridas penetrantes: el 86% del grupo de…"
     },
-    "datePublished": "2026-10-20"
+    "datePublished": "2026-10-20",
+    "dateModified": "2026-11-17"
   },
   "214": {
     "slug": "crash-3-efectos-acido-tranexamico-muerte-discapacidad-eventos-vasculares-oclusivos-otras",
@@ -6930,7 +6934,7 @@
       177
     ],
     "seo_title": "WOMAN trial: efecto de la administración precoz de ácido tranexámico sobre la mortalidad, la histerectomía y otras morbilidades en mujeres con hemorragia posparto | Resúmenes Trials",
-    "description": "WOMAN: El ácido tranexámico no redujo el desenlace primario de muerte o histerectomía: 5.3% frente a 5.5%, riesgo relativo de 0.97 (IC 95%, 0.87 a 1.09…",
+    "description": "WOMAN: Sin diferencia significativa en el desenlace primario de muerte o histerectomía: 5.3% con ácido tranexámico frente a 5.5% con placebo, riesgo relativo…",
     "clusters": [],
     "images": [
       "https://resumenestrials.com/images/trials/woman-efecto-administracion-precoz-acido-tranexamico-mortalidad-histerectomia-otras-morbilidades-16x9.jpg",
@@ -6939,10 +6943,11 @@
     ],
     "intent": {
       "question": "Evaluar el efecto de la administración precoz de ácido tranexámico, frente a placebo, sobre la muerte por cualquier causa o la histerectomía a 42 días en mujeres con hemorragia posparto.",
-      "answer": "El ácido tranexámico no redujo el desenlace primario de muerte o histerectomía: 5.3% frente a 5.5%, riesgo relativo de 0.97 (IC 95%, 0.87 a 1.09; p=0.65) .",
+      "answer": "Sin diferencia significativa en el desenlace primario de muerte o histerectomía: 5.3% con ácido tranexámico frente a 5.5% con placebo, riesgo relativo de 0.97 (IC 95%, 0.87 a 1.09; p=0.65) .",
       "population": "La población fueron mujeres de 16 años o más con diagnóstico clínico de hemorragia posparto tras un parto vaginal o una cesárea, atendidas en 193 hospitales de 21 países, sobre todo de África y Asia; Nigeria y Pakistán aportaron más de la mitad de las pacientes. El diagnóstico era clínico y podía basarse en una pérdida estimada de más de 500 mL tras un parto vaginal o de 1000 mL tras una cesárea, o en cualquier pérdida…"
     },
-    "datePublished": "2026-10-20"
+    "datePublished": "2026-10-20",
+    "dateModified": "2026-11-17"
   },
   "223": {
     "slug": "avert-eficacia-seguridad-movilizacion-muy-precoz-primeras-24-h-tras",
@@ -6971,7 +6976,8 @@
       "answer": "La movilización muy precoz redujo los resultados favorables a los 3 meses: 46% frente a 50%, con una odds ratio ajustada de 0.73 (IC 95%, 0.59 a 0.90; p=0.004) .",
       "population": "La población fueron adultos de 18 años o más con un ictus confirmado, primero o recurrente, isquémico o por hemorragia intracerebral, ingresados en una unidad de ictus en las primeras 24 horas tras el inicio de los síntomas, en Australia, Nueva Zelanda, Malasia, Singapur y el Reino Unido. Se permitió la trombólisis con activador tisular del plasminógeno recombinante. La raza o etnia no se reporta."
     },
-    "datePublished": "2026-10-20"
+    "datePublished": "2026-10-20",
+    "dateModified": "2026-11-17"
   },
   "224": {
     "slug": "proppr-transfusion-plasma-plaquetas-globulos-rojos-proporcion-1-1-1",
@@ -6996,7 +7002,8 @@
       "answer": "La mortalidad no difirió de forma significativa ni a las 24 horas, 12.7% frente a 17.0% (diferencia −4.2 puntos; IC 95%, −9.6 a 1.1; p = 0.12) , ni a los 30 días, 22.4% frente a 26.1% (diferencia −3.7 puntos; IC 95%, −10.2 a 2.7; p = 0.26) , sin diferencias detectadas en las complicaciones preespecificadas.",
       "population": "La población fueron pacientes de 15 años o más con un traumatismo grave y un sangrado mayor, llegados directamente desde la escena a uno de 12 centros de trauma de nivel I de Norteamérica, con la activación de trauma de máximo nivel y la previsión de que necesitarían una transfusión masiva. El 62.1% y el 65.5% eran blancos, el 27.8% y el 27.2% negros, y el 18.0% y el 17.3% hispanos."
     },
-    "datePublished": "2026-10-20"
+    "datePublished": "2026-10-20",
+    "dateModified": "2026-11-17"
   },
   "225": {
     "slug": "convint-efecto-terapia-reemplazo-renal-continua-intermitente-desenlace-pacientes-estado",
@@ -7450,7 +7457,7 @@
     "relacionados": [
       228,
       226,
-      193
+      204
     ],
     "seo_title": "ATN trial: intensidad del soporte renal en pacientes en estado crítico con lesión renal aguda | Resúmenes Trials",
     "description": "ATN: La mortalidad a 60 días fue del 53.6% con la estrategia intensiva frente al 51.5% con la menos intensiva , sin diferencia significativa (razón de momios…",
