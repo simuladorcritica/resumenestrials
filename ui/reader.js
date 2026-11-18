@@ -32,7 +32,7 @@ function markup(r,path,brief,audit){
  const status=auditMarkup(audit,r.id),original=String(r.original).startsWith('https://')?'<a href="'+E.esc(r.original)+'" target="_blank" rel="noopener noreferrer">'+E.esc(r.original)+E.icon('external')+'</a>':E.esc(r.original);
  return '<section class="ev-reading" data-ev-reader="'+r.id+'" data-ev-brief="'+brief+'"><nav class="ev-breadcrumb" aria-label="Ruta"><a href="/" data-ev-return>'+E.icon('left')+'Volver a la lista</a><a href="/metodologia/">Metodología</a></nav>'
  +'<header class="ev-reading-head"><div class="ev-signal" aria-hidden="true"><i></i><svg width="96" height="18" viewBox="0 0 96 18"><path d="M0 17C44 17 46 6 84 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="90" cy="6" r="5"/></svg></div><h1 data-ev-field="titulo">'+E.esc(r.titulo)+'</h1><p class="ev-byline"><span data-ev-field="autor">'+E.esc(r.autor)+'</span><span data-ev-field="revista">'+E.esc(r.revista)+'</span><span data-ev-field="fecha">'+E.esc(E.humanDate(r.fecha))+'</span></p>'+(brief?'':'<div class="ev-listen-slot" data-ev-listen-slot></div>')
- +'<div class="ev-keyfinding"><p class="ev-keyfinding-label">'+E.icon('spark')+'Hallazgo principal</p><p data-ev-field="hallazgo" class="ev-lead">'+E.safe(r.hallazgo)+'</p></div><p class="ev-readtime">'+E.readtime(r)+'</p>'+editorialDates(r)+status.notice+'</header>'
+ +'<div class="ev-keyfinding"><p class="ev-keyfinding-label">'+E.icon('spark')+'Hallazgo principal</p><p data-ev-field="hallazgo" class="ev-lead">'+E.safe(r.hallazgo)+'</p></div>'+editorialDates(r)+status.notice+'</header>'
  +'<details class="ev-facts" open><summary>Ficha técnica del estudio</summary>'+E.facts(r)+'</details>'
  +'<div class="ev-toolbar" role="region" aria-label="Controles de lectura"><div class="ev-version" role="group" aria-label="Versión del resumen"><a href="'+E.esc(path)+'"'+(!brief?' aria-current="page"':'')+'>Completo</a><a href="/resumen.html?id='+r.id+'&amp;v=corto"'+(brief?' aria-current="page"':'')+'>Breve</a></div>'
  +tool('data-ev-sections','list','Índice')+tool('data-ev-pdf','pdf','PDF',' aria-haspopup="dialog"')+(brief?'':'<span class="ev-listen-gap" data-ev-listen-gap aria-hidden="true"></span>')+tool('data-ev-focus','read','Modo lectura',' aria-pressed="false"')+'<button type="button" class="ev-tool ev-more-toggle" data-ev-more aria-expanded="false" aria-controls="ev-more-tools">'+E.icon('more')+'<span>Más</span></button><div class="ev-more-tools" id="ev-more-tools">'+tool('data-ev-save','bookmark','Guardar')+tool('data-ev-share','share','Compartir')+tool('data-ev-font','text','Letra',' aria-label="Cambiar tamaño de letra"')+'</div></div>'
@@ -79,7 +79,7 @@ E.ready(async()=>{
   const radio=(name,value,label,hint,checked)=>'<label class="ev-option"><input type="radio" name="'+name+'" value="'+value+'"'+(checked?' checked':'')+'><span><b>'+label+'</b><small>'+hint+'</small></span></label>';
   const fmtBtn=(value,label,hint)=>'<button type="button" class="ev-btn ev-format-btn'+(value===device?' ev-btn-primary':'')+'" data-ev-pdf-go data-format="'+value+'">'+E.icon('pdf')+'<span><b>'+label+'</b><small>'+hint+'</small></span></button>';
   const formats=[['mobile','Celular','Letra grande, una columna'],['a4','Computadora (A4)','Para imprimir o pantalla grande']].sort(a=>a[0]===device?-1:1);
-  const pdfDialog=dialog('ev-pdf-dialog','Descargar PDF','<fieldset class="ev-options"><legend>1 · Elige la versión</legend>'+radio('ev-pdf-version','completo','Completo','Todas las secciones · '+E.minutes(r.cuerpo)+' min',!brief)+(r.corto?radio('ev-pdf-version','breve','Breve','Lo esencial · '+E.minutes(r.corto)+' min',brief):'')+'</fieldset><fieldset class="ev-options ev-formats"><legend>2 · Descarga en el formato que prefieras</legend>'+formats.map(f=>fmtBtn(...f)).join('')+'</fieldset><p class="ev-dialog-note">Recomendado para este dispositivo: '+(device==='mobile'?'Celular':'Computadora (A4)')+'.</p><p class="ev-status" role="status" data-ev-pdf-status></p>');
+  const pdfDialog=dialog('ev-pdf-dialog','Descargar PDF','<fieldset class="ev-options"><legend>1'+E.sep+'Elige la versión</legend>'+radio('ev-pdf-version','completo','Completo','Todas las secciones',!brief)+(r.corto?radio('ev-pdf-version','breve','Breve','Lo esencial',brief):'')+'</fieldset><fieldset class="ev-options ev-formats"><legend>2'+E.sep+'Descarga en el formato que prefieras</legend>'+formats.map(f=>fmtBtn(...f)).join('')+'</fieldset><p class="ev-dialog-note">Recomendado para este dispositivo: '+(device==='mobile'?'Celular':'Computadora (A4)')+'.</p><p class="ev-status" role="status" data-ev-pdf-status></p>');
   const pdfStatus=pdfDialog.querySelector('[data-ev-pdf-status]');
   pdfBtn.onclick=()=>E.open('ev-pdf-dialog');
   for(const go of pdfDialog.querySelectorAll('[data-ev-pdf-go]'))go.onclick=async()=>{const version=pdfDialog.querySelector('[name=ev-pdf-version]:checked')?.value||'completo';go.disabled=true;E.status(pdfStatus,'Preparando PDF…');try{await E.pdf(r,version==='breve',go.dataset.format);E.status(pdfStatus,'');E.status(status,'PDF descargado.');if(pdfDialog.open)pdfDialog.close()}catch{E.status(pdfStatus,'No pudimos descargar el PDF. Intenta de nuevo.')}finally{go.disabled=false}};
@@ -96,7 +96,7 @@ E.ready(async()=>{
   // Audio del resumen completo: módulo aparte que solo añade «Escuchar» si ese resumen tiene audio vigente.
   // La barra le guarda el sitio a «Escuchar» ([data-ev-listen-gap]); si al final no hay botón, el hueco se retira.
   const gap=()=>reader.querySelector('[data-ev-listen-gap]')?.remove();
-  if(!brief)import('/reader-audio.js?v=20261118').then(m=>m.loadReaderAudio(reader,r)).then(ok=>ok||gap()).catch(gap);
+  if(!brief)import('/reader-audio.js?v=20261119').then(m=>m.loadReaderAudio(reader,r)).then(ok=>ok||gap()).catch(gap);
   for(const a of reader.querySelectorAll('[data-ev-return]')){a.href=window.RTReadingContext?.destination()||'/';a.onclick=()=>window.RTReadingContext?.requestReturn()}
   // Continuity and related evidence: background, non-blocking.
   (async()=>{try{
@@ -108,7 +108,7 @@ E.ready(async()=>{
   // Evidencia relacionada: la calcula el generador del sitio (site_templates.py) y viaja en el manifiesto; sin relacionados, la sección no se muestra.
   const related=(map[String(r.id)].relacionados||[]).map(id=>all.find(x=>String(x.id)===String(id))).filter(x=>x&&map[String(x.id)]);
   reader.querySelector('.ev-related').hidden=!related.length;
-  reader.querySelector('[data-ev-related]').innerHTML=related.map(x=>E.card(x,map[String(x.id)].path)).join('');
+  reader.querySelector('[data-ev-related]').innerHTML=related.map(x=>E.card(x,map[String(x.id)].path)).join('');E.listen(reader);
   reader.dataset.evContinuity='ready';
   }catch(error){E.readerContinuityError=error;reader.dataset.evContinuity='error'}})();
  }catch(error){E.readerError=error;if(dynamic)dynamic.innerHTML='<section class="ev-notice ev-doc"><h1>No pudimos cargar el ensayo</h1><p>Revisa tu conexión e inténtalo de nuevo.</p><div class="ev-actions-row"><a class="ev-btn ev-btn-primary" href="">Reintentar</a><a class="ev-btn" href="/archivo/">Ir al archivo</a></div></section>'}

@@ -27,7 +27,7 @@ function init() {
     const keys = S.rows === 'revista' ? [...groups.keys()].sort((a, b) => (a === lastJournal) - (b === lastJournal) || groups.get(b).length - groups.get(a).length || a.localeCompare(b)) : [...themes.keys()].filter(key => groups.has(key));
     body.innerHTML = keys.map(key => {
       const all = groups.get(key), name = E.esc(nameOf(key));
-      return '<tr data-ev-row="' + E.esc(key) + '"><th scope="row">' + name + '<small>' + (key[0] === 'j' ? '' : AREA[key[0]] + ' · ') + count(all.length) + '</small></th>' + years.map((year, bin) => {
+      return '<tr data-ev-row="' + E.esc(key) + '"><th scope="row">' + name + '<small>' + (key[0] === 'j' ? '' : AREA[key[0]] + E.sep) + count(all.length) + '</small></th>' + years.map((year, bin) => {
         const cell = all.filter(d => d.bin === bin);
         return cell.length ? '<td><button type="button" class="ev-map-cell" aria-pressed="' + (S.cell === key + '|' + bin) + '" aria-label="' + name + ', ' + year + ': ' + count(cell.length) + '">' + cell.map(d => '<i data-id="' + d.id + '" data-sub="' + d.sub + '" data-j="' + d.j + '"></i>').join('') + '</button></td>' : '<td></td>';
       }).join('') + '</tr>';

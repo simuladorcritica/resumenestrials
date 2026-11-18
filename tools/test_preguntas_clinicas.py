@@ -384,7 +384,7 @@ orden = re.findall(r'<a class="ev-q-title" href="/preguntas/([a-z0-9-]+)/">', po
 # Las dos de prueba son las más recientes; detrás van las reales, de la más reciente a la más antigua (las de un mismo día, en el orden del archivo).
 esperado = [extra[1], extra[0]] + sorted(preguntas, key=lambda y: y["fecha_publicacion"], reverse=True)
 assert orden == [y["slug"] for y in esperado], "la portada lleva una tarjeta por pregunta, de la más reciente a la más antigua"
-resto = re.search(r'<details class="ev-q-more"><summary class="ev-btn">Ver las (\d+) preguntas restantes</summary>(.*?)</details>', portada, re.S)
+resto = re.search(r'<details class="ev-q-more"><summary class="ev-btn"><span>Ver las (\d+) preguntas restantes</span><span>Mostrar menos</span></summary>(.*?)</details>', portada, re.S)
 assert resto and re.findall(r'<a class="ev-q-title" href="/preguntas/([a-z0-9-]+)/">', portada[:resto.start()]) == [y["slug"] for y in esperado[:st.QUESTION_HOME]], "a la vista quedan las tres preguntas más recientes, la última primero"
 # Al desplegarse, las demás se ven como las de arriba: la misma tarjeta con su línea de tiempo, no una lista de enlaces (decisión del editor, 16-nov-2026).
 assert int(resto[1]) == len(esperado) - st.QUESTION_HOME and re.findall(r'<a class="ev-q-title" href="/preguntas/([a-z0-9-]+)/">', resto[2]) == [y["slug"] for y in esperado[st.QUESTION_HOME:]], "las demás preguntas van en el desplegable, en orden"

@@ -1,0 +1,2045 @@
+{
+ "_nota": "Financiación en tres renglones para la ficha de las tarjetas: quién pagó, papel de la empresa y conflictos de interés. Se redacta solo con lo que dice el campo `financiacion` de cada resumen, sin añadir nada; lo que el resumen no dice se escribe «No consta en el resumen.». `de` es la huella de ese texto: si cambia, la tarjeta muestra el texto completo hasta que se reescriba la ficha. Se cambia con tools/financiacion_breve.py, nunca a mano.",
+ "fichas": {
+  "1": {
+   "de": "9c85f7828a12",
+   "pago": "Ministerio de Salud de Francia y Fisher & Paykel Healthcare, fabricante del dispositivo.",
+   "papel": "No consta en el resumen.",
+   "conflictos": "No consta en el resumen."
+  },
+  "2": {
+   "de": "15554f6193a9",
+   "pago": "Medical Research Future Fund de Australia y Consejo de Investigación en Salud de Nueva Zelanda.",
+   "papel": "Sin apoyo comercial; ensayo iniciado por investigadores.",
+   "conflictos": "No consta en el resumen."
+  },
+  "3": {
+   "de": "ccb7b622e7c8",
+   "pago": "Patient-Centered Outcomes Research Institute (PCORI) y NHLBI.",
+   "papel": "Las instituciones financiadoras no participaron en el diseño, la conducción, el análisis ni la redacción.",
+   "conflictos": "Sí: algunos autores recibieron apoyo parcial de Octapharma, Sedana Medical, ABSS Solutions y Quantum Leap Healthcare Collaborative."
+  },
+  "4": {
+   "de": "65682a58922f",
+   "pago": "Health Research Council de Nueva Zelanda, Alpha Charitable Trust, David and Cassie Anderson Medical Charitable Trust, NHMRC (Australia) e Irish Critical Care Clinical Trials Network.",
+   "papel": "Sin apoyo comercial.",
+   "conflictos": "No consta en el resumen."
+  },
+  "5": {
+   "de": "4f783a734100",
+   "pago": "NIHR Health Technology Assessment Programme y Belfast Health and Social Care Trust Charitable Trust Fund (Reino Unido): financiación pública y benéfica.",
+   "papel": "Los financiadores no participaron en el diseño, el análisis, la redacción ni el envío para publicación.",
+   "conflictos": "No consta en el resumen."
+  },
+  "6": {
+   "de": "1f7608671f7c",
+   "pago": "National Health and Medical Research Council de Australia, organismo público; patrocinado por el Australian and New Zealand Intensive Care Research Centre.",
+   "papel": "Los financiadores no intervinieron en el diseño ni en la conducción del ensayo ni en el plan de análisis estadístico.",
+   "conflictos": "No consta en el resumen."
+  },
+  "7": {
+   "de": "3206e0571f3e",
+   "pago": "Fondos públicos: Consejo Nacional de Salud e Investigación Médica de Australia e Institutos Canadienses de Investigación en Salud.",
+   "papel": "Sin patrocinio comercial del producto estudiado.",
+   "conflictos": "No consta en el resumen."
+  },
+  "8": {
+   "de": "8b432a22a753",
+   "pago": "Sin financiación: los autores declaran no haber recibido fondos de ninguna fuente.",
+   "papel": "Ninguna empresa figura entre los financiadores.",
+   "conflictos": "No: los autores declaran no tener conflictos; el autor de correspondencia fue primer autor del equipo que desarrolló el puntaje evaluado."
+  },
+  "9": {
+   "de": "cd42a807b573",
+   "pago": "Siriraj Research Fund de la Universidad Mahidol, fuente académica.",
+   "papel": "El artículo no menciona financiación ni otra participación de Jafron Biomedical, fabricante del cartucho HA-330.",
+   "conflictos": "No: el artículo indica que no se comunicaron conflictos relacionados con este trabajo (no se dispone de los formularios individuales)."
+  },
+  "10": {
+   "de": "14784fbf2fee",
+   "pago": "Fondo de Innovación del Comité Federal Conjunto de Alemania (G-BA), una fuente pública.",
+   "papel": "El financiador no tuvo papel en el ensayo. La prueba evaluada (DISQVER) la fabrica Noscendo GmbH, y dos miembros del equipo, empleados de esa empresa, realizaron las secuenciaciones.",
+   "conflictos": "Sí: el autor Philip Stevens y la investigadora Silke Grumaz son cofundadores, accionistas y empleados de Noscendo GmbH."
+  },
+  "11": {
+   "de": "ac0fbd86c869",
+   "pago": "Consejo Nacional de Desarrollo Científico y Tecnológico de Brasil (CNPq), una fuente pública.",
+   "papel": "El laboratorio Cristália suministró los dos fármacos comparados y no participó en el diseño, el análisis, el manuscrito ni la decisión de publicar.",
+   "conflictos": "No: los autores declaran no tener conflictos de interés; la autora de correspondencia tiene una beca de investigación del CNPq."
+  },
+  "12": {
+   "de": "47396abb497f",
+   "pago": "Instituto Nacional de Diabetes y Enfermedades Digestivas y Renales (NIDDK) de los Institutos Nacionales de Salud de Estados Unidos, sin otra fuente declarada.",
+   "papel": "El artículo no describe el papel del financiador.",
+   "conflictos": "Sí: el primer autor declara becas, financiación u honorarios de Vantive Healthcare, Novartis, Baxter y otras empresas; Kianoush Kashani y Paul Palevsky declaran vínculos con la industria. Los demás, ninguno."
+  },
+  "13": {
+   "de": "b2ebf997630e",
+   "pago": "NHS Blood and Transplant (promotor del ensayo), el Ministerio de Defensa del Reino Unido y diez organizaciones benéficas de ambulancias aéreas.",
+   "papel": "No hubo apoyo comercial. El NHSBT suministró todos los hemocomponentes, incluido el producto evaluado.",
+   "conflictos": "Sí: cuatro coautores son empleados del NHSBT y 14 de los 25 autores tienen afiliación al NHSBT; el primer autor y la autora principal no declararon conflictos."
+  },
+  "14": {
+   "de": "832ed10b78ad",
+   "pago": "Contrato W81XWH-16-D-0024 y Defense Health Agency de Estados Unidos (cartera de atención al herido en combate).",
+   "papel": "Ninguna empresa figura entre los financiadores.",
+   "conflictos": "Sí: varios coautores declaran consultorías, subvenciones o acciones con empresas de transfusión y hemostasia; el primer autor, Guyette y el último autor no declararon conflictos."
+  },
+  "15": {
+   "de": "df601a2d4d72",
+   "pago": "Patient-Centered Clinical Research Coordinating Center del Ministerio de Salud y Bienestar de Corea del Sur, mediante una beca pública.",
+   "papel": "El financiador es un organismo público, no un fabricante; ensayo iniciado por investigadores, que lo diseñaron, analizaron los datos y decidieron publicarlo.",
+   "conflictos": "Sí: el primer autor, el autor principal y otros coautores declaran becas de investigación de empresas de dispositivos y farmacéuticas (Abbott, Boston Scientific, Medtronic, entre otras)."
+  },
+  "16": {
+   "de": "c5667eafed15",
+   "pago": "National Health and Medical Research Council de Australia y Ministerio de Salud de Brasil, mediante becas públicas.",
+   "papel": "George Medicines aportó la píldora triple (GMRx2) y el placebo. El George Institute, vinculado a esa empresa y dueño de patentes sobre combinaciones antihipertensivas, coordinó el ensayo y realizó los análisis.",
+   "conflictos": "Sí: un autor sénior, Rodgers, es director médico a tiempo parcial de George Medicines; una autora declara una patente y el primer autor, consultorías para AstraZeneca y Auzone Pharma."
+  },
+  "17": {
+   "de": "9ddc3f198b6b",
+   "pago": "Boston Scientific, fabricante del sistema EkoSonic empleado en la intervención.",
+   "papel": "No consta en el resumen.",
+   "conflictos": "No consta en el resumen."
+  },
+  "18": {
+   "de": "ed77d8e09db7",
+   "pago": "Amgen, fabricante del evolocumab evaluado.",
+   "papel": "Amgen compartió el diseño, recolectó los datos y debía revisar toda publicación; los análisis los realizó el TIMI Study Group con la base de datos cruda.",
+   "conflictos": "Sí: seis coautores son empleados y accionistas de Amgen, y todos los demás salvo Kiss tienen algún vínculo declarado con la empresa."
+  },
+  "19": {
+   "de": "279ebdad0cb3",
+   "pago": "Fundación Nacional de Ciencias Naturales de China y Proyecto Nacional Mayor de Ciencia y Tecnología de Enfermedades Crónicas No Transmisibles.",
+   "papel": "Ensayo iniciado por investigadores. Ninguna empresa figura entre los financiadores.",
+   "conflictos": "Sí: el autor sénior, Nogueira, y también Saver, Qureshi y Nguyen declaran consultorías, acciones o becas de empresas (Medtronic, Stryker, Cerenovus, entre otras); el primer autor y otros 45 coautores, ninguno."
+  },
+  "20": {
+   "de": "492b9e8b6aa5",
+   "pago": "Spectral Medical, la empresa que fabrica el ensayo de actividad de endotoxina con el que se seleccionan los pacientes y comercializa la terapia con polimixina B evaluada.",
+   "papel": "El financiador fue responsable del diseño, la conducción y la gestión del estudio, la interpretación de los datos y la redacción del informe; declara no haber intervenido en la recolección, el análisis ni la decisión de publicar.",
+   "conflictos": "Sí: varios autores, incluido el último, John A. Kellum, son empleados actuales o antiguos de Spectral Medical y poseen acciones; el estadístico recibió honorarios de la empresa, y Tidswell y Davison, subvenciones u honorarios."
+  },
+  "21": {
+   "de": "e83a0b8f7cc9",
+   "pago": "Centro de Excelencia en Nefrología de Cuidados Críticos del King Chulalongkorn Memorial Hospital, en Bangkok, una fuente académica.",
+   "papel": "Ningún autor recibió honorarios ni financiación de empresas de tecnologías de depuración extracorpórea o renal.",
+   "conflictos": "No: los autores declaran no tener conflictos de interés económicos ni de otra índole."
+  },
+  "22": {
+   "de": "be782727dab7",
+   "pago": "Yichang Humanwell Pharmaceutical, fabricante del remimazolam evaluado y del remifentanilo empleado, con financiación parcial de un programa de investigación clínica del Union Hospital.",
+   "papel": "La compañía inició el ensayo para obtener la aprobación regulatoria del remimazolam en China; dos empleados suyos, autores del artículo, lo concibieron, diseñaron y supervisaron.",
+   "conflictos": "Sí: dos autores son empleados de la compañía; el primer autor y el autor principal recibieron de ella fármacos gratuitos para estudios de iniciativa propia."
+  },
+  "23": {
+   "de": "9808cd5562e9",
+   "pago": "Organización Neerlandesa para la Investigación y el Desarrollo en Salud (ZonMW).",
+   "papel": "No participó ningún fabricante de vitamina C; el financiador no tuvo papel en el diseño, el análisis ni la redacción.",
+   "conflictos": "Sí, menores: la autora principal recibió un honorario de Pascoe, un laboratorio de productos vitamínicos, y otro autor declaró honorarios de numerosas compañías ajenas al producto estudiado. El resto, ninguno."
+  },
+  "24": {
+   "de": "6035fdf29627",
+   "pago": "Fundación Noruega de Ambulancia Aérea.",
+   "papel": "El financiador no tuvo papel en el diseño, la recogida de datos, el análisis, la interpretación ni la redacción del manuscrito.",
+   "conflictos": "No: los autores declararon no tener conflictos de interés."
+  },
+  "25": {
+   "de": "0ba9b0463b8f",
+   "pago": "Sin financiación específica de ningún organismo público, comercial o sin fines de lucro.",
+   "papel": "Ninguna empresa figura entre los financiadores.",
+   "conflictos": "No: los autores declararon no tener conflictos de interés."
+  },
+  "26": {
+   "de": "b6937ece2bc6",
+   "pago": "Becas no restringidas de Philips Volcano, fabricante de la guía de presión de iFR empleada en la intervención, y de Biotronik Scientific, con una ayuda del Ministerio de Asuntos Económicos de los Países Bajos.",
+   "papel": "Los financiadores declararon no haber participado en el diseño, la conducción ni la comunicación del ensayo.",
+   "conflictos": "Sí: varios coautores declararon consultoría u honorarios de Philips; el primer autor y el autor principal no refirieron relaciones con Philips ni Biotronik."
+  },
+  "27": {
+   "de": "3fee5f2abfc9",
+   "pago": "Fondos públicos y académicos: Institutos Canadienses de Investigación en Salud, Medical Research Future Fund de Australia, Royal College of Surgeons de Irlanda y una red internacional de investigación clínica.",
+   "papel": "El estudio es independiente de los fabricantes de ambos anticoagulantes; los financiadores no participaron en el diseño, la conducción, el análisis ni la comunicación.",
+   "conflictos": "Sí: la autora correspondiente refirió honorarios de Bayer, Bristol-Myers Squibb y Pfizer, fabricantes de los dos anticoagulantes, pagados a su institución; la mayoría de los coautores, ninguno."
+  },
+  "28": {
+   "de": "f49a2edbad39",
+   "pago": "Beca pública del Centro Alemán de Investigación Cardiovascular (DZHK), sin patrocinio de la industria.",
+   "papel": "El estudio es independiente de los fabricantes de los dispositivos evaluados.",
+   "conflictos": "Sí: el autor correspondiente refirió una beca institucional de Abbott, y el coprimer autor y el autor principal, honorarios o becas de Abbott y Boston Scientific, fabricantes de los dispositivos."
+  },
+  "29": {
+   "de": "08e3ae1138eb",
+   "pago": "Boston Scientific, fabricante del dispositivo Watchman FLX evaluado.",
+   "papel": "El patrocinador recogió los datos y realizó los análisis según el plan estadístico.",
+   "conflictos": "Sí: cinco coautores son empleados de Boston Scientific; el autor correspondiente y varios investigadores son consultores o coinvestigadores principales de sus ensayos, y el estadístico externo es consultor pagado."
+  },
+  "30": {
+   "de": "3e7d45ab0987",
+   "pago": "Beca del Cardiovascular Research Center (Corea del Sur) bajo contrato con Yuhan, una farmacéutica coreana.",
+   "papel": "Los financiadores no participaron en el diseño, la recogida ni el análisis de los datos ni en la redacción del manuscrito; el ensayo fue de iniciativa académica.",
+   "conflictos": "Sí: el autor correspondiente refirió becas institucionales de Yuhan y de numerosas compañías farmacéuticas y de dispositivos; el primer autor declaró consultoría con varias farmacéuticas."
+  },
+  "31": {
+   "de": "ed203fb614de",
+   "pago": "Organismos públicos y académicos de varios países, entre ellos el National Health and Medical Research Council de Australia y los Institutos Nacionales de Salud de Estados Unidos.",
+   "papel": "No hubo patrocinio de la industria; los dos antibióticos comparados son genéricos sin patrocinador comercial.",
+   "conflictos": "Sí, pocos: la gran mayoría de los más de cien autores no declaró conflictos; solo unos pocos tienen consultorías farmacéuticas ajenas al fármaco."
+  },
+  "32": {
+   "de": "a227081eeb7c",
+   "pago": "Fondos públicos: National Institute for Health and Care Research del Reino Unido (PANORAMIC) e Institutos Canadienses de Investigación en Salud con Health Canada (CanTreatCOVID).",
+   "papel": "Estudios independientes del fabricante del fármaco; el antiviral de CanTreatCOVID lo aportó la Agencia de Salud Pública de Canadá.",
+   "conflictos": "Sí, pocos: unos pocos coautores declararon vínculos con Pfizer ajenos a la financiación del ensayo; el autor correspondiente no refirió conflictos."
+  },
+  "33": {
+   "de": "a7416f2c9051",
+   "pago": "Subvenciones no restringidas de Pie Medical Imaging, fabricante del programa de vFFR evaluado, y de Siemens Healthineers al European Cardiovascular Research Institute, patrocinador del ensayo.",
+   "papel": "Pie Medical Imaging aportó además licencias de software y formación gratuitas; los financiadores no participaron en el diseño, el análisis ni la redacción del manuscrito.",
+   "conflictos": "Sí: el primer autor refirió honorarios y financiación institucional de Pie Medical Imaging y otras empresas; el último autor dirige la organización que gestionó los datos y es directivo del instituto patrocinador."
+  },
+  "34": {
+   "de": "e4cb7597088c",
+   "pago": "Beca del programa de Evaluación de Tecnologías Sanitarias del National Institute for Health and Care Research del Reino Unido, un organismo público.",
+   "papel": "Johnson & Johnson MedTech, fabricante del dispositivo evaluado (Impella CP), no financió el estudio.",
+   "conflictos": "Sí: varios coautores refirieron vínculos económicos con el fabricante del dispositivo (honorarios, consejo asesor o becas de formación); el primer autor no declaró conflictos."
+  },
+  "35": {
+   "de": "825e6b968bae",
+   "pago": "Bayer, fabricante de la finerenona, el fármaco evaluado.",
+   "papel": "Bayer diseñó el ensayo junto con el comité directivo, analizó los datos (confirmados de forma independiente por el University Medical Center Groningen) y financió la redacción médica de una versión previa.",
+   "conflictos": "Sí: siete coautores son empleados de Bayer, con acciones, y algunos son titulares de patentes relacionadas con la finerenona; el primer autor y el último refirieron consultorías para Bayer."
+  },
+  "36": {
+   "de": "675c3c3bf142",
+   "pago": "Beca del Cardiovascular Research Center de Corea del Sur bajo contrato con Samjin Pharmaceutical, una farmacéutica coreana.",
+   "papel": "Los financiadores no participaron en el diseño, la recogida ni el análisis de los datos, en la interpretación ni en la redacción; ensayo de iniciativa académica.",
+   "conflictos": "Sí: uno de los dos autores correspondientes y un coautor refirieron becas de Samjin Pharmaceutical; la mayoría de los autores no refirió conflictos."
+  },
+  "37": {
+   "de": "d870ac70d4f4",
+   "pago": "Bayer, fabricante del rivaroxabán evaluado, junto con Abbott, Biotronik y varios organismos públicos y fundaciones canadienses.",
+   "papel": "Los financiadores no participaron en el análisis de los datos ni en la preparación del manuscrito; ensayo de iniciativa académica.",
+   "conflictos": "Sí: el autor correspondiente refirió becas de Abbott y consultorías; otro autor, becas institucionales de Bayer, Abbott y Biotronik, y varios coautores, consultorías u honorarios de Bayer."
+  },
+  "38": {
+   "de": "c9b08ab4d16b",
+   "pago": "U.S. Agency for International Development y los departamentos de salud provinciales de Eastern Cape y KwaZulu-Natal (Sudáfrica), que aportaron los medicamentos.",
+   "papel": "No hubo financiación de la industria para el ensayo.",
+   "conflictos": "Sí, menores: un coautor integra un comité de monitorización de Otsuka Pharmaceutical, fabricante del delamanid; el último autor declaró financiación institucional de LegoChem Biosciences. La mayoría, ninguno."
+  },
+  "39": {
+   "de": "530bc97ff03b",
+   "pago": "Instituto Nacional de Alergias y Enfermedades Infecciosas de los NIH, un organismo público, con apoyo adicional de otros institutos nacionales de salud.",
+   "papel": "ViiV Healthcare y Johnson & Johnson donaron el producto estudiado, contribuyeron al diseño y revisaron una versión previa del manuscrito; no participaron en el análisis de los datos.",
+   "conflictos": "Sí: varios coautores son empleados de los fabricantes (ViiV y Johnson & Johnson) y el autor senior declaró consultorías para ViiV y Merck; la primera autora y las bioestadísticas, ninguno."
+  },
+  "40": {
+   "de": "96eeed7e43c3",
+   "pago": "Ninguna financiación externa, según declaran los autores.",
+   "papel": "Ninguna empresa figura entre los financiadores.",
+   "conflictos": "No consta en el resumen."
+  },
+  "41": {
+   "de": "3da63ebe8c5c",
+   "pago": "Centro Hospitalario Universitario de Orleans (Francia), únicamente.",
+   "papel": "Sin subvención de agencias comerciales; el financiador no tuvo ningún papel en el diseño, la conducción, el análisis ni la redacción.",
+   "conflictos": "No consta en el resumen."
+  },
+  "42": {
+   "de": "b141211ec5b0",
+   "pago": "BeterKeten y DSW, con becas de Stichting Theia y Stichting SGS.",
+   "papel": "Los financiadores no participaron en el diseño, el análisis ni la redacción.",
+   "conflictos": "No consta en el resumen."
+  },
+  "43": {
+   "de": "37bde32d760e",
+   "pago": "Fondo de Investigaciones Sanitarias del Instituto de Salud Carlos III, cofinanciado por la Unión Europea a través del Fondo Europeo de Desarrollo Regional (FEDER).",
+   "papel": "Ninguna empresa figura entre los financiadores.",
+   "conflictos": "No consta en el resumen."
+  },
+  "44": {
+   "de": "30e8cd491e2b",
+   "pago": "Sin patrocinador comercial; Fondazione Policlinico Universitario A. Gemelli IRCCS y Medinat Srl cubrieron el seguro, el cuaderno electrónico de datos y la disponibilidad de dispositivos.",
+   "papel": "Sin participación en el diseño, el análisis ni la decisión de publicar.",
+   "conflictos": "No consta en el resumen."
+  },
+  "45": {
+   "de": "4a89c4ef4fa3",
+   "pago": "Sin subvención específica de agencias de financiación públicas, comerciales o sin ánimo de lucro.",
+   "papel": "Ninguna empresa figura entre los financiadores.",
+   "conflictos": "No consta en el resumen."
+  },
+  "46": {
+   "de": "0a8c8fb36e43",
+   "pago": "Medical Science Research Project of Hebei (proyecto 20230158).",
+   "papel": "No consta en el resumen.",
+   "conflictos": "No consta en el resumen."
+  },
+  "47": {
+   "de": "81d0a25927ad",
+   "pago": "Three-Year Action Plan for Clinical Skills Improvement and Clinical Innovation in Municipal Hospitals, Naval Medical University y Changhai Hospital.",
+   "papel": "No consta en el resumen.",
+   "conflictos": "No consta en el resumen."
+  },
+  "48": {
+   "de": "4a89c4ef4fa3",
+   "pago": "Sin subvención específica de agencias de financiación públicas, comerciales o sin ánimo de lucro.",
+   "papel": "Ninguna empresa figura entre los financiadores.",
+   "conflictos": "No consta en el resumen."
+  },
+  "49": {
+   "de": "4bad70954591",
+   "pago": "Wellcome Trust, la Oficina de Relaciones Exteriores, Commonwealth y Desarrollo del Reino Unido, la Fundación Bill y Melinda Gates, el programa DELTAS Africa y el National Institute for Health and Care Research.",
+   "papel": "Ningún financiador fabrica los glucocorticoides evaluados, que son genéricos; no participaron en el diseño, el análisis ni la redacción del manuscrito.",
+   "conflictos": "No consta en el resumen."
+  },
+  "50": {
+   "de": "da0297601dcb",
+   "pago": "Las propias instituciones participantes, entre ellas el Hospital Italiano de Buenos Aires; no se recibió financiamiento externo.",
+   "papel": "Sin patrocinio de ninguna empresa farmacéutica ni fabricante de hemoderivados.",
+   "conflictos": "No consta en el resumen."
+  },
+  "51": {
+   "de": "433570a6ce59",
+   "pago": "Institutos Nacionales de Salud de Estados Unidos (NIH): financiamiento público, no de la industria farmacéutica.",
+   "papel": "Takeda Pharmaceuticals International y Arbor Pharmaceuticals donaron azilsartán (el 5% de la medicación antihipertensiva del ensayo), sin otra participación en el diseño, el análisis o la publicación.",
+   "conflictos": "No consta en el resumen."
+  },
+  "52": {
+   "de": "139343c4f16a",
+   "pago": "Fondos públicos: National Health and Medical Research Council de Australia, Health Research Council de Nueva Zelanda y, de forma indirecta, el National Institute for Health Research del Reino Unido.",
+   "papel": "Pfizer suministró la hidrocortisona y Radpharm Scientific el placebo; ninguna de las dos empresas participó en el diseño, la conducción, el análisis o la redacción.",
+   "conflictos": "No consta en el resumen."
+  },
+  "53": {
+   "de": "234005ae8467",
+   "pago": "Instituto Vanderbilt para la Investigación Clínica y Traslacional, con fondos públicos del Centro Nacional para el Avance de las Ciencias Traslacionales.",
+   "papel": "No hubo financiamiento de ningún fabricante de soluciones cristaloides.",
+   "conflictos": "No consta en el resumen."
+  },
+  "54": {
+   "de": "395c5080b901",
+   "pago": "Vanderbilt Institute for Clinical and Translational Research, con fondos de los Institutos Nacionales de Salud (NIH) de Estados Unidos y del Departamento de Asuntos de los Veteranos: financiamiento público e institucional.",
+   "papel": "Sin participación de ningún fabricante de cristaloides.",
+   "conflictos": "No consta en el resumen."
+  },
+  "55": {
+   "de": "3e429605c9eb",
+   "pago": "National Health and Medical Research Council de Australia y Health Research Council de Nueva Zelanda.",
+   "papel": "Baxter Healthcare Corporation, fabricante de Plasma-Lyte 148, fabricó, suministró y distribuyó gratis los líquidos del ensayo; no participó en el diseño, la conducción, el análisis ni la redacción.",
+   "conflictos": "No consta en el resumen."
+  },
+  "56": {
+   "de": "d2d103db2ea8",
+   "pago": "Fundación Novo Nordisk; el salario del último autor lo financió en un 50% la Fundación Lundbeck.",
+   "papel": "Ninguna de las dos entidades es fabricante de un fármaco o dispositivo empleado en el estudio.",
+   "conflictos": "No consta en el resumen."
+  },
+  "57": {
+   "de": "90b858eea6a5",
+   "pago": "Fondos públicos y filantrópicos: Novo Nordisk Foundation y Danish Cardiovascular Academy, con una contribución del hospital universitario donde se realizó el ensayo.",
+   "papel": "Los financiadores no tuvieron ningún papel. El equipo investigador suministró la dapagliflozina; no se aclara si se adquirió de AstraZeneca, la compañía que la fabrica.",
+   "conflictos": "Sí: el investigador principal es consultor de Amgen, Bayer, GlaxoSmithKline, Novartis y Sanofi Pasteur y ha recibido subvenciones de AstraZeneca, fabricante de la dapagliflozina, y de otras compañías."
+  },
+  "58": {
+   "de": "9af32762c63a",
+   "pago": "Bayer, fabricante de la finerenona, en su totalidad.",
+   "papel": "Bayer fue el patrocinador y participó, junto con el comité ejecutivo académico, en el diseño, en los análisis estadísticos y en la interpretación de los resultados.",
+   "conflictos": "Sí: cuatro de los diez autores eran empleados de Bayer, uno de ellos coinventor de la finerenona, y el primer autor es consultor remunerado de Bayer para ese fármaco."
+  },
+  "59": {
+   "de": "7f73e07efa9a",
+   "pago": "Boehringer Ingelheim y Eli Lilly, fabricantes del producto estudiado.",
+   "papel": "Su propio personal ejecutó los análisis estadísticos, bajo supervisión de un comité ejecutivo con miembros académicos y con verificación independiente de un bioestadístico externo.",
+   "conflictos": "Sí: el primer autor declaró honorarios personales de Boehringer Ingelheim y de otras compañías farmacéuticas, y varios coautores son empleados de Boehringer Ingelheim."
+  },
+  "60": {
+   "de": "8d64d8e146c9",
+   "pago": "Fondos públicos exclusivamente: Health Research Council de Nueva Zelanda.",
+   "papel": "No se recibió ningún apoyo comercial.",
+   "conflictos": "Sí, menores y ajenos al ensayo: un coautor recibió una subvención de Fisher and Paykel Healthcare y otro, apoyo para viajes de Hamilton Medical e IMT Bellavista. Los demás, ninguno."
+  },
+  "61": {
+   "de": "dc2e85763f24",
+   "pago": "AstraZeneca, que fabrica y comercializa la dapagliflozina, y al inicio también Bristol-Myers Squibb.",
+   "papel": "No consta en el resumen.",
+   "conflictos": "Sí: el primer autor y el último declararon financiación de AstraZeneca durante el ensayo, y cuatro coautores son empleados de AstraZeneca."
+  },
+  "62": {
+   "de": "ec86e5659fe3",
+   "pago": "AstraZeneca, que fabrica y comercializa la dapagliflozina, en su totalidad.",
+   "papel": "No consta en el resumen.",
+   "conflictos": "Sí: el primer autor declaró subvenciones y honorarios de AstraZeneca, la institución de otro coautor recibió pagos de la empresa y seis coautores son empleados de AstraZeneca."
+  },
+  "63": {
+   "de": "f6a8a72095be",
+   "pago": "Fondos exclusivamente públicos: Programa Hospitalario de Investigación Clínica Nacional 2017 del Ministerio de Salud francés.",
+   "papel": "Ningún catéter, manguito ni dispositivo del estudio fue suministrado por un fabricante; el financiador no participó en el diseño, la conducción, el análisis o la redacción.",
+   "conflictos": "Sí: un coautor declaró honorarios de Philips, fabricante de dispositivos de la tecnología evaluada, y otros, pagos de Aerogen, Fisher & Paykel Healthcare, Pfizer, BD Biosciences o Masimo; el primer autor, ninguno."
+  },
+  "64": {
+   "de": "798636e5d81c",
+   "pago": "Medical Research Council y National Institute for Health Research (NIHR) del Reino Unido, con financiación institucional adicional de Wellcome, la Bill and Melinda Gates Foundation y otras entidades.",
+   "papel": "La dexametasona la suministró el Servicio Nacional de Salud británico (NHS), no un laboratorio farmacéutico; otros brazos del ensayo plataforma recibieron donaciones de la industria ajenas a esta comparación.",
+   "conflictos": "Sí: varios coautores declararon financiación de compañías farmacéuticas por trabajos ajenos al estudio, sin vínculo con ningún fabricante de dexametasona; el primer autor, ninguno."
+  },
+  "65": {
+   "de": "accdb5303487",
+   "pago": "Fondos públicos: subvenciones de los National Institutes of Health (NIH).",
+   "papel": "Pfizer (antes Hospira) suministró la dexmedetomidina, sin participar en el diseño, la conducción, el análisis de los datos o la redacción del manuscrito.",
+   "conflictos": "Sí: un coautor sénior declaró honorarios por conferencias de Pfizer y de Orion Corporation, fabricantes de dexmedetomidina, y una subvención de BioXcel Therapeutics."
+  },
+  "66": {
+   "de": "be90ab31854a",
+   "pago": "Fondos públicos: Ministerio Federal Alemán de Investigación, Tecnología y Espacio (BMFTR), con aportes de una fundación cardiológica alemana y de la Fundación Alemana del Corazón.",
+   "papel": "El artículo no reporta financiamiento ni suministro del fármaco por ninguna empresa farmacéutica, y ningún fabricante de digitoxin figura entre los patrocinadores.",
+   "conflictos": "Sí: el último autor y el primer autor declararon honorarios por consultoría y conferencias de múltiples compañías farmacéuticas y de dispositivos, ninguna vinculada a la fabricación del digitoxin."
+  },
+  "67": {
+   "de": "cc20fa373c07",
+   "pago": "Fundación Novo Nordisk, con becas individuales de la Fundación Lundbeck y de la propia Fundación Novo Nordisk para el Dr. Hassager y el Dr. Beske.",
+   "papel": "El artículo no reporta financiamiento ni suministro gratuito de los dispositivos de control de temperatura (Belmont Medical Technologies y Zoll) por parte de sus fabricantes.",
+   "conflictos": "No consta en el resumen."
+  },
+  "68": {
+   "de": "baaa70baf9d2",
+   "pago": "Fondos públicos del National Heart, Lung, and Blood Institute (NHLBI), mediante doce subvenciones de la red PETAL.",
+   "papel": "El cisatracurio es un fármaco genérico y el artículo no reporta que su fabricante haya donado el medicamento ni financiado el estudio.",
+   "conflictos": "No consta en el resumen."
+  },
+  "69": {
+   "de": "d93ef997df31",
+   "pago": "Fondos exclusivamente públicos: doce subvenciones del National Heart, Lung, and Blood Institute (NHLBI) estadounidense a los centros de la red PETAL.",
+   "papel": "Ningún fabricante suministró el producto estudiado: los cristaloides y los vasopresores correspondieron al abastecimiento hospitalario habitual.",
+   "conflictos": "Sí: tres coautores declararon vínculos con Baxter Healthcare, fabricante de soluciones intravenosas; el primer autor, honorarios, opciones sobre acciones y subvenciones de empresas de diagnóstico en sepsis."
+  },
+  "70": {
+   "de": "b847eee40060",
+   "pago": "Financiación mixta, mayoritariamente pública (gobierno flamenco y Universidad Católica de Lovaina); Baxter Healthcare aportó una subvención sin restricciones que cubrió menos de un tercio de los costos.",
+   "papel": "Baxter fabricaba las principales fórmulas de nutrición parenteral empleadas; no participó en el diseño, la conducción, el análisis ni en la redacción o decisión de publicar.",
+   "conflictos": "Sí: un coautor declaró honorarios personales de Baxter como consultor y conferencista; ni el primer autor ni la autora corresponsal declararon conflictos personales."
+  },
+  "71": {
+   "de": "56d148879ed7",
+   "pago": "Amylin Pharmaceuticals, subsidiaria en su totalidad de AstraZeneca.",
+   "papel": "La empresa tuvo dos empleados en el comité directivo del ensayo.",
+   "conflictos": "Sí: el autor principal declaró una subvención institucional de AstraZeneca y honorarios de otras farmacéuticas ajenos al exenatide; ningún autor declaró vínculos personales con Amylin o AstraZeneca."
+  },
+  "72": {
+   "de": "4a472d34cb4a",
+   "pago": "Boehringer Ingelheim y Eli Lilly, fabricantes de la empagliflozina.",
+   "papel": "Empleados de los fabricantes formaron parte de los comités directivos y ejecutaron el análisis estadístico, con supervisión de un estadístico independiente y de un comité de monitoreo de datos independiente.",
+   "conflictos": "Sí: el autor principal declaró ser consultor remunerado de Boehringer Ingelheim y de Eli Lilly, y de otras compañías farmacéuticas."
+  },
+  "73": {
+   "de": "0836751206f0",
+   "pago": "Boehringer Ingelheim y Eli Lilly, patrocinadores del ensayo.",
+   "papel": "Representantes de Boehringer Ingelheim integraban el comité ejecutivo que desarrolló el protocolo y el plan de análisis; la empresa recolectó y almacenó los datos, y un estadístico independiente verificó los análisis.",
+   "conflictos": "No consta en el resumen."
+  },
+  "74": {
+   "de": "338bfa06652d",
+   "pago": "Boehringer Ingelheim y otros.",
+   "papel": "El patrocinador, Boehringer Ingelheim, tuvo representantes en el comité directivo que diseñó el ensayo y redactó el primer borrador; la Universidad de Oxford realizó los análisis y conserva la base de datos.",
+   "conflictos": "No consta en el resumen."
+  },
+  "75": {
+   "de": "d969cb74596d",
+   "pago": "La alianza Boehringer Ingelheim y Eli Lilly and Company para la diabetes, patrocinadores del ensayo original EMPA-REG OUTCOME.",
+   "papel": "No consta en el resumen.",
+   "conflictos": "No consta en el resumen."
+  },
+  "76": {
+   "de": "2d84a65ff239",
+   "pago": "Boehringer Ingelheim y Eli Lilly.",
+   "papel": "Empleados de Boehringer Ingelheim integraron el comité directivo y la empresa analizó los datos; el papel de Eli Lilly se limitó a cofinanciar. La Universidad de Friburgo hizo un análisis independiente.",
+   "conflictos": "No consta en el resumen."
+  },
+  "77": {
+   "de": "3fc57f4f6d24",
+   "pago": "Else Kröner Fresenius Foundation, German Heart Research Foundation y Helios Health Institute.",
+   "papel": "Ensayo iniciado por investigadores, sin financiamiento ni participación de la industria de dispositivos de soporte circulatorio.",
+   "conflictos": "No consta en el resumen."
+  },
+  "78": {
+   "de": "7043a2543573",
+   "pago": "Direction de la Recherche Clinique et du Développement de la Assistance Publique-Hôpitaux de Paris, con una beca del Ministerio de Salud francés.",
+   "papel": "Maquet-Getinge proporcionó las cánulas, el dispositivo CardioHelp y los circuitos de ECMO; no participó en el diseño, el análisis ni la redacción o el envío del manuscrito.",
+   "conflictos": "No consta en el resumen."
+  },
+  "79": {
+   "de": "65cf40c6f6cf",
+   "pago": "Programme Hospitalier de Recherche Clinique Interrégional 2010 del Ministerio de Salud francés, con apoyo adicional de la Sociedad Francesa de Medicina Intensiva y otras entidades.",
+   "papel": "Fisher and Paykel Healthcare, fabricante del sistema de alto flujo Optiflow, donó los materiales consumibles y proporcionó los mezcladores, sin otra participación en el diseño, el análisis o la decisión de publicar.",
+   "conflictos": "No consta en el resumen."
+  },
+  "80": {
+   "de": "252f88a3f599",
+   "pago": "El único apoyo comercial fue de Fisher and Paykel Healthcare, fabricante del sistema de alto flujo Airvo 2 empleado en la intervención.",
+   "papel": "La empresa pagó la asistencia de redacción del manuscrito, sin participar en el diseño, la conducción del ensayo ni en la decisión de publicarlo.",
+   "conflictos": "No consta en el resumen."
+  },
+  "81": {
+   "de": "3bf89c2e4047",
+   "pago": "Programme Hospitalier de Recherche Clinique 2007 del Ministerio de Asuntos Sociales y Salud francés: financiación pública.",
+   "papel": "Ensayo dirigido por los investigadores. Ninguna empresa figura entre los financiadores.",
+   "conflictos": "No consta en el resumen."
+  },
+  "82": {
+   "de": "e71bf4615976",
+   "pago": "National Health and Medical Research Council de Australia, con becas sin restricciones del Ministerio de Salud de Nueva Gales del Sur y de Fresenius Kabi, fabricante del hidroxietil almidón Voluven estudiado.",
+   "papel": "Fresenius Kabi suministró y distribuyó los líquidos del estudio; los financiadores no participaron en el diseño, la conducción, el análisis ni la redacción del manuscrito.",
+   "conflictos": "No consta en el resumen."
+  },
+  "83": {
+   "de": "8b1079a48d45",
+   "pago": "Becas independientes de agencias sin fines de lucro y gubernamentales, entre ellas el Swedish Research Council y la Swedish Heart-Lung Foundation.",
+   "papel": "Sin financiamiento comercial.",
+   "conflictos": "No consta en el resumen."
+  },
+  "84": {
+   "de": "279418efb1f1",
+   "pago": "National Center for Advancing Translational Sciences (NCATS) y un contrato con la Biomedical Advanced Research and Development Authority (BARDA).",
+   "papel": "GSK donó el furoato de fluticasona inhalado utilizado en el ensayo.",
+   "conflictos": "No consta en el resumen."
+  },
+  "85": {
+   "de": "ab79176f8654",
+   "pago": "National Health and Medical Research Council de Australia, George Institute for Global Health e instituciones chinas, con financiación parcial de Takeda Pharmaceuticals China, fabricante del urapidil, y de Hasten Biopharmaceutic.",
+   "papel": "El artículo aclara que este patrocinador no participó en la conducción del ensayo.",
+   "conflictos": "Sí: Craig Anderson declaró una beca institucional de Takeda para el estudio y Lili Song, última autora, un acuerdo institucional con Takeda China."
+  },
+  "86": {
+   "de": "2174a8b452cf",
+   "pago": "National Key Research and Development Program del Ministerio de Ciencia y Tecnología de China, patrocinador principal, y otras fuentes que el artículo no especifica.",
+   "papel": "No consta en el resumen.",
+   "conflictos": "No: ninguno de los autores declaró conflictos de interés."
+  },
+  "87": {
+   "de": "4afe97068da1",
+   "pago": "Lotte and John Hecht Memorial Foundation, una fundación filantrópica privada sin relación con la industria.",
+   "papel": "Nova Biomedical Canada aportó gratis glucómetros y tiras reactivas; la vitamina C se compró (a Mylan, y en Francia la fabricada por Bayer).",
+   "conflictos": "No consta en el resumen."
+  },
+  "88": {
+   "de": "3b67bd74586c",
+   "pago": "Innovation Fund Denmark, Aalborg University Hospital, las Regiones de Dinamarca, la Fundación Obel Family y otras entidades: financiación pública y filantrópica danesa.",
+   "papel": "Según el protocolo, las fuentes de financiación no tendrían influencia en el diseño, la realización, el análisis ni la publicación del ensayo.",
+   "conflictos": "No consta en el resumen."
+  },
+  "89": {
+   "de": "242d957d23b8",
+   "pago": "National Institute of Neurological Disorders and Stroke de los Institutos Nacionales de Salud de Estados Unidos, los Centros de Servicios de Medicare y Medicaid y la red NIH StrokeNet: financiación pública y gubernamental.",
+   "papel": "Sin patrocinio de ningún fabricante de stents carotídeos o de instrumental quirúrgico. A partir de 2018, Regeneron Pharmaceuticals donó el hipolipemiante alirocumab del programa de manejo médico.",
+   "conflictos": "No consta en el resumen."
+  },
+  "90": {
+   "de": "6c9039ce00a8",
+   "pago": "National Health and Medical Research Council de Australia, Health Research Board de Irlanda y Health Research Council de Nueva Zelanda: financiación pública, sin patrocinio de la industria.",
+   "papel": "Un análisis de subgrupo renal recibió una beca de investigación sin restricciones de Baxter Healthcare, dirigida a la Universidad de Monash.",
+   "conflictos": "No consta en el resumen."
+  },
+  "91": {
+   "de": "4bd57a8b2912",
+   "pago": "Dutch Heart Foundation (financiación pública) y subvenciones sin restricciones de los fabricantes de dispositivos AngioCare Covidien/ev3, Medac/Lamepro y Penumbra.",
+   "papel": "Los fabricantes tienen interés comercial directo en los dispositivos de trombectomía y trombólisis evaluados.",
+   "conflictos": "No consta en el resumen."
+  },
+  "92": {
+   "de": "6f07a1bb99e2",
+   "pago": "Novartis, fabricante de LCZ696 (sacubitrilo-valsartán), el fármaco en investigación, en su totalidad.",
+   "papel": "El patrocinador participó en el diseño, la recolección y el análisis de los datos; un estadístico académico independiente replicó los análisis.",
+   "conflictos": "No consta en el resumen."
+  },
+  "93": {
+   "de": "a52cdce3ad10",
+   "pago": "Bristol-Myers Squibb y Pfizer, que codesarrollan y comercializan apixabán, el fármaco en investigación.",
+   "papel": "Representantes de ambos patrocinadores integraron el comité directivo; los análisis primarios se hicieron en paralelo en Bristol-Myers Squibb y en el Duke Clinical Research Institute.",
+   "conflictos": "No consta en el resumen."
+  },
+  "94": {
+   "de": "96e02f582d2c",
+   "pago": "Subvención sin restricciones de Boston Scientific Japan, fabricante del stent liberador de everolimus (Synergy) implantado en el estudio.",
+   "papel": "El patrocinador no tuvo ningún papel en el diseño, la recolección de datos, el análisis, la interpretación ni la redacción o decisión de publicar; ensayo iniciado por los investigadores.",
+   "conflictos": "No consta en el resumen."
+  },
+  "95": {
+   "de": "58ccaef563ea",
+   "pago": "Janssen Research and Development, fabricante de la canagliflozina.",
+   "papel": "Los análisis los hicieron de forma independiente el patrocinador y George Clinical, una organización académica de investigación; el patrocinador financió también el apoyo de redacción médica.",
+   "conflictos": "No consta en el resumen."
+  },
+  "96": {
+   "de": "86ce47ac5d31",
+   "pago": "Janssen Research and Development, fabricante de la canagliflozina.",
+   "papel": "El ensayo fue una colaboración entre el patrocinador, un comité directivo académico y George Clinical; el patrocinador realizó los análisis y George Clinical los confirmó de forma independiente.",
+   "conflictos": "No consta en el resumen."
+  },
+  "97": {
+   "de": "66bcb4c178ca",
+   "pago": "Amarin Pharma, fabricante del etil-icosapento.",
+   "papel": "El patrocinador recolectó y gestionó los datos y realizó todos los análisis, validados por un estadístico independiente; sus representantes desarrollaron el protocolo con el comité directivo académico.",
+   "conflictos": "No consta en el resumen."
+  },
+  "98": {
+   "de": "aee4c98a1611",
+   "pago": "Ministerio de Salud de la República Checa, la Universidad Carolina y CarDia, esta última con apoyo de NextGenerationEU.",
+   "papel": "Ensayo iniciado por los investigadores, sin patrocinio de la industria.",
+   "conflictos": "No consta en el resumen."
+  },
+  "99": {
+   "de": "b43bd9257e33",
+   "pago": "Beca del Cardiovascular Research Center de Corea del Sur bajo un contrato con Chong Kun Dang y Samjin, dos compañías farmacéuticas surcoreanas.",
+   "papel": "Los financiadores no tuvieron ningún papel en el diseño, la conducción, el análisis ni la redacción del ensayo, según declaran los autores.",
+   "conflictos": "No consta en el resumen."
+  },
+  "100": {
+   "de": "6997df7cfd05",
+   "pago": "AstraZeneca, fabricante de la dapagliflozina.",
+   "papel": "Dos empleados sin voto del patrocinador integraron el comité ejecutivo; el patrocinador realizó los análisis, que un grupo académico del University Medical Center Groningen replicó de forma independiente.",
+   "conflictos": "No consta en el resumen."
+  },
+  "101": {
+   "de": "f6d7deb4661b",
+   "pago": "AstraZeneca, fabricante de la dapagliflozina.",
+   "papel": "Un comité ejecutivo diseñó y supervisó el ensayo en colaboración con el patrocinador, cuyos análisis replicó de forma independiente un grupo académico de la Universidad de Glasgow.",
+   "conflictos": "No consta en el resumen."
+  },
+  "102": {
+   "de": "18fdec524513",
+   "pago": "Amgen, fabricante del evolocumab.",
+   "papel": "Amgen colaboró en el diseño y recolectó los datos; los análisis los realizó el grupo académico TIMI Study Group de forma independiente del patrocinador.",
+   "conflictos": "No consta en el resumen."
+  },
+  "103": {
+   "de": "7f7c1986054c",
+   "pago": "Merck, fabricante de la ezetimiba y de la combinación simvastatina-ezetimiba (Vytorin) evaluada.",
+   "papel": "El patrocinador tuvo representantes en el comité ejecutivo que diseñó y condujo el ensayo; el Instituto de Investigación Clínica de Duke (DCRI) hizo los análisis primarios de forma independiente.",
+   "conflictos": "Sí: dos coautores son empleados de Merck y un tercero, exempleado; el primer autor y el coautor sénior declaran becas de Merck durante el estudio."
+  },
+  "104": {
+   "de": "4a83e3355402",
+   "pago": "British Heart Foundation y el programa NHS Research Scotland, fuentes públicas o benéficas sin interés comercial en el resultado.",
+   "papel": "Boston Scientific, fabricante del monitor cardiaco evaluado (BodyGuardian Mini), donó los dispositivos y no tuvo ninguna otra participación.",
+   "conflictos": "La gran mayoría de los autores no declara conflictos de interés relevantes."
+  },
+  "105": {
+   "de": "cad9f96faf94",
+   "pago": "Ministerio de Salud de Italia, mediante una beca de investigación.",
+   "papel": "No existe un fabricante comercial con interés económico en el resultado: se evaluó un programa conductual de rehabilitación, no un fármaco ni un dispositivo.",
+   "conflictos": "Sí: un coautor, miembro del comité de monitorización de datos y seguridad, declara becas institucionales y consultorías de empresas (Amgen, Abbott Vascular, Siemens, entre otras); la primera autora, ninguno."
+  },
+  "106": {
+   "de": "9b42b36b218d",
+   "pago": "Novo Nordisk, la empresa fabricante de la semaglutida evaluada.",
+   "papel": "El patrocinador diseñó el ensayo, supervisó su conducción, monitoreó los centros y analizó los datos, y financió la asistencia de un redactor médico.",
+   "conflictos": "Sí: tres coautores son empleados de Novo Nordisk; el primer autor, el autor de correspondencia y la mayoría de los demás declaran honorarios o becas de Novo Nordisk."
+  },
+  "107": {
+   "de": "f8458e2ae0d4",
+   "pago": "Región sanitaria sueca de Västra Götaland, que actuó como patrocinador.",
+   "papel": "Ninguna empresa figura entre los financiadores.",
+   "conflictos": "Sí: varios coautores declaran honorarios o becas de AstraZeneca, fabricante del ticagrelor; ninguno declara vínculos con Eli Lilly o Daiichi Sankyo, los fabricantes del prasugrel. El primer autor, ninguno."
+  },
+  "108": {
+   "de": "e067795c7461",
+   "pago": "División de Sida (DAIDS) del Instituto Nacional de Alergias y Enfermedades Infecciosas de los Institutos Nacionales de Salud de Estados Unidos y Fundación Bill y Melinda Gates.",
+   "papel": "Gilead Sciences, fabricante de los fármacos evaluados, donó los comprimidos y el placebo; no participó en la recolección ni el análisis de los datos ni en el manuscrito, pero tuvo 30 días para comentarlo.",
+   "conflictos": "Sí: dos autores son empleados de Gilead Sciences con acciones, y otros declaran apoyo de investigación, honorarios o donaciones de fármaco de Gilead; el primer autor, apoyo como asesor de Siemens."
+  },
+  "109": {
+   "de": "d5f00e2bacc6",
+   "pago": "Red de Ensayos de Prevención del VIH (HPTN) e Instituto Nacional de Alergias y Enfermedades Infecciosas de los Institutos Nacionales de Salud de Estados Unidos.",
+   "papel": "Abbott Laboratories, Boehringer Ingelheim, Bristol-Myers Squibb, Gilead Sciences, GlaxoSmithKline/ViiV Healthcare y Merck donaron los fármacos; no participaron en el diseño ni en la gestión del estudio.",
+   "conflictos": "Sí: varios coautores declaran honorarios de consultoría o conferencia y apoyo de investigación de esas y otras farmacéuticas; el primer autor no declaró ningún conflicto relevante."
+  },
+  "110": {
+   "de": "81a0f4604d3f",
+   "pago": "Programme Hospitalier de Recherche Clinique National 2006 y 2010 del Ministerio de Salud de Francia: financiación pública sin ningún patrocinio comercial declarado.",
+   "papel": "Ninguna empresa figura entre los financiadores.",
+   "conflictos": "Sí: el primer autor declara apoyo de investigación de Air Liquide; Mercat, Jaber y Mancebo, honorarios, apoyo de investigación o viajes de empresas (General Electric, Covidien, Maquet, entre otras). Los demás, ninguno."
+  },
+  "111": {
+   "de": "956187602c30",
+   "pago": "Pulnovo Medical, fabricante de los catéteres de denervación empleados, junto con el Programa Especial Provincial de Ciencias Médicas de Jiangsu y la Fundación Nacional de Ciencias Naturales de China.",
+   "papel": "Pulnovo Medical aportó los dispositivos; no tuvo ningún papel en el diseño del estudio, en su manejo ni en la interpretación de los datos.",
+   "conflictos": "Sí: un coautor es empleado de Pulnovo Medical; un autor de correspondencia declara honorarios de Pulnovo y otras empresas, figura como inventor de patentes de denervación pulmonar y tiene un familiar que trabaja en la empresa."
+  },
+  "112": {
+   "de": "be6742a1b943",
+   "pago": "Instituto Nacional del Cáncer de Estados Unidos (NCI).",
+   "papel": "Ninguna empresa figura entre los financiadores.",
+   "conflictos": "Sí: un autor declaró un interés financiero en Human Genome Sciences y otro, honorarios de Wilex, MELA Sciences, Endocyte y Bayer HealthCare por actividades ajenas al trabajo. El resto, ninguno."
+  },
+  "113": {
+   "de": "480154f90fd1",
+   "pago": "Fundación Novo Nordisk, Fundación Sofus Friis, Consejo de Investigación del Rigshospitalet y Sociedad Danesa de Anestesiología y Medicina Intensiva.",
+   "papel": "La Fundación Novo Nordisk no tuvo ningún papel en el diseño, la conducción, el análisis ni la comunicación de los resultados.",
+   "conflictos": "Sí: varios autores declararon financiación de investigación institucional, honorarios como conferencistas o consultorías de empresas como Baxter Healthcare, B. Braun Medical, Philips, AM-Pharma y Pfizer Dinamarca."
+  },
+  "114": {
+   "de": "3748585fc5a4",
+   "pago": "Johnson & Johnson Pharmaceutical Research and Development y Bayer HealthCare, los propios fabricantes del rivaroxabán.",
+   "papel": "No consta en el resumen.",
+   "conflictos": "No consta en el resumen."
+  },
+  "115": {
+   "de": "299a942945b7",
+   "pago": "Canadian Institutes of Health Research, Boston Scientific y Population Health Research Institute.",
+   "papel": "No consta en el resumen.",
+   "conflictos": "No consta en el resumen."
+  },
+  "116": {
+   "de": "845b3822463b",
+   "pago": "NewAmsterdam Pharma, la empresa fabricante del obicetrapib.",
+   "papel": "Participó en el diseño y la conducción del ensayo, incluida la recolección de datos.",
+   "conflictos": "No consta en el resumen."
+  },
+  "117": {
+   "de": "76952c7b9a59",
+   "pago": "British Heart Foundation, mediante tres subvenciones.",
+   "papel": "El financiador no tuvo ningún papel en la realización del ensayo, el análisis de los datos, la redacción del manuscrito ni la decisión de enviarlo para publicación.",
+   "conflictos": "Sí: cuatro coautores declaran vínculos con empresas."
+  },
+  "118": {
+   "de": "aba32b457a5e",
+   "pago": "Stryker Neurovascular, fabricante del dispositivo de trombectomía Trevo empleado en el ensayo.",
+   "papel": "El patrocinador colaboró en el diseño y la conducción, aportó el dinero y los dispositivos, llevó la base de datos central y su personal analizó los datos, con supervisión de estadísticos independientes.",
+   "conflictos": "Sí: de los 47 autores, 22 declaran vínculos con la industria, 16 de ellos con Stryker (uno es empleado de Stryker Neurovascular); los otros 25 declaran no tener nada que revelar."
+  },
+  "119": {
+   "de": "7301403b7ca5",
+   "pago": "National Institute of Neurological Disorders and Stroke (NIH), a través de la red StrokeNet: financiación pública.",
+   "papel": "Sin apoyo de un fabricante de dispositivos de trombectomía. La plataforma de perfusión RAPID, usada para seleccionar a los pacientes, la proporcionó gratuitamente su fabricante, iSchemaView.",
+   "conflictos": "Sí: el primer autor declara honorarios personales, consultoría y participación accionarial en iSchemaView, y honorarios personales de Medtronic."
+  },
+  "120": {
+   "de": "6d3557e46a15",
+   "pago": "Fondos institucionales del Hospital Universitario de Zúrich y la Universidad de Zúrich, con una subvención adicional de Edwards Lifesciences, fabricante de las válvulas transcatéter empleadas.",
+   "papel": "Edwards Lifesciences no participó en el diseño, la conducción, el análisis, la redacción ni la decisión de publicar.",
+   "conflictos": "No consta en el resumen."
+  },
+  "121": {
+   "de": "438c22ecdab4",
+   "pago": "Eli Lilly, fabricante de la tirzepatida.",
+   "papel": "Eli Lilly diseñó el ensayo, lo supervisó y analizó los datos.",
+   "conflictos": "Sí: varios coautores son empleados de Eli Lilly con acciones de la compañía."
+  },
+  "122": {
+   "de": "1bf99b5624bf",
+   "pago": "F. Hoffmann-La Roche, fabricante del tocilizumab, y una subvención del Departamento de Salud y Servicios Humanos de los Estados Unidos (BARDA).",
+   "papel": "El patrocinador analizó los datos y financió la redacción del primer borrador del manuscrito.",
+   "conflictos": "No consta en el resumen."
+  },
+  "123": {
+   "de": "84fb1abf0a8f",
+   "pago": "Edwards Lifesciences, fabricante de la válvula Edwards SAPIEN empleada en el grupo de intervención.",
+   "papel": "El patrocinador diseñó el ensayo con el comité ejecutivo y participó en la selección y la gestión de los centros y en la recolección y el monitoreo de los datos.",
+   "conflictos": "No consta en el resumen."
+  },
+  "124": {
+   "de": "f6afa92b6304",
+   "pago": "Edwards Lifesciences, fabricante de la válvula SAPIEN 3 empleada en el grupo de intervención, en su totalidad.",
+   "papel": "El patrocinador diseñó el protocolo junto con el comité directivo y participó en la selección de los sitios, la recolección y el monitoreo de los datos y el análisis estadístico.",
+   "conflictos": "No consta en el resumen."
+  },
+  "125": {
+   "de": "b3f4814e3175",
+   "pago": "Novo Nordisk, fabricante de liraglutida, y los Institutos Nacionales de Salud de Estados Unidos.",
+   "papel": "No consta en el resumen.",
+   "conflictos": "No consta en el resumen."
+  },
+  "126": {
+   "de": "180d2aed0f06",
+   "pago": "National Heart, Lung, and Blood Institute y otras becas de los Institutos Nacionales de Salud de Estados Unidos.",
+   "papel": "Las instituciones financiadoras no participaron en el diseño, la realización, el análisis ni la presentación de los resultados.",
+   "conflictos": "No consta en el resumen."
+  },
+  "127": {
+   "de": "cbc64ecc0674",
+   "pago": "Múltiples consorcios públicos y organizaciones sin ánimo de lucro de varios países, entre ellos PREPARE y RECOVER de la Unión Europea, el National Institute for Health and Care Research británico y el Wellcome Trust.",
+   "papel": "Los financiadores no participaron en el diseño, el análisis, la redacción ni la decisión de enviar el manuscrito para publicación.",
+   "conflictos": "No consta en el resumen."
+  },
+  "128": {
+   "de": "19c207a94d85",
+   "pago": "Programa de Evaluación de Tecnologías Sanitarias del Instituto Nacional de Investigación en Salud del Reino Unido, con apoyo adicional de la Intensive Care Foundation, Health Care Wales y otras entidades.",
+   "papel": "Los financiadores no participaron en el diseño, la recolección ni el análisis de los datos, ni en la redacción del manuscrito.",
+   "conflictos": "No: el artículo declara que ningún autor reportó conflictos relevantes; en los formularios figuran becas del Instituto Nacional de Investigación en Salud y vínculos con organizaciones de reanimación."
+  },
+  "129": {
+   "de": "a6182a263c79",
+   "pago": "La Jolla Pharmaceutical Company, la empresa fabricante de LJPC-501, la angiotensina II evaluada.",
+   "papel": "El protocolo se diseñó en colaboración con el patrocinador, que analizó los datos; sus representantes integraron el comité que redactó el manuscrito y un redactor médico financiado por el patrocinador ayudó en las revisiones.",
+   "conflictos": "Sí: el primer autor y otros autores recibieron subvenciones u honorarios de la empresa; varios son empleados o accionistas, y dos tienen patentes relacionadas con la angiotensina II."
+  },
+  "130": {
+   "de": "463d8f00251b",
+   "pago": "Becas sin restricciones del Netherlands Heart Institute, Biotronik y AstraZeneca.",
+   "papel": "Ninguno de los financiadores participó en el diseño ni en la supervisión del ensayo, el análisis de los datos, la redacción del manuscrito ni la decisión de enviarlo para su publicación.",
+   "conflictos": "Sí: el primer autor y el último declaran becas de los financiadores durante el estudio; el último, además, becas de Biotronik, Philips y Abbott y honorarios de Medtronic."
+  },
+  "131": {
+   "de": "d8ec58fc073a",
+   "pago": "Netherlands Organization for Health Research and Development y Maquet Cardiopulmonary (Getinge), cuyo sistema Cardiohelp se usó en el ensayo.",
+   "papel": "Ninguno de los dos patrocinadores participó en el diseño, la recolección y el análisis de los datos ni la redacción de los borradores, ni tuvo acceso a los datos.",
+   "conflictos": "No consta en el resumen."
+  },
+  "132": {
+   "de": "344676394060",
+   "pago": "National Institutes of Health y Geriatric Research Education and Clinical Center del Department of Veterans Affairs de Estados Unidos, ambos organismos públicos.",
+   "papel": "El artículo no describe el papel de los financiadores en el ensayo.",
+   "conflictos": "Sí: el autor sénior y un coautor declaran honorarios personales de Pfizer fuera del trabajo presentado."
+  },
+  "133": {
+   "de": "a74b7dd7ae84",
+   "pago": "Ministerio de Salud de Francia, a través del Programme Hospitalier de Recherche Clinique 2014.",
+   "papel": "SERB Specialty Pharmaceuticals suministró la hidrocortisona y el placebo en envases idénticos; el artículo no describe ningún otro papel de esta empresa.",
+   "conflictos": "No consta en el resumen."
+  },
+  "134": {
+   "de": "f1c3efb6b568",
+   "pago": "Programa de Evaluación de Tecnologías Sanitarias del National Institute for Health Research del Reino Unido y Sociedad Europea de Medicina Intensiva, que financió la fase piloto.",
+   "papel": "Ninguna empresa figura entre los financiadores.",
+   "conflictos": "No consta en el resumen."
+  },
+  "135": {
+   "de": "f3fd88c22ab7",
+   "pago": "Programme Hospitalier de Recherche Clinique National 2012 del Ministerio de Salud de Francia.",
+   "papel": "No hay fabricante comercial involucrado: se compararon dos estrategias sobre el momento de inicio de la terapia de reemplazo renal, no un dispositivo ni un fármaco patentado.",
+   "conflictos": "No consta en el resumen."
+  },
+  "136": {
+   "de": "93b15f557ebb",
+   "pago": "Múltiples financiadores públicos y sin ánimo de lucro (Unión Europea, National Health and Medical Research Council de Australia, NIHR británico, Wellcome Trust, entre otros); en la lista figuran también Amgen y Eisai.",
+   "papel": "Roche Products y Sanofi, fabricantes de tocilizumab y sarilumab, suministraron ambos fármacos para su uso en el Reino Unido; no participaron en el diseño, el análisis, la redacción ni la decisión de publicar.",
+   "conflictos": "No consta en el resumen."
+  },
+  "137": {
+   "de": "30145f660690",
+   "pago": "Fundación Danesa del Corazón y Abiomed, la empresa fabricante del dispositivo Impella CP evaluado.",
+   "papel": "Los representantes de los financiadores no participaron en el diseño, el análisis ni la redacción, aunque los de Abiomed pudieron revisar y comentar la versión final del manuscrito antes de su envío.",
+   "conflictos": "No consta en el resumen."
+  },
+  "138": {
+   "de": "7276cb1f0372",
+   "pago": "Janssen Research and Development y Bristol Myers Squibb, codesarrolladoras del milvexian, el fármaco en investigación.",
+   "papel": "El ensayo lo diseñaron miembros del comité ejecutivo junto con los patrocinadores.",
+   "conflictos": "Sí: varios coautores son empleados de las compañías patrocinadoras (Bristol Myers Squibb y Johnson & Johnson, la empresa matriz de Janssen)."
+  },
+  "139": {
+   "de": "b46d03651b12",
+   "pago": "Departamento de Defensa de Estados Unidos (Defense Health Agency, programa Restoral).",
+   "papel": "Sin patrocinio de un fabricante: se compararon dos estrategias clínicas con equipo ya disponible, no un fármaco o dispositivo de una sola marca.",
+   "conflictos": "No consta en el resumen."
+  },
+  "140": {
+   "de": "e09ded011b54",
+   "pago": "Innovation Fund Denmark y varias fundaciones y sociedades académicas europeas.",
+   "papel": "Los autores declaran explícitamente que no hubo patrocinio comercial para el ensayo.",
+   "conflictos": "No consta en el resumen."
+  },
+  "141": {
+   "de": "99ebcc6aa548",
+   "pago": "Unión Europea (7º Programa Marco), Fundación Alemana de Investigación Cardíaca y Sociedad Alemana de Cardiología.",
+   "papel": "Sin patrocinio de un fabricante único de dispositivos o stents: se compararon dos estrategias de intervención coronaria percutánea.",
+   "conflictos": "No consta en el resumen."
+  },
+  "142": {
+   "de": "400680839af6",
+   "pago": "U.S. Army Medical Research and Materiel Command, un organismo militar de investigación.",
+   "papel": "Sin relación con un fabricante comercial: el plasma provino de bancos de sangre institucionales, no de un producto patentado.",
+   "conflictos": "No consta en el resumen."
+  },
+  "143": {
+   "de": "32d57acf92a6",
+   "pago": "Institutos Canadienses de Investigación en Salud, Consejo Nacional de Salud e Investigación Médica de Australia, Instituto Nacional de Investigación en Salud del Reino Unido y otras entidades públicas y sin ánimo de lucro.",
+   "papel": "Sin participación comercial; el pantoprazol es un fármaco genérico sin fabricante único vinculado al ensayo.",
+   "conflictos": "No consta en el resumen."
+  },
+  "144": {
+   "de": "8af943b900d6",
+   "pago": "Ministerio de Salud de Francia, centro hospitalario departamental de Vendée y Fundación Laerdal, entidades públicas o filantrópicas.",
+   "papel": "Sin relación con un fabricante comercial de los dispositivos de enfriamiento; los financiadores no participaron en el diseño ni el análisis.",
+   "conflictos": "No consta en el resumen."
+  },
+  "145": {
+   "de": "ddd89250a600",
+   "pago": "Múltiples agencias públicas y organizaciones sin fines de lucro de Europa, Australia, Nueva Zelanda, Canadá, Reino Unido y Estados Unidos.",
+   "papel": "Amgen y Eisai apoyaron la infraestructura general de la plataforma REMAP-CAP; ninguna fabrica heparina, el fármaco genérico evaluado, por lo que ningún fabricante del producto financió el ensayo.",
+   "conflictos": "No consta en el resumen."
+  },
+  "146": {
+   "de": "22a11fd5a97a",
+   "pago": "Canadian Institutes of Health Research, incluida una beca en asociación con Baxter Healthcare Corporation, fabricante de equipos para terapia de reemplazo renal, con apoyo de organismos de Australia, Nueva Zelanda y Reino Unido.",
+   "papel": "No consta en el resumen.",
+   "conflictos": "No consta en el resumen."
+  },
+  "147": {
+   "de": "a4a287ccce3b",
+   "pago": "Programme Hospitalier de Recherche Clinique National del Ministerio de Salud de Francia.",
+   "papel": "No hubo apoyo comercial: ningún fabricante de equipos de diálisis participó en el financiamiento.",
+   "conflictos": "No consta en el resumen."
+  },
+  "148": {
+   "de": "b2f63f7a3a09",
+   "pago": "Medical Research Council (MRC) del Reino Unido, gestionado por el National Institute for Health Research (NIHR), con apoyo adicional de otras entidades.",
+   "papel": "Sin relación con un fabricante: la craniectomía descompresiva es un procedimiento quirúrgico, no un producto comercial patentado.",
+   "conflictos": "No consta en el resumen."
+  },
+  "149": {
+   "de": "54564e5d7268",
+   "pago": "National Institute for Health Research (NIHR) Health Technology Assessment Programme del Reino Unido.",
+   "papel": "Edwards Lifesciences, fabricante de los monitores usados en el protocolo, prestó los equipos y ofreció formación y soporte técnico, sin ningún otro papel ni financiamiento económico.",
+   "conflictos": "No consta en el resumen."
+  },
+  "150": {
+   "de": "91d2b92ede5a",
+   "pago": "Departamento de Defensa de Estados Unidos, mediante fondos de la Defense Health Agency y del 59th Medical Wing de la Fuerza Aérea.",
+   "papel": "Sin relación con ningún fabricante de laringoscopios: la marca y el modelo quedaron a discreción de cada operador.",
+   "conflictos": "No consta en el resumen."
+  },
+  "151": {
+   "de": "2fb335e62e63",
+   "pago": "Eli Lilly and Company, que fabrica tanto la tirzepatida, el fármaco en investigación, como la dulaglutida, el comparador activo.",
+   "papel": "El patrocinador diseñó el ensayo junto al comité ejecutivo académico, recolectó los datos e hizo el análisis inicial; estadísticos independientes de Monash University validaron los análisis.",
+   "conflictos": "No consta en el resumen."
+  },
+  "152": {
+   "de": "de1a673c2652",
+   "pago": "Hospital Universitario de Oslo, Programa Noruego de Investigación en Terapia Clínica y otras entidades, con una donación incondicional de Boehringer Ingelheim Norway, fabricante de la tenecteplasa, para el costo del fármaco.",
+   "papel": "Los patrocinadores no tuvieron ningún papel en el diseño, la conducción, el análisis ni la redacción, y no hubo acuerdos de confidencialidad con el fabricante.",
+   "conflictos": "No consta en el resumen."
+  },
+  "153": {
+   "de": "5e5975a1c1e1",
+   "pago": "MSD (Merck & Co.), fabricante de enlicitide.",
+   "papel": "El patrocinador diseñó el ensayo junto con un comité científico asesor, participó en el análisis y la interpretación de los datos y colaboró en el manuscrito, con un redactor médico empleado suyo.",
+   "conflictos": "Sí: dos autores son representantes de la compañía."
+  },
+  "154": {
+   "de": "f09e181f969e",
+   "pago": "Korean Institute of Medicine, que apoyó únicamente a los coordinadores del ensayo durante los primeros dos años; sin otra fuente de financiamiento externo.",
+   "papel": "El ensayo no fue costeado por el fabricante de las prótesis valvulares empleadas; fue iniciado por investigadores.",
+   "conflictos": "No consta en el resumen."
+  },
+  "155": {
+   "de": "f7939eb45774",
+   "pago": "Múltiples fuentes académicas y públicas, una por cada ensayo incluido, entre ellas el Centro Nacional de Investigaciones Cardiovasculares Carlos III y el Consejo Sueco de Investigación.",
+   "papel": "Ninguna de las fuentes es fabricante de un betabloqueador (los fármacos son genéricos); los patrocinadores no tuvieron ningún papel en el diseño, el análisis ni la redacción.",
+   "conflictos": "No consta en el resumen."
+  },
+  "156": {
+   "de": "fba4a1ce8196",
+   "pago": "Ionis Pharmaceuticals, la empresa que desarrolla el olezarsén, íntegramente.",
+   "papel": "El patrocinador participó en el diseño y el análisis de los datos, en colaboración académica con el TIMI Study Group.",
+   "conflictos": "No consta en el resumen."
+  },
+  "157": {
+   "de": "6fda5d83591e",
+   "pago": "Bayer, fabricante de finerenona, en su totalidad.",
+   "papel": "Bayer diseñó el ensayo junto con el comité directivo y analizó los datos.",
+   "conflictos": "Sí: varios autores del artículo son empleados de la compañía."
+  },
+  "158": {
+   "de": "3cb1abb3002d",
+   "pago": "Heart and Stroke Foundation of Canada, Lawson Health Research Institute, National Health and Medical Research Council de Australia y otras fuentes: financiamiento público e institucional.",
+   "papel": "DSM, fabricante de las cápsulas de aceite de pescado y de placebo, aportó ambos productos en especie, sin financiar el ensayo con dinero.",
+   "conflictos": "No consta en el resumen."
+  },
+  "159": {
+   "de": "a43d2548b250",
+   "pago": "Canadian Institutes of Health Research, Health Sciences Centre Foundation, Gobierno de Manitoba e Innovation Fund del Ministerio de Salud de Ontario: financiación enteramente pública.",
+   "papel": "Sin fabricante único del producto estudiado, que es un fármaco genérico.",
+   "conflictos": "No consta en el resumen."
+  },
+  "160": {
+   "de": "228e26e35d33",
+   "pago": "National Heart, Lung, and Blood Institute (NIH), National Center for Advancing Translational Sciences y Canadian Institutes of Health Research: financiación pública.",
+   "papel": "Medi USA donó en especie las prendas de compresión.",
+   "conflictos": "Sí: numerosos coautores (no el primer autor) declaran vínculos con fabricantes de los stents usados (Medtronic, Boston Scientific, Cook Medical, Cordis, Becton Dickinson)."
+  },
+  "161": {
+   "de": "24d57b8ac5ab",
+   "pago": "Subvenciones sin restricciones de Philips Image Guided Therapy Devices y Boston Scientific al European Cardiovascular Research Institute.",
+   "papel": "Boston Scientific y Philips Volcano fabrican los catéteres de ultrasonido intravascular previstos, y Boston Scientific fabrica además el stent usado en ambos grupos.",
+   "conflictos": "Sí: numerosos coautores declaran vínculos con una o ambas empresas."
+  },
+  "162": {
+   "de": "82e0efc306c5",
+   "pago": "F. Hoffmann-La Roche, fabricante de obinutuzumab.",
+   "papel": "El patrocinador diseñó el ensayo, participó en la recogida, el análisis y la interpretación de los datos y en la preparación del manuscrito, y financió la asistencia de escritura médica.",
+   "conflictos": "Sí: cinco coautores son empleados de Roche o de Genentech, tres de ellos con acciones, y otros seis declaran vínculos con Roche o Genentech, entre ellos el primer autor."
+  },
+  "163": {
+   "de": "512b18f95a83",
+   "pago": "Canadian Institutes of Health Research (financiamiento público).",
+   "papel": "El financiador no participó en el diseño, la conducción ni el análisis.",
+   "conflictos": "Sí: dos coautores declaran vínculos con Bayer, que comercializa el rivaroxabán; uno de ellos también con Pfizer y Sanofi, y otro coautor con Pfizer."
+  },
+  "164": {
+   "de": "e5358af008c9",
+   "pago": "Ministerio de Salud de Italia (patrocinador principal, financiamiento público), con financiamiento sin restricciones de Sahajanand Medical Technologies, fabricante del stent recomendado, y Siemens Healthineers.",
+   "papel": "Además del financiamiento sin restricciones, Pulse Medical Imaging Technology y Pie Medical Imaging dieron licencias de software al laboratorio central.",
+   "conflictos": "Sí: el primer autor y el último declaran consultoría o apoyo económico de Sahajanand Medical Technologies, Siemens y otras empresas; otros tres coautores declaran vínculos y 34 no declaran intereses."
+  },
+  "165": {
+   "de": "9919e60176e9",
+   "pago": "AstraZeneca, fabricante de tozorakimab.",
+   "papel": "El patrocinador diseñó los ensayos, recolectó y analizó los datos, y financió la asistencia de escritura médica.",
+   "conflictos": "Sí: numerosos coautores son empleados de AstraZeneca."
+  },
+  "166": {
+   "de": "673ee67ec80b",
+   "pago": "National Health and Medical Research Council de Australia, Heart Foundation de Australia y Monash University.",
+   "papel": "El artículo declara que el ensayo no tuvo participación comercial ni de la industria.",
+   "conflictos": "No consta en el resumen."
+  },
+  "167": {
+   "de": "821924efdcf0",
+   "pago": "Korea Health Technology Research and Development Project del Ministerio de Salud y Bienestar de Corea del Sur, con financiamiento adicional de Samjin Pharmaceutical y Hanmi Pharmaceutical.",
+   "papel": "No consta en el resumen.",
+   "conflictos": "Sí: un coautor declara subvenciones de fabricantes de anticoagulantes orales directos (Bayer, Pfizer, Daiichi-Sankyo) y dos coautores, de Samjin o de Hanmi, cofinanciadores del ensayo."
+  },
+  "168": {
+   "de": "3a1903a8dfd4",
+   "pago": "Subvención interna de investigación del University Medical Centre Maribor.",
+   "papel": "El centro recibió una donación de Giapreza (angiotensina II); el artículo no indica el donante.",
+   "conflictos": "Sí: dos coautores declaran honorarios de conferencista o consultoría de Medis, Paion y Viatris, no relacionados con el trabajo según los autores."
+  },
+  "169": {
+   "de": "16bb9f9d4fa7",
+   "pago": "Centro Alemán de Investigación Cardiovascular (DZHK), organismo público, y hospital de la Universidad Ludwig Maximilian de Múnich, con una beca sin restricciones de Edwards Lifesciences, fabricante de PASCAL y Cardioband.",
+   "papel": "Ensayo de iniciativa académica; los autores declaran que no hubo restricciones de publicación entre el promotor, los investigadores y el socio industrial.",
+   "conflictos": "Sí: el primer autor, el autor de correspondencia y el último declaran becas, honorarios o cofinanciación de Edwards; la mayoría de los coautores declara vínculos con Edwards o con Abbott."
+  },
+  "170": {
+   "de": "79164d24df15",
+   "pago": "Ministerio de Salud de Francia (programa hospitalario de investigación clínica interregional).",
+   "papel": "No hubo apoyo comercial; el financiador no intervino en el diseño, el análisis ni la redacción.",
+   "conflictos": "Sí, ajenos al trabajo: el autor principal refiere honorarios de ASTEN y de Baxter y apoyo no económico de Getinge, y otro autor, honorarios de Pfizer Francia. El resto, ninguno o solo la beca del ensayo."
+  },
+  "171": {
+   "de": "5ac5a62fb842",
+   "pago": "Canadian Institutes of Health Research, un organismo público, y King Abdullah International Medical Research Center de Riad.",
+   "papel": "CareFusion, fabricante del oscilador SensorMedics 3100B, prestó nueve equipos y dio apoyo técnico, sin participar en el diseño, el análisis ni la redacción.",
+   "conflictos": "Sí: un autor refiere honorarios y becas de varias farmacéuticas y otro, honorarios de consultoría de Maquet, Novalung, Gambro, Ikaria y Hemodec. Ningún otro autor declaró conflictos relevantes."
+  },
+  "172": {
+   "de": "43a0a215522c",
+   "pago": "Dutch Cancer Foundation (KWF Kankerbestrijding), una fundación sin ánimo de lucro.",
+   "papel": "Sin apoyo comercial: el carboplatino y el paclitaxel se compraron y ningún fabricante participó en el estudio.",
+   "conflictos": "Sí, menores: solo tres coautores declararon relaciones, ajenas a los fabricantes de estos fármacos (una consultoría, regalías editoriales, viajes y honorarios de Covidien por una conferencia)."
+  },
+  "173": {
+   "de": "21de07f73f6e",
+   "pago": "Ministerio de Salud francés, Liga Nacional francesa contra el Cáncer y Amgen; el promotor fue Unicancer.",
+   "papel": "Sanofi-Aventis y Pfizer, fabricantes del oxaliplatino y del irinotecán, donaron ambos fármacos sin participar, según el artículo, en el diseño, el análisis ni la redacción.",
+   "conflictos": "Sí: el último autor refirió consultoría, consejo asesor, pagos y una beca de Pfizer y Sanofi-Aventis; otros cuatro coautores declararon vínculos con farmacéuticas, entre ellas Pfizer y Amgen. El primer autor, ninguno."
+  },
+  "174": {
+   "de": "03f272f70a8a",
+   "pago": "Fondos públicos: Assistance Publique-Hôpitaux de Marseille, promotor del estudio, y Programme Hospitalier de Recherche Clinique Régional del Ministerio de Salud francés.",
+   "papel": "GlaxoSmithKline Francia, fabricante del cisatracurio, suministró los fármacos del estudio; su papel en el diseño y el análisis no se reporta.",
+   "conflictos": "Sí: el primer autor incluye a GlaxoSmithKline entre las fuentes de beca del trabajo y refiere honorarios de Covidien; los otros 16 autores no consignan ninguna entidad."
+  },
+  "175": {
+   "de": "3478cf6f5d94",
+   "pago": "Dexcom, fabricante del sensor Dexcom G7 evaluado.",
+   "papel": "Dexcom aportó los dispositivos y codiseñó el ensayo; no participó en la recogida ni en el análisis de los datos, que hizo el Jaeb Center for Health Research, ni tuvo autoridad para aprobar el envío del manuscrito.",
+   "conflictos": "Sí: cinco de los 28 autores son o fueron empleados de Dexcom; el autor de correspondencia y la primera autora declaran becas o financiación de Dexcom, y otros cinco, vínculos; 16 no declaran conflictos."
+  },
+  "176": {
+   "de": "569cd2ab525b",
+   "pago": "Grail, fabricante de la prueba Galleri.",
+   "papel": "Grail diseñó y condujo el ensayo, verificó el análisis y participó en la redacción; el análisis lo hizo de forma independiente la Queen Mary University of London.",
+   "conflictos": "Sí: tres autores son empleados de Grail con acciones; los investigadores principales reciben pagos de Grail por su papel en el ensayo y el primer autor es consultor de la empresa."
+  },
+  "177": {
+   "de": "e88a8850e316",
+   "pago": "Fondos públicos: National Health and Medical Research Council de Australia, Health Research Council de Nueva Zelanda, New Zealand Lottery Grants Board y Deutsche Forschungsgemeinschaft.",
+   "papel": "No hubo apoyo comercial y el fabricante del ácido tranexámico (Gland Pharma) no participó en la financiación.",
+   "conflictos": "No: ningún autor declara vínculos con el fabricante; varios coautores consignan las becas públicas del ensayo."
+  },
+  "178": {
+   "de": "d4999f484a81",
+   "pago": "Innovation Fund del Alternative Funding Plan for the Academic Health Sciences Centres de Ontario, un fondo académico público.",
+   "papel": "Sin fabricantes de milrinona ni de dobutamina entre los financiadores.",
+   "conflictos": "Sí, uno: de los 22 autores, 21 no declararon conflictos; uno refirió una consultoría con Edwards Lifesciences."
+  },
+  "179": {
+   "de": "1746dbe89191",
+   "pago": "Fondos públicos chinos, del Ministerio de Educación y de la Fundación Nacional de Ciencias Naturales.",
+   "papel": "Sin financiación declarada de la industria; los financiadores no participaron en el diseño, el análisis ni la redacción.",
+   "conflictos": "No: ningún autor declaró conflictos de interés."
+  },
+  "180": {
+   "de": "696f90e85231",
+   "pago": "National Center for Advancing Translational Sciences (NIH), mediante el Vanderbilt Institute for Clinical and Translational Research, y becas individuales de los NIH y el NHLBI.",
+   "papel": "Solo se declaró financiamiento público.",
+   "conflictos": "No consta en el resumen."
+  },
+  "181": {
+   "de": "d2d337549e46",
+   "pago": "Ministerio de Salud de Francia, con el CHU de Angers como promotor.",
+   "papel": "Los fármacos se compraron a los fabricantes, que no participaron en el estudio.",
+   "conflictos": "No consta en el resumen."
+  },
+  "182": {
+   "de": "7f02c7219e22",
+   "pago": "Centers for Disease Control and Prevention y Sage Products, fabricante de las toallitas de clorhexidina y control.",
+   "papel": "Sage Products suministró los productos y apoyó la conducción del estudio.",
+   "conflictos": "No consta en el resumen."
+  },
+  "183": {
+   "de": "d56c6dddc235",
+   "pago": "National Institute for Health Research del Reino Unido (programa Health Technology Assessment).",
+   "papel": "Los ventiladores se compraron a Inspiration Healthcare, que además dio servicio técnico y suministró los consumibles; no participó en el diseño, la recogida de datos, el análisis ni la redacción.",
+   "conflictos": "No consta en el resumen."
+  },
+  "184": {
+   "de": "7e23f2d17219",
+   "pago": "Fundación Alemana de Investigación, Fundación Alemana de Investigación Cardiaca, Sociedad Alemana de Cardiología y otras entidades, más becas sin restricciones de Maquet Cardiopulmonary y Teleflex Medical.",
+   "papel": "Según el artículo, Maquet Cardiopulmonary y Teleflex Medical no tuvieron participación en el estudio.",
+   "conflictos": "No consta en el resumen."
+  },
+  "185": {
+   "de": "0f475801a9e8",
+   "pago": "Centocor Ortho Biotech, que comercializa el infliximab, y Schering-Plough.",
+   "papel": "El patrocinador participó en el diseño; los datos los recogió y analizó Quintiles.",
+   "conflictos": "No consta en el resumen."
+  },
+  "186": {
+   "de": "7a4ccdb4e671",
+   "pago": "Apoyo parcial de la European Society of Intensive Care, a través de la European Critical Care Research Network; el artículo no detalla otras fuentes.",
+   "papel": "No consta en el resumen.",
+   "conflictos": "No consta en el resumen."
+  },
+  "187": {
+   "de": "ca00bdf375ea",
+   "pago": "Apoyo parcial de una beca del National Heart, Lung, and Blood Institute.",
+   "papel": "Según los autores, ninguna empresa de equipos o dispositivos participó en el estudio.",
+   "conflictos": "No consta en el resumen."
+  },
+  "188": {
+   "de": "9cf2a12a91ba",
+   "pago": "Beca de los Canadian Institutes of Health Research.",
+   "papel": "No consta en el resumen.",
+   "conflictos": "Sí: Russell, Walley y Gordon eran directivos y accionistas de Sirius Genomics e inventores en una patente sobre el uso de la vasopresina en el shock séptico; Russell y Walley recibieron honorarios de Ferring, que la fabrica."
+  },
+  "189": {
+   "de": "0c92cda9416d",
+   "pago": "Comisión Europea, European Society of Intensive Care Medicine, European Critical Care Research Network, International Sepsis Forum y Gorham Foundation.",
+   "papel": "Roche Diagnostics aportó el ensayo de cortisol; el fabricante de la hidrocortisona no financió el estudio.",
+   "conflictos": "No consta en el resumen."
+  },
+  "190": {
+   "de": "dd517992477e",
+   "pago": "No reportado en el artículo; estudio de la red de ensayos clínicos sobre SDRA del National Heart, Lung, and Blood Institute.",
+   "papel": "No consta en el resumen.",
+   "conflictos": "No consta en el resumen."
+  },
+  "191": {
+   "de": "908cb87e499c",
+   "pago": "Contratos de los National Institutes of Health a través de la red de ensayos clínicos sobre SDRA del National Heart, Lung, and Blood Institute.",
+   "papel": "Ninguna empresa figura entre los financiadores.",
+   "conflictos": "No consta en el resumen."
+  },
+  "192": {
+   "de": "50e71b3094a3",
+   "pago": "Contratos del National Heart, Lung, and Blood Institute de Estados Unidos, a través de su red de ensayos clínicos sobre SDRA.",
+   "papel": "Ninguna empresa figura entre los financiadores.",
+   "conflictos": "No consta en el resumen."
+  },
+  "193": {
+   "de": "bed073acd65c",
+   "pago": "Ministerio de Salud de Francia (Programa Hospitalario de Investigación Clínica 2021), con la Asistencia Pública de los Hospitales de París como promotor.",
+   "papel": "Ensayo iniciado por los investigadores, sin fabricante de un producto estudiado.",
+   "conflictos": "Sí: de los 45 autores, ocho refirieron vínculos con la industria, algunos con empresas de diálisis como Baxter, Fresenius y Vantive; 37 no declararon conflictos."
+  },
+  "194": {
+   "de": "883b23994c8e",
+   "pago": "Institutos Canadienses de Investigación en Salud, Gobierno de Ontario y otras entidades.",
+   "papel": "Sin apoyo declarado del fabricante del isoflurano ni del dispositivo; los financiadores no participaron en el diseño ni el análisis.",
+   "conflictos": "Sí: varios autores declararon becas públicas, honorarios o becas ajenos al trabajo, y uno, una cátedra de la Fundación Héma-Québec-Bayer."
+  },
+  "195": {
+   "de": "22c70b950496",
+   "pago": "Fundación Intermountain, con una beca adicional del Centro Nacional para el Avance de las Ciencias Traslacionales de Estados Unidos.",
+   "papel": "No consta financiamiento de fabricantes de vasopresina; los financiadores no participaron en el diseño ni el análisis.",
+   "conflictos": "Sí: varios autores declararon vínculos con la industria; el artículo no precisa si guardan relación con el trabajo."
+  },
+  "196": {
+   "de": "a48ba0386277",
+   "pago": "Beca sin restricciones de Daiichi Sankyo Europa, fabricante del edoxabán, y Centro Médico Universitario de Hamburgo-Eppendorf.",
+   "papel": "Daiichi Sankyo Europa también suministró el fármaco; según los autores, los financiadores no intervinieron en el diseño, el análisis ni la redacción.",
+   "conflictos": "Sí: varios autores, entre ellos el último autor, declararon honorarios de Daiichi Sankyo ajenos al trabajo."
+  },
+  "197": {
+   "de": "965f6d4bc818",
+   "pago": "Agencia de Salud de Defensa del Departamento de Guerra de Estados Unidos, con apoyo del Centro Nacional para el Avance de las Ciencias Traslacionales.",
+   "papel": "Los equipos se alquilaron al fabricante, O2matic, socio industrial según el protocolo, sin papel en el análisis ni en la decisión de publicar.",
+   "conflictos": "No: ningún autor declaró vínculos con el fabricante."
+  },
+  "198": {
+   "de": "dedd6bf74683",
+   "pago": "Programa de Evaluación de Tecnologías Sanitarias del Instituto Nacional de Investigación en Salud del Reino Unido; patrocinado por el ICNARC.",
+   "papel": "Ninguna empresa figura entre los financiadores.",
+   "conflictos": "La mayoría de los autores declararon solo becas del propio programa público."
+  },
+  "199": {
+   "de": "1f52020f62ea",
+   "pago": "National Heart, Lung, and Blood Institute de Estados Unidos.",
+   "papel": "Sin financiamiento de la industria; el financiador no participó en el diseño, el análisis ni la publicación.",
+   "conflictos": "No consta en el resumen."
+  },
+  "200": {
+   "de": "9930d8723176",
+   "pago": "Beca pública INSERM-DHOS (Francia); diseñado y patrocinado por el Centro Hospitalario Universitario de Nancy.",
+   "papel": "Sin financiamiento declarado de la industria.",
+   "conflictos": "No consta en el resumen."
+  },
+  "201": {
+   "de": "750c527d7e79",
+   "pago": "Programa de Apoyo al Desarrollo Institucional del Sistema Único de Salud (PROADI) del Ministerio de Salud de Brasil.",
+   "papel": "Ninguna empresa figura entre los financiadores.",
+   "conflictos": "No consta en el resumen."
+  },
+  "202": {
+   "de": "9c839ef11f18",
+   "pago": "Academic Medical Center de Ámsterdam, que también diseñó y patrocinó el ensayo y realizó la gestión de datos y el análisis.",
+   "papel": "Ninguna empresa figura entre los financiadores.",
+   "conflictos": "Sí: la institución declaró becas de investigación y honorarios por conferencias de Abiomed, fabricante del Impella."
+  },
+  "203": {
+   "de": "4b269e99c76c",
+   "pago": "National Institute for Health Research del Reino Unido, con apoyo del NIHR Comprehensive Biomedical Research Centre del Imperial College y de la UK Intensive Care Foundation.",
+   "papel": "Investigación independiente; los financiadores no intervinieron en el diseño, el análisis ni la publicación.",
+   "conflictos": "No consta en el resumen."
+  },
+  "204": {
+   "de": "e581d44d8e3c",
+   "pago": "Fundación Else Kröner-Fresenius-Stiftung.",
+   "papel": "Los financiadores no intervinieron en el diseño, el análisis ni la publicación.",
+   "conflictos": "No consta en el resumen."
+  },
+  "205": {
+   "de": "ee2dcab5d408",
+   "pago": "Canadian Institutes of Health Research y Hamilton Health Sciences Foundation.",
+   "papel": "El artículo no reporta financiamiento de la industria.",
+   "conflictos": "No consta en el resumen."
+  },
+  "206": {
+   "de": "bb6a7afe9543",
+   "pago": "Hospital Universitario de Angers, Ministerio de Salud de Francia y ANTADIR.",
+   "papel": "El artículo no reporta financiamiento de la industria.",
+   "conflictos": "No consta en el resumen."
+  },
+  "207": {
+   "de": "85a4aea97e87",
+   "pago": "Abbott y Orion Pharma.",
+   "papel": "Las dos compañías diseñaron, condujeron y supervisaron el ensayo junto con el comité directivo, participaron en el manejo, el análisis y la interpretación de los datos y revisaron el manuscrito.",
+   "conflictos": "Sí: varios autores eran empleados o consultores de ambas compañías."
+  },
+  "208": {
+   "de": "5a6195c70661",
+   "pago": "Fondos públicos: beca del Groupe d'Etude et de Recherche sur le Médicament (GERMED), de la Assistance Publique-Hôpitaux de París.",
+   "papel": "Sin financiación declarada de la industria.",
+   "conflictos": "No consta en el resumen."
+  },
+  "209": {
+   "de": "c534c7c0e6d9",
+   "pago": "Baxter, fabricante del sistema de bioreactancia Starling usado para medir el índice cardiaco.",
+   "papel": "Ensayo iniciado por los investigadores, sin participación del financiador en el diseño, el análisis ni la redacción.",
+   "conflictos": "No consta en el resumen."
+  },
+  "210": {
+   "de": "e65854003d18",
+   "pago": "Institutos Canadienses de Investigación en Salud y Organización Médica Académica del Hospital de Ottawa.",
+   "papel": "Baxter Healthcare garantizó existencias del líquido sin intervenir en el diseño, el análisis ni la redacción.",
+   "conflictos": "No consta en el resumen."
+  },
+  "211": {
+   "de": "090b74b6da43",
+   "pago": "Ministerio de Salud de Italia.",
+   "papel": "Baxter, fabricante, proporcionó los aminoácidos y el placebo sin intervenir en el diseño, el análisis ni la redacción.",
+   "conflictos": "No consta en el resumen."
+  },
+  "212": {
+   "de": "360d47d11bdf",
+   "pago": "Programa Hospitalario de Investigación Clínica Nacional del Ministerio de Salud de Francia y la asociación ATOUMIR.",
+   "papel": "Ensayo iniciado por los investigadores, con amikacina genérica de Merck génériques.",
+   "conflictos": "No consta en el resumen."
+  },
+  "213": {
+   "de": "13aa4b416d71",
+   "pago": "Programa de Evaluación de Tecnologías Sanitarias del Instituto Nacional de Investigación en Salud y Atención del Reino Unido (fondos públicos).",
+   "papel": "El protocolo previó catéteres ER-REBOA con descuento de Prytime Medical, sin papel de la empresa en el ensayo.",
+   "conflictos": "No consta en el resumen."
+  },
+  "214": {
+   "de": "db2e2a28bb1e",
+   "pago": "Fondos públicos y benéficos: JP Moulton Charitable Trust, programa de Evaluación de Tecnologías Sanitarias del NIHR del Reino Unido, Wellcome Trust y otras entidades.",
+   "papel": "Ninguna empresa figura entre los financiadores.",
+   "conflictos": "No consta en el resumen."
+  },
+  "215": {
+   "de": "4b23c4481fb0",
+   "pago": "Institutos Canadienses de Investigación en Salud, Investigación y Desarrollo para la Defensa de Canadá y Octapharma, fabricante de los concentrados evaluados.",
+   "papel": "Los financiadores no intervinieron en la recogida, el análisis ni la decisión de publicar.",
+   "conflictos": "No consta en el resumen."
+  },
+  "216": {
+   "de": "bba08c0b4a34",
+   "pago": "Fondos de Investigación Fundamental para las Universidades Centrales de China.",
+   "papel": "Lunan Pharmaceutical Group fabricó y suministró el tirofibán y el placebo; según el artículo, el patrocinador no intervino en el diseño, la conducción, el análisis ni la publicación.",
+   "conflictos": "No consta en el resumen."
+  },
+  "217": {
+   "de": "2bc2d9cb183d",
+   "pago": "Programa de Evaluación de Tecnologías Sanitarias del Instituto Nacional de Investigación en Salud y Atención del Reino Unido y Barts Charity.",
+   "papel": "Ninguna empresa figura entre los financiadores, que según el artículo no intervinieron en el estudio; la gestión del ensayo y el análisis estadístico fueron de NHS Blood and Transplant, que fabrica el crioprecipitado.",
+   "conflictos": "No consta en el resumen."
+  },
+  "218": {
+   "de": "0c1f32bc8a48",
+   "pago": "Programa hospitalario de investigación clínica interregional de 2015 del Ministerio de Salud francés.",
+   "papel": "El fabricante LFB distribuyó gratis el concentrado; según el artículo, los financiadores no intervinieron en el diseño, la conducción, los datos, el manuscrito ni la decisión de publicar.",
+   "conflictos": "No consta en el resumen."
+  },
+  "219": {
+   "de": "9ecd9446ac47",
+   "pago": "Instituto de Investigación de Resultados Centrados en el Paciente (PCORI).",
+   "papel": "Ninguna empresa figura entre los financiadores; según el protocolo, el patrocinador respaldó el cambio del desenlace principal y del margen de no inferioridad.",
+   "conflictos": "No consta en el resumen."
+  },
+  "220": {
+   "de": "7e20e0bdaff6",
+   "pago": "National Trauma Institute y Departamento del Ejército de Estados Unidos.",
+   "papel": "Ninguna empresa figura entre los financiadores.",
+   "conflictos": "No consta en el resumen."
+  },
+  "221": {
+   "de": "61bb78e7d149",
+   "pago": "Beca del Hospital Universitario de Dijon Bourgogne, que también fue el promotor, una fuente académica.",
+   "papel": "Ninguna empresa figura entre los financiadores.",
+   "conflictos": "No: los autores declaran no tener conflictos de interés."
+  },
+  "222": {
+   "de": "5b9bec54495e",
+   "pago": "London School of Hygiene & Tropical Medicine, Pfizer (fabricante del ácido tranexámico), Departamento de Salud del Reino Unido, Wellcome Trust y Fundación Bill y Melinda Gates.",
+   "papel": "Pfizer financió el costo del fármaco y del placebo de la fase inicial mediante una beca iniciada por los investigadores; los financiadores no intervinieron en el diseño, los datos ni la redacción del informe.",
+   "conflictos": "No: los autores declaran no tener conflictos de interés."
+  },
+  "223": {
+   "de": "fb511a742615",
+   "pago": "National Health and Medical Research Council de Australia, Singapore Health, Chest Heart and Stroke Scotland, Northern Ireland Chest Heart and Stroke, UK Stroke Association y National Institute of Health Research del Reino Unido.",
+   "papel": "Ninguna empresa figura entre los financiadores, que no tuvieron papel en el diseño, los datos ni la redacción del informe.",
+   "conflictos": "No: los autores declaran no tener conflictos; Julie Bernhardt recibió apoyo para presentar en un seminario patrocinado por Ever Pharma Neuro Pharma."
+  },
+  "224": {
+   "de": "b44624a47671",
+   "pago": "Financiación pública: Instituto Nacional del Corazón, los Pulmones y la Sangre y Departamento de Defensa de Estados Unidos, y Defensa Investigación y Desarrollo de Canadá con los Institutos Canadienses de Investigación en Salud.",
+   "papel": "Ninguna empresa figura entre los financiadores; el instituto estadounidense y el Departamento de Defensa intervinieron en el diseño, y una coautora empleada del instituto, en la revisión y la aprobación del manuscrito.",
+   "conflictos": "Sí: Rizoli declara becas de TEM International y CSL Behring, y Stein asesora a Decisio Health; el primer autor no declara conflictos."
+  },
+  "225": {
+   "de": "22346a3d992e",
+   "pago": "No reportado: el artículo no incluye una declaración de financiamiento.",
+   "papel": "No consta en el resumen.",
+   "conflictos": "No: los autores declaran no tener conflictos de interés."
+  },
+  "226": {
+   "de": "acd0b57f2021",
+   "pago": "No reportado.",
+   "papel": "Según el artículo, ningún fabricante de equipos de diálisis intervino en el diseño, el análisis ni la redacción.",
+   "conflictos": "Sí: el primer autor y otros tres autores recibieron honorarios por conferencias de Fresenius Medical Care, fabricante del equipo de la intervención, y el primer autor, becas científicas de Gambro Corporation Research."
+  },
+  "227": {
+   "de": "6808622e751a",
+   "pago": "División de Investigación Clínica del Hospital Universitario de Dijon, una fuente académica.",
+   "papel": "Ninguna empresa figura entre los financiadores.",
+   "conflictos": "No: los autores declaran no tener conflictos de interés."
+  },
+  "228": {
+   "de": "72cbc9283553",
+   "pago": "Consejo Nacional de Salud e Investigación Médica de Australia y Consejo de Investigación en Salud de Nueva Zelanda, dos agencias públicas.",
+   "papel": "Gambro, fabricante de los filtros y soluciones, suministró el dializado y el líquido de reposición a un precio favorable, sin participar en el diseño, el análisis ni la publicación.",
+   "conflictos": "Sí: varios autores, entre ellos Bellomo, declaran honorarios o becas de Gambro, Fresenius Kabi y otras empresas."
+  },
+  "229": {
+   "de": "99299bfec354",
+   "pago": "Hospital Universitario de Caen, con una beca académica sin restricciones del Ministerio de Salud francés.",
+   "papel": "MEDA Pharma aportó los antisépticos; los financiadores no intervinieron en el diseño, el análisis ni la redacción.",
+   "conflictos": "No: los autores no declaran conflictos de interés económicos."
+  },
+  "230": {
+   "de": "c5ff0f0b8f51",
+   "pago": "Ensayo iniciado por investigadores, con apoyo logístico académico, respaldo de la plataforma SCReN del Instituto de Salud Carlos III (cofinanciada por la Unión Europea) y beca PHRC-N 2021 para los centros franceses.",
+   "papel": "Ninguna empresa figura entre los financiadores, que no participaron en el estudio.",
+   "conflictos": "No consta en el resumen."
+  },
+  "231": {
+   "de": "853112f2f97c",
+   "pago": "Consejo Neerlandés de Investigación (NWO).",
+   "papel": "Ninguna empresa figura entre los financiadores; el financiador no participó en el estudio.",
+   "conflictos": "No consta en el resumen."
+  },
+  "232": {
+   "de": "fa0fda96b702",
+   "pago": "National Institute for Health Research del Reino Unido, con fondos del Health Research Board de Irlanda.",
+   "papel": "El fabricante, ALung Technologies, donó los dispositivos y consumibles sin papel en el estudio.",
+   "conflictos": "No consta en el resumen."
+  },
+  "233": {
+   "de": "f3dbdc0d3acf",
+   "pago": "Institutos Canadienses de Investigación en Salud y Fondo de Investigación de Quebec en Salud, agencias públicas.",
+   "papel": "Ninguna empresa figura entre los financiadores, que no intervinieron en el diseño, la conducción, el análisis ni la interpretación.",
+   "conflictos": "No: ningún autor reportó conflictos de interés."
+  },
+  "234": {
+   "de": "99a2facacd04",
+   "pago": "Programa de Estudios Cooperativos del Departamento de Asuntos de Veteranos e Instituto Nacional de Diabetes y Enfermedades Digestivas y Renales de Estados Unidos.",
+   "papel": "Ningún fabricante de equipos o insumos de diálisis participó en el diseño, el análisis ni la redacción.",
+   "conflictos": "Sí: cuatro miembros del comité de redacción declararon vínculos con la industria, empresas de diálisis y farmacéuticas."
+  },
+  "235": {
+   "de": "025065b2aba3",
+   "pago": "Alexion, AstraZeneca Rare Disease, propietaria del ravulizumab, el fármaco evaluado.",
+   "papel": "El patrocinador participó en el diseño, en el análisis y la interpretación de los datos, en la redacción del manuscrito y en la decisión de publicarlo.",
+   "conflictos": "No consta en el resumen."
+  },
+  "236": {
+   "de": "0704df12ad3e",
+   "pago": "Hospital Unión de la Universidad Médica de Fujian, Asociación de Promoción de la Salud de Pekín y MicroPort NeuroTech, fabricante del stent retriever Neurohawk que el protocolo recomendaba.",
+   "papel": "Según los autores, los financiadores no intervinieron en el diseño, el análisis ni la publicación.",
+   "conflictos": "No consta en el resumen."
+  },
+  "237": {
+   "de": "9ee40909a40c",
+   "pago": "Fondos públicos chinos y Union Strong Tech (Beijing), fabricante del programa de perfusión U-Guard usado para seleccionar a la mayoría de los pacientes.",
+   "papel": "Union Strong Tech aparece además como organización de gestión de los centros; según los autores, los financiadores no intervinieron en el diseño, el análisis ni la redacción.",
+   "conflictos": "No consta en el resumen."
+  },
+  "238": {
+   "de": "5c015ca477da",
+   "pago": "Eli Lilly, que desarrolla la retatrutida.",
+   "papel": "La empresa diseñó y supervisó los ensayos, participó en el análisis y la interpretación de los datos, aportó redactores médicos y tomó parte en la decisión de publicar.",
+   "conflictos": "Sí: seis de los 12 autores son empleados de Lilly."
+  },
+  "239": {
+   "de": "302414dd99aa",
+   "pago": "Programa Health Technology Assessment del National Institute for Health Research del Reino Unido y Fundación Suiza del Corazón.",
+   "papel": "Ninguna empresa figura entre los financiadores; el financiador no intervino en el diseño, el análisis ni la redacción.",
+   "conflictos": "No consta en el resumen."
+  },
+  "240": {
+   "de": "b8dc23a8e27c",
+   "pago": "Subvenciones sin restricciones de fundaciones y fondos públicos daneses (Sygeforsikringen danmark, Danmarks Frie Forskningsfond, Fundación Augustinus y otros).",
+   "papel": "No hubo colaboración con la industria; el ensayo fue iniciado por los investigadores.",
+   "conflictos": "No consta en el resumen."
+  },
+  "241": {
+   "de": "e8f1105af7f1",
+   "pago": "Subvenciones sin restricciones de la Fundación Danesa del Corazón, el Consejo de Investigación de la Región Capital, la Fundación Hartmann, la Fundación Svend Aage Andersen y la Fundación Novo Nordisk.",
+   "papel": "Ninguna empresa figura entre los financiadores; el ensayo fue iniciado por los investigadores.",
+   "conflictos": "No consta en el resumen."
+  },
+  "242": {
+   "de": "f1f99d36b169",
+   "pago": "Amgen, fabricante del tarlatamab, y AstraZeneca, fabricante del durvalumab: ambos fármacos de la comparación pertenecen a los financiadores.",
+   "papel": "Amgen inició y supervisó el ensayo, pagó la redacción médica y aportó la asistencia bioestadística; el equipo de AstraZeneca aportó el concepto del diseño y colaboró durante todo el ensayo.",
+   "conflictos": "Sí: cuatro coautores figuran como personal de Amgen; el primer autor y el autor de correspondencia declaran consejos asesores o consultorías para ambas empresas; seis firmantes no declaran intereses."
+  },
+  "243": {
+   "de": "c3662c6b2aec",
+   "pago": "Ministerio de Salud de Italia.",
+   "papel": "Ninguna empresa figura entre los financiadores; el ministerio no tuvo ningún papel en el diseño, los datos ni la redacción.",
+   "conflictos": "Sí, uno: de los 54 formularios disponibles, 53 no declaran intereses; Kenichi Tanaka declara consultorías con CSL Behring y Octapharma USA y becas institucionales de Grifols USA y Octapharma USA."
+  },
+  "244": {
+   "de": "ac04a3c0287b",
+   "pago": "Institutos Canadienses de Investigación en Salud y Canadian Accelerating Clinical Trials Consortium.",
+   "papel": "Los agradecimientos no mencionan compañías; el papel de los financiadores en el diseño, el análisis o la redacción no se reporta.",
+   "conflictos": "Sí: declaran intereses 13 autores, entre ellos Boyd (oxímetros cerebrales donados por Edwards Lifesciences) y Tinmouth (becas de Canadian Blood Services y consultoría de Bristol Myers Squibb); 42 no declaran intereses."
+  },
+  "245": {
+   "de": "cc4a6ce00f51",
+   "pago": "National Heart, Lung, and Blood Institute, Canadian Blood Services e Instituto de Salud Circulatoria y Respiratoria de los Institutos Canadienses de Investigación en Salud.",
+   "papel": "Ninguna empresa figura entre los financiadores; representantes del NHLBI integraron los comités que diseñaron y dirigieron el ensayo.",
+   "conflictos": "Sí: de 44 formularios, 20 no declaran intereses; Carson y Brooks declaran vínculos con Cerus Corporation, y Alexander, White, Strom y otros autores, con compañías como Bayer, Pfizer, Sanofi y Fresenius Kabi."
+  },
+  "246": {
+   "de": "e729ad0b39a7",
+   "pago": "Health Innovation Challenge Fund, asociación entre el Wellcome Trust y el Department of Health and Social Care del Reino Unido.",
+   "papel": "Ninguna compañía aportó producto: la albúmina salió de las existencias habituales de los hospitales y se pagó íntegramente con la beca.",
+   "conflictos": "Sí, uno: de los 10 autores, 9 no declaran intereses; Nick Freemantle declara consultoría estadística para Allergan, AstraZeneca, Grifols Biologicals, Ipsen Biopharm, Novo Nordisk y Sanofi US Services."
+  },
+  "247": {
+   "de": "a444694c1523",
+   "pago": "Ministerio de Salud de Francia (Programme de Recherche Médico-Economique) e Instituto de Salud Carlos III de España.",
+   "papel": "Según el artículo, no hubo apoyo de la industria; ni el financiador ni el patrocinador intervinieron en el diseño, los datos, el manuscrito ni la decisión de publicar.",
+   "conflictos": "Sí: nueve autores declaran conflictos; varios refieren honorarios, becas, apoyo no económico o acciones de compañías farmacéuticas y de dispositivos."
+  },
+  "248": {
+   "de": "6b5f441efc17",
+   "pago": "Alexion AstraZeneca Rare Disease y AstraZeneca Biopharmaceuticals y, previamente, Portola y Alexion Pharmaceuticals; Portola y luego Alexion fueron el promotor y suministraron gratis el andexanet.",
+   "papel": "El diseño corrió sobre todo a cargo del primer autor y de dos empleados de Portola; hubo acuerdos de confidencialidad con los autores y un redactor médico pagado por Alexion ayudó con los métodos.",
+   "conflictos": "Sí: entre los autores hay empleados de AstraZeneca y de Alexion; el primer autor declara una beca de AstraZeneca a su instituto y consultorías, y el último, una beca y un consejo asesor de AstraZeneca."
+  },
+  "249": {
+   "de": "bc30e07c0d25",
+   "pago": "Centro de Investigación en Cuidados Paliativos y Enfermedad Avanzada (PAIR Center) y Sistema de Salud de la Universidad de Pensilvania.",
+   "papel": "No se reporta financiación de la industria ni el papel de los financiadores.",
+   "conflictos": "Sí, uno: una coautora declara que trabaja como bioestadística en Bristol Myers Squibb desde mayo de 2022; el resto no declara relaciones."
+  },
+  "250": {
+   "de": "2b6fb5168ac8",
+   "pago": "Innovation Fund Denmark, Regional Medicines Fund, Zealand Region Research Fund, Intensive Care Symposium Hindsgavl y Foghts Foundation.",
+   "papel": "El fabricante no figura entre los financiadores: la farmacia hospitalaria compró el haloperidol a Janssen-Cilag; los financiadores no influyeron en el diseño, la conducción ni los datos.",
+   "conflictos": "No consta en el resumen."
+  },
+  "251": {
+   "de": "bcbfd1343560",
+   "pago": "Novo Nordisk Foundation; el trabajo de Christian Hassager, financiado por la Lundbeck Foundation.",
+   "papel": "Ensayo iniciado por los investigadores; el papel del financiador no se reporta.",
+   "conflictos": "No consta en el resumen."
+  },
+  "252": {
+   "de": "dbd5d2596294",
+   "pago": "German Center for Cardiovascular Research (DZHK), que financió el ensayo por completo.",
+   "papel": "Ensayo iniciado por los investigadores, con el Hospital Universitario de Schleswig-Holstein como promotor; el papel del financiador no se reporta.",
+   "conflictos": "No consta en el resumen."
+  },
+  "253": {
+   "de": "162522a9e88c",
+   "pago": "Ministerio de Salud de Brasil, mediante el Programa de Desenvolvimento Institucional do Sistema Único de Saúde.",
+   "papel": "Baxter Hospitalar suministró los líquidos y la logística y figura como patrocinador secundario; según el artículo, no tuvo ningún papel en el diseño ni en la conducción del estudio.",
+   "conflictos": "Sí: cinco autores declaran conflictos; Azevedo y Kellum, honorarios o becas de Baxter International, y Zampieri, Veiga y Serpa-Neto, de otras empresas. Los demás autores no declaran conflictos."
+  },
+  "254": {
+   "de": "caa881aea5d4",
+   "pago": "Subvenciones de investigación no restringidas de GE HealthCare y HeartFlow a CoreAalst, patrocinador regulador del ensayo.",
+   "papel": "Ambas empresas están ligadas a la estrategia evaluada y HeartFlow calculó la FFR-TC en la que se basaba la elegibilidad; según el artículo, los financiadores no intervinieron en el diseño, los datos ni el manuscrito.",
+   "conflictos": "Sí: el primer autor declaró una consultoría como ponente con HeartFlow y subvenciones de GE Healthcare a OLV Aalst, y el presidente del comité directivo, acciones de HeartFlow; el último autor y otros 15 no declararon conflictos."
+  },
+  "255": {
+   "de": "6b9ad2a65d3a",
+   "pago": "Consejo Nacional de Salud e Investigación Médica de Australia, Centro Belga de Conocimiento en Atención Sanitaria, Consejo de Investigación en Salud de Nueva Zelanda y otras entidades; patrocinado por The George Institute.",
+   "papel": "Ninguna empresa farmacéutica figura entre los financiadores y los betalactámicos los suministró cada hospital; los financiadores no tuvieron ningún papel en el diseño, los datos ni el manuscrito.",
+   "conflictos": "Sí: varios autores declaran vínculos con la industria, entre ellos Paterson, Roberts y Roger, con honorarios o becas de compañías como Pfizer, MSD, Shionogi y bioMerieux; Dulhunty y Lipman no declaran conflictos."
+  },
+  "256": {
+   "de": "96cdfb4c5617",
+   "pago": "Agencia Italiana del Medicamento (AIFA).",
+   "papel": "El meropenem fue un genérico de Aurobindo Pharma y el artículo no indica que esa empresa aportara fondos; la AIFA aprobó el diseño, pero no intervino en la conducción, los datos ni el manuscrito.",
+   "conflictos": "Sí: tres autores declaran conflictos, entre ellos honorarios personales de Gilead Sciences, Pfizer, Thermo Fisher Scientific, Abbott, Edwards Lifesciences y otras empresas. Los demás autores no declaran conflictos."
+  },
+  "257": {
+   "de": "8868cf6cf63a",
+   "pago": "Fundación Marcus, a través de la Universidad Emory.",
+   "papel": "La vitamina C, la tiamina y la hidrocortisona se compraron a McGuff Pharmaceuticals, y Nova Biomedical apoyó a 6 centros con glucómetros de cabecera; ninguna declaración de los autores menciona a esas empresas.",
+   "conflictos": "Sí: catorce autores declaran conflictos, entre ellos becas u honorarios de compañías como Janssen, Pfizer, Regeneron y Grifols. Los demás autores no declaran conflictos."
+  },
+  "258": {
+   "de": "bf1390ddeb09",
+   "pago": "National Heart, Lung, and Blood Institute de Estados Unidos (patrocinador), con aportes de Arbor Pharmaceuticals y AstraZeneca y premios del National Center for Advancing Translational Sciences.",
+   "papel": "Abbott Vascular, Medtronic, St. Jude Medical y Volcano donaron stents, guías de presión y consolas; según el artículo, la industria no accedió a los datos ni participó en el diseño, el análisis ni el manuscrito.",
+   "conflictos": "Sí: varios coautores declararon becas u honorarios de fabricantes de stents y guías de presión como Abbott Vascular y Medtronic, y de fabricantes de fármacos del estudio; el primer autor solo declaró becas del NHLBI."
+  },
+  "259": {
+   "de": "3a85d818b3b9",
+   "pago": "Consejo Danés de Investigación Médica, Fundación Danielsen y Sociedad Escandinava de Anestesiología y Medicina de Cuidados Intensivos.",
+   "papel": "Según el artículo, no hubo participación de la industria; ensayo de iniciativa académica.",
+   "conflictos": "No: ningún autor declara vínculos con la industria; Toft, Olsen, Nedergaard, Kroken e Ytrebø declaran becas de investigación no comerciales y los otros seis no declaran intereses económicos."
+  },
+  "260": {
+   "de": "b1940f52963c",
+   "pago": "Medtronic, fabricante del agente embólico Onyx evaluado.",
+   "papel": "Medtronic recogió y monitorizó los datos, apoyó a los centros y comités, y ayudó en el análisis de los datos y en la revisión del manuscrito.",
+   "conflictos": "Sí: de los 44 autores, 27 declaran vínculos con Medtronic, entre ellos el primer autor y el último; diez no declaran conflictos."
+  },
+  "261": {
+   "de": "eefb2aca2f6f",
+   "pago": "Asociación Danesa de Reumatismo, Región del Sur de Dinamarca, Región de Zelanda, Asociación de Fisioterapeutas Daneses, Consejo de Investigación de los hospitales de Næstved, Slagelse y Ringsted y Fundación A.P. Møller.",
+   "papel": "Ninguna empresa figura entre los financiadores.",
+   "conflictos": "Sí: Varnum declara gastos de viaje de Stryker y Overgaard, participación como ponente para Heraeus; 11 autores no declaran intereses."
+  },
+  "262": {
+   "de": "43fbd6788a25",
+   "pago": "Novo Nordisk, fabricante de la semaglutida evaluada.",
+   "papel": "El patrocinador diseñó el ensayo, redactó el protocolo y el plan de análisis estadístico, realizó los análisis y pagó al redactor médico que escribió el primer borrador.",
+   "conflictos": "Sí: cuatro de los doce autores son empleados de Novo Nordisk; el primer autor declara consultoría para la empresa en el propio ensayo y el último, acciones de Novo Nordisk en un fondo de retiro."
+  },
+  "263": {
+   "de": "7f1c712acfa4",
+   "pago": "Fundación Crafoord, Fundación Sueca del Corazón y el Pulmón, Consejo Sueco de Investigación, Sociedad Sueca de Investigación Médica, Sociedad Sueca de Medicina y Comité de Investigación de Örebro.",
+   "papel": "Ninguna empresa figura entre los financiadores.",
+   "conflictos": "No consta en el resumen."
+  },
+  "264": {
+   "de": "dfddea5cb78e",
+   "pago": "Eli Lilly, fabricante de la insulina efsitora alfa.",
+   "papel": "Lilly diseñó el ensayo, supervisó los centros, reunió y analizó los datos, y pagó al redactor médico que ayudó con el primer borrador.",
+   "conflictos": "Sí: cuatro de los diez autores son empleados de Lilly con acciones de la compañía; los seis autores externos declaran vínculos con Lilly y con otras compañías."
+  },
+  "265": {
+   "de": "8eb0a7ed1cfb",
+   "pago": "Instituto Nacional de Trastornos Neurológicos e Ictus de Estados Unidos.",
+   "papel": "Ensayo iniciado por investigadores, con fármacos comerciales comprados por la farmacia central de NIH StrokeNet y sin participación reportada de sus fabricantes.",
+   "conflictos": "Sí: dos coautores son copropietario y empleado de Berry Consultants, la empresa estadística del diseño adaptativo, y varios declaran vínculos con empresas de dispositivos de trombectomía y farmacéuticas."
+  },
+  "266": {
+   "de": "a591ae3f9e29",
+   "pago": "Medical Research Council del Reino Unido, Department of Health and Social Care, Foreign, Commonwealth and Development Office y programa Wellcome Trust Medical Research Council Joint Global Health Trials, con apoyo europeo.",
+   "papel": "No consta financiación de la industria; según el protocolo, los fármacos y el placebo se comprarían al proveedor Svizera.",
+   "conflictos": "No consta en el resumen."
+  },
+  "267": {
+   "de": "5e9a1d8b2c26",
+   "pago": "Programa de Investigación Intramural del Instituto Nacional de Alergias y Enfermedades Infecciosas de los NIH y Johnson & Johnson, la empresa que desarrolla el mosnodenvir, bajo un acuerdo de cooperación con los NIH.",
+   "papel": "Personal de Johnson & Johnson analizó los datos junto con personal de los NIH, y el primer borrador lo escribió un redactor médico pagado por la empresa.",
+   "conflictos": "Sí: varios coautores declararon empleo en Johnson & Johnson o acciones de la empresa; la primera autora declaró consultorías para Emergent Biosolutions, Merck y Valneva."
+  },
+  "268": {
+   "de": "4d021af7840b",
+   "pago": "Merck Sharp and Dohme, subsidiaria de Merck, fabricante del sotatercept evaluado.",
+   "papel": "El patrocinador diseñó el ensayo con un comité directivo externo, supervisó la monitorización y realizó los análisis.",
+   "conflictos": "Sí: nueve de los veintidós autores son empleados de Merck y los trece autores externos declaran vínculos con Merck; varios, también con Acceleron."
+  },
+  "269": {
+   "de": "5af65918d8fa",
+   "pago": "National Institute for Health and Care Research (NIHR), programa Health Technology Assessment, y fondos benéficos del Belfast Health and Social Care Trust.",
+   "papel": "PARI Pharma, fabricante de la solución salina hipertónica y del nebulizador eFlow, aportó en especie equipos y consumibles; según el artículo, no participó en el diseño, la conducción, el análisis ni la interpretación.",
+   "conflictos": "No consta en el resumen."
+  },
+  "270": {
+   "de": "b0bb3b7987b9",
+   "pago": "Novo Nordisk, fabricante de la semaglutida oral evaluada.",
+   "papel": "El patrocinador diseñó el ensayo, preparó el protocolo y el plan de análisis estadístico, realizó los análisis y pagó la redacción médica del primer borrador.",
+   "conflictos": "Sí: tres coautores declaran empleo en Novo Nordisk y acciones de la empresa; los otros seis, incluido el primer autor, declaran consultoría, asesoría, honorarios o becas de la compañía."
+  },
+  "271": {
+   "de": "eafb057ff7c0",
+   "pago": "Fondos públicos: National Institute of Neurological Disorders and Stroke y Trial Innovation Network, financiada por los National Institutes of Health.",
+   "papel": "La válvula es de Integra LifeSciences; su costo lo cubrió el seguro de los pacientes y, según el artículo, el fabricante no participó en el diseño ni en la conducción del ensayo.",
+   "conflictos": "Sí: Hamilton declara ser consultor de Integra LifeSciences; Williams, Eklund y Malm, patentes o relaciones con empresas del campo de las derivaciones. El primer autor no declara intereses."
+  },
+  "272": {
+   "de": "e03e63ba6a49",
+   "pago": "Eli Lilly, fabricante del orforglipron.",
+   "papel": "Lilly diseñó el ensayo, supervisó su realización, monitorizó los centros, reunió los datos y los analizó; hubo acuerdos de confidencialidad con el patrocinador y redactores médicos financiados por Lilly.",
+   "conflictos": "Sí: seis de los 13 autores son empleados de Lilly con acciones de la compañía y los otros siete declararon vínculos con Lilly."
+  },
+  "273": {
+   "de": "ead82ff5d577",
+   "pago": "National Institute of Allergy and Infectious Diseases (NIAID) de los National Institutes of Health, a través del Sexually Transmitted Infections Clinical Trials Group.",
+   "papel": "Ninguna empresa figura entre los financiadores.",
+   "conflictos": "No consta en el resumen."
+  },
+  "274": {
+   "de": "39c72c84e71e",
+   "pago": "Consejo Sueco de Investigación, Fundación Sueca del Corazón y el Pulmón y Estado sueco.",
+   "papel": "El artículo declara que no hubo implicación ni apoyo de la industria; los financiadores no tuvieron papel en el diseño, los datos ni la redacción.",
+   "conflictos": "No consta en el resumen."
+  },
+  "275": {
+   "de": "522989b164cd",
+   "pago": "Beca del Ministerio de Sanidad de Francia y beca no restringida de Bayer Healthcare.",
+   "papel": "Según el protocolo, la aspirina del estudio la fabricó Bayer Healthcare SAS; según el artículo, ningún financiador participó en el diseño, la conducción ni la recogida o gestión de los datos.",
+   "conflictos": "No consta en el resumen."
+  },
+  "276": {
+   "de": "a643ce431c5e",
+   "pago": "Ministerio de Salud de Brasil, mediante el programa PROADI-SUS.",
+   "papel": "El artículo no menciona financiación de la industria; ensayo iniciado por los investigadores y dirigido por un comité directivo académico.",
+   "conflictos": "No consta en el resumen."
+  },
+  "277": {
+   "de": "99c75bc00523",
+   "pago": "MicroPort (Francia); el stent Firehawk Liberty que recibieron todos los pacientes tiene como fabricante legal a Shanghai MicroPort Medical.",
+   "papel": "El patrocinador tenía representantes en el comité directivo, que diseñó el protocolo; supervisó la conducción y la monitorización del ensayo y participó en el análisis estadístico junto con un proveedor externo.",
+   "conflictos": "No consta en el resumen."
+  },
+  "278": {
+   "de": "d093f1193bf6",
+   "pago": "Cytokinetics, el patrocinador.",
+   "papel": "Un comité directivo académico diseñó el ensayo en colaboración con Cytokinetics, que hizo todos los análisis estadísticos, confirmados de forma independiente por un autor académico, y pagó el apoyo editorial.",
+   "conflictos": "Sí: siete de los 33 autores son empleados de Cytokinetics y otros 17 declaran vínculos con la empresa."
+  },
+  "279": {
+   "de": "ad78ad3ce113",
+   "pago": "Centro Nacional de Investigaciones Cardiovasculares Carlos III (CNIC), con apoyo del Centro de Investigación Biomédica en Red en Enfermedades Cardiovasculares.",
+   "papel": "No consta financiamiento de la industria; el estudio no suministró medicación y fue iniciado por los investigadores.",
+   "conflictos": "No consta en el resumen."
+  },
+  "280": {
+   "de": "608f2d5bca5d",
+   "pago": "Becas no restringidas del programa Health South-East de Noruega, el Consejo de Investigación de Noruega, la Danish Heart Foundation y la Novo Nordisk Foundation.",
+   "papel": "Los documentos no identifican a ningún fabricante que financiara el estudio o suministrara el fármaco; los financiadores no intervinieron en la interpretación ni en la redacción.",
+   "conflictos": "No consta en el resumen."
+  },
+  "281": {
+   "de": "5188dbe86fd1",
+   "pago": "AstraZeneca, patrocinador que según el protocolo suministró el baxdrostat y el placebo.",
+   "papel": "Representantes de AstraZeneca diseñaron el ensayo junto con un comité ejecutivo y recogieron y analizaron los datos; la empresa financió la redacción médica y se reservó hasta 60 días para revisar el manuscrito.",
+   "conflictos": "Sí: cuatro autores son empleados de AstraZeneca y la mayoría de los demás declaran vínculos con ella."
+  },
+  "282": {
+   "de": "41f860239df8",
+   "pago": "Subvención de investigación de la alianza Bristol-Myers Squibb y Pfizer, que además suministró el apixabán y el placebo.",
+   "papel": "Según el artículo, el patrocinador no tuvo un papel directo en el diseño, la ejecución, el análisis ni la comunicación del ensayo, que diseñaron el primer y el último autor.",
+   "conflictos": "Sí: Gregory Piazza y Samuel Z. Goldhaber declaran apoyo, subvenciones o paneles asesores de Bristol Myers Squibb y Pfizer, y John Fanikos, consultorías para Pfizer; varios autores declaran otros vínculos con la industria."
+  },
+  "283": {
+   "de": "b0cae06c53e4",
+   "pago": "Sanofi, fabricante de la vacuna de dosis alta estudiada, mediante una beca de investigación al Instituto de Investigación Sanitaria de Santiago.",
+   "papel": "Sanofi aportó gratis las dosis y participó en el diseño, el protocolo y la redacción del manuscrito; según el artículo, no tuvo responsabilidades en la conducción ni en la recolección y el análisis de los datos.",
+   "conflictos": "No consta en el resumen."
+  },
+  "284": {
+   "de": "197364665dbb",
+   "pago": "Financiación pública: Ministerio de Salud de Francia, Agencia Nacional de Investigación de Francia y Agencia Regional de Salud del Este de Francia.",
+   "papel": "Ninguna empresa figura entre los financiadores.",
+   "conflictos": "Sí: Olivier Hanon declara honorarios de asesoría o conferencias de varias farmacéuticas y Eric Vicaut, consultorías para Abbott Diabetes Care, Coloplast y Edwards Lifesciences; trece de los 15 autores no declaran intereses."
+  },
+  "285": {
+   "de": "b780d2a6e023",
+   "pago": "Subvenciones sin restricciones del Independent Research Fund Denmark, la Danish Heart Foundation y la Novo Nordisk Foundation.",
+   "papel": "Ensayo iniciado por los investigadores; según el artículo, los financiadores no influyeron en el diseño, la conducción, los datos ni la redacción.",
+   "conflictos": "Sí: Jøns, Winsløw, Bruun y Bundgaard declaran vínculos con Biotronik, Medtronic, Novo Nordisk Fonden, Amgen, Bristol-Myers Squibb y otras empresas; diez de los catorce autores no declaran intereses."
+  },
+  "286": {
+   "de": "94a5708e7a72",
+   "pago": "Foreign, Commonwealth and Development Office del Reino Unido, Wellcome y National Institute for Health and Care Research; patrocinador, la Universidad de Oxford.",
+   "papel": "Los documentos no identifican a ningún fabricante; según el protocolo, los fármacos los aportaba el Servicio de Control de la Peste del Ministerio de Salud Pública de Madagascar.",
+   "conflictos": "De los 18 autores, 17 no declaran conflictos de interés; Peter Horby declara una beca académica de Wellcome Trust con su institución como receptora."
+  },
+  "287": {
+   "de": "7af013dc462e",
+   "pago": "Novo Nordisk, que según el protocolo fabricó y suministró los fármacos y el placebo.",
+   "papel": "Según el artículo, el patrocinador se encargó del diseño, del protocolo, del plan de análisis, del monitoreo de los centros y de los análisis estadísticos, y pagó la redacción médica del primer borrador.",
+   "conflictos": "Sí: tres de los 11 autores son empleados de Novo Nordisk, dos de ellos con acciones, y los otros ocho declaran vínculos con Novo Nordisk o con Novo Nordisk Fonden."
+  },
+  "288": {
+   "de": "2f521681f014",
+   "pago": "Novo Nordisk, fabricante de la cagrilintida y la semaglutida.",
+   "papel": "Según el artículo, el patrocinador diseñó el ensayo, redactó el protocolo y el plan de análisis, supervisó los centros y realizó los análisis estadísticos.",
+   "conflictos": "Sí: tres de los diez autores son empleados de Novo Nordisk, dos de ellos con acciones, y los otros siete, entre ellos la primera autora, declaran vínculos con la empresa."
+  },
+  "289": {
+   "de": "1e02a5e89509",
+   "pago": "Eli Lilly, que desarrolla el orforglipron.",
+   "papel": "Según el artículo, el patrocinador diseñó y supervisó el ensayo, monitorizó los centros y compiló y analizó los datos; los investigadores trabajaron bajo acuerdos de confidencialidad con el patrocinador.",
+   "conflictos": "Sí: nueve de los doce autores son empleados de Eli Lilly, seis de ellos con acciones, y el primer autor declara con Lilly una beca o contrato para su institución y honorarios por consejos asesores."
+  },
+  "290": {
+   "de": "269fc2cf6b54",
+   "pago": "Canadian Institutes of Health Research, incluida una beca colaborativa cuyo socio industrial fue Covidien, una compañía de Medtronic, y Program of Experimental Medicine de la University of Western Ontario.",
+   "papel": "Medtronic, fabricante de los ventiladores usados, aportó apoyo económico independiente y prestó ventiladores a algunos centros; los financiadores no intervinieron en el diseño, los datos, el análisis ni la publicación.",
+   "conflictos": "No consta en el resumen."
+  },
+  "291": {
+   "de": "37652c3db3e0",
+   "pago": "Bayer, patrocinador del ensayo.",
+   "papel": "Bayer pagó la asistencia de redacción médica y decidió con los autores publicar.",
+   "conflictos": "Sí: cinco autores son empleados de Bayer y los otros diez declaran vínculos con la empresa; nueve de ellos, también con Boehringer Ingelheim."
+  },
+  "292": {
+   "de": "97a2d11e5cbf",
+   "pago": "Innovent Biologics, fabricante de la mazdutida.",
+   "papel": "Innovent diseñó y supervisó el ensayo con el primer autor, monitorizó los centros y recopiló y analizó los datos.",
+   "conflictos": "Sí: siete de los 23 autores son empleados de Innovent; el primer autor declara consultoría para Innovent y para Eli Lilly, entre otras compañías, y otros 14 autores declaran vínculos con Innovent como investigadores."
+  },
+  "293": {
+   "de": "e0817233b611",
+   "pago": "Proyecto Conjunto de Investigación Médica de Ciencia y Salud de Chongqing, Fundación Nacional de Ciencias Naturales de China, un hospital universitario y CSPC Recomgen Pharmaceutical, fabricante de la tenecteplasa.",
+   "papel": "CSPC suministró el fármaco y, según el artículo, no participó en el diseño, la recogida, el análisis ni la interpretación de los datos, ni en el manuscrito, y no podía retrasar ni impedir la publicación.",
+   "conflictos": "Sí, ajenos al fabricante: cuatro de los 66 autores declaran vínculos con otras empresas, ninguno con CSPC."
+  },
+  "294": {
+   "de": "a8e5772adaf7",
+   "pago": "Boehringer Ingelheim, que según el protocolo fabricó el nerandomilast para el ensayo.",
+   "papel": "El patrocinador diseñó el estudio con el comité directivo, sus estadísticos analizaron los datos, revisó el manuscrito y pagó la asistencia de redacción.",
+   "conflictos": "Sí: nueve de los 20 autores son empleados de Boehringer Ingelheim y los otros 11 declaran vínculos con la compañía."
+  },
+  "295": {
+   "de": "87e568b73fe5",
+   "pago": "Bond Avillion 2 Development, promotor del ensayo, y AstraZeneca.",
+   "papel": "El promotor coordinó la gestión de datos y los análisis estadísticos y decidió el envío a publicación junto con los autores; AstraZeneca financió al redactor médico que escribió el primer borrador.",
+   "conflictos": "Sí: diez de los 21 autores declaran empleo en Avillion o en AstraZeneca, y el primer autor declara haber sido consultor de AstraZeneca."
+  },
+  "296": {
+   "de": "a47b3b0f0cef",
+   "pago": "Eli Lilly, patrocinador y proveedor de la retatrutida.",
+   "papel": "Según el artículo, Lilly participó en el diseño, la conducción, el análisis y la interpretación de los datos, la redacción y la decisión de enviar el manuscrito, sin derecho de veto; dos estadísticos suyos hicieron los análisis.",
+   "conflictos": "Sí: cinco de los diez autores son empleados de Lilly y los cinco autores académicos declaran ser consultores de Lilly, además de otros vínculos con la industria farmacéutica."
+  },
+  "297": {
+   "de": "3a09ac5499de",
+   "pago": "National Heart, Lung, and Blood Institute de los NIH.",
+   "papel": "Defibtech y Stryker donaron los desfibriladores; el comité directivo diseñó el estudio y los datos los analizaron estadísticos independientes del Duke Clinical Research Institute.",
+   "conflictos": "No consta en el resumen."
+  },
+  "298": {
+   "de": "55cd3da58377",
+   "pago": "National Heart, Lung, and Blood Institute de los National Institutes of Health.",
+   "papel": "Las píldoras combinadas se compraron localmente con fondos del estudio, y los documentos no nombran a ningún fabricante.",
+   "conflictos": "No consta en el resumen."
+  },
+  "299": {
+   "de": "509e695d37ef",
+   "pago": "Canadian Institutes of Health Research, con fondos adicionales del University of Ottawa Heart Institute y de Johnson & Johnson, mediante un programa de becas para estudios iniciados por el investigador.",
+   "papel": "El sistema de mapeo y los catéteres son de Biosense Webster; según el artículo, los financiadores no tuvieron papel en el diseño, los datos, el manuscrito ni la decisión de publicar.",
+   "conflictos": "Sí: doce de los 26 autores declaran conflictos; Nery declara una beca de Biosense Webster durante el estudio, y Nair y Veenhuyzen, becas o apoyo de Johnson and Johnson durante el estudio."
+  },
+  "300": {
+   "de": "acab1c8a23ba",
+   "pago": "Swiss National Science Foundation, mediante una subvención para ensayos iniciados por investigadores, con apoyo en especie del Instituto de Atención Primaria de la Universidad de Berna.",
+   "papel": "Los documentos no nombran ningún fabricante de estatinas; cada participante siguió o dejó la estatina que ya tomaba.",
+   "conflictos": "No consta en el resumen."
+  },
+  "301": {
+   "de": "81414eb4ab35",
+   "pago": "Novartis, que suministró el pelacarsén y el placebo.",
+   "papel": "Novartis diseñó el ensayo con C5Research de la Cleveland Clinic y un comité ejecutivo académico, recogió y analizó los datos en paralelo a un análisis independiente y revisó el manuscrito.",
+   "conflictos": "Sí: cinco coautores son empleados de Novartis y la mayoría de los demás declara vínculos con la empresa."
+  },
+  "302": {
+   "de": "1b40198e8609",
+   "pago": "Novo Nordisk, que suministró el ziltivekimab y el placebo y gestionó las operaciones del ensayo.",
+   "papel": "El patrocinador hizo el análisis de los datos, verificado de forma independiente por programadores del Brigham and Women's Hospital; cuatro de los 11 miembros del comité directivo eran de la empresa.",
+   "conflictos": "Sí: siete coautores son empleados de Novo Nordisk, y 27 de los 33 autores declaran alguna relación con la empresa."
+  },
+  "303": {
+   "de": "9e762c22a150",
+   "pago": "Hospital Israelita Albert Einstein, con la aprobación y el apoyo del Ministerio de Salud de Brasil (programa PROADI-SUS).",
+   "papel": "Servier donó los antihipertensivos suministrados por el estudio y, según los autores, no tuvo otro papel ni acceso a los datos.",
+   "conflictos": "No consta en el resumen."
+  },
+  "304": {
+   "de": "bdb72094d61b",
+   "pago": "Hospital Israelita Albert Einstein, con la aprobación y el apoyo del Ministerio de Salud de Brasil.",
+   "papel": "Servier donó las combinaciones antihipertensivas a dosis fija para ambos grupos y, según el artículo, no tuvo ningún otro papel.",
+   "conflictos": "Sí: seis autores declararon vínculos con Servier y dos, empleo en el hospital financiador."
+  },
+  "305": {
+   "de": "15d208fe9bb5",
+   "pago": "Arrowhead Pharmaceuticals, fabricante del plozasirán.",
+   "papel": "Según el artículo, representantes de la compañía participaron en el diseño y la conducción del ensayo, en la recogida, la gestión y el análisis de los datos, y en la redacción y revisión del manuscrito.",
+   "conflictos": "Sí: cuatro de los 22 autores tienen afiliación en Arrowhead y otros nueve declaran vínculos con la empresa."
+  },
+  "306": {
+   "de": "6a77a5e9a1ad",
+   "pago": "Edwards Lifesciences, fabricante de las válvulas SAPIEN 3, SAPIEN 3 Ultra y SAPIEN 3 Ultra RESILIA.",
+   "papel": "El patrocinador elaboró el protocolo con los investigadores, financió todas las actividades del ensayo, participó en la selección de centros, supervisó la recogida de datos y la monitorización e hizo los análisis.",
+   "conflictos": "Sí: dos coautores son empleados de Edwards y 30 de los 37 autores declaran vínculos con la empresa."
+  },
+  "307": {
+   "de": "a626b6286cd7",
+   "pago": "Vertex Pharmaceuticals; el protocolo nombra como promotor a Alpine Immune Sciences, una compañía de Vertex.",
+   "papel": "Vertex diseñó el ensayo en colaboración con el comité directivo, recogió y analizó los datos con los investigadores, y un redactor médico empleado por Vertex ayudó con el primer borrador.",
+   "conflictos": "Sí: cinco autores tienen afiliación en Vertex y otros diez declaran vínculos con la empresa."
+  },
+  "308": {
+   "de": "23d2a6d2c7e0",
+   "pago": "Subvención del Patient-Centered Outcomes Research Institute (PCORI).",
+   "papel": "Ningún documento nombra al fabricante ni a un suministrador de los fármacos, que se dispensaban por la farmacia hospitalaria habitual.",
+   "conflictos": "Sí: 13 de los 35 autores no declararon intereses; varios de los demás declaran vínculos con empresas como Stryker, Smith & Nephew, Johnson & Johnson, Zimmer Biomet, Bayer, Bristol Myers Squibb y Pfizer."
+  },
+  "309": {
+   "de": "166ee7ac7eb9",
+   "pago": "Vera Therapeutics, patrocinador del ensayo.",
+   "papel": "El patrocinador codiseñó el ensayo con investigadores académicos, recogió y almacenó los datos, participó en su análisis e interpretación y decidió la publicación junto con los autores.",
+   "conflictos": "Sí: seis firmantes están afiliados a Vera y otros nueve declaran ser consultores de la empresa o recibir de ella una subvención institucional."
+  },
+  "310": {
+   "de": "6b1402a27a9f",
+   "pago": "Boehringer Ingelheim, que suministró el fármaco y tiene su licencia, cedida por Zealand Pharma.",
+   "papel": "Un comité ejecutivo de expertos independientes y de empleados del patrocinador diseñó y supervisó el ensayo.",
+   "conflictos": "Sí: siete de los 31 autores tienen afiliación en la compañía y casi todos los demás declaran vínculos con ella."
+  },
+  "311": {
+   "de": "81ba9c5048f7",
+   "pago": "Eli Lilly, fabricante de la retatrutida.",
+   "papel": "Según el artículo, Eli Lilly hizo el monitoreo, la recogida y el análisis de los datos.",
+   "conflictos": "Sí: siete de los 11 autores tienen afiliación en Eli Lilly, con empleo, acciones o ambos, y los cuatro autores académicos declaran vínculos con Eli Lilly y con otras compañías del sector."
+  },
+  "312": {
+   "de": "5bc5d79c9092",
+   "pago": "European Bone and Joint Infection Society (EBJIS), National Institute for Health Research (NIHR) y una beca Kathleen Harper de la British Medical Association.",
+   "papel": "Ningún documento declara financiación de la industria, y el portador de antibiótico local quedó a criterio del cirujano.",
+   "conflictos": "Sí: McNally, Ferguson, Ramsden, Scarborough y Young declararon vínculos con BoneSupport, y otros ocho autores, con empresas como Zimmer Biomet, Heraeus Medical, Johnson and Johnson, Stryker o Smith and Nephew."
+  },
+  "313": {
+   "de": "ec7365b2b989",
+   "pago": "Research Council of Norway, Fundación Kristian Gerhard Jebsen, Instituto de Salud Carlos III, Dutch Cancer Society, Danish Cancer Society y otras entidades: financiación pública o sin ánimo de lucro.",
+   "papel": "Sin patrocinador industrial; según el artículo, los financiadores no influyeron en el diseño ni en la conducción, ni participaron en la recogida de datos, el análisis o la redacción.",
+   "conflictos": "No consta en el resumen."
+  },
+  "314": {
+   "de": "830958219e1d",
+   "pago": "Eli Lilly and Company, fabricante del orforglipron.",
+   "papel": "Lilly suministró el tratamiento y participó en la supervisión de los ensayos, en la recogida, el análisis y la interpretación de los datos, en la decisión de enviar el manuscrito y en el apoyo de redacción.",
+   "conflictos": "Sí: seis de los diez autores tienen afiliación a Eli Lilly and Company; Malhotra, Gottlieb, Woehrle y Kundel declaran honorarios de Eli Lilly durante el estudio."
+  },
+  "315": {
+   "de": "485144b64fa9",
+   "pago": "Cytokinetics, promotor del ensayo; según el protocolo, Patheon fabricó los comprimidos de aficamten y de placebo.",
+   "papel": "Un comité directivo diseñó el ensayo en colaboración con Cytokinetics, que analizó los datos con los investigadores, con verificación independiente en el Brigham and Women's Hospital, y pagó el apoyo editorial.",
+   "conflictos": "Sí: según los formularios, 32 de los 47 autores declaran vínculos con Cytokinetics: siete son empleados de la compañía y entre los demás están el primer autor y la última firmante, con becas y consultoría."
+  },
+  "316": {
+   "de": "65e649b59f43",
+   "pago": "Fundación Nacional de Ciencias Naturales de China, programa Tou-Yan de la provincia de Heilongjiang, Sociedad China de Cardiología y Lepu Medical Technology.",
+   "papel": "Lepu Pharmaceutical aportó el clopidogrel; según el protocolo no participaría en el diseño, la inclusión ni la publicación, aunque los fabricantes financiadores recibirían el manuscrito para revisión previa.",
+   "conflictos": "Sí: Gary S. Mintz y Gregg W. Stone declaran vínculos con varias empresas; ningún formulario menciona a Lepu y 28 de los 31 autores declaran no tener intereses."
+  },
+  "317": {
+   "de": "ab42449cd507",
+   "pago": "Rhythm Pharmaceuticals, que suministró la setmelanotida y el placebo.",
+   "papel": "Según el artículo, el patrocinador diseñó el ensayo, supervisó su conducción, verificó los datos, escribió el primer borrador y pagó la redacción médica.",
+   "conflictos": "Sí: según los 33 formularios, 24 autores declaran vínculos con Rhythm; dos son empleados con acciones y la primera autora declara fondos de Rhythm a su universidad. Nueve autores no declaran vínculos con Rhythm."
+  },
+  "318": {
+   "de": "2e30ae659989",
+   "pago": "Research Council of Norway y KLINBEFORSK, con fondos adicionales del Swedish Research Council, Region Stockholm, Swedish Brain Fund, Erling Perssons Foundation y Horizon Europe.",
+   "papel": "Según el artículo no hubo participación comercial: los hospitales compraron los fármacos (rituximab biosimilar de Sandoz y ocrelizumab de Roche) y los patrocinadores no intervinieron en el diseño, los datos ni el manuscrito.",
+   "conflictos": "Sí: Torkildsen declara con Roche honorarios como ponente, consejos asesores y ensayos; Fredrik Piehl, honorarios personales de Roche, y Gro O. Nygaard, un consejo de Sandoz sin honorarios personales."
+  },
+  "319": {
+   "de": "9c1df0edd6c1",
+   "pago": "Boehringer Ingelheim, que tiene la licencia de la survodutida cedida por Zealand Pharma y es la única responsable de su desarrollo y comercialización.",
+   "papel": "El patrocinador diseñó el ensayo, que supervisó un comité ejecutivo de expertos independientes y de empleados de la empresa, y pagó al redactor médico; quién hizo los análisis estadísticos no se reporta.",
+   "conflictos": "Sí: seis de los 24 autores son empleados de Boehringer Ingelheim y 16 de los 18 restantes, incluido el primer autor, declaran vínculos con la empresa."
+  },
+  "320": {
+   "de": "93e98288028a",
+   "pago": "GSK, que desarrolla el bepirovirsén.",
+   "papel": "Según el artículo, GSK diseñó los ensayos y supervisó su conducción, la recogida de datos y el análisis; un redactor médico pagado por GSK escribió el primer borrador bajo la dirección de los autores.",
+   "conflictos": "Sí: de los 48 autores, 8 están afiliados a GSK y otros muchos, entre ellos el primer autor, declaran consultoría, comités asesores, conferencias o subvenciones de GSK; 22 no declaran vínculos con la empresa."
+  },
+  "321": {
+   "de": "888b4c04c90e",
+   "pago": "United Therapeutics, fabricante del treprostinil inhalado, que suministró el fármaco y el placebo.",
+   "papel": "Según el artículo, el patrocinador diseñó y supervisó el ensayo con el comité directivo, recogió, gestionó y analizó los datos, y autores afiliados a él redactaron los borradores.",
+   "conflictos": "Sí: siete de los 22 autores tienen afiliación en United Therapeutics y otros diez, entre ellos los cuatro miembros del comité directivo, incluido el primer autor, declaran vínculos con la compañía."
+  },
+  "322": {
+   "de": "049510c3cd5d",
+   "pago": "RemeGen, la compañía que desarrolla el telitacicept.",
+   "papel": "RemeGen diseñó el ensayo y se encargó de la recogida de datos y de la notificación de eventos adversos; los análisis los hizo Shanghai BioGuider Medical Technology, con redactores médicos pagados por RemeGen.",
+   "conflictos": "Sí: cuatro de los 8 autores declaran empleo o cargos directivos y acciones de RemeGen; Jicheng Lv, Hong Zhang y Vlado Perkovic declaran subvenciones o consultorías con otras compañías, y Lijun Liu no declara intereses."
+  },
+  "323": {
+   "de": "d91e7ee7bfe0",
+   "pago": "Ministerio de Salud de Francia (Programme Hospitalier de Recherche Clinique) y Sociedad Francesa de Dermatología.",
+   "papel": "Ningún financiador fabrica los fármacos estudiados; el artículo no describe el papel de los financiadores ni del promotor.",
+   "conflictos": "Sí: de los 29 autores, 25 declaran no tener intereses; la primera autora declara ser empleada de Sanofi, y el autor de correspondencia, Samimi y Barbarot, vínculos con otras organizaciones o farmacéuticas."
+  },
+  "324": {
+   "de": "463491ef8933",
+   "pago": "Boston Scientific, promotor del ensayo y fabricante del sistema de ablación FARAPULSE, del monitor cardiaco insertable y del algoritmo que detectó las recaídas.",
+   "papel": "Boston Scientific monitorizó, recogió y analizó los datos; el diseño inicial fue del primer autor, afinado por el comité directivo, y el primer y el último autor escribieron el primer borrador y decidieron publicar.",
+   "conflictos": "Sí: seis autores son de Boston Scientific y el primer autor declara ser consultor y ponente de la empresa; otros muchos declaran consultoría, asesoría u otros vínculos con ella. El último autor no declara intereses."
+  },
+  "325": {
+   "de": "74f8008c95d7",
+   "pago": "Bayer, que desarrolla el asundexián.",
+   "papel": "Representantes de Bayer elaboraron el protocolo con el primer y el último autor; el patrocinador generó la aleatorización, mantuvo la base de datos y pagó la asistencia editorial; los análisis se hicieron de forma independiente.",
+   "conflictos": "Sí: seis autores son o fueron empleados de Bayer; el primer autor y el último declaran becas o contratos de Bayer, y otros 28 autores, pagos o vínculos con la empresa."
+  },
+  "326": {
+   "de": "718de140f9f0",
+   "pago": "National Heart, Lung, and Blood Institute de los Institutos Nacionales de Salud de Estados Unidos, con becas adicionales de otros institutos nacionales: financiación pública.",
+   "papel": "Sin fármaco ni dispositivo de un fabricante en estudio; el artículo no describe el papel de los NIH en el diseño, el análisis ni la decisión de publicar.",
+   "conflictos": "No consta en el resumen."
+  },
+  "327": {
+   "de": "8e343175b0fc",
+   "pago": "Boston Scientific, con una beca de investigación sin restricciones y los catéteres de ecografía intravascular; también fabrica los stents Synergy usados en ambos grupos.",
+   "papel": "Ensayo iniciado por los investigadores, con el European Cardiovascular Research Institute como patrocinador regulador; Cardialysis coordinó el ensayo e hizo el análisis estadístico.",
+   "conflictos": "No consta en el resumen."
+  },
+  "328": {
+   "de": "7ad531c83dcf",
+   "pago": "CathWorks, fabricante del programa FFRangio evaluado.",
+   "papel": "CathWorks participó en la selección de centros, la recogida de datos y la monitorización; el análisis lo hizo de forma independiente la Cardiovascular Research Foundation, a la que CathWorks apoyó para preparar el manuscrito.",
+   "conflictos": "No consta en el resumen."
+  },
+  "329": {
+   "de": "8c601173cf6b",
+   "pago": "United Therapeutics, patrocinador del ensayo, que según el protocolo suministró el fármaco del estudio, los nebulizadores y los espirómetros.",
+   "papel": "Según el artículo, el patrocinador diseñó y supervisó el ensayo con el comité directivo, recogió, gestionó y analizó los datos, y autores afiliados a la compañía redactaron los borradores.",
+   "conflictos": "Sí: once de los 18 autores declaran vínculos con United Therapeutics: cinco son empleados y seis declaran consultoría, ponencias, consejo asesor o investigación, entre ellos los cuatro miembros del comité directivo."
+  },
+  "330": {
+   "de": "dafd20d66b70",
+   "pago": "Novartis, que desarrolla el ianalumab y, según el protocolo, suministró el ianalumab y el placebo.",
+   "papel": "Novartis diseñó y supervisó el ensayo, con aportaciones del comité directivo, en el que había representantes suyos; sus empleados analizaron los datos y pagó la asistencia de redacción.",
+   "conflictos": "Sí: cuatro de los 26 autores son empleados de Novartis, tres de ellos con acciones, y otros doce declaran subvenciones, consultorías, honorarios u otros vínculos con la compañía."
+  },
+  "331": {
+   "de": "9245c9458d82",
+   "pago": "Subvención de investigación de Medtronic, fabricante de la plataforma de navegación estudiada, además de fondos académicos y de los National Institutes of Health.",
+   "papel": "Según el artículo, Medtronic no tuvo papel en el diseño, los datos, la redacción ni la decisión de enviar el manuscrito, aunque el protocolo preveía su opinión no vinculante sobre la publicación y su acceso a los datos.",
+   "conflictos": "Sí: siete autores declararon vínculos personales con Medtronic, y varios, con fabricantes de otras plataformas de broncoscopia (Intuitive Surgical, Noah Medical)."
+  },
+  "332": {
+   "de": "58acb4b10936",
+   "pago": "Boehringer Ingelheim, que desarrolla el nerandomilast.",
+   "papel": "El patrocinador diseñó el ensayo con el comité directivo, gestionó y analizó los datos con sus estadísticos, pagó la asistencia de redacción y revisó el manuscrito; el comité directivo decidió enviarlo a publicación.",
+   "conflictos": "Sí: los 16 autores declaran vínculos con Boehringer Ingelheim y 7 son empleados de la compañía."
+  },
+  "333": {
+   "de": "34fedea7a08c",
+   "pago": "Financiación pública del Ministerio de Salud de Francia; promovido por la Asistencia Pública-Hospitales de París, que lo detuvo antes de tiempo por falta de financiación.",
+   "papel": "Ninguna empresa figura entre los financiadores; el artículo no describe el papel del financiador.",
+   "conflictos": "Sin vínculos con la industria: la institución de Jouffroy recibió fondos del Ministerio de Salud francés y el trabajo de Annane tiene subvenciones públicas; los otros cinco autores declaran no tener conflictos."
+  },
+  "334": {
+   "de": "666175f46ee7",
+   "pago": "Subvención sin restricciones de la Dutch Lung Foundation (Longfonds).",
+   "papel": "Ensayo iniciado por los investigadores; ningún documento menciona que una empresa aportara fármaco ni fondos.",
+   "conflictos": "Sí: cuatro autores declararon vínculos con la industria, entre ellos la autora de correspondencia, con AstraZeneca, Boehringer Ingelheim, GlaxoSmithKline y otras empresas; los otros 19 no declararon conflictos."
+  },
+  "335": {
+   "de": "d1aa7fab16f4",
+   "pago": "Eli Lilly, fabricante de la tirzepatida; el comparador, la semaglutida, es de Novo Nordisk.",
+   "papel": "El patrocinador diseñó el ensayo con los dos primeros autores, suministró ambos fármacos, monitorizó los centros y reunió y analizó los datos; los análisis estadísticos los hicieron dos autores empleados de Lilly.",
+   "conflictos": "Sí: siete de los once autores son empleados de Lilly y los cuatro autores académicos declaran vínculos con Lilly y con Novo Nordisk."
+  },
+  "336": {
+   "de": "c9980aad48a0",
+   "pago": "GSK, fabricante del mepolizumab.",
+   "papel": "Según el artículo, GSK supervisó el diseño y la conducción del ensayo, recogió y analizó los datos, revisó el manuscrito y pagó a los redactores médicos; no restringió el acceso de los autores a los datos.",
+   "conflictos": "Sí: cinco de los 17 autores declaran empleo en GSK (dos de ellos con acciones), y otros diez autores académicos declaran vínculos con GSK."
+  },
+  "337": {
+   "de": "a80d03f79b0d",
+   "pago": "Novo Nordisk, fabricante de la semaglutida evaluada.",
+   "papel": "El patrocinador diseñó el protocolo con aportaciones de un comité directivo académico, monitorizó los centros, recogió y analizó los datos y pagó la redacción médica.",
+   "conflictos": "Sí: cinco autores son empleados de Novo Nordisk, tres de ellos con acciones; el primer autor declara un contrato de ensayo clínico de Novo Nordisk con su institución y consultoría, y otros autores, consultoría o consejos asesores."
+  },
+  "338": {
+   "de": "d9ac7c3dd699",
+   "pago": "Insmed, la compañía que desarrolla el brensocatib.",
+   "papel": "Insmed elaboró el protocolo con aportes del comité directivo, analizó los datos y financió al redactor médico; según el artículo, no hubo acuerdos de confidencialidad que impidieran publicar los resultados.",
+   "conflictos": "Sí: el primer autor, el último y la mayoría de los demás declaran vínculos con Insmed, y Mange, Teper, Fernandez, Fan y Zhang son empleados de la compañía; Shteinberg no declara vínculos con Insmed."
+  },
+  "339": {
+   "de": "46670f4ac867",
+   "pago": "F. Hoffmann-La Roche, que según el protocolo desarrolla el baloxavir marboxilo junto con Shionogi, y fondos federales del Departamento de Salud y Servicios Humanos de Estados Unidos.",
+   "papel": "Roche participó en el diseño, en la recogida, el análisis y la interpretación de los datos y en la preparación del manuscrito, y pagó a la redactora médica que ayudó con el primer borrador.",
+   "conflictos": "Sí: Kuhlbusch, Graham, Hurt, Katugampola y Wildum son empleados de Roche, y otros autores declaran pagos, consultoría o consejos asesores de Roche o Shionogi; Cohen, McLean y Widmer no declaran conflictos."
+  },
+  "340": {
+   "de": "a84f5b3b875c",
+   "pago": "Mineralys Therapeutics.",
+   "papel": "Mineralys diseñó el ensayo con el centro C5Research de la Cleveland Clinic; su estadístico principal participó en los análisis, que C5Research confirmó de forma independiente; publicar requería el consentimiento del patrocinador.",
+   "conflictos": "Sí: la mayoría de los autores declara vínculos con Mineralys (empleo, consultoría, comités, becas o contratos); Melgaard, Wolski, Sarraju y Bhikam declaran no tener intereses."
+  }
+ }
+}

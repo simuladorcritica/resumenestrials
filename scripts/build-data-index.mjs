@@ -1,11 +1,13 @@
 // Índice ligero para listas, búsqueda, filtros y recomendaciones.
-// Contiene cada registro sin `cuerpo` ni `corto` (el ~90 % del peso), más dos
-// campos precalculados con la misma lógica que el navegador:
+// Contiene cada registro sin `cuerpo` ni `corto` (el ~90 % del peso), más:
 //   _sub  subespecialidad inferida (specialty-classification.js, que usa el cuerpo)
-//   _min  minutos de lectura del completo y del breve
+//   _fin  la financiación en tres renglones para la ficha de las tarjetas (quién pagó, papel de la
+//         empresa, conflictos de interés), de financiacion-breve.json. Cuando la hay, el registro
+//         no lleva `financiacion`: el texto completo está en la página del resumen.
 // El texto completo de cada ensayo vive en datos/ensayos/<id>.json.
 import fs from 'node:fs';
 import vm from 'node:vm';
+import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = fileURLToPath(new URL('..', import.meta.url));
@@ -18,8 +20,14 @@ export function plain(html) {
   });
 }
 
-export function minutes(html) {
-  return Math.max(1, Math.round((plain(html).match(/[\p{L}\p{N}_]+/gu) || []).length / 230));
+// Huella del texto de financiación para el que se escribió cada ficha breve (la misma de tools/financiacion_breve.py).
+export function fundingDigest(text) {
+  return crypto.createHash('sha256').update(String(text ?? ''), 'utf8').digest('hex').slice(0, 12);
+}
+
+export function loadBriefs() {
+  const file = ROOT + 'financiacion-breve.json';
+  return fs.existsSync(file) ? JSON.parse(fs.readFileSync(file, 'utf8')).fichas || {} : {};
 }
 
 export function loadClassifier() {
@@ -29,14 +37,19 @@ export function loadClassifier() {
   return context.SpecialtyClassification;
 }
 
-export function buildIndex(records, classifier = loadClassifier()) {
+export function buildIndex(records, classifier = loadClassifier(), briefs = loadBriefs()) {
   return records.map((record) => {
     const { cuerpo, corto, ...rest } = record;
     const result = classifier.classify(record);
     const sub = result?.specialty === classifier.REVIEW ? '' : result?.specialty || '';
-    const min = { cuerpo: minutes(cuerpo) };
-    if (corto) min.corto = minutes(corto);
-    return { ...rest, _sub: sub, _min: min };
+    // La ficha breve solo vale para el texto con el que se escribió: si el resumen cambió, o todavía no tiene la suya,
+    // la tarjeta muestra la financiación completa, como antes.
+    const brief = briefs[String(record.id)];
+    if (brief && brief.de === fundingDigest(record.financiacion)) {
+      const { financiacion, ...short } = rest;
+      return { ...short, _sub: sub, _fin: [brief.pago, brief.papel, brief.conflictos] };
+    }
+    return { ...rest, _sub: sub };
   });
 }
 

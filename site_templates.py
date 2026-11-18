@@ -30,6 +30,10 @@ EDITORIAL_SIGNATURE='<span class="ev-signature">Por <a href="/equipo-editorial/"
 METHOD_NOTE=('<div class="ev-method"><span class="ev-original-label">Cómo se elaboró</span>'
  '<span>Resumen redactado por la Editorial EMEICRÍTICA con apoyo de herramientas de inteligencia artificial, con criterios editoriales fijos, y verificado con controles automáticos contra el artículo original.'
  '</span><span class="ev-method-links"><a href="/metodologia/">Metodología</a><a href="/correcciones/">Correcciones</a><a href="/equipo-editorial/">Cómo trabajamos</a><a href="mailto:resumenestrials@outlook.com">Reportar un error</a></span></div>')
+# Separador entre datos de una misma línea: el punto ocre de la línea de señal (ui/site.css, .ev-sep). El «·» queda en el
+# texto (lectores de pantalla, copiar y pegar) y la hoja de estilo dibuja el punto encima; el espacio duro lo deja pegado
+# a lo que separa, para que nunca empiece un renglón.
+SEP='\u00a0<span class="ev-sep">·</span> '
 # Sitio reservado, bajo el título y la firma del resumen completo, para «Escuchar el resumen» (reader-audio.js): así el
 # texto no salta cuando el botón aparece. Si el resumen no tiene audio, el módulo lo retira.
 LISTEN_SLOT='<div class="ev-listen-slot" data-ev-listen-slot></div>'
@@ -67,7 +71,7 @@ def video_block(r,manifest,videos):
  t=esc(v["titulo"]);y=esc(v["youtube_id"])
  return (f'<section class="ev-video" aria-labelledby="ev-video-h"><h2 id="ev-video-h">En video</h2><div class="ev-video-frame">'
   f'<button type="button" class="ev-video-play" data-ev-video="{y}" data-ev-video-title="{t}">{icon("play")}<span>Reproducir: {t}</span></button></div>'
-  f'<p class="ev-video-meta">EMEICRÍTICA · {video_minutes(v["duracion"])} min</p><div class="ev-method-links"><a href="{video_path(manifest,r["id"])}">Página del video</a><a href="https://www.youtube.com/watch?v={y}" target="_blank" rel="noopener noreferrer">Ver en YouTube</a></div></section>')
+  f'<p class="ev-video-meta">EMEICRÍTICA{SEP}{video_minutes(v["duracion"])} min</p><div class="ev-method-links"><a href="{video_path(manifest,r["id"])}">Página del video</a><a href="https://www.youtube.com/watch?v={y}" target="_blank" rel="noopener noreferrer">Ver en YouTube</a></div></section>')
 # ---------- Preguntas clínicas ----------
 # preguntas-clinicas.json es una fuente: cada pregunta reúne ensayos ya resumidos (núcleo) y enlaza los vecinos
 # (relacionados). De cada ensayo se muestran sus campos publicados (`objetivo`, `hallazgo`, revista y año) sin
@@ -328,7 +332,7 @@ def question_cover(items):
   return (f'<article class="ev-q-card"><div class="ev-q-card-head"><h3><a class="ev-q-title" href="{route}">{esc(q["pregunta"])}</a></h3><a class="ev-q-read" href="{route}">Ver los {len(core)} ensayos{icon("arrow-right")}</a></div>'
    +question_timeline(q,core,route,"Ensayos: "+q["nombre"])+'</article>')
  rest=qs[QUESTION_HOME:]
- more=('<details class="ev-q-more"><summary class="ev-btn">'+("Ver la pregunta restante" if len(rest)==1 else f"Ver las {len(rest)} preguntas restantes")+'</summary>'
+ more=('<details class="ev-q-more"><summary class="ev-btn"><span>'+("Ver la pregunta restante" if len(rest)==1 else f"Ver las {len(rest)} preguntas restantes")+'</span><span>Mostrar menos</span></summary>'
   +"".join(card(q) for q in rest)+'</details>') if rest else ''
  return ('<section class="ev-q ev-q-home" aria-labelledby="ev-q-h"><div class="ev-archive-head"><h2 id="ev-q-h">Preguntas clínicas</h2><p class="ev-count">Los ensayos resumidos sobre una misma pregunta</p></div>'
   +"".join(card(q) for q in qs[:QUESTION_HOME])+more+'</section>')
@@ -371,7 +375,7 @@ def question_page(q,items,manifest):
    if g!=group:notes+=f'<h4>{esc(g)}</h4>';group=g
    notes+=f'<h5>{esc(k)}</h5><p>{esc(v)}</p>'
   sections="".join(f'<h4>{esc(k)}</h4><p>{v}</p>' for k,v in question_sections(r))
-  return (f'<section class="ev-q-card" id="{question_anchor(n["id"])}"><div class="ev-q-card-head"><h3><a href="{path}">{label}</a> <span>· {esc(r["revista"])}, {esc(r["anio"])}</span></h3>'
+  return (f'<section class="ev-q-card" id="{question_anchor(n["id"])}"><div class="ev-q-card-head"><h3><a href="{path}">{label}</a><span>{SEP}{esc(r["revista"])}, {esc(r["anio"])}</span></h3>'
    f'<a class="ev-q-read" href="{path}">Leer el resumen de {label}{icon("arrow-right")}</a></div>'
    f'<div class="ev-q-cols"><div><h4>Qué preguntó</h4><p>{esc(r["objetivo"])}</p><div class="ev-q-finding"><h4>Hallazgo principal</h4><p>{r["hallazgo"]}</p></div>{sections}</div>'
    f'<div class="ev-q-notes">{notes}</div></div></section>')
@@ -387,7 +391,7 @@ def question_page(q,items,manifest):
  content=(f'<p>{QUESTION_CONTEXT}</p><h2 class="ev-sr">Los ensayos</h2>'+question_timeline(q,core)+"".join(ficha(n,r) for n,r in core)+(f'<h2>Cómo leerlos juntos</h2>{together}' if design else '')
   +(f'<h2>Ver también</h2><div class="ev-q-rel">{related}</div>' if related else ''))
  years=sorted({str(r["anio"]) for _,r in core});span=years[0] if len(years)==1 else f"{years[0]} a {years[-1]}"
- dates=f'{len(core)} ensayos resumidos · {esc(span)} · Publicado el <time datetime="{q["fecha_publicacion"]}">{esc(human_date(q["fecha_publicacion"]))}</time>'+(f' · Revisado el <time datetime="{q["fecha_revision"]}">{esc(human_date(q["fecha_revision"]))}</time>' if q["fecha_revision"]!=q["fecha_publicacion"] else '')
+ dates=f'{len(core)} ensayos resumidos{SEP}{esc(span)}{SEP}Publicado el <time datetime="{q["fecha_publicacion"]}">{esc(human_date(q["fecha_publicacion"]))}</time>'+(f'{SEP}Revisado el <time datetime="{q["fecha_revision"]}">{esc(human_date(q["fecha_revision"]))}</time>' if q["fecha_revision"]!=q["fecha_publicacion"] else '')
  body=(f'<div class="ev-doc ev-doc-text ev-q" data-ev-question-page><nav class="ev-breadcrumb" aria-label="Ruta"><a href="{hub}">{icon("arrow-left")}{esc(q["area"])}</a></nav>'
   f'<h1>{esc(q["pregunta"])}</h1><p class="ev-doc-date">{dates}</p><article class="ev-prose">{content}</article>{QUESTION_NOTE}</div>')
  description=question_description(q,trials)
@@ -473,7 +477,7 @@ def editorial_dates(r):
  for key,label in values:
   value=r.get(key) or (r.get("actualizado") if key=="fecha_revision" else "")
   if value:parts.append(f'<span>{label}: <time datetime="{esc(value)}">{esc(human_date(value))}</time></span>')
- return '<div class="ev-editorial-dates">'+" · ".join(parts)+'</div>'
+ return '<div class="ev-editorial-dates">'+SEP.join(parts)+'</div>'
 
 # Transparencia editorial: auditoria-editorial.json es una fuente que las rutinas locales
 # regeneran a diario. Es opcional: si falta, no es válido o un ID no aparece, no se muestra
@@ -554,14 +558,10 @@ def area_of(r):
  if s in ("Medicina Crítica","Medicina Interna"):return s
  return p or "Evidencia clínica"
 def tone(area):return {"Medicina Crítica":"critica","Medicina Interna":"interna"}.get(area,"neutral")
-def minutes(value):return max(1,round(len(re.findall(r"\w+",plain(value)))/230))
-def readtime(r):
- full=minutes(r.get("cuerpo"));brief=minutes(r.get("corto")) if r.get("corto") else 0
- return f'{icon("clock")}<span>Completo {full} min</span>'+(f'<span>Breve {brief} min</span>' if brief else '')
 NAV=[("/","Edición actual"),("/medicina-critica/","Medicina Crítica"),("/medicina-interna/","Medicina Interna"),("/mapa/","Mapa de evidencia"),("/archivo/","Archivo")]
 MEMBER=[("/biblioteca.html","Mi biblioteca"),("/cuenta.html","Cuenta")]
 INFO=[("/metodologia/","Metodología"),("/correcciones/","Correcciones"),("/equipo-editorial/","Editorial"),("/privacidad/","Privacidad"),("/terminos/","Términos")]
-SOCIAL=[("https://t.me/ResumenesTrials","Telegram"),("https://x.com/resumenestrials","X · @resumenestrials")]
+SOCIAL=[("https://t.me/ResumenesTrials","Telegram"),("https://x.com/resumenestrials","X"+SEP+"@resumenestrials")]
 def brand(small=False):return '<a class="ev-brand" href="/" aria-label="Resúmenes Trials, ir al inicio"><span class="ev-brand-mark"><img src="/logo.png" width="40" height="40" alt=""></span><span class="ev-brand-name" aria-hidden="true">Resúmenes <b>Trials</b></span></a>'
 def header(home=False):
  search=('<form class="ev-search" role="search" action="/archivo/" method="get" data-ev-search-form>'
@@ -629,7 +629,7 @@ def document(source,body,route,kind="document",scripts="",title=None):
 FACTS=[("revista","Revista"),("anio","Año"),("fecha","Fecha"),("tipo_estudio","Tipo de estudio"),("especialidad_principal","Especialidad"),("especialidad_secundaria","Especialidad secundaria"),("temas","Temas"),("registro","Registro"),("doi","DOI"),("financiacion","Financiación")]
 LONG_FACTS=("tipo_estudio","temas","financiacion")
 def facts(r):
- return '<dl class="ev-study-facts">'+''.join(f'<div{' class="ev-fact-long"' if key in LONG_FACTS else ''}><dt>{label}</dt><dd data-ev-field="{key}">{esc("\u00a0· ".join(map(str,r[key])) if isinstance(r.get(key),list) else r.get(key))}</dd></div>' for key,label in FACTS if r.get(key) not in ("",None,[]))+'</dl>'
+ return '<dl class="ev-study-facts">'+''.join(f'<div{' class="ev-fact-long"' if key in LONG_FACTS else ''}><dt>{label}</dt><dd data-ev-field="{key}">{SEP.join(esc(x) for x in r[key]) if isinstance(r.get(key),list) else esc(r.get(key))}</dd></div>' for key,label in FACTS if r.get(key) not in ("",None,[]))+'</dl>'
 def card(r,manifest,sub="",hidden=False):
  """Tarjeta de un resumen. `sub` (portada y ediciones) deja ya en el HTML la etiqueta de subespecialidad que en el
  archivo añade ui/archive.js; `hidden` la deja oculta hasta que «Ver más» la muestra."""
@@ -641,8 +641,12 @@ def card(r,manifest,sub="",hidden=False):
   f'<div class="ev-card-tags"><span class="ev-area" data-tone="{tone(area)}">{esc(area)}</span>{tag}</div>'
   # La ficha de cada tarjeta se rellena al abrirla (ui/core.js): ~9,000 elementos menos en la portada.
   +f'<details class="ev-card-facts" data-ev-facts="{id}"><summary>Ficha del estudio</summary></details>'+
-  f'<div class="ev-card-foot"><p class="ev-readtime">{readtime(r)}</p><div class="ev-card-actions"><a class="ev-btn ev-btn-primary" href="{path}" data-ev-read="{id}" aria-label="Leer resumen: {t}">Leer</a>'
-  f'<details class="ev-pdf-menu"><summary class="ev-btn" aria-label="Descargar PDF de {t}">{icon("pdf")}<span>PDF</span></summary><div class="ev-pdf-pop"><button type="button" data-ev-card-pdf="{id}" data-ev-version="completo" aria-label="Descargar resumen completo PDF de {t}">PDF completo</button><button type="button" data-ev-card-pdf="{id}" data-ev-version="breve" aria-label="Descargar resumen breve PDF de {t}">PDF breve</button></div></details></div></div></li>')
+  # Cuatro botones iguales. «Escuchar» sale oculto: ui/core.js lo muestra si el resumen tiene audio (lista del almacén de
+  # audio); lleva al resumen con #escuchar, y allí reader-audio.js abre el reproductor y empieza a sonar.
+  f'<div class="ev-card-foot"><div class="ev-card-actions"><a class="ev-btn ev-btn-primary" href="{path}" data-ev-read="{id}" aria-label="Leer el resumen completo: {t}">Completo</a>'
+  +(f'<a class="ev-btn" href="/resumen.html?id={id}&amp;v=corto" data-ev-read="{id}" aria-label="Leer el resumen breve: {t}">Breve</a>' if r.get("corto") else '')+
+  f'<details class="ev-pdf-menu"><summary class="ev-btn" aria-label="Descargar PDF de {t}">PDF</summary><div class="ev-pdf-pop"><button type="button" data-ev-card-pdf="{id}" data-ev-version="completo" aria-label="Descargar resumen completo PDF de {t}">PDF completo</button><button type="button" data-ev-card-pdf="{id}" data-ev-version="breve" aria-label="Descargar resumen breve PDF de {t}">PDF breve</button></div></details>'
+  f'<a class="ev-btn" href="{path}#escuchar" data-ev-read="{id}" data-ev-card-listen="{id}" aria-label="Escuchar el resumen: {t}" hidden>Escuchar</a></div></div></li>')
 def by_date(items):
  """Mismo orden inicial que el archivo en el navegador (más recientes primero, empates estables).
 
@@ -674,7 +678,7 @@ def archive(items,manifest,title="Archivo de evidencia",scope=""):
    +''.join(f'<label><input type="radio" name="ev-area" value="{v}"{" checked" if not v else ""}><span>{l}</span></label>' for v,l in [("","Todas"),("Medicina Crítica","Medicina Crítica"),("Medicina Interna","Medicina Interna")])+'</div>')
  quick_year=max((int(r["anio"]) for r in items if "Medicina Crítica" in [r.get("especialidad_principal"),r.get("especialidad_secundaria")] and str(r.get("anio","")).isdigit()),default=0)
  top=[t for t,_ in Counter(t for r in items for t in (r.get("temas") or [])).most_common(5)]
- quick=('<div class="ev-quick"><span class="ev-quick-label">Atajos</span><div class="ev-quick-row">'+(f'<button class="ev-chip ev-chip-strong" type="button" data-ev-preset="{quick_year}">Medicina Crítica · {quick_year}</button>' if quick_year and not scope else '')
+ quick=('<div class="ev-quick"><span class="ev-quick-label">Atajos</span><div class="ev-quick-row">'+(f'<button class="ev-chip ev-chip-strong" type="button" data-ev-preset="{quick_year}">Medicina Crítica{SEP}{quick_year}</button>' if quick_year and not scope else '')
   +''.join(f'<button class="ev-chip" type="button" data-ev-topic="{esc(t)}">{esc(t)}</button>' for t in top)+'</div></div>') if (top or quick_year) else ''
  fields=[("sub","Subespecialidad"),("topic","Tema"),("year","Año"),("journal","Revista"),("type","Tipo de estudio")]
  filters=('<div id="ev-filters" class="ev-filters" hidden><div class="ev-filters-grid">'+''.join(f'<div class="ev-field"><label for="ev-{k}">{l}</label><select id="ev-{k}" data-ev-filter="{k}"><option value="">Todos</option></select></div>' for k,l in fields)
@@ -752,23 +756,20 @@ def edition_lead(r,manifest,label):
  source='<p class="ev-byline">'+''.join(f'<span>{esc(x)}</span>' for x in (author,r.get("revista"),human_date(r.get("fecha"))) if x)+'</p>'
  finding=((f'<h3>Pregunta</h3><p class="ev-intro">{esc(r["objetivo"])}</p>' if r.get("objetivo") else '')
   +(f'<h3>Hallazgo principal</h3><p class="ev-intro ev-ed-answer">{r["hallazgo"]}</p>' if r.get("hallazgo") else ''))
- brief=f'<a class="ev-btn" href="/resumen.html?id={id}&amp;v=corto">En breve · {minutes(r.get("corto"))} min</a>' if r.get("corto") else ''
+ brief=f'<a class="ev-btn" href="/resumen.html?id={id}&amp;v=corto">En breve</a>' if r.get("corto") else ''
  return (f'<article class="ev-ed-lead">{label}{tags}{title}{source}'+(f'<div class="ev-ed-finding">{finding}</div>' if finding else '')
-  +f'<div class="ev-actions-row"><a class="ev-btn ev-btn-primary" href="{path}" data-ev-read="{id}">Leer el resumen · {minutes(r.get("cuerpo"))} min</a>{brief}</div></article>')
+  +f'<div class="ev-actions-row"><a class="ev-btn ev-btn-primary" href="{path}" data-ev-read="{id}">Leer el resumen</a>{brief}</div></article>')
 def edition_item(r,manifest):
- id=trial_id(r["id"]);acronym,rest=title_parts(r["titulo"]);d=iso_date(r.get("fecha"))
+ id=trial_id(r["id"]);acronym,rest=title_parts(r["titulo"]);d=iso_date(r.get("fecha"));area=area_of(r)
  when=f"{d.day} {MONTHS3[d.month-1]} {d.year}" if d else str(r.get("fecha") or "")
- return (f'<li><a class="ev-ed-item" href="{esc(manifest[id]["path"])}" data-ev-read="{id}"><span class="ev-ed-item-title">'+(f'<b>{esc(acronym)}</b>: ' if acronym else '')+f'{esc(rest)}</span>'
-  f'<span class="ev-card-meta"><span>{esc(r["revista"])}</span><span>{esc(when)}</span><span>{minutes(r.get("cuerpo"))} min</span></span></a></li>')
+ return (f'<li><a class="ev-ed-item" href="{esc(manifest[id]["path"])}" data-ev-read="{id}"><span class="ev-area" data-tone="{tone(area)}">{esc(area)}</span><span class="ev-ed-item-title">'+(f'<b>{esc(acronym)}</b>: ' if acronym else '')+f'{esc(rest)}</span>'
+  f'<span class="ev-card-meta"><span>{esc(r["revista"])}</span><span>{esc(when)}</span></span></a></li>')
 def edition_toc(rest,manifest,total):
- """Sumario: los demás ensayos de la semana por área; los siete primeros a la vista y el resto en un desplegable."""
- shown=hidden="";left=7
- for area in ("Medicina Crítica","Medicina Interna"):
-  rows=[r for r in rest if (area_of(r)=="Medicina Crítica")==(area=="Medicina Crítica")]
-  if not rows:continue
-  head=f'<h3 class="ev-area" data-tone="{tone(area)}">{area}</h3>';first,later=rows[:left],rows[left:];left-=len(first)
-  if first:shown+=head+'<ul class="ev-ed-list">'+''.join(edition_item(r,manifest) for r in first)+'</ul>'
-  if later:hidden+=('' if first else head)+'<ul class="ev-ed-list">'+''.join(edition_item(r,manifest) for r in later)+'</ul>'
+ """Sumario: los demás ensayos de la semana, primero los de Medicina Crítica y después los de Medicina Interna, cada uno
+ con su especialidad; los siete primeros a la vista y el resto en un desplegable cuyo botón queda al final de la lista."""
+ rows=[r for area in ("Medicina Crítica","Medicina Interna") for r in rest if (area_of(r)=="Medicina Crítica")==(area=="Medicina Crítica")]
+ shown='<ul class="ev-ed-list">'+''.join(edition_item(r,manifest) for r in rows[:7])+'</ul>' if rows else ''
+ hidden='<ul class="ev-ed-list">'+''.join(edition_item(r,manifest) for r in rows[7:])+'</ul>' if rows[7:] else ''
  more=len(rest)-7
  details=('<details class="ev-ed-more"><summary class="ev-btn"><span>'+(f'Ver los {more} restantes' if more!=1 else 'Ver el restante')+'</span><span>Mostrar menos</span></summary>'+hidden+'</details>') if hidden else ''
  count="1 resumen" if total==1 else f"{total} resúmenes"
@@ -787,8 +788,8 @@ def cover(items,manifest,monday=None):
  eds=editions(items)
  if not eds:return '<div class="ev-doc"><p class="ev-eyebrow">Edición actual</p><h2>Todavía no hay una edición semanal</h2><div class="ev-actions-row"><a class="ev-btn ev-btn-primary" href="/archivo/">Ir al archivo</a></div></div>'
  home=monday is None;index=len(eds)-1 if home else [m for m,_ in eds].index(monday);monday,rows=eds[index]
- label=(f'<p class="ev-eyebrow ev-ed-label">Edición actual · {edition_range(monday)}</p>' if home
-  else f'<div class="ev-ed-top"><h1 class="ev-eyebrow ev-ed-label">Edición anterior · {edition_range(monday)}</h1><a href="/">Volver a la edición actual</a></div>')
+ label=(f'<p class="ev-eyebrow ev-ed-label">Edición actual{SEP}{edition_range(monday)}</p>' if home
+  else f'<div class="ev-ed-top"><h1 class="ev-eyebrow ev-ed-label">Edición anterior{SEP}{edition_range(monday)}</h1><a href="/">Volver a la edición actual</a></div>')
  # Tarjetas (decisión del editor, 16-nov-2026): debajo del bloque de la edición, como en la portada anterior al rediseño.
  cards=('<div class="ev-feed"><div class="ev-archive-head"><h2>Biblioteca de ensayos</h2></div>'+feed(library(items),manifest)+'</div>') if home else ''
  return (f'<section class="ev-ed" data-ev-edition="{monday}">'+edition_nav(eds,index)+'<div class="ev-ed-grid">'+edition_lead(rows[0],manifest,label)+edition_toc(rows[1:],manifest,len(rows))+'</div>'+cards
@@ -850,7 +851,7 @@ def evidence_map(items,manifest,clusters):
   if not rs:return "<td></td>"
   return (f'<td><button type="button" class="ev-map-cell" aria-pressed="false" aria-label="{esc(name)}, {bins[b]}: {map_count(len(rs))}">'
    +"".join(f'<i data-id="{trial_id(r["id"])}" data-sub="{map_tone(r,subs)}" data-j="{journal(r)}"></i>' for r in sorted(rs,key=order))+'</button></td>')
- body="".join(f'<tr data-ev-row="{esc(key)}"><th scope="row">{esc(name)}<small>{area} · {map_count(len(rs))}</small></th>'
+ body="".join(f'<tr data-ev-row="{esc(key)}"><th scope="row">{esc(name)}<small>{area}{SEP}{map_count(len(rs))}</small></th>'
   +"".join(cell(name,b,[r for r in rs if map_bin(r)==b]) for b in range(len(bins)))+'</tr>' for key,name,area,rs in rows)
  seg=lambda name,label,options:(f'<div><span class="ev-quick-label" id="ev-map-{name}-l">{label}</span><div class="ev-segment" role="radiogroup" aria-labelledby="ev-map-{name}-l">'
   +"".join(f'<label><input type="radio" name="ev-map-{name}" value="{v}"{"" if i else " checked"}><span>{l}</span></label>' for i,(v,l) in enumerate(options))+'</div></div>')
@@ -897,7 +898,7 @@ def reading(r,manifest,brief=False,legacy=False):
   f'<header class="ev-reading-head">{SIGNAL}<h1 data-ev-field="titulo">{esc(r["titulo"])}</h1>'
   f'<p class="ev-byline"><span data-ev-field="autor">{esc(r["autor"])}</span><span data-ev-field="revista">{esc(r["revista"])}</span><span data-ev-field="fecha">{esc(human_date(r["fecha"]))}</span></p>{"" if brief else LISTEN_SLOT}'
   f'<div class="ev-keyfinding"><p class="ev-keyfinding-label">{icon("spark")}Hallazgo principal</p><p data-ev-field="hallazgo" class="ev-lead">{r["hallazgo"]}</p></div>'
-  f'<p class="ev-readtime">{readtime(r)}</p>{editorial_dates(r)}{audit_notice(id,audit())}</header>'
+  f'{editorial_dates(r)}{audit_notice(id,audit())}</header>'
   '<details class="ev-facts" open><summary>Ficha técnica del estudio</summary>'+facts(r)+'</details>'+toolbar+'<progress class="ev-progress" max="100" value="0" aria-label="Progreso de lectura"></progress>'
   '<div class="ev-reader-grid">'+article+'<aside class="ev-rail"><p class="ev-rail-title">En esta página</p><nav data-ev-toc aria-label="Secciones del artículo"></nav></aside></div>'
   f'<div class="ev-endmatter">{audit_errata(id,audit())}{video_block(r,manifest,load_videos()) if not legacy else ""}<p class="ev-original"><span class="ev-original-label">Artículo original</span>{original}</p>{question_block(r,manifest) if not legacy else ""}{METHOD_NOTE}{SUBSCRIBE_NOTE}<nav class="ev-neighbors" aria-label="Continuidad de lectura" data-ev-neighbors></nav><section class="ev-related"><h2>Evidencia relacionada</h2><ul class="ev-list" data-ev-related></ul></section><p class="ev-status" id="ev-reader-status" role="status"></p></div></section>')
@@ -931,9 +932,9 @@ def video_page(r,v,manifest):
   {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":f"{BASE}/"},{"@type":"ListItem","position":2,"name":plain(r["titulo"]),"item":BASE+trial},{"@type":"ListItem","position":3,"name":"Video","item":BASE+route}]}]}
  t=esc(v["titulo"])
  body=('<div class="ev-doc ev-doc-text ev-video-page"><nav class="ev-breadcrumb" aria-label="Ruta"><a href="'+esc(trial)+'">'+icon("arrow-left")+'Volver al resumen</a></nav>'
-  '<p class="ev-eyebrow">Video · EMEICRÍTICA</p><h1>'+t+'</h1>'
+  '<p class="ev-eyebrow">Video'+SEP+'EMEICRÍTICA</p><h1>'+t+'</h1>'
   f'<div class="ev-video-frame"><iframe src="https://www.youtube-nocookie.com/embed/{esc(y)}" title="{t}" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>'
-  f'<p class="ev-doc-date">Publicado el {esc(human_date(v["fecha_subida"]))} · {video_minutes(v["duracion"])} min</p>'
+  f'<p class="ev-doc-date">Publicado el {esc(human_date(v["fecha_subida"]))}{SEP}{video_minutes(v["duracion"])} min</p>'
   '<article class="ev-prose"><p>'+esc(v["descripcion"])+'</p>'
   f'<p>Resumen crítico completo del ensayo: <a href="{esc(trial)}">{esc(r["titulo"])}</a>.</p>'
   f'<p>Fuente: {esc(r["autor"])} et al. {esc(r["revista"])}, {esc(r["anio"])}. DOI {esc(r.get("doi"))}.</p>'
