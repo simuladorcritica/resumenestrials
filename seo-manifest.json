@@ -3610,8 +3610,8 @@
     "title": "PADN-HF-PH: denervación pulmonar en la hipertensión pulmonar relacionada con insuficiencia cardiaca",
     "relacionados": [
       66,
-      62,
-      59
+      347,
+      62
     ],
     "seo_title": "PADN-HF-PH trial: denervación pulmonar en la hipertensión pulmonar relacionada con insuficiencia cardiaca | Resúmenes Trials",
     "description": "PADN-HF-PH: El empeoramiento clínico fue menos frecuente con la denervación de la arteria pulmonar: 25 de 134 pacientes (25.7% a 2 años) frente a 42 de 130…",
@@ -3674,7 +3674,7 @@
     "relacionados": [
       333,
       149,
-      52
+      230
     ],
     "seo_title": "CLASSIC trial: restricción de líquidos intravenosos en pacientes de UCI con shock séptico | Resúmenes Trials",
     "description": "CLASSIC: La mortalidad a los 90 días no mostró diferencia significativa entre los grupos: 42.3% en el grupo de restricción de fluidos frente a 42.1% en el…",
@@ -7457,7 +7457,7 @@
     "relacionados": [
       228,
       226,
-      204
+      193
     ],
     "seo_title": "ATN trial: intensidad del soporte renal en pacientes en estado crítico con lesión renal aguda | Resúmenes Trials",
     "description": "ATN: La mortalidad a 60 días fue del 53.6% con la estrategia intensiva frente al 51.5% con la menos intensiva , sin diferencia significativa (razón de momios…",
@@ -8538,7 +8538,7 @@
     "url": "https://resumenestrials.com/trials/hyperion-sotatercept-hipertension-arterial-pulmonar-dentro-primer-ano-tras-diagnostico/",
     "title": "HYPERION: sotatercept para la hipertensión arterial pulmonar dentro del primer año tras el diagnóstico",
     "relacionados": [
-      111
+      347
     ],
     "seo_title": "HYPERION trial: sotatercept para la hipertensión arterial pulmonar dentro del primer año tras el diagnóstico | Resúmenes Trials",
     "description": "HYPERION: El empeoramiento clínico ocurrió en el 10.6% frente al 36.9% (HR 0.24; IC 95% 0.14-0.41; P<0.001), con un número necesario a tratar de 5 a los 12…",
@@ -10900,6 +10900,41 @@
       "question": "Evaluar si el upadacitinib a 15 o 7.5 mg una vez al día, con una reducción de glucocorticoides en 26 semanas, aumenta frente a placebo con una reducción en 52 semanas la proporción de pacientes con arteritis de células gigantes en remisión sostenida en la semana 52.",
       "answer": "Con upadacitinib 15 mg y reducción de glucocorticoides en 26 semanas, la remisión sostenida en la semana 52 fue del 46.4% , frente al 29.0% con placebo y reducción en 52 semanas (diferencia ajustada 17.1 puntos ; IC 95% 6.3 a 27.8; P=0.002).",
       "population": "Se incluyó a adultos de 50 años o más con arteritis de células gigantes (ACG) de debut, diagnosticada en las 8 semanas previas, o en recaída tras fracasar al menos una pauta de reducción de glucocorticoides, confirmada por biopsia temporal o por imagen. La enfermedad debía haber estado activa en las 8 semanas previas, con síntomas craneales inequívocos, polimialgia reumática o ambos, y velocidad de sedimentación globular (VSG)…"
+    },
+    "datePublished": "2026-11-18"
+  },
+  "347": {
+    "slug": "zenith-sotatercept-pacientes-hipertension-arterial-pulmonar-alto-riesgo-muerte",
+    "path": "/trials/zenith-sotatercept-pacientes-hipertension-arterial-pulmonar-alto-riesgo-muerte/",
+    "url": "https://resumenestrials.com/trials/zenith-sotatercept-pacientes-hipertension-arterial-pulmonar-alto-riesgo-muerte/",
+    "title": "ZENITH: sotatercept en pacientes con hipertensión arterial pulmonar con alto riesgo de muerte",
+    "relacionados": [
+      268,
+      111
+    ],
+    "seo_title": "ZENITH trial: sotatercept en pacientes con hipertensión arterial pulmonar con alto riesgo de muerte | Resúmenes Trials",
+    "description": "ZENITH: Añadir sotatercept al tratamiento de fondo redujo el compuesto de muerte, trasplante pulmonar u hospitalización por empeoramiento: 17.4% con…",
+    "clusters": [
+      {
+        "name": "Cardiología y prevención cardiovascular",
+        "path": "/medicina-interna/cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-interna/cardiovascular/"
+      },
+      {
+        "name": "Neumología",
+        "path": "/medicina-interna/neumologia/",
+        "url": "https://resumenestrials.com/medicina-interna/neumologia/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/zenith-sotatercept-pacientes-hipertension-arterial-pulmonar-alto-riesgo-muerte-16x9.jpg",
+      "https://resumenestrials.com/images/trials/zenith-sotatercept-pacientes-hipertension-arterial-pulmonar-alto-riesgo-muerte-4x3.jpg",
+      "https://resumenestrials.com/images/trials/zenith-sotatercept-pacientes-hipertension-arterial-pulmonar-alto-riesgo-muerte-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Evaluar si añadir sotatercept al tratamiento de fondo máximo tolerado reduce la muerte, el trasplante pulmonar o la hospitalización por empeoramiento en adultos con hipertensión arterial pulmonar en clase funcional III o IV y alto riesgo de muerte.",
+      "answer": "Añadir sotatercept al tratamiento de fondo redujo el compuesto de muerte, trasplante pulmonar u hospitalización por empeoramiento: 17.4% con sotatercept frente a 54.7% con placebo ( HR 0.24; IC 95% 0.13 a 0.43; P<0.001 ).",
+      "population": "Se incluyó a adultos de 18 a 75 años con hipertensión arterial pulmonar (HAP) sintomática del grupo 1 de la Organización Mundial de la Salud (OMS), idiopática, heredable, por fármacos o tóxicos, asociada a enfermedad del tejido conectivo o a cortocircuitos congénitos corregidos hacía al menos 1 año. Debían estar en clase funcional III o IV de la OMS (de I a IV; más alta, más limitación) y tener 9 o más puntos en la calculadora…"
     },
     "datePublished": "2026-11-18"
   }

@@ -269,7 +269,7 @@
     "category": "Medicina Interna",
     "path": "/medicina-interna/cardiovascular/",
     "url": "https://resumenestrials.com/medicina-interna/cardiovascular/",
-    "count": 79,
+    "count": 80,
     "trial_ids": [
       "15",
       "18",
@@ -349,7 +349,8 @@
       "316",
       "324",
       "327",
-      "328"
+      "328",
+      "347"
     ]
   },
   "infecciosas": {
@@ -475,7 +476,7 @@
     "category": "Medicina Interna",
     "path": "/medicina-interna/neumologia/",
     "url": "https://resumenestrials.com/medicina-interna/neumologia/",
-    "count": 22,
+    "count": 23,
     "trial_ids": [
       "17",
       "43",
@@ -498,7 +499,8 @@
       "334",
       "336",
       "337",
-      "338"
+      "338",
+      "347"
     ]
   }
 }
