@@ -468,6 +468,29 @@
           "frase": "Determinar si la alteplasa intravenosa administrada entre las 4.5 y las 24 horas tras el inicio aumenta la independencia funcional a 90 días, frente al tratamiento médico estándar, en adultos con ictus isquémico de la circulación posterior"
         }
       }
+    },
+    {
+      "id": 346,
+      "fecha": "2026-11-18",
+      "huella": "4e43ade22e4a8407",
+      "preguntas": {
+        "corticoides-choque-septico": {
+          "rol": "nada",
+          "frase": "Se incluyó a adultos de 50 años o más con arteritis de células gigantes (ACG) de debut"
+        },
+        "cuando-iniciar-terapia-reemplazo-renal-lesion-renal-aguda": {
+          "rol": "nada",
+          "frase": "Se incluyó a adultos de 50 años o más con arteritis de células gigantes (ACG) de debut"
+        },
+        "meta-oxigenacion-paciente-critico": {
+          "rol": "nada",
+          "frase": "Se incluyó a adultos de 50 años o más con arteritis de células gigantes (ACG) de debut"
+        },
+        "restriccion-liquidos-choque-septico-hipotension-sepsis": {
+          "rol": "nada",
+          "frase": "Se incluyó a adultos de 50 años o más con arteritis de células gigantes (ACG) de debut"
+        }
+      }
     }
   ],
   "preguntas": [
