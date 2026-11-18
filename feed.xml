@@ -4,8 +4,15 @@
   <id>https://resumenestrials.com/</id>
   <link href="https://resumenestrials.com/"/>
   <link rel="self" type="application/atom+xml" href="https://resumenestrials.com/feed.xml"/>
-  <updated>2026-11-17T00:00:00Z</updated>
+  <updated>2026-11-18T00:00:00Z</updated>
   <subtitle>Resúmenes críticos en español de ensayos clínicos.</subtitle>
+  <entry>
+    <title>GEMINI-1: ribupatida una vez por semana para perder peso en adultos de China con sobrepeso u obesidad</title>
+    <id>https://resumenestrials.com/trials/gemini-1-ribupatida-vez-semana-perder-peso-adultos-china-sobrepeso-u/</id>
+    <link href="https://resumenestrials.com/trials/gemini-1-ribupatida-vez-semana-perder-peso-adultos-china-sobrepeso-u/"/>
+    <updated>2026-11-18T00:00:00Z</updated>
+    <summary>Evaluar la eficacia y la seguridad de la ribupatida subcutánea una vez por semana (dosis objetivo de 2, 4 o 6 mg) frente a placebo, sumada a modificación del estilo de vida, para reducir el peso corporal en adultos de China con sobrepeso u obesidad sin diabetes.</summary>
+  </entry>
   <entry>
     <title>ORIENTAL-MeVO: tratamiento endovascular del ictus por oclusión de vaso mediano</title>
     <id>https://resumenestrials.com/trials/oriental-mevo-trombectomia-endovascular-ictus-oclusion-vaso-mediano/</id>
@@ -348,12 +355,5 @@
     <link href="https://resumenestrials.com/trials/vasspr-umbral-umbral-alto-iniciar-vasopresina-shock-septico/"/>
     <updated>2026-11-13T00:00:00Z</updated>
     <summary>Determinar si una estrategia hospitalaria que recomienda iniciar vasopresina con un umbral bajo de otros vasopresores reduce la mortalidad a 28 días frente a un umbral alto en adultos con shock séptico.</summary>
-  </entry>
-  <entry>
-    <title>SAVE-O2 AI: titulación autónoma del oxígeno para mantener la normoxemia en adultos con enfermedad aguda</title>
-    <id>https://resumenestrials.com/trials/save-o2-ai-titulacion-autonoma-oxigeno-titulacion-manual-adultos-hospitalizados/</id>
-    <link href="https://resumenestrials.com/trials/save-o2-ai-titulacion-autonoma-oxigeno-titulacion-manual-adultos-hospitalizados/"/>
-    <updated>2026-11-13T00:00:00Z</updated>
-    <summary>Determinar si un sistema que titula el oxígeno de forma autónoma aumenta el tiempo en normoxemia frente a la titulación manual en adultos hospitalizados con oxígeno suplementario.</summary>
   </entry>
 </feed>

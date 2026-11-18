@@ -353,6 +353,29 @@
           "frase": "para reducir la presión sistólica media de 24 horas en adultos con hipertensión no controlada o resistente"
         }
       }
+    },
+    {
+      "id": 341,
+      "fecha": "2026-11-18",
+      "huella": "7d28c0ba0a68d2af",
+      "preguntas": {
+        "corticoides-choque-septico": {
+          "rol": "nada",
+          "frase": "Evaluar la eficacia y la seguridad de la ribupatida subcutánea una vez por semana (dosis objetivo de 2, 4 o 6 mg) frente a placebo, sumada a modificación del estilo de vida, para reducir el peso corporal en adultos de China con sobrepeso u obesidad sin diabetes."
+        },
+        "cuando-iniciar-terapia-reemplazo-renal-lesion-renal-aguda": {
+          "rol": "nada",
+          "frase": "Evaluar la eficacia y la seguridad de la ribupatida subcutánea una vez por semana (dosis objetivo de 2, 4 o 6 mg) frente a placebo, sumada a modificación del estilo de vida, para reducir el peso corporal en adultos de China con sobrepeso u obesidad sin diabetes."
+        },
+        "meta-oxigenacion-paciente-critico": {
+          "rol": "nada",
+          "frase": "Evaluar la eficacia y la seguridad de la ribupatida subcutánea una vez por semana (dosis objetivo de 2, 4 o 6 mg) frente a placebo, sumada a modificación del estilo de vida, para reducir el peso corporal en adultos de China con sobrepeso u obesidad sin diabetes."
+        },
+        "restriccion-liquidos-choque-septico-hipotension-sepsis": {
+          "rol": "nada",
+          "frase": "Evaluar la eficacia y la seguridad de la ribupatida subcutánea una vez por semana (dosis objetivo de 2, 4 o 6 mg) frente a placebo, sumada a modificación del estilo de vida, para reducir el peso corporal en adultos de China con sobrepeso u obesidad sin diabetes."
+        }
+      }
     }
   ],
   "preguntas": [
