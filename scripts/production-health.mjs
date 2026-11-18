@@ -71,7 +71,10 @@ await check('/',(b)=>{
   assert(weeks.length>0,'No hay ninguna edición semanal');
   editionCheck(weeks.at(-1),'La portada')(b);
   assert(b.includes('<h1>Evidencia sin ruido</h1>')&&(b.match(/<h1\b/g)||[]).length===1,'Portada sin su único h1');
-  assert(!b.includes('class="ev-card" data-id=')&&!b.includes('data-ev-ids='),'La portada no debe incluir el archivo');
+  // Desde el 16-nov-2026 la portada lleva, bajo la edición, la tarjeta de cada ensayo («Portada con tarjetas»); lo que no lleva
+  // son las herramientas del archivo (lista con buscador, contador y filtros), que viven en /archivo/.
+  assert((b.match(/<ul class="ev-list" data-ev-feed>/g)||[]).length===1&&(b.match(/class="ev-card" data-id=/g)||[]).length===expected.length,'La portada no trae la tarjeta de cada ensayo');
+  assert(!/id="ev-list"|id="ev-count"|data-ev-ids=|data-ev-filter=/.test(b),'La portada no debe incluir el buscador ni los filtros del archivo');
   assert((b.match(/class="ev-band"/g)||[]).length===1&&b.includes('<a class="ev-btn" href="/mapa/">Explorar el mapa</a>'),'Portada sin la franja del mapa de evidencia');
 });
 await check('/archivo/',(b)=>{
