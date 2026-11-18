@@ -36,6 +36,9 @@ Material educativo para profesionales de la salud. La referencia final es siempr
 
 ## Resúmenes de ensayos
 
+- [HERCULES: tolebrutinib en la esclerosis múltiple secundaria progresiva no recurrente](https://resumenestrials.com/trials/hercules-tolebrutinib-esclerosis-multiple-secundaria-progresiva-no-recurrente/): NEJM, 2025.
+- [GEMINI 1 y GEMINI 2: tolebrutinib frente a teriflunomida en la esclerosis múltiple recurrente](https://resumenestrials.com/trials/gemini-1-y-gemini-2-tolebrutinib-teriflunomida-esclerosis-multiple-recurrente/): NEJM, 2025.
+- [GEMINI-1: ribupatida una vez por semana para perder peso en adultos de China con sobrepeso u obesidad](https://resumenestrials.com/trials/gemini-1-ribupatida-vez-semana-perder-peso-adultos-china-sobrepeso-u/): JAMA, 2026.
 - [Advance-HTN: eficacia y seguridad del lorundrostat en pacientes con hipertensión no controlada](https://resumenestrials.com/trials/advance-htn-eficacia-seguridad-lorundrostat-pacientes-hipertension-no-controlada/): NEJM, 2025.
 - [CENTERSTONE: eficacia del tratamiento con baloxavir para prevenir la transmisión de la influenza](https://resumenestrials.com/trials/centerstone-eficacia-tratamiento-baloxavir-prevenir-transmision-influenza/): NEJM, 2025.
 - [ASPEN: ensayo de fase 3 del inhibidor de la DPP-1 brensocatib en las bronquiectasias](https://resumenestrials.com/trials/aspen-ensayo-fase-3-inhibidor-dpp-1-brensocatib-bronquiectasias/): NEJM, 2025.
