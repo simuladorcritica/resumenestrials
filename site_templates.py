@@ -33,6 +33,9 @@ METHOD_NOTE=('<div class="ev-method"><span class="ev-original-label">Cómo se el
 # Sitio reservado, bajo el título y la firma del resumen completo, para «Escuchar el resumen» (reader-audio.js): así el
 # texto no salta cuando el botón aparece. Si el resumen no tiene audio, el módulo lo retira.
 LISTEN_SLOT='<div class="ev-listen-slot" data-ev-listen-slot></div>'
+# Lo mismo en la barra de controles, donde el acceso «Escuchar» solo se muestra desde 900 px: el hueco tiene su ancho y
+# el módulo lo cambia por el botón; así «Modo lectura» no se desplaza cuando el botón llega. Sin audio, se retira.
+LISTEN_GAP='<span class="ev-listen-gap" data-ev-listen-gap aria-hidden="true"></span>'
 SUBSCRIBE_NOTE=('<div class="ev-method ev-subscribe"><span class="ev-original-label">Avisos por correo</span>'
  '<span>Recibe un aviso cuando publiquemos un resumen nuevo. Es gratis y puedes darte de baja cuando quieras.</span>'
  '<span class="ev-method-links"><a href="/registro.html">Crear cuenta y activar avisos</a><a href="/cuenta.html">Ya tengo cuenta</a></span></div>')
@@ -884,7 +887,7 @@ def reading(r,manifest,brief=False,legacy=False):
  route=manifest[id]["path"];full=f"/resumen.html?id={id}" if legacy else route;short=f"/resumen.html?id={id}&amp;v=corto"
  toolbar=(f'<div class="ev-toolbar" role="region" aria-label="Controles de lectura"><div class="ev-version" role="group" aria-label="Versión del resumen"><a href="{full}"'+(' aria-current="page"' if not brief else '')+f'>Completo</a><a href="{short}"'+(' aria-current="page"' if brief else '')+'>Breve</a></div>'
   '<button type="button" class="ev-tool" data-ev-sections>'+icon("list")+'<span>Índice</span></button>'
-  '<button type="button" class="ev-tool" data-ev-pdf aria-haspopup="dialog">'+icon("pdf")+'<span>PDF</span></button>'
+  '<button type="button" class="ev-tool" data-ev-pdf aria-haspopup="dialog">'+icon("pdf")+'<span>PDF</span></button>'+("" if brief else LISTEN_GAP)+
   '<button type="button" class="ev-tool" data-ev-focus aria-pressed="false">'+icon("read")+'<span>Modo lectura</span></button>'
   '<button type="button" class="ev-tool ev-more-toggle" data-ev-more aria-expanded="false" aria-controls="ev-more-tools">'+icon("more")+'<span>Más</span></button>'
   '<div class="ev-more-tools" id="ev-more-tools"><button type="button" class="ev-tool" data-ev-save>'+icon("bookmark")+'<span>Guardar</span></button><button type="button" class="ev-tool" data-ev-share>'+icon("share")+'<span>Compartir</span></button><button type="button" class="ev-tool" data-ev-font aria-label="Cambiar tamaño de letra">'+icon("text")+'<span>Letra</span></button></div></div>')
