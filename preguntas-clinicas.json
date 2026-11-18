@@ -353,6 +353,121 @@
           "frase": "para reducir la presión sistólica media de 24 horas en adultos con hipertensión no controlada o resistente"
         }
       }
+    },
+    {
+      "id": 341,
+      "fecha": "2026-11-18",
+      "huella": "7d28c0ba0a68d2af",
+      "preguntas": {
+        "corticoides-choque-septico": {
+          "rol": "nada",
+          "frase": "Evaluar la eficacia y la seguridad de la ribupatida subcutánea una vez por semana (dosis objetivo de 2, 4 o 6 mg) frente a placebo, sumada a modificación del estilo de vida, para reducir el peso corporal en adultos de China con sobrepeso u obesidad sin diabetes."
+        },
+        "cuando-iniciar-terapia-reemplazo-renal-lesion-renal-aguda": {
+          "rol": "nada",
+          "frase": "Evaluar la eficacia y la seguridad de la ribupatida subcutánea una vez por semana (dosis objetivo de 2, 4 o 6 mg) frente a placebo, sumada a modificación del estilo de vida, para reducir el peso corporal en adultos de China con sobrepeso u obesidad sin diabetes."
+        },
+        "meta-oxigenacion-paciente-critico": {
+          "rol": "nada",
+          "frase": "Evaluar la eficacia y la seguridad de la ribupatida subcutánea una vez por semana (dosis objetivo de 2, 4 o 6 mg) frente a placebo, sumada a modificación del estilo de vida, para reducir el peso corporal en adultos de China con sobrepeso u obesidad sin diabetes."
+        },
+        "restriccion-liquidos-choque-septico-hipotension-sepsis": {
+          "rol": "nada",
+          "frase": "Evaluar la eficacia y la seguridad de la ribupatida subcutánea una vez por semana (dosis objetivo de 2, 4 o 6 mg) frente a placebo, sumada a modificación del estilo de vida, para reducir el peso corporal en adultos de China con sobrepeso u obesidad sin diabetes."
+        }
+      }
+    },
+    {
+      "id": 342,
+      "fecha": "2026-11-18",
+      "huella": "129d0c30a6a7a1db",
+      "preguntas": {
+        "corticoides-choque-septico": {
+          "rol": "nada",
+          "frase": "reduce la tasa anualizada de brotes frente a la teriflunomida en adultos con esclerosis múltiple recurrente"
+        },
+        "cuando-iniciar-terapia-reemplazo-renal-lesion-renal-aguda": {
+          "rol": "nada",
+          "frase": "reduce la tasa anualizada de brotes frente a la teriflunomida en adultos con esclerosis múltiple recurrente"
+        },
+        "meta-oxigenacion-paciente-critico": {
+          "rol": "nada",
+          "frase": "reduce la tasa anualizada de brotes frente a la teriflunomida en adultos con esclerosis múltiple recurrente"
+        },
+        "restriccion-liquidos-choque-septico-hipotension-sepsis": {
+          "rol": "nada",
+          "frase": "reduce la tasa anualizada de brotes frente a la teriflunomida en adultos con esclerosis múltiple recurrente"
+        }
+      }
+    },
+    {
+      "id": 343,
+      "fecha": "2026-11-18",
+      "huella": "456560b123e620ca",
+      "preguntas": {
+        "corticoides-choque-septico": {
+          "rol": "nada",
+          "frase": "tolebrutinib, un inhibidor oral de la tirosina cinasa de Bruton, retrasa frente a placebo la progresión confirmada de la discapacidad sostenida 6 meses en adultos con esclerosis múltiple secundaria progresiva no recurrente"
+        },
+        "cuando-iniciar-terapia-reemplazo-renal-lesion-renal-aguda": {
+          "rol": "nada",
+          "frase": "tolebrutinib, un inhibidor oral de la tirosina cinasa de Bruton, retrasa frente a placebo la progresión confirmada de la discapacidad sostenida 6 meses en adultos con esclerosis múltiple secundaria progresiva no recurrente"
+        },
+        "meta-oxigenacion-paciente-critico": {
+          "rol": "nada",
+          "frase": "tolebrutinib, un inhibidor oral de la tirosina cinasa de Bruton, retrasa frente a placebo la progresión confirmada de la discapacidad sostenida 6 meses en adultos con esclerosis múltiple secundaria progresiva no recurrente"
+        },
+        "restriccion-liquidos-choque-septico-hipotension-sepsis": {
+          "rol": "nada",
+          "frase": "tolebrutinib, un inhibidor oral de la tirosina cinasa de Bruton, retrasa frente a placebo la progresión confirmada de la discapacidad sostenida 6 meses en adultos con esclerosis múltiple secundaria progresiva no recurrente"
+        }
+      }
+    },
+    {
+      "id": 344,
+      "fecha": "2026-11-18",
+      "huella": "f02da57560bd1853",
+      "preguntas": {
+        "corticoides-choque-septico": {
+          "rol": "nada",
+          "frase": "Evaluar si el inebilizumab, frente a placebo, mejora el cambio en la escala de actividades de la vida diaria de la miastenia gravis (MG-ADL) a las 26 semanas en adultos con miastenia gravis generalizada"
+        },
+        "cuando-iniciar-terapia-reemplazo-renal-lesion-renal-aguda": {
+          "rol": "nada",
+          "frase": "Evaluar si el inebilizumab, frente a placebo, mejora el cambio en la escala de actividades de la vida diaria de la miastenia gravis (MG-ADL) a las 26 semanas en adultos con miastenia gravis generalizada"
+        },
+        "meta-oxigenacion-paciente-critico": {
+          "rol": "nada",
+          "frase": "Evaluar si el inebilizumab, frente a placebo, mejora el cambio en la escala de actividades de la vida diaria de la miastenia gravis (MG-ADL) a las 26 semanas en adultos con miastenia gravis generalizada"
+        },
+        "restriccion-liquidos-choque-septico-hipotension-sepsis": {
+          "rol": "nada",
+          "frase": "Evaluar si el inebilizumab, frente a placebo, mejora el cambio en la escala de actividades de la vida diaria de la miastenia gravis (MG-ADL) a las 26 semanas en adultos con miastenia gravis generalizada"
+        }
+      }
+    },
+    {
+      "id": 345,
+      "fecha": "2026-11-18",
+      "huella": "23ae94f5b4a87472",
+      "preguntas": {
+        "corticoides-choque-septico": {
+          "rol": "nada",
+          "frase": "Determinar si la alteplasa intravenosa administrada entre las 4.5 y las 24 horas tras el inicio aumenta la independencia funcional a 90 días, frente al tratamiento médico estándar, en adultos con ictus isquémico de la circulación posterior"
+        },
+        "cuando-iniciar-terapia-reemplazo-renal-lesion-renal-aguda": {
+          "rol": "nada",
+          "frase": "Determinar si la alteplasa intravenosa administrada entre las 4.5 y las 24 horas tras el inicio aumenta la independencia funcional a 90 días, frente al tratamiento médico estándar, en adultos con ictus isquémico de la circulación posterior"
+        },
+        "meta-oxigenacion-paciente-critico": {
+          "rol": "nada",
+          "frase": "Determinar si la alteplasa intravenosa administrada entre las 4.5 y las 24 horas tras el inicio aumenta la independencia funcional a 90 días, frente al tratamiento médico estándar, en adultos con ictus isquémico de la circulación posterior"
+        },
+        "restriccion-liquidos-choque-septico-hipotension-sepsis": {
+          "rol": "nada",
+          "frase": "Determinar si la alteplasa intravenosa administrada entre las 4.5 y las 24 horas tras el inicio aumenta la independencia funcional a 90 días, frente al tratamiento médico estándar, en adultos con ictus isquémico de la circulación posterior"
+        }
+      }
     }
   ],
   "preguntas": [

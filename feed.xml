@@ -4,8 +4,43 @@
   <id>https://resumenestrials.com/</id>
   <link href="https://resumenestrials.com/"/>
   <link rel="self" type="application/atom+xml" href="https://resumenestrials.com/feed.xml"/>
-  <updated>2026-11-17T00:00:00Z</updated>
+  <updated>2026-11-18T00:00:00Z</updated>
   <subtitle>Resúmenes críticos en español de ensayos clínicos.</subtitle>
+  <entry>
+    <title>GEMINI-1: ribupatida una vez por semana para perder peso en adultos de China con sobrepeso u obesidad</title>
+    <id>https://resumenestrials.com/trials/gemini-1-ribupatida-vez-semana-perder-peso-adultos-china-sobrepeso-u/</id>
+    <link href="https://resumenestrials.com/trials/gemini-1-ribupatida-vez-semana-perder-peso-adultos-china-sobrepeso-u/"/>
+    <updated>2026-11-18T00:00:00Z</updated>
+    <summary>Evaluar la eficacia y la seguridad de la ribupatida subcutánea una vez por semana (dosis objetivo de 2, 4 o 6 mg) frente a placebo, sumada a modificación del estilo de vida, para reducir el peso corporal en adultos de China con sobrepeso u obesidad sin diabetes.</summary>
+  </entry>
+  <entry>
+    <title>GEMINI 1 y GEMINI 2: tolebrutinib frente a teriflunomida en la esclerosis múltiple recurrente</title>
+    <id>https://resumenestrials.com/trials/gemini-1-y-gemini-2-tolebrutinib-teriflunomida-esclerosis-multiple-recurrente/</id>
+    <link href="https://resumenestrials.com/trials/gemini-1-y-gemini-2-tolebrutinib-teriflunomida-esclerosis-multiple-recurrente/"/>
+    <updated>2026-11-18T00:00:00Z</updated>
+    <summary>Determinar si el tolebrutinib, un inhibidor oral de la tirosina cinasa de Bruton que penetra en el sistema nervioso central, reduce la tasa anualizada de brotes frente a la teriflunomida en adultos con esclerosis múltiple recurrente, en dos ensayos gemelos.</summary>
+  </entry>
+  <entry>
+    <title>HERCULES: tolebrutinib en la esclerosis múltiple secundaria progresiva no recurrente</title>
+    <id>https://resumenestrials.com/trials/hercules-tolebrutinib-esclerosis-multiple-secundaria-progresiva-no-recurrente/</id>
+    <link href="https://resumenestrials.com/trials/hercules-tolebrutinib-esclerosis-multiple-secundaria-progresiva-no-recurrente/"/>
+    <updated>2026-11-18T00:00:00Z</updated>
+    <summary>Determinar si el tolebrutinib, un inhibidor oral de la tirosina cinasa de Bruton, retrasa frente a placebo la progresión confirmada de la discapacidad sostenida 6 meses en adultos con esclerosis múltiple secundaria progresiva no recurrente.</summary>
+  </entry>
+  <entry>
+    <title>MINT: ensayo de fase 3 de inebilizumab en la miastenia gravis generalizada</title>
+    <id>https://resumenestrials.com/trials/mint-ensayo-fase-3-inebilizumab-miastenia-gravis-generalizada/</id>
+    <link href="https://resumenestrials.com/trials/mint-ensayo-fase-3-inebilizumab-miastenia-gravis-generalizada/"/>
+    <updated>2026-11-18T00:00:00Z</updated>
+    <summary>Evaluar si el inebilizumab, frente a placebo, mejora el cambio en la escala de actividades de la vida diaria de la miastenia gravis (MG-ADL) a las 26 semanas en adultos con miastenia gravis generalizada con anticuerpos contra el receptor de acetilcolina o contra la cinasa específica del músculo.</summary>
+  </entry>
+  <entry>
+    <title>EXPECTS: alteplasa para el ictus isquémico de la circulación posterior entre las 4.5 y las 24 horas</title>
+    <id>https://resumenestrials.com/trials/expects-alteplasa-ictus-isquemico-circulacion-posterior-4-5-24-horas/</id>
+    <link href="https://resumenestrials.com/trials/expects-alteplasa-ictus-isquemico-circulacion-posterior-4-5-24-horas/"/>
+    <updated>2026-11-18T00:00:00Z</updated>
+    <summary>Determinar si la alteplasa intravenosa administrada entre las 4.5 y las 24 horas tras el inicio aumenta la independencia funcional a 90 días, frente al tratamiento médico estándar, en adultos con ictus isquémico de la circulación posterior sin hipodensidad extensa en la tomografía y sin trombectomía…</summary>
+  </entry>
   <entry>
     <title>ORIENTAL-MeVO: tratamiento endovascular del ictus por oclusión de vaso mediano</title>
     <id>https://resumenestrials.com/trials/oriental-mevo-trombectomia-endovascular-ictus-oclusion-vaso-mediano/</id>
@@ -320,40 +355,5 @@
     <link href="https://resumenestrials.com/trials/soap-ii-dopamina-noradrenalina-como-primer-vasopresor-shock/"/>
     <updated>2026-11-13T00:00:00Z</updated>
     <summary>Determinar si usar noradrenalina en lugar de dopamina como primer vasopresor reduce la mortalidad a 28 días en los pacientes con shock.</summary>
-  </entry>
-  <entry>
-    <title>VASST: infusión de vasopresina frente a noradrenalina en pacientes con shock séptico</title>
-    <id>https://resumenestrials.com/trials/vasst-vasopresina-noradrenalina-shock-septico/</id>
-    <link href="https://resumenestrials.com/trials/vasst-vasopresina-noradrenalina-shock-septico/"/>
-    <updated>2026-11-13T00:00:00Z</updated>
-    <summary>Determinar si añadir vasopresina en dosis baja, frente a noradrenalina, reduce la mortalidad a 28 días en el shock séptico tratado con catecolaminas.</summary>
-  </entry>
-  <entry>
-    <title>ALVEOLI: presiones positivas al final de la espiración más altas frente a más bajas en pacientes con síndrome de dificultad respiratoria aguda</title>
-    <id>https://resumenestrials.com/trials/alveoli-peep-alta-peep-baja-sdra-ventilado-volumen-corriente/</id>
-    <link href="https://resumenestrials.com/trials/alveoli-peep-alta-peep-baja-sdra-ventilado-volumen-corriente/"/>
-    <updated>2026-11-13T00:00:00Z</updated>
-    <summary>Determinar si una estrategia de PEEP alta, frente a una de PEEP baja, reduce la mortalidad en la lesión pulmonar aguda y el SDRA ventilados con volumen corriente bajo.</summary>
-  </entry>
-  <entry>
-    <title>SAVE-ICU: sedación inhalada con isoflurano en adultos con insuficiencia respiratoria hipoxémica aguda en ventilación mecánica</title>
-    <id>https://resumenestrials.com/trials/save-icu-sedacion-inhalada-isoflurano-sedacion-intravenosa-insuficiencia-respiratoria-hipoxemica/</id>
-    <link href="https://resumenestrials.com/trials/save-icu-sedacion-inhalada-isoflurano-sedacion-intravenosa-insuficiencia-respiratoria-hipoxemica/"/>
-    <updated>2026-11-13T00:00:00Z</updated>
-    <summary>Determinar si una estrategia de sedación inhalada con isoflurano reduce la mortalidad hospitalaria frente a la sedación intravenosa habitual en adultos ventilados con insuficiencia respiratoria hipoxémica aguda.</summary>
-  </entry>
-  <entry>
-    <title>VASSPR: efecto del umbral de inicio de la vasopresina sobre la mortalidad en el shock séptico</title>
-    <id>https://resumenestrials.com/trials/vasspr-umbral-umbral-alto-iniciar-vasopresina-shock-septico/</id>
-    <link href="https://resumenestrials.com/trials/vasspr-umbral-umbral-alto-iniciar-vasopresina-shock-septico/"/>
-    <updated>2026-11-13T00:00:00Z</updated>
-    <summary>Determinar si una estrategia hospitalaria que recomienda iniciar vasopresina con un umbral bajo de otros vasopresores reduce la mortalidad a 28 días frente a un umbral alto en adultos con shock séptico.</summary>
-  </entry>
-  <entry>
-    <title>SAVE-O2 AI: titulación autónoma del oxígeno para mantener la normoxemia en adultos con enfermedad aguda</title>
-    <id>https://resumenestrials.com/trials/save-o2-ai-titulacion-autonoma-oxigeno-titulacion-manual-adultos-hospitalizados/</id>
-    <link href="https://resumenestrials.com/trials/save-o2-ai-titulacion-autonoma-oxigeno-titulacion-manual-adultos-hospitalizados/"/>
-    <updated>2026-11-13T00:00:00Z</updated>
-    <summary>Determinar si un sistema que titula el oxígeno de forma autónoma aumenta el tiempo en normoxemia frente a la titulación manual en adultos hospitalizados con oxígeno suplementario.</summary>
   </entry>
 </feed>

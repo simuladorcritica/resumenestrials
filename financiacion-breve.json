@@ -2040,6 +2040,36 @@
    "pago": "Mineralys Therapeutics.",
    "papel": "Mineralys diseñó el ensayo con el centro C5Research de la Cleveland Clinic; su estadístico principal participó en los análisis, que C5Research confirmó de forma independiente; publicar requería el consentimiento del patrocinador.",
    "conflictos": "Sí: la mayoría de los autores declara vínculos con Mineralys (empleo, consultoría, comités, becas o contratos); Melgaard, Wolski, Sarraju y Bhikam declaran no tener intereses."
+  },
+  "341": {
+   "de": "1f6ef6eabd6e",
+   "pago": "Jiangsu Hengrui Pharmaceuticals Co, Ltd.",
+   "papel": "La empresa participó en el diseño y la conducción del estudio, en la recogida, el análisis y la interpretación de los datos, en el manuscrito y en la decisión de enviarlo a publicación.",
+   "conflictos": "Sí: 7 de los 27 autores figuran con afiliación en Jiangsu Hengrui, aunque la declaración de conflictos del artículo dice que no hay ninguno."
+  },
+  "342": {
+   "de": "a16664beac78",
+   "pago": "Sanofi, fabricante del tolebrutinib y del comparador, la teriflunomida.",
+   "papel": "Sanofi diseñó los ensayos en consulta con un comité directivo externo, suministró los fármacos, gestionó los ensayos, supervisó el análisis de los datos y financió la redacción médica; no podía retrasar ni impedir la publicación.",
+   "conflictos": "No consta en el resumen."
+  },
+  "343": {
+   "de": "e0aa944883ab",
+   "pago": "Sanofi, fabricante del tolebrutinib evaluado.",
+   "papel": "Sanofi diseñó el ensayo en consulta con el comité directivo, dirigió su conducción, suministró los fármacos, realizó los análisis estadísticos y pagó la redacción médica; no podía retrasar ni impedir la publicación.",
+   "conflictos": "Sí: los 12 autores declaran vínculos con Sanofi; cinco son empleados y los siete académicos declaran consultoría, contratos o subvenciones institucionales, participación en comités o viajes."
+  },
+  "344": {
+   "de": "c0e6a85aaf8c",
+   "pago": "Amgen; el protocolo nombra como patrocinador a Viela Bio, Inc./Horizon Therapeutics.",
+   "papel": "El comité directivo y el equipo de desarrollo clínico de Amgen diseñaron el ensayo y el patrocinador suministró el producto en investigación; el artículo no dice quién analizó los datos.",
+   "conflictos": "Sí: seis de los 13 autores tienen afiliación en Amgen y otros cinco declaran vínculos con la compañía."
+  },
+  "345": {
+   "de": "19c56d1ee49a",
+   "pago": "Fundación Nacional de Ciencias Naturales de China; el protocolo nombra como promotor y financiador al Second Affiliated Hospital de la Universidad de Zhejiang.",
+   "papel": "Ninguna empresa figura entre los financiadores; según el artículo, el financiador no participó en la conducción del ensayo.",
+   "conflictos": "Sí: Lansberg declara una consultoría con F. Hoffmann-La Roche y Liebeskind, con Genentech, Medtronic, Rapid Medical, Cerenovus y Stryker; 20 de los 23 autores declaran no tener intereses."
   }
  }
 }
