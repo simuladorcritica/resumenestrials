@@ -69,6 +69,7 @@ En el almacén quedan:
 - `resumenes/<id>/<huella>.mp3`: el audio (caché de un año; el nombre nunca se reutiliza).
 - `resumenes/<id>.json`: la ficha (`audio`, `segundos`, `bytes`, `huella`, `voz`). **Existe solo si el audio vigente existe**: es lo que consulta la página para mostrar «Escuchar».
 - `partes/<huella>.mp3`: el audio de cada parte leída (lo que dos resúmenes dicen igual, como el cierre, se guarda una vez).
+- `lista.json`: solo los números de los resúmenes con audio vigente (`{"actualizado", "ids"}`, unos 2 KB). La leen las tarjetas de la portada, el archivo y las ediciones para mostrar «Escuchar»; se escribe junto con el índice.
 - `indice.json`: todas las fichas, con las partes de cada una, y los corregidos que esperan su audio. `estado/uso.json`: caracteres enviados a Google cada mes. `estado/avisos.json`: lo ya avisado al editor.
 
 `tools/voz_plan.json` gobierna la generación: con `"automatico": false` solo se generan los resúmenes de `piloto`; `tope_mensual`, `reserva_mensual`, `dias_nuevo` y `prioridad` son los de arriba; `maximo_por_ejecucion` reparte el trabajo. El flujo corre al cambiar en `main` `resumenes.json`, `tools/voz.py`, el léxico o el plan, una vez al día y a mano («Run workflow», con `ids` y `maximo` opcionales). Deja su informe en la rama suelta `voz-estado`.
