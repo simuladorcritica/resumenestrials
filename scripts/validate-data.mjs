@@ -36,6 +36,37 @@ if (staleTrialFiles.length) errors.push(`datos/ensayos desactualizados respecto 
 if (!fs.existsSync('datos/indice.json')) errors.push('falta datos/indice.json (ejecuta node scripts/build-site-runtime.mjs y versiona datos/)');
 else if (fs.readFileSync('datos/indice.json', 'utf8') !== JSON.stringify(buildIndex(audit.records)) + '\n') errors.push('datos/indice.json desactualizado respecto de resumenes.json (ejecuta node scripts/build-site-runtime.mjs)');
 
+// Financiación breve de las tarjetas (financiacion-breve.json, que escribe tools/financiacion_breve.py): cada ficha vigente
+// son tres renglones cortos de texto llano; el índice la lleva en `_fin` en lugar del texto completo y, si el resumen cambia
+// o todavía no tiene ficha, la tarjeta vuelve al texto completo. Un resumen sin ficha no es un error: es lo previsto.
+const { fundingDigest, loadBriefs } = await import('./build-data-index.mjs');
+const briefs = loadBriefs(), recordById = new Map(audit.records.map((record) => [String(record.id), record]));
+let currentBriefs = 0;
+for (const [id, brief] of Object.entries(briefs)) {
+  const record = recordById.get(id);
+  if (!record) { errors.push(`financiacion-breve.json: la ficha ${id} no corresponde a ningún resumen`); continue; }
+  if (!brief || Object.keys(brief).sort().join() !== 'conflictos,de,pago,papel') { errors.push(`financiacion-breve.json: la ficha ${id} lleva exactamente de, pago, papel y conflictos`); continue; }
+  if (brief.de !== fundingDigest(record.financiacion)) continue;
+  currentBriefs += 1;
+  for (const key of ['pago', 'papel', 'conflictos']) {
+    const text = brief[key];
+    if (typeof text !== 'string' || !text.trim() || text !== text.trim() || text.length > 230 || !text.endsWith('.') || /[<>\n]/.test(text)) {
+      errors.push(`financiacion-breve.json: ficha ${id}, ${key}: un renglón de texto llano de 230 caracteres como mucho, terminado en punto`);
+    }
+  }
+}
+{
+  const sample = audit.records.find((record) => briefs[String(record.id)]?.de === fundingDigest(record.financiacion));
+  if (sample) {
+    const corrected = sample.financiacion + ' (corregido)';
+    const [kept] = buildIndex([sample]), [fallback] = buildIndex([{ ...sample, financiacion: corrected }]);
+    const brief = briefs[String(sample.id)];
+    if ('financiacion' in kept || JSON.stringify(kept._fin) !== JSON.stringify([brief.pago, brief.papel, brief.conflictos])) errors.push('el índice ligero no lleva la financiación breve en tres renglones');
+    if ('_fin' in fallback || fallback.financiacion !== corrected) errors.push('una ficha breve desfasada debe dejar paso al texto completo de financiación');
+  }
+  if (audit.records.some((record) => '_min' in record)) errors.push('los resúmenes no llevan tiempos de lectura');
+}
+
 const warnings = [];
 if (audit.emptyValues) warnings.push(`${audit.emptyValues} valores vacíos presentes (incluye campos opcionales)`);
 if (audit.nonIsoBibliographicDates.length) {
@@ -46,6 +77,7 @@ if (audit.nonUrlOriginals.length) {
 }
 
 console.log(`Validación: ${audit.records.length} resúmenes, ${errors.length} errores, ${warnings.length} advertencias.`);
+console.log(`Financiación breve: ${currentBriefs} de ${audit.records.length} resúmenes con ficha vigente.`);
 console.log(`Inventario: IDs duplicados=${audit.duplicateIds.length}, DOI duplicados=${audit.duplicateDois.length}, originales duplicados=${audit.duplicateOriginals.length}, títulos duplicados=${audit.duplicateTitles.length}, slugs duplicados=${audit.duplicateSlugs.length}.`);
 for (const warning of warnings) console.warn('WARN', warning);
 for (const error of errors) console.error('ERROR', error);
