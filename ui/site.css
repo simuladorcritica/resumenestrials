@@ -27,9 +27,9 @@ mark{background:var(--ev-mark);color:inherit;border-radius:4px;padding:0 2px}
 .ev-aurora{display:none}
 
 /* ---------- Text & justification ---------- */
-:where(.ev-prose,.ev-body,article.articulo) li,p:not(:where(.ev-meta,.ev-count,.ev-intro,.ev-eyebrow,.ev-kicker,.ev-trust,.ev-state,.ev-estado,.ev-strength,.ev-hint,.ev-field-error,.ev-pill,.ev-editorial-dates,.ev-turnstile-status,.ev-safe,.ev-card-meta,.ev-card-topics,.ev-readtime,.ev-byline,.ev-keyfinding-label,.ev-search-status,.ev-footer-claim,.ev-footer-title,.ev-dialog-label,.ev-dialog-note,.ev-rail-title,.ev-original,.ev-status,.ev-doc-date,.ev-empty-title,.ev-tools-hint)),.ev-justify{text-align:justify;text-align-last:start;-webkit-hyphens:auto;hyphens:auto;hyphenate-limit-chars:6 2 2;-webkit-hyphenate-character:"-";hyphenate-character:"-";overflow-wrap:break-word}
+:where(.ev-prose,.ev-body,article.articulo) li,p:not(:where(.ev-meta,.ev-count,.ev-intro,.ev-eyebrow,.ev-kicker,.ev-trust,.ev-state,.ev-estado,.ev-strength,.ev-hint,.ev-field-error,.ev-pill,.ev-editorial-dates,.ev-turnstile-status,.ev-safe,.ev-card-meta,.ev-card-topics,.ev-byline,.ev-keyfinding-label,.ev-search-status,.ev-footer-claim,.ev-footer-title,.ev-dialog-label,.ev-dialog-note,.ev-rail-title,.ev-original,.ev-status,.ev-doc-date,.ev-empty-title,.ev-tools-hint)),.ev-justify{text-align:justify;text-align-last:start;-webkit-hyphens:auto;hyphens:auto;hyphenate-limit-chars:6 2 2;-webkit-hyphenate-character:"-";hyphenate-character:"-";overflow-wrap:break-word}
 /* Celular: en columnas tan angostas el justificado abre huecos grandes entre palabras; se alinea a la izquierda. Tablet, escritorio y PDF siguen justificados. */
-@media (max-width:480px){:where(.ev-prose,.ev-body,article.articulo) li,p:not(:where(.ev-meta,.ev-count,.ev-intro,.ev-eyebrow,.ev-kicker,.ev-trust,.ev-state,.ev-estado,.ev-strength,.ev-hint,.ev-field-error,.ev-pill,.ev-editorial-dates,.ev-turnstile-status,.ev-safe,.ev-card-meta,.ev-card-topics,.ev-readtime,.ev-byline,.ev-keyfinding-label,.ev-search-status,.ev-footer-claim,.ev-footer-title,.ev-dialog-label,.ev-dialog-note,.ev-rail-title,.ev-original,.ev-status,.ev-doc-date,.ev-empty-title,.ev-tools-hint)),.ev-justify{text-align:start}}
+@media (max-width:480px){:where(.ev-prose,.ev-body,article.articulo) li,p:not(:where(.ev-meta,.ev-count,.ev-intro,.ev-eyebrow,.ev-kicker,.ev-trust,.ev-state,.ev-estado,.ev-strength,.ev-hint,.ev-field-error,.ev-pill,.ev-editorial-dates,.ev-turnstile-status,.ev-safe,.ev-card-meta,.ev-card-topics,.ev-byline,.ev-keyfinding-label,.ev-search-status,.ev-footer-claim,.ev-footer-title,.ev-dialog-label,.ev-dialog-note,.ev-rail-title,.ev-original,.ev-status,.ev-doc-date,.ev-empty-title,.ev-tools-hint)),.ev-justify{text-align:start}}
 .ev-prose-break::after{content:"\00ad"}
 :where(a,h1,h2,h3,h4,button,input,select,textarea,label,summary,th,td,nav,.ev-tag,.ev-chip,.ev-area){text-align:start;text-align-last:auto;-webkit-hyphens:manual;hyphens:manual}
 .ev-eyebrow{display:inline-flex;align-items:center;gap:10px;margin:0 0 14px;font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ev-accent)}
@@ -87,7 +87,7 @@ details>summary::-webkit-details-marker{display:none}
 .ev-header-inner{height:var(--ev-header-h);gap:20px}
 .ev-tagline{display:flex;min-width:0;color:var(--ev-muted);font-size:.74rem;font-weight:500;letter-spacing:.08em;line-height:1.4;text-transform:uppercase;white-space:nowrap}
 .ev-tagline :is(h1,b){margin:0;font:inherit;letter-spacing:inherit;color:inherit}
-.ev-tagline span::before{content:"·";margin:0 .6em}
+.ev-tagline span::before{content:"";display:inline-block;margin:0 .6em;vertical-align:middle}
 .ev-brand{display:inline-flex;align-items:center;gap:12px;min-height:44px;color:var(--ev-text);text-decoration:none;flex:0 0 auto}
 .ev-brand-mark{display:inline-flex;width:44px;height:44px;border-radius:50%;padding:0;background:none}
 .ev-brand-mark img{width:40px;height:40px;border-radius:50%;object-fit:contain}
@@ -179,16 +179,17 @@ span.ev-ednav-step{opacity:.35}
 .ev-ed-lead .ev-actions-row{margin-top:24px}
 .ev-ed-toc-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding-bottom:10px;border-bottom:1px solid var(--ev-ink)}
 .ev-ed-toc-head h2{margin:0;font-size:1.5rem;font-weight:500;line-height:1.1}
-.ev-ed-toc h3{display:flex;margin:20px 0 2px;font-family:var(--ev-ui)}
 .ev-ed-list{list-style:none;margin:0;padding:0}
 .ev-ed-item{display:block;padding:11px 0;border-bottom:1px solid var(--ev-line);color:var(--ev-ink);text-decoration:none}
 .ev-ed-item-title{display:block;font:400 1.06rem/1.3 var(--ev-display)}
 .ev-ed-item-title b{font-weight:600}
 .ev-ed-item:hover .ev-ed-item-title{text-decoration:underline;text-decoration-color:var(--ev-brand);text-underline-offset:3px}
 .ev-ed-item .ev-card-meta{margin-top:4px;font-size:.8rem}
+.ev-ed-item .ev-area{display:flex;margin-bottom:2px}
 .ev-ed-more{margin-top:14px}
 .ev-ed-more[open]>summary span:first-child,.ev-ed-more:not([open])>summary span+span{display:none}
-.ev-ed-more[open]>summary{margin-bottom:6px}
+.ev-ed-more[open]{display:flex;flex-direction:column;margin-top:0}
+.ev-ed-more[open]>summary{order:1;align-self:flex-start;margin-top:14px}
 
 /* ---------- Mapa de evidencia ---------- */
 /* Tabla: una fila por tema, subespecialidad o revista y una columna por año. Los puntos (<i>) son decorativos y toman
@@ -256,10 +257,15 @@ section.ev-archive{scroll-margin-top:96px;padding-top:12px}
 .ev-card-title:hover h2{color:var(--ev-accent)}
 .ev-card-meta{--ev-sep:28px;display:flex;flex-wrap:wrap;row-gap:4px;margin-top:0;margin-right:0;margin-bottom:0;color:var(--ev-muted);font-size:.84rem}
 /* Separadores «·» entre datos: van delante de cada elemento y se recortan cuando el elemento abre línea, así nunca quedan sueltos al inicio de un renglón. */
-.ev-byline,.ev-card-meta,.ev-readtime{column-gap:0;margin-left:calc(-1 * var(--ev-sep));clip-path:inset(0 0 0 var(--ev-sep))}
-.ev-byline>*,.ev-card-meta>*,.ev-readtime>*{margin-left:var(--ev-sep)}
-:where(.ev-byline,.ev-card-meta,.ev-readtime) span+span{position:relative}
-:where(.ev-byline,.ev-card-meta,.ev-readtime) span+span::before{content:"·";position:absolute;left:calc(-1 * var(--ev-sep));width:var(--ev-sep);text-align:center;color:var(--ev-line-strong)}
+.ev-byline,.ev-card-meta{column-gap:0;margin-left:calc(-1 * var(--ev-sep));clip-path:inset(0 0 0 var(--ev-sep))}
+.ev-byline>*,.ev-card-meta>*{margin-left:var(--ev-sep)}
+:where(.ev-byline,.ev-card-meta) span+span{position:relative}
+:where(.ev-byline,.ev-card-meta) span+span::before{content:"";position:absolute;left:calc(-.5 * var(--ev-sep) - 2px);top:calc(50% - 2px)}
+/* Separador entre datos de una misma línea: el punto ocre de la línea de señal. `.ev-sep` envuelve un «·» que queda en el
+   texto; aquí se oculta la letra y se dibuja el punto. */
+.ev-sep{font-size:0;vertical-align:middle}
+.ev-sep::before{content:"";display:inline-block;margin:0 1px}
+.ev-sep::before,.ev-tagline span::before,:where(.ev-byline,.ev-card-meta) span+span::before{width:4px;height:4px;border-radius:50%;background:var(--ev-dot)}
 .ev-card-topics{margin:0;color:var(--ev-muted);font-size:.8rem;line-height:1.5}
 .ev-card-facts>summary{display:inline-flex;align-items:center;gap:6px;min-height:44px;color:var(--ev-accent);font-size:.84rem;font-weight:600}
 .ev-card-facts>summary::after{content:"";width:7px;height:7px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translateY(-2px);margin-left:4px}
@@ -268,14 +274,10 @@ section.ev-archive{scroll-margin-top:96px;padding-top:12px}
 .ev-card-facts .ev-study-facts>div{grid-template-columns:6.75rem minmax(0,1fr);gap:2px 14px}
 .ev-card-facts .ev-study-facts>.ev-fact-long{grid-template-columns:minmax(0,1fr)}
 .ev-dense .ev-card-facts{display:none}
-.ev-card-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:auto;padding-top:14px;border-top:1px solid var(--ev-line)}
-.ev-readtime{--ev-sep:24px;display:flex;align-items:center;flex-wrap:wrap;row-gap:4px;margin-top:0;margin-right:0;margin-bottom:0;color:var(--ev-muted);font-size:.78rem}
-.ev-readtime .ev-svg{width:16px;height:16px}
-.ev-readtime>.ev-svg+span{margin-left:8px}
-.ev-card-actions{display:flex;align-items:center;gap:8px;margin-left:auto}
-.ev-card-actions .ev-btn{padding:10px 16px}
+.ev-card-foot{margin-top:auto;padding-top:14px;border-top:1px solid var(--ev-line)}
+.ev-card-actions{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.ev-card-actions .ev-btn{width:100%;padding:10px 2px;font-size:.84rem}
 .ev-pdf-menu{position:relative}
-.ev-pdf-menu>summary .ev-svg{width:18px;height:18px}
 .ev-pdf-menu[open]>summary{border-color:var(--ev-accent);color:var(--ev-accent)}
 .ev-pdf-pop{position:absolute;right:0;bottom:calc(100% + 8px);z-index:5;display:grid;gap:4px;min-width:180px;padding:6px;border:1px solid var(--ev-line);border-radius:var(--ev-r);background:var(--ev-panel)}
 .ev-pdf-pop button{min-height:44px;padding:10px 14px;border:0;border-radius:var(--ev-r);background:transparent;text-align:left;font-weight:600;cursor:pointer}
@@ -289,7 +291,7 @@ section.ev-archive{scroll-margin-top:96px;padding-top:12px}
 .ev-dense .ev-card-meta{grid-area:meta}
 .ev-dense .ev-card-topics{display:none}
 .ev-dense .ev-card-foot{grid-area:actions;align-self:center;margin:0;padding:0;border:0}
-.ev-dense .ev-readtime{display:none}
+.ev-dense .ev-card-actions{grid-template-columns:repeat(4,5.6rem)}
 .ev-empty{margin:24px 0;padding:32px;border:1px dashed var(--ev-line-strong);border-radius:var(--ev-r-lg);text-align:center}
 .ev-empty p{max-width:52ch;margin-left:auto;margin-right:auto;color:var(--ev-muted)}
 .ev-empty .ev-empty-title{color:var(--ev-text);font-size:1.2rem;font-weight:600}
@@ -380,7 +382,6 @@ section.ev-archive{scroll-margin-top:96px;padding-top:12px}
 .ev-keyfinding-label{display:flex;align-items:center;gap:8px;margin:0 0 8px;color:var(--ev-accent);font-size:.8rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
 .ev-keyfinding-label .ev-svg{width:18px;height:18px}
 .ev-keyfinding .ev-lead{max-width:none;margin:0;color:var(--ev-text);font-family:var(--ev-reading);font-size:1.12rem;line-height:1.7}
-.ev-reading-head .ev-readtime{font-size:.86rem;margin-bottom:6px}
 .ev-editorial-dates{color:var(--ev-muted);font-size:.82rem}.ev-editorial-dates a{color:inherit;font-weight:600;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2px}.ev-method{display:flex;flex-direction:column;gap:4px;max-width:70ch;margin:0 0 28px;color:var(--ev-muted);font-size:.88rem;line-height:1.55;text-align:start;hyphens:manual;-webkit-hyphens:manual}.ev-method-links{display:flex;flex-wrap:wrap;column-gap:20px}
 /* Preguntas clínicas del hub de especialidad: separación del listado que las precede. */
 .ev-archive+.ev-method{margin-top:36px}.ev-video{max-width:70ch;margin:0 0 28px}.ev-video h2{font-size:1.05rem;margin:0 0 10px}.ev-video-frame{position:relative;aspect-ratio:16/9;overflow:hidden;border:1px solid var(--ev-line);border-radius:var(--ev-r);background:var(--ev-panel)}.ev-video-frame iframe,.ev-video-play{position:absolute;inset:0;width:100%;height:100%;border:0}.ev-video-play{display:flex;align-items:center;justify-content:center;gap:12px;padding:16px;min-height:44px;cursor:pointer;color:var(--ev-text);background:var(--ev-panel);font:inherit;font-weight:600;text-align:center}.ev-video-play .ev-svg{width:44px;height:44px;flex:none;padding:10px;border-radius:50%;background:var(--ev-accent);color:var(--ev-on-accent);fill:currentColor}.ev-video-play:hover .ev-svg,.ev-video-play:focus-visible .ev-svg{background:var(--ev-accent-strong)}.ev-video-meta{margin:8px 0 0;color:var(--ev-muted);font-size:.85rem}.ev-video-page .ev-video-frame{margin:16px 0 8px}.ev-method-links a{color:inherit;text-decoration:underline;text-underline-offset:2px}
@@ -400,7 +401,8 @@ section.ev-archive{scroll-margin-top:96px;padding-top:12px}
 .ev-study-facts>.ev-fact-long{order:1}
 .ev-study-facts dt{margin:0;color:var(--ev-muted);font-size:.72rem;font-weight:600;letter-spacing:.07em;line-height:1.4;text-transform:uppercase}
 .ev-study-facts dd{margin:0;color:var(--ev-text);font-size:.92rem;line-height:1.6;text-align:start;-webkit-hyphens:manual;hyphens:manual;overflow-wrap:break-word}
-.ev-study-facts :is([data-ev-field=tipo_estudio],[data-ev-field=financiacion]){text-align:justify;text-align-last:start}
+.ev-study-facts :is([data-ev-field=tipo_estudio],[data-ev-field=financiacion]):not(.ev-fin){text-align:justify;text-align-last:start}
+.ev-fin span{display:block}.ev-fin span+span{margin-top:8px}.ev-fin b{display:block;font-size:.84rem}
 .ev-study-facts [data-ev-field=revista],.ev-study-facts [data-ev-field=anio],.ev-study-facts [data-ev-field=fecha]{font-variant-numeric:lining-nums tabular-nums}
 .ev-study-facts [data-ev-field=doi],.ev-study-facts [data-ev-field=registro]{overflow-wrap:anywhere;font-variant-numeric:tabular-nums}
 .ev-toolbar{position:sticky;top:calc(var(--ev-header-h) + 10px);z-index:30;display:flex;align-items:center;gap:6px;flex-wrap:nowrap;padding:6px;border:1px solid var(--ev-line);border-radius:var(--ev-r);background:var(--ev-glass)}
@@ -677,8 +679,8 @@ html .ev-field-error[hidden]{display:block!important;visibility:hidden}
  .ev-mini small:nth-of-type(even){visibility:hidden}
  .ev-list>.ev-card{padding:14px 0 4px}
  .ev-dense .ev-list>.ev-card{grid-template-columns:minmax(0,1fr);grid-template-areas:"title" "meta" "tags" "actions";padding:14px 16px}
- .ev-dense .ev-card-foot{justify-self:start}
- .ev-dense .ev-card-actions{margin-left:0}
+ .ev-dense .ev-card-actions{grid-template-columns:repeat(4,minmax(0,1fr))}
+ .ev-card-actions .ev-btn{font-size:clamp(.7rem,3.5vw,.84rem)}
  .ev-pdf-pop{right:0}
  .ev-dialog{width:100%;max-width:none;max-height:88dvh;margin:auto 0 0;border-radius:var(--ev-r) 26px 0 0;border-bottom:0}
  .ev-drawer{height:auto;max-height:88dvh;margin:auto 0 0;border-radius:var(--ev-r) 26px 0 0}

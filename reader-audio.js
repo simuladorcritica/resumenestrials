@@ -126,7 +126,9 @@ export async function loadReaderAudio(reader, record) {
   };
   const start = async () => {
     if (!audio.src) { audio.src = file.url; audio.playbackRate = rate }
-    try { await audio.play() } catch (error) { if (error?.name !== 'AbortError') notice('No se pudo reproducir el audio. Inténtalo de nuevo.') }
+    // NotAllowedError: el navegador no deja que el audio empiece sin un toque en esta página (pasa al llegar desde el
+    // «Escuchar» de una tarjeta en Safari y Firefox). No es un fallo: el reproductor queda abierto y listo.
+    try { await audio.play() } catch (error) { if (!['AbortError', 'NotAllowedError'].includes(error?.name)) notice('No se pudo reproducir el audio. Inténtalo de nuevo.') }
     paint();
   };
   const show = on => {
@@ -174,5 +176,7 @@ export async function loadReaderAudio(reader, record) {
   toolbar.append(panel);
   paint();
   reader.dataset.evAudio = 'ready';
+  // Desde el «Escuchar» de una tarjeta se llega con #escuchar: el reproductor se abre y, si el navegador lo permite, suena.
+  if (location.hash === '#escuchar') { show(true); start() }
   return true;
 }

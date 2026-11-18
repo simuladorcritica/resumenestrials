@@ -12,7 +12,8 @@ assert archive.count('class="ev-card" data-id=')==len(data),"Prerender must incl
 assert 'id="ev-archivo"' in archive and '<link rel="canonical" href="https://resumenestrials.com/archivo/">' in archive
 assert (ROOT/"index.html").read_text(encoding="utf8")==home
 # Portada = edición actual (última semana con datos); cada edición anterior tiene página propia con todos sus ensayos enlazados.
-from site_templates import editions,edition_route
+from site_templates import editions,edition_route,area_of,tone
+by_id={str(r["id"]):r for r in data}
 weeks=editions(data);assert weeks,"At least one edition"
 # Desde el 16-nov-2026 (decisión del editor) la portada lleva, debajo del bloque de la edición (ensayo destacado y «En esta
 # edición»), las tarjetas de todos los resúmenes, del ensayo más reciente al más antiguo según la fecha del artículo en su revista
@@ -28,6 +29,18 @@ for monday,rows,path in pages:
  assert s.count('class="ev-signal"')==1 and s.count("<h1")==1,f"{path}: one signal line and one h1"
  for r in rows:assert 'href="'+manifest[str(r["id"])]["path"]+'"' in s,f"{path}: missing trial {r['id']}"
  assert s.count('class="ev-ed-grid"')==1 and s.count('<article class="ev-ed-lead">')==1 and s.count('class="ev-ed-toc"')==1,f"{path}: the edition block keeps its featured trial and its weekly list"
+ # «En esta edición»: cada ensayo de la lista lleva su especialidad (antes solo el primero de cada grupo, en un rótulo), la
+ # revista y la fecha; a la vista quedan siete y el resto va en un desplegable cuyo botón dice lo que hace cerrado y abierto
+ # (la hoja de estilo lo deja al final de la lista). Decisión del editor, 17-nov-2026.
+ toc=re.search(r'<aside class="ev-ed-toc".*?</aside>',s,re.S)[0]
+ items=re.findall(r'<li><a class="ev-ed-item" href="[^"]+" data-ev-read="(\d+)"><span class="ev-area" data-tone="([a-z]+)">([^<]+)</span><span class="ev-ed-item-title">.*?</span><span class="ev-card-meta"><span>[^<]+</span><span>[^<]+</span></span></a></li>',toc)
+ assert len(items)==toc.count('class="ev-ed-item"')==len(rows)-1 and "<h3" not in toc,f"{path}: every trial of the weekly list carries its specialty, its journal and its date, and nothing else"
+ assert all(area==area_of(by_id[id]) and shade==tone(area) for id,shade,area in items),f"{path}: specialty of each trial in the weekly list"
+ assert [a for _,_,a in items]==sorted((a for _,_,a in items),key=lambda a:a!="Medicina Crítica"),f"{path}: critical care first in the weekly list"
+ rest_button=re.search(r'<details class="ev-ed-more"><summary class="ev-btn"><span>[^<]+</span><span>Mostrar menos</span></summary>',toc)
+ assert bool(rest_button)==(len(items)>7) and toc.count("<details")==(1 if rest_button else 0) and (not rest_button or toc[:rest_button.start()].count('class="ev-ed-item"')==7),f"{path}: seven trials in view and the rest behind one button that reads what it does"
+ # Sin tiempos de lectura en ninguna parte (decisión del editor, 17-nov-2026): los botones dicen qué abren y nada más.
+ assert "ev-readtime" not in s and re.findall(r'>([^<]+)</a>',re.search(r'<div class="ev-actions-row">(.*?)</div></article>',s,re.S)[1]) in (["Leer el resumen"],["Leer el resumen","En breve"]),f"{path}: the featured trial offers the full and the brief summary, without reading times"
  if path.parent.parent.name=="ediciones":assert '<link rel="canonical" href="https://resumenestrials.com'+edition_route(monday)+'">' in s
  if path.name!="index-source.html":
   assert "data-ev-feed" not in s,f"{path}: a past edition has no cover cards"
@@ -40,6 +53,15 @@ for monday,rows,path in pages:
  assert [bool(c[1]) for c in cards]==[i>=12 for i in range(len(expected))],f"{path}: only the first 12 cards are visible"
  assert s.count("data-ev-feed-more")==(1 if len(expected)>12 else 0)==s.count('</ul><a class="ev-btn ev-more" href="/archivo/" data-ev-feed-more>Ver más</a>'),f"{path}: «Ver más» only when there are more than 12 cards, right after the list"
  for r in expected:assert feed[1].count('<a class="ev-card-title" href="'+manifest[str(r["id"])]["path"]+'" data-ev-read="'+str(r["id"])+'">')==1,f"{path}: card of trial {r['id']}"
+ # Pie de cada tarjeta: cuatro botones iguales —Completo, Breve (si el resumen lo tiene), PDF y Escuchar— y ningún tiempo de
+ # lectura. «Escuchar» sale oculto y lleva al resumen con #escuchar: el sitio lo muestra solo si ese resumen tiene audio.
+ for r in expected:
+  id=str(r["id"]);route=manifest[id]["path"];card=re.search(r'<li class="ev-card" data-id="'+id+r'".*?</li>',feed[1],re.S)[0]
+  foot=re.search(r'<div class="ev-card-foot"><div class="ev-card-actions">(.*)</div></div></li>$',card,re.S)
+  assert foot and re.findall(r'<(?:a|summary) class="ev-btn(?: ev-btn-primary)?"[^>]*>([^<]+)</(?:a|summary)>',foot[1])==["Completo"]+(["Breve"] if r.get("corto") else [])+["PDF","Escuchar"],f"{path}: buttons of card {id}"
+  assert f'<a class="ev-btn ev-btn-primary" href="{route}" data-ev-read="{id}"' in foot[1] and (not r.get("corto") or f'<a class="ev-btn" href="/resumen.html?id={id}&amp;v=corto" data-ev-read="{id}"' in foot[1]),f"{path}: card {id} opens the full and the brief summary"
+  assert re.search(r'<a class="ev-btn" href="'+re.escape(route)+r'#escuchar" data-ev-read="'+id+r'" data-ev-card-listen="'+id+r'" aria-label="Escuchar el resumen: [^"]+" hidden>Escuchar</a>$',foot[1]),f"{path}: card {id} keeps its listen button hidden until the site knows it has audio"
+  assert '<details class="ev-card-facts" data-ev-facts="'+id+'"><summary>Ficha del estudio</summary></details><div class="ev-card-foot">' in card,f"{path}: card {id} keeps the study sheet above its buttons"
 assert sorted(d.name for d in (ROOT/"ediciones").iterdir())==[monday for monday,_ in weeks[:-1]] if len(weeks)>1 else not (ROOT/"ediciones").exists(),"Stale or missing edition pages"
 # Mapa de evidencia: un punto por resumen ya en el HTML, las rutas incrustadas iguales a las del manifiesto y su módulo con la huella vigente.
 import hashlib
@@ -168,7 +190,7 @@ if question_home:
  # Una tarjeta por pregunta, de la más reciente a la más antigua (las de un mismo día, en el orden del archivo): las tres
  # primeras a la vista y las demás en un desplegable con la misma tarjeta, no como lista de enlaces (decisión del editor, 16-nov-2026).
  recent=sorted(questions,key=lambda q:q["fecha_publicacion"],reverse=True)
- more=re.search(r'<details class="ev-q-more"><summary class="ev-btn">[^<]+</summary>(.*?)</details>',question_home[0],re.S)
+ more=re.search(r'<details class="ev-q-more"><summary class="ev-btn"><span>[^<]+</span><span>Mostrar menos</span></summary>(.*?)</details>',question_home[0],re.S)
  visible=question_home[0][:more.start()] if more else question_home[0];hidden=more[1] if more else ""
  card_titles=lambda block:re.findall(r'<a class="ev-q-title" href="/preguntas/([a-z0-9-]+)/">',block)
  assert card_titles(visible)==[q["slug"] for q in recent[:3]] and visible.count('<article class="ev-q-card">')==min(3,len(questions)) and "Hallazgo" not in question_home[0],"portada: una tarjeta por cada una de las tres preguntas más recientes, sin hallazgos"

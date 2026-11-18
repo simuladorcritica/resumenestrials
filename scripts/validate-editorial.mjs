@@ -17,7 +17,12 @@ for(const font of ['Newsreader','RT Sans','Literata']){
 if(!['literata','newsreader','ibmplexsans'].every(f=>fs.existsSync('fonts/OFL-'+f+'.txt')))fail('faltan las licencias OFL de las fuentes');
 // Identidad editorial: sin la tipografía ni los efectos de la estética anterior.
 if(/'Sora'|aurora\(|backdrop-filter:blur|linear-gradient\(1[0-9]0deg,#|--ev-grad:linear-gradient/.test(css))fail('site-runtime.css conserva rastros de Nova (Sora, degradados, vidrio)');
-if(!/--ev-dot:#c8892a/.test(css)||(css.match(/var\(--ev-dot\)/g)||[]).length!==1)fail('El ocre debe usarse solo en el punto de la línea de señal');
+// El ocre es el punto de la casa: el de la línea de señal y el que separa datos de una misma línea (decisión del editor,
+// 17-nov-2026). Lo dibuja una sola regla de la hoja de estilo; ningún otro elemento usa ese color.
+const SEP='\u00a0<span class="ev-sep">·</span> ';
+if(!/--ev-dot:#c8892a/.test(css)||(css.match(/var\(--ev-dot\)/g)||[]).length!==2||!/\.ev-signal circle\{fill:var\(--ev-dot\)\}/.test(css)||!/\.ev-sep::before,[^{}]*\{width:4px;height:4px;border-radius:50%;background:var\(--ev-dot\)\}/.test(css))fail('El ocre debe usarse solo en el punto de la línea de señal y en el punto que separa datos');
+// Ningún «·» suelto como separador en lo que se lee: siempre el punto de la casa (.ev-sep).
+const looseDots=html=>(html.split('<body')[1]||html).replace(/<(script|style|template)\b[\s\S]*?<\/\1>/g,'').replaceAll(SEP,'').replace(/<[^>]+>/g,'\n').split('\n').filter(t=>/(^|\s)·(\s|$)/.test(t));
 if((index.match(/class="ev-signal"/g)||[]).length!==1)fail('La portada debe tener la línea de señal una sola vez');
 // La portada es la edición actual: un único h1 (el lema de la cabecera), ancla de recomendaciones y nada del archivo.
 if((index.match(/<h1\b/g)||[]).length!==1||!index.includes('<h1>Evidencia sin ruido</h1>'))fail('La portada debe tener un único h1: Evidencia sin ruido');
@@ -25,6 +30,8 @@ if(!index.includes('data-ev-edition=')||!index.includes('data-ev-recs'))fail('La
 if(/id="ev-list"|data-ev-ids=|data-ev-filter=|class="ev-steps"/.test(index))fail('La portada no debe incluir el archivo, los filtros ni los pasos');
 if(!/fonts\.(googleapis|gstatic)\.com/.test(css))ok('Fuentes Newsreader, RT Sans y Literata servidas desde el propio sitio.');else fail('site-runtime.css depende de Google Fonts');
 for(const [name,html] of [['index',index],['archivo',archive],['mapa',evidenceMap],['cuenta',account],['login',login],['registro',register],['recuperar',recovery],['privacidad',privacy]]){
+ if(looseDots(html).length)fail(name+' separa datos con un «·» suelto en lugar del punto de la casa: '+looseDots(html)[0].trim().slice(0,80));
+ if(/ev-readtime|\bmin de lectura\b/.test(html))fail(name+' muestra tiempos de lectura');
  // Fuentes propias: la página no debe depender de servidores externos para mostrarse.
  if(/fonts\.(googleapis|gstatic)\.com/.test(html))fail(name+' depende de Google Fonts (bloquea el render en redes móviles)');
  for(const font of ['Inter+Tight','JetBrains+Mono','Source+Serif+4'])if(html.includes(font))fail(name+' conserva la tipografía anterior '+font);
@@ -42,8 +49,8 @@ if((evidenceMap.match(/<h1\b/g)||[]).length!==1||!evidenceMap.includes('<h1>Mapa
 for(const piece of ['data-ev-map','name="ev-map-area"','name="ev-map-rows"','id="ev-map-hl" type="text"','class="ev-map-legend"','id="ev-map-panel"','class="ev-map-cell"'])if(!evidenceMap.includes(piece))fail('Al mapa le falta '+piece);
 {
  // Cada resumen, en la fila, el año y el color que dictan los datos (misma regla que el generador, escrita aparte).
- const model=mapModel(JSON.parse(read('resumenes.json')),JSON.parse(read('seo-cluster-manifest.json'))),rows=[...evidenceMap.matchAll(/<tr data-ev-row="([^"]+)"><th scope="row">([^<]+)<small>([^<]+)<\/small><\/th>(.*?)<\/tr>/g)],seen=new Set();
- if(rows.map(r=>r[1]+'|'+r[2]+'|'+r[3]).join('\n')!==model.rows.map(r=>r.key+'|'+r.name+'|'+r.area+' · '+trialCount(r.ids.length)).join('\n'))fail('Las filas del mapa (nombre, área, número y orden) no corresponden a los datos');
+ const model=mapModel(JSON.parse(read('resumenes.json')),JSON.parse(read('seo-cluster-manifest.json'))),rows=[...evidenceMap.matchAll(/<tr data-ev-row="([^"]+)"><th scope="row">([^<]+)<small>(.*?)<\/small><\/th>(.*?)<\/tr>/g)],seen=new Set();
+ if(rows.map(r=>r[1]+'|'+r[2]+'|'+r[3]).join('\n')!==model.rows.map(r=>r.key+'|'+r.name+'|'+r.area+SEP+trialCount(r.ids.length)).join('\n'))fail('Las filas del mapa (nombre, área, número y orden) no corresponden a los datos');
  if([...evidenceMap.matchAll(/<th scope="col">([^<]+)<\/th>/g)].map(m=>m[1]).join('|')!==model.bins.join('|'))fail('Las columnas del mapa no corresponden a los años de los datos');
  for(const [,key,,,cells] of rows)[...cells.matchAll(/<td>(?:<button type="button" class="ev-map-cell" aria-pressed="false" aria-label="([^"]+)">(.*?)<\/button>)?<\/td>/g)].forEach((cell,bin)=>{
   const dots=[...(cell[2]||'').matchAll(/<i data-id="(\d+)" data-sub="([a-z]+)" data-j="(\d)"><\/i>/g)],row=model.rows.find(r=>r.key===key);

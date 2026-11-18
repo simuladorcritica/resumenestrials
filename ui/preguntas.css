@@ -102,7 +102,10 @@
 .ev-q-home .ev-q-card:last-of-type{margin-bottom:0}
 .ev-q-more{margin-top:16px}
 .ev-q-more>summary{display:inline-flex}
-.ev-q-more[open]>summary{margin-bottom:20px}
+.ev-q-more[open]>summary span:first-child,.ev-q-more:not([open])>summary span+span{display:none}
+/* Abierto, el botón («Mostrar menos») queda al final de la lista. */
+.ev-q-more[open]{display:flex;flex-direction:column}
+.ev-q-more[open]>summary{order:1;align-self:flex-start;margin-top:20px}
 .ev-q-home .ev-q-card:hover{border-color:var(--ev-accent)}
 .ev-q-home .ev-q-card-head{margin-bottom:0}
 .ev-q-home .ev-q-card h3{font:500 clamp(1.25rem,1rem + 1vw,1.6rem)/1.2 var(--ev-display)}

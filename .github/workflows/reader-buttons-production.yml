@@ -29,7 +29,15 @@ concurrency:
 jobs:
   real-clicks:
     runs-on: ubuntu-24.04
+    # Contenedor oficial de Playwright (misma versión que package.json): navegadores y dependencias ya
+    # instalados. Instalarlos con apt llegó a tardar 27 min (17-nov-2026): el trabajo agotaba su tiempo sin
+    # haber fallado ninguna prueba y la publicación quedaba parada.
+    container: mcr.microsoft.com/playwright:v1.64.1-noble
     timeout-minutes: 12
+    # Dentro de un contenedor el intérprete por defecto es sh; estos pasos usan bash (pipefail, bloques con llaves).
+    defaults:
+      run:
+        shell: bash
     steps:
       - uses: actions/checkout@v7.0.1
       - uses: actions/setup-node@v7.1.0
@@ -42,10 +50,8 @@ jobs:
           node --check scripts/reader-runtime-contract.mjs
           node --test scripts/reader-runtime-contract.test.mjs
           python3 -m py_compile aplicar_experiencia_futura.py
-      - name: Instalar Chromium
-        run: |
-          npm install
-          npx playwright install --with-deps chromium webkit
+      - name: Instalar el paquete de Playwright
+        run: npm install
       - name: Probar controles publicados con interacción física
         id: smoke
         continue-on-error: true

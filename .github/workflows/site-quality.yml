@@ -178,6 +178,7 @@ jobs:
           python3 tools/test_auditoria_editorial.py
           python3 tools/test_preguntas_clinicas.py
           python3 tools/test_relacionados.py
+          python3 tools/test_financiacion_breve.py
           python3 -m py_compile actualizar_agregar_editorial.py
           python3 -m py_compile generar_paginas_sociales.py
           python3 -m json.tool seo-clusters.json >/dev/null
@@ -382,16 +383,18 @@ jobs:
   browser-interactions:
     if: ${{ (github.event_name != 'workflow_dispatch' || inputs.confirmation != 'SEND_ONE_QA_EMAIL') && (github.event_name == 'pull_request' || github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main') }}
     runs-on: ubuntu-24.04
+    # Contenedor oficial de Playwright (misma versión que package.json): navegadores y dependencias ya
+    # instalados. Instalarlos con apt llegó a tardar 27 min (17-nov-2026): el trabajo agotaba su tiempo sin
+    # haber fallado ninguna prueba y la publicación quedaba parada.
+    container: mcr.microsoft.com/playwright:v1.64.1-noble
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v7.0.1
       - uses: actions/setup-node@v7.1.0
         with:
           node-version: '20'
-      - name: Install Playwright
-        run: |
-          npm install
-          npx playwright install --with-deps chromium webkit
+      - name: Install matching Playwright package
+        run: npm install
       - name: Serve the exact pull request locally
         run: |
           python3 -m http.server 8000 >/tmp/rt-browser-http.log 2>&1 &
