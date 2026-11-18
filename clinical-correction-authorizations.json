@@ -1,28 +1,89 @@
 {
   "schema_version": 1,
-  "base_sha": "a5c48532532fb54cb1fbb9ea4df11b037c25d5ca",
+  "base_sha": "9a66da519ba38aea9df8c8e665f8d9f3b0295998",
   "authorizations": [
     {
-      "id": 19,
+      "id": 20,
       "fields": [
         "financiacion",
-        "objetivo",
+        "original",
         "hallazgo",
         "cuerpo",
         "corto",
         "fecha_revision"
       ],
-      "reason": "Corrección del equipo crítico, issue #290 (24 hallazgos: 6 MAYOR, 18 MENOR); equipo editorial y contrainteligencia APROBADA (revision_nocturna/equipo/19_ORIENTAL-MeVO/contrainteligencia.md)."
+      "reason": "Corrección del equipo crítico, issue #313 (24 hallazgos: 7 MAYOR, 17 MENOR); equipo editorial y contrainteligencia APROBADA (revision_nocturna/equipo/20_TIGRIS/contrainteligencia.md)."
     },
     {
-      "id": 324,
+      "id": 222,
       "fields": [
+        "financiacion",
         "hallazgo",
         "cuerpo",
         "corto",
         "fecha_revision"
       ],
-      "reason": "Corrección del equipo crítico, issue #288 (19 hallazgos: 5 MAYOR, 14 MENOR); equipo editorial y contrainteligencia APROBADA (revision_nocturna/equipo/324_AVANT_GUARD/contrainteligencia.md)."
+      "reason": "Corrección de hallazgos de la revisión nocturna (Parte C) (6 hallazgos: 3 MAYOR, 3 MENOR); equipo editorial y contrainteligencia APROBADA (revision_nocturna/equipo/222_WOMAN/contrainteligencia.md)."
+    },
+    {
+      "id": 223,
+      "fields": [
+        "financiacion",
+        "cuerpo",
+        "corto",
+        "fecha_revision"
+      ],
+      "reason": "Corrección de hallazgos de la revisión nocturna (Parte C) (6 hallazgos: 6 MENOR); equipo editorial y contrainteligencia APROBADA (revision_nocturna/equipo/223_AVERT/contrainteligencia.md)."
+    },
+    {
+      "id": 220,
+      "fields": [
+        "financiacion",
+        "cuerpo",
+        "corto",
+        "fecha_revision"
+      ],
+      "reason": "Corrección de hallazgos de la revisión nocturna (Parte C) (5 hallazgos: 5 MENOR); equipo editorial y contrainteligencia APROBADA (revision_nocturna/equipo/220_AVERT_Shock/contrainteligencia.md)."
+    },
+    {
+      "id": 224,
+      "fields": [
+        "financiacion",
+        "cuerpo",
+        "fecha_revision"
+      ],
+      "reason": "Corrección de hallazgos de la revisión nocturna (Parte C) (1 hallazgos: 1 MENOR); equipo editorial y contrainteligencia APROBADA (revision_nocturna/equipo/224_PROPPR/contrainteligencia.md)."
+    },
+    {
+      "id": 218,
+      "fields": [
+        "financiacion",
+        "hallazgo",
+        "cuerpo",
+        "corto",
+        "fecha_revision"
+      ],
+      "reason": "Corrección de hallazgos de la revisión nocturna (Parte C) (10 hallazgos: 3 MAYOR, 7 MENOR); equipo editorial y contrainteligencia APROBADA (revision_nocturna/equipo/218_PROCOAG/contrainteligencia.md)."
+    },
+    {
+      "id": 219,
+      "fields": [
+        "financiacion",
+        "cuerpo",
+        "corto",
+        "fecha_revision"
+      ],
+      "reason": "Corrección de hallazgos de la revisión nocturna (Parte C) (5 hallazgos: 1 MAYOR, 4 MENOR); equipo editorial y contrainteligencia APROBADA (revision_nocturna/equipo/219_PREVENT_CLOT/contrainteligencia.md)."
+    },
+    {
+      "id": 217,
+      "fields": [
+        "financiacion",
+        "cuerpo",
+        "corto",
+        "fecha_revision"
+      ],
+      "reason": "Corrección de hallazgos de la revisión nocturna (Parte C) (12 hallazgos: 2 MAYOR, 10 MENOR); equipo editorial y contrainteligencia APROBADA (revision_nocturna/equipo/217_CRYOSTAT-2/resolucion.md)."
     }
   ]
 }
