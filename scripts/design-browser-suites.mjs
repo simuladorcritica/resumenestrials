@@ -247,7 +247,10 @@ async function navigation(p,base,width){
   const more=p.locator('.ev-ed-more>summary'),shown=()=>more.locator('span').evaluateAll(ns=>ns.filter(n=>n.getClientRects().length).map(n=>n.textContent)),last=()=>p.evaluate(()=>{const s=document.querySelector('.ev-ed-more>summary').getBoundingClientRect(),items=[...document.querySelectorAll('.ev-ed-toc a.ev-ed-item')].filter(n=>!n.closest('details:not([open])'));return s.top>=items.at(-1).getBoundingClientRect().bottom-1});
   assert.deepEqual(await shown(),[rest.length-7===1?'Ver el restante':'Ver los '+(rest.length-7)+' restantes']);assert(await last(),'Closed, the button follows the seven trials in view');
   await more.click();assert.equal(await p.locator('.ev-ed-toc a.ev-ed-item:visible').count(),rest.length);assert.deepEqual(await shown(),['Mostrar menos']);assert(await last(),'Open, «Mostrar menos» sits below the last trial of the list');
-  await more.click();assert.equal(await p.locator('.ev-ed-toc a.ev-ed-item:visible').count(),7);assert(await more.evaluate(n=>{const q=n.getBoundingClientRect();return q.top>=0&&q.bottom<=innerHeight+1}),'After closing, the button stays in view');
+  await more.click();assert.equal(await p.locator('.ev-ed-toc a.ev-ed-item:visible').count(),7);
+  // The page brings the button back into view from the «toggle» event, which fires a moment after the click: wait for it instead of measuring at once
+  // (measured at once, this failed on main right after PR #340, 18 Nov 2026, having passed in the PR itself).
+  await p.waitForFunction(()=>{const q=document.querySelector('.ev-ed-more>summary').getBoundingClientRect();return q.top>=0&&q.bottom<=innerHeight+1}).catch(()=>assert.fail('After closing, the button stays in view'));
  }
  // Below the edition block, every published summary as a card, newest journal article first (editor decision, 16 Nov 2026).
  assert.equal(await p.locator('.ev-ed-grid+.ev-feed>.ev-archive-head h2').textContent(),'Biblioteca de ensayos','The cards sit right below the edition block');await feed(p,library(data),'Cover');
@@ -348,12 +351,15 @@ async function audio(p,base,width){
   asked.length=0;await listen.click();await p.waitForFunction(()=>document.querySelector('[data-ev-sections]')?.onclick);assert.equal(new URL(p.url()).pathname+new URL(p.url()).hash,path+'#escuchar','The card button opens the summary');
   assert.equal(await state(),'ready');await p.locator('.ev-audio').waitFor({state:'visible'});assert(!/No se pudo/.test(await p.locator('#ev-reader-status').textContent()),'Arriving from a card never shows an audio error');
   if(await p.evaluate(()=>!!new Audio().canPlayType('audio/mpeg'))){
-   await p.waitForFunction(()=>document.querySelector('.ev-audio')?.dataset.evAudioState);await p.waitForTimeout(400);
-   if(await p.evaluate(()=>document.querySelector('.ev-audio').dataset.evAudioState)!=='playing')await p.locator('[data-ev-audio-play]').click();
+   // Si el navegador deja sonar sin otro toque, se espera a que suene; solo si no arranca en 4 s se pulsa «Reproducir». Leer el estado y
+   // pulsar acto seguido tenía una carrera: si el audio arrancaba entre las dos cosas, el toque lo pausaba.
+   const started=await p.waitForFunction(()=>document.querySelector('.ev-audio')?.dataset.evAudioState==='playing',null,{timeout:4000}).then(()=>true,()=>false);
+   if(!started)await p.locator('[data-ev-audio-play]').click();
    await p.waitForFunction(()=>document.querySelector('.ev-audio')?.dataset.evAudioState==='playing');assert(asked.includes(origin+file),'The summary opened from a card plays its audio');
    await p.locator('[data-ev-audio-close]').click();await p.evaluate(()=>{for(const k of Object.keys(localStorage))if(k==='ev-audio-rate'||k.startsWith('ev-audio-pos:'))localStorage.removeItem(k)});
   }
   // Las tarjetas de «evidencia relacionada» siguen la misma lista: solo la que tiene audio muestra el botón.
+  await p.waitForFunction(()=>document.querySelector('[data-ev-reader]')?.dataset.evContinuity==='ready');
   const related=await p.locator('[data-ev-related] .ev-card').evaluateAll(ns=>ns.map(n=>n.dataset.id));
   if(related.length){assert.equal(await p.locator('[data-ev-related] [data-ev-card-listen]:not([hidden])').count(),0,'A related summary without audio offers no «Escuchar»');listed=[Number(id),Number(related[0])];await ready(p,path,base);await p.locator('[data-ev-related] .ev-card[data-id="'+related[0]+'"] [data-ev-card-listen]').waitFor({state:'visible'});assert.equal(await p.locator('[data-ev-related] [data-ev-card-listen]:not([hidden])').count(),1,'Related cards follow the public audio list');await geometry(p)}
   listed=[];
