@@ -765,7 +765,8 @@ def generar(datos, plan, almacen, sintetiza, ahora, ids=None, maximo=None, avisa
 
     En el almacén quedan: `resumenes/<id>/<huella>.mp3` (el audio), `resumenes/<id>.json` (la ficha que consulta la
     página; existe solo si el audio vigente existe), `partes/<huella>.mp3` (el audio de cada parte leída, para no
-    pagarla dos veces), `indice.json` (todas las fichas y los corregidos que esperan su audio), `estado/uso.json`
+    pagarla dos veces), `indice.json` (todas las fichas y los corregidos que esperan su audio), `lista.json` (solo
+    los números de los resúmenes con audio, para las tarjetas), `estado/uso.json`
     (caracteres enviados a Google cada mes) y `estado/avisos.json` (lo ya avisado al editor).
 
     Antes de generar nada, retira la ficha y el audio de todo resumen cuyo texto publicado haya cambiado, de modo que la
@@ -792,6 +793,11 @@ def generar(datos, plan, almacen, sintetiza, ahora, ids=None, maximo=None, avisa
         cuerpo = {"version": VERSION, "voz": VOZ, "actualizado": ahora, "resumenes": dict(sorted(indice.items(), key=lambda kv: int(kv[0]))),
                   "corregidos": dict(sorted(corregidos.items(), key=lambda kv: int(kv[0])))}
         almacen.escribir("indice.json", json.dumps(cuerpo, ensure_ascii=False, indent=1).encode("utf-8"), "application/json; charset=utf-8", CACHE_FICHA)
+        # Lista pública y pequeña de los resúmenes con audio vigente. La consultan las tarjetas (portada, archivo…) para
+        # ofrecer «Escuchar» sin pedir una ficha por tarjeta ni descargar el índice entero. Se escribe con el índice: nunca
+        # nombra un resumen cuyo audio se haya retirado.
+        lista = {"actualizado": ahora, "ids": sorted(int(k) for k in indice)}
+        almacen.escribir("lista.json", json.dumps(lista, separators=(",", ":")).encode("utf-8"), "application/json; charset=utf-8", CACHE_FICHA)
 
     def limpiar(candidatas):
         """Borra del almacén las partes que ya no usa ningún audio vigente ni espera ningún corregido."""

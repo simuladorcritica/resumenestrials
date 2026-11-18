@@ -338,6 +338,8 @@ assert ficha["audio"] == f"resumenes/2/{voz.huella(por_id[2])}.mp3" and ficha["b
 assert set(ficha) == {"id", "audio", "huella", "segundos", "bytes", "voz", "version", "generado"}, "la ficha que lee la página no cambia de forma"
 assert falso.tipos[ficha["audio"]] == ("audio/mpeg", voz.CACHE_AUDIO) and falso.tipos["resumenes/2.json"][0].startswith("application/json")
 assert set(json.loads(falso.objetos["indice.json"])["resumenes"]) == {"2", "69"}
+lista = json.loads(falso.objetos["lista.json"])
+assert lista == {"actualizado": AHORA, "ids": [2, 69]} and falso.tipos["lista.json"] == ("application/json; charset=utf-8", voz.CACHE_FICHA) and len(falso.objetos["lista.json"]) < 80, "la lista pública nombra solo los resúmenes con audio, y es pequeña"
 assert "".join(enviados[:len(voz.peticiones(por_id[2]))]) == "".join(voz.peticiones(por_id[2])), "se envía exactamente el SSML del resumen"
 usados = json.loads(falso.objetos["estado/uso.json"])["2026-11"]
 assert usados == inf["caracteres_ejecucion"] == sum(len(x) for x in enviados) == caracteres(por_id[2], por_id[69]) < sum(len(x) for i in (2, 69) for x in voz.peticiones(por_id[i])), "cada parte se paga una sola vez"
@@ -358,6 +360,7 @@ assert len(cambiadas) == 1 == len(sobran), "una corrección en una sección camb
 inf = voz.generar([corregido] + cuatro[1:], plan_piloto, falso, lambda _t: (_ for _ in ()).throw(SystemExit("Google Cloud respondió 429")), AHORA, avisar=silencio)
 assert inf["retirados"] == [2] and "429" in inf["error"] and "resumenes/2.json" not in falso.objetos and viejo not in falso.objetos and inf["con_audio"] == 1, "aunque la voz falle, el audio viejo ya no se ofrece"
 assert inf["en_cola"]["corregidos"] == [2] and json.loads(falso.objetos["indice.json"])["corregidos"]["2"]["desde"] == AHORA and sobran <= falso.partes(), "el corregido queda anotado y sus partes se conservan hasta tener el audio nuevo"
+assert 2 not in json.loads(falso.objetos["lista.json"])["ids"], "un resumen corregido sale de la lista pública en la misma ejecución en que se retira su audio"
 antes = len(enviados)
 inf = voz.generar([corregido] + cuatro[1:], plan_piloto, falso, voz_falsa, AHORA, avisar=silencio)
 assert inf["generados"] == [2] and json.loads(falso.objetos["resumenes/2.json"])["huella"] == voz.huella(corregido) and inf["con_audio"] == 2
