@@ -5532,8 +5532,8 @@
     "url": "https://resumenestrials.com/trials/prodige-4-accord-11-folfirinox-gemcitabina-primera-linea-cancer-pancreas-metastasico/",
     "title": "PRODIGE 4-ACCORD 11: FOLFIRINOX frente a gemcitabina en el cáncer de páncreas metastásico",
     "relacionados": [
-      172,
-      242
+      242,
+      172
     ],
     "seo_title": "PRODIGE 4-ACCORD 11 trial: FOLFIRINOX frente a gemcitabina en el cáncer de páncreas metastásico | Resúmenes Trials",
     "description": "PRODIGE 4-ACCORD 11: FOLFIRINOX prolongó la mediana de supervivencia global: 11.1 frente a 6.8 meses (hazard ratio [HR] para la muerte 0.57; IC 95%, 0.45 a…",
@@ -8985,7 +8985,7 @@
     "relacionados": [
       27,
       308,
-      219
+      17
     ],
     "seo_title": "HI-PRO trial: apixabán para el tratamiento extendido de la tromboembolia venosa provocada | Resúmenes Trials",
     "description": "HI-PRO: Con apixabán 2.5 mg dos veces al día durante 12 meses, la tromboembolia venosa recurrente fue del 1.3% frente al 10.0% con placebo (HR 0.13 ; IC 95%…",
@@ -10408,7 +10408,8 @@
     "url": "https://resumenestrials.com/trials/vayhit2-ianalumab-mas-eltrombopag-trombocitopenia-inmunitaria/",
     "title": "VAYHIT2: ianalumab más eltrombopag en la trombocitopenia inmunitaria",
     "relacionados": [
-      344
+      344,
+      346
     ],
     "seo_title": "VAYHIT2 trial: ianalumab más eltrombopag en la trombocitopenia inmunitaria | Resúmenes Trials",
     "description": "VAYHIT2: Frente a placebo más eltrombopag, el hazard ratio de fracaso del tratamiento fue de 0.55 (IC 95% 0.32 a 0.92; P=0.04) con ianalumab de 9 mg/kg y de…",
@@ -10876,6 +10877,29 @@
       "question": "Determinar si la alteplasa intravenosa administrada entre las 4.5 y las 24 horas tras el inicio aumenta la independencia funcional a 90 días, frente al tratamiento médico estándar, en adultos con ictus isquémico de la circulación posterior sin hipodensidad extensa en la tomografía y sin trombectomía planeada.",
       "answer": "La independencia funcional a 90 días (Rankin de 0 a 2) se logró en el 89.6% con alteplasa frente al 72.6% con tratamiento estándar (riesgo relativo ajustado 1.16 ; IC 95% 1.03 a 1.30; p=0.01).",
       "population": "La población fueron adultos con ictus isquémico agudo de la circulación posterior, atendidos entre 4.5 y 24 horas después del inicio y sin trombectomía planeada; el artículo pide 18 años o más, y el protocolo, más de 18. En el ictus del despertar o sin testigos, el inicio era el punto medio entre la última vez que se vio bien al paciente y el hallazgo de los síntomas. El diagnóstico se confirmaba con resonancia magnética (RM)…"
+    },
+    "datePublished": "2026-11-18"
+  },
+  "346": {
+    "slug": "select-gca-ensayo-fase-3-upadacitinib-arteritis-celulas-gigantes",
+    "path": "/trials/select-gca-ensayo-fase-3-upadacitinib-arteritis-celulas-gigantes/",
+    "url": "https://resumenestrials.com/trials/select-gca-ensayo-fase-3-upadacitinib-arteritis-celulas-gigantes/",
+    "title": "SELECT-GCA: ensayo de fase 3 de upadacitinib para la arteritis de células gigantes",
+    "relacionados": [
+      330
+    ],
+    "seo_title": "SELECT-GCA trial: ensayo de fase 3 de upadacitinib para la arteritis de células gigantes | Resúmenes Trials",
+    "description": "SELECT-GCA: Con upadacitinib 15 mg y reducción de glucocorticoides en 26 semanas, la remisión sostenida en la semana 52 fue del 46.4% , frente al 29.0% con…",
+    "clusters": [],
+    "images": [
+      "https://resumenestrials.com/images/trials/select-gca-ensayo-fase-3-upadacitinib-arteritis-celulas-gigantes-16x9.jpg",
+      "https://resumenestrials.com/images/trials/select-gca-ensayo-fase-3-upadacitinib-arteritis-celulas-gigantes-4x3.jpg",
+      "https://resumenestrials.com/images/trials/select-gca-ensayo-fase-3-upadacitinib-arteritis-celulas-gigantes-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Evaluar si el upadacitinib a 15 o 7.5 mg una vez al día, con una reducción de glucocorticoides en 26 semanas, aumenta frente a placebo con una reducción en 52 semanas la proporción de pacientes con arteritis de células gigantes en remisión sostenida en la semana 52.",
+      "answer": "Con upadacitinib 15 mg y reducción de glucocorticoides en 26 semanas, la remisión sostenida en la semana 52 fue del 46.4% , frente al 29.0% con placebo y reducción en 52 semanas (diferencia ajustada 17.1 puntos ; IC 95% 6.3 a 27.8; P=0.002).",
+      "population": "Se incluyó a adultos de 50 años o más con arteritis de células gigantes (ACG) de debut, diagnosticada en las 8 semanas previas, o en recaída tras fracasar al menos una pauta de reducción de glucocorticoides, confirmada por biopsia temporal o por imagen. La enfermedad debía haber estado activa en las 8 semanas previas, con síntomas craneales inequívocos, polimialgia reumática o ambos, y velocidad de sedimentación globular (VSG)…"
     },
     "datePublished": "2026-11-18"
   }
