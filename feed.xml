@@ -4,8 +4,15 @@
   <id>https://resumenestrials.com/</id>
   <link href="https://resumenestrials.com/"/>
   <link rel="self" type="application/atom+xml" href="https://resumenestrials.com/feed.xml"/>
-  <updated>2026-11-18T00:00:00Z</updated>
+  <updated>2026-11-19T00:00:00Z</updated>
   <subtitle>Resúmenes críticos en español de ensayos clínicos.</subtitle>
+  <entry>
+    <title>SINGLE SHOT CHAMPION: ablación con campo pulsado o con crioballón para la fibrilación auricular paroxística</title>
+    <id>https://resumenestrials.com/trials/single-shot-champion-ablacion-campo-pulsado-crioballon-fibrilacion-auricular-paroxistica/</id>
+    <link href="https://resumenestrials.com/trials/single-shot-champion-ablacion-campo-pulsado-crioballon-fibrilacion-auricular-paroxistica/"/>
+    <updated>2026-11-19T00:00:00Z</updated>
+    <summary>Determinar si la ablación con campo pulsado no es inferior a la crioablación con balón en la recurrencia de taquiarritmia auricular entre los días 91 y 365, detectada con monitor cardiaco implantable, en adultos con fibrilación auricular paroxística sintomática.</summary>
+  </entry>
   <entry>
     <title>COVACTA: tocilizumab en pacientes hospitalizados con neumonía grave por Covid-19</title>
     <id>https://resumenestrials.com/trials/covacta-tocilizumab-pacientes-hospitalizados-neumonia-grave-covid-19/</id>
@@ -348,12 +355,5 @@
     <link href="https://resumenestrials.com/trials/teton-1-ensayos-fase-3-treprostinil-inhalado-fibrosis-pulmonar-idiopatica/"/>
     <updated>2026-11-14T00:00:00Z</updated>
     <summary>Evaluar si el treprostinil inhalado, frente a placebo, reduce la caída de la capacidad vital forzada a las 52 semanas en pacientes con fibrosis pulmonar idiopática.</summary>
-  </entry>
-  <entry>
-    <title>TELIGAN: telitacicept para la nefropatía IgA, análisis intermedio de un ensayo de fase 3</title>
-    <id>https://resumenestrials.com/trials/teligan-telitacicept-nefropatia-iga-analisis-intermedio-ensayo-fase-3/</id>
-    <link href="https://resumenestrials.com/trials/teligan-telitacicept-nefropatia-iga-analisis-intermedio-ensayo-fase-3/"/>
-    <updated>2026-11-14T00:00:00Z</updated>
-    <summary>Evaluar si el telitacicept subcutáneo semanal, frente a placebo, reduce la proteinuria a las 39 semanas en adultos con nefropatía IgA y proteinuria persistente pese al bloqueo del sistema renina-angiotensina.</summary>
   </entry>
 </feed>
