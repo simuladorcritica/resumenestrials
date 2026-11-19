@@ -514,6 +514,29 @@
           "frase": "Evaluar si añadir sotatercept al tratamiento de fondo máximo tolerado reduce la muerte, el trasplante pulmonar o la hospitalización por empeoramiento en adultos con hipertensión arterial pulmonar en clase funcional III o IV y alto riesgo de muerte."
         }
       }
+    },
+    {
+      "id": 348,
+      "fecha": "2026-11-19",
+      "huella": "fa1881a9242ac619",
+      "preguntas": {
+        "corticoides-choque-septico": {
+          "rol": "nada",
+          "frase": "Determinar si la ablación con campo pulsado no es inferior a la crioablación con balón en la recurrencia de taquiarritmia auricular entre los días 91 y 365, detectada con monitor cardiaco implantable, en adultos con fibrilación auricular paroxística sintomática."
+        },
+        "cuando-iniciar-terapia-reemplazo-renal-lesion-renal-aguda": {
+          "rol": "nada",
+          "frase": "Determinar si la ablación con campo pulsado no es inferior a la crioablación con balón en la recurrencia de taquiarritmia auricular entre los días 91 y 365, detectada con monitor cardiaco implantable, en adultos con fibrilación auricular paroxística sintomática."
+        },
+        "meta-oxigenacion-paciente-critico": {
+          "rol": "nada",
+          "frase": "Determinar si la ablación con campo pulsado no es inferior a la crioablación con balón en la recurrencia de taquiarritmia auricular entre los días 91 y 365, detectada con monitor cardiaco implantable, en adultos con fibrilación auricular paroxística sintomática."
+        },
+        "restriccion-liquidos-choque-septico-hipotension-sepsis": {
+          "rol": "nada",
+          "frase": "Determinar si la ablación con campo pulsado no es inferior a la crioablación con balón en la recurrencia de taquiarritmia auricular entre los días 91 y 365, detectada con monitor cardiaco implantable, en adultos con fibrilación auricular paroxística sintomática."
+        }
+      }
     }
   ],
   "preguntas": [
@@ -526,7 +549,7 @@
       "condicion": "Lesión renal aguda",
       "area": "Medicina Crítica",
       "fecha_publicacion": "2026-11-15",
-      "fecha_revision": "2026-11-15",
+      "fecha_revision": "2026-11-19",
       "criterio": "Publicación principal de un ensayo clínico aleatorizado en adultos en estado crítico con lesión renal aguda cuya comparación principal es el MOMENTO de inicio de la terapia de reemplazo renal (una estrategia de inicio más temprano frente a una de inicio más tardío o diferido). En esta pregunta la «intervención» es siempre la estrategia de inicio más temprano y el «comparador» la más tardía, sea cual sea la hipótesis del ensayo. No pertenecen al núcleo: los ensayos sobre la modalidad, la intensidad o la dosis de la terapia, la ultrafiltración, la anticoagulación del circuito o la retirada de la terapia; ni los ensayos piloto o de factibilidad, los análisis secundarios, los seguimientos o los metaanálisis. Cuáles de esos van como relacionados lo dice `criterio_relacionados`; los demás no se añaden. Ante la duda, no se añade al núcleo.",
       "criterio_relacionados": "Solo ensayos clínicos aleatorizados en adultos en estado crítico sobre CÓMO dar la terapia de reemplazo renal en la lesión renal aguda, en uno de estos aspectos y solo estos: modalidad, intensidad o dosis, ultrafiltración o balance de líquidos durante la terapia, anticoagulación del circuito o retirada de la terapia. No se añaden los de catéteres o accesos vasculares, los de configuración o conexión del circuito, los de diálisis crónica ni los de prevención de la lesión renal. Ante la duda, no se añade.",
       "ejes": [
@@ -627,9 +650,10 @@
               "cita": "La estrategia temprana iniciaba la diálisis de inmediato; la tardía solo la iniciaba ante hiperpotasemia grave, acidosis grave, edema pulmonar, un nitrógeno ureico muy elevado u oliguria de más de 72 horas."
             },
             "poblacion": {
-              "frase": "AKIKI incluyó adultos en cuidados intensivos con ventilación mecánica, vasopresores o ambos, en 31 unidades de Francia.",
+              "frase": "AKIKI incluyó adultos en cuidados intensivos con lesión renal aguda compatible con necrosis tubular aguda de origen isquémico o tóxico, con ventilación mecánica, vasopresores o ambos, en 31 unidades de Francia.",
               "cita": [
-                "Se incluyeron 619 adultos en cuidados intensivos con lesión renal aguda en estadio 3 de la clasificación KDIGO que recibían ventilación mecánica, vasopresores, o ambos.",
+                "La población fueron adultos de 18 años o más, ingresados en cuidados intensivos con una lesión renal aguda compatible con necrosis tubular aguda de origen isquémico o tóxico",
+                "Se aleatorizaron 620 adultos (619 en el análisis, tras una retirada del consentimiento) en cuidados intensivos con lesión renal aguda en estadio 3 de la clasificación KDIGO que recibían ventilación mecánica, vasopresores, o ambos.",
                 "El estudio se hizo en 31 unidades de cuidados intensivos de Francia."
               ]
             },
@@ -656,19 +680,18 @@
               ]
             },
             "limitacion": {
-              "frase": "AKIKI fue un ensayo abierto y, según su resumen, su validez externa se limita a pacientes con lesión renal aguda grave, en estadio 3 de KDIGO, que requerían ventilación mecánica o vasopresores.",
+              "frase": "AKIKI fue un ensayo abierto y, según su resumen, eso expone a sesgo de desempeño en decisiones no protocolizadas y su validez externa se limita a pacientes con lesión renal aguda grave, en estadio 3 de KDIGO, que requerían ventilación mecánica o vasopresores.",
               "cita": [
-                "Frente a ellas, tres limitaciones: el diseño abierto, que expone a sesgo de desempeño en decisiones no protocolizadas, como la limitación del tratamiento; un pequeño número de desviaciones del protocolo, seis pacientes de la estrategia temprana que no recibieron ninguna sesión de terapia de reemplazo renal por inclusión errónea, muerte antes del inicio o error del investigador, y cinco pacientes de la estrategia tardía que recibieron la terapia antes de cumplir los criterios por una mala interpretación del protocolo, aunque todos se conservaron en el análisis por intención de tratar salvo los casos de inclusión errónea; y el predominio de la hemodiálisis intermitente como primer método de tratamiento, en más de la mitad de los pacientes, frente a solo 30% con técnicas continuas exclusivas, lo que limita la generalización a unidades que prefieren la terapia continua.",
+                "Frente a ellas, tres limitaciones: el diseño abierto, que expone a sesgo de desempeño en decisiones no protocolizadas, como la limitación del tratamiento; un pequeño número de desviaciones del protocolo, seis pacientes de la estrategia temprana que no recibieron ninguna sesión de terapia de reemplazo renal por inclusión errónea, muerte antes del inicio o error del investigador, y cinco pacientes de la estrategia tardía que recibieron la terapia antes de cumplir los criterios por una mala interpretación del protocolo, y todos se conservaron en el análisis por intención de tratar, incluidos los 3 pacientes incluidos por error; y el predominio de la hemodiálisis intermitente como primer método de tratamiento, en más de la mitad de los pacientes, frente a solo 30% con técnicas continuas exclusivas, lo que limita la generalización a unidades que prefieren la terapia continua.",
                 "La validez interna es alta, gracias a la aleatorización adecuada y al seguimiento casi completo; la validez externa se limita a pacientes con lesión renal aguda grave, en estadio 3 de la clasificación KDIGO, que requerían ventilación mecánica o vasopresores, y no puede extenderse a formas menos graves de lesión renal aguda."
               ]
             }
           },
           "revision": {
-            "fecha": "2026-11-15",
+            "fecha": "2026-11-19",
             "cotejo": "VERDE",
             "fiscal": "VERDE",
-            "omisiones": "VERDE",
-            "nota": "Versión breve: cotejo de cada frase contra su cita y revisión del fiscal, que además comprobó que las tres frases de la ficha dicen lo decisivo; sus propuestas se aplicaron."
+            "omisiones": "VERDE"
           }
         },
         {

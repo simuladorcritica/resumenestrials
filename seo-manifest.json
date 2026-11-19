@@ -1143,9 +1143,9 @@
     "url": "https://resumenestrials.com/trials/adapt-af-des-monoterapia-anticoagulante-anticoagulante-mas-clopidogrel-fibrilacion-auricular/",
     "title": "ADAPT AF-DES: tratamiento de la fibrilación auricular en pacientes con stents liberadores de fármaco",
     "relacionados": [
-      37,
       167,
-      29
+      37,
+      99
     ],
     "seo_title": "ADAPT AF-DES trial: tratamiento de la fibrilación auricular en pacientes con stents liberadores de fármaco | Resúmenes Trials",
     "description": "ADAPT AF-DES: La monoterapia fue no inferior y superior: los eventos adversos netos ocurrieron en el 9.6% frente al 17.2% con la combinación (razón de riesgos…",
@@ -1512,8 +1512,8 @@
     "title": "Impacto de la broncoscopia en la seguridad de la traqueostomía percutánea",
     "relacionados": [
       25,
-      46,
-      80
+      80,
+      46
     ],
     "seo_title": "Impacto de la broncoscopia en la seguridad de la traqueostomía percutánea | Resúmenes Trials",
     "description": "Impacto de la broncoscopia en la seguridad de la traqueostomía percutánea: Las complicaciones mayores de la PCT fueron idénticas con y sin guía broncoscópica…",
@@ -8985,7 +8985,7 @@
     "relacionados": [
       27,
       308,
-      17
+      219
     ],
     "seo_title": "HI-PRO trial: apixabán para el tratamiento extendido de la tromboembolia venosa provocada | Resúmenes Trials",
     "description": "HI-PRO: Con apixabán 2.5 mg dos veces al día durante 12 meses, la tromboembolia venosa recurrente fue del 1.3% frente al 10.0% con placebo (HR 0.13 ; IC 95%…",
@@ -9493,6 +9493,7 @@
     "url": "https://resumenestrials.com/trials/coast-af-ablacion-areas-voltaje-fibrilacion-auricular-persistente/",
     "title": "COAST-AF: ablación de áreas de bajo voltaje en la fibrilación auricular persistente",
     "relacionados": [
+      348,
       324,
       37
     ],
@@ -10227,9 +10228,9 @@
     "url": "https://resumenestrials.com/trials/avant-guard-ablacion-campo-pulsado-como-tratamiento-inicial-fibrilacion-auricular-persistente/",
     "title": "AVANT GUARD: ablación de campo pulsado como tratamiento inicial de la fibrilación auricular persistente",
     "relacionados": [
+      348,
       299,
-      37,
-      167
+      37
     ],
     "seo_title": "AVANT GUARD trial: ablación de campo pulsado como tratamiento inicial de la fibrilación auricular persistente | Resúmenes Trials",
     "description": "AVANT GUARD: El éxito del tratamiento a 12 meses fue del 56% con ablación de campo pulsado frente al 30% con fármacos antiarrítmicos (diferencia 26 puntos…",
@@ -10938,5 +10939,36 @@
       "population": "Se incluyó a adultos de 18 a 75 años con hipertensión arterial pulmonar (HAP) sintomática del grupo 1 de la Organización Mundial de la Salud (OMS), idiopática, heredable, por fármacos o tóxicos, asociada a enfermedad del tejido conectivo o a cortocircuitos congénitos corregidos hacía al menos 1 año. Debían estar en clase funcional III o IV de la OMS (de I a IV; más alta, más limitación) y tener 9 o más puntos en la calculadora…"
     },
     "datePublished": "2026-11-18"
+  },
+  "348": {
+    "slug": "single-shot-champion-ablacion-campo-pulsado-crioballon-fibrilacion-auricular-paroxistica",
+    "path": "/trials/single-shot-champion-ablacion-campo-pulsado-crioballon-fibrilacion-auricular-paroxistica/",
+    "url": "https://resumenestrials.com/trials/single-shot-champion-ablacion-campo-pulsado-crioballon-fibrilacion-auricular-paroxistica/",
+    "title": "SINGLE SHOT CHAMPION: ablación con campo pulsado o con crioballón para la fibrilación auricular paroxística",
+    "relacionados": [
+      324,
+      299,
+      37
+    ],
+    "seo_title": "SINGLE SHOT CHAMPION trial: ablación con campo pulsado o con crioballón para la fibrilación auricular paroxística | Resúmenes Trials",
+    "description": "SINGLE SHOT CHAMPION: La ablación con campo pulsado fue no inferior a la crioablación con balón: la recurrencia de taquiarritmia auricular entre los días 91 y…",
+    "clusters": [
+      {
+        "name": "Cardiología y prevención cardiovascular",
+        "path": "/medicina-interna/cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-interna/cardiovascular/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/single-shot-champion-ablacion-campo-pulsado-crioballon-fibrilacion-auricular-paroxistica-16x9.jpg",
+      "https://resumenestrials.com/images/trials/single-shot-champion-ablacion-campo-pulsado-crioballon-fibrilacion-auricular-paroxistica-4x3.jpg",
+      "https://resumenestrials.com/images/trials/single-shot-champion-ablacion-campo-pulsado-crioballon-fibrilacion-auricular-paroxistica-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si la ablación con campo pulsado no es inferior a la crioablación con balón en la recurrencia de taquiarritmia auricular entre los días 91 y 365, detectada con monitor cardiaco implantable, en adultos con fibrilación auricular paroxística sintomática.",
+      "answer": "La ablación con campo pulsado fue no inferior a la crioablación con balón: la recurrencia de taquiarritmia auricular entre los días 91 y 365 fue del 37.1% con campo pulsado frente al 50.7% con crioablación (diferencia -13.6 puntos porcentuales; IC 95% -26.9 a -0.3; P<0.001 para no inferioridad; P=0.046 para superioridad) , con…",
+      "population": "Adultos con fibrilación auricular paroxística sintomática, la que revierte en 7 días o menos, documentada durante al menos 30 segundos en los 24 meses previos y candidatos a su primer aislamiento de venas pulmonares, en dos hospitales terciarios de Suiza. Raza o etnia: No reportado."
+    },
+    "datePublished": "2026-11-19"
   }
 }
