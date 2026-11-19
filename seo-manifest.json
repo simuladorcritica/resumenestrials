@@ -1964,7 +1964,7 @@
     "relacionados": [
       71,
       62,
-      76
+      125
     ],
     "seo_title": "DECLARE-TIMI 58 trial: dapagliflozina y desenlaces cardiovasculares en la diabetes tipo 2 | Resúmenes Trials",
     "description": "DECLARE-TIMI 58: Dapagliflozina fue no inferior a placebo en eventos cardiovasculares mayores ( 8.8% frente a 9.4% ; HR 0.93; IC 95%, 0.84-1.03; P=0.17), pero…",
@@ -2302,8 +2302,8 @@
     "url": "https://resumenestrials.com/trials/exscel-exenatide-semanal-es-seguro-nivel-cardiovascular-pero-no-reduce/",
     "title": "EXSCEL: efectos de la exenatida semanal sobre los desenlaces cardiovasculares en la diabetes tipo 2",
     "relacionados": [
-      61,
       125,
+      61,
       76
     ],
     "seo_title": "EXSCEL trial: efectos de la exenatida semanal sobre los desenlaces cardiovasculares en la diabetes tipo 2 | Resúmenes Trials",
@@ -2339,8 +2339,8 @@
     "url": "https://resumenestrials.com/trials/empact-mi-empagliflozina-tras-infarto-agudo-no-reduce-insuficiencia-cardiaca-ni/",
     "title": "EMPACT-MI: empagliflozina tras un infarto agudo de miocardio",
     "relacionados": [
-      73,
       59,
+      73,
       280
     ],
     "seo_title": "EMPACT-MI trial: empagliflozina tras un infarto agudo de miocardio | Resúmenes Trials",
@@ -2906,7 +2906,6 @@
     "url": "https://resumenestrials.com/trials/crest-2-manejo-medico-intensivo-revascularizacion-carotidea-estenosis-carotidea-asintomatica/",
     "title": "CREST-2: tratamiento médico y revascularización en la estenosis carotídea asintomática",
     "relacionados": [
-      325,
       164
     ],
     "seo_title": "CREST-2 trial: tratamiento médico y revascularización en la estenosis carotídea asintomática | Resúmenes Trials",
@@ -3109,7 +3108,7 @@
     "relacionados": [
       96,
       61,
-      125
+      76
     ],
     "seo_title": "CANVAS Program trial: canagliflozina y eventos cardiovasculares y renales en la diabetes tipo 2 | Resúmenes Trials",
     "description": "CANVAS Program: La canagliflozina redujo el compuesto de muerte cardiovascular, infarto no fatal o ictus no fatal frente a placebo ( 26.9 frente a 31.5…",
@@ -3574,7 +3573,7 @@
     "relacionados": [
       78,
       174,
-      183
+      201
     ],
     "seo_title": "PROSEVA trial: posición prona en el síndrome de dificultad respiratoria aguda grave | Resúmenes Trials",
     "description": "PROSEVA: La mortalidad a los 28 días fue mucho menor con posición prona: 16.0% frente a 32.8% (hazard ratio, 0.39; IC95%, 0.25 a 0.63; p<0.001) , con un…",
@@ -3674,7 +3673,7 @@
     "relacionados": [
       333,
       149,
-      230
+      52
     ],
     "seo_title": "CLASSIC trial: restricción de líquidos intravenosos en pacientes de UCI con shock séptico | Resúmenes Trials",
     "description": "CLASSIC: La mortalidad a los 90 días no mostró diferencia significativa entre los grupos: 42.3% en el grupo de restricción de fluidos frente a 42.1% en el…",
@@ -3896,8 +3895,8 @@
     "url": "https://resumenestrials.com/trials/tavi-pci-momento-optimo-intervencion-coronaria-percutanea-implante-valvular-aortico-transcateter/",
     "title": "TAVI PCI: momento de la intervención coronaria percutánea en pacientes sometidos a implante percutáneo de válvula aórtica",
     "relacionados": [
-      123,
       124,
+      123,
       306
     ],
     "seo_title": "TAVI PCI trial: momento de la intervención coronaria percutánea en pacientes sometidos a implante percutáneo de válvula aórtica | Resúmenes Trials",
@@ -3961,10 +3960,11 @@
     "title": "COVACTA: tocilizumab en pacientes hospitalizados con neumonía grave por Covid-19",
     "relacionados": [
       50,
-      136
+      136,
+      133
     ],
     "seo_title": "COVACTA trial: tocilizumab en pacientes hospitalizados con neumonía grave por Covid-19 | Resúmenes Trials",
-    "description": "COVACTA: El tocilizumab no mejora el estado clínico ni salva más vidas que el placebo en la neumonía grave por covid-19 (diferencia en el estado clínico a 28…",
+    "description": "COVACTA: El tocilizumab no mostró diferencia significativa frente al placebo en el estado clínico ni en la mortalidad a 28 días en la neumonía grave por…",
     "clusters": [
       {
         "name": "Ventilación e insuficiencia respiratoria",
@@ -3984,11 +3984,11 @@
     ],
     "intent": {
       "question": "Determinar si una infusión intravenosa de tocilizumab mejora el estado clínico a los 28 días, frente a placebo, en pacientes hospitalizados con neumonía grave por covid-19.",
-      "answer": "El tocilizumab no mejora el estado clínico ni salva más vidas que el placebo en la neumonía grave por covid-19 (diferencia en el estado clínico a 28 días, −1.0; IC 95%, −2.5 a 0.0; p=0.31; mortalidad 19.7% frente a 19.4%, p=0.94).",
-      "population": "La población fueron adultos de 18 años o más hospitalizados por neumonía grave por covid-19, confirmada por PCR e infiltrados bilaterales en la imagen de tórax, con una saturación de oxígeno del 93% o menos o una relación PaO2:FiO2 menor de 300 mmHg. El estudio se hizo en 62 hospitales de nueve países de Europa y Norteamérica (Canadá, Dinamarca, Francia, Alemania, Italia, los Países Bajos, España, el Reino Unido y los Estados…"
+      "answer": "El tocilizumab no mostró diferencia significativa frente al placebo en el estado clínico ni en la mortalidad a 28 días en la neumonía grave por covid-19 (diferencia de medianas en el estado clínico a 28 días, −1.0; IC 95%, −2.5 a 0.0; p=0.31; mortalidad 19.7% con tocilizumab frente a 19.4% con placebo, p nominal=0.94; el ensayo…",
+      "population": "La población fueron adultos de 18 años o más hospitalizados por neumonía grave por covid-19, confirmada por reacción en cadena de la polimerasa (PCR) e infiltrados bilaterales en la imagen de tórax, con una saturación de oxígeno del 93% o menos o una relación entre la presión parcial arterial de oxígeno y la fracción inspirada de oxígeno (PaO2:FiO2) menor de 300 mmHg. El estudio se hizo en 62 hospitales de nueve países de…"
     },
     "datePublished": "2026-09-03",
-    "dateModified": "2026-10-20"
+    "dateModified": "2026-11-18"
   },
   "123": {
     "slug": "partner-implante-percutaneo-valvula-aortica-tratamiento-estandar-estenosis-aortica-inoperable",
@@ -4040,7 +4040,7 @@
       "population": "La población fueron adultos con estenosis aórtica calcificada grave y bajo riesgo de muerte con la cirugía, definido por una puntuación STS-PROM (Society of Thoracic Surgeons Predicted Risk of Mortality, que estima el riesgo de muerte a 30 días de la cirugía cardiaca en una escala de 0 a 100%, donde un valor más alto indica mayor riesgo) menor de 4%, con acuerdo entre el equipo local y el comité de revisión de casos del…"
     },
     "datePublished": "2026-09-03",
-    "dateModified": "2026-10-20"
+    "dateModified": "2026-11-18"
   },
   "125": {
     "slug": "leader-liraglutida-desenlaces-cardiovasculares-diabetes-tipo-2",
@@ -4048,9 +4048,9 @@
     "url": "https://resumenestrials.com/trials/leader-liraglutida-desenlaces-cardiovasculares-diabetes-tipo-2/",
     "title": "LEADER: liraglutida y desenlaces cardiovasculares en la diabetes tipo 2",
     "relacionados": [
-      76,
       71,
-      151
+      76,
+      61
     ],
     "seo_title": "LEADER trial: liraglutida y desenlaces cardiovasculares en la diabetes tipo 2 | Resúmenes Trials",
     "description": "LEADER: El desenlace cardiovascular compuesto ocurrió en 13.0% de los pacientes con liraglutida frente a 14.9% con placebo (HR 0.87; IC 95% 0.78 a 0.97…",
@@ -4072,12 +4072,12 @@
       "https://resumenestrials.com/images/trials/leader-liraglutida-desenlaces-cardiovasculares-diabetes-tipo-2-1x1.jpg"
     ],
     "intent": {
-      "question": "Determinar si liraglutida, un análogo del péptido similar al glucagón tipo 1, reduce el riesgo cardiovascular frente a placebo, añadida al tratamiento estándar, en pacientes con diabetes tipo 2 y alto riesgo cardiovascular.",
-      "answer": "El desenlace cardiovascular compuesto ocurrió en 13.0% de los pacientes con liraglutida frente a 14.9% con placebo (HR 0.87; IC 95% 0.78 a 0.97; p=0.01 para superioridad) , con menor mortalidad total y cardiovascular.",
-      "population": "La población fueron adultos con diabetes tipo 2 y alto riesgo cardiovascular: mayores de 50 años con al menos una enfermedad cardiovascular establecida, coronaria, cerebrovascular o periférica, enfermedad renal crónica en estadio 3 o superior, o insuficiencia cardiaca de clase funcional II o III; o mayores de 60 años con al menos un factor de riesgo cardiovascular, como microalbuminuria, hipertensión con hipertrofia…"
+      "question": "Determinar si liraglutida, un análogo del péptido similar al glucagón tipo 1, añadida al tratamiento estándar, es no inferior a placebo (y, de serlo, superior) en el riesgo de eventos cardiovasculares mayores en pacientes con diabetes tipo 2 y alto riesgo cardiovascular.",
+      "answer": "El desenlace cardiovascular compuesto ocurrió en 13.0% de los pacientes con liraglutida frente a 14.9% con placebo (HR 0.87; IC 95% 0.78 a 0.97; p=0.01 para superioridad) , con menor mortalidad total y cardiovascular en análisis sin ajuste por multiplicidad.",
+      "population": "La población fueron adultos con diabetes tipo 2 y alto riesgo cardiovascular: de 50 años o más con al menos una enfermedad cardiovascular establecida, coronaria, cerebrovascular o periférica, enfermedad renal crónica en estadio 3 o superior, o insuficiencia cardiaca de clase funcional II o III; o de 60 años o más con al menos un factor de riesgo cardiovascular, como microalbuminuria, hipertensión con hipertrofia ventricular…"
     },
     "datePublished": "2026-09-03",
-    "dateModified": "2026-10-20"
+    "dateModified": "2026-11-18"
   },
   "126": {
     "slug": "pilot-objetivos-saturacion-oxigeno-adultos-criticamente-enfermos-ventilacion-mecanica",
@@ -4405,7 +4405,7 @@
       12
     ],
     "seo_title": "AKIKI trial: estrategias de inicio de la terapia de reemplazo renal en la unidad de cuidados intensivos | Resúmenes Trials",
-    "description": "AKIKI: La mortalidad a 60 días no difirió entre estrategias: 48.5% con inicio temprano frente a 49.7% con inicio tardío (p=0.79) . Casi la mitad de los…",
+    "description": "AKIKI: Sin diferencia significativa en la mortalidad a 60 días: 48.5% con inicio temprano frente a 49.7% con inicio tardío (hazard ratio 1.03; intervalo de…",
     "clusters": [
       {
         "name": "Renal y metabolismo",
@@ -4420,11 +4420,11 @@
     ],
     "intent": {
       "question": "Comparar una estrategia de inicio temprano frente a una estrategia de inicio tardío de la terapia de reemplazo renal sobre la supervivencia a 60 días en pacientes críticamente enfermos con lesión renal aguda grave.",
-      "answer": "La mortalidad a 60 días no difirió entre estrategias: 48.5% con inicio temprano frente a 49.7% con inicio tardío (p=0.79) .",
+      "answer": "Sin diferencia significativa en la mortalidad a 60 días: 48.5% con inicio temprano frente a 49.7% con inicio tardío (hazard ratio 1.03; intervalo de confianza del 95%, 0.82 a 1.29; p=0.79) .",
       "population": "La población fueron adultos de 18 años o más, ingresados en cuidados intensivos con una lesión renal aguda compatible con necrosis tubular aguda de origen isquémico o tóxico, en el estadio 3 de la clasificación KDIGO (creatinina sérica al menos 3 veces el valor basal o de 4.0 mg/dl o más, o diuresis menor de 0.3 ml por kilogramo de peso por hora durante 24 horas o más, o anuria de 12 horas o más), que además recibían…"
     },
     "datePublished": "2026-09-03",
-    "dateModified": "2026-10-27"
+    "dateModified": "2026-11-18"
   },
   "136": {
     "slug": "remap-cap-tocilizumab-sarilumab-antagonistas-receptor-interleucina-6-pacientes-criticamente",
@@ -4450,7 +4450,7 @@
       "population": "La población fueron adultos de 18 años o más con Covid-19 sospechada o confirmada microbiológicamente, ingresados en una unidad de cuidados intensivos y que recibían soporte respiratorio, definido como ventilación mecánica invasiva o no invasiva, o cánula nasal de alto flujo con un caudal mayor de 30 litros por minuto y una fracción inspirada de oxígeno mayor de 0.4, o soporte cardiovascular, definido como la infusión…"
     },
     "datePublished": "2026-09-03",
-    "dateModified": "2026-10-29"
+    "dateModified": "2026-11-18"
   },
   "137": {
     "slug": "danger-shock-bomba-flujo-microaxial-atencion-estandar-shock-cardiogenico-infarto",
@@ -4458,8 +4458,8 @@
     "url": "https://resumenestrials.com/trials/danger-shock-bomba-flujo-microaxial-atencion-estandar-shock-cardiogenico-infarto/",
     "title": "DanGer-Shock: bomba de flujo microaxial o atención estándar en el shock cardiogénico relacionado con infarto",
     "relacionados": [
-      77,
       202,
+      77,
       34
     ],
     "seo_title": "DanGer-Shock trial: bomba de flujo microaxial o atención estándar en el shock cardiogénico relacionado con infarto | Resúmenes Trials",
@@ -4478,11 +4478,11 @@
     ],
     "intent": {
       "question": "Determinar si el uso sistemático de una bomba de flujo microaxial percutánea, añadida a la atención estándar, reduce la mortalidad por cualquier causa a 180 días en pacientes con infarto de miocardio con elevación del segmento ST complicado por shock cardiogénico, en comparación con la atención estándar sola.",
-      "answer": "La muerte por cualquier causa a 180 días fue menor con la bomba de flujo microaxial que con la atención estándar sola, 45.8% frente a 58.5% (cociente de riesgos instantáneos, 0.74; intervalo de confianza del 95%, 0.55 a 0.99; p=0.04) , aunque a costa de más eventos adversos, incluidos sangrado, isquemia de miembro y necesidad de…",
+      "answer": "La muerte por cualquier causa a 180 días fue menor con la bomba de flujo microaxial que con la atención estándar sola, 45.8% frente a 58.5% (hazard ratio, 0.74; intervalo de confianza del 95%, 0.55 a 0.99; p=0.04) , aunque a costa de más eventos adversos, incluidos sangrado, isquemia de miembro y necesidad de terapia de…",
       "population": "La población fueron adultos de 18 años o más con infarto de miocardio con elevación del segmento ST y shock cardiogénico, definido este último por hipotensión, con presión arterial sistólica menor de 100 mmHg o necesidad continua de vasopresor, hipoperfusión de órganos con un nivel de lactato arterial de 2.5 mmol por litro o mayor, y una fracción de eyección del ventrículo izquierdo menor del 45%. La raza o etnia no se recogió…"
     },
     "datePublished": "2026-09-03",
-    "dateModified": "2026-10-29"
+    "dateModified": "2026-11-18"
   },
   "138": {
     "slug": "librexia-acs-milvexian-anadido-terapia-antiplaquetaria-tras-sindrome-coronario-agudo",
@@ -4490,12 +4490,12 @@
     "url": "https://resumenestrials.com/trials/librexia-acs-milvexian-anadido-terapia-antiplaquetaria-tras-sindrome-coronario-agudo/",
     "title": "LIBREXIA ACS: milvexian con tratamiento antiplaquetario tras un síndrome coronario agudo",
     "relacionados": [
+      325,
       274,
-      107,
-      325
+      107
     ],
     "seo_title": "LIBREXIA ACS trial: milvexian con tratamiento antiplaquetario tras un síndrome coronario agudo | Resúmenes Trials",
-    "description": "LIBREXIA ACS: Milvexian no redujo el desenlace primario compuesto frente a placebo, 5.4% frente a 5.1% (cociente de riesgos instantáneos, 1.05; intervalo de…",
+    "description": "LIBREXIA ACS: Milvexian no mostró diferencia significativa frente a placebo en el desenlace primario compuesto, 5.4% con milvexian frente a 5.1% con placebo…",
     "clusters": [
       {
         "name": "Cardiología y prevención cardiovascular",
@@ -4510,11 +4510,11 @@
     ],
     "intent": {
       "question": "Evaluar si milvexian, un inhibidor oral del factor XIa, añadido a la terapia antiplaquetaria estándar, reduce el riesgo del compuesto de muerte cardiovascular, infarto de miocardio o ictus isquémico en pacientes con un evento reciente de síndrome coronario agudo, en comparación con placebo.",
-      "answer": "Milvexian no redujo el desenlace primario compuesto frente a placebo, 5.4% frente a 5.1% (cociente de riesgos instantáneos, 1.05; intervalo de confianza del 95%, 0.91 a 1.21; p=0.50) , y el ensayo se detuvo de forma anticipada por futilidad tras un análisis interino preespecificado, sin que se observara tampoco un exceso de…",
+      "answer": "Milvexian no mostró diferencia significativa frente a placebo en el desenlace primario compuesto, 5.4% con milvexian frente a 5.1% con placebo (hazard ratio, 1.05; intervalo de confianza del 95%, 0.91 a 1.21; p=0.50) , y el ensayo se detuvo de forma anticipada por futilidad tras un análisis interino preespecificado, sin que se…",
       "population": "La población fueron adultos de 18 años o más evaluados dentro de los 7 días posteriores a un evento de síndrome coronario agudo, definido como infarto con elevación del segmento ST, infarto sin elevación del segmento ST de tipo 1, o angina inestable con positividad de biomarcadores cardiacos, y que además tenían al menos dos factores de riesgo de eventos isquémicos recurrentes, entre ellos edad de 65 años o más, diabetes…"
     },
     "datePublished": "2026-09-03",
-    "dateModified": "2026-10-29"
+    "dateModified": "2026-11-18"
   },
   "139": {
     "slug": "preoxi-ventilacion-no-invasiva-preoxigenacion-antes-intubacion-emergencia",
@@ -6930,8 +6930,8 @@
     "title": "WOMAN: efecto de la administración precoz de ácido tranexámico sobre la mortalidad, la histerectomía y otras morbilidades en mujeres con hemorragia posparto",
     "relacionados": [
       214,
-      177,
-      239
+      239,
+      177
     ],
     "seo_title": "WOMAN trial: efecto de la administración precoz de ácido tranexámico sobre la mortalidad, la histerectomía y otras morbilidades en mujeres con hemorragia posparto | Resúmenes Trials",
     "description": "WOMAN: Sin diferencia significativa en el desenlace primario de muerte o histerectomía: 5.3% con ácido tranexámico frente a 5.5% con placebo, riesgo relativo…",
@@ -10261,7 +10261,7 @@
     "relacionados": [
       138,
       304,
-      89
+      216
     ],
     "seo_title": "OCEANIC-STROKE trial: asundexián para la prevención secundaria del ictus | Resúmenes Trials",
     "description": "OCEANIC-STROKE: Añadir asundexián a la antiagregación redujo el ictus isquémico: 6.2% con asundexián frente a 8.4% con placebo (hazard ratio por causa…",
@@ -10320,7 +10320,7 @@
       33
     ],
     "seo_title": "IVUS-CHIP trial: intervención coronaria percutánea compleja de alto riesgo guiada por ecografía intravascular o por angiografía | Resúmenes Trials",
-    "description": "IVUS-CHIP: Con una mediana de 19.0 meses, el fracaso del vaso diana ocurrió en el 13.9% con la guía por ecografía intravascular frente al 11.1% con la guía…",
+    "description": "IVUS-CHIP: Con una mediana de seguimiento de 19.0 meses, el fracaso del vaso diana ocurrió en el 13.9% con la guía por ecografía intravascular frente al 11.1%…",
     "clusters": [
       {
         "name": "Cardiología y prevención cardiovascular",
@@ -10335,10 +10335,11 @@
     ],
     "intent": {
       "question": "Determinar si la intervención coronaria percutánea compleja de alto riesgo guiada por ecografía intravascular con criterios preespecificados de optimización del stent reduce el fracaso del vaso diana frente a la guiada solo por angiografía.",
-      "answer": "Con una mediana de 19.0 meses, el fracaso del vaso diana ocurrió en el 13.9% con la guía por ecografía intravascular frente al 11.1% con la guía angiográfica (HR 1.25 ; IC 95% 0.97 a 1.60; P = 0.08), sin diferencia significativa; el intervalo excluye el beneficio previsto en la hipótesis (HR 0.65).",
+      "answer": "Con una mediana de seguimiento de 19.0 meses, el fracaso del vaso diana ocurrió en el 13.9% con la guía por ecografía intravascular frente al 11.1% con la guía angiográfica (HR 1.25 ; IC 95% 0.97 a 1.60; P = 0.08), sin diferencia significativa; el intervalo excluye el beneficio previsto en la hipótesis (HR 0.65).",
       "population": "La población fueron adultos europeos con un síndrome coronario agudo sin elevación del ST (infarto sin elevación del ST o angina inestable) o con cardiopatía isquémica estable (angina estable o isquemia silente), programados para una intervención coronaria percutánea (ICP) de al menos una lesión compleja o con soporte circulatorio mecánico planificado. Los grupos demográficos censales no se recogieron; según los autores…"
     },
-    "datePublished": "2026-11-16"
+    "datePublished": "2026-11-16",
+    "dateModified": "2026-11-18"
   },
   "328": {
     "slug": "all-rise-reserva-fraccional-flujo-derivada-angiografia-guiar-intervencion-coronaria-percutanea",

@@ -728,9 +728,9 @@
    "conflictos": "Sí: varios coautores son empleados de Eli Lilly con acciones de la compañía."
   },
   "122": {
-   "de": "1bf99b5624bf",
-   "pago": "F. Hoffmann-La Roche, fabricante del tocilizumab, y una subvención del Departamento de Salud y Servicios Humanos de los Estados Unidos (BARDA).",
-   "papel": "El patrocinador analizó los datos y financió la redacción del primer borrador del manuscrito.",
+   "de": "5695933f4a1f",
+   "pago": "F. Hoffmann-La Roche, fabricante del tocilizumab, y una subvención de la Autoridad de Investigación y Desarrollo Biomédico Avanzado (BARDA) del Departamento de Salud y Servicios Humanos de los Estados Unidos.",
+   "papel": "El patrocinador diseñó y supervisó el estudio, diseñó y mantuvo la base de datos, analizó los datos y financió la redacción del primer borrador del manuscrito.",
    "conflictos": "No consta en el resumen."
   },
   "123": {
@@ -806,28 +806,28 @@
    "conflictos": "No consta en el resumen."
   },
   "135": {
-   "de": "f3fd88c22ab7",
-   "pago": "Programme Hospitalier de Recherche Clinique National 2012 del Ministerio de Salud de Francia.",
-   "papel": "No hay fabricante comercial involucrado: se compararon dos estrategias sobre el momento de inicio de la terapia de reemplazo renal, no un dispositivo ni un fármaco patentado.",
+   "de": "5d580370dbc5",
+   "pago": "Una beca del Programme Hospitalier de Recherche Clinique National 2012 del Ministerio de Salud de Francia.",
+   "papel": "Ninguna empresa figura entre los financiadores; la Direction de la Recherche Clinique de l'Assistance Publique-Hôpitaux de Paris supervisó el uso de los fondos.",
    "conflictos": "No consta en el resumen."
   },
   "136": {
-   "de": "93b15f557ebb",
-   "pago": "Múltiples financiadores públicos y sin ánimo de lucro (Unión Europea, National Health and Medical Research Council de Australia, NIHR británico, Wellcome Trust, entre otros); en la lista figuran también Amgen y Eisai.",
-   "papel": "Roche Products y Sanofi, fabricantes de tocilizumab y sarilumab, suministraron ambos fármacos para su uso en el Reino Unido; no participaron en el diseño, el análisis, la redacción ni la decisión de publicar.",
+   "de": "d1286b55e71c",
+   "pago": "Múltiples financiadores internacionales, entre ellos la Unión Europea, el National Health and Medical Research Council de Australia, el NIHR británico, el Wellcome Trust, Amgen y Eisai.",
+   "papel": "Roche Products y Sanofi, fabricantes de tocilizumab y sarilumab, suministraron ambos fármacos en el Reino Unido; ningún financiador participó en el diseño, el análisis, la redacción ni la decisión de enviarlo a publicación.",
    "conflictos": "No consta en el resumen."
   },
   "137": {
-   "de": "30145f660690",
-   "pago": "Fundación Danesa del Corazón y Abiomed, la empresa fabricante del dispositivo Impella CP evaluado.",
+   "de": "8e34c4c24006",
+   "pago": "Fundación Danesa del Corazón y Abiomed, la empresa fabricante del dispositivo Impella CP evaluado, que se sumó en 2018 con una subvención no restringida.",
    "papel": "Los representantes de los financiadores no participaron en el diseño, el análisis ni la redacción, aunque los de Abiomed pudieron revisar y comentar la versión final del manuscrito antes de su envío.",
    "conflictos": "No consta en el resumen."
   },
   "138": {
-   "de": "7276cb1f0372",
-   "pago": "Janssen Research and Development y Bristol Myers Squibb, codesarrolladoras del milvexian, el fármaco en investigación.",
-   "papel": "El ensayo lo diseñaron miembros del comité ejecutivo junto con los patrocinadores.",
-   "conflictos": "Sí: varios coautores son empleados de las compañías patrocinadoras (Bristol Myers Squibb y Johnson & Johnson, la empresa matriz de Janssen)."
+   "de": "808abd205820",
+   "pago": "Janssen Research and Development y Bristol Myers Squibb, las compañías del fármaco en investigación, milvexian.",
+   "papel": "Los patrocinadores diseñaron el ensayo con miembros del comité ejecutivo, que incluía representantes suyos; los análisis estadísticos los hizo de forma independiente el Baim Institute.",
+   "conflictos": "Sí: varios coautores pertenecen a las compañías patrocinadoras, Bristol Myers Squibb y Johnson & Johnson."
   },
   "139": {
    "de": "b46d03651b12",
