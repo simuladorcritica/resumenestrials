@@ -1921,6 +1921,278 @@
           ]
         }
       ]
+    },
+    {
+      "slug": "cristaloides-balanceados-solucion-salina-adultos-estado-critico",
+      "pregunta": "¿Cristaloides balanceados o solución salina en adultos en estado crítico?",
+      "nombre": "Cristaloides balanceados o solución salina en adultos en estado crítico",
+      "revisado_hasta": 348,
+      "descripcion": "Los ensayos clínicos {ensayos} sobre cristaloides balanceados frente a solución salina en adultos en estado crítico ingresados en cuidados intensivos: qué preguntó cada uno, su hallazgo principal y sus diferencias de diseño.",
+      "condicion": "Enfermedad crítica",
+      "area": "Medicina Crítica",
+      "fecha_publicacion": "2026-11-22",
+      "fecha_revision": "2026-11-22",
+      "criterio": "Publicación principal de un ensayo clínico aleatorizado en adultos en estado crítico ingresados en unidades de cuidados intensivos cuya comparación principal es el TIPO de cristaloide intravenoso: un cristaloide balanceado (lactato de Ringer, Plasma-Lyte u otra solución multielectrolítica balanceada) frente a la solución salina al 0.9%, usados para la reanimación con líquidos o como cristaloide durante la estancia en la unidad. En esta pregunta la «intervención» es siempre el cristaloide balanceado y el «comparador» la solución salina, sea cual sea la hipótesis del ensayo. De un ensayo factorial pertenece la publicación que compara el tipo de cristaloide, no la que compara otro factor. No pertenecen al núcleo: los ensayos hechos en adultos que no están en estado crítico o en los pacientes de todo el hospital, aunque una parte de ellos ingrese en cuidados intensivos; los que comparan dos cristaloides balanceados entre sí; los de coloides (hidroxietil almidón, albúmina, gelatinas); los de bicarbonato de sodio o de solución salina hipertónica; los de cantidad o velocidad de administración de líquidos; ni los ensayos piloto o de factibilidad, los análisis secundarios, los seguimientos o los metaanálisis. Cuáles de esos van como relacionados lo dice `criterio_relacionados`; los demás no se añaden. Ante la duda, no se añade al núcleo.",
+      "criterio_relacionados": "Solo ensayos clínicos aleatorizados cuya comparación principal es un cristaloide balanceado (lactato de Ringer, Plasma-Lyte u otra solución multielectrolítica balanceada) frente a la solución salina en otra población o ámbito, y solo estos: adultos que no están en estado crítico (atendidos en urgencias u hospitalizados fuera de cuidados intensivos) o una política de cristaloide aplicada a los pacientes de todo el hospital. No se añaden los de coloides (hidroxietil almidón, albúmina, gelatinas), los de bicarbonato de sodio o de solución salina hipertónica, los de cantidad o velocidad de administración de líquidos ni los de soluciones de sellado de catéteres. Ante la duda, no se añade.",
+      "creacion": {
+        "fecha": "2026-11-22",
+        "marco": "VERDE",
+        "barrido": "coincide",
+        "nota": "Retoma tras la decisión del editor sobre las señales de subgrupo (2026-11-18): una ronda. SMART y BaSICS, con su frase de pacientes corregida, recibieron el VERDE de tres revisores nuevos; PLUS conserva los suyos; un revisor de la pregunta nuevo dio VERDE al texto final."
+      },
+      "ejes": [
+        {
+          "clave": "intervencion",
+          "tipo": "diseno",
+          "lugar": "juntos",
+          "obligatorio": true,
+          "max": 260,
+          "entrada": "El cristaloide balanceado y la forma de usarlo no son iguales en estos ensayos.",
+          "guia": "El cristaloide balanceado con el nombre que le da el resumen, contra qué se comparó, para qué usos y durante cuánto tiempo debía emplearse y, si el resumen lo da, cómo se entregaba (bolsas idénticas, asignación por unidad y mes): «SIGLA comparó <cristaloide balanceado> con solución salina …». Reglas del protocolo, nunca los volúmenes recibidos. Una oración breve."
+        },
+        {
+          "clave": "poblacion",
+          "tipo": "diseno",
+          "lugar": "juntos",
+          "obligatorio": true,
+          "max": 260,
+          "entrada": "Los criterios de entrada son distintos.",
+          "guia": "Criterios de inclusión tal como los da el apartado de población del resumen (no las características de la muestra reclutada) y, al final, si el resumen los da, el número y el tipo de centros (unidades, centros u hospitales) y el país o países, con sus mismas palabras: «SIGLA incluyó …, en N unidades de <país>.» Un centro único se escribe «en un centro …», sin «solo» ni «único». Una oración breve."
+        },
+        {
+          "clave": "desenlace",
+          "tipo": "diseno",
+          "lugar": "juntos",
+          "obligatorio": true,
+          "max": 260,
+          "entrada": "El desenlace primario no es el mismo en todos.",
+          "guia": "El desenlace o los desenlaces primarios, con la palabra del resumen («primario» o «principal»), el plazo solo si la cita lo da y el subgrupo si se definió en uno; sin resultado: «SIGLA midió como desenlace primario …[, a N días].» Si hay coprimarios, se nombran todos. Una oración breve."
+        },
+        {
+          "clave": "tamano",
+          "tipo": "diseno",
+          "lugar": "juntos",
+          "obligatorio": true,
+          "max": 260,
+          "entrada": "",
+          "guia": "Pacientes analizados (o aleatorizados o incluidos, si el resumen no da los analizados), con el mismo verbo que la cita: «SIGLA analizó N pacientes.» El tamaño previsto va solo si el resumen dice que no se alcanzó o que el ensayo terminó antes de tiempo; el motivo, solo si el resumen lo da, copiado como hecho y con sus palabras (futilidad, señales de daño, pandemia, reclutamiento lento, fin de la financiación): «SIGLA analizó N pacientes de los M previstos[, <motivo>].» Nunca su consecuencia ni su interpretación: ni «poco poder», ni a qué grupo afectaba, ni a qué lo atribuyen los autores. Una oración breve."
+        },
+        {
+          "clave": "pacientes",
+          "tipo": "contexto",
+          "lugar": "ficha",
+          "obligatorio": true,
+          "max": 260,
+          "entrada": "Para interpretarlo.",
+          "guia": "A quién se incluyó de verdad, en lo decisivo: el rasgo que más condiciona a qué pacientes se parece el ensayo (médicos o quirúrgicos, sepsis, gravedad, líquido recibido antes de entrar, a quién se excluyó), con una o dos cifras. «SIGLA incluyó pacientes …». No se enumeran todas las características basales. Sin resultados de subgrupo, con una sola excepción: si el resumen destaca una señal de seguridad (posible daño) en un subgrupo, se nombra al final, con su proporción si el resumen la da, la intervención con la que se observó y la cautela que el resumen le pone, atribuida y sin las cifras de cada grupo. Un subgrupo de eficacia no se nombra, aunque su interacción sea significativa."
+        },
+        {
+          "clave": "separacion",
+          "tipo": "contexto",
+          "lugar": "ficha",
+          "obligatorio": true,
+          "max": 260,
+          "entrada": "Para interpretarlo.",
+          "guia": "Cómo se aplicó la comparación en la práctica, en lo esencial: cuánto del líquido asignado se usó y cuánto del otro líquido o de cristaloides ajenos al estudio se recibió, antes o después de la asignación, como lo dé el resumen. Una oración con las cifras clave y cada cifra en su grupo, tal como las da la cita."
+        },
+        {
+          "clave": "limitacion",
+          "tipo": "contexto",
+          "lugar": "ficha",
+          "obligatorio": true,
+          "max": 260,
+          "entrada": "Para interpretarlo.",
+          "guia": "La limitación o las dos limitaciones principales que señala la evaluación crítica del resumen (centro único, estudio abierto, cierre anticipado, falta de poder, contaminación entre grupos, validez externa), en una oración y atribuyendo lo que sea valoración («según su resumen», «sus autores advierten»). La cita son las oraciones del resumen que las enuncian."
+        },
+        {
+          "clave": "no_informa",
+          "tipo": "ausencia",
+          "lugar": "ficha",
+          "obligatorio": false,
+          "max": 500,
+          "entrada": "Para interpretarlo.",
+          "guia": "Solo si falta el dato central de la separación (o de otro eje) y el resumen dice algo sobre él sin dar las cifras: lo que el resumen no informa, como {\"sin_dato\": \"…\"}, que completa «El resumen de SIGLA no informa …». Si no hace falta, no se escribe."
+        }
+      ],
+      "nucleo": [
+        {
+          "id": 53,
+          "diseno": {
+            "intervencion": {
+              "frase": "SMART comparó lactato de Ringer o Plasma-Lyte A, según la preferencia del médico tratante, con solución salina al 0,9% para toda administración intravenosa de cristaloide durante la estancia en la unidad, con asignación por unidad que se alternaba mes a mes.",
+              "cita": [
+                "La intervención fue el uso de cristaloides balanceados isotónicos, lactato de Ringer o Plasma-Lyte A, según la preferencia del médico tratante, para toda administración intravenosa de cristaloide durante la estancia en la unidad. El comparador fue la solución salina al 0,9%, empleada de la misma manera.",
+                "cada mes calendario, cada unidad de cuidados intensivos recibía la asignación de administrar únicamente solución salina o únicamente cristaloides balanceados, y esa asignación se alternaba mes a mes durante todo el periodo de reclutamiento"
+              ]
+            },
+            "poblacion": {
+              "frase": "SMART incluyó adultos de 18 años o más ingresados en cinco unidades de cuidados intensivos, médica, quirúrgica, cardiaca, neurológica o de trauma, sin restricción por diagnóstico de ingreso, en un centro académico estadounidense.",
+              "cita": [
+                "La población estudiada fueron adultos de 18 años o más ingresados en cinco unidades de cuidados intensivos de un centro académico estadounidense, sin restricción por diagnóstico de ingreso.",
+                "Los criterios de inclusión se limitaron a tener 18 años o más y estar ingresado en una de las cinco unidades participantes, médica, quirúrgica, cardiaca, neurológica o de trauma, durante el periodo de estudio"
+              ]
+            },
+            "desenlace": {
+              "frase": "SMART midió como desenlace primario un evento renal adverso mayor dentro de los 30 días, compuesto por muerte de cualquier causa, inicio de una nueva terapia de reemplazo renal o disfunción renal persistente, censurado al alta hospitalaria o a los 30 días.",
+              "cita": "El desenlace primario fue la proporción de pacientes con un evento renal adverso mayor dentro de los 30 días, MAKE30, compuesto por muerte de cualquier causa, inicio de una nueva terapia de reemplazo renal o disfunción renal persistente, definida esta última como una creatinina final igual o superior al 200% del valor basal, todo censurado al alta hospitalaria o a los 30 días, lo que ocurriera antes."
+            },
+            "tamano": {
+              "frase": "SMART incluyó 15.802 pacientes.",
+              "cita": "Se incluyeron 15.802 pacientes: 7942 en el grupo de cristaloides balanceados y 7860 en el grupo salino."
+            },
+            "pacientes": {
+              "frase": "SMART incluyó pacientes de los que más de un tercio recibía ventilación mecánica y una cuarta parte vasopresores en el momento de la inclusión, y alrededor del 17,5% tenía enfermedad renal crónica en estadio 3 o superior.",
+              "cita": [
+                "Más de un tercio de los pacientes recibía ventilación mecánica y una cuarta parte vasopresores en el momento de la inclusión, lo que retrata una población de gravedad considerable.",
+                "Alrededor del 17,5% tenía enfermedad renal crónica en estadio 3 o superior y cerca del 5% había recibido terapia de reemplazo renal antes del ingreso"
+              ]
+            },
+            "separacion": {
+              "frase": "SMART mantuvo en el análisis principal la exposición a cristaloide no asignado tras un cruce mensual en pacientes que permanecían ingresados, y permitía usar solución salina en pacientes con lesión cerebral traumática independientemente del brazo asignado.",
+              "cita": [
+                "la única fuente de contaminación identificada, la exposición a cristaloide no asignado tras un cruce mensual en pacientes que permanecían ingresados, se mantuvo en el análisis principal y se abordó específicamente en los análisis de sensibilidad, con resultados congruentes con el hallazgo principal",
+                "A esto se añade que la posibilidad de usar solución salina en pacientes con lesión cerebral traumática, independientemente del brazo asignado, impide extraer conclusiones sobre esta población específica.",
+                "el protocolo permitía usar solución salina en estos pacientes al margen de la asignación de su unidad"
+              ]
+            },
+            "limitacion": {
+              "frase": "SMART fue abierto, se realizó en un centro académico y censuró los eventos en el alta hospitalaria; según su resumen, esa censura pudo subestimar la mortalidad real a 30 días y sobrestimar la disfunción renal persistente.",
+              "cita": "tres limitaciones son relevantes: el diseño abierto, que expuso al sesgo de desempeño y de detección, sobre todo en decisiones subjetivas como iniciar terapia de reemplazo renal; la realización en un único centro académico, que limita la validez externa a otros entornos con distinta disponibilidad de personal o de protocolos; y la censura de los eventos en el alta hospitalaria, que pudo subestimar la mortalidad real a 30 días y sobrestimar la disfunción renal persistente en pacientes dados de alta tempranamente con una creatinina aún elevada."
+            },
+            "no_informa": {
+              "sin_dato": "el volumen de cristaloide que recibió cada grupo ni qué proporción de los pacientes recibió cristaloide no asignado",
+              "huella": "7817d48bc4b31d91"
+            }
+          },
+          "revision": {
+            "fecha": "2026-11-22",
+            "cotejo": "VERDE",
+            "fiscal": "VERDE",
+            "omisiones": "VERDE",
+            "nota": "Veredictos de la retoma del 2026-11-22 (ronda 1, revisores nuevos), sobre el texto final."
+          }
+        },
+        {
+          "id": 55,
+          "diseno": {
+            "intervencion": {
+              "frase": "PLUS comparó Plasma-Lyte 148, una solución multielectrolítica balanceada (BMES), con solución salina al 0.9%, en bolsas idénticas de 1000 mililitros, para toda la reanimación y la terapia cristaloide compatible durante un máximo de 90 días.",
+              "cita": "La intervención fue Plasma-Lyte 148, una solución multielectrolítica balanceada (BMES) con una concentración de cloro más cercana a la del plasma humano que la del salino, administrada en bolsas idénticas de 1000 mililitros para toda la reanimación y la terapia cristaloide compatible durante un máximo de 90 días tras la aleatorización; el volumen y la velocidad de infusión quedaron a criterio del equipo tratante. El comparador fue la solución salina al 0.9%, administrada bajo el mismo esquema."
+            },
+            "poblacion": {
+              "frase": "PLUS incluyó adultos ingresados en la unidad de cuidados intensivos, en quienes el clínico tratante consideraba necesaria la reanimación con líquidos y ambos líquidos se juzgaban igualmente apropiados, en 53 unidades de Australia y Nueva Zelanda.",
+              "cita": [
+                "Los investigadores incluyeron adultos de 18 años o más ingresados en la unidad de cuidados intensivos en Australia y Nueva Zelanda, en quienes el clínico tratante consideraba necesaria la reanimación con líquidos y en quienes tanto la solución balanceada como el salino se juzgaban igualmente apropiados.",
+                "El ensayo se realizó en 53 unidades de cuidados intensivos de Australia y Nueva Zelanda"
+              ]
+            },
+            "desenlace": {
+              "frase": "PLUS midió como desenlace primario la muerte por cualquier causa dentro de los 90 días posteriores a la aleatorización.",
+              "cita": "El desenlace primario fue la muerte por cualquier causa dentro de los 90 días posteriores a la aleatorización, un desenlace clínicamente duro y centrado en el paciente."
+            },
+            "tamano": {
+              "frase": "PLUS aleatorizó 5037 pacientes en lugar de los 8800 planeados originalmente, tras detenerse el reclutamiento antes de lo previsto por la pandemia de COVID-19.",
+              "cita": [
+                "Se aleatorizaron 5037 pacientes: 2515 al grupo BMES y 2522 al grupo salino.",
+                "El reclutamiento se detuvo antes de lo previsto por la pandemia de COVID-19, con una muestra final de 5037 pacientes en lugar de los 8800 planeados originalmente."
+              ]
+            },
+            "pacientes": {
+              "frase": "PLUS incluyó pacientes, el 42.3% con sepsis, y excluyó a los de traumatismo craneoencefálico o riesgo de edema cerebral; antes de la aleatorización, el 55.5% del grupo BMES había recibido 500 ml o más de salino y el 23.2% del grupo salino 500 ml o más de BMES.",
+              "cita": [
+                "un 79.0% de pacientes con ventilación mecánica al momento de la aleatorización y un 42.3% con sepsis",
+                "aunque los resultados no son extrapolables a pacientes con traumatismo craneoencefálico o riesgo de edema cerebral, que fueron excluidos del estudio",
+                "antes incluso de la aleatorización, el 55.5% de los pacientes que terminaron en el grupo BMES ya había recibido 500 ml o más de salino, y el 23.2% de los que terminaron en el grupo salino ya había recibido 500 ml o más de BMES"
+              ]
+            },
+            "separacion": {
+              "frase": "PLUS registró que, tras la aleatorización, el 63.0% del grupo BMES recibió 500 ml o más de salino de forma abierta, sobre todo para diluir medicamentos no compatibles con la solución balanceada, frente al 3.5% de cruce en sentido contrario en el grupo salino.",
+              "cita": "tras la aleatorización, el 63.0% de los pacientes del grupo BMES recibió 500 ml o más de salino de forma abierta, sobre todo para diluir medicamentos no compatibles con la solución balanceada, frente a solo el 3.5% de cruce en sentido contrario en el grupo salino"
+            },
+            "limitacion": {
+              "frase": "PLUS detuvo el reclutamiento antes de lo previsto por la pandemia de COVID-19 y, según su resumen, existió una contaminación relevante entre los brazos, aunque los análisis de sensibilidad no sugieren que esto haya enmascarado un beneficio real.",
+              "cita": "cabe señalar primero que el reclutamiento se detuvo antes de lo previsto por la pandemia de COVID-19, lo que redujo la muestra de 8800 a poco más de 5000 pacientes y amplió el intervalo de confianza del resultado principal, de modo que este sigue siendo compatible con un cambio de hasta unos 3 puntos porcentuales en la mortalidad en cualquier dirección; segundo, existió una contaminación relevante entre los brazos, tanto antes de la aleatorización, cuando una parte de los pacientes ya había recibido el líquido contrario, como después, cuando la mayoría de los pacientes con BMES recibió salino abierto por incompatibilidad de fármacos, aunque los análisis de sensibilidad no sugieren que esto haya enmascarado un beneficio real"
+            }
+          },
+          "revision": {
+            "fecha": "2026-11-22",
+            "cotejo": "VERDE",
+            "fiscal": "VERDE",
+            "omisiones": "VERDE",
+            "nota": "Veredictos de la ronda 1 del 2026-11-18; su texto no cambió después."
+          }
+        },
+        {
+          "id": 253,
+          "diseno": {
+            "intervencion": {
+              "frase": "BaSICS comparó Plasma-Lyte 148 con solución salina al 0.9%, en bolsas idénticas de 500 ml, durante la estancia en la UCI, hasta 90 días, para todas las cargas de volumen, los líquidos de mantenimiento y las diluciones de fármacos de más de 100 ml.",
+              "cita": [
+                "La intervención fue Plasma-Lyte 148, un cristaloide balanceado con 140 mmol/l de sodio y 98 mmol/l de cloro",
+                "El comparador fue la solución salina al 0.9%, con 154 mmol/l de sodio y de cloro. Ambas llegaban en bolsas idénticas de 500 ml marcadas solo con una letra en clave, y debían usarse durante la estancia en la UCI, hasta 90 días, para todas las cargas de volumen, los líquidos de mantenimiento y las diluciones de fármacos de más de 100 ml."
+              ]
+            },
+            "poblacion": {
+              "frase": "BaSICS incluyó adultos ingresados en unidades de cuidados intensivos que necesitaban al menos una expansión de volumen, sin alta prevista al día siguiente y con al menos un factor de riesgo de lesión renal aguda, en 75 UCI de Brasil.",
+              "cita": [
+                "La población fueron adultos ingresados en unidades de cuidados intensivos (UCI) de Brasil que necesitaban al menos una expansión de volumen, sin alta prevista al día siguiente y con al menos un factor de riesgo de lesión renal aguda.",
+                "Adultos de 75 UCI de Brasil que requerían al menos una expansión de volumen"
+              ]
+            },
+            "desenlace": {
+              "frase": "BaSICS midió como desenlace principal la supervivencia a 90 días.",
+              "cita": "El desenlace principal fue la supervivencia a 90 días, un desenlace clínico duro."
+            },
+            "tamano": {
+              "frase": "BaSICS analizó a 10520 de los 11052 aleatorizados.",
+              "cita": "se analizó a 10520 de los 11052 aleatorizados, una intención de tratar modificada"
+            },
+            "pacientes": {
+              "frase": "BaSICS incluyó un 48.4% de ingresos tras una cirugía programada y un 60.6% con hipotensión o vasopresores; en el traumatismo craneoencefálico (4.7% y 4.5%), los autores describen una señal de posible daño con solución balanceada que solo genera hipótesis.",
+              "cita": [
+                "El 48.4% ingresó tras una cirugía programada.",
+                "El 60.6% tenía hipotensión o usaba vasopresores y el 44.3% recibía ventilación mecánica.",
+                "el traumatismo craneoencefálico al 4.7% y al 4.5%",
+                "Entre los seis subgrupos preespecificados, solo el traumatismo craneoencefálico mostró una interacción significativa (p = 0.02): en esos pacientes murió el 31.3% con solución balanceada frente al 21.1% con salina (HR 1.48; IC 95%, 1.03 a 2.12)",
+                "las señales de posible daño que describen los autores, en el componente neurológico y en el traumatismo craneoencefálico, proceden de análisis exploratorios que solo generan hipótesis"
+              ]
+            },
+            "separacion": {
+              "frase": "BaSICS registró que ambos grupos recibieron una mediana de 1.5 l el primer día; el líquido asignado se usó el primer día en el 99.7% y el 99.8% y el día 3 en el 65.1% y el 63.5%, y cerca de la mitad recibió cada día cristaloides ajenos al estudio.",
+              "cita": "Ambos grupos recibieron una mediana de 1.5 l el primer día; en el total de pacientes, la mediana acumulada en los tres primeros días fue de 4.1 l, con todos los líquidos, y la de líquido del estudio, de 2.9 l. El líquido asignado se usó el primer día en el 99.7% y el 99.8%, y el día 3 en el 65.1% y el 63.5%; a la vez, cerca de la mitad recibió cada día cristaloides ajenos al estudio, el 52.5% y el 52.8% el primero."
+            },
+            "limitacion": {
+              "frase": "BaSICS tuvo una mortalidad observada menor que la prevista, limitación de poder según su resumen, algo que, según los autores, podría relacionarse con la baja gravedad y los muchos ingresos quirúrgicos; además, cerca del 68% recibió líquidos antes de entrar.",
+              "cita": [
+                "Las limitaciones de peso también son tres.",
+                "La segunda es el poder: la mortalidad observada fue menor que la prevista, algo que, según los autores, podría relacionarse con la baja gravedad y los muchos ingresos quirúrgicos",
+                "Además, cerca del 68% recibió líquidos antes de entrar."
+              ]
+            }
+          },
+          "revision": {
+            "fecha": "2026-11-22",
+            "cotejo": "VERDE",
+            "fiscal": "VERDE",
+            "omisiones": "VERDE",
+            "nota": "Veredictos de la retoma del 2026-11-22 (ronda 1, revisores nuevos), sobre el texto final."
+          }
+        }
+      ],
+      "relacionados": [
+        {
+          "motivo": "En adultos que no están en estado crítico",
+          "ids": [
+            54
+          ]
+        },
+        {
+          "motivo": "En los pacientes de todo el hospital",
+          "ids": [
+            210
+          ]
+        }
+      ]
     }
   ]
 }
