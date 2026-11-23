@@ -645,6 +645,33 @@
           "frase": "Se estudió a adultos con estenosis aórtica grave tratados con implante transcatéter de válvula aórtica (TAVI)"
         }
       }
+    },
+    {
+      "id": 353,
+      "fecha": "2026-11-23",
+      "huella": "3d303e2761ec5aa8",
+      "preguntas": {
+        "corticoides-choque-septico": {
+          "rol": "nada",
+          "frase": "Determinar si la semaglutida oral, sumada al tratamiento habitual, es superior al placebo para reducir los eventos cardi"
+        },
+        "cristaloides-balanceados-solucion-salina-adultos-estado-critico": {
+          "rol": "nada",
+          "frase": "Determinar si la semaglutida oral, sumada al tratamiento habitual, es superior al placebo para reducir los eventos cardi"
+        },
+        "cuando-iniciar-terapia-reemplazo-renal-lesion-renal-aguda": {
+          "rol": "nada",
+          "frase": "Determinar si la semaglutida oral, sumada al tratamiento habitual, es superior al placebo para reducir los eventos cardi"
+        },
+        "meta-oxigenacion-paciente-critico": {
+          "rol": "nada",
+          "frase": "Determinar si la semaglutida oral, sumada al tratamiento habitual, es superior al placebo para reducir los eventos cardi"
+        },
+        "restriccion-liquidos-choque-septico-hipotension-sepsis": {
+          "rol": "nada",
+          "frase": "Determinar si la semaglutida oral, sumada al tratamiento habitual, es superior al placebo para reducir los eventos cardi"
+        }
+      }
     }
   ],
   "preguntas": [

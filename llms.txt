@@ -38,6 +38,7 @@ Material educativo para profesionales de la salud. La referencia final es siempr
 
 ## Resúmenes de ensayos
 
+- [SOUL: semaglutida oral y desenlaces cardiovasculares en la diabetes tipo 2 de alto riesgo](https://resumenestrials.com/trials/soul-semaglutida-oral-desenlaces-cardiovasculares-diabetes-tipo-2-alto-riesgo/): NEJM, 2025.
 - [DapaTAVI: dapagliflozina en pacientes sometidos a implante transcatéter de válvula aórtica](https://resumenestrials.com/trials/dapatavi-dapagliflozina-pacientes-sometidos-implante-transcateter-valvula-aortica/): NEJM, 2025.
 - [API-CAT: apixabán extendido a dosis reducida en la tromboembolia venosa asociada al cáncer](https://resumenestrials.com/trials/api-cat-apixaban-extendido-dosis-reducida-tromboembolia-venosa-asociada-cancer/): NEJM, 2025.
 - [ALPACA: lepodisiran, un ARN pequeño de interferencia de larga duración dirigido contra la lipoproteína(a)](https://resumenestrials.com/trials/alpaca-lepodisiran-arn-pequeno-interferencia-larga-duracion-dirigido-lipoproteina/): NEJM, 2025.
