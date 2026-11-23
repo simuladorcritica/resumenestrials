@@ -564,6 +564,33 @@
           "frase": "Determinar si el uso rutinario del sistema de protección embólica cerebral Sentinel durante el implante transcatéter de válvula aórtica disminuye el ictus"
         }
       }
+    },
+    {
+      "id": 350,
+      "fecha": "2026-11-23",
+      "huella": "0dafba5da571957d",
+      "preguntas": {
+        "corticoides-choque-septico": {
+          "rol": "nada",
+          "frase": "para reducir la lipoproteína(a) sérica entre los días 60 y 180 en adultos con lipoproteína(a) de al menos 175 nmol/L"
+        },
+        "cristaloides-balanceados-solucion-salina-adultos-estado-critico": {
+          "rol": "nada",
+          "frase": "para reducir la lipoproteína(a) sérica entre los días 60 y 180 en adultos con lipoproteína(a) de al menos 175 nmol/L"
+        },
+        "cuando-iniciar-terapia-reemplazo-renal-lesion-renal-aguda": {
+          "rol": "nada",
+          "frase": "para reducir la lipoproteína(a) sérica entre los días 60 y 180 en adultos con lipoproteína(a) de al menos 175 nmol/L"
+        },
+        "meta-oxigenacion-paciente-critico": {
+          "rol": "nada",
+          "frase": "para reducir la lipoproteína(a) sérica entre los días 60 y 180 en adultos con lipoproteína(a) de al menos 175 nmol/L"
+        },
+        "restriccion-liquidos-choque-septico-hipotension-sepsis": {
+          "rol": "nada",
+          "frase": "para reducir la lipoproteína(a) sérica entre los días 60 y 180 en adultos con lipoproteína(a) de al menos 175 nmol/L"
+        }
+      }
     }
   ],
   "preguntas": [

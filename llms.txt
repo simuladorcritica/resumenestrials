@@ -38,6 +38,7 @@ Material educativo para profesionales de la salud. La referencia final es siempr
 
 ## Resúmenes de ensayos
 
+- [ALPACA: lepodisiran, un ARN pequeño de interferencia de larga duración dirigido contra la lipoproteína(a)](https://resumenestrials.com/trials/alpaca-lepodisiran-arn-pequeno-interferencia-larga-duracion-dirigido-lipoproteina/): NEJM, 2025.
 - [BHF PROTECT-TAVI: protección embólica cerebral rutinaria durante el implante transcatéter de válvula aórtica](https://resumenestrials.com/trials/bhf-protect-tavi-proteccion-embolica-cerebral-rutinaria-implante-transcateter-valvula-aortica/): NEJM, 2025.
 - [SINGLE SHOT CHAMPION: ablación con campo pulsado o con crioballón para la fibrilación auricular paroxística](https://resumenestrials.com/trials/single-shot-champion-ablacion-campo-pulsado-crioballon-fibrilacion-auricular-paroxistica/): NEJM, 2025.
 - [ZENITH: sotatercept en pacientes con hipertensión arterial pulmonar con alto riesgo de muerte](https://resumenestrials.com/trials/zenith-sotatercept-pacientes-hipertension-arterial-pulmonar-alto-riesgo-muerte/): NEJM, 2025.
