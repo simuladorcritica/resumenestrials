@@ -2478,8 +2478,8 @@
     "title": "EMPA-REG OUTCOME: empagliflozina, desenlaces cardiovasculares y mortalidad en la diabetes tipo 2",
     "relacionados": [
       75,
-      125,
-      73
+      73,
+      125
     ],
     "seo_title": "EMPA-REG OUTCOME trial: empagliflozina, desenlaces cardiovasculares y mortalidad en la diabetes tipo 2 | Resúmenes Trials",
     "description": "EMPA-REG OUTCOME: La empagliflozina redujo el desenlace cardiovascular compuesto frente a placebo ( 10.5% vs 12.1%; razón de riesgo 0.86; IC 95.02%, 0.74 a…",
@@ -2905,9 +2905,7 @@
     "path": "/trials/crest-2-manejo-medico-intensivo-revascularizacion-carotidea-estenosis-carotidea-asintomatica/",
     "url": "https://resumenestrials.com/trials/crest-2-manejo-medico-intensivo-revascularizacion-carotidea-estenosis-carotidea-asintomatica/",
     "title": "CREST-2: tratamiento médico y revascularización en la estenosis carotídea asintomática",
-    "relacionados": [
-      164
-    ],
+    "relacionados": [],
     "seo_title": "CREST-2 trial: tratamiento médico y revascularización en la estenosis carotídea asintomática | Resúmenes Trials",
     "description": "CREST-2: En el ensayo de stent, añadir colocación de stent carotídeo redujo el compuesto de ictus perioperatorio o muerte, o ictus isquémico ipsilateral a 4…",
     "clusters": [
@@ -3998,7 +3996,7 @@
     "relacionados": [
       124,
       120,
-      306
+      349
     ],
     "seo_title": "PARTNER trial: implante percutáneo de válvula aórtica en la estenosis aórtica de pacientes que no pueden someterse a cirugía | Resúmenes Trials",
     "description": "PARTNER: La mortalidad a 1 año fue menor con TAVI que con tratamiento estándar ( 30.7% frente a 50.7%; HR 0.55; IC 95%, 0.40 a 0.74; p<0.001 ), aunque con más…",
@@ -10970,5 +10968,36 @@
       "population": "Adultos con fibrilación auricular paroxística sintomática, la que revierte en 7 días o menos, documentada durante al menos 30 segundos en los 24 meses previos y candidatos a su primer aislamiento de venas pulmonares, en dos hospitales terciarios de Suiza. Raza o etnia: No reportado."
     },
     "datePublished": "2026-11-19"
+  },
+  "349": {
+    "slug": "bhf-protect-tavi-proteccion-embolica-cerebral-rutinaria-implante-transcateter-valvula-aortica",
+    "path": "/trials/bhf-protect-tavi-proteccion-embolica-cerebral-rutinaria-implante-transcateter-valvula-aortica/",
+    "url": "https://resumenestrials.com/trials/bhf-protect-tavi-proteccion-embolica-cerebral-rutinaria-implante-transcateter-valvula-aortica/",
+    "title": "BHF PROTECT-TAVI: protección embólica cerebral rutinaria durante el implante transcatéter de válvula aórtica",
+    "relacionados": [
+      123,
+      120,
+      124
+    ],
+    "seo_title": "BHF PROTECT-TAVI trial: protección embólica cerebral rutinaria durante el implante transcatéter de válvula aórtica | Resúmenes Trials",
+    "description": "BHF PROTECT-TAVI: El ictus a las 72 horas o antes del alta ocurrió en el 2.1% con protección embólica cerebral frente al 2.2% sin ella (diferencia −0.02…",
+    "clusters": [
+      {
+        "name": "Neurología",
+        "path": "/medicina-interna/neurologia/",
+        "url": "https://resumenestrials.com/medicina-interna/neurologia/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/bhf-protect-tavi-proteccion-embolica-cerebral-rutinaria-implante-transcateter-valvula-aortica-16x9.jpg",
+      "https://resumenestrials.com/images/trials/bhf-protect-tavi-proteccion-embolica-cerebral-rutinaria-implante-transcateter-valvula-aortica-4x3.jpg",
+      "https://resumenestrials.com/images/trials/bhf-protect-tavi-proteccion-embolica-cerebral-rutinaria-implante-transcateter-valvula-aortica-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si el uso rutinario del sistema de protección embólica cerebral Sentinel durante el implante transcatéter de válvula aórtica disminuye el ictus en las 72 horas siguientes o antes del alta en adultos con estenosis aórtica.",
+      "answer": "El ictus a las 72 horas o antes del alta ocurrió en el 2.1% con protección embólica cerebral frente al 2.2% sin ella (diferencia −0.02 puntos porcentuales; IC 95% −0.68 a 0.63; P = 0.94) , sin diferencia significativa.",
+      "population": "La población fueron adultos con estenosis aórtica programados para un implante transcatéter de válvula aórtica (TAVI) en el Reino Unido. La raza fue autodeclarada: el 93.4% de los pacientes con protección y el 93.2% de los controles eran blancos."
+    },
+    "datePublished": "2026-11-23"
   }
 }

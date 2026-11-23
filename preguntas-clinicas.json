@@ -537,6 +537,33 @@
           "frase": "Determinar si la ablación con campo pulsado no es inferior a la crioablación con balón en la recurrencia de taquiarritmia auricular entre los días 91 y 365, detectada con monitor cardiaco implantable, en adultos con fibrilación auricular paroxística sintomática."
         }
       }
+    },
+    {
+      "id": 349,
+      "fecha": "2026-11-23",
+      "huella": "d59727e54262ba70",
+      "preguntas": {
+        "corticoides-choque-septico": {
+          "rol": "nada",
+          "frase": "La población fueron adultos con estenosis aórtica programados para un implante transcatéter de válvula aórtica (TAVI)"
+        },
+        "cristaloides-balanceados-solucion-salina-adultos-estado-critico": {
+          "rol": "nada",
+          "frase": "El comparador fue la TAVI habitual sin protección."
+        },
+        "cuando-iniciar-terapia-reemplazo-renal-lesion-renal-aguda": {
+          "rol": "nada",
+          "frase": "La población fueron adultos con estenosis aórtica programados para un implante transcatéter de válvula aórtica (TAVI)"
+        },
+        "meta-oxigenacion-paciente-critico": {
+          "rol": "nada",
+          "frase": "La intervención fue la TAVI con protección embólica cerebral mediante el sistema Sentinel (Boston Scientific)"
+        },
+        "restriccion-liquidos-choque-septico-hipotension-sepsis": {
+          "rol": "nada",
+          "frase": "Determinar si el uso rutinario del sistema de protección embólica cerebral Sentinel durante el implante transcatéter de válvula aórtica disminuye el ictus"
+        }
+      }
     }
   ],
   "preguntas": [
@@ -549,7 +576,7 @@
       "condicion": "Lesión renal aguda",
       "area": "Medicina Crítica",
       "fecha_publicacion": "2026-11-15",
-      "fecha_revision": "2026-11-19",
+      "fecha_revision": "2026-11-23",
       "criterio": "Publicación principal de un ensayo clínico aleatorizado en adultos en estado crítico con lesión renal aguda cuya comparación principal es el MOMENTO de inicio de la terapia de reemplazo renal (una estrategia de inicio más temprano frente a una de inicio más tardío o diferido). En esta pregunta la «intervención» es siempre la estrategia de inicio más temprano y el «comparador» la más tardía, sea cual sea la hipótesis del ensayo. No pertenecen al núcleo: los ensayos sobre la modalidad, la intensidad o la dosis de la terapia, la ultrafiltración, la anticoagulación del circuito o la retirada de la terapia; ni los ensayos piloto o de factibilidad, los análisis secundarios, los seguimientos o los metaanálisis. Cuáles de esos van como relacionados lo dice `criterio_relacionados`; los demás no se añaden. Ante la duda, no se añade al núcleo.",
       "criterio_relacionados": "Solo ensayos clínicos aleatorizados en adultos en estado crítico sobre CÓMO dar la terapia de reemplazo renal en la lesión renal aguda, en uno de estos aspectos y solo estos: modalidad, intensidad o dosis, ultrafiltración o balance de líquidos durante la terapia, anticoagulación del circuito o retirada de la terapia. No se añaden los de catéteres o accesos vasculares, los de configuración o conexión del circuito, los de diálisis crónica ni los de prevención de la lesión renal. Ante la duda, no se añade.",
       "ejes": [
@@ -666,11 +693,8 @@
               "cita": "Población estudiada Se evaluaron 5528 pacientes y se aleatorizaron 620: 312 a la estrategia temprana y 308 a la tardía; un paciente del grupo temprano retiró el permiso para usar sus datos, por lo que el análisis incluyó a 619 pacientes, 311 y 308, respectivamente."
             },
             "pacientes": {
-              "frase": "AKIKI incluyó pacientes con ventilación mecánica invasiva en 86% a 87% y soporte vasopresor en 85%, con choque séptico en dos tercios de los pacientes de ambos grupos.",
-              "cita": [
-                "la edad media fue de 64.8 años en el grupo temprano y 67.4 en el tardío; la puntuación SAPS III (Simplified Acute Physiology Score, de 0 a 146, donde un valor más alto indica mayor gravedad y riesgo de muerte) fue de alrededor de 73 en ambos grupos; la puntuación SOFA (Sepsis-related Organ Failure Assessment, de 0 a 24, donde un valor más alto indica peor disfunción orgánica) fue de casi 11 en ambos grupos; la ventilación mecánica invasiva se usó en 86% a 87% de los pacientes, y el soporte vasopresor en 85%; el choque séptico estuvo presente en dos tercios de los pacientes de ambos grupos.",
-                "Cerca del 63% de los pacientes había estado expuesto a algún agente nefrotóxico en los 2 días previos, sobre todo aminoglucósidos"
-              ]
+              "frase": "AKIKI incluyó pacientes con choque séptico en dos tercios de los pacientes de ambos grupos.",
+              "cita": "el choque séptico estuvo presente en dos tercios de los pacientes de ambos grupos."
             },
             "separacion": {
               "frase": "AKIKI inició la terapia a una mediana de 2 horas tras la aleatorización con la estrategia temprana frente a 57 horas con la tardía, y en la estrategia tardía 157 de 308 pacientes (51%) recibieron finalmente la terapia.",
@@ -688,7 +712,7 @@
             }
           },
           "revision": {
-            "fecha": "2026-11-19",
+            "fecha": "2026-11-23",
             "cotejo": "VERDE",
             "fiscal": "VERDE",
             "omisiones": "VERDE"
