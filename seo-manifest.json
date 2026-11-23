@@ -6842,8 +6842,8 @@
     "url": "https://resumenestrials.com/trials/prevent-clot-aspirina-heparina-peso-molecular-tromboprofilaxis-despues-fractura/",
     "title": "PREVENT CLOT: aspirina o heparina de bajo peso molecular para la tromboprofilaxis después de una fractura",
     "relacionados": [
-      351,
       196,
+      351,
       27
     ],
     "seo_title": "PREVENT CLOT trial: aspirina o heparina de bajo peso molecular para la tromboprofilaxis después de una fractura | Resúmenes Trials",
@@ -8684,7 +8684,7 @@
     "relacionados": [
       276,
       107,
-      316
+      94
     ],
     "seo_title": "TACSI trial: ticagrelor y aspirina o aspirina sola tras la cirugía coronaria por síndrome coronario agudo | Resúmenes Trials",
     "description": "TACSI: El compuesto de muerte, infarto, ictus o nueva revascularización ocurrió en el 4.8% con ticagrelor más aspirina frente al 4.6% con aspirina sola , sin…",
@@ -10604,7 +10604,7 @@
     "relacionados": [
       165,
       338,
-      295
+      356
     ],
     "seo_title": "MATINEE trial: mepolizumab para prevenir las exacerbaciones de la EPOC con fenotipo eosinofílico | Resúmenes Trials",
     "description": "MATINEE: En pacientes con EPOC, exacerbaciones frecuentes y al menos 300 eosinófilos por microlitro que recibían triple terapia inhalada, la tasa anualizada…",
@@ -11200,6 +11200,29 @@
       "question": "Determinar si, en mujeres con vaginosis bacteriana sintomática que reciben tratamiento de primera línea y tienen una pareja masculina estable, añadir el tratamiento oral y tópico del hombre reduce la recurrencia en las 12 semanas siguientes frente a tratar solo a la mujer.",
       "answer": "Tratar también a la pareja masculina redujo la recurrencia de la vaginosis bacteriana en las 12 semanas: en el análisis por intención de tratar modificada recurrió en 24 de 69 mujeres (35%) con el tratamiento de la pareja frente a 43 de 68 (63%) en el grupo control, con 1.6 frente a 4.2 recurrencias por persona-año y una…",
       "population": "La población fueron parejas heterosexuales monógamas en las que la mujer, premenopáusica y de 18 años o más, tenía una vaginosis bacteriana sintomática y una pareja masculina estable desde hacía al menos 8 semanas. El diagnóstico exigía al menos tres de los cuatro criterios de Amsel (flujo homogéneo característico, pH vaginal mayor de 4.5, prueba de aminas positiva u olor a pescado y células clave al microscopio) y una…"
+    },
+    "datePublished": "2026-11-23"
+  },
+  "356": {
+    "slug": "waypoint-tezepelumab-adultos-rinosinusitis-cronica-grave-polipos-nasales",
+    "path": "/trials/waypoint-tezepelumab-adultos-rinosinusitis-cronica-grave-polipos-nasales/",
+    "url": "https://resumenestrials.com/trials/waypoint-tezepelumab-adultos-rinosinusitis-cronica-grave-polipos-nasales/",
+    "title": "WAYPOINT: tezepelumab en adultos con rinosinusitis crónica grave con pólipos nasales",
+    "relacionados": [
+      336
+    ],
+    "seo_title": "WAYPOINT trial: tezepelumab en adultos con rinosinusitis crónica grave con pólipos nasales | Resúmenes Trials",
+    "description": "WAYPOINT: A la semana 52, la puntuación total de pólipos cambió −2.46 con tezepelumab y −0.38 con placebo (diferencia de medias ajustadas −2.08 ; IC 95% −2.40…",
+    "clusters": [],
+    "images": [
+      "https://resumenestrials.com/images/trials/waypoint-tezepelumab-adultos-rinosinusitis-cronica-grave-polipos-nasales-16x9.jpg",
+      "https://resumenestrials.com/images/trials/waypoint-tezepelumab-adultos-rinosinusitis-cronica-grave-polipos-nasales-4x3.jpg",
+      "https://resumenestrials.com/images/trials/waypoint-tezepelumab-adultos-rinosinusitis-cronica-grave-polipos-nasales-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Evaluar si el tezepelumab a 210 mg subcutáneos cada 4 semanas, frente a placebo, reduce el tamaño de los pólipos y la congestión nasal a las 52 semanas en adultos con rinosinusitis crónica grave con pólipos nasales.",
+      "answer": "A la semana 52, la puntuación total de pólipos cambió −2.46 con tezepelumab y −0.38 con placebo (diferencia de medias ajustadas −2.08 ; IC 95% −2.40 a −1.76; P<0.001), y la congestión nasal, −1.74 y −0.70 (diferencia −1.04 ; IC 95% −1.21 a −0.87; P<0.001).",
+      "population": "La población fueron adultos con rinosinusitis crónica con pólipos nasales diagnosticada al menos 12 meses antes y de gravedad compatible con la necesidad de cirugía: puntuación endoscópica total de pólipos de al menos 5 sobre 8, con al menos 2 por fosa. Se exigían síntomas durante más de 8 semanas, congestión nasal de al menos 2, un cuestionario de resultados sinonasales de 22 ítems (Sinonasal Outcome Test, SNOT-22) de al…"
     },
     "datePublished": "2026-11-23"
   }
