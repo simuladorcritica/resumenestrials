@@ -591,6 +591,33 @@
           "frase": "para reducir la lipoproteína(a) sérica entre los días 60 y 180 en adultos con lipoproteína(a) de al menos 175 nmol/L"
         }
       }
+    },
+    {
+      "id": 351,
+      "fecha": "2026-11-23",
+      "huella": "5371e8f7ef008d53",
+      "preguntas": {
+        "corticoides-choque-septico": {
+          "rol": "nada",
+          "frase": "Determinar si el apixabán a dosis reducida (2.5 mg dos veces al día) no es inferior a la dosis plena"
+        },
+        "cristaloides-balanceados-solucion-salina-adultos-estado-critico": {
+          "rol": "nada",
+          "frase": "Determinar si el apixabán a dosis reducida (2.5 mg dos veces al día) no es inferior a la dosis plena"
+        },
+        "cuando-iniciar-terapia-reemplazo-renal-lesion-renal-aguda": {
+          "rol": "nada",
+          "frase": "Determinar si el apixabán a dosis reducida (2.5 mg dos veces al día) no es inferior a la dosis plena"
+        },
+        "meta-oxigenacion-paciente-critico": {
+          "rol": "nada",
+          "frase": "Determinar si el apixabán a dosis reducida (2.5 mg dos veces al día) no es inferior a la dosis plena"
+        },
+        "restriccion-liquidos-choque-septico-hipotension-sepsis": {
+          "rol": "nada",
+          "frase": "Determinar si el apixabán a dosis reducida (2.5 mg dos veces al día) no es inferior a la dosis plena"
+        }
+      }
     }
   ],
   "preguntas": [
