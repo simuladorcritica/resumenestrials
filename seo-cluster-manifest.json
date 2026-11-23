@@ -447,7 +447,7 @@
     "category": "Medicina Interna",
     "path": "/medicina-interna/neurologia/",
     "url": "https://resumenestrials.com/medicina-interna/neurologia/",
-    "count": 21,
+    "count": 22,
     "trial_ids": [
       "16",
       "19",
@@ -469,7 +469,8 @@
       "304",
       "325",
       "343",
-      "345"
+      "345",
+      "349"
     ]
   },
   "neumologia": {

@@ -17,6 +17,7 @@ Material educativo para profesionales de la salud. La referencia final es siempr
 ## Ediciones semanales
 
 - [Edición actual](https://resumenestrials.com/): resúmenes publicados en la semana más reciente.
+- [Edición del 16 al 22 de noviembre de 2026](https://resumenestrials.com/ediciones/2026-11-16/)
 - [Edición del 9 al 15 de noviembre de 2026](https://resumenestrials.com/ediciones/2026-11-09/)
 - [Edición del 2 al 8 de noviembre de 2026](https://resumenestrials.com/ediciones/2026-11-02/)
 - [Edición del 26 de octubre al 1 de noviembre de 2026](https://resumenestrials.com/ediciones/2026-10-26/)
@@ -37,6 +38,7 @@ Material educativo para profesionales de la salud. La referencia final es siempr
 
 ## Resúmenes de ensayos
 
+- [BHF PROTECT-TAVI: protección embólica cerebral rutinaria durante el implante transcatéter de válvula aórtica](https://resumenestrials.com/trials/bhf-protect-tavi-proteccion-embolica-cerebral-rutinaria-implante-transcateter-valvula-aortica/): NEJM, 2025.
 - [SINGLE SHOT CHAMPION: ablación con campo pulsado o con crioballón para la fibrilación auricular paroxística](https://resumenestrials.com/trials/single-shot-champion-ablacion-campo-pulsado-crioballon-fibrilacion-auricular-paroxistica/): NEJM, 2025.
 - [ZENITH: sotatercept en pacientes con hipertensión arterial pulmonar con alto riesgo de muerte](https://resumenestrials.com/trials/zenith-sotatercept-pacientes-hipertension-arterial-pulmonar-alto-riesgo-muerte/): NEJM, 2025.
 - [SELECT-GCA: ensayo de fase 3 de upadacitinib para la arteritis de células gigantes](https://resumenestrials.com/trials/select-gca-ensayo-fase-3-upadacitinib-arteritis-celulas-gigantes/): NEJM, 2025.

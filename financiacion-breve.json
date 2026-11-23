@@ -2088,6 +2088,12 @@
    "pago": "Inselspital (Hospital Universitario de Berna) y Hospital Universitario de Basilea, con una subvención no restringida de Boston Scientific, fabricante del catéter de campo pulsado evaluado.",
    "papel": "Según el artículo, la subvención pagó los monitores cardiacos implantables y los financiadores no intervinieron en el diseño, la recogida, el análisis, la interpretación ni la comunicación de los datos.",
    "conflictos": "Sí: varios autores declararon vínculos con Boston Scientific o Medtronic, entre ellos el primer autor, que declaró una beca de Boston Scientific para este ensayo."
+  },
+  "349": {
+   "de": "5ef2cf08ed4d",
+   "pago": "British Heart Foundation y Boston Scientific, fabricante del sistema Sentinel evaluado, que dio apoyo adicional para los dispositivos de protección.",
+   "papel": "Según el artículo, Boston Scientific no participó en el diseño, la conducción ni la comunicación del ensayo; el protocolo exigía que la empresa aprobara a cada centro para usar el dispositivo.",
+   "conflictos": "Sí: el primer autor declaró una beca de Boston Scientific para este ensayo; otros siete autores, vínculos con Boston Scientific; 22 de los 46 autores declararon algún interés."
   }
  }
 }

@@ -4,8 +4,15 @@
   <id>https://resumenestrials.com/</id>
   <link href="https://resumenestrials.com/"/>
   <link rel="self" type="application/atom+xml" href="https://resumenestrials.com/feed.xml"/>
-  <updated>2026-11-22T00:00:00Z</updated>
+  <updated>2026-11-23T00:00:00Z</updated>
   <subtitle>Resúmenes críticos en español de ensayos clínicos.</subtitle>
+  <entry>
+    <title>BHF PROTECT-TAVI: protección embólica cerebral rutinaria durante el implante transcatéter de válvula aórtica</title>
+    <id>https://resumenestrials.com/trials/bhf-protect-tavi-proteccion-embolica-cerebral-rutinaria-implante-transcateter-valvula-aortica/</id>
+    <link href="https://resumenestrials.com/trials/bhf-protect-tavi-proteccion-embolica-cerebral-rutinaria-implante-transcateter-valvula-aortica/"/>
+    <updated>2026-11-23T00:00:00Z</updated>
+    <summary>Determinar si el uso rutinario del sistema de protección embólica cerebral Sentinel durante el implante transcatéter de válvula aórtica disminuye el ictus en las 72 horas siguientes o antes del alta en adultos con estenosis aórtica.</summary>
+  </entry>
   <entry>
     <title>E-CRRT: comparación de la duración del circuito entre los abordajes de integración y de separación en pacientes con oxigenación por membrana extracorpórea que requieren terapia de reemplazo renal continua: ensayo controlado aleatorizado</title>
     <id>https://resumenestrials.com/trials/e-crrt-integracion-separacion-circuito-depuracion-renal-continua-paciente-ecmo/</id>
@@ -348,12 +355,5 @@
     <link href="https://resumenestrials.com/trials/vesalius-cv-evolocumab-pacientes-infarto-miocardio-ni-ictus-previos/"/>
     <updated>2026-11-15T00:00:00Z</updated>
     <summary>Determinar si el evolocumab, un inhibidor de PCSK9, sumado al tratamiento hipolipemiante de base, es superior al placebo para prevenir el primer gran evento cardiovascular en adultos con aterosclerosis o diabetes de alto riesgo pero sin infarto de miocardio ni ictus previos.</summary>
-  </entry>
-  <entry>
-    <title>65: efecto de la menor exposición a vasopresores sobre la mortalidad a 90 días en pacientes mayores en estado crítico con hipotensión vasodilatadora</title>
-    <id>https://resumenestrials.com/trials/65-hipotension-permisiva-atencion-habitual-mayores-65-anos-hipotension-vasodilatadora/</id>
-    <link href="https://resumenestrials.com/trials/65-hipotension-permisiva-atencion-habitual-mayores-65-anos-hipotension-vasodilatadora/"/>
-    <updated>2026-11-15T00:00:00Z</updated>
-    <summary>Determinar si reducir la exposición a vasopresores mediante hipotensión permisiva disminuye la mortalidad a 90 días en pacientes de 65 años o más con hipotensión vasodilatadora en cuidados intensivos.</summary>
   </entry>
 </feed>
