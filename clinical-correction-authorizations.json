@@ -1,31 +1,9 @@
 {
   "schema_version": 1,
-  "base_sha": "b0c460e22a4c179d9fef9687ca426aadd1633c8e",
+  "base_sha": "927eb2928b90999a1651a40b08abc4ef573493b1",
   "authorizations": [
     {
-      "id": 327,
-      "fields": [
-        "hallazgo",
-        "cuerpo",
-        "corto",
-        "fecha_revision"
-      ],
-      "reason": "Corrección del equipo crítico, issue #339 (16 hallazgos: 2 MAYOR, 14 MENOR); equipo editorial y contrainteligencia APROBADA (revision_nocturna\\equipo\\327_IVUS-CHIP\\contrainteligencia.md)."
-    },
-    {
-      "id": 138,
-      "fields": [
-        "autor",
-        "financiacion",
-        "hallazgo",
-        "cuerpo",
-        "corto",
-        "fecha_revision"
-      ],
-      "reason": "Corrección de hallazgos de la revisión nocturna (Parte C) (7 hallazgos: 4 CRÍTICO, 3 MAYOR); equipo editorial y contrainteligencia APROBADA (revision_nocturna\\equipo\\138_LIBREXIA_ACS\\contrainteligencia.md)."
-    },
-    {
-      "id": 135,
+      "id": 347,
       "fields": [
         "financiacion",
         "hallazgo",
@@ -33,33 +11,54 @@
         "corto",
         "fecha_revision"
       ],
-      "reason": "Corrección de hallazgos de la revisión nocturna (Parte C) (18 hallazgos: 9 CRÍTICO, 9 MAYOR); equipo editorial y contrainteligencia APROBADA (revision_nocturna\\equipo\\135_AKIKI\\contrainteligencia.md)."
+      "reason": "Corrección del equipo crítico, issue #349 (14 hallazgos: 1 MAYOR, 13 MENOR); equipo editorial y contrainteligencia APROBADA (D:\\OneDrive\\Escritorio\\PAGINA ECA\\ARTICULOS\\_ORGANIZADOR_DIARIO\\revision_nocturna\\equipo\\347_ZENITH\\contrainteligencia.md)."
     },
     {
-      "id": 125,
+      "id": 141,
       "fields": [
-        "objetivo",
-        "hallazgo",
+        "financiacion",
         "cuerpo",
         "corto",
         "fecha_revision"
       ],
-      "reason": "Corrección de hallazgos de la revisión nocturna (Parte C) (9 hallazgos: 4 CRÍTICO, 5 MAYOR); equipo editorial y contrainteligencia APROBADA (revision_nocturna\\equipo\\125_LEADER\\contrainteligencia.md)."
+      "reason": "Corrección de hallazgos de la revisión nocturna (Parte C) (11 hallazgos: 5 CRÍTICO, 6 MAYOR); equipo editorial y contrainteligencia APROBADA (D:\\OneDrive\\Escritorio\\PAGINA ECA\\ARTICULOS\\_ORGANIZADOR_DIARIO\\revision_nocturna\\equipo\\141_CULPRIT-SHOCK\\contrainteligencia.md)."
     },
     {
-      "id": 136,
+      "id": 144,
       "fields": [
-        "autor",
+        "financiacion",
+        "cuerpo",
+        "corto",
+        "fecha_revision"
+      ],
+      "reason": "Corrección de hallazgos de la revisión nocturna (Parte C) (7 hallazgos: 1 CRÍTICO, 6 MAYOR); equipo editorial y contrainteligencia APROBADA (D:\\OneDrive\\Escritorio\\PAGINA ECA\\ARTICULOS\\_ORGANIZADOR_DIARIO\\revision_nocturna\\equipo\\144_HYPERION\\contrainteligencia.md)."
+    },
+    {
+      "id": 140,
+      "fields": [
         "financiacion",
         "hallazgo",
         "cuerpo",
         "corto",
         "fecha_revision"
       ],
-      "reason": "Corrección de hallazgos de la revisión nocturna (Parte C) (16 hallazgos: 4 CRÍTICO, 12 MAYOR); equipo editorial y contrainteligencia APROBADA (revision_nocturna\\equipo\\136_REMAP-CAP_(IL-6)\\contrainteligencia.md)."
+      "reason": "Corrección de hallazgos de la revisión nocturna (Parte C) (12 hallazgos: 6 CRÍTICO, 6 MAYOR); equipo editorial y contrainteligencia APROBADA (D:\\OneDrive\\Escritorio\\PAGINA ECA\\ARTICULOS\\_ORGANIZADOR_DIARIO\\revision_nocturna\\equipo\\140_SUP-ICU\\contrainteligencia.md)."
     },
     {
-      "id": 122,
+      "id": 21,
+      "fields": [
+        "titulo",
+        "financiacion",
+        "original",
+        "hallazgo",
+        "cuerpo",
+        "corto",
+        "fecha_revision"
+      ],
+      "reason": "Corrección del equipo crítico, issue #348 (16 hallazgos: 1 CRÍTICO, 6 MAYOR, 9 MENOR); equipo editorial y contrainteligencia APROBADA (D:\\OneDrive\\Escritorio\\PAGINA ECA\\ARTICULOS\\_ORGANIZADOR_DIARIO\\revision_nocturna\\equipo\\21_E-CRRT\\contrainteligencia.md)."
+    },
+    {
+      "id": 143,
       "fields": [
         "financiacion",
         "hallazgo",
@@ -67,28 +66,29 @@
         "corto",
         "fecha_revision"
       ],
-      "reason": "Corrección de hallazgos de la revisión nocturna (Parte C) (9 hallazgos: 6 CRÍTICO, 3 MAYOR); equipo editorial y contrainteligencia APROBADA (revision_nocturna\\equipo\\122_COVACTA\\contrainteligencia.md)."
+      "reason": "Corrección de hallazgos de la revisión nocturna (Parte C) (12 hallazgos: 3 CRÍTICO, 9 MAYOR); equipo editorial y contrainteligencia APROBADA (D:\\OneDrive\\Escritorio\\PAGINA ECA\\ARTICULOS\\_ORGANIZADOR_DIARIO\\revision_nocturna\\equipo\\143_REVISE\\contrainteligencia.md)."
     },
     {
-      "id": 124,
+      "id": 139,
       "fields": [
-        "cuerpo",
-        "corto",
-        "fecha_revision"
-      ],
-      "reason": "Corrección de hallazgos de la revisión nocturna (Parte C) (9 hallazgos: 2 CRÍTICO, 7 MAYOR); equipo editorial y contrainteligencia APROBADA (revision_nocturna\\equipo\\124_PARTNER_3\\contrainteligencia.md)."
-    },
-    {
-      "id": 137,
-      "fields": [
-        "autor",
         "financiacion",
         "hallazgo",
         "cuerpo",
         "corto",
         "fecha_revision"
       ],
-      "reason": "Corrección de hallazgos de la revisión nocturna (Parte C) (14 hallazgos: 6 CRÍTICO, 8 MAYOR); equipo editorial y contrainteligencia APROBADA (revision_nocturna\\equipo\\137_DanGer-Shock\\contrainteligencia.md)."
+      "reason": "Corrección de hallazgos de la revisión nocturna (Parte C) (10 hallazgos: 1 CRÍTICO, 9 MAYOR); equipo editorial y contrainteligencia APROBADA (D:\\OneDrive\\Escritorio\\PAGINA ECA\\ARTICULOS\\_ORGANIZADOR_DIARIO\\revision_nocturna\\equipo\\139_PREOXI\\contrainteligencia.md)."
+    },
+    {
+      "id": 142,
+      "fields": [
+        "financiacion",
+        "hallazgo",
+        "cuerpo",
+        "corto",
+        "fecha_revision"
+      ],
+      "reason": "Corrección de hallazgos de la revisión nocturna (Parte C) (17 hallazgos: 6 CRÍTICO, 11 MAYOR); equipo editorial y contrainteligencia APROBADA (D:\\OneDrive\\Escritorio\\PAGINA ECA\\ARTICULOS\\_ORGANIZADOR_DIARIO\\revision_nocturna\\equipo\\142_PAMPer\\contrainteligencia.md)."
     }
   ]
 }

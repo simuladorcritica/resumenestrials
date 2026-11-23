@@ -4,8 +4,64 @@
   <id>https://resumenestrials.com/</id>
   <link href="https://resumenestrials.com/"/>
   <link rel="self" type="application/atom+xml" href="https://resumenestrials.com/feed.xml"/>
-  <updated>2026-11-19T00:00:00Z</updated>
+  <updated>2026-11-22T00:00:00Z</updated>
   <subtitle>Resúmenes críticos en español de ensayos clínicos.</subtitle>
+  <entry>
+    <title>E-CRRT: comparación de la duración del circuito entre los abordajes de integración y de separación en pacientes con oxigenación por membrana extracorpórea que requieren terapia de reemplazo renal continua: ensayo controlado aleatorizado</title>
+    <id>https://resumenestrials.com/trials/e-crrt-integracion-separacion-circuito-depuracion-renal-continua-paciente-ecmo/</id>
+    <link href="https://resumenestrials.com/trials/e-crrt-integracion-separacion-circuito-depuracion-renal-continua-paciente-ecmo/"/>
+    <updated>2026-11-22T00:00:00Z</updated>
+    <summary>Comparar la duración del circuito de terapia de reemplazo renal continuo entre las técnicas de integración y de separación en pacientes con oxigenación por membrana extracorpórea que requieren depuración renal continua.</summary>
+  </entry>
+  <entry>
+    <title>PREOXI: ventilación no invasiva para la preoxigenación durante la intubación de urgencia</title>
+    <id>https://resumenestrials.com/trials/preoxi-ventilacion-no-invasiva-preoxigenacion-antes-intubacion-emergencia/</id>
+    <link href="https://resumenestrials.com/trials/preoxi-ventilacion-no-invasiva-preoxigenacion-antes-intubacion-emergencia/"/>
+    <updated>2026-11-22T00:00:00Z</updated>
+    <summary>Determinar si la preoxigenación con ventilación no invasiva, comparada con mascarilla de oxígeno, reduce la incidencia de hipoxemia durante la intubación traqueal de adultos críticamente enfermos.</summary>
+  </entry>
+  <entry>
+    <title>SUP-ICU: pantoprazol en pacientes con riesgo de hemorragia digestiva en la UCI</title>
+    <id>https://resumenestrials.com/trials/sup-icu-pantoprazol-pacientes-riesgo-sangrado-digestivo-unidad-cuidados-intensivos/</id>
+    <link href="https://resumenestrials.com/trials/sup-icu-pantoprazol-pacientes-riesgo-sangrado-digestivo-unidad-cuidados-intensivos/"/>
+    <updated>2026-11-22T00:00:00Z</updated>
+    <summary>Determinar si el pantoprazol intravenoso, comparado con placebo, reduce la mortalidad a 90 días en adultos de la unidad de cuidados intensivos con riesgo de hemorragia digestiva.</summary>
+  </entry>
+  <entry>
+    <title>CULPRIT-SHOCK: estrategias de intervención coronaria percutánea en pacientes con infarto agudo de miocardio y shock cardiogénico</title>
+    <id>https://resumenestrials.com/trials/culprit-shock-estrategias-angioplastia-infarto-miocardio-choque-cardiogenico/</id>
+    <link href="https://resumenestrials.com/trials/culprit-shock-estrategias-angioplastia-infarto-miocardio-choque-cardiogenico/"/>
+    <updated>2026-11-22T00:00:00Z</updated>
+    <summary>Determinar si la angioplastia limitada a la arteria culpable, comparada con la revascularización multivaso inmediata, reduce la muerte o la insuficiencia renal grave a 30 días en pacientes con infarto de miocardio y choque cardiogénico.</summary>
+  </entry>
+  <entry>
+    <title>PAMPer: plasma prehospitalario durante el transporte médico aéreo en pacientes traumatizados con riesgo de shock hemorrágico</title>
+    <id>https://resumenestrials.com/trials/pamper-plasma-prehospitalario-pacientes-traumaticos-riesgo-choque-hemorragico/</id>
+    <link href="https://resumenestrials.com/trials/pamper-plasma-prehospitalario-pacientes-traumaticos-riesgo-choque-hemorragico/"/>
+    <updated>2026-11-22T00:00:00Z</updated>
+    <summary>Determinar si la administración prehospitalaria de 2 unidades de plasma descongelado, durante el transporte aéreo, reduce la mortalidad a 30 días en pacientes traumatizados en riesgo de choque hemorrágico, frente a la reanimación estándar sin plasma.</summary>
+  </entry>
+  <entry>
+    <title>REVISE: profilaxis de la úlcera de estrés durante la ventilación mecánica invasiva</title>
+    <id>https://resumenestrials.com/trials/revise-profilaxis-ulceras-estres-ventilacion-mecanica-invasiva/</id>
+    <link href="https://resumenestrials.com/trials/revise-profilaxis-ulceras-estres-ventilacion-mecanica-invasiva/"/>
+    <updated>2026-11-22T00:00:00Z</updated>
+    <summary>Determinar si el pantoprazol intravenoso, frente a placebo, reduce el sangrado digestivo alto clínicamente importante en pacientes críticos con ventilación mecánica invasiva, sin aumentar la mortalidad a 90 días.</summary>
+  </entry>
+  <entry>
+    <title>HYPERION: manejo específico de la temperatura en el paro cardiaco con ritmo no desfibrilable</title>
+    <id>https://resumenestrials.com/trials/hyperion-manejo-especifico-temperatura-paro-cardiaco-ritmo-no-desfibrilable/</id>
+    <link href="https://resumenestrials.com/trials/hyperion-manejo-especifico-temperatura-paro-cardiaco-ritmo-no-desfibrilable/"/>
+    <updated>2026-11-22T00:00:00Z</updated>
+    <summary>Determinar si la hipotermia terapéutica moderada a 33°C, frente a la normotermia dirigida a 37°C, mejora la supervivencia con resultado neurológico favorable a los 90 días en pacientes en coma tras un paro cardiaco con ritmo no desfibrilable.</summary>
+  </entry>
+  <entry>
+    <title>ZENITH: sotatercept en pacientes con hipertensión arterial pulmonar con alto riesgo de muerte</title>
+    <id>https://resumenestrials.com/trials/zenith-sotatercept-pacientes-hipertension-arterial-pulmonar-alto-riesgo-muerte/</id>
+    <link href="https://resumenestrials.com/trials/zenith-sotatercept-pacientes-hipertension-arterial-pulmonar-alto-riesgo-muerte/"/>
+    <updated>2026-11-22T00:00:00Z</updated>
+    <summary>Evaluar si añadir sotatercept al tratamiento de fondo máximo tolerado reduce la muerte, el trasplante pulmonar o la hospitalización por empeoramiento en adultos con hipertensión arterial pulmonar en clase funcional III o IV y alto riesgo de muerte.</summary>
+  </entry>
   <entry>
     <title>SINGLE SHOT CHAMPION: ablación con campo pulsado o con crioballón para la fibrilación auricular paroxística</title>
     <id>https://resumenestrials.com/trials/single-shot-champion-ablacion-campo-pulsado-crioballon-fibrilacion-auricular-paroxistica/</id>
@@ -110,13 +166,6 @@
     <link href="https://resumenestrials.com/trials/select-gca-ensayo-fase-3-upadacitinib-arteritis-celulas-gigantes/"/>
     <updated>2026-11-18T00:00:00Z</updated>
     <summary>Evaluar si el upadacitinib a 15 o 7.5 mg una vez al día, con una reducción de glucocorticoides en 26 semanas, aumenta frente a placebo con una reducción en 52 semanas la proporción de pacientes con arteritis de células gigantes en remisión sostenida en la semana 52.</summary>
-  </entry>
-  <entry>
-    <title>ZENITH: sotatercept en pacientes con hipertensión arterial pulmonar con alto riesgo de muerte</title>
-    <id>https://resumenestrials.com/trials/zenith-sotatercept-pacientes-hipertension-arterial-pulmonar-alto-riesgo-muerte/</id>
-    <link href="https://resumenestrials.com/trials/zenith-sotatercept-pacientes-hipertension-arterial-pulmonar-alto-riesgo-muerte/"/>
-    <updated>2026-11-18T00:00:00Z</updated>
-    <summary>Evaluar si añadir sotatercept al tratamiento de fondo máximo tolerado reduce la muerte, el trasplante pulmonar o la hospitalización por empeoramiento en adultos con hipertensión arterial pulmonar en clase funcional III o IV y alto riesgo de muerte.</summary>
   </entry>
   <entry>
     <title>ORIENTAL-MeVO: tratamiento endovascular del ictus por oclusión de vaso mediano</title>
@@ -306,54 +355,5 @@
     <link href="https://resumenestrials.com/trials/65-hipotension-permisiva-atencion-habitual-mayores-65-anos-hipotension-vasodilatadora/"/>
     <updated>2026-11-15T00:00:00Z</updated>
     <summary>Determinar si reducir la exposición a vasopresores mediante hipotensión permisiva disminuye la mortalidad a 90 días en pacientes de 65 años o más con hipotensión vasodilatadora en cuidados intensivos.</summary>
-  </entry>
-  <entry>
-    <title>Express: ajuste de la presión positiva al final de la espiración en adultos con lesión pulmonar aguda y síndrome de dificultad respiratoria aguda</title>
-    <id>https://resumenestrials.com/trials/express-peep-alta-titulada-presion-meseta-peep-moderada-lesion-pulmonar/</id>
-    <link href="https://resumenestrials.com/trials/express-peep-alta-titulada-presion-meseta-peep-moderada-lesion-pulmonar/"/>
-    <updated>2026-11-15T00:00:00Z</updated>
-    <summary>Comparar una estrategia de PEEP alta titulada hasta una presión meseta de 28 a 30 cm H2O frente a una PEEP moderada, ambas con volumen corriente bajo, para reducir la mortalidad a 28 días en la lesión pulmonar aguda y el síndrome de dificultad respiratoria aguda.</summary>
-  </entry>
-  <entry>
-    <title>SURVIVE: levosimendán frente a dobutamina en pacientes con insuficiencia cardiaca aguda descompensada</title>
-    <id>https://resumenestrials.com/trials/survive-levosimendan-dobutamina-insuficiencia-cardiaca-aguda-descompensada/</id>
-    <link href="https://resumenestrials.com/trials/survive-levosimendan-dobutamina-insuficiencia-cardiaca-aguda-descompensada/"/>
-    <updated>2026-11-15T00:00:00Z</updated>
-    <summary>Comparar una infusión corta de levosimendán frente a dobutamina en la insuficiencia cardiaca aguda descompensada que requiere un inotrópico, para reducir la mortalidad por cualquier causa a 180 días.</summary>
-  </entry>
-  <entry>
-    <title>Efecto del tratamiento con dosis bajas de hidrocortisona y fludrocortisona sobre la mortalidad en pacientes con shock séptico</title>
-    <id>https://resumenestrials.com/trials/hidrocortisona-y-fludrocortisona-en-dosis-bajas-en-el-shock-septico-con-insuficiencia/</id>
-    <link href="https://resumenestrials.com/trials/hidrocortisona-y-fludrocortisona-en-dosis-bajas-en-el-shock-septico-con-insuficiencia/"/>
-    <updated>2026-11-15T00:00:00Z</updated>
-    <summary>Evaluar si la hidrocortisona y la fludrocortisona en dosis bajas durante 7 días mejoran la supervivencia a 28 días en el shock séptico con insuficiencia suprarrenal relativa.</summary>
-  </entry>
-  <entry>
-    <title>ORIGIN 3: atacicept en la nefropatía por IgA, análisis final de eficacia del ensayo de fase 3</title>
-    <id>https://resumenestrials.com/trials/origin-3-atacicept-nefropatia-iga-analisis-final-eficacia-ensayo-fase-3/</id>
-    <link href="https://resumenestrials.com/trials/origin-3-atacicept-nefropatia-iga-analisis-final-eficacia-ensayo-fase-3/"/>
-    <updated>2026-11-15T00:00:00Z</updated>
-    <summary>Evaluar si atacicept subcutáneo semanal, frente a placebo, frena la pérdida de función renal estimada, medida como cambio de la TFGe a la semana 52 y pendiente anualizada hasta la semana 104, en adultos con nefropatía por IgA y proteinuria persistente.</summary>
-  </entry>
-  <entry>
-    <title>SYNCHRONIZE-1: survodutida una vez por semana para el tratamiento de adultos con obesidad</title>
-    <id>https://resumenestrials.com/trials/synchronize-1-survodutida-vez-semana-tratamiento-adultos-obesidad/</id>
-    <link href="https://resumenestrials.com/trials/synchronize-1-survodutida-vez-semana-tratamiento-adultos-obesidad/"/>
-    <updated>2026-11-14T00:00:00Z</updated>
-    <summary>Evaluar la eficacia y la seguridad de la survodutida subcutánea una vez por semana, con dosis objetivo de 3.6 mg o 6.0 mg, frente a placebo, sumada a consejo sobre dieta y ejercicio, para reducir el peso corporal en adultos con obesidad sin diabetes.</summary>
-  </entry>
-  <entry>
-    <title>B-Well 1 and B-Well 2: resultados de fase 3 del tratamiento con bepirovirsén en la infección crónica por el virus de la hepatitis B</title>
-    <id>https://resumenestrials.com/trials/b-well-1-and-b-well-2-resultados-fase-3-tratamiento-bepirovirsen-infeccion-cronica-virus/</id>
-    <link href="https://resumenestrials.com/trials/b-well-1-and-b-well-2-resultados-fase-3-tratamiento-bepirovirsen-infeccion-cronica-virus/"/>
-    <updated>2026-11-14T00:00:00Z</updated>
-    <summary>Evaluar si 24 semanas de bepirovirsén, frente a placebo, aumentan la curación funcional en la semana 72, tras retirar los análogos de nucleósidos o nucleótidos, en adultos con hepatitis B crónica sin cirrosis y HBsAg de hasta 3000 UI/ml.</summary>
-  </entry>
-  <entry>
-    <title>TETON-1: ensayos de fase 3 de treprostinil inhalado para la fibrosis pulmonar idiopática</title>
-    <id>https://resumenestrials.com/trials/teton-1-ensayos-fase-3-treprostinil-inhalado-fibrosis-pulmonar-idiopatica/</id>
-    <link href="https://resumenestrials.com/trials/teton-1-ensayos-fase-3-treprostinil-inhalado-fibrosis-pulmonar-idiopatica/"/>
-    <updated>2026-11-14T00:00:00Z</updated>
-    <summary>Evaluar si el treprostinil inhalado, frente a placebo, reduce la caída de la capacidad vital forzada a las 52 semanas en pacientes con fibrosis pulmonar idiopática.</summary>
   </entry>
 </feed>

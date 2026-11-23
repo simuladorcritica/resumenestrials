@@ -122,10 +122,10 @@
    "conflictos": "Sí: varios autores, incluido el último, John A. Kellum, son empleados actuales o antiguos de Spectral Medical y poseen acciones; el estadístico recibió honorarios de la empresa, y Tidswell y Davison, subvenciones u honorarios."
   },
   "21": {
-   "de": "e83a0b8f7cc9",
+   "de": "92a5601b868a",
    "pago": "Centro de Excelencia en Nefrología de Cuidados Críticos del King Chulalongkorn Memorial Hospital, en Bangkok, una fuente académica.",
-   "papel": "Ningún autor recibió honorarios ni financiación de empresas de tecnologías de depuración extracorpórea o renal.",
-   "conflictos": "No: los autores declaran no tener conflictos de interés económicos ni de otra índole."
+   "papel": "Ninguna empresa figura entre los financiadores; ningún autor recibió honorarios ni financiación de empresas relacionadas con tecnologías extracorpóreas o de reemplazo renal.",
+   "conflictos": "No: los autores declaran no tener conflictos de interés relevantes para este estudio."
   },
   "22": {
    "de": "be782727dab7",
@@ -830,39 +830,39 @@
    "conflictos": "Sí: varios coautores pertenecen a las compañías patrocinadoras, Bristol Myers Squibb y Johnson & Johnson."
   },
   "139": {
-   "de": "b46d03651b12",
-   "pago": "Departamento de Defensa de Estados Unidos (Defense Health Agency, programa Restoral).",
-   "papel": "Sin patrocinio de un fabricante: se compararon dos estrategias clínicas con equipo ya disponible, no un fármaco o dispositivo de una sola marca.",
+   "de": "e1ef0347a248",
+   "pago": "Departamento de Defensa de Estados Unidos (Defense Health Agency, programa Restoral, con la 59ª Ala Médica de la Fuerza Aérea).",
+   "papel": "Ninguna empresa figura entre los financiadores; el financiador no tuvo ningún papel en el diseño, los datos, el análisis ni el manuscrito.",
    "conflictos": "No consta en el resumen."
   },
   "140": {
-   "de": "e09ded011b54",
-   "pago": "Innovation Fund Denmark y varias fundaciones y sociedades académicas europeas.",
-   "papel": "Los autores declaran explícitamente que no hubo patrocinio comercial para el ensayo.",
+   "de": "68f9997c7f6b",
+   "pago": "Innovation Fund Denmark, Rigshospitalet, la Región Capital de Dinamarca, las Regiones de Dinamarca y varias fundaciones y sociedades académicas.",
+   "papel": "No hubo patrocinio comercial; Innovation Fund Denmark no tuvo ningún papel en el protocolo, la realización ni el análisis o la comunicación de los datos.",
    "conflictos": "No consta en el resumen."
   },
   "141": {
-   "de": "99ebcc6aa548",
+   "de": "bfc13aa60d52",
    "pago": "Unión Europea (7º Programa Marco), Fundación Alemana de Investigación Cardíaca y Sociedad Alemana de Cardiología.",
-   "papel": "Sin patrocinio de un fabricante único de dispositivos o stents: se compararon dos estrategias de intervención coronaria percutánea.",
+   "papel": "Ninguna empresa figura entre los financiadores; ensayo iniciado por los investigadores, sin participación de las instituciones financiadoras en su conducción.",
    "conflictos": "No consta en el resumen."
   },
   "142": {
-   "de": "400680839af6",
+   "de": "9fe73499efc1",
    "pago": "U.S. Army Medical Research and Materiel Command, un organismo militar de investigación.",
-   "papel": "Sin relación con un fabricante comercial: el plasma provino de bancos de sangre institucionales, no de un producto patentado.",
+   "papel": "No hubo apoyo comercial; el ensayo lo diseñaron los autores y nadie ajeno a ellos participó en la redacción o revisión del manuscrito.",
    "conflictos": "No consta en el resumen."
   },
   "143": {
-   "de": "32d57acf92a6",
-   "pago": "Institutos Canadienses de Investigación en Salud, Consejo Nacional de Salud e Investigación Médica de Australia, Instituto Nacional de Investigación en Salud del Reino Unido y otras entidades públicas y sin ánimo de lucro.",
-   "papel": "Sin participación comercial; el pantoprazol es un fármaco genérico sin fabricante único vinculado al ensayo.",
+   "de": "9c124c33088c",
+   "pago": "Institutos Canadienses de Investigación en Salud, Consejo Nacional de Salud e Investigación Médica de Australia, Instituto Nacional de Investigación en Salud del Reino Unido y otras entidades públicas.",
+   "papel": "Ninguna empresa figura entre los financiadores; sin participación comercial.",
    "conflictos": "No consta en el resumen."
   },
   "144": {
-   "de": "8af943b900d6",
-   "pago": "Ministerio de Salud de Francia, centro hospitalario departamental de Vendée y Fundación Laerdal, entidades públicas o filantrópicas.",
-   "papel": "Sin relación con un fabricante comercial de los dispositivos de enfriamiento; los financiadores no participaron en el diseño ni el análisis.",
+   "de": "7f8722a1b694",
+   "pago": "Ministerio de Salud de Francia, centro hospitalario departamental de Vendée y Fundación Laerdal.",
+   "papel": "Ninguna empresa figura entre los financiadores; ninguno participó en el diseño, la recolección o el análisis de los datos ni en la redacción del manuscrito.",
    "conflictos": "No consta en el resumen."
   },
   "145": {
@@ -2078,10 +2078,10 @@
    "conflictos": "Sí: 17 de los 18 autores declaran vínculos con AbbVie; siete con filiación en la compañía declaran empleo y acciones u opciones."
   },
   "347": {
-   "de": "80c7038fb488",
-   "pago": "Merck Sharp and Dohme (MSD), filial de Merck; según el protocolo, el sotatercept y el placebo los proporcionó Acceleron Pharma, filial de Merck & Co.",
-   "papel": "El patrocinador y un comité directivo diseñaron el ensayo; el patrocinador supervisó la monitorización, realizó los análisis y aportó un redactor médico empleado suyo.",
-   "conflictos": "Sí: los 22 autores declaran vínculos con Merck o MSD; 8 son empleados y 14 académicos declaran consultorías, becas o comités."
+   "de": "9ba786839f65",
+   "pago": "Merck Sharp and Dohme (MSD), filial de Merck; el sotatercept y el placebo los proporcionó Acceleron Pharma, filial de Merck & Co.",
+   "papel": "El patrocinador y un comité directivo diseñaron el ensayo; el patrocinador supervisó la monitorización, realizó los análisis y aportó apoyo de redacción.",
+   "conflictos": "Sí: los 22 autores declaran vínculos con Merck o MSD; 8 son empleados."
   },
   "348": {
    "de": "326048d896d8",

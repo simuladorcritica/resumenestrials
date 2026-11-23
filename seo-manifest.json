@@ -658,14 +658,14 @@
     "slug": "e-crrt-integracion-separacion-circuito-depuracion-renal-continua-paciente-ecmo",
     "path": "/trials/e-crrt-integracion-separacion-circuito-depuracion-renal-continua-paciente-ecmo/",
     "url": "https://resumenestrials.com/trials/e-crrt-integracion-separacion-circuito-depuracion-renal-continua-paciente-ecmo/",
-    "title": "E-CRRT: comparación de la duración del circuito entre los abordajes de integración y de separación en pacientes con oxigenación por membrana extracorpórea que requieren terapia de reemplazo renal continua",
+    "title": "E-CRRT: comparación de la duración del circuito entre los abordajes de integración y de separación en pacientes con oxigenación por membrana extracorpórea que requieren terapia de reemplazo renal continua: ensayo controlado aleatorizado",
     "relacionados": [
       228,
       193,
       12
     ],
-    "seo_title": "E-CRRT trial: comparación de la duración del circuito entre los abordajes de integración y de separación en pacientes con oxigenación por membrana extracorpórea que requieren terapia de reemplazo renal continua | Resúmenes Trials",
-    "description": "E-CRRT: La duración mediana del circuito no difirió: 72 frente a 71 horas (p=0.52). Tampoco cambiaron la mortalidad a 28 días (32.5% frente al 35%) ni los…",
+    "seo_title": "E-CRRT trial: comparación de la duración del circuito entre los abordajes de integración y de separación en pacientes con oxigenación por membrana extracorpórea que requieren terapia de reemplazo renal continua: ensayo controlado aleatorizado | Resúmenes Trials",
+    "description": "E-CRRT: La duración mediana del circuito no difirió de forma significativa: 72 horas con integración frente a 71 con separación (p=0.52). Tampoco hubo…",
     "clusters": [
       {
         "name": "SDRA y ECMO",
@@ -685,11 +685,11 @@
     ],
     "intent": {
       "question": "Comparar la duración del circuito de terapia de reemplazo renal continuo entre las técnicas de integración y de separación en pacientes con oxigenación por membrana extracorpórea que requieren depuración renal continua.",
-      "answer": "La duración mediana del circuito no difirió: 72 frente a 71 horas (p=0.52).",
+      "answer": "La duración mediana del circuito no difirió de forma significativa: 72 horas con integración frente a 71 con separación (p=0.52).",
       "population": "La población fueron adultos, de 18 años o más, ingresados en cuidados intensivos, que precisaban oxigenación por membrana extracorpórea y desarrollaban una lesión renal aguda que exigía terapia de reemplazo renal continuo. Se excluyeron el embarazo, la contraindicación a la heparina y las causas renales concretas como trombosis de ambas arterias renales, vasculitis, glomerulonefritis o causa obstructiva. La raza o etnia no se…"
     },
     "datePublished": "2026-08-17",
-    "dateModified": "2026-10-20"
+    "dateModified": "2026-11-22"
   },
   "22": {
     "slug": "shosreb-remimazolam-besilato-propofol-sedacion-ligera-corta-duracion-uci",
@@ -2585,7 +2585,7 @@
     "relacionados": [
       1,
       80,
-      88
+      139
     ],
     "seo_title": "FLORALI trial: oxígeno de alto flujo por cánula nasal en la insuficiencia respiratoria hipoxémica aguda | Resúmenes Trials",
     "description": "FLORALI: Sin diferencia en la intubación entre las tres estrategias ( 38% alto flujo vs 47% oxígeno estándar vs 50% ventilación no invasiva; p=0.18 ), pero la…",
@@ -4522,8 +4522,8 @@
     "url": "https://resumenestrials.com/trials/preoxi-ventilacion-no-invasiva-preoxigenacion-antes-intubacion-emergencia/",
     "title": "PREOXI: ventilación no invasiva para la preoxigenación durante la intubación de urgencia",
     "relacionados": [
-      150,
       180,
+      150,
       3
     ],
     "seo_title": "PREOXI trial: ventilación no invasiva para la preoxigenación durante la intubación de urgencia | Resúmenes Trials",
@@ -4542,11 +4542,11 @@
     ],
     "intent": {
       "question": "Determinar si la preoxigenación con ventilación no invasiva, comparada con mascarilla de oxígeno, reduce la incidencia de hipoxemia durante la intubación traqueal de adultos críticamente enfermos.",
-      "answer": "La hipoxemia durante la intubación fue menos frecuente con ventilación no invasiva que con mascarilla de oxígeno: 9.1% frente a 18.5% (diferencia de riesgo, -9.4 puntos porcentuales; IC 95%, -13.2 a -5.6; p<0.001) , sin aumento de la aspiración.",
-      "population": "La población fueron adultos de 18 años o más, críticamente enfermos, que iban a someterse a intubación traqueal con sedación y laringoscopio en un servicio de urgencias o una unidad de cuidados intensivos. Por raza y grupo étnico, alrededor de 60% eran blancos no hispanos, entre 19% y 23% negros no hispanos, cerca de 10% a 12% hispanos y el resto de otros grupos, sin diferencias relevantes entre brazos. El estudio se realizó…"
+      "answer": "La hipoxemia durante la intubación fue menos frecuente con ventilación no invasiva que con mascarilla de oxígeno: 9.1% frente a 18.5% (diferencia de riesgo, -9.4 puntos porcentuales; IC 95%, -13.2 a -5.6; p<0.001) , sin diferencia aparente en la aspiración reportada por el operador (desenlace exploratorio: 0.9% con ventilación…",
+      "population": "La población fueron adultos de 18 años o más, críticamente enfermos, que iban a someterse a intubación traqueal con sedación y laringoscopio en un servicio de urgencias o una unidad de cuidados intensivos. Por raza y grupo étnico, 59.5% y 60.8% eran blancos no hispanos, 19.2% y 23.2% negros no hispanos y 12.4% y 9.6% hispanos (ventilación no invasiva y mascarilla, respectivamente); el resto pertenecía a otros grupos o no lo…"
     },
     "datePublished": "2026-09-03",
-    "dateModified": "2026-10-29"
+    "dateModified": "2026-11-22"
   },
   "140": {
     "slug": "sup-icu-pantoprazol-pacientes-riesgo-sangrado-digestivo-unidad-cuidados-intensivos",
@@ -4557,7 +4557,7 @@
       143
     ],
     "seo_title": "SUP-ICU trial: pantoprazol en pacientes con riesgo de hemorragia digestiva en la UCI | Resúmenes Trials",
-    "description": "SUP-ICU: La mortalidad a 90 días fue similar entre pantoprazol y placebo: 31.1% frente a 30.4% (riesgo relativo, 1.02; IC 95%, 0.91 a 1.13; p=0.76) , aunque…",
+    "description": "SUP-ICU: La mortalidad a 90 días no tuvo diferencia significativa entre pantoprazol y placebo: 31.1% frente a 30.4% (riesgo relativo, 1.02; IC 95%, 0.91 a…",
     "clusters": [],
     "images": [
       "https://resumenestrials.com/images/trials/sup-icu-pantoprazol-pacientes-riesgo-sangrado-digestivo-unidad-cuidados-intensivos-16x9.jpg",
@@ -4566,11 +4566,11 @@
     ],
     "intent": {
       "question": "Determinar si el pantoprazol intravenoso, comparado con placebo, reduce la mortalidad a 90 días en adultos de la unidad de cuidados intensivos con riesgo de hemorragia digestiva.",
-      "answer": "La mortalidad a 90 días fue similar entre pantoprazol y placebo: 31.1% frente a 30.4% (riesgo relativo, 1.02; IC 95%, 0.91 a 1.13; p=0.76) , aunque el sangrado digestivo clínicamente importante fue numéricamente menor con pantoprazol.",
+      "answer": "La mortalidad a 90 días no tuvo diferencia significativa entre pantoprazol y placebo: 31.1% frente a 30.4% (riesgo relativo, 1.02; IC 95%, 0.91 a 1.13; p=0.76) , aunque el sangrado digestivo clínicamente importante fue numéricamente menor con pantoprazol.",
       "population": "La población fueron adultos de 18 años o más ingresados de forma no electiva en la unidad de cuidados intensivos, con al menos un factor de riesgo de hemorragia digestiva clínicamente importante, como choque, uso de anticoagulantes, terapia de reemplazo renal o ventilación mecánica esperada por más de 24 horas; el estudio no reporta datos de raza o etnia. Se realizó en 33 unidades de cuidados intensivos de Dinamarca…"
     },
     "datePublished": "2026-09-03",
-    "dateModified": "2026-10-29"
+    "dateModified": "2026-11-22"
   },
   "141": {
     "slug": "culprit-shock-estrategias-angioplastia-infarto-miocardio-choque-cardiogenico",
@@ -4602,7 +4602,7 @@
       "population": "La población fueron pacientes con infarto de miocardio con elevación o sin elevación del segmento ST, complicado con choque cardiogénico, con enfermedad coronaria multivaso, definida como al menos dos vasos principales de 2 mm o más de diámetro con más de 70% de estenosis, y una lesión culpable identificable; el artículo no reporta datos de raza o etnia. El estudio se realizó en 83 centros europeos."
     },
     "datePublished": "2026-09-03",
-    "dateModified": "2026-10-29"
+    "dateModified": "2026-11-22"
   },
   "142": {
     "slug": "pamper-plasma-prehospitalario-pacientes-traumaticos-riesgo-choque-hemorragico",
@@ -4624,11 +4624,11 @@
     ],
     "intent": {
       "question": "Determinar si la administración prehospitalaria de 2 unidades de plasma descongelado, durante el transporte aéreo, reduce la mortalidad a 30 días en pacientes traumatizados en riesgo de choque hemorrágico, frente a la reanimación estándar sin plasma.",
-      "answer": "La mortalidad a 30 días fue 23.2% con plasma prehospitalario frente a 33.0% con reanimación estándar (diferencia, −9.8 puntos porcentuales; IC 95%, −18.6 a −1.0; p=0.03) , con beneficio consistente en los 9 subgrupos preespecificados.",
-      "population": "La población fueron pacientes traumatizados en riesgo de choque hemorrágico, trasladados por transporte aéreo medicalizado desde la escena del accidente o transferidos desde un hospital referente hacia un centro de trauma participante, en varios estados de Estados Unidos. La raza se autorreportó: alrededor de 84% a 90% blancos y 6% a 11% negros, sin diferencias relevantes entre grupos."
+      "answer": "La mortalidad a 30 días fue 23.2% con plasma prehospitalario frente a 33.0% con reanimación estándar (diferencia, −9.8 puntos porcentuales; IC 95%, −18.6 a −1.0; p=0.03) , con un efecto similar en los 9 subgrupos preespecificados, sin heterogeneidad (p=0.79).",
+      "population": "La población fueron pacientes traumatizados en riesgo de choque hemorrágico, trasladados por transporte aéreo medicalizado desde la escena del accidente o transferidos desde un hospital referente hacia un centro de trauma participante, en varios estados de Estados Unidos. La raza la informó el paciente o un familiar: alrededor de 84% a 90% blancos y 6% a 11% negros, sin diferencias relevantes entre grupos."
     },
     "datePublished": "2026-09-03",
-    "dateModified": "2026-10-20"
+    "dateModified": "2026-11-22"
   },
   "143": {
     "slug": "revise-profilaxis-ulceras-estres-ventilacion-mecanica-invasiva",
@@ -4655,11 +4655,11 @@
     ],
     "intent": {
       "question": "Determinar si el pantoprazol intravenoso, frente a placebo, reduce el sangrado digestivo alto clínicamente importante en pacientes críticos con ventilación mecánica invasiva, sin aumentar la mortalidad a 90 días.",
-      "answer": "El sangrado digestivo alto clínicamente importante ocurrió en 1.0% con pantoprazol frente a 3.5% con placebo (cociente de riesgos instantáneos, 0.30; IC 95%, 0.19 a 0.47; p<0.001) , sin diferencia significativa en la mortalidad a 90 días (29.1% frente a 30.9%; p=0.25).",
+      "answer": "El sangrado digestivo alto clínicamente importante ocurrió en 1.0% con pantoprazol frente a 3.5% con placebo (cociente de riesgos instantáneos, 0.30; IC 95%, 0.19 a 0.47; p<0.001) , sin diferencia significativa en la mortalidad a 90 días (29.1% con pantoprazol frente a 30.9% con placebo; cociente de riesgos instantáneos, 0.94…",
       "population": "La población fueron adultos de 18 años o más en estado crítico que recibían ventilación mecánica invasiva y en quienes se esperaba que continuara más allá del día siguiente a la aleatorización, reclutados en unidades de cuidados intensivos de Australia, Brasil, Canadá, Inglaterra, Kuwait, Pakistán, Arabia Saudita y Estados Unidos. La raza o el grupo étnico no se reportó."
     },
     "datePublished": "2026-09-03",
-    "dateModified": "2026-10-29"
+    "dateModified": "2026-11-22"
   },
   "144": {
     "slug": "hyperion-manejo-especifico-temperatura-paro-cardiaco-ritmo-no-desfibrilable",
@@ -4668,8 +4668,8 @@
     "title": "HYPERION: manejo específico de la temperatura en el paro cardiaco con ritmo no desfibrilable",
     "relacionados": [
       83,
-      23,
-      131
+      90,
+      134
     ],
     "seo_title": "HYPERION trial: manejo específico de la temperatura en el paro cardiaco con ritmo no desfibrilable | Resúmenes Trials",
     "description": "HYPERION: La supervivencia con resultado neurológico favorable a 90 días fue 10.2% con hipotermia frente a 5.7% con normotermia (diferencia, 4.5 puntos…",
@@ -4688,10 +4688,10 @@
     "intent": {
       "question": "Determinar si la hipotermia terapéutica moderada a 33°C, frente a la normotermia dirigida a 37°C, mejora la supervivencia con resultado neurológico favorable a los 90 días en pacientes en coma tras un paro cardiaco con ritmo no desfibrilable.",
       "answer": "La supervivencia con resultado neurológico favorable a 90 días fue 10.2% con hipotermia frente a 5.7% con normotermia (diferencia, 4.5 puntos porcentuales; IC 95%, 0.1 a 8.9; p=0.04) , con un número necesario a tratar de 22 y sin diferencia significativa en la mortalidad global.",
-      "population": "La población fueron adultos de 18 años o más en coma, con puntaje de 8 o menos en la escala de coma de Glasgow, que habían sido reanimados de un paro cardiaco extrahospitalario o intrahospitalario con ritmo no desfibrilable, asistolia o actividad eléctrica sin pulso, de cualquier causa, ingresados en 25 unidades de cuidados intensivos de Francia. La raza o el grupo étnico no se reportó, en línea con la normativa francesa."
+      "population": "La población fueron adultos de 18 años o más en coma, con puntaje de 8 o menos en la escala de coma de Glasgow, que habían sido reanimados de un paro cardiaco extrahospitalario o intrahospitalario con ritmo no desfibrilable, asistolia o actividad eléctrica sin pulso, de cualquier causa, ingresados en 25 unidades de cuidados intensivos de Francia. La raza o el grupo étnico no se reportó."
     },
     "datePublished": "2026-09-03",
-    "dateModified": "2026-10-29"
+    "dateModified": "2026-11-22"
   },
   "145": {
     "slug": "attacc-activ-4a-y-remap-cap-anticoagulacion-terapeutica-heparina-pacientes-criticos-covid-19",
@@ -4854,8 +4854,8 @@
     "title": "DEVICE: videolaringoscopia frente a laringoscopia directa para la intubación traqueal de adultos en estado crítico",
     "relacionados": [
       139,
-      180,
-      3
+      3,
+      180
     ],
     "seo_title": "DEVICE trial: videolaringoscopia frente a laringoscopia directa para la intubación traqueal de adultos en estado crítico | Resúmenes Trials",
     "description": "DEVICE: El videolaringoscopio aumentó la intubación exitosa al primer intento, 85.1% frente a 70.8% con el laringoscopio directo (diferencia absoluta, 14.3…",
@@ -5735,8 +5735,8 @@
     "url": "https://resumenestrials.com/trials/prevent-ventilacion-bolsa-mascarilla-intubacion-traqueal-adulto-estado-critico/",
     "title": "PreVent: ventilación con bolsa-mascarilla durante la intubación traqueal de adultos en estado crítico",
     "relacionados": [
-      3,
       139,
+      3,
       150
     ],
     "seo_title": "PreVent trial: ventilación con bolsa-mascarilla durante la intubación traqueal de adultos en estado crítico | Resúmenes Trials",
@@ -6291,7 +6291,6 @@
     "url": "https://resumenestrials.com/trials/save-o2-ai-titulacion-autonoma-oxigeno-titulacion-manual-adultos-hospitalizados/",
     "title": "SAVE-O2 AI: titulación autónoma del oxígeno para mantener la normoxemia en adultos con enfermedad aguda",
     "relacionados": [
-      79,
       263,
       1
     ],
@@ -6930,8 +6929,8 @@
     "title": "WOMAN: efecto de la administración precoz de ácido tranexámico sobre la mortalidad, la histerectomía y otras morbilidades en mujeres con hemorragia posparto",
     "relacionados": [
       214,
-      239,
-      177
+      177,
+      239
     ],
     "seo_title": "WOMAN trial: efecto de la administración precoz de ácido tranexámico sobre la mortalidad, la histerectomía y otras morbilidades en mujeres con hemorragia posparto | Resúmenes Trials",
     "description": "WOMAN: Sin diferencia significativa en el desenlace primario de muerte o histerectomía: 5.3% con ácido tranexámico frente a 5.5% con placebo, riesgo relativo…",
@@ -8041,7 +8040,7 @@
     "relacionados": [
       56,
       4,
-      67
+      83
     ],
     "seo_title": "BOX trial: objetivos de oxígeno en supervivientes comatosos de un paro cardiaco | Resúmenes Trials",
     "description": "BOX: Sin diferencia significativa en muerte o alta con discapacidad grave o coma a 90 días: 32.0% con la meta restrictiva frente a 33.9% con la liberal…",
@@ -10858,8 +10857,8 @@
     "title": "EXPECTS: alteplasa para el ictus isquémico de la circulación posterior entre las 4.5 y las 24 horas",
     "relacionados": [
       293,
-      19,
-      216
+      216,
+      19
     ],
     "seo_title": "EXPECTS trial: alteplasa para el ictus isquémico de la circulación posterior entre las 4.5 y las 24 horas | Resúmenes Trials",
     "description": "EXPECTS: La independencia funcional a 90 días (Rankin de 0 a 2) se logró en el 89.6% con alteplasa frente al 72.6% con tratamiento estándar (riesgo relativo…",
@@ -10936,9 +10935,10 @@
     "intent": {
       "question": "Evaluar si añadir sotatercept al tratamiento de fondo máximo tolerado reduce la muerte, el trasplante pulmonar o la hospitalización por empeoramiento en adultos con hipertensión arterial pulmonar en clase funcional III o IV y alto riesgo de muerte.",
       "answer": "Añadir sotatercept al tratamiento de fondo redujo el compuesto de muerte, trasplante pulmonar u hospitalización por empeoramiento: 17.4% con sotatercept frente a 54.7% con placebo ( HR 0.24; IC 95% 0.13 a 0.43; P<0.001 ).",
-      "population": "Se incluyó a adultos de 18 a 75 años con hipertensión arterial pulmonar (HAP) sintomática del grupo 1 de la Organización Mundial de la Salud (OMS), idiopática, heredable, por fármacos o tóxicos, asociada a enfermedad del tejido conectivo o a cortocircuitos congénitos corregidos hacía al menos 1 año. Debían estar en clase funcional III o IV de la OMS (de I a IV; más alta, más limitación) y tener 9 o más puntos en la calculadora…"
+      "population": "Se incluyó a adultos de 18 a 75 años con hipertensión arterial pulmonar (HAP) sintomática del grupo 1 de la Organización Mundial de la Salud (OMS), idiopática, heredable, por fármacos o tóxicos, asociada a enfermedad del tejido conectivo o a cortocircuitos congénitos simples sistémico-pulmonares corregidos hacía al menos 1 año. Debían estar en clase funcional III o IV de la OMS (de I a IV; más alta, más limitación) y tener 9 o…"
     },
-    "datePublished": "2026-11-18"
+    "datePublished": "2026-11-18",
+    "dateModified": "2026-11-22"
   },
   "348": {
     "slug": "single-shot-champion-ablacion-campo-pulsado-crioballon-fibrilacion-auricular-paroxistica",
