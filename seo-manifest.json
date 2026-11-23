@@ -853,7 +853,7 @@
     "relacionados": [
       282,
       17,
-      37
+      219
     ],
     "seo_title": "COBRRA trial: riesgo de hemorragia con apixabán frente a rivaroxabán en la tromboembolia venosa aguda | Resúmenes Trials",
     "description": "COBRRA: Apixabán fue superior: la hemorragia clínicamente relevante ocurrió en 3.3% frente a 7.1% con rivaroxabán (riesgo relativo 0.46; IC 95%, 0.33 a 0.65…",
@@ -3484,7 +3484,7 @@
     "relacionados": [
       276,
       274,
-      94
+      103
     ],
     "seo_title": "SWITCH-SWEDEHEART trial: prasugrel frente a ticagrelor en los síndromes coronarios agudos | Resúmenes Trials",
     "description": "SWITCH-SWEDEHEART: El compuesto de muerte, infarto o ictus a 1 año no difirió significativamente entre políticas: 11.8% con ticagrelor frente a 11.1% con…",
@@ -6289,8 +6289,8 @@
     "url": "https://resumenestrials.com/trials/save-o2-ai-titulacion-autonoma-oxigeno-titulacion-manual-adultos-hospitalizados/",
     "title": "SAVE-O2 AI: titulación autónoma del oxígeno para mantener la normoxemia en adultos con enfermedad aguda",
     "relacionados": [
-      263,
-      1
+      1,
+      263
     ],
     "seo_title": "SAVE-O2 AI trial: titulación autónoma del oxígeno para mantener la normoxemia en adultos con enfermedad aguda | Resúmenes Trials",
     "description": "SAVE-O2 AI: Los pacientes con titulación autónoma pasaron una media del 85% del tiempo en normoxemia frente al 63% con titulación manual, una diferencia…",
@@ -6927,8 +6927,8 @@
     "title": "WOMAN: efecto de la administración precoz de ácido tranexámico sobre la mortalidad, la histerectomía y otras morbilidades en mujeres con hemorragia posparto",
     "relacionados": [
       214,
-      177,
-      239
+      239,
+      177
     ],
     "seo_title": "WOMAN trial: efecto de la administración precoz de ácido tranexámico sobre la mortalidad, la histerectomía y otras morbilidades en mujeres con hemorragia posparto | Resúmenes Trials",
     "description": "WOMAN: Sin diferencia significativa en el desenlace primario de muerte o histerectomía: 5.3% con ácido tranexámico frente a 5.5% con placebo, riesgo relativo…",
@@ -9559,7 +9559,7 @@
     "relacionados": [
       302,
       18,
-      102
+      350
     ],
     "seo_title": "Lp(a)HORIZON trial: pelacarsén y desenlaces cardiovasculares en pacientes con lipoproteína(a) elevada | Resúmenes Trials",
     "description": "Lp(a)HORIZON: Con una mediana de 4.7 años y una reducción de la lipoproteína(a) del 78.4% al año, el evento cardiovascular adverso mayor ocurrió en el 12.3%…",
@@ -9691,7 +9691,8 @@
     "url": "https://resumenestrials.com/trials/shasta-3-y-shasta-4-plozasiran-hipertrigliceridemia-grave-riesgo-pancreatitis/",
     "title": "SHASTA-3 y SHASTA-4: plozasirán para la hipertrigliceridemia grave y el riesgo de pancreatitis",
     "relacionados": [
-      156
+      156,
+      350
     ],
     "seo_title": "SHASTA-3 y SHASTA-4 trial: plozasirán para la hipertrigliceridemia grave y el riesgo de pancreatitis | Resúmenes Trials",
     "description": "SHASTA-3 y SHASTA-4: Al mes 12, el plozasirán redujo los triglicéridos frente a placebo con una diferencia de medianas de −45 puntos porcentuales (IC 95% −51…",
@@ -10997,6 +10998,36 @@
       "question": "Determinar si el uso rutinario del sistema de protección embólica cerebral Sentinel durante el implante transcatéter de válvula aórtica disminuye el ictus en las 72 horas siguientes o antes del alta en adultos con estenosis aórtica.",
       "answer": "El ictus a las 72 horas o antes del alta ocurrió en el 2.1% con protección embólica cerebral frente al 2.2% sin ella (diferencia −0.02 puntos porcentuales; IC 95% −0.68 a 0.63; P = 0.94) , sin diferencia significativa.",
       "population": "La población fueron adultos con estenosis aórtica programados para un implante transcatéter de válvula aórtica (TAVI) en el Reino Unido. La raza fue autodeclarada: el 93.4% de los pacientes con protección y el 93.2% de los controles eran blancos."
+    },
+    "datePublished": "2026-11-23"
+  },
+  "350": {
+    "slug": "alpaca-lepodisiran-arn-pequeno-interferencia-larga-duracion-dirigido-lipoproteina",
+    "path": "/trials/alpaca-lepodisiran-arn-pequeno-interferencia-larga-duracion-dirigido-lipoproteina/",
+    "url": "https://resumenestrials.com/trials/alpaca-lepodisiran-arn-pequeno-interferencia-larga-duracion-dirigido-lipoproteina/",
+    "title": "ALPACA: lepodisiran, un ARN pequeño de interferencia de larga duración dirigido contra la lipoproteína(a)",
+    "relacionados": [
+      305,
+      301
+    ],
+    "seo_title": "ALPACA trial: lepodisiran, un ARN pequeño de interferencia de larga duración dirigido contra la lipoproteína(a) | Resúmenes Trials",
+    "description": "ALPACA: Entre los días 60 y 180, el cambio porcentual de la lipoproteína(a) promediado en el tiempo frente a placebo fue de −93.9 puntos porcentuales con 400…",
+    "clusters": [
+      {
+        "name": "Cardiología y prevención cardiovascular",
+        "path": "/medicina-interna/cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-interna/cardiovascular/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/alpaca-lepodisiran-arn-pequeno-interferencia-larga-duracion-dirigido-lipoproteina-16x9.jpg",
+      "https://resumenestrials.com/images/trials/alpaca-lepodisiran-arn-pequeno-interferencia-larga-duracion-dirigido-lipoproteina-4x3.jpg",
+      "https://resumenestrials.com/images/trials/alpaca-lepodisiran-arn-pequeno-interferencia-larga-duracion-dirigido-lipoproteina-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Evaluar la eficacia y la seguridad de distintas dosis de lepodisiran subcutáneo, frente a placebo, para reducir la lipoproteína(a) sérica entre los días 60 y 180 en adultos con lipoproteína(a) de al menos 175 nmol/L.",
+      "answer": "Entre los días 60 y 180, el cambio porcentual de la lipoproteína(a) promediado en el tiempo frente a placebo fue de −93.9 puntos porcentuales con 400 mg de lepodisiran (IC 95% −95.1 a −92.5), −75.2 con 96 mg (IC 95% −80.4 a −68.5) y −40.8 con 16 mg (IC 95% −55.8 a −20.6); el artículo no informa el valor p.",
+      "population": "La población fueron adultos de 40 años o más con una lipoproteína(a) [Lp(a)] sérica de al menos 175 nmol/L, medida en un laboratorio central, de 66 centros de Argentina, China, Dinamarca, Alemania, Japón, México, Países Bajos, Rumanía, España y Estados Unidos. Por autoinforme, el 81.3% eran blancos, el 14.7% asiáticos y el 2.2% negros, y el 13.8% hispanos o latinos."
     },
     "datePublished": "2026-11-23"
   }
