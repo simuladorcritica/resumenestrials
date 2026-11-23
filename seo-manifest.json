@@ -5598,6 +5598,7 @@
     "url": "https://resumenestrials.com/trials/connect-monitoreo-continuo-glucosa-cuidado-habitual-diabetes-tipo-2-no/",
     "title": "CONNECT: monitorización continua de glucosa en la diabetes tipo 2 no tratada con insulina",
     "relacionados": [
+      354,
       289,
       326
     ],
@@ -7456,7 +7457,7 @@
     "relacionados": [
       228,
       226,
-      193
+      204
     ],
     "seo_title": "ATN trial: intensidad del soporte renal en pacientes en estado crítico con lesión renal aguda | Resúmenes Trials",
     "description": "ATN: La mortalidad a 60 días fue del 53.6% con la estrategia intensiva frente al 51.5% con la menos intensiva , sin diferencia significativa (razón de momios…",
@@ -8418,6 +8419,7 @@
     "url": "https://resumenestrials.com/trials/qwint-2-insulina-efsitora-degludec-diabetes-tipo-2-tratamiento-previo-insulina/",
     "title": "QWINT-2: insulina efsitora frente a degludec en la diabetes tipo 2 sin tratamiento previo con insulina",
     "relacionados": [
+      354,
       310,
       289
     ],
@@ -11133,6 +11135,37 @@
       "question": "Determinar si la semaglutida oral, sumada al tratamiento habitual, es superior al placebo para reducir los eventos cardiovasculares adversos mayores en personas de 50 años o más con diabetes tipo 2 y enfermedad cardiovascular aterosclerótica, enfermedad renal crónica o ambas.",
       "answer": "El MACE de tres puntos ocurrió en el 12.0% con semaglutida oral frente al 13.8% con placebo (HR 0.86; IC 95% 0.77-0.96; P=0.006) en una mediana de seguimiento de 49.5 meses.",
       "population": "La población fueron personas de 50 años o más con diabetes tipo 2, una hemoglobina glucosilada (HbA1c) de 6.5 a 10.0% y al menos una de estas condiciones: enfermedad coronaria, cerebrovascular, arterial periférica sintomática o enfermedad renal crónica (ERC), definida por una tasa de filtración glomerular estimada (TFGe) menor de 60 ml/min/1.73 m2. La raza autodeclarada fue blanca en el 69.0% del grupo de semaglutida y el…"
+    },
+    "datePublished": "2026-11-23"
+  },
+  "354": {
+    "slug": "2iqp-ensayo-aleatorizado-administracion-automatizada-insulina-diabetes-tipo-2",
+    "path": "/trials/2iqp-ensayo-aleatorizado-administracion-automatizada-insulina-diabetes-tipo-2/",
+    "url": "https://resumenestrials.com/trials/2iqp-ensayo-aleatorizado-administracion-automatizada-insulina-diabetes-tipo-2/",
+    "title": "2IQP: ensayo aleatorizado de administración automatizada de insulina en la diabetes tipo 2",
+    "relacionados": [
+      175,
+      264,
+      289
+    ],
+    "seo_title": "2IQP trial: ensayo aleatorizado de administración automatizada de insulina en la diabetes tipo 2 | Resúmenes Trials",
+    "description": "2IQP: La hemoglobina glucada a las 13 semanas bajó de 8.2% a 7.3% con administración automatizada de insulina y de 8.1% a 7.7% en el grupo control, que…",
+    "clusters": [
+      {
+        "name": "Renal y metabolismo",
+        "path": "/medicina-interna/renal-metabolica/",
+        "url": "https://resumenestrials.com/medicina-interna/renal-metabolica/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/2iqp-ensayo-aleatorizado-administracion-automatizada-insulina-diabetes-tipo-2-16x9.jpg",
+      "https://resumenestrials.com/images/trials/2iqp-ensayo-aleatorizado-administracion-automatizada-insulina-diabetes-tipo-2-4x3.jpg",
+      "https://resumenestrials.com/images/trials/2iqp-ensayo-aleatorizado-administracion-automatizada-insulina-diabetes-tipo-2-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Evaluar si la administración automatizada de insulina, frente a mantener el tratamiento insulínico previo con monitorización continua de glucosa, reduce más la hemoglobina glucada a las 13 semanas en adultos con diabetes tipo 2 tratados con insulina basal más bolos.",
+      "answer": "La hemoglobina glucada a las 13 semanas bajó de 8.2% a 7.3% con administración automatizada de insulina y de 8.1% a 7.7% en el grupo control, que mantuvo su insulina previa con monitorización continua de glucosa: una diferencia ajustada de −0.6 puntos porcentuales (IC 95% −0.8 a −0.4; P<0.001) ; el tiempo en rango de 70 a 180…",
+      "population": "Se incluyó a adultos con diabetes tipo 2 de al menos 6 meses de evolución, tratados durante al menos 3 meses con múltiples inyecciones diarias de insulina, con al menos una de insulina rápida, o con bomba; se aceptaban los fármacos no insulínicos o para bajar de peso con dosis estable en los 3 meses previos, que se mantuvieron en ambos grupos. Según los propios pacientes, el 39% pertenecía a una minoría racial o étnica…"
     },
     "datePublished": "2026-11-23"
   }
