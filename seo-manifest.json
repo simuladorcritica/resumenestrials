@@ -1964,7 +1964,7 @@
     "relacionados": [
       71,
       62,
-      76
+      125
     ],
     "seo_title": "DECLARE-TIMI 58 trial: dapagliflozina y desenlaces cardiovasculares en la diabetes tipo 2 | Resúmenes Trials",
     "description": "DECLARE-TIMI 58: Dapagliflozina fue no inferior a placebo en eventos cardiovasculares mayores ( 8.8% frente a 9.4% ; HR 0.93; IC 95%, 0.84-1.03; P=0.17), pero…",
@@ -1999,8 +1999,8 @@
     "url": "https://resumenestrials.com/trials/deliver-dapagliflozina-reduce-empeoramiento-insuficiencia-cardiaca-fraccion-eyeccion-mayor-40/",
     "title": "DELIVER: dapagliflozina en la insuficiencia cardiaca con fracción de eyección levemente reducida o preservada",
     "relacionados": [
-      101,
       73,
+      101,
       59
     ],
     "seo_title": "DELIVER trial: dapagliflozina en la insuficiencia cardiaca con fracción de eyección levemente reducida o preservada | Resúmenes Trials",
@@ -3484,7 +3484,7 @@
     "relacionados": [
       276,
       274,
-      94
+      103
     ],
     "seo_title": "SWITCH-SWEDEHEART trial: prasugrel frente a ticagrelor en los síndromes coronarios agudos | Resúmenes Trials",
     "description": "SWITCH-SWEDEHEART: El compuesto de muerte, infarto o ictus a 1 año no difirió significativamente entre políticas: 11.8% con ticagrelor frente a 11.1% con…",
@@ -5425,8 +5425,9 @@
     "url": "https://resumenestrials.com/trials/tric-i-hf-dzhk24-reparacion-transcateter-valvula-tricuspide-mas-tratamiento-medico-tratamiento/",
     "title": "TRIC-I-HF-DZHK24: intervención sobre la válvula tricúspide en la insuficiencia cardiaca",
     "relacionados": [
-      306,
-      34
+      352,
+      34,
+      306
     ],
     "seo_title": "TRIC-I-HF-DZHK24 trial: intervención sobre la válvula tricúspide en la insuficiencia cardiaca | Resúmenes Trials",
     "description": "TRIC-I-HF-DZHK24: La reparación fue superior en el compuesto jerárquico, con una razón de victorias de 2.42 (IC 95%, 1.76 a 3.33; p<0.001) , y redujo la…",
@@ -6289,6 +6290,7 @@
     "url": "https://resumenestrials.com/trials/save-o2-ai-titulacion-autonoma-oxigeno-titulacion-manual-adultos-hospitalizados/",
     "title": "SAVE-O2 AI: titulación autónoma del oxígeno para mantener la normoxemia en adultos con enfermedad aguda",
     "relacionados": [
+      79,
       1,
       263
     ],
@@ -9717,7 +9719,7 @@
     "relacionados": [
       120,
       124,
-      123
+      352
     ],
     "seo_title": "PROGRESS trial: TAVR en pacientes con estenosis aórtica moderada con rasgos de riesgo | Resúmenes Trials",
     "description": "PROGRESS: La muerte por cualquier causa o el evento de insuficiencia cardiaca a 2 años ocurrió en el 16.7% con TAVR frente al 23.9% con vigilancia clínica…",
@@ -10856,8 +10858,8 @@
     "title": "EXPECTS: alteplasa para el ictus isquémico de la circulación posterior entre las 4.5 y las 24 horas",
     "relacionados": [
       293,
-      19,
-      216
+      216,
+      19
     ],
     "seo_title": "EXPECTS trial: alteplasa para el ictus isquémico de la circulación posterior entre las 4.5 y las 24 horas | Resúmenes Trials",
     "description": "EXPECTS: La independencia funcional a 90 días (Rankin de 0 a 2) se logró en el 89.6% con alteplasa frente al 72.6% con tratamiento estándar (riesgo relativo…",
@@ -10976,9 +10978,9 @@
     "url": "https://resumenestrials.com/trials/bhf-protect-tavi-proteccion-embolica-cerebral-rutinaria-implante-transcateter-valvula-aortica/",
     "title": "BHF PROTECT-TAVI: protección embólica cerebral rutinaria durante el implante transcatéter de válvula aórtica",
     "relacionados": [
+      352,
       123,
-      120,
-      124
+      120
     ],
     "seo_title": "BHF PROTECT-TAVI trial: protección embólica cerebral rutinaria durante el implante transcatéter de válvula aórtica | Resúmenes Trials",
     "description": "BHF PROTECT-TAVI: El ictus a las 72 horas o antes del alta ocurrió en el 2.1% con protección embólica cerebral frente al 2.2% sin ella (diferencia −0.02…",
@@ -11059,6 +11061,42 @@
       "question": "Determinar si el apixabán a dosis reducida (2.5 mg dos veces al día) no es inferior a la dosis plena (5.0 mg dos veces al día) para prevenir la tromboembolia venosa recurrente durante 12 meses en pacientes con cáncer activo que ya habían completado al menos 6 meses de anticoagulación.",
       "answer": "El apixabán a dosis reducida fue no inferior a la dosis plena: la tromboembolia venosa recurrente ocurrió en 18 pacientes con 2.5 mg (2.1%) y en 24 con 5.0 mg (2.8%) (subhazard ratio ajustado, 0.76; IC 95%, 0.41 a 1.41; p=0.001 para no inferioridad; margen, 2.00) .",
       "population": "La población fueron adultos con cáncer activo, es decir, con enfermedad medible o tratamiento oncológico en curso o previsto, que habían tenido una trombosis venosa profunda (TVP) proximal de miembro inferior o una embolia pulmonar (EP) segmentaria o mayor, sintomática o incidental, y que ya habían completado al menos 6 meses de anticoagulación con heparina de bajo peso molecular (HBPM), un anticoagulante oral directo (ACOD) o…"
+    },
+    "datePublished": "2026-11-23"
+  },
+  "352": {
+    "slug": "dapatavi-dapagliflozina-pacientes-sometidos-implante-transcateter-valvula-aortica",
+    "path": "/trials/dapatavi-dapagliflozina-pacientes-sometidos-implante-transcateter-valvula-aortica/",
+    "url": "https://resumenestrials.com/trials/dapatavi-dapagliflozina-pacientes-sometidos-implante-transcateter-valvula-aortica/",
+    "title": "DapaTAVI: dapagliflozina en pacientes sometidos a implante transcatéter de válvula aórtica",
+    "relacionados": [
+      349,
+      120,
+      101
+    ],
+    "seo_title": "DapaTAVI trial: dapagliflozina en pacientes sometidos a implante transcatéter de válvula aórtica | Resúmenes Trials",
+    "description": "DapaTAVI: El compuesto de muerte por cualquier causa o empeoramiento de la insuficiencia cardiaca a 1 año ocurrió en el 15.0% con dapagliflozina frente al…",
+    "clusters": [
+      {
+        "name": "Cardiología y prevención cardiovascular",
+        "path": "/medicina-interna/cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-interna/cardiovascular/"
+      },
+      {
+        "name": "Renal y metabolismo",
+        "path": "/medicina-interna/renal-metabolica/",
+        "url": "https://resumenestrials.com/medicina-interna/renal-metabolica/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/dapatavi-dapagliflozina-pacientes-sometidos-implante-transcateter-valvula-aortica-16x9.jpg",
+      "https://resumenestrials.com/images/trials/dapatavi-dapagliflozina-pacientes-sometidos-implante-transcateter-valvula-aortica-4x3.jpg",
+      "https://resumenestrials.com/images/trials/dapatavi-dapagliflozina-pacientes-sometidos-implante-transcateter-valvula-aortica-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Evaluar si añadir dapagliflozina 10 mg al día al tratamiento estándar reduce, frente al tratamiento estándar solo, la muerte por cualquier causa o el empeoramiento de la insuficiencia cardiaca a 1 año en pacientes con estenosis aórtica grave e insuficiencia cardiaca previa sometidos a implante transcatéter de válvula aórtica.",
+      "answer": "El compuesto de muerte por cualquier causa o empeoramiento de la insuficiencia cardiaca a 1 año ocurrió en el 15.0% con dapagliflozina frente al 20.1% con tratamiento estándar (HR 0.72; IC 95% 0.55 a 0.95; P = 0.02) ; la muerte por cualquier causa, componente sin contraste formal, fue del 7.8% con dapagliflozina frente al 8.9%…",
+      "population": "Se estudió a adultos con estenosis aórtica grave tratados con implante transcatéter de válvula aórtica (TAVI), con un episodio previo de insuficiencia cardiaca por la estenosis (hospitalización o visita urgente con diurético intravenoso) y al menos una de tres condiciones: filtrado glomerular estimado (TFGe) de 25 a 75 ml/min/1.73 m², diabetes o fracción de eyección del ventrículo izquierdo (FEVI) del 40% o menos. Todos…"
     },
     "datePublished": "2026-11-23"
   }
