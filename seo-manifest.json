@@ -3514,7 +3514,8 @@
     "url": "https://resumenestrials.com/trials/iprex-profilaxis-preexposicion-emtricitabina-tenofovir-prevencion-vih-hombres-tienen-sexo/",
     "title": "iPrEx: quimioprofilaxis preexposición para la prevención del VIH en hombres que tienen sexo con hombres",
     "relacionados": [
-      109
+      109,
+      355
     ],
     "seo_title": "iPrEx trial: quimioprofilaxis preexposición para la prevención del VIH en hombres que tienen sexo con hombres | Resúmenes Trials",
     "description": "iPrEx: La incidencia de VIH fue menor con FTC-TDF: 36 infecciones entre 1251 asignados a FTC-TDF frente a 64 entre 1248 asignados a placebo, una reducción del…",
@@ -3539,6 +3540,7 @@
     "title": "HPTN 052: prevención de la infección por VIH-1 con tratamiento antirretroviral temprano",
     "relacionados": [
       108,
+      355,
       39
     ],
     "seo_title": "HPTN 052 trial: prevención de la infección por VIH-1 con tratamiento antirretroviral temprano | Resúmenes Trials",
@@ -7457,7 +7459,7 @@
     "relacionados": [
       228,
       226,
-      204
+      193
     ],
     "seo_title": "ATN trial: intensidad del soporte renal en pacientes en estado crítico con lesión renal aguda | Resúmenes Trials",
     "description": "ATN: La mortalidad a 60 días fue del 53.6% con la estrategia intensiva frente al 51.5% con la menos intensiva , sin diferencia significativa (razón de momios…",
@@ -8650,6 +8652,7 @@
     "url": "https://resumenestrials.com/trials/una-dosis-frente-a-tres-dosis-de-penicilina-g-benzatina-en-la-sifilis-temprana/",
     "title": "Una dosis frente a tres dosis de penicilina G benzatina en la sífilis temprana",
     "relacionados": [
+      355,
       266
     ],
     "seo_title": "Una dosis frente a tres dosis de penicilina G benzatina en la sífilis temprana | Resúmenes Trials",
@@ -11166,6 +11169,37 @@
       "question": "Evaluar si la administración automatizada de insulina, frente a mantener el tratamiento insulínico previo con monitorización continua de glucosa, reduce más la hemoglobina glucada a las 13 semanas en adultos con diabetes tipo 2 tratados con insulina basal más bolos.",
       "answer": "La hemoglobina glucada a las 13 semanas bajó de 8.2% a 7.3% con administración automatizada de insulina y de 8.1% a 7.7% en el grupo control, que mantuvo su insulina previa con monitorización continua de glucosa: una diferencia ajustada de −0.6 puntos porcentuales (IC 95% −0.8 a −0.4; P<0.001) ; el tiempo en rango de 70 a 180…",
       "population": "Se incluyó a adultos con diabetes tipo 2 de al menos 6 meses de evolución, tratados durante al menos 3 meses con múltiples inyecciones diarias de insulina, con al menos una de insulina rápida, o con bomba; se aceptaban los fármacos no insulínicos o para bajar de peso con dosis estable en los 3 meses previos, que se mantuvieron en ambos grupos. Según los propios pacientes, el 39% pertenecía a una minoría racial o étnica…"
+    },
+    "datePublished": "2026-11-23"
+  },
+  "355": {
+    "slug": "stepup-tratamiento-pareja-masculina-prevenir-recurrencia-vaginosis-bacteriana",
+    "path": "/trials/stepup-tratamiento-pareja-masculina-prevenir-recurrencia-vaginosis-bacteriana/",
+    "url": "https://resumenestrials.com/trials/stepup-tratamiento-pareja-masculina-prevenir-recurrencia-vaginosis-bacteriana/",
+    "title": "StepUp: tratamiento de la pareja masculina para prevenir la recurrencia de la vaginosis bacteriana",
+    "relacionados": [
+      109,
+      108,
+      273
+    ],
+    "seo_title": "StepUp trial: tratamiento de la pareja masculina para prevenir la recurrencia de la vaginosis bacteriana | Resúmenes Trials",
+    "description": "StepUp: Tratar también a la pareja masculina redujo la recurrencia de la vaginosis bacteriana en las 12 semanas: en el análisis por intención de tratar…",
+    "clusters": [
+      {
+        "name": "Enfermedades infecciosas",
+        "path": "/medicina-interna/infecciosas/",
+        "url": "https://resumenestrials.com/medicina-interna/infecciosas/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/stepup-tratamiento-pareja-masculina-prevenir-recurrencia-vaginosis-bacteriana-16x9.jpg",
+      "https://resumenestrials.com/images/trials/stepup-tratamiento-pareja-masculina-prevenir-recurrencia-vaginosis-bacteriana-4x3.jpg",
+      "https://resumenestrials.com/images/trials/stepup-tratamiento-pareja-masculina-prevenir-recurrencia-vaginosis-bacteriana-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si, en mujeres con vaginosis bacteriana sintomática que reciben tratamiento de primera línea y tienen una pareja masculina estable, añadir el tratamiento oral y tópico del hombre reduce la recurrencia en las 12 semanas siguientes frente a tratar solo a la mujer.",
+      "answer": "Tratar también a la pareja masculina redujo la recurrencia de la vaginosis bacteriana en las 12 semanas: en el análisis por intención de tratar modificada recurrió en 24 de 69 mujeres (35%) con el tratamiento de la pareja frente a 43 de 68 (63%) en el grupo control, con 1.6 frente a 4.2 recurrencias por persona-año y una…",
+      "population": "La población fueron parejas heterosexuales monógamas en las que la mujer, premenopáusica y de 18 años o más, tenía una vaginosis bacteriana sintomática y una pareja masculina estable desde hacía al menos 8 semanas. El diagnóstico exigía al menos tres de los cuatro criterios de Amsel (flujo homogéneo característico, pH vaginal mayor de 4.5, prueba de aminas positiva u olor a pescado y células clave al microscopio) y una…"
     },
     "datePublished": "2026-11-23"
   }
