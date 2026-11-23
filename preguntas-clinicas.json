@@ -618,6 +618,33 @@
           "frase": "Determinar si el apixabán a dosis reducida (2.5 mg dos veces al día) no es inferior a la dosis plena"
         }
       }
+    },
+    {
+      "id": 352,
+      "fecha": "2026-11-23",
+      "huella": "29ec68fea57ee29b",
+      "preguntas": {
+        "corticoides-choque-septico": {
+          "rol": "nada",
+          "frase": "Se estudió a adultos con estenosis aórtica grave tratados con implante transcatéter de válvula aórtica (TAVI)"
+        },
+        "cristaloides-balanceados-solucion-salina-adultos-estado-critico": {
+          "rol": "nada",
+          "frase": "Se estudió a adultos con estenosis aórtica grave tratados con implante transcatéter de válvula aórtica (TAVI)"
+        },
+        "cuando-iniciar-terapia-reemplazo-renal-lesion-renal-aguda": {
+          "rol": "nada",
+          "frase": "Se estudió a adultos con estenosis aórtica grave tratados con implante transcatéter de válvula aórtica (TAVI)"
+        },
+        "meta-oxigenacion-paciente-critico": {
+          "rol": "nada",
+          "frase": "Se estudió a adultos con estenosis aórtica grave tratados con implante transcatéter de válvula aórtica (TAVI)"
+        },
+        "restriccion-liquidos-choque-septico-hipotension-sepsis": {
+          "rol": "nada",
+          "frase": "Se estudió a adultos con estenosis aórtica grave tratados con implante transcatéter de válvula aórtica (TAVI)"
+        }
+      }
     }
   ],
   "preguntas": [
