@@ -699,6 +699,33 @@
           "frase": "Evaluar si la administración automatizada de insulina, frente a mantener el tratamiento insulínico previo con"
         }
       }
+    },
+    {
+      "id": 355,
+      "fecha": "2026-11-23",
+      "huella": "f7e7fc24ecafd507",
+      "preguntas": {
+        "corticoides-choque-septico": {
+          "rol": "nada",
+          "frase": "Determinar si, en mujeres con vaginosis bacteriana sintomática que reciben tratamiento de primera lí"
+        },
+        "cristaloides-balanceados-solucion-salina-adultos-estado-critico": {
+          "rol": "nada",
+          "frase": "Determinar si, en mujeres con vaginosis bacteriana sintomática que reciben tratamiento de primera lí"
+        },
+        "cuando-iniciar-terapia-reemplazo-renal-lesion-renal-aguda": {
+          "rol": "nada",
+          "frase": "Determinar si, en mujeres con vaginosis bacteriana sintomática que reciben tratamiento de primera lí"
+        },
+        "meta-oxigenacion-paciente-critico": {
+          "rol": "nada",
+          "frase": "Determinar si, en mujeres con vaginosis bacteriana sintomática que reciben tratamiento de primera lí"
+        },
+        "restriccion-liquidos-choque-septico-hipotension-sepsis": {
+          "rol": "nada",
+          "frase": "Determinar si, en mujeres con vaginosis bacteriana sintomática que reciben tratamiento de primera lí"
+        }
+      }
     }
   ],
   "preguntas": [

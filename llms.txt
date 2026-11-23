@@ -38,6 +38,7 @@ Material educativo para profesionales de la salud. La referencia final es siempr
 
 ## Resúmenes de ensayos
 
+- [StepUp: tratamiento de la pareja masculina para prevenir la recurrencia de la vaginosis bacteriana](https://resumenestrials.com/trials/stepup-tratamiento-pareja-masculina-prevenir-recurrencia-vaginosis-bacteriana/): NEJM, 2025.
 - [2IQP: ensayo aleatorizado de administración automatizada de insulina en la diabetes tipo 2](https://resumenestrials.com/trials/2iqp-ensayo-aleatorizado-administracion-automatizada-insulina-diabetes-tipo-2/): NEJM, 2025.
 - [SOUL: semaglutida oral y desenlaces cardiovasculares en la diabetes tipo 2 de alto riesgo](https://resumenestrials.com/trials/soul-semaglutida-oral-desenlaces-cardiovasculares-diabetes-tipo-2-alto-riesgo/): NEJM, 2025.
 - [DapaTAVI: dapagliflozina en pacientes sometidos a implante transcatéter de válvula aórtica](https://resumenestrials.com/trials/dapatavi-dapagliflozina-pacientes-sometidos-implante-transcateter-valvula-aortica/): NEJM, 2025.
