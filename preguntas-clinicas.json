@@ -726,6 +726,33 @@
           "frase": "Determinar si, en mujeres con vaginosis bacteriana sintomática que reciben tratamiento de primera lí"
         }
       }
+    },
+    {
+      "id": 356,
+      "fecha": "2026-11-23",
+      "huella": "5fd4c9446594b389",
+      "preguntas": {
+        "corticoides-choque-septico": {
+          "rol": "nada",
+          "frase": "Evaluar si el tezepelumab a 210 mg subcutáneos cada 4 semanas, frente a placebo, reduce el"
+        },
+        "cristaloides-balanceados-solucion-salina-adultos-estado-critico": {
+          "rol": "nada",
+          "frase": "Evaluar si el tezepelumab a 210 mg subcutáneos cada 4 semanas, frente a placebo, reduce el"
+        },
+        "cuando-iniciar-terapia-reemplazo-renal-lesion-renal-aguda": {
+          "rol": "nada",
+          "frase": "Evaluar si el tezepelumab a 210 mg subcutáneos cada 4 semanas, frente a placebo, reduce el"
+        },
+        "meta-oxigenacion-paciente-critico": {
+          "rol": "nada",
+          "frase": "Evaluar si el tezepelumab a 210 mg subcutáneos cada 4 semanas, frente a placebo, reduce el"
+        },
+        "restriccion-liquidos-choque-septico-hipotension-sepsis": {
+          "rol": "nada",
+          "frase": "Evaluar si el tezepelumab a 210 mg subcutáneos cada 4 semanas, frente a placebo, reduce el"
+        }
+      }
     }
   ],
   "preguntas": [
