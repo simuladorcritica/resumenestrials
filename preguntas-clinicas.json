@@ -2565,6 +2565,281 @@
           ]
         }
       ]
+    },
+    {
+      "slug": "trombectomia-ventana-tardia-ictus-isquemico-oclusion-gran-vaso",
+      "pregunta": "¿Trombectomía en ventana tardía en el ictus isquémico por oclusión de un gran vaso?",
+      "nombre": "Trombectomía en ventana tardía en el ictus isquémico por oclusión de un gran vaso",
+      "revisado_hasta": 362,
+      "descripcion": "Los ensayos clínicos {ensayos} sobre la trombectomía añadida al tratamiento médico, frente al tratamiento médico solo, en adultos con ictus isquémico por oclusión de un gran vaso tratados en ventana tardía y seleccionados por imagen: qué preguntó cada uno, su hallazgo principal y sus diferencias de diseño.",
+      "condicion": "Ictus isquémico agudo por oclusión de un gran vaso",
+      "area": "Medicina Interna",
+      "fecha_publicacion": "2026-11-24",
+      "fecha_revision": "2026-11-24",
+      "criterio": "Publicación principal de un ensayo clínico aleatorizado en adultos con ictus isquémico agudo por oclusión de un gran vaso (la arteria carótida interna, intracraneal o extracraneal, o la arteria cerebral media en los segmentos que el resumen del ensayo presenta como gran vaso o arteria grande) tratados en ventana tardía y seleccionados por imagen, cuya comparación principal es la trombectomía (mecánica o endovascular) añadida al tratamiento médico frente al tratamiento médico solo. «Ventana tardía» quiere decir que la ventana de tiempo del ensayo empieza a las 6 horas o más tarde desde el inicio de los síntomas o desde la última vez que se vio al paciente sin síntomas (de 6 a 16, de 6 a 24 o de 24 a 72 horas, por ejemplo). «Seleccionados por imagen» quiere decir que el ensayo exigía una discordancia entre el déficit clínico y el volumen del infarto, o tejido salvable en la imagen de perfusión. En esta pregunta la «intervención» es siempre la trombectomía añadida al tratamiento médico y el «comparador» el tratamiento médico solo, que el resumen puede llamar cuidado médico estándar. No pertenecen al núcleo: los ensayos cuya ventana de tiempo empieza antes de las 6 horas, aunque incluyan también a pacientes más tardíos (los de las primeras 6, 12 o 24 horas); los definidos por la oclusión de un vaso mediano o distal; los de ictus leve; los de la circulación posterior; los de trombólisis intravenosa o intraarterial, sola o antes de la trombectomía; los de fármacos antitrombóticos añadidos; los que comparan técnicas, dispositivos o tipos de anestesia de la trombectomía; los de manejo de la presión arterial; ni los ensayos piloto o de factibilidad, los análisis secundarios, los seguimientos o los metaanálisis. Cuáles de esos van como relacionados lo dice `criterio_relacionados`; los demás no se añaden. Ante la duda, no se añade al núcleo.",
+      "criterio_relacionados": "Solo ensayos clínicos aleatorizados cuya comparación principal es la trombectomía o el tratamiento intraarterial o endovascular añadido al tratamiento médico o al cuidado habitual, frente a ese tratamiento solo, en el ictus isquémico agudo por oclusión de un gran vaso o de una arteria intracraneal proximal de la circulación anterior, en otra ventana de tiempo o con otra gravedad, y solo estos: el tratamiento dentro de las 6 horas, o el ictus leve dentro de las primeras 24 horas. No se añaden los definidos por la oclusión de un vaso mediano o distal, los de la circulación posterior, los de trombólisis intravenosa (sola o antes de la trombectomía), los de fármacos antitrombóticos añadidos, los que comparan técnicas, dispositivos o tipos de anestesia de la trombectomía ni los de manejo de la presión arterial. Ante la duda, no se añade.",
+      "creacion": {
+        "fecha": "2026-11-24",
+        "marco": "VERDE",
+        "barrido": "coincide",
+        "nota": "Dos rondas de revisión independiente. Tras la primera se corrigieron la limitación y la intervención de DAWN y el tamaño, los pacientes y la separación de LATE-MT; DEFUSE 3 no cambió. Texto final con el VERDE de tres revisores por ensayo y del revisor de la pregunta."
+      },
+      "ejes": [
+        {
+          "clave": "intervencion",
+          "entrada": "El dispositivo y las reglas del procedimiento no son iguales en estos ensayos.",
+          "guia": "La trombectomía con el nombre que le da el resumen (mecánica, endovascular), con qué dispositivo debía hacerse y, si el resumen las da, las reglas del procedimiento (plazo hasta la punción, lo que el protocolo permitía o prohibía), a qué tratamiento se añadía y frente a qué se comparó, con el nombre que el resumen da a ese tratamiento: «SIGLA comparó la trombectomía … añadida a … frente a …». Reglas del protocolo, nunca lo que ocurrió en la práctica. Una oración breve.",
+          "tipo": "diseno",
+          "lugar": "juntos",
+          "obligatorio": true,
+          "max": 260
+        },
+        {
+          "clave": "poblacion",
+          "entrada": "La ventana de tiempo y el criterio de imagen son distintos.",
+          "guia": "Criterios de inclusión tal como los da el apartado de población del resumen (no las características de la muestra reclutada): la arteria ocluida, la ventana de tiempo con el punto desde el que el resumen la cuenta y el criterio de imagen que se exigía, nombrado con las palabras del resumen y sin sus umbrales (van en `pacientes`): «SIGLA incluyó adultos con oclusión de …, entre N y M horas …, con …». Una oración breve.",
+          "tipo": "diseno",
+          "lugar": "juntos",
+          "obligatorio": true,
+          "max": 260
+        },
+        {
+          "clave": "desenlace",
+          "entrada": "El desenlace primario no es el mismo en todos.",
+          "guia": "El desenlace o los desenlaces primarios, con la palabra del resumen («primario» o «principal»), el plazo solo si la cita lo da y la forma de analizarlo si el resumen la da; sin resultado: «SIGLA midió como desenlace primario …[, a N días].» Si hay coprimarios, se nombran todos. Una oración breve.",
+          "tipo": "diseno",
+          "lugar": "juntos",
+          "obligatorio": true,
+          "max": 260
+        },
+        {
+          "clave": "tamano",
+          "rotulo": "Tamaño y centros",
+          "entrada": "",
+          "guia": "Pacientes aleatorizados (o analizados, si el resumen no da los aleatorizados), con el mismo verbo que la cita, y, si el resumen los da, el número de centros y el país o países, con sus mismas palabras: «SIGLA aleatorizó N pacientes en M centros de <país>.» El tamaño previsto va solo si el resumen dice que no se alcanzó o que el ensayo terminó antes de tiempo; el motivo, solo si el resumen lo da, copiado como hecho y con sus palabras, sin nombrar a otro ensayo. Nunca su consecuencia ni su interpretación: ni «poco poder», ni a qué grupo afectaba, ni a qué lo atribuyen los autores. Una oración breve.",
+          "tipo": "diseno",
+          "lugar": "juntos",
+          "obligatorio": true,
+          "max": 260
+        },
+        {
+          "clave": "pacientes",
+          "entrada": "Para interpretarlo.",
+          "guia": "A quién se incluyó de verdad, en lo decisivo: los umbrales que exigía el ensayo (gravedad del déficit, volumen del infarto o del núcleo, tejido salvable) y uno o dos rasgos de la muestra reclutada que condicionen a qué pacientes se parece (gravedad, tiempo hasta la aleatorización, causa del ictus), con sus cifras. «SIGLA exigía … ; …». No se enumeran todas las características basales. Sin resultados de subgrupo, con una sola excepción: si el resumen destaca una señal de seguridad (posible daño) en un subgrupo, se nombra al final, con su proporción si el resumen la da, la intervención con la que se observó y la cautela que el resumen le pone, atribuida y sin las cifras de cada grupo. Un subgrupo de eficacia no se nombra, aunque su interacción sea significativa.",
+          "tipo": "contexto",
+          "lugar": "ficha",
+          "obligatorio": true,
+          "max": 260
+        },
+        {
+          "clave": "separacion",
+          "entrada": "Para interpretarlo.",
+          "guia": "Cómo se aplicó la comparación en la práctica, en lo esencial: en cuántos pacientes se hizo la trombectomía asignada o cuántos cambiaron de grupo, en cuántos se abrió la arteria en cada grupo (recanalización o reperfusión) y, si el resumen las destaca, las diferencias en los cuidados que acompañaron a cada grupo, como las dé el resumen. Una oración con las cifras clave y cada cifra en su grupo, tal como las da la cita.",
+          "tipo": "contexto",
+          "lugar": "ficha",
+          "obligatorio": true,
+          "max": 260
+        },
+        {
+          "clave": "limitacion",
+          "entrada": "Para interpretarlo.",
+          "guia": "La limitación o las dos limitaciones principales que señala la evaluación crítica del resumen (estudio abierto, cierre anticipado, dispositivo y financiación, diferencias de manejo entre los grupos, validez externa), en una oración y atribuyendo lo que sea valoración («según su resumen», «sus autores advierten»). La cita son las oraciones del resumen que las enuncian.",
+          "tipo": "contexto",
+          "lugar": "ficha",
+          "obligatorio": true,
+          "max": 260
+        },
+        {
+          "clave": "no_informa",
+          "entrada": "Para interpretarlo.",
+          "guia": "Solo si falta el dato central de la separación (o de otro eje) y el resumen dice algo sobre él sin dar las cifras: lo que el resumen no informa, como {\"sin_dato\": \"…\"}, que completa «El resumen de SIGLA no informa …». Si no hace falta, no se escribe.",
+          "tipo": "ausencia",
+          "lugar": "ficha",
+          "obligatorio": false,
+          "max": 500
+        }
+      ],
+      "nucleo": [
+        {
+          "id": 118,
+          "diseno": {
+            "intervencion": {
+              "frase": "DAWN comparó la trombectomía mecánica con el dispositivo Trevo, un stent autoexpandible y recuperable, sin permitir otros dispositivos de rescate ni fármacos trombolíticos adicionales, añadida al cuidado médico estándar frente al cuidado médico estándar solo.",
+              "cita": "La intervención fue la trombectomía mecánica añadida al cuidado médico estándar, realizada con el dispositivo Trevo, un stent autoexpandible y recuperable que se introduce por vía endovascular hasta el vaso ocluido, se despliega para atrapar el coágulo y se retira junto con él para restaurar el flujo sanguíneo; no se permitía usar otros dispositivos de rescate ni fármacos trombolíticos adicionales. El comparador fue el cuidado médico estándar solo, que podía incluir antiagregantes si el paciente no había recibido alteplasa intravenosa."
+            },
+            "poblacion": {
+              "frase": "DAWN incluyó adultos con oclusión de la carótida interna intracraneal o del primer segmento de la cerebral media, vistos por última vez sin síntomas entre 6 y 24 horas antes, con una discordancia entre la gravedad del déficit clínico y el tamaño del infarto.",
+              "cita": "La población fueron adultos de 18 años o más con un ictus isquémico agudo por oclusión de la arteria carótida interna intracraneal o del primer segmento de la arteria cerebral media, que habían sido vistos por última vez sin síntomas entre 6 y 24 horas antes, y que presentaban una discordancia entre la gravedad del déficit clínico y el tamaño del infarto cerebral"
+            },
+            "desenlace": {
+              "frase": "DAWN midió dos desenlaces coprimarios a los 90 días: la puntuación media de discapacidad en la escala de Rankin modificada ponderada por utilidad y la tasa de independencia funcional, definida como una puntuación de 0, 1 o 2 en la escala convencional.",
+              "cita": "Los dos desenlaces coprimarios fueron la puntuación media de discapacidad en la escala de Rankin modificada ponderada por utilidad a los 90 días, que va de 0 (muerte) a 10 (sin síntomas ni discapacidad) y pondera cada nivel de la escala tradicional según el valor que pacientes y clínicos le atribuyen, y la tasa de independencia funcional a los 90 días, definida como una puntuación de 0, 1 o 2 en la escala de Rankin modificada convencional"
+            },
+            "tamano": {
+              "frase": "DAWN aleatorizó 206 pacientes en 26 centros de Estados Unidos, Canadá, Europa y Australia y se detuvo antes del máximo de 500 que permitía el diseño adaptativo, cuando un análisis intermedio preespecificado alcanzó el criterio de éxito fijado de antemano.",
+              "cita": [
+                "Se aleatorizaron 206 pacientes: 107 al grupo de trombectomía y 99 al grupo control.",
+                "El estudio se realizó en 26 centros de Estados Unidos, Canadá, Europa y Australia",
+                "Se detuvo con 206 pacientes, antes del máximo de 500 que permitía el diseño adaptativo, cuando un análisis intermedio preespecificado alcanzó el criterio de éxito fijado de antemano."
+              ]
+            },
+            "pacientes": {
+              "frase": "DAWN exigía un NIHSS de 10 o más con infarto menor de 21 ml en personas de 80 años o más o menor de 31 ml en menores de 80, o un NIHSS de 20 o más con infarto de 31 a menos de 51 ml en menores de 80; la puntuación NIHSS mediana fue de 17 en ambos grupos.",
+              "cita": [
+                "el grupo A incluía a personas de 80 años o más con NIHSS de 10 o más e infarto menor de 21 ml; el grupo B, a menores de 80 años con NIHSS de 10 o más e infarto menor de 31 ml; y el grupo C, a menores de 80 años con NIHSS de 20 o más e infarto de 31 a menos de 51 ml",
+                "con una edad media cercana a 70 años y una puntuación NIHSS mediana de 17 en ambos grupos"
+              ]
+            },
+            "separacion": {
+              "frase": "DAWN registró recanalización a las 24 horas en 82 de los 107 pacientes del grupo de trombectomía (77%) y en 39 de los 99 del grupo control (39% en la tabla del artículo, 36% en su texto); dos pacientes asignados a trombectomía no la recibieron.",
+              "cita": [
+                "Se aleatorizaron 206 pacientes: 107 al grupo de trombectomía y 99 al grupo control.",
+                "la recanalización a las 24 horas del 77% frente al 39% (82 de 107 frente a 39 de 99; razón de riesgo 2; IC 95%, 2 a 4; p menor de 0.001). El propio artículo da dos cifras distintas para el grupo control: la tabla de desenlaces secundarios informa 39 de 99 pacientes (39%), mientras que el texto de resultados menciona un 36%, sin explicar la diferencia",
+                "Dos pacientes asignados a trombectomía no la recibieron porque el vaso diana se había recanalizado espontáneamente en la angiografía convencional"
+              ]
+            },
+            "limitacion": {
+              "frase": "DAWN fue abierto, con evaluación ciega del desenlace; según su resumen, la interrupción temprana por eficacia tiende a producir estimaciones más optimistas y usar un único dispositivo, financiado por su fabricante, limita la generalización a otros sistemas.",
+              "cita": [
+                "El carácter abierto del tratamiento es la principal vulnerabilidad del diseño, porque tanto el paciente como el equipo sabían qué grupo le correspondía; ese riesgo se atenúa porque la escala de discapacidad a los 90 días la aplicaron evaluadores certificados que desconocían la asignación",
+                "la interrupción temprana por eficacia, que con solo 206 de los hasta 500 pacientes previstos tiende a producir estimaciones del efecto más optimistas que las que se observarían con una muestra completa",
+                "el uso de un único dispositivo comercial en casi todos los procedimientos, financiado y suministrado por su propio fabricante, lo que limita la generalización a otros sistemas de trombectomía sin evidencia directa en este ensayo"
+              ]
+            }
+          },
+          "revision": {
+            "fecha": "2026-11-24",
+            "cotejo": "VERDE",
+            "fiscal": "VERDE",
+            "omisiones": "VERDE",
+            "nota": "Veredictos de la ronda 2 (revisores nuevos), sobre el texto final."
+          }
+        },
+        {
+          "id": 119,
+          "diseno": {
+            "intervencion": {
+              "frase": "DEFUSE 3 comparó la trombectomía endovascular con cualquier dispositivo de trombectomía aprobado por la agencia reguladora, a discreción del intervencionista, añadida al cuidado médico estándar frente al cuidado médico estándar solo.",
+              "cita": "La intervención fue la trombectomía endovascular añadida al cuidado médico estándar, realizada con cualquier dispositivo de trombectomía aprobado por la agencia reguladora, a discreción del intervencionista; el protocolo exigía que la punción femoral ocurriera dentro de los 90 minutos posteriores a la imagen que confirmaba la elegibilidad, desaconsejaba la anestesia general y prohibía el uso de activador tisular del plasminógeno por vía intraarterial. El comparador fue el cuidado médico estándar solo, basado en las guías vigentes de la American Heart Association."
+            },
+            "poblacion": {
+              "frase": "DEFUSE 3 incluyó adultos con oclusión de la cerebral media proximal o de la carótida interna que podían iniciar el tratamiento endovascular entre 6 y 16 horas después de ser vistos por última vez sin síntomas, con un patrón favorable en la imagen de perfusión.",
+              "cita": "La población fueron adultos con un ictus isquémico agudo por oclusión de la arteria cerebral media proximal o de la carótida interna, que podían iniciar el tratamiento endovascular entre 6 y 16 horas después de haber sido vistos por última vez sin síntomas, incluidos los que despertaron ya con el ictus. Debían tener, además, un patrón favorable en la imagen de perfusión"
+            },
+            "desenlace": {
+              "frase": "DEFUSE 3 midió como desenlace primario la puntuación en la escala de Rankin modificada a los 90 días, analizada en su forma ordinal completa, de 0 (sin síntomas) a 6 (muerte).",
+              "cita": "El desenlace primario fue la puntuación en la escala de Rankin modificada a los 90 días, analizada en su forma ordinal completa, de 0 (sin síntomas) a 6 (muerte)"
+            },
+            "tamano": {
+              "frase": "DEFUSE 3 aleatorizó 182 pacientes de los 476 previstos, en 38 centros de Estados Unidos, y se detuvo tras un análisis intermedio anticipado, no contemplado en el calendario original.",
+              "cita": [
+                "Se aleatorizaron 182 pacientes: 92 al grupo de trombectomía endovascular y 90 al grupo de tratamiento médico.",
+                "El estudio se llevó a cabo en 38 centros de Estados Unidos.",
+                "solicitar un análisis intermedio anticipado, no contemplado en el calendario original; ese análisis mostró que ya se había cruzado el umbral de eficacia preespecificado, por lo que el ensayo se detuvo con apenas 182 de los 476 pacientes previstos"
+              ]
+            },
+            "pacientes": {
+              "frase": "DEFUSE 3 exigía un núcleo isquémico menor de 70 ml, una proporción entre tejido hipoperfundido e infarto de 1.8 o más y una penumbra de al menos 15 ml; el volumen mediano del núcleo fue de 9.4 y 10.1 ml en los dos grupos y la NIHSS mediana de 16 en ambos.",
+              "cita": [
+                "un volumen de infarto ya establecido (núcleo isquémico) menor de 70 ml, una proporción entre el volumen de tejido hipoperfundido y el del infarto de 1.8 o más, y un volumen absoluto de tejido potencialmente salvable (penumbra) de al menos 15 ml",
+                "la puntuación NIHSS mediana de 16 en ambos grupos, el volumen mediano del núcleo isquémico de 9.4 frente a 10.1 ml"
+              ]
+            },
+            "separacion": {
+              "frase": "DEFUSE 3 registró la reperfusión de más del 90% del tejido hipoperfundido en el 79% de los tratados con trombectomía frente al 18% del grupo médico, y la recanalización completa en el 78% frente al 18%; se usó anestesia general en el 28% de los procedimientos.",
+              "cita": [
+                "la reperfusión de más del 90% del tejido hipoperfundido se logró en el 79% de los tratados con trombectomía frente al 18% del grupo médico (p menor de 0.001), y la recanalización completa en el 78% frente al 18% (p menor de 0.001)",
+                "Se usó anestesia general en el 28% de los procedimientos, pese a que el protocolo la desaconsejaba."
+              ]
+            },
+            "limitacion": {
+              "frase": "DEFUSE 3 fue abierto, con evaluación ciega del desenlace, y la interrupción anticipada, no por su calendario de análisis intermedios, introduce según su resumen cierta imprecisión sobre si el efecto se habría mantenido con la muestra completa.",
+              "cita": [
+                "El carácter abierto del tratamiento es la principal vulnerabilidad, porque tanto el paciente como el equipo sabían qué grupo le correspondía; ese riesgo se atenúa porque la escala de Rankin a los 90 días la aplicó un evaluador certificado que desconocía la asignación",
+                "la interrupción anticipada del reclutamiento, motivada por los resultados de un ensayo externo, el DAWN, y no por el calendario de análisis intermedios propio del estudio, lo que introduce cierta imprecisión sobre si el efecto observado se habría mantenido con la muestra completa"
+              ]
+            }
+          },
+          "revision": {
+            "fecha": "2026-11-24",
+            "cotejo": "VERDE",
+            "fiscal": "VERDE",
+            "omisiones": "VERDE",
+            "nota": "Veredictos de la ronda 1; su texto no cambió después."
+          }
+        },
+        {
+          "id": 237,
+          "diseno": {
+            "intervencion": {
+              "frase": "LATE-MT comparó la trombectomía endovascular con cualquier dispositivo aprobado en China y punción arterial en los 60 minutos siguientes a la aleatorización, sumada al tratamiento médico estándar frente al tratamiento médico estándar sin trombectomía.",
+              "cita": "La intervención fue la trombectomía endovascular sumada al tratamiento médico estándar, con punción arterial en los 60 minutos siguientes a la aleatorización; la anestesia, el dispositivo y las técnicas complementarias quedaron a criterio del médico, con cualquier dispositivo aprobado en China. El comparador fue el tratamiento médico estándar según las guías chinas, sin trombectomía."
+            },
+            "poblacion": {
+              "frase": "LATE-MT incluyó adultos con oclusión de una arteria grande de la circulación anterior, desde la carótida interna extracraneal hasta el segmento M2 de la cerebral media, que llegaban entre 24 y 72 horas después del inicio, con tejido salvable en la perfusión.",
+              "cita": [
+                "La población fueron adultos con un ictus isquémico agudo por oclusión de una arteria grande de la circulación anterior, desde la carótida interna extracraneal hasta el segmento M2 de la arteria cerebral media, que llegaban entre 24 y 72 horas después del inicio de los síntomas o de la última vez que se les vio bien.",
+                "y tejido cerebral salvable en la tomografía de perfusión automatizada",
+                "que llegan entre 24 y 72 horas después del inicio"
+              ]
+            },
+            "desenlace": {
+              "frase": "LATE-MT midió como desenlace primario la distribución completa de la escala de Rankin modificada a los 90 días.",
+              "cita": "El desenlace primario fue la distribución completa de la escala de Rankin modificada a los 90 días."
+            },
+            "tamano": {
+              "frase": "LATE-MT aleatorizó 341 pacientes, de los que 336 formaron la población por intención de tratar, en 35 centros de ictus de China.",
+              "cita": [
+                "se aleatorizaron 341; 5 retiraron el consentimiento poco después, de modo que la población por intención de tratar fue de 336, 168 por grupo",
+                "El estudio se hizo en 35 centros de ictus de China"
+              ]
+            },
+            "pacientes": {
+              "frase": "LATE-MT exigía NIHSS de 6 o más, núcleo de infarto menor de 50 ml y penumbra de al menos 15 ml; la mediana desde el inicio hasta la aleatorización fue de 38.5 horas y la causa dominante, la aterosclerosis intracraneal, en el 69.6% y el 80.4% de los dos grupos.",
+              "cita": [
+                "Debían tener un déficit al menos moderado, con 6 puntos o más en la escala NIHSS, que mide el déficit neurológico de 0 a 42, y tejido cerebral salvable en la tomografía de perfusión automatizada: un núcleo de infarto menor de 50 ml, una razón entre tejido isquémico e infarto de al menos 1.8 y una penumbra, es decir, tejido mal perfundido pero todavía recuperable, de al menos 15 ml",
+                "La mediana desde el inicio hasta la aleatorización fue de 38.5 horas. La causa dominante fue la aterosclerosis intracraneal, en el 69.6% y el 80.4%"
+              ]
+            },
+            "separacion": {
+              "frase": "LATE-MT hizo la trombectomía en 162 de los 168 asignados y a las 48 horas la arteria estaba recanalizada en el 82.4% frente al 18.0%; el grupo de trombectomía ingresó más a cuidados intensivos, 72.0% frente a 34.5%, y fue intubado más, 31.5% frente a 1.8%.",
+              "cita": [
+                "La trombectomía se hizo en 162 de los 168 pacientes asignados (96.4%)",
+                "A las 48 horas, la arteria estaba recanalizada en el 82.4% frente al 18.0%.",
+                "el grupo de trombectomía recibió más tirofibán, 75.6% frente a 58.9%, y más manitol, 31.5% frente a 8.3%, y menos antiagregantes orales; después ingresó más a cuidados intensivos, 72.0% frente a 34.5%, y fue intubado con mucha más frecuencia, 31.5% frente a 1.8%"
+              ]
+            },
+            "limitacion": {
+              "frase": "LATE-MT fue abierto y, según su resumen, las grandes diferencias de manejo tras la aleatorización, que los autores admiten que probablemente influyeron en los resultados, dificultan interpretar la seguridad; se hizo en centros experimentados de China.",
+              "cita": [
+                "La primera son las grandes diferencias de manejo tras la aleatorización, propias de un diseño abierto, con mucha más intubación, sedación, cuidados intensivos y tirofibán en el grupo de trombectomía, que los autores admiten que probablemente influyeron en los resultados y que dificultan interpretar la seguridad.",
+                "La tercera es la validez externa: centros experimentados de China, pacientes más jóvenes y con menos mujeres y fibrilación auricular que en las cohortes occidentales, y mucha aterosclerosis intracraneal."
+              ]
+            }
+          },
+          "revision": {
+            "fecha": "2026-11-24",
+            "cotejo": "VERDE",
+            "fiscal": "VERDE",
+            "omisiones": "VERDE",
+            "nota": "Veredictos de la ronda 2 (revisores nuevos), sobre el texto final."
+          }
+        }
+      ],
+      "relacionados": [
+        {
+          "motivo": "Tratamiento intraarterial en las primeras horas del ictus",
+          "ids": [
+            91
+          ]
+        },
+        {
+          "motivo": "En el ictus leve por oclusión de un gran vaso",
+          "ids": [
+            236
+          ]
+        }
+      ]
     }
   ]
 }

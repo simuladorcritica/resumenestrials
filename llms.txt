@@ -35,6 +35,7 @@ Material educativo para profesionales de la salud. La referencia final es siempr
 - [¿Qué meta de oxigenación en el paciente crítico?](https://resumenestrials.com/preguntas/meta-oxigenacion-paciente-critico/): ensayos resumidos sobre esta pregunta, con su resultado primario y sus diferencias de diseño.
 - [¿Restringir los líquidos intravenosos en el choque séptico o la hipotensión inducida por sepsis?](https://resumenestrials.com/preguntas/restriccion-liquidos-choque-septico-hipotension-sepsis/): ensayos resumidos sobre esta pregunta, con su resultado primario y sus diferencias de diseño.
 - [¿Cristaloides balanceados o solución salina en adultos en estado crítico?](https://resumenestrials.com/preguntas/cristaloides-balanceados-solucion-salina-adultos-estado-critico/): ensayos resumidos sobre esta pregunta, con su resultado primario y sus diferencias de diseño.
+- [¿Trombectomía en ventana tardía en el ictus isquémico por oclusión de un gran vaso?](https://resumenestrials.com/preguntas/trombectomia-ventana-tardia-ictus-isquemico-oclusion-gran-vaso/): ensayos resumidos sobre esta pregunta, con su resultado primario y sus diferencias de diseño.
 
 ## Resúmenes de ensayos
 
