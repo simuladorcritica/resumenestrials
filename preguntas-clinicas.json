@@ -834,6 +834,33 @@
           "frase": "Determinar si la trombectomía endovascular sumada al mejor tratamiento médico, frente al t"
         }
       }
+    },
+    {
+      "id": 360,
+      "fecha": "2026-11-24",
+      "huella": "938d212e74e75c22",
+      "preguntas": {
+        "corticoides-choque-septico": {
+          "rol": "nada",
+          "frase": "La intervención fue la trombectomía endovascular sumada a la atención habitual"
+        },
+        "cristaloides-balanceados-solucion-salina-adultos-estado-critico": {
+          "rol": "nada",
+          "frase": "ESCAPE-MeVO: tratamiento endovascular del ictus debido a oclusión de un vaso mediano"
+        },
+        "cuando-iniciar-terapia-reemplazo-renal-lesion-renal-aguda": {
+          "rol": "nada",
+          "frase": "Determinar si la trombectomía endovascular sumada a la atención habitual es superior a la"
+        },
+        "meta-oxigenacion-paciente-critico": {
+          "rol": "nada",
+          "frase": "La intervención fue la trombectomía endovascular sumada a la atención habitual"
+        },
+        "restriccion-liquidos-choque-septico-hipotension-sepsis": {
+          "rol": "nada",
+          "frase": "La intervención fue la trombectomía endovascular sumada a la atención habitual"
+        }
+      }
     }
   ],
   "preguntas": [

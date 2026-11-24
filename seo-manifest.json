@@ -591,9 +591,9 @@
     "url": "https://resumenestrials.com/trials/oriental-mevo-trombectomia-endovascular-ictus-oclusion-vaso-mediano/",
     "title": "ORIENTAL-MeVO: tratamiento endovascular del ictus por oclusión de vaso mediano",
     "relacionados": [
+      360,
       359,
-      237,
-      236
+      237
     ],
     "seo_title": "ORIENTAL-MeVO trial: tratamiento endovascular del ictus por oclusión de vaso mediano | Resúmenes Trials",
     "description": "ORIENTAL-MeVO: La independencia funcional a 90 días fue del 58.6% con trombectomía frente al 46.6% con tratamiento médico solo (RR ajustado 1.24; IC 95%…",
@@ -725,7 +725,7 @@
     "relacionados": [
       144,
       130,
-      87
+      83
     ],
     "seo_title": "VITaCCA trial: vitamina C temprana a dosis altas en el paro cardiaco extrahospitalario | Resúmenes Trials",
     "description": "VITaCCA: La vitamina C no redujo la disfunción orgánica a las 96 horas y la dosis de 10 g la empeoró: el cambio en la puntuación R-SOFA fue de -3.2 con…",
@@ -1964,7 +1964,7 @@
     "relacionados": [
       71,
       62,
-      353
+      76
     ],
     "seo_title": "DECLARE-TIMI 58 trial: dapagliflozina y desenlaces cardiovasculares en la diabetes tipo 2 | Resúmenes Trials",
     "description": "DECLARE-TIMI 58: Dapagliflozina fue no inferior a placebo en eventos cardiovasculares mayores ( 8.8% frente a 9.4% ; HR 0.93; IC 95%, 0.84-1.03; P=0.17), pero…",
@@ -6607,9 +6607,7 @@
     "path": "/trials/pelican-terapia-hemodinamica-individualizada-guiada-indice-cardiaco-pacientes-alto-riesgo/",
     "url": "https://resumenestrials.com/trials/pelican-terapia-hemodinamica-individualizada-guiada-indice-cardiaco-pacientes-alto-riesgo/",
     "title": "PELICAN: terapia hemodinámica individualizada guiada por el índice cardiaco en pacientes de alto riesgo sometidos a cirugía abdominal mayor electiva",
-    "relacionados": [
-      179
-    ],
+    "relacionados": [],
     "seo_title": "PELICAN trial: terapia hemodinámica individualizada guiada por el índice cardiaco en pacientes de alto riesgo sometidos a cirugía abdominal mayor electiva | Resúmenes Trials",
     "description": "PELICAN: El compuesto de complicaciones a 7 días ocurrió en el 44.3% con la terapia individualizada frente al 46.9% con la habitual (riesgo relativo 0.94; IC…",
     "clusters": [
@@ -6763,7 +6761,7 @@
     "relacionados": [
       265,
       293,
-      236
+      345
     ],
     "seo_title": "ASSET-IT trial: infusión temprana de tirofibán después de la trombólisis intravenosa en el ictus | Resúmenes Trials",
     "description": "ASSET-IT: El resultado funcional excelente a los 90 días (Rankin modificado de 0 o 1) fue del 65.9% con tirofibán frente al 54.9% con placebo (razón de riesgo…",
@@ -11296,9 +11294,9 @@
     "url": "https://resumenestrials.com/trials/distal-tratamiento-endovascular-ictus-debido-oclusion-vasos-medianos-distales/",
     "title": "DISTAL: tratamiento endovascular del ictus debido a la oclusión de vasos medianos o distales",
     "relacionados": [
+      360,
       19,
-      237,
-      236
+      237
     ],
     "seo_title": "DISTAL trial: tratamiento endovascular del ictus debido a la oclusión de vasos medianos o distales | Resúmenes Trials",
     "description": "DISTAL: La distribución de la escala de Rankin modificada a 90 días fue sin diferencia significativa entre trombectomía más tratamiento médico y tratamiento…",
@@ -11318,6 +11316,37 @@
       "question": "Determinar si la trombectomía endovascular sumada al mejor tratamiento médico, frente al tratamiento médico solo, reduce la discapacidad a 90 días en adultos con ictus isquémico por oclusión aislada de vasos medianos o distales tratados dentro de las 24 horas.",
       "answer": "La distribución de la escala de Rankin modificada a 90 días fue sin diferencia significativa entre trombectomía más tratamiento médico y tratamiento médico solo ( OR común 0.90; IC 95% 0.67 a 1.22; P=0.50 ).",
       "population": "La población fueron adultos que vivían en su casa antes de un ictus isquémico agudo por oclusión aislada de un vaso mediano o distal, confirmada por angiografía por tomografía computarizada (TC) o resonancia magnética (RM): segmento M2 no dominante o codominante, M3 o M4 de la arteria cerebral media, A1 a A3 de la cerebral anterior o P1 a P3 de la cerebral posterior. El M2 dominante se excluyó porque, según los autores, la…"
+    },
+    "datePublished": "2026-11-24"
+  },
+  "360": {
+    "slug": "escape-mevo-tratamiento-endovascular-ictus-debido-oclusion-vaso-mediano",
+    "path": "/trials/escape-mevo-tratamiento-endovascular-ictus-debido-oclusion-vaso-mediano/",
+    "url": "https://resumenestrials.com/trials/escape-mevo-tratamiento-endovascular-ictus-debido-oclusion-vaso-mediano/",
+    "title": "ESCAPE-MeVO: tratamiento endovascular del ictus debido a oclusión de un vaso mediano",
+    "relacionados": [
+      359,
+      19,
+      236
+    ],
+    "seo_title": "ESCAPE-MeVO trial: tratamiento endovascular del ictus debido a oclusión de un vaso mediano | Resúmenes Trials",
+    "description": "ESCAPE-MeVO: El resultado funcional excelente (Rankin 0 o 1) a 90 días fue del 41.6% con trombectomía frente al 43.1% con atención habitual (razón de tasas…",
+    "clusters": [
+      {
+        "name": "Neurología",
+        "path": "/medicina-interna/neurologia/",
+        "url": "https://resumenestrials.com/medicina-interna/neurologia/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/escape-mevo-tratamiento-endovascular-ictus-debido-oclusion-vaso-mediano-16x9.jpg",
+      "https://resumenestrials.com/images/trials/escape-mevo-tratamiento-endovascular-ictus-debido-oclusion-vaso-mediano-4x3.jpg",
+      "https://resumenestrials.com/images/trials/escape-mevo-tratamiento-endovascular-ictus-debido-oclusion-vaso-mediano-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si la trombectomía endovascular sumada a la atención habitual es superior a la atención habitual sola en la escala de Rankin modificada a los 90 días (análisis ordinal planificado; finalmente informado como resultado funcional excelente, Rankin 0 o 1) en adultos con ictus isquémico agudo por oclusión de vaso mediano dentro de las 12 horas.",
+      "answer": "El resultado funcional excelente (Rankin 0 o 1) a 90 días fue del 41.6% con trombectomía frente al 43.1% con atención habitual (razón de tasas ajustada 0.95; IC 95% 0.79-1.15; P=0.61), sin diferencia significativa.",
+      "population": "Se estudió a adultos de 18 años o más con ictus isquémico agudo por oclusión de vaso mediano, es decir, de los segmentos M2 o M3 de la arteria cerebral media, A2 o A3 de la cerebral anterior o P2 o P3 de la cerebral posterior, sin incluir A1 ni P1, aleatorizados dentro de las 12 horas desde la última vez que se les vio sanos. Debían puntuar más de 5 en la escala de ictus de los Institutos Nacionales de Salud (NIHSS, de 0 a 42…"
     },
     "datePublished": "2026-11-24"
   }
