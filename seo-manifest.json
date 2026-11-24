@@ -591,9 +591,9 @@
     "url": "https://resumenestrials.com/trials/oriental-mevo-trombectomia-endovascular-ictus-oclusion-vaso-mediano/",
     "title": "ORIENTAL-MeVO: tratamiento endovascular del ictus por oclusión de vaso mediano",
     "relacionados": [
+      359,
       237,
-      236,
-      293
+      236
     ],
     "seo_title": "ORIENTAL-MeVO trial: tratamiento endovascular del ictus por oclusión de vaso mediano | Resúmenes Trials",
     "description": "ORIENTAL-MeVO: La independencia funcional a 90 días fue del 58.6% con trombectomía frente al 46.6% con tratamiento médico solo (RR ajustado 1.24; IC 95%…",
@@ -7516,8 +7516,8 @@
     "title": "MILD-MT: ensayo de terapia endovascular en el ictus leve por oclusión de un gran vaso",
     "relacionados": [
       237,
-      19,
-      119
+      119,
+      19
     ],
     "seo_title": "MILD-MT trial: ensayo de terapia endovascular en el ictus leve por oclusión de un gran vaso | Resúmenes Trials",
     "description": "MILD-MT: Una escala de Rankin de 0 o 1 a los 90 días se alcanzó en el 69.4% con trombectomía frente al 50.0% con tratamiento médico solo (razón de momios…",
@@ -11287,6 +11287,37 @@
       "question": "Evaluar si añadir obinutuzumab intravenoso al tratamiento estándar con micofenolato de mofetilo y prednisona, frente a placebo, aumenta la proporción de adultos con nefritis lúpica proliferativa activa que logran una respuesta renal completa a la semana 76.",
       "answer": "La respuesta renal completa a la semana 76 se logró en el 46.4% de los pacientes con obinutuzumab frente al 33.1% con placebo, ambos sobre micofenolato y prednisona (diferencia ajustada 13.4 puntos porcentuales; IC 95% 2.0 a 24.8; p=0.02).",
       "population": "Participaron adultos de 18 a 75 años con lupus eritematoso sistémico y nefritis lúpica proliferativa activa de clase III o IV, con o sin clase V, confirmada por biopsia, de 15 países de África, Europa, Norteamérica y Sudamérica. Por autoinforme, el 47.6% eran blancos, el 18.8% indígenas americanos o de Alaska, el 14.8% negros y el 5.9% asiáticos, y el 57.6%, hispanos o latinos."
+    },
+    "datePublished": "2026-11-24"
+  },
+  "359": {
+    "slug": "distal-tratamiento-endovascular-ictus-debido-oclusion-vasos-medianos-distales",
+    "path": "/trials/distal-tratamiento-endovascular-ictus-debido-oclusion-vasos-medianos-distales/",
+    "url": "https://resumenestrials.com/trials/distal-tratamiento-endovascular-ictus-debido-oclusion-vasos-medianos-distales/",
+    "title": "DISTAL: tratamiento endovascular del ictus debido a la oclusión de vasos medianos o distales",
+    "relacionados": [
+      19,
+      237,
+      236
+    ],
+    "seo_title": "DISTAL trial: tratamiento endovascular del ictus debido a la oclusión de vasos medianos o distales | Resúmenes Trials",
+    "description": "DISTAL: La distribución de la escala de Rankin modificada a 90 días fue sin diferencia significativa entre trombectomía más tratamiento médico y tratamiento…",
+    "clusters": [
+      {
+        "name": "Neurología",
+        "path": "/medicina-interna/neurologia/",
+        "url": "https://resumenestrials.com/medicina-interna/neurologia/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/distal-tratamiento-endovascular-ictus-debido-oclusion-vasos-medianos-distales-16x9.jpg",
+      "https://resumenestrials.com/images/trials/distal-tratamiento-endovascular-ictus-debido-oclusion-vasos-medianos-distales-4x3.jpg",
+      "https://resumenestrials.com/images/trials/distal-tratamiento-endovascular-ictus-debido-oclusion-vasos-medianos-distales-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si la trombectomía endovascular sumada al mejor tratamiento médico, frente al tratamiento médico solo, reduce la discapacidad a 90 días en adultos con ictus isquémico por oclusión aislada de vasos medianos o distales tratados dentro de las 24 horas.",
+      "answer": "La distribución de la escala de Rankin modificada a 90 días fue sin diferencia significativa entre trombectomía más tratamiento médico y tratamiento médico solo ( OR común 0.90; IC 95% 0.67 a 1.22; P=0.50 ).",
+      "population": "La población fueron adultos que vivían en su casa antes de un ictus isquémico agudo por oclusión aislada de un vaso mediano o distal, confirmada por angiografía por tomografía computarizada (TC) o resonancia magnética (RM): segmento M2 no dominante o codominante, M3 o M4 de la arteria cerebral media, A1 a A3 de la cerebral anterior o P1 a P3 de la cerebral posterior. El M2 dominante se excluyó porque, según los autores, la…"
     },
     "datePublished": "2026-11-24"
   }
