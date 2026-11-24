@@ -780,6 +780,33 @@
           "frase": "Determinar si la colchicina, iniciada poco después de un infarto agudo de miocardio tratad"
         }
       }
+    },
+    {
+      "id": 358,
+      "fecha": "2026-11-24",
+      "huella": "d23be5f460f9cf55",
+      "preguntas": {
+        "corticoides-choque-septico": {
+          "rol": "nada",
+          "frase": "Evaluar si añadir obinutuzumab intravenoso al tratamiento estándar con micofenolato de mof"
+        },
+        "cristaloides-balanceados-solucion-salina-adultos-estado-critico": {
+          "rol": "nada",
+          "frase": "Evaluar si añadir obinutuzumab intravenoso al tratamiento estándar con micofenolato de mof"
+        },
+        "cuando-iniciar-terapia-reemplazo-renal-lesion-renal-aguda": {
+          "rol": "nada",
+          "frase": "Evaluar si añadir obinutuzumab intravenoso al tratamiento estándar con micofenolato de mof"
+        },
+        "meta-oxigenacion-paciente-critico": {
+          "rol": "nada",
+          "frase": "Evaluar si añadir obinutuzumab intravenoso al tratamiento estándar con micofenolato de mof"
+        },
+        "restriccion-liquidos-choque-septico-hipotension-sepsis": {
+          "rol": "nada",
+          "frase": "Evaluar si añadir obinutuzumab intravenoso al tratamiento estándar con micofenolato de mof"
+        }
+      }
     }
   ],
   "preguntas": [

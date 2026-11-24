@@ -38,6 +38,7 @@ Material educativo para profesionales de la salud. La referencia final es siempr
 
 ## Resúmenes de ensayos
 
+- [REGENCY: eficacia y seguridad de obinutuzumab en la nefritis lúpica activa](https://resumenestrials.com/trials/regency-eficacia-seguridad-obinutuzumab-nefritis-lupica-activa/): NEJM, 2025.
 - [CLEAR: colchicina en el infarto agudo de miocardio](https://resumenestrials.com/trials/clear-colchicina-infarto-agudo-miocardio/): NEJM, 2024.
 - [WAYPOINT: tezepelumab en adultos con rinosinusitis crónica grave con pólipos nasales](https://resumenestrials.com/trials/waypoint-tezepelumab-adultos-rinosinusitis-cronica-grave-polipos-nasales/): NEJM, 2025.
 - [StepUp: tratamiento de la pareja masculina para prevenir la recurrencia de la vaginosis bacteriana](https://resumenestrials.com/trials/stepup-tratamiento-pareja-masculina-prevenir-recurrencia-vaginosis-bacteriana/): NEJM, 2025.
