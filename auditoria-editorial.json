@@ -1,15 +1,14 @@
 {
   "schema_version": 1,
-  "actualizado": "2026-11-23",
+  "actualizado": "2026-11-24",
   "estandar": "noviembre de 2026",
   "archivo": {
-    "total": 356,
-    "auditados": 306,
-    "sin_auditar": 50
+    "total": 357,
+    "auditados": 308,
+    "sin_auditar": 49
   },
   "en_revision": [
     11,
-    22,
     23,
     24,
     25,
@@ -62,10 +61,7 @@
     72,
     145,
     146,
-    147,
     148,
-    149,
-    150,
     151,
     152,
     153,
@@ -81,10 +77,9 @@
     234,
     235,
     239,
-    348
+    356
   ],
   "sin_auditar": [
-    23,
     24,
     25,
     26,
@@ -137,13 +132,10 @@
   ],
   "con_errores_abiertos": [
     11,
-    22,
+    23,
     145,
     146,
-    147,
     148,
-    149,
-    150,
     151,
     152,
     153,
@@ -159,14 +151,150 @@
     234,
     235,
     239,
-    348
+    356
   ],
   "errores_abiertos": {
-    "CRÍTICO": 32,
-    "MAYOR": 40,
-    "MENOR": 541
+    "CRÍTICO": 24,
+    "MAYOR": 42,
+    "MENOR": 535
   },
   "correcciones": [
+    {
+      "id": 348,
+      "fecha": "2026-11-23",
+      "pr": 364,
+      "campos": [
+        "cuerpo",
+        "corto"
+      ],
+      "errores": {
+        "CRÍTICO": 0,
+        "MAYOR": 1,
+        "MENOR": 7
+      },
+      "texto": "Corregimos 8 errores (1 mayor y 7 menores) que encontró nuestro equipo crítico: cifras, fuente incompleta, omisiones y redacción clínica. Cambió: resumen completo y resumen breve."
+    },
+    {
+      "id": 150,
+      "fecha": "2026-11-23",
+      "pr": 364,
+      "campos": [
+        "financiacion",
+        "hallazgo",
+        "cuerpo",
+        "corto"
+      ],
+      "errores": {
+        "CRÍTICO": 1,
+        "MAYOR": 1,
+        "MENOR": 0
+      },
+      "texto": "Corregimos 2 errores (1 crítico y 1 mayor) que encontró nuestro equipo crítico: migrado. Cambió: financiación y conflictos de interés, hallazgo principal, resumen completo y resumen breve."
+    },
+    {
+      "id": 149,
+      "fecha": "2026-11-23",
+      "pr": 364,
+      "campos": [
+        "financiacion",
+        "hallazgo",
+        "cuerpo",
+        "corto"
+      ],
+      "errores": {
+        "CRÍTICO": 2,
+        "MAYOR": 0,
+        "MENOR": 0
+      },
+      "texto": "Corregimos 2 errores (2 críticos) que encontró nuestro equipo crítico: migrado. Cambió: financiación y conflictos de interés, hallazgo principal, resumen completo y resumen breve."
+    },
+    {
+      "id": 148,
+      "fecha": "2026-11-23",
+      "pr": 364,
+      "campos": [
+        "financiacion",
+        "hallazgo",
+        "cuerpo",
+        "corto"
+      ],
+      "errores": {
+        "CRÍTICO": 1,
+        "MAYOR": 2,
+        "MENOR": 0
+      },
+      "texto": "Corregimos 3 errores (1 crítico y 2 mayores) que encontró nuestro equipo crítico: migrado. Cambió: financiación y conflictos de interés, hallazgo principal, resumen completo y resumen breve."
+    },
+    {
+      "id": 147,
+      "fecha": "2026-11-23",
+      "pr": 364,
+      "campos": [
+        "financiacion",
+        "hallazgo",
+        "cuerpo",
+        "corto"
+      ],
+      "errores": {
+        "CRÍTICO": 0,
+        "MAYOR": 2,
+        "MENOR": 0
+      },
+      "texto": "Corregimos 2 errores (2 mayores) que encontró nuestro equipo crítico: migrado. Cambió: financiación y conflictos de interés, hallazgo principal, resumen completo y resumen breve."
+    },
+    {
+      "id": 146,
+      "fecha": "2026-11-23",
+      "pr": 364,
+      "campos": [
+        "financiacion",
+        "hallazgo",
+        "cuerpo",
+        "corto"
+      ],
+      "errores": {
+        "CRÍTICO": 3,
+        "MAYOR": 0,
+        "MENOR": 0
+      },
+      "texto": "Corregimos 3 errores (3 críticos) que encontró nuestro equipo crítico: migrado. Cambió: financiación y conflictos de interés, hallazgo principal, resumen completo y resumen breve."
+    },
+    {
+      "id": 145,
+      "fecha": "2026-11-23",
+      "pr": 364,
+      "campos": [
+        "financiacion",
+        "hallazgo",
+        "cuerpo",
+        "corto"
+      ],
+      "errores": {
+        "CRÍTICO": 1,
+        "MAYOR": 4,
+        "MENOR": 0
+      },
+      "texto": "Corregimos 5 errores (1 crítico y 4 mayores) que encontró nuestro equipo crítico: migrado. Cambió: financiación y conflictos de interés, hallazgo principal, resumen completo y resumen breve."
+    },
+    {
+      "id": 22,
+      "fecha": "2026-11-23",
+      "pr": 364,
+      "campos": [
+        "financiacion",
+        "original",
+        "objetivo",
+        "hallazgo",
+        "cuerpo",
+        "corto"
+      ],
+      "errores": {
+        "CRÍTICO": 1,
+        "MAYOR": 2,
+        "MENOR": 21
+      },
+      "texto": "Corregimos 24 errores (1 crítico, 2 mayores y 21 menores) que encontró nuestro equipo crítico: cifras, conflictos de interés, datos bibliográficos, estadística, interpretación de resultados, omisiones y redacción clínica. Cambió: financiación y conflictos de interés, enlace al artículo original, objetivo, hallazgo principal, resumen completo y resumen breve."
+    },
     {
       "id": 347,
       "fecha": "2026-11-22",

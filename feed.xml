@@ -4,8 +4,15 @@
   <id>https://resumenestrials.com/</id>
   <link href="https://resumenestrials.com/"/>
   <link rel="self" type="application/atom+xml" href="https://resumenestrials.com/feed.xml"/>
-  <updated>2026-11-23T00:00:00Z</updated>
+  <updated>2026-11-24T00:00:00Z</updated>
   <subtitle>Resúmenes críticos en español de ensayos clínicos.</subtitle>
+  <entry>
+    <title>CLEAR: colchicina en el infarto agudo de miocardio</title>
+    <id>https://resumenestrials.com/trials/clear-colchicina-infarto-agudo-miocardio/</id>
+    <link href="https://resumenestrials.com/trials/clear-colchicina-infarto-agudo-miocardio/"/>
+    <updated>2026-11-24T00:00:00Z</updated>
+    <summary>Determinar si la colchicina, iniciada poco después de un infarto agudo de miocardio tratado con intervención coronaria percutánea, reduce frente al placebo el compuesto de muerte cardiovascular, infarto recurrente, ictus o revascularización motivada por isquemia.</summary>
+  </entry>
   <entry>
     <title>SHOSREB: sedación ligera de corta duración con besilato de remimazolam frente a propofol en la UCI</title>
     <id>https://resumenestrials.com/trials/shosreb-remimazolam-besilato-propofol-sedacion-ligera-corta-duracion-uci/</id>
@@ -348,12 +355,5 @@
     <link href="https://resumenestrials.com/trials/un-paquete-de-reanimacion-de-1-hora-para-el-manejo-prehospitalario-del-shock-septico/"/>
     <updated>2026-11-17T00:00:00Z</updated>
     <summary>Evaluar si un paquete de reanimación de una hora, iniciado en la fase prehospitalaria por una unidad de cuidados intensivos móvil, reduce la mortalidad a 28 días en adultos con shock séptico frente a la atención habitual.</summary>
-  </entry>
-  <entry>
-    <title>PREDMETH: tratamiento de primera línea de la sarcoidosis pulmonar con prednisona o metotrexato</title>
-    <id>https://resumenestrials.com/trials/predmeth-tratamiento-primera-linea-sarcoidosis-pulmonar-prednisona-metotrexato/</id>
-    <link href="https://resumenestrials.com/trials/predmeth-tratamiento-primera-linea-sarcoidosis-pulmonar-prednisona-metotrexato/"/>
-    <updated>2026-11-17T00:00:00Z</updated>
-    <summary>Determinar si, en adultos con sarcoidosis pulmonar sin tratamiento previo, el metotrexato no es inferior a la prednisona como primer tratamiento en el cambio del porcentaje de la capacidad vital forzada predicha entre la basal y la semana 24.</summary>
   </entry>
 </feed>
