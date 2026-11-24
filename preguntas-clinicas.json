@@ -861,6 +861,33 @@
           "frase": "La intervención fue la trombectomía endovascular sumada a la atención habitual"
         }
       }
+    },
+    {
+      "id": 361,
+      "fecha": "2026-11-24",
+      "huella": "5a9a410ac10700e5",
+      "preguntas": {
+        "corticoides-choque-septico": {
+          "rol": "nada",
+          "frase": "La población fueron personas de 15 años o más con tuberculosis pulmonar resistente a rifam"
+        },
+        "cristaloides-balanceados-solucion-salina-adultos-estado-critico": {
+          "rol": "nada",
+          "frase": "Evaluar si cinco pautas orales de 9 meses con combinaciones de bedaquilina, dela"
+        },
+        "cuando-iniciar-terapia-reemplazo-renal-lesion-renal-aguda": {
+          "rol": "nada",
+          "frase": "Evaluar si cinco pautas orales de 9 meses con combinaciones de bedaquilina, dela"
+        },
+        "meta-oxigenacion-paciente-critico": {
+          "rol": "nada",
+          "frase": "La población fueron personas de 15 años o más con tuberculosis pulmonar resistente a rifam"
+        },
+        "restriccion-liquidos-choque-septico-hipotension-sepsis": {
+          "rol": "nada",
+          "frase": "endTB: pautas orales para la tuberculosis resistente a rifampicina y sensible a fluoroquinolonas"
+        }
+      }
     }
   ],
   "preguntas": [

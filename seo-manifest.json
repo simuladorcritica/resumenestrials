@@ -980,8 +980,8 @@
     "title": "SNAP: cefazolina en la bacteriemia por Staphylococcus aureus sensible a meticilina",
     "relacionados": [
       182,
-      241,
-      240
+      240,
+      32
     ],
     "seo_title": "SNAP trial: cefazolina en la bacteriemia por Staphylococcus aureus sensible a meticilina | Resúmenes Trials",
     "description": "SNAP: La cefazolina fue no inferior en mortalidad a 90 días ( 15.0% frente a 17.0%; razón de probabilidades ajustada 0.81; intervalo de credibilidad del 95%…",
@@ -1207,6 +1207,7 @@
     "url": "https://resumenestrials.com/trials/beat-tuberculosis-estrategia-seis-meses-tratamiento-estandar-tuberculosis-resistente-rifampicina/",
     "title": "BEAT Tuberculosis: ensayo pragmático de una estrategia de 6 meses en la tuberculosis resistente a rifampicina",
     "relacionados": [
+      361,
       266
     ],
     "seo_title": "BEAT Tuberculosis trial: ensayo pragmático de una estrategia de 6 meses en la tuberculosis resistente a rifampicina | Resúmenes Trials",
@@ -6842,8 +6843,8 @@
     "url": "https://resumenestrials.com/trials/prevent-clot-aspirina-heparina-peso-molecular-tromboprofilaxis-despues-fractura/",
     "title": "PREVENT CLOT: aspirina o heparina de bajo peso molecular para la tromboprofilaxis después de una fractura",
     "relacionados": [
-      351,
       196,
+      351,
       27
     ],
     "seo_title": "PREVENT CLOT trial: aspirina o heparina de bajo peso molecular para la tromboprofilaxis después de una fractura | Resúmenes Trials",
@@ -7668,8 +7669,7 @@
     "url": "https://resumenestrials.com/trials/poet-tratamiento-antibiotico-oral-parcial-intravenoso-endocarditis/",
     "title": "POET: tratamiento antibiótico oral parcial frente a intravenoso en la endocarditis",
     "relacionados": [
-      240,
-      31
+      240
     ],
     "seo_title": "POET trial: tratamiento antibiótico oral parcial frente a intravenoso en la endocarditis | Resúmenes Trials",
     "description": "POET: El compuesto de muerte, cirugía no planeada, embolia o recaída ocurrió en el 12.1% con la vía intravenosa frente al 9.0% con la oral (diferencia 3.1…",
@@ -8485,6 +8485,7 @@
     "title": "HARVEST: ensayo de rifampicina oral en dosis alta en adultos con meningitis tuberculosa",
     "relacionados": [
       38,
+      361,
       273
     ],
     "seo_title": "HARVEST trial: ensayo de rifampicina oral en dosis alta en adultos con meningitis tuberculosa | Resúmenes Trials",
@@ -11347,6 +11348,36 @@
       "question": "Determinar si la trombectomía endovascular sumada a la atención habitual es superior a la atención habitual sola en la escala de Rankin modificada a los 90 días (análisis ordinal planificado; finalmente informado como resultado funcional excelente, Rankin 0 o 1) en adultos con ictus isquémico agudo por oclusión de vaso mediano dentro de las 12 horas.",
       "answer": "El resultado funcional excelente (Rankin 0 o 1) a 90 días fue del 41.6% con trombectomía frente al 43.1% con atención habitual (razón de tasas ajustada 0.95; IC 95% 0.79-1.15; P=0.61), sin diferencia significativa.",
       "population": "Se estudió a adultos de 18 años o más con ictus isquémico agudo por oclusión de vaso mediano, es decir, de los segmentos M2 o M3 de la arteria cerebral media, A2 o A3 de la cerebral anterior o P2 o P3 de la cerebral posterior, sin incluir A1 ni P1, aleatorizados dentro de las 12 horas desde la última vez que se les vio sanos. Debían puntuar más de 5 en la escala de ictus de los Institutos Nacionales de Salud (NIHSS, de 0 a 42…"
+    },
+    "datePublished": "2026-11-24"
+  },
+  "361": {
+    "slug": "endtb-pautas-orales-tuberculosis-resistente-rifampicina-sensible-fluoroquinolonas",
+    "path": "/trials/endtb-pautas-orales-tuberculosis-resistente-rifampicina-sensible-fluoroquinolonas/",
+    "url": "https://resumenestrials.com/trials/endtb-pautas-orales-tuberculosis-resistente-rifampicina-sensible-fluoroquinolonas/",
+    "title": "endTB: pautas orales para la tuberculosis resistente a rifampicina y sensible a fluoroquinolonas",
+    "relacionados": [
+      38,
+      266
+    ],
+    "seo_title": "endTB trial: pautas orales para la tuberculosis resistente a rifampicina y sensible a fluoroquinolonas | Resúmenes Trials",
+    "description": "endTB: En la población por intención de tratar modificada, con un 80.7% de desenlaces favorables en la semana 73 con el tratamiento estándar, fueron no…",
+    "clusters": [
+      {
+        "name": "Enfermedades infecciosas",
+        "path": "/medicina-interna/infecciosas/",
+        "url": "https://resumenestrials.com/medicina-interna/infecciosas/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/endtb-pautas-orales-tuberculosis-resistente-rifampicina-sensible-fluoroquinolonas-16x9.jpg",
+      "https://resumenestrials.com/images/trials/endtb-pautas-orales-tuberculosis-resistente-rifampicina-sensible-fluoroquinolonas-4x3.jpg",
+      "https://resumenestrials.com/images/trials/endtb-pautas-orales-tuberculosis-resistente-rifampicina-sensible-fluoroquinolonas-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Evaluar si cinco pautas orales de 9 meses con combinaciones de bedaquilina, delamanid, linezolid, levofloxacino o moxifloxacino, clofazimina y pirazinamida no son inferiores al tratamiento estándar en la tuberculosis pulmonar resistente a rifampicina y sensible a fluoroquinolonas.",
+      "answer": "En la población por intención de tratar modificada, con un 80.7% de desenlaces favorables en la semana 73 con el tratamiento estándar, fueron no inferiores (margen de −12 puntos) BCLLfxZ, con una diferencia de 9.8 puntos (IC 95% 0.9 a 18.7); BLMZ, 8.3 (IC 95% −0.8 a 17.4); BDLLfxZ, 4.6 (IC 95% −4.9 a 14.1), y DCMZ, 2.5 (IC 95%…",
+      "population": "La población fueron personas de 15 años o más con tuberculosis pulmonar resistente a rifampicina y sensible a fluoroquinolonas, confirmada con pruebas moleculares rápidas avaladas por la Organización Mundial de la Salud (OMS), en 12 centros de Georgia, India, Kazajistán, Lesoto, Pakistán, Perú y Sudáfrica, con o sin infección por el virus de la inmunodeficiencia humana (VIH). Raza y etnia: No reportado."
     },
     "datePublished": "2026-11-24"
   }
