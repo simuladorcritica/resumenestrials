@@ -38,6 +38,7 @@ Material educativo para profesionales de la salud. La referencia final es siempr
 
 ## Resúmenes de ensayos
 
+- [CLEAR: colchicina en el infarto agudo de miocardio](https://resumenestrials.com/trials/clear-colchicina-infarto-agudo-miocardio/): NEJM, 2024.
 - [WAYPOINT: tezepelumab en adultos con rinosinusitis crónica grave con pólipos nasales](https://resumenestrials.com/trials/waypoint-tezepelumab-adultos-rinosinusitis-cronica-grave-polipos-nasales/): NEJM, 2025.
 - [StepUp: tratamiento de la pareja masculina para prevenir la recurrencia de la vaginosis bacteriana](https://resumenestrials.com/trials/stepup-tratamiento-pareja-masculina-prevenir-recurrencia-vaginosis-bacteriana/): NEJM, 2025.
 - [2IQP: ensayo aleatorizado de administración automatizada de insulina en la diabetes tipo 2](https://resumenestrials.com/trials/2iqp-ensayo-aleatorizado-administracion-automatizada-insulina-diabetes-tipo-2/): NEJM, 2025.

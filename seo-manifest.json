@@ -3735,9 +3735,9 @@
     "url": "https://resumenestrials.com/trials/clear-espironolactona-sistematica-infarto-agudo-miocardio/",
     "title": "CLEAR: espironolactona sistemática en el infarto agudo de miocardio",
     "relacionados": [
+      357,
       72,
-      141,
-      155
+      141
     ],
     "seo_title": "CLEAR trial: espironolactona sistemática en el infarto agudo de miocardio | Resúmenes Trials",
     "description": "CLEAR: Sin diferencia significativa en el desenlace primario ( 1.7 vs 2.1 eventos por 100 pacientes-año; HR ajustada 0.91; IC95% 0.69-1.21; p=0.51 ): la…",
@@ -6607,7 +6607,9 @@
     "path": "/trials/pelican-terapia-hemodinamica-individualizada-guiada-indice-cardiaco-pacientes-alto-riesgo/",
     "url": "https://resumenestrials.com/trials/pelican-terapia-hemodinamica-individualizada-guiada-indice-cardiaco-pacientes-alto-riesgo/",
     "title": "PELICAN: terapia hemodinámica individualizada guiada por el índice cardiaco en pacientes de alto riesgo sometidos a cirugía abdominal mayor electiva",
-    "relacionados": [],
+    "relacionados": [
+      179
+    ],
     "seo_title": "PELICAN trial: terapia hemodinámica individualizada guiada por el índice cardiaco en pacientes de alto riesgo sometidos a cirugía abdominal mayor electiva | Resúmenes Trials",
     "description": "PELICAN: El compuesto de complicaciones a 7 días ocurrió en el 44.3% con la terapia individualizada frente al 46.9% con la habitual (riesgo relativo 0.94; IC…",
     "clusters": [
@@ -8684,7 +8686,7 @@
     "relacionados": [
       276,
       107,
-      94
+      316
     ],
     "seo_title": "TACSI trial: ticagrelor y aspirina o aspirina sola tras la cirugía coronaria por síndrome coronario agudo | Resúmenes Trials",
     "description": "TACSI: El compuesto de muerte, infarto, ictus o nueva revascularización ocurrió en el 4.8% con ticagrelor más aspirina frente al 4.6% con aspirina sola , sin…",
@@ -11226,5 +11228,36 @@
       "population": "La población fueron adultos con rinosinusitis crónica con pólipos nasales diagnosticada al menos 12 meses antes y de gravedad compatible con la necesidad de cirugía: puntuación endoscópica total de pólipos de al menos 5 sobre 8, con al menos 2 por fosa. Se exigían síntomas durante más de 8 semanas, congestión nasal de al menos 2, un cuestionario de resultados sinonasales de 22 ítems (Sinonasal Outcome Test, SNOT-22) de al…"
     },
     "datePublished": "2026-11-23"
+  },
+  "357": {
+    "slug": "clear-colchicina-infarto-agudo-miocardio",
+    "path": "/trials/clear-colchicina-infarto-agudo-miocardio/",
+    "url": "https://resumenestrials.com/trials/clear-colchicina-infarto-agudo-miocardio/",
+    "title": "CLEAR: colchicina en el infarto agudo de miocardio",
+    "relacionados": [
+      115,
+      277,
+      26
+    ],
+    "seo_title": "CLEAR trial: colchicina en el infarto agudo de miocardio | Resúmenes Trials",
+    "description": "CLEAR: El desenlace primario ocurrió en el 9.1% con colchicina frente al 9.3% con placebo ( HR 0.99; IC 95% 0.85 a 1.16; P=0.93 ), sin diferencia…",
+    "clusters": [
+      {
+        "name": "Cardiología y prevención cardiovascular",
+        "path": "/medicina-interna/cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-interna/cardiovascular/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/clear-colchicina-infarto-agudo-miocardio-16x9.jpg",
+      "https://resumenestrials.com/images/trials/clear-colchicina-infarto-agudo-miocardio-4x3.jpg",
+      "https://resumenestrials.com/images/trials/clear-colchicina-infarto-agudo-miocardio-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si la colchicina, iniciada poco después de un infarto agudo de miocardio tratado con intervención coronaria percutánea, reduce frente al placebo el compuesto de muerte cardiovascular, infarto recurrente, ictus o revascularización motivada por isquemia.",
+      "answer": "El desenlace primario ocurrió en el 9.1% con colchicina frente al 9.3% con placebo ( HR 0.99; IC 95% 0.85 a 1.16; P=0.93 ), sin diferencia significativa; la diarrea fue más frecuente con colchicina (10.2% frente a 6.6% con placebo; P<0.001).",
+      "population": "La población fueron adultos con infarto agudo de miocardio tratados con intervención coronaria percutánea (ICP), casi todos con elevación del segmento ST (IAMCEST); desde abril de 2020 entraron también infartos extensos sin elevación del ST (IAMSEST) con algún factor de riesgo. Se declararon blancos el 91.6% del grupo de colchicina y el 91.9% del de placebo. Procedían de 104 centros de 14 países, con el 66.8% de cada brazo en…"
+    },
+    "datePublished": "2026-11-24"
   }
 }

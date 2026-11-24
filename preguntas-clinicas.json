@@ -753,6 +753,33 @@
           "frase": "Evaluar si el tezepelumab a 210 mg subcutáneos cada 4 semanas, frente a placebo, reduce el"
         }
       }
+    },
+    {
+      "id": 357,
+      "fecha": "2026-11-24",
+      "huella": "6e8806649faae1ee",
+      "preguntas": {
+        "corticoides-choque-septico": {
+          "rol": "nada",
+          "frase": "Determinar si la colchicina, iniciada poco después de un infarto agudo de miocardio tratad"
+        },
+        "cristaloides-balanceados-solucion-salina-adultos-estado-critico": {
+          "rol": "nada",
+          "frase": "Determinar si la colchicina, iniciada poco después de un infarto agudo de miocardio tratad"
+        },
+        "cuando-iniciar-terapia-reemplazo-renal-lesion-renal-aguda": {
+          "rol": "nada",
+          "frase": "Determinar si la colchicina, iniciada poco después de un infarto agudo de miocardio tratad"
+        },
+        "meta-oxigenacion-paciente-critico": {
+          "rol": "nada",
+          "frase": "Determinar si la colchicina, iniciada poco después de un infarto agudo de miocardio tratad"
+        },
+        "restriccion-liquidos-choque-septico-hipotension-sepsis": {
+          "rol": "nada",
+          "frase": "Determinar si la colchicina, iniciada poco después de un infarto agudo de miocardio tratad"
+        }
+      }
     }
   ],
   "preguntas": [
