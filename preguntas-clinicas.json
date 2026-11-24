@@ -1007,43 +1007,41 @@
               ]
             },
             "pacientes": {
-              "frase": "IDEAL-ICU incluyó pacientes con choque séptico, con edad media de 69.3 y 68.7 años y SOFA medio de 12.2 y 12.4 en los dos grupos.",
+              "frase": "IDEAL-ICU incluyó pacientes con choque séptico, con edad media de 69.3 y 68.7 años y puntajes medios de SOFA de 12.2 y 12.4 en los dos grupos.",
               "cita": [
-                "Las características basales fueron similares entre los grupos: edad media de 69.3 y 68.7 años, cerca de 60% hombres, puntajes medios de SAPS II de 65.1 y 64.1 (escala de 0 a 163, valores más altos indican mayor gravedad) y de SOFA de 12.2 y 12.4 (escala de 0 a 24, mismo sentido); la insuficiencia renal crónica previa fue algo más frecuente en el grupo diferido (18% frente a 13%) y la exposición a agentes nefrotóxicos algo más frecuente en el grupo temprano (52% frente a 44%), sin que ninguna diferencia alcanzara significancia estadística",
-                "Se aleatorizó a 488 pacientes con choque séptico y lesión renal aguda en estadio de fallo de la clasificación RIFLE"
+                "Se aleatorizó a 488 pacientes con choque séptico y lesión renal aguda en estadio de fallo de la clasificación RIFLE",
+                "Las características basales fueron similares entre los grupos: edad media de 69.3 y 68.7 años, 61% hombres, puntajes medios de SAPS II de 65.1 y 64.1 (escala de 0 a 163, valores más altos indican mayor gravedad) y de SOFA de 12.2 y 12.4"
               ]
             },
             "separacion": {
               "frase": "IDEAL-ICU inició la terapia a un tiempo mediano de 7.6 horas en el grupo temprano frente a 51.5 horas en el diferido; en el grupo diferido, 93 de 242 pacientes (38%) no llegaron a recibirla, 70 de ellos porque la función renal se recuperó espontáneamente.",
               "cita": [
                 "El tiempo mediano hasta el inicio de la terapia fue de 7.6 horas (rango intercuartílico, 4.4 a 11.5) en el grupo temprano frente a 51.5 horas (rango intercuartílico, 34.6 a 59.5) en el diferido.",
-                "En el grupo diferido, 38% de los pacientes (93 de 242) no llegó a recibir terapia de reemplazo renal, la mayoría (75% de ellos, es decir 70 pacientes) porque la función renal se recuperó espontáneamente; 17% (41 pacientes) cumplió criterios de urgencia y recibió la terapia antes de las 48 horas."
+                "En el grupo diferido, 38% de los pacientes (93 de 242) no llegó a recibir terapia de reemplazo renal, la mayoría (75% de ellos, es decir 70 pacientes) porque la función renal se recuperó espontáneamente"
               ]
             },
             "limitacion": {
-              "frase": "IDEAL-ICU se interrumpió antes de tiempo por futilidad, con menos de 500 de los 864 pacientes calculados, lo que según su resumen le dejó menor capacidad de detectar diferencias moderadas entre estrategias.",
+              "frase": "IDEAL-ICU interrumpió de forma anticipada el reclutamiento por futilidad, con menos de 500 de los 864 pacientes calculados, lo que según su resumen le dejó menor capacidad de detectar diferencias moderadas entre estrategias.",
               "cita": [
-                "Entre las limitaciones se cuentan la interrupción anticipada del reclutamiento por futilidad, que dejó al ensayo con menos de 500 de los 864 pacientes calculados y por tanto con menor capacidad de detectar diferencias moderadas entre estrategias; el uso de la clasificación RIFLE, menos sensible que clasificaciones más recientes de lesión renal aguda, para definir la elegibilidad; y la elección de un retraso de solo 48 horas en el grupo diferido, que pudo ser insuficiente para permitir la recuperación renal en algunos pacientes o para poner de manifiesto una diferencia real entre estrategias.",
-                "La validez interna es alta gracias a la aleatorización estratificada y el análisis por intención de tratar; la validez externa se limita a centros franceses con la infraestructura y los protocolos de este país, aunque la diversidad de 29 centros, universitarios y generales, atenúa esta limitación."
+                "Entre las limitaciones se cuentan la interrupción anticipada del reclutamiento por futilidad, que dejó al ensayo con menos de 500 de los 864 pacientes calculados y por tanto con menor capacidad de detectar diferencias moderadas entre estrategias"
               ]
             }
           },
           "revision": {
-            "fecha": "2026-11-15",
+            "fecha": "2026-11-23",
             "cotejo": "VERDE",
             "fiscal": "VERDE",
-            "omisiones": "VERDE",
-            "nota": "Versión breve: cotejo de cada frase contra su cita y revisión del fiscal, que además comprobó que las tres frases de la ficha dicen lo decisivo; sus propuestas se aplicaron."
+            "omisiones": "VERDE"
           }
         },
         {
           "id": 146,
           "diseno": {
             "intervencion": {
-              "frase": "STARRT-AKI, en su estrategia acelerada, iniciaba la terapia dentro de las 12 horas de cumplir la elegibilidad, con estadio 2 o 3 de KDIGO.",
+              "frase": "STARRT-AKI, en su estrategia acelerada, iniciaba la terapia dentro de las 12 horas siguientes al cumplimiento de la elegibilidad completa, con lesión renal aguda grave en estadio 2 o 3 de KDIGO.",
               "cita": [
-                "lesión renal aguda grave (estadio 2 o 3 de KDIGO) a iniciar la terapia de reemplazo renal dentro de las 12 horas de cumplir elegibilidad",
-                "La intervención fue una estrategia acelerada de inicio de la terapia de reemplazo renal, iniciada dentro de las 12 horas siguientes al cumplimiento de la elegibilidad completa."
+                "La intervención fue una estrategia acelerada de inicio de la terapia de reemplazo renal, iniciada dentro de las 12 horas siguientes al cumplimiento de la elegibilidad completa.",
+                "lesión renal aguda grave (estadio 2 o 3 de KDIGO"
               ]
             },
             "comparador": {
@@ -1069,28 +1067,27 @@
               "cita": "Población estudiada De 3019 pacientes aleatorizados (1512 a la estrategia acelerada y 1507 a la estándar), se incluyeron 2927 (1465 y 1462, respectivamente) en el análisis de intención de tratar modificada, tras excluir a quienes resultaron no elegibles, retiraron el consentimiento o se perdieron durante el seguimiento."
             },
             "pacientes": {
-              "frase": "STARRT-AKI incluyó pacientes con sepsis en 58% y 57% y enfermedad renal crónica previa en 44% y 43% en los dos grupos, con SOFA medio de 11.6 y 11.8.",
+              "frase": "STARRT-AKI incluyó pacientes con sepsis en 58% y 57% y enfermedad renal crónica previa en 45% y 43% en los dos grupos, con puntajes medios de SOFA de 11.6 y 11.8.",
               "cita": [
-                "Las características basales fueron similares entre los grupos: edad media de 64.6 y 64.7 años, cerca de un tercio de mujeres, enfermedad renal crónica previa en 44% y 43%, sepsis en 58% y 57%, y puntajes medios de SAPS II de 58.1 y 59.4 (escala de 0 a 163, con valores más altos indicando mayor gravedad) y de SOFA de 11.6 y 11.8"
+                "Las características basales fueron similares entre los grupos: edad media de 64.6 y 64.7 años, cerca de un tercio de mujeres, enfermedad renal crónica previa en 45% y 43%, sepsis en 58% y 57%, y puntajes medios de SAPS II de 58.1 y 59.4 (escala de 0 a 163, con valores más altos indicando mayor gravedad) y de SOFA de 11.6 y 11.8"
               ]
             },
             "separacion": {
               "sin_dato": "cuánto tardó cada grupo en iniciar la terapia ni qué proporción del grupo de estrategia estándar llegó a recibirla",
-              "huella": "e90975cca9f40aaa"
+              "huella": "5ef11a8bd72d8ecb"
             },
             "limitacion": {
-              "frase": "STARRT-AKI fue un ensayo abierto y su elegibilidad dependía de la incertidumbre clínica de cada médico, un criterio que su resumen califica de subjetivo.",
+              "frase": "STARRT-AKI fue un ensayo abierto, que según su resumen pudo introducir sesgo de desempeño en la decisión de iniciar la terapia en el grupo estándar, y usó para la elegibilidad un criterio de incertidumbre clínica que su resumen califica de subjetivo.",
               "cita": [
-                "Entre las limitaciones se cuentan el diseño abierto, que pudo introducir sesgo de desempeño en la decisión de iniciar la terapia en el grupo estándar; la naturaleza subjetiva del criterio de incertidumbre clínica usado para la elegibilidad, que pudo introducir heterogeneidad entre pacientes según el juicio de cada médico, aunque no se observó heterogeneidad relevante del efecto entre subgrupos; y la mayor frecuencia de eventos adversos con la estrategia acelerada, que en parte podría explicarse simplemente por la mayor exposición a la terapia y a sus catéteres en ese grupo."
+                "Entre las limitaciones se cuentan el diseño abierto, que pudo introducir sesgo de desempeño en la decisión de iniciar la terapia en el grupo estándar; la naturaleza subjetiva del criterio de incertidumbre clínica usado para la elegibilidad, que pudo introducir heterogeneidad entre pacientes según el juicio de cada médico"
               ]
             }
           },
           "revision": {
-            "fecha": "2026-11-15",
+            "fecha": "2026-11-23",
             "cotejo": "VERDE",
             "fiscal": "VERDE",
-            "omisiones": "VERDE",
-            "nota": "Versión breve: cotejo de cada frase contra su cita y revisión del fiscal, que además comprobó que las tres frases de la ficha dicen lo decisivo; sus propuestas se aplicaron."
+            "omisiones": "VERDE"
           }
         }
       ],

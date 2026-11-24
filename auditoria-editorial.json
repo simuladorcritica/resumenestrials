@@ -4,10 +4,11 @@
   "estandar": "noviembre de 2026",
   "archivo": {
     "total": 356,
-    "auditados": 305,
-    "sin_auditar": 51
+    "auditados": 306,
+    "sin_auditar": 50
   },
   "en_revision": [
+    11,
     22,
     23,
     24,
@@ -80,7 +81,6 @@
     234,
     235,
     239,
-    241,
     348
   ],
   "sin_auditar": [
@@ -133,10 +133,10 @@
     69,
     70,
     71,
-    72,
-    241
+    72
   ],
   "con_errores_abiertos": [
+    11,
     22,
     145,
     146,
@@ -162,9 +162,9 @@
     348
   ],
   "errores_abiertos": {
-    "CRÍTICO": 31,
+    "CRÍTICO": 32,
     "MAYOR": 40,
-    "MENOR": 481
+    "MENOR": 541
   },
   "correcciones": [
     {

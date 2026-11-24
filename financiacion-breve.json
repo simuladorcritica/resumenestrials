@@ -128,10 +128,10 @@
    "conflictos": "No: los autores declaran no tener conflictos de interés relevantes para este estudio."
   },
   "22": {
-   "de": "be782727dab7",
-   "pago": "Yichang Humanwell Pharmaceutical, fabricante del remimazolam evaluado y del remifentanilo empleado, con financiación parcial de un programa de investigación clínica del Union Hospital.",
-   "papel": "La compañía inició el ensayo para obtener la aprobación regulatoria del remimazolam en China; dos empleados suyos, autores del artículo, lo concibieron, diseñaron y supervisaron.",
-   "conflictos": "Sí: dos autores son empleados de la compañía; el primer autor y el autor principal recibieron de ella fármacos gratuitos para estudios de iniciativa propia."
+   "de": "f8cdc7449511",
+   "pago": "Yichang Humanwell Pharmaceutical, fabricante del besilato de remimazolam evaluado, con financiación parcial de un programa de investigación clínica del Union Hospital.",
+   "papel": "La compañía inició el ensayo para obtener la aprobación regulatoria; dos empleados concibieron y supervisaron el ensayo y lo diseñaron junto con el primer autor y el autor principal, con acceso completo a los datos.",
+   "conflictos": "Sí: dos autores son empleados de la compañía; el primer autor y el autor principal recibieron fármacos gratuitos de la misma empresa para estudios propios."
   },
   "23": {
    "de": "9808cd5562e9",
@@ -866,39 +866,39 @@
    "conflictos": "No consta en el resumen."
   },
   "145": {
-   "de": "ddd89250a600",
-   "pago": "Múltiples agencias públicas y organizaciones sin fines de lucro de Europa, Australia, Nueva Zelanda, Canadá, Reino Unido y Estados Unidos.",
-   "papel": "Amgen y Eisai apoyaron la infraestructura general de la plataforma REMAP-CAP; ninguna fabrica heparina, el fármaco genérico evaluado, por lo que ningún fabricante del producto financió el ensayo.",
+   "de": "55792526e627",
+   "pago": "Agencias públicas y organizaciones sin fines de lucro de Europa, Australia, Nueva Zelanda, Canadá, el Reino Unido y Estados Unidos; REMAP-CAP también recibió apoyo de Amgen, Eisai y la Global Coalition for Adaptive Research.",
+   "papel": "Según el artículo, los financiadores no tuvieron papel en el diseño, el análisis ni la comunicación de los resultados, salvo en ACTIV-4a, cuyo diseño recibió aportaciones del personal de los NIH.",
    "conflictos": "No consta en el resumen."
   },
   "146": {
-   "de": "22a11fd5a97a",
-   "pago": "Canadian Institutes of Health Research, incluida una beca en asociación con Baxter Healthcare Corporation, fabricante de equipos para terapia de reemplazo renal, con apoyo de organismos de Australia, Nueva Zelanda y Reino Unido.",
-   "papel": "No consta en el resumen.",
+   "de": "7f80d118cdde",
+   "pago": "Canadian Institutes of Health Research, incluida una beca en asociación con Baxter, más agencias públicas de Australia, Nueva Zelanda y el Reino Unido.",
+   "papel": "Según el artículo, financiadores y socios no participaron en el diseño, la ejecución, el análisis ni la decisión de publicar; una persona de Baxter formó parte, sin voto, del comité directivo internacional.",
    "conflictos": "No consta en el resumen."
   },
   "147": {
-   "de": "a4a287ccce3b",
-   "pago": "Programme Hospitalier de Recherche Clinique National del Ministerio de Salud de Francia.",
-   "papel": "No hubo apoyo comercial: ningún fabricante de equipos de diálisis participó en el financiamiento.",
+   "de": "b02a06dbc478",
+   "pago": "Una beca del Programme Hospitalier de Recherche Clinique National del Ministerio de Salud de Francia, con cofinanciación pública de Inserm, el Consejo Regional de Borgoña, FEDER y la ANR.",
+   "papel": "El artículo declara que no hubo apoyo comercial; la versión 9 del protocolo prevé que bioMérieux contribuya a los gastos de la validación de biomarcadores y de la logística de las muestras.",
    "conflictos": "No consta en el resumen."
   },
   "148": {
-   "de": "b2f63f7a3a09",
-   "pago": "Medical Research Council (MRC) del Reino Unido, gestionado por el National Institute for Health Research (NIHR), con apoyo adicional de otras entidades.",
-   "papel": "Sin relación con un fabricante: la craniectomía descompresiva es un procedimiento quirúrgico, no un producto comercial patentado.",
+   "de": "56f3d5e1326e",
+   "pago": "Medical Research Council del Reino Unido, gestionado por el NIHR, con apoyo adicional del NIHR Cambridge Biomedical Research Centre, la Academy of Medical Sciences and Health Foundation y el Evelyn Trust.",
+   "papel": "Ninguna empresa figura entre los financiadores.",
    "conflictos": "No consta en el resumen."
   },
   "149": {
-   "de": "54564e5d7268",
-   "pago": "National Institute for Health Research (NIHR) Health Technology Assessment Programme del Reino Unido.",
-   "papel": "Edwards Lifesciences, fabricante de los monitores usados en el protocolo, prestó los equipos y ofreció formación y soporte técnico, sin ningún otro papel ni financiamiento económico.",
+   "de": "aca9bac6eae2",
+   "pago": "Una beca del National Institute for Health Research (NIHR) Health Technology Assessment Programme del Reino Unido.",
+   "papel": "Edwards Lifesciences, fabricante de los monitores usados en el protocolo, prestó los equipos y ofreció formación y soporte técnico, sin ningún otro papel en el estudio.",
    "conflictos": "No consta en el resumen."
   },
   "150": {
-   "de": "91d2b92ede5a",
-   "pago": "Departamento de Defensa de Estados Unidos, mediante fondos de la Defense Health Agency y del 59th Medical Wing de la Fuerza Aérea.",
-   "papel": "Sin relación con ningún fabricante de laringoscopios: la marca y el modelo quedaron a discreción de cada operador.",
+   "de": "f55df68d1b6a",
+   "pago": "El Departamento de Defensa de Estados Unidos, mediante fondos de la Defense Health Agency y del 59th Medical Wing de la Fuerza Aérea.",
+   "papel": "Ninguna empresa figura entre los financiadores.",
    "conflictos": "No consta en el resumen."
   },
   "151": {
