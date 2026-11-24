@@ -38,6 +38,7 @@ Material educativo para profesionales de la salud. La referencia final es siempr
 
 ## Resúmenes de ensayos
 
+- [ESCAPE-MeVO: tratamiento endovascular del ictus debido a oclusión de un vaso mediano](https://resumenestrials.com/trials/escape-mevo-tratamiento-endovascular-ictus-debido-oclusion-vaso-mediano/): NEJM, 2025.
 - [DISTAL: tratamiento endovascular del ictus debido a la oclusión de vasos medianos o distales](https://resumenestrials.com/trials/distal-tratamiento-endovascular-ictus-debido-oclusion-vasos-medianos-distales/): NEJM, 2025.
 - [REGENCY: eficacia y seguridad de obinutuzumab en la nefritis lúpica activa](https://resumenestrials.com/trials/regency-eficacia-seguridad-obinutuzumab-nefritis-lupica-activa/): NEJM, 2025.
 - [CLEAR: colchicina en el infarto agudo de miocardio](https://resumenestrials.com/trials/clear-colchicina-infarto-agudo-miocardio/): NEJM, 2024.
