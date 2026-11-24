@@ -3706,7 +3706,7 @@
     "relacionados": [
       93,
       37,
-      28
+      362
     ],
     "seo_title": "ROCKET AF trial: rivaroxabán frente a warfarina en la fibrilación auricular no valvular | Resúmenes Trials",
     "description": "ROCKET AF: Rivaroxabán fue no inferior a warfarina para prevenir ictus o embolia sistémica ( HR 0.79; IC 95% 0.66-0.96; p<0.001 para no inferioridad ), sin…",
@@ -7460,7 +7460,7 @@
     "relacionados": [
       228,
       226,
-      204
+      193
     ],
     "seo_title": "ATN trial: intensidad del soporte renal en pacientes en estado crítico con lesión renal aguda | Resúmenes Trials",
     "description": "ATN: La mortalidad a 60 días fue del 53.6% con la estrategia intensiva frente al 51.5% con la menos intensiva , sin diferencia significativa (razón de momios…",
@@ -7958,6 +7958,7 @@
     "title": "ANNEXA-I: andexanet en la hemorragia intracerebral aguda asociada a inhibidores del factor Xa",
     "relacionados": [
       239,
+      362,
       218
     ],
     "seo_title": "ANNEXA-I trial: andexanet en la hemorragia intracerebral aguda asociada a inhibidores del factor Xa | Resúmenes Trials",
@@ -8685,7 +8686,7 @@
     "relacionados": [
       276,
       107,
-      316
+      94
     ],
     "seo_title": "TACSI trial: ticagrelor y aspirina o aspirina sola tras la cirugía coronaria por síndrome coronario agudo | Resúmenes Trials",
     "description": "TACSI: El compuesto de muerte, infarto, ictus o nueva revascularización ocurrió en el 4.8% con ticagrelor más aspirina frente al 4.6% con aspirina sola , sin…",
@@ -11378,6 +11379,37 @@
       "question": "Evaluar si cinco pautas orales de 9 meses con combinaciones de bedaquilina, delamanid, linezolid, levofloxacino o moxifloxacino, clofazimina y pirazinamida no son inferiores al tratamiento estándar en la tuberculosis pulmonar resistente a rifampicina y sensible a fluoroquinolonas.",
       "answer": "En la población por intención de tratar modificada, con un 80.7% de desenlaces favorables en la semana 73 con el tratamiento estándar, fueron no inferiores (margen de −12 puntos) BCLLfxZ, con una diferencia de 9.8 puntos (IC 95% 0.9 a 18.7); BLMZ, 8.3 (IC 95% −0.8 a 17.4); BDLLfxZ, 4.6 (IC 95% −4.9 a 14.1), y DCMZ, 2.5 (IC 95%…",
       "population": "La población fueron personas de 15 años o más con tuberculosis pulmonar resistente a rifampicina y sensible a fluoroquinolonas, confirmada con pruebas moleculares rápidas avaladas por la Organización Mundial de la Salud (OMS), en 12 centros de Georgia, India, Kazajistán, Lesoto, Pakistán, Perú y Sudáfrica, con o sin infección por el virus de la inmunodeficiencia humana (VIH). Raza y etnia: No reportado."
+    },
+    "datePublished": "2026-11-24"
+  },
+  "362": {
+    "slug": "azalea-timi-71-abelacimab-rivaroxaban-pacientes-fibrilacion-auricular",
+    "path": "/trials/azalea-timi-71-abelacimab-rivaroxaban-pacientes-fibrilacion-auricular/",
+    "url": "https://resumenestrials.com/trials/azalea-timi-71-abelacimab-rivaroxaban-pacientes-fibrilacion-auricular/",
+    "title": "AZALEA–TIMI 71: abelacimab frente a rivaroxabán en pacientes con fibrilación auricular",
+    "relacionados": [
+      114,
+      37,
+      167
+    ],
+    "seo_title": "AZALEA–TIMI 71 trial: abelacimab frente a rivaroxabán en pacientes con fibrilación auricular | Resúmenes Trials",
+    "description": "AZALEA–TIMI 71: Frente a rivaroxabán, el abelacimab mensual redujo el sangrado mayor o clínicamente relevante no mayor: 3.22 eventos por 100 personas-año con…",
+    "clusters": [
+      {
+        "name": "Cardiología y prevención cardiovascular",
+        "path": "/medicina-interna/cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-interna/cardiovascular/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/azalea-timi-71-abelacimab-rivaroxaban-pacientes-fibrilacion-auricular-16x9.jpg",
+      "https://resumenestrials.com/images/trials/azalea-timi-71-abelacimab-rivaroxaban-pacientes-fibrilacion-auricular-4x3.jpg",
+      "https://resumenestrials.com/images/trials/azalea-timi-71-abelacimab-rivaroxaban-pacientes-fibrilacion-auricular-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Comparar el sangrado mayor o clínicamente relevante no mayor con abelacimab subcutáneo mensual, a 150 mg o 90 mg, frente a rivaroxabán en pacientes con fibrilación auricular y riesgo de ictus moderado a alto.",
+      "answer": "Frente a rivaroxabán, el abelacimab mensual redujo el sangrado mayor o clínicamente relevante no mayor: 3.22 eventos por 100 personas-año con 150 mg y 2.64 con 90 mg frente a 8.38 con rivaroxabán (hazard ratio [HR] 0.38; IC 95% 0.24 a 0.60, y HR 0.31; IC 95% 0.19 a 0.51; P<0.001) .",
+      "population": "Participaron adultos de 55 años o más con fibrilación o aleteo auricular, anticoagulación indefinida prevista y riesgo de ictus moderado a alto, casi todos blancos (94.0% a 95.3%, raza declarada por el paciente) y atendidos sobre todo en Europa y Norteamérica, con una minoría de Asia."
     },
     "datePublished": "2026-11-24"
   }

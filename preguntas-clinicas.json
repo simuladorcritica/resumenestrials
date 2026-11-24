@@ -888,6 +888,33 @@
           "frase": "endTB: pautas orales para la tuberculosis resistente a rifampicina y sensible a fluoroquinolonas"
         }
       }
+    },
+    {
+      "id": 362,
+      "fecha": "2026-11-24",
+      "huella": "9d4a3fbd11a9bc56",
+      "preguntas": {
+        "corticoides-choque-septico": {
+          "rol": "nada",
+          "frase": "AZALEA–TIMI 71: abelacimab frente a rivaroxabán en pacientes con fibrilación auricular"
+        },
+        "cristaloides-balanceados-solucion-salina-adultos-estado-critico": {
+          "rol": "nada",
+          "frase": "Comparar el sangrado mayor o clínicamente relevante no mayor con abelacimab subc"
+        },
+        "cuando-iniciar-terapia-reemplazo-renal-lesion-renal-aguda": {
+          "rol": "nada",
+          "frase": "Comparar el sangrado mayor o clínicamente relevante no mayor con abelacimab subc"
+        },
+        "meta-oxigenacion-paciente-critico": {
+          "rol": "nada",
+          "frase": "Comparar el sangrado mayor o clínicamente relevante no mayor con abelacimab subc"
+        },
+        "restriccion-liquidos-choque-septico-hipotension-sepsis": {
+          "rol": "nada",
+          "frase": "AZALEA–TIMI 71: abelacimab frente a rivaroxabán en pacientes con fibrilación auricular"
+        }
+      }
     }
   ],
   "preguntas": [
