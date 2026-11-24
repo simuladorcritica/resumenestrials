@@ -1,9 +1,18 @@
 {
   "schema_version": 1,
-  "base_sha": "927eb2928b90999a1651a40b08abc4ef573493b1",
+  "base_sha": "fc29491645bb6d45261f0bf9ddc1e673ea1e399a",
   "authorizations": [
     {
-      "id": 347,
+      "id": 348,
+      "fields": [
+        "cuerpo",
+        "corto",
+        "fecha_revision"
+      ],
+      "reason": "Corrección del equipo crítico, issue #355 (8 hallazgos: 1 MAYOR, 7 MENOR); equipo editorial y contrainteligencia APROBADA (D:\\OneDrive\\Escritorio\\PAGINA ECA\\ARTICULOS\\_ORGANIZADOR_DIARIO\\revision_nocturna\\equipo\\348_SINGLE_SHOT_CHAMPION\\contrainteligencia_2.md)."
+    },
+    {
+      "id": 150,
       "fields": [
         "financiacion",
         "hallazgo",
@@ -11,30 +20,10 @@
         "corto",
         "fecha_revision"
       ],
-      "reason": "Corrección del equipo crítico, issue #349 (14 hallazgos: 1 MAYOR, 13 MENOR); equipo editorial y contrainteligencia APROBADA (D:\\OneDrive\\Escritorio\\PAGINA ECA\\ARTICULOS\\_ORGANIZADOR_DIARIO\\revision_nocturna\\equipo\\347_ZENITH\\contrainteligencia.md)."
+      "reason": "Corrección de hallazgos de la revisión nocturna (Parte C) (2 hallazgos: 1 CRÍTICO, 1 MAYOR); equipo editorial y contrainteligencia APROBADA (D:\\OneDrive\\Escritorio\\PAGINA ECA\\ARTICULOS\\_ORGANIZADOR_DIARIO\\revision_nocturna\\equipo\\150_DEVICE\\contrainteligencia.md)."
     },
     {
-      "id": 141,
-      "fields": [
-        "financiacion",
-        "cuerpo",
-        "corto",
-        "fecha_revision"
-      ],
-      "reason": "Corrección de hallazgos de la revisión nocturna (Parte C) (11 hallazgos: 5 CRÍTICO, 6 MAYOR); equipo editorial y contrainteligencia APROBADA (D:\\OneDrive\\Escritorio\\PAGINA ECA\\ARTICULOS\\_ORGANIZADOR_DIARIO\\revision_nocturna\\equipo\\141_CULPRIT-SHOCK\\contrainteligencia.md)."
-    },
-    {
-      "id": 144,
-      "fields": [
-        "financiacion",
-        "cuerpo",
-        "corto",
-        "fecha_revision"
-      ],
-      "reason": "Corrección de hallazgos de la revisión nocturna (Parte C) (7 hallazgos: 1 CRÍTICO, 6 MAYOR); equipo editorial y contrainteligencia APROBADA (D:\\OneDrive\\Escritorio\\PAGINA ECA\\ARTICULOS\\_ORGANIZADOR_DIARIO\\revision_nocturna\\equipo\\144_HYPERION\\contrainteligencia.md)."
-    },
-    {
-      "id": 140,
+      "id": 149,
       "fields": [
         "financiacion",
         "hallazgo",
@@ -42,23 +31,56 @@
         "corto",
         "fecha_revision"
       ],
-      "reason": "Corrección de hallazgos de la revisión nocturna (Parte C) (12 hallazgos: 6 CRÍTICO, 6 MAYOR); equipo editorial y contrainteligencia APROBADA (D:\\OneDrive\\Escritorio\\PAGINA ECA\\ARTICULOS\\_ORGANIZADOR_DIARIO\\revision_nocturna\\equipo\\140_SUP-ICU\\contrainteligencia.md)."
+      "reason": "Corrección de hallazgos de la revisión nocturna (Parte C) (2 hallazgos: 2 CRÍTICO); equipo editorial y contrainteligencia APROBADA (D:\\OneDrive\\Escritorio\\PAGINA ECA\\ARTICULOS\\_ORGANIZADOR_DIARIO\\revision_nocturna\\equipo\\149_ProMISe\\contrainteligencia_2.md)."
     },
     {
-      "id": 21,
+      "id": 146,
       "fields": [
-        "titulo",
+        "financiacion",
+        "hallazgo",
+        "cuerpo",
+        "corto",
+        "fecha_revision"
+      ],
+      "reason": "Corrección de hallazgos de la revisión nocturna (Parte C) (3 hallazgos: 3 CRÍTICO); equipo editorial y contrainteligencia APROBADA (D:\\OneDrive\\Escritorio\\PAGINA ECA\\ARTICULOS\\_ORGANIZADOR_DIARIO\\revision_nocturna\\equipo\\146_STARRT-AKI\\contrainteligencia_2.md)."
+    },
+    {
+      "id": 148,
+      "fields": [
+        "financiacion",
+        "hallazgo",
+        "cuerpo",
+        "corto",
+        "fecha_revision"
+      ],
+      "reason": "Corrección de hallazgos de la revisión nocturna (Parte C) (3 hallazgos: 1 CRÍTICO, 2 MAYOR); equipo editorial y contrainteligencia APROBADA (D:\\OneDrive\\Escritorio\\PAGINA ECA\\ARTICULOS\\_ORGANIZADOR_DIARIO\\revision_nocturna\\equipo\\148_RESCUEicp\\contrainteligencia_2.md)."
+    },
+    {
+      "id": 145,
+      "fields": [
+        "financiacion",
+        "hallazgo",
+        "cuerpo",
+        "corto",
+        "fecha_revision"
+      ],
+      "reason": "Corrección de hallazgos de la revisión nocturna (Parte C) (5 hallazgos: 1 CRÍTICO, 4 MAYOR); equipo editorial y contrainteligencia APROBADA (D:\\OneDrive\\Escritorio\\PAGINA ECA\\ARTICULOS\\_ORGANIZADOR_DIARIO\\revision_nocturna\\equipo\\145_ATTACC_ACTIV-4a_y_REMAP-CAP\\contrainteligencia.md)."
+    },
+    {
+      "id": 22,
+      "fields": [
         "financiacion",
         "original",
+        "objetivo",
         "hallazgo",
         "cuerpo",
         "corto",
         "fecha_revision"
       ],
-      "reason": "Corrección del equipo crítico, issue #348 (16 hallazgos: 1 CRÍTICO, 6 MAYOR, 9 MENOR); equipo editorial y contrainteligencia APROBADA (D:\\OneDrive\\Escritorio\\PAGINA ECA\\ARTICULOS\\_ORGANIZADOR_DIARIO\\revision_nocturna\\equipo\\21_E-CRRT\\contrainteligencia.md)."
+      "reason": "Corrección del equipo crítico, issue #354 (24 hallazgos: 1 CRÍTICO, 2 MAYOR, 21 MENOR); equipo editorial y contrainteligencia APROBADA (D:\\OneDrive\\Escritorio\\PAGINA ECA\\ARTICULOS\\_ORGANIZADOR_DIARIO\\revision_nocturna\\equipo\\22_SHOSREB\\contrainteligencia_3.md)."
     },
     {
-      "id": 143,
+      "id": 147,
       "fields": [
         "financiacion",
         "hallazgo",
@@ -66,29 +88,7 @@
         "corto",
         "fecha_revision"
       ],
-      "reason": "Corrección de hallazgos de la revisión nocturna (Parte C) (12 hallazgos: 3 CRÍTICO, 9 MAYOR); equipo editorial y contrainteligencia APROBADA (D:\\OneDrive\\Escritorio\\PAGINA ECA\\ARTICULOS\\_ORGANIZADOR_DIARIO\\revision_nocturna\\equipo\\143_REVISE\\contrainteligencia.md)."
-    },
-    {
-      "id": 139,
-      "fields": [
-        "financiacion",
-        "hallazgo",
-        "cuerpo",
-        "corto",
-        "fecha_revision"
-      ],
-      "reason": "Corrección de hallazgos de la revisión nocturna (Parte C) (10 hallazgos: 1 CRÍTICO, 9 MAYOR); equipo editorial y contrainteligencia APROBADA (D:\\OneDrive\\Escritorio\\PAGINA ECA\\ARTICULOS\\_ORGANIZADOR_DIARIO\\revision_nocturna\\equipo\\139_PREOXI\\contrainteligencia.md)."
-    },
-    {
-      "id": 142,
-      "fields": [
-        "financiacion",
-        "hallazgo",
-        "cuerpo",
-        "corto",
-        "fecha_revision"
-      ],
-      "reason": "Corrección de hallazgos de la revisión nocturna (Parte C) (17 hallazgos: 6 CRÍTICO, 11 MAYOR); equipo editorial y contrainteligencia APROBADA (D:\\OneDrive\\Escritorio\\PAGINA ECA\\ARTICULOS\\_ORGANIZADOR_DIARIO\\revision_nocturna\\equipo\\142_PAMPer\\contrainteligencia.md)."
+      "reason": "Corrección de hallazgos de la revisión nocturna (Parte C) (2 hallazgos: 2 MAYOR); equipo editorial y contrainteligencia APROBADA (D:\\OneDrive\\Escritorio\\PAGINA ECA\\ARTICULOS\\_ORGANIZADOR_DIARIO\\revision_nocturna\\equipo\\147_IDEAL-ICU\\contrainteligencia_3.md)."
     }
   ]
 }

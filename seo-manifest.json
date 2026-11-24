@@ -629,8 +629,8 @@
     "title": "Tigris: hemoadsorción con polimixina B en el shock séptico endotóxico",
     "relacionados": [
       9,
-      2,
-      195
+      147,
+      2
     ],
     "seo_title": "Tigris trial: hemoadsorción con polimixina B en el shock séptico endotóxico | Resúmenes Trials",
     "description": "Tigris: La mortalidad a 28 días fue del 39% con polimixina B frente al 45% con el tratamiento estándar , con una probabilidad posterior de beneficio del…",
@@ -702,7 +702,7 @@
       194
     ],
     "seo_title": "SHOSREB trial: sedación ligera de corta duración con besilato de remimazolam frente a propofol en la UCI | Resúmenes Trials",
-    "description": "SHOSREB: La sedación exitosa fue del 97.5% en ambos grupos (diferencia 0; IC 95%, -6.5% a 6.4%), dentro del margen de no inferioridad del -8%. El remimazolam…",
+    "description": "SHOSREB: La sedación exitosa fue del 97.5% en ambos grupos (diferencia de riesgo 0; IC 95%, -6.5% a 6.4%), con el límite inferior por encima del margen de no…",
     "clusters": [],
     "images": [
       "https://resumenestrials.com/images/trials/shosreb-remimazolam-besilato-propofol-sedacion-ligera-corta-duracion-uci-16x9.jpg",
@@ -710,12 +710,12 @@
       "https://resumenestrials.com/images/trials/shosreb-remimazolam-besilato-propofol-sedacion-ligera-corta-duracion-uci-1x1.jpg"
     ],
     "intent": {
-      "question": "Evaluar si el remimazolam besilato no es inferior al propofol para lograr una sedación ligera y de corta duración exitosa en pacientes de cuidados intensivos con ventilación mecánica.",
-      "answer": "La sedación exitosa fue del 97.5% en ambos grupos (diferencia 0; IC 95%, -6.5% a 6.4%), dentro del margen de no inferioridad del -8%.",
+      "question": "Evaluar si el besilato de remimazolam no es inferior al propofol para lograr una sedación ligera y de corta duración exitosa en pacientes de cuidados intensivos con ventilación mecánica.",
+      "answer": "La sedación exitosa fue del 97.5% en ambos grupos (diferencia de riesgo 0; IC 95%, -6.5% a 6.4%), con el límite inferior por encima del margen de no inferioridad del -8%.",
       "population": "La población fueron adultos de 18 a 80 años, con índice de masa corporal entre 18 y 30, intubados en las 48 horas previas, con expectativa de ventilación mecánica de al menos 6 horas y que necesitaban sedación ligera. Esa profundidad se definió con la escala de agitación y sedación de Richmond, que va de menos 5, sin respuesta, a más 4, combativo; el tramo de menos 2 a más 1 corresponde a una sedación ligera, con el paciente…"
     },
     "datePublished": "2026-08-17",
-    "dateModified": "2026-10-20"
+    "dateModified": "2026-11-23"
   },
   "23": {
     "slug": "vitacca-vitamina-c-intravenosa-temprana-dosis-altas-tras-paro-cardiaco",
@@ -1512,8 +1512,8 @@
     "title": "Impacto de la broncoscopia en la seguridad de la traqueostomía percutánea",
     "relacionados": [
       25,
-      80,
-      46
+      46,
+      80
     ],
     "seo_title": "Impacto de la broncoscopia en la seguridad de la traqueostomía percutánea | Resúmenes Trials",
     "description": "Impacto de la broncoscopia en la seguridad de la traqueostomía percutánea: Las complicaciones mayores de la PCT fueron idénticas con y sin guía broncoscópica…",
@@ -2087,7 +2087,7 @@
     "relacionados": [
       22,
       259,
-      194
+      68
     ],
     "seo_title": "MENDS2 trial: dexmedetomidina o propofol para la sedación de adultos con sepsis en ventilación mecánica | Resúmenes Trials",
     "description": "MENDS2: La dexmedetomidina no ofreció ventaja sobre el propofol en los días vivos sin delirio ni coma (mediana ajustada de 10.7 frente a 10.8 días ; razón de…",
@@ -4700,11 +4700,11 @@
     "title": "ATTACC, ACTIV-4a y REMAP-CAP: anticoagulación terapéutica con heparina en pacientes en estado crítico con Covid-19",
     "relacionados": [
       196,
-      127,
-      136
+      136,
+      127
     ],
     "seo_title": "ATTACC, ACTIV-4a y REMAP-CAP trial: anticoagulación terapéutica con heparina en pacientes en estado crítico con Covid-19 | Resúmenes Trials",
-    "description": "ATTACC, ACTIV-4a y REMAP-CAP: La anticoagulación terapéutica con heparina no mejoró la supervivencia ni los días libres de soporte de órganos en pacientes…",
+    "description": "ATTACC, ACTIV-4a y REMAP-CAP: La anticoagulación terapéutica con heparina, comparada con la tromboprofilaxis habitual, se asoció a días libres de soporte de…",
     "clusters": [],
     "images": [
       "https://resumenestrials.com/images/trials/attacc-activ-4a-y-remap-cap-anticoagulacion-terapeutica-heparina-pacientes-criticos-covid-19-16x9.jpg",
@@ -4713,11 +4713,11 @@
     ],
     "intent": {
       "question": "Determinar si, en pacientes críticamente enfermos con Covid-19 grave, una estrategia inicial de anticoagulación a dosis terapéutica con heparina mejora la supervivencia hospitalaria y el número de días libres de soporte cardiovascular o respiratorio, en comparación con la tromboprofilaxis farmacológica habitual.",
-      "answer": "La anticoagulación terapéutica con heparina no mejoró la supervivencia ni los días libres de soporte de órganos en pacientes críticos con Covid-19: razón de momios proporcional ajustada de 0.83 (IC 95%, 0.67 a 1.03) , con 95% de probabilidad posterior de inferioridad, y el ensayo se detuvo por futilidad.",
+      "answer": "La anticoagulación terapéutica con heparina, comparada con la tromboprofilaxis habitual, se asoció a días libres de soporte de órganos y a supervivencia sin diferencia significativa en pacientes críticos con Covid-19: razón de momios proporcional ajustada de 0.83 (intervalo de credibilidad del 95%, 0.67 a 1.03) , con 95% de…",
       "population": "La población fueron adultos hospitalizados por Covid-19 confirmado por laboratorio que requerían soporte de órganos de nivel de cuidados intensivos, ya fuera oxígeno de alto flujo, ventilación no invasiva o invasiva, soporte vital extracorpóreo, vasopresores o inotrópicos, dentro de las 48 horas siguientes al ingreso a la unidad de cuidados intensivos (en REMAP-CAP) o las 72 horas siguientes al ingreso hospitalario (en…"
     },
     "datePublished": "2026-09-03",
-    "dateModified": "2026-11-04"
+    "dateModified": "2026-11-23"
   },
   "146": {
     "slug": "starrt-aki-momento-inicio-terapia-reemplazo-renal-lesion-renal-aguda",
@@ -4725,12 +4725,12 @@
     "url": "https://resumenestrials.com/trials/starrt-aki-momento-inicio-terapia-reemplazo-renal-lesion-renal-aguda/",
     "title": "STARRT-AKI: momento de inicio de la terapia de reemplazo renal en la lesión renal aguda",
     "relacionados": [
-      234,
       193,
-      228
+      228,
+      234
     ],
     "seo_title": "STARRT-AKI trial: momento de inicio de la terapia de reemplazo renal en la lesión renal aguda | Resúmenes Trials",
-    "description": "STARRT-AKI: El inicio acelerado de la terapia de reemplazo renal no redujo la mortalidad a 90 días frente a una estrategia estándar: 43.9% frente a 43.7% de…",
+    "description": "STARRT-AKI: El inicio acelerado de la terapia de reemplazo renal, frente a una estrategia estándar, se asoció a una mortalidad a 90 días sin diferencia…",
     "clusters": [
       {
         "name": "Renal y metabolismo",
@@ -4745,11 +4745,11 @@
     ],
     "intent": {
       "question": "Determinar si, en pacientes críticamente enfermos con lesión renal aguda grave, una estrategia acelerada de inicio de la terapia de reemplazo renal reduce la mortalidad por cualquier causa a los 90 días, en comparación con una estrategia estándar que difiere el inicio hasta que aparezcan indicaciones convencionales o la lesión persista más de 72 horas.",
-      "answer": "El inicio acelerado de la terapia de reemplazo renal no redujo la mortalidad a 90 días frente a una estrategia estándar: 43.9% frente a 43.7% de muertes (razón de riesgo, 1.00; IC 95%, 0.93 a 1.09; p=0.92) , y se asoció con más eventos adversos y mayor dependencia de diálisis entre los sobrevivientes.",
+      "answer": "El inicio acelerado de la terapia de reemplazo renal, frente a una estrategia estándar, se asoció a una mortalidad a 90 días sin diferencia significativa: 43.9% frente a 43.7% de muertes (razón de riesgo, 1.00; IC 95%, 0.93 a 1.09; p=0.92) , y se asoció con más eventos adversos y con una dependencia de diálisis entre los…",
       "population": "La población fueron adultos de 18 años o más ingresados a una unidad de cuidados intensivos con disfunción renal (creatinina sérica de al menos 1.13 mg/dl en mujeres o 1.47 mg/dl en hombres) y lesión renal aguda grave, clasificada en los estadios 2 o 3 de la escala KDIGO, que va de 1 a 3 con estadios más altos indicando mayor gravedad; esta clasificación se determinó por duplicación de la creatinina basal, una creatinina de 4…"
     },
     "datePublished": "2026-09-03",
-    "dateModified": "2026-11-04"
+    "dateModified": "2026-11-23"
   },
   "147": {
     "slug": "ideal-icu-inicio-temprano-diferido-depuracion-renal-choque-septico",
@@ -4762,7 +4762,7 @@
       228
     ],
     "seo_title": "IDEAL-ICU trial: momento de la terapia de reemplazo renal en pacientes con lesión renal aguda y sepsis | Resúmenes Trials",
-    "description": "IDEAL-ICU: En pacientes con choque séptico y lesión renal aguda grave, iniciar la diálisis de forma temprana no redujo la mortalidad a 90 días frente a…",
+    "description": "IDEAL-ICU: En pacientes con choque séptico y lesión renal aguda grave, iniciar la diálisis de forma temprana frente a diferirla 48 horas se asoció a una…",
     "clusters": [
       {
         "name": "Renal y metabolismo",
@@ -4777,11 +4777,11 @@
     ],
     "intent": {
       "question": "Determinar si, en pacientes con choque séptico en fase inicial y lesión renal aguda grave sin complicaciones que obligaran a diálisis inmediata, iniciar la terapia de reemplazo renal dentro de las 12 horas reduce la mortalidad a los 90 días frente a diferirla 48 horas si no hay recuperación renal.",
-      "answer": "En pacientes con choque séptico y lesión renal aguda grave, iniciar la diálisis de forma temprana no redujo la mortalidad a 90 días frente a diferirla 48 horas: 58% frente a 54% de muertes (p=0.38) , y el ensayo se detuvo de forma anticipada por futilidad.",
+      "answer": "En pacientes con choque séptico y lesión renal aguda grave, iniciar la diálisis de forma temprana frente a diferirla 48 horas se asoció a una mortalidad a 90 días sin diferencia significativa: 58% frente a 54% de muertes (p=0.38) , y el ensayo se detuvo de forma anticipada por futilidad.",
       "population": "La población fueron adultos de 18 años o más ingresados a cuidados intensivos en la fase inicial de choque séptico, dentro de las 48 horas siguientes al inicio de vasopresores, con lesión renal aguda en el estadio de fallo de la clasificación RIFLE, caracterizado por una creatinina sérica tres veces el valor basal (o 4 mg/dl o más con un incremento rápido de al menos 0.5 mg/dl), diuresis menor de 0.3 ml por kilogramo por hora…"
     },
     "datePublished": "2026-09-03",
-    "dateModified": "2026-11-04"
+    "dateModified": "2026-11-23"
   },
   "148": {
     "slug": "rescueicp-craniectomia-descompresiva-hipertension-intracraneal-traumatica-refractaria",
@@ -4794,7 +4794,7 @@
       214
     ],
     "seo_title": "RESCUEicp trial: ensayo de craniectomía descompresiva en la hipertensión intracraneal traumática | Resúmenes Trials",
-    "description": "RESCUEicp: La distribución de la escala GOS-E a los 6 meses difirió entre los grupos (p<0.001): la craniectomía redujo la mortalidad de forma marcada, 26.9%…",
+    "description": "RESCUEicp: La distribución de la escala GOS-E a los 6 meses difirió entre los grupos (p<0.001): la craniectomía se asoció a una mortalidad menor (desenlace…",
     "clusters": [
       {
         "name": "Neurocríticos",
@@ -4809,11 +4809,11 @@
     ],
     "intent": {
       "question": "Determinar si la craniectomía descompresiva, como tratamiento de última línea, mejora el desenlace funcional a los 6 meses en pacientes con traumatismo craneoencefálico e hipertensión intracraneal refractaria a las medidas médicas de primera y segunda línea, en comparación con continuar el tratamiento médico.",
-      "answer": "La distribución de la escala GOS-E a los 6 meses difirió entre los grupos (p<0.001): la craniectomía redujo la mortalidad de forma marcada, 26.9% frente a 48.9% con el tratamiento médico (diferencia absoluta, -22.1 puntos porcentuales; IC 95%, -31.5 a -12.7) , pero a costa de más supervivientes en estado vegetativo o con…",
+      "answer": "La distribución de la escala GOS-E a los 6 meses difirió entre los grupos (p<0.001): la craniectomía se asoció a una mortalidad menor (desenlace secundario, exploratorio según el plan estadístico), 26.9% frente a 48.9% con el tratamiento médico (diferencia absoluta, -22.1 puntos porcentuales; IC 95%, -31.5 a -12.7) , pero a…",
       "population": "La población fueron pacientes de 10 a 65 años con traumatismo craneoencefálico y un monitor de presión intracraneal ya colocado, con presión intracraneal elevada por encima de 25 mmHg durante 1 a 12 horas pese a las medidas médicas de primera y segunda línea; la raza o el grupo étnico no se reportó. El estudio se realizó en 52 centros de 20 países, con un 71.1% de los pacientes reclutados en el Reino Unido."
     },
     "datePublished": "2026-09-03",
-    "dateModified": "2026-11-04"
+    "dateModified": "2026-11-23"
   },
   "149": {
     "slug": "promise-reanimacion-temprana-dirigida-objetivos-shock-septico",
@@ -4826,7 +4826,7 @@
       230
     ],
     "seo_title": "ProMISe trial: ensayo de reanimación temprana dirigida por objetivos en el shock séptico | Resúmenes Trials",
-    "description": "ProMISe: La mortalidad a 90 días fue prácticamente idéntica entre los grupos, 29.5% con EGDT frente a 29.2% con tratamiento habitual (riesgo relativo, 1.01…",
+    "description": "ProMISe: La mortalidad a 90 días fue similar, sin diferencia significativa entre los grupos, 29.5% con EGDT frente a 29.2% con tratamiento habitual (riesgo…",
     "clusters": [
       {
         "name": "Sepsis y shock",
@@ -4841,11 +4841,11 @@
     ],
     "intent": {
       "question": "Determinar si la reanimación dirigida por objetivos hemodinámicos durante 6 horas (terapia temprana dirigida por objetivos, EGDT) reduce la mortalidad por cualquier causa a los 90 días en pacientes con choque séptico identificado tempranamente en el servicio de urgencias, en comparación con la reanimación habitual.",
-      "answer": "La mortalidad a 90 días fue prácticamente idéntica entre los grupos, 29.5% con EGDT frente a 29.2% con tratamiento habitual (riesgo relativo, 1.01; IC 95%, 0.85 a 1.20; p=0.90) , pese a que el grupo EGDT recibió más líquidos intravenosos, fármacos vasoactivos y transfusiones, sin beneficio en ningún desenlace secundario ni en el…",
+      "answer": "La mortalidad a 90 días fue similar, sin diferencia significativa entre los grupos, 29.5% con EGDT frente a 29.2% con tratamiento habitual (riesgo relativo, 1.01; IC 95%, 0.85 a 1.20; p=0.90) , pese a que el grupo EGDT recibió más líquidos intravenosos, fármacos vasoactivos y transfusiones, sin beneficio en ningún desenlace…",
       "population": "La población fueron adultos de 18 años o más que, dentro de las 6 horas posteriores a su presentación en el servicio de urgencias, tenían una infección conocida o presunta, dos o más criterios del síndrome de respuesta inflamatoria sistémica, y además hipotensión refractaria, presión arterial sistólica menor de 90 mmHg o presión arterial media menor de 65 mmHg pese a al menos 1 litro de líquidos intravenosos en 60 minutos, o…"
     },
     "datePublished": "2026-09-03",
-    "dateModified": "2026-11-04"
+    "dateModified": "2026-11-23"
   },
   "150": {
     "slug": "device-videolaringoscopia-laringoscopia-directa-intubacion-traqueal-adultos-criticos",
@@ -4854,8 +4854,8 @@
     "title": "DEVICE: videolaringoscopia frente a laringoscopia directa para la intubación traqueal de adultos en estado crítico",
     "relacionados": [
       139,
-      3,
-      180
+      180,
+      3
     ],
     "seo_title": "DEVICE trial: videolaringoscopia frente a laringoscopia directa para la intubación traqueal de adultos en estado crítico | Resúmenes Trials",
     "description": "DEVICE: El videolaringoscopio aumentó la intubación exitosa al primer intento, 85.1% frente a 70.8% con el laringoscopio directo (diferencia absoluta, 14.3…",
@@ -4873,11 +4873,11 @@
     ],
     "intent": {
       "question": "Determinar si el uso de un videolaringoscopio, en comparación con un laringoscopio directo, aumenta la probabilidad de lograr la intubación traqueal exitosa al primer intento en adultos críticamente enfermos atendidos en el servicio de urgencias o la unidad de cuidados intensivos.",
-      "answer": "El videolaringoscopio aumentó la intubación exitosa al primer intento, 85.1% frente a 70.8% con el laringoscopio directo (diferencia absoluta, 14.3 puntos porcentuales; IC 95%, 9.9 a 18.7; p<0.001) , sin diferencias en la incidencia de complicaciones graves durante el procedimiento, por lo que el ensayo se detuvo de forma…",
+      "answer": "El videolaringoscopio aumentó la intubación exitosa al primer intento, 85.1% frente a 70.8% con el laringoscopio directo (diferencia absoluta, 14.3 puntos porcentuales; IC 95%, 9.9 a 18.7; p<0.001) , sin diferencias en la incidencia de complicaciones graves durante el procedimiento; el ensayo se detuvo de forma anticipada porque…",
       "population": "La población fueron adultos críticamente enfermos, de 18 años o más, que requerían intubación orotraqueal con laringoscopio en un servicio de urgencias o una unidad de cuidados intensivos; la raza o el grupo étnico se reportó, con alrededor de 50% de pacientes blancos no hispanos y 23.5% negros no hispanos, de forma similar en ambos grupos. El estudio se realizó en 17 sitios, 7 servicios de urgencias y 10 unidades de cuidados…"
     },
     "datePublished": "2026-09-03",
-    "dateModified": "2026-11-04"
+    "dateModified": "2026-11-23"
   },
   "151": {
     "slug": "surpass-cvot-tirzepatida-dulaglutida-desenlaces-cardiovasculares-diabetes-tipo-2",
@@ -6842,8 +6842,8 @@
     "url": "https://resumenestrials.com/trials/prevent-clot-aspirina-heparina-peso-molecular-tromboprofilaxis-despues-fractura/",
     "title": "PREVENT CLOT: aspirina o heparina de bajo peso molecular para la tromboprofilaxis después de una fractura",
     "relacionados": [
-      196,
       351,
+      196,
       27
     ],
     "seo_title": "PREVENT CLOT trial: aspirina o heparina de bajo peso molecular para la tromboprofilaxis después de una fractura | Resúmenes Trials",
@@ -7144,7 +7144,7 @@
     "relacionados": [
       145,
       219,
-      351
+      64
     ],
     "seo_title": "HERO-19 trial: anticoagulación profiláctica frente a terapéutica en pacientes hospitalizados con COVID-19 | Resúmenes Trials",
     "description": "HERO-19: El desenlace primario ocurrió en el 21% con anticoagulación terapéutica frente al 29% con profiláctica , con un cociente de riesgos de 0.74 (IC 95%…",
@@ -7459,7 +7459,7 @@
     "relacionados": [
       228,
       226,
-      193
+      204
     ],
     "seo_title": "ATN trial: intensidad del soporte renal en pacientes en estado crítico con lesión renal aguda | Resúmenes Trials",
     "description": "ATN: La mortalidad a 60 días fue del 53.6% con la estrategia intensiva frente al 51.5% con la menos intensiva , sin diferencia significativa (razón de momios…",
@@ -10975,7 +10975,8 @@
       "answer": "La ablación con campo pulsado fue no inferior a la crioablación con balón: la recurrencia de taquiarritmia auricular entre los días 91 y 365 fue del 37.1% con campo pulsado frente al 50.7% con crioablación (diferencia -13.6 puntos porcentuales; IC 95% -26.9 a -0.3; P<0.001 para no inferioridad; P=0.046 para superioridad) , con…",
       "population": "Adultos con fibrilación auricular paroxística sintomática, la que revierte en 7 días o menos, documentada durante al menos 30 segundos en los 24 meses previos y candidatos a su primer aislamiento de venas pulmonares, en dos hospitales terciarios de Suiza. Raza o etnia: No reportado."
     },
-    "datePublished": "2026-11-19"
+    "datePublished": "2026-11-19",
+    "dateModified": "2026-11-23"
   },
   "349": {
     "slug": "bhf-protect-tavi-proteccion-embolica-cerebral-rutinaria-implante-transcateter-valvula-aortica",
