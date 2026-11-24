@@ -38,6 +38,7 @@ Material educativo para profesionales de la salud. La referencia final es siempr
 
 ## Resúmenes de ensayos
 
+- [DISTAL: tratamiento endovascular del ictus debido a la oclusión de vasos medianos o distales](https://resumenestrials.com/trials/distal-tratamiento-endovascular-ictus-debido-oclusion-vasos-medianos-distales/): NEJM, 2025.
 - [REGENCY: eficacia y seguridad de obinutuzumab en la nefritis lúpica activa](https://resumenestrials.com/trials/regency-eficacia-seguridad-obinutuzumab-nefritis-lupica-activa/): NEJM, 2025.
 - [CLEAR: colchicina en el infarto agudo de miocardio](https://resumenestrials.com/trials/clear-colchicina-infarto-agudo-miocardio/): NEJM, 2024.
 - [WAYPOINT: tezepelumab en adultos con rinosinusitis crónica grave con pólipos nasales](https://resumenestrials.com/trials/waypoint-tezepelumab-adultos-rinosinusitis-cronica-grave-polipos-nasales/): NEJM, 2025.
