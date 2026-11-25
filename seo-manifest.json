@@ -270,7 +270,7 @@
     "relacionados": [
       20,
       181,
-      195
+      333
     ],
     "seo_title": "CLEANSE trial: hemoadsorción con HA-330 en el shock séptico que requiere dosis altas de noradrenalina: ensayo multicéntrico aleatorizado y controlado | Resúmenes Trials",
     "description": "CLEANSE: La mortalidad a 28 días fue del 44% con hemoadsorción frente al 58% con tratamiento estándar , sin diferencia significativa (riesgo relativo [RR]…",
@@ -5244,8 +5244,7 @@
     "url": "https://resumenestrials.com/trials/epcat-iii-acido-acetilsalicilico-solo-rivaroxaban-seguido-acido-acetilsalicilico-tras/",
     "title": "EPCAT III: rivaroxabán seguido de ácido acetilsalicílico frente a ácido acetilsalicílico solo tras artroplastia total de cadera o de rodilla",
     "relacionados": [
-      308,
-      261
+      308
     ],
     "seo_title": "EPCAT III trial: rivaroxabán seguido de ácido acetilsalicílico frente a ácido acetilsalicílico solo tras artroplastia total de cadera o de rodilla | Resúmenes Trials",
     "description": "EPCAT III: No inferioridad del ácido acetilsalicílico solo ( 0.48% vs 0.45% ; diferencia 0.02 pp; p<0.001 para no inferioridad), sin diferencia relevante en…",
@@ -6618,7 +6617,9 @@
     "path": "/trials/pelican-terapia-hemodinamica-individualizada-guiada-indice-cardiaco-pacientes-alto-riesgo/",
     "url": "https://resumenestrials.com/trials/pelican-terapia-hemodinamica-individualizada-guiada-indice-cardiaco-pacientes-alto-riesgo/",
     "title": "PELICAN: terapia hemodinámica individualizada guiada por el índice cardiaco en pacientes de alto riesgo sometidos a cirugía abdominal mayor electiva",
-    "relacionados": [],
+    "relacionados": [
+      179
+    ],
     "seo_title": "PELICAN trial: terapia hemodinámica individualizada guiada por el índice cardiaco en pacientes de alto riesgo sometidos a cirugía abdominal mayor electiva | Resúmenes Trials",
     "description": "PELICAN: El compuesto de complicaciones a 7 días ocurrió en el 44.3% con la terapia individualizada frente al 46.9% con la habitual (riesgo relativo 0.94; IC…",
     "clusters": [
@@ -7119,7 +7120,7 @@
     "relacionados": [
       227,
       221,
-      193
+      21
     ],
     "seo_title": "Cathedia trial: cateterización venosa femoral frente a yugular y riesgo de eventos nosocomiales en adultos que requieren terapia de reemplazo renal aguda | Resúmenes Trials",
     "description": "Cathedia: La colonización del catéter fue de 40.8 frente a 35.7 por 1000 días-catéter con femoral y yugular (HR 0.85; IC 95%, 0.62 a 1.16; p = 0.31) , sin…",
@@ -8348,8 +8349,7 @@
     "url": "https://resumenestrials.com/trials/prohip-reemplazo-total-cadera-entrenamiento-resistencia-artrosis-grave-cadera/",
     "title": "PROHIP: reemplazo total de cadera o entrenamiento de resistencia en la artrosis grave de cadera",
     "relacionados": [
-      308,
-      163
+      308
     ],
     "seo_title": "PROHIP trial: reemplazo total de cadera o entrenamiento de resistencia en la artrosis grave de cadera | Resúmenes Trials",
     "description": "PROHIP: A los 6 meses, el Oxford Hip Score mejoró en promedio 15.9 puntos con el reemplazo frente a 4.5 con el entrenamiento (diferencia media 11.4 puntos…",
@@ -11457,6 +11457,29 @@
       "question": "Determinar si una dosis de 1 g de ceftriaxona intramuscular administrada por paramédicos en la ambulancia reduce la mortalidad hospitalaria hasta el día 90 frente a placebo y la atención habitual en urgencias, en adultos con sospecha de sepsis, fiebre e hipotensión.",
       "answer": "La mortalidad hospitalaria hasta el día 90 fue del 18.0% con ceftriaxona frente al 18.4% con placebo (182 de 1009 frente a 186 de 1011; riesgo relativo 0.97; IC 95%, 0.81 a 1.17; p=0.77), sin diferencia significativa.",
       "population": "La población fueron adultos atendidos por paramédicos con sospecha de sepsis, definida por tres criterios simultáneos: infección sospechada, fiebre de al menos 38.0 °C medida o registrada en las 24 horas previas, y presión arterial sistólica menor de 100 mm Hg. Procedían de cuatro servicios paramédicos del sur de Ontario, Canadá (Halton, Peel, Toronto y York), que atienden a unos 6 millones de habitantes; la raza y el origen…"
+    },
+    "datePublished": "2026-11-25"
+  },
+  "364": {
+    "slug": "prevencion-de-fracturas-con-administracion-poco-frecuente-de-acido-zoledronico-en",
+    "path": "/trials/prevencion-de-fracturas-con-administracion-poco-frecuente-de-acido-zoledronico-en/",
+    "url": "https://resumenestrials.com/trials/prevencion-de-fracturas-con-administracion-poco-frecuente-de-acido-zoledronico-en/",
+    "title": "Prevención de fracturas con administración poco frecuente de ácido zoledrónico en mujeres de 50 a 60 años de edad",
+    "relacionados": [
+      219
+    ],
+    "seo_title": "Prevención de fracturas con administración poco frecuente de ácido zoledrónico en mujeres de 50 a 60 años de edad | Resúmenes Trials",
+    "description": "Prevención de fracturas con administración poco frecuente de ácido zoledrónico en mujeres de 50 a 60 años de edad: A 10 años, la fractura vertebral…",
+    "clusters": [],
+    "images": [
+      "https://resumenestrials.com/images/trials/prevencion-de-fracturas-con-administracion-poco-frecuente-de-acido-zoledronico-en-16x9.jpg",
+      "https://resumenestrials.com/images/trials/prevencion-de-fracturas-con-administracion-poco-frecuente-de-acido-zoledronico-en-4x3.jpg",
+      "https://resumenestrials.com/images/trials/prevencion-de-fracturas-con-administracion-poco-frecuente-de-acido-zoledronico-en-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si el ácido zoledrónico 5 mg intravenoso, administrado al inicio y a los 5 años o solo al inicio, reduce frente a placebo la fractura vertebral morfométrica a 10 años en mujeres posmenopáusicas de 50 a 60 años sin osteoporosis.",
+      "answer": "A 10 años, la fractura vertebral morfométrica nueva ocurrió en el 6.3% del grupo de dos dosis de ácido zoledrónico frente al 11.1% del grupo placebo (riesgo relativo [RR] 0.56; IC 95% 0.34-0.92; P=0.04, ajustado por Bonferroni).",
+      "population": "La población fueron mujeres posmenopáusicas de 50 a 60 años, elegidas al azar del padrón electoral de Auckland e invitadas por carta, con una puntuación T de densidad mineral ósea menor de 0 y mayor de −2.5 en la columna lumbar, el cuello femoral o la cadera total. Según el artículo, una puntuación T de −1 o más suele indicar densidad normal. El 85% se identificó como neozelandesa de origen europeo, el 8% como asiática y el 3%…"
     },
     "datePublished": "2026-11-25"
   }
