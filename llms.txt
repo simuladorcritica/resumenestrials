@@ -39,6 +39,7 @@ Material educativo para profesionales de la salud. La referencia final es siempr
 
 ## Resúmenes de ensayos
 
+- [PITSTOP-Antibiotics: antibióticos prehospitalarios en pacientes con sospecha de sepsis](https://resumenestrials.com/trials/pitstop-antibiotics-antibioticos-prehospitalarios-pacientes-sospecha-sepsis/): JAMA, 2026.
 - [AZALEA–TIMI 71: abelacimab frente a rivaroxabán en pacientes con fibrilación auricular](https://resumenestrials.com/trials/azalea-timi-71-abelacimab-rivaroxaban-pacientes-fibrilacion-auricular/): NEJM, 2025.
 - [endTB: pautas orales para la tuberculosis resistente a rifampicina y sensible a fluoroquinolonas](https://resumenestrials.com/trials/endtb-pautas-orales-tuberculosis-resistente-rifampicina-sensible-fluoroquinolonas/): NEJM, 2025.
 - [ESCAPE-MeVO: tratamiento endovascular del ictus debido a oclusión de un vaso mediano](https://resumenestrials.com/trials/escape-mevo-tratamiento-endovascular-ictus-debido-oclusion-vaso-mediano/): NEJM, 2025.

@@ -915,6 +915,37 @@
           "frase": "AZALEA–TIMI 71: abelacimab frente a rivaroxabán en pacientes con fibrilación auricular"
         }
       }
+    },
+    {
+      "id": 363,
+      "fecha": "2026-11-25",
+      "huella": "f624c4f09166a1d9",
+      "preguntas": {
+        "corticoides-choque-septico": {
+          "rol": "nada",
+          "frase": "Determinar si una dosis de 1 g de ceftriaxona intramuscular administrada por paramédicos en la ambulancia reduce la"
+        },
+        "cristaloides-balanceados-solucion-salina-adultos-estado-critico": {
+          "rol": "nada",
+          "frase": "Determinar si una dosis de 1 g de ceftriaxona intramuscular administrada por paramédicos en la ambulancia reduce la"
+        },
+        "cuando-iniciar-terapia-reemplazo-renal-lesion-renal-aguda": {
+          "rol": "nada",
+          "frase": "Determinar si una dosis de 1 g de ceftriaxona intramuscular administrada por paramédicos en la ambulancia reduce la"
+        },
+        "meta-oxigenacion-paciente-critico": {
+          "rol": "nada",
+          "frase": "Determinar si una dosis de 1 g de ceftriaxona intramuscular administrada por paramédicos en la ambulancia reduce la"
+        },
+        "restriccion-liquidos-choque-septico-hipotension-sepsis": {
+          "rol": "nada",
+          "frase": "Determinar si una dosis de 1 g de ceftriaxona intramuscular administrada por paramédicos en la ambulancia reduce la"
+        },
+        "trombectomia-ventana-tardia-ictus-isquemico-oclusion-gran-vaso": {
+          "rol": "nada",
+          "frase": "Determinar si una dosis de 1 g de ceftriaxona intramuscular administrada por paramédicos en la ambulancia reduce la"
+        }
+      }
     }
   ],
   "preguntas": [

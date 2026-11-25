@@ -4,7 +4,7 @@
     "category": "Medicina Crítica",
     "path": "/medicina-critica/sepsis-shock/",
     "url": "https://resumenestrials.com/medicina-critica/sepsis-shock/",
-    "count": 26,
+    "count": 27,
     "trial_ids": [
       "2",
       "9",
@@ -31,7 +31,8 @@
       "255",
       "256",
       "257",
-      "333"
+      "333",
+      "363"
     ]
   },
   "ventilacion-respiratoria": {
@@ -248,7 +249,7 @@
     "category": "Medicina Crítica",
     "path": "/medicina-critica/infecciones-antibioticos/",
     "url": "https://resumenestrials.com/medicina-critica/infecciones-antibioticos/",
-    "count": 13,
+    "count": 14,
     "trial_ids": [
       "7",
       "31",
@@ -262,7 +263,8 @@
       "229",
       "255",
       "256",
-      "333"
+      "333",
+      "363"
     ]
   },
   "cardiovascular": {
