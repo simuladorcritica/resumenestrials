@@ -728,8 +728,13 @@
       83
     ],
     "seo_title": "VITaCCA trial: vitamina C temprana a dosis altas en el paro cardiaco extrahospitalario | Resúmenes Trials",
-    "description": "VITaCCA: La vitamina C no redujo la disfunción orgánica a las 96 horas y la dosis de 10 g la empeoró: el cambio en la puntuación R-SOFA fue de -3.2 con…",
+    "description": "VITaCCA: Sin diferencia significativa en la disfunción orgánica a las 96 horas (p global=0.04, por encima del alfa bilateral de 0.01 fijado en el protocolo)…",
     "clusters": [
+      {
+        "name": "Neurocríticos",
+        "path": "/medicina-critica/neurocriticos/",
+        "url": "https://resumenestrials.com/medicina-critica/neurocriticos/"
+      },
       {
         "name": "Paro cardiaco y resucitación",
         "path": "/medicina-critica/paro-resucitacion/",
@@ -743,11 +748,11 @@
     ],
     "intent": {
       "question": "Evaluar si la administración intravenosa temprana de vitamina C, a dosis suplementaria (3 g) o suprafisiológica (10 g) diaria durante 96 horas, atenúa la disfunción orgánica tras el paro cardiaco extrahospitalario con ritmo desfibrilable.",
-      "answer": "La vitamina C no redujo la disfunción orgánica a las 96 horas y la dosis de 10 g la empeoró: el cambio en la puntuación R-SOFA fue de -3.2 con placebo frente a -0.8 con 10 g (2.5 puntos menos de mejoría; IC 95%, 0.5 a 4.5; p=0.01).",
-      "population": "La población fueron adultos en coma tras un paro cardiaco extrahospitalario con ritmo inicial desfibrilable y una puntuación en la escala de coma de Glasgow igual o menor de 8, reclutados en dos centros académicos y cuatro hospitales generales de los Países Bajos; no se reportó la raza ni la etnia. La primera dosis debía administrarse en menos de 5 horas desde la recuperación de la circulación espontánea."
+      "answer": "Sin diferencia significativa en la disfunción orgánica a las 96 horas (p global=0.04, por encima del alfa bilateral de 0.01 fijado en el protocolo): el cambio medio en la puntuación R-SOFA (evaluación secuencial de fallo orgánico en la reanimación) fue de -3.2 con placebo frente a -0.8 con 10 g (2.5 puntos menos de mejoría; IC…",
+      "population": "La población fueron adultos en coma tras un paro cardiaco extrahospitalario con ritmo inicial desfibrilable y una puntuación en la escala de coma de Glasgow igual o menor de 8, reclutados en dos centros académicos y cuatro hospitales generales de los Países Bajos; no se reportó la raza ni la etnia. Se excluyó a quienes tenían insuficiencia renal terminal, déficit conocido de glucosa-6-fosfato deshidrogenasa, urolitiasis…"
     },
     "datePublished": "2026-08-17",
-    "dateModified": "2026-10-20"
+    "dateModified": "2026-11-24"
   },
   "24": {
     "slug": "reboarrest-oclusion-aortica-balon-reboa-prehospitalaria-paro-cardiaco-extrahospitalario-no",
@@ -4025,7 +4030,7 @@
     "relacionados": [
       123,
       120,
-      154
+      352
     ],
     "seo_title": "PARTNER 3 trial: reemplazo percutáneo de válvula aórtica con válvula expandible con balón en pacientes de bajo riesgo | Resúmenes Trials",
     "description": "PARTNER 3: El compuesto de muerte, ictus o rehospitalización a 1 año fue menor con TAVI ( 8.5% frente a 15.1%; HR 0.54; IC 95%, 0.37 a 0.79; p=0.001 para…",
@@ -4669,8 +4674,8 @@
     "title": "HYPERION: manejo específico de la temperatura en el paro cardiaco con ritmo no desfibrilable",
     "relacionados": [
       83,
-      90,
-      134
+      134,
+      90
     ],
     "seo_title": "HYPERION trial: manejo específico de la temperatura en el paro cardiaco con ritmo no desfibrilable | Resúmenes Trials",
     "description": "HYPERION: La supervivencia con resultado neurológico favorable a 90 días fue 10.2% con hipotermia frente a 5.7% con normotermia (diferencia, 4.5 puntos…",
@@ -4888,7 +4893,7 @@
     "relacionados": [
       125,
       61,
-      76
+      95
     ],
     "seo_title": "SURPASS-CVOT trial: desenlaces cardiovasculares con tirzepatida frente a dulaglutida en la diabetes tipo 2 | Resúmenes Trials",
     "description": "SURPASS-CVOT: El desenlace primario, el compuesto de muerte cardiovascular, infarto de miocardio o accidente cerebrovascular, ocurrió en el 12.2% de los…",
@@ -4902,6 +4907,11 @@
         "name": "Renal y metabolismo",
         "path": "/medicina-interna/renal-metabolica/",
         "url": "https://resumenestrials.com/medicina-interna/renal-metabolica/"
+      },
+      {
+        "name": "Neurología",
+        "path": "/medicina-interna/neurologia/",
+        "url": "https://resumenestrials.com/medicina-interna/neurologia/"
       }
     ],
     "images": [
@@ -4910,12 +4920,12 @@
       "https://resumenestrials.com/images/trials/surpass-cvot-tirzepatida-dulaglutida-desenlaces-cardiovasculares-diabetes-tipo-2-1x1.jpg"
     ],
     "intent": {
-      "question": "Determinar si tirzepatida es no inferior a dulaglutida respecto al riesgo de muerte cardiovascular, infarto de miocardio o accidente cerebrovascular en pacientes con diabetes tipo 2 y enfermedad cardiovascular aterosclerótica establecida, y explorar si ofrece además un beneficio cardiovascular superior.",
+      "question": "Determinar si tirzepatida es no inferior a dulaglutida respecto al riesgo de muerte cardiovascular, infarto de miocardio o accidente cerebrovascular en pacientes con diabetes tipo 2 y enfermedad cardiovascular aterosclerótica establecida, y, si se cumplía la no inferioridad, probar en un segundo paso preespecificado si era superior.",
       "answer": "El desenlace primario, el compuesto de muerte cardiovascular, infarto de miocardio o accidente cerebrovascular, ocurrió en el 12.2% de los pacientes con tirzepatida frente al 13.1% con dulaglutida (HR 0.92; IC 95.3%, 0.83 a 1.01; P=0.003 para no inferioridad; P=0.09 para superioridad) .",
-      "population": "La población del estudio fueron hombres y mujeres de al menos 40 años, con diabetes tipo 2 y enfermedad cardiovascular aterosclerótica ya establecida (coronaria, cerebrovascular o arterial periférica, confirmada con criterios objetivos como estenosis significativa, antecedente de infarto o ictus, o revascularización previa), reclutados en 30 países de América, Europa y la región Asia-Pacífico; el 81.5% se identificó como de…"
+      "population": "La población del estudio fueron hombres y mujeres de al menos 40 años, con diabetes tipo 2 y enfermedad cardiovascular aterosclerótica ya establecida (coronaria, cerebrovascular o arterial periférica, confirmada con criterios objetivos como estenosis significativa, antecedente de infarto o ictus, o revascularización previa), reclutados en 30 países de América, Europa y la región Asia-Pacífico; el 81.5% de los pacientes con…"
     },
     "datePublished": "2026-09-14",
-    "dateModified": "2026-11-04"
+    "dateModified": "2026-11-24"
   },
   "152": {
     "slug": "tencraos-tenecteplasa-oclusion-aguda-arteria-central-retina",
@@ -4942,10 +4952,10 @@
     "intent": {
       "question": "Determinar si la tenecteplasa intravenosa administrada dentro de las 4.5 horas tras el inicio de los síntomas logra mayor recuperación visual que la aspirina oral en pacientes con oclusión aguda no arterítica de la arteria central de la retina.",
       "answer": "A los 30 días, la recuperación visual ocurrió en el 20% frente al 24% de los pacientes con tenecteplasa y aspirina, respectivamente (diferencia de riesgo, -3.7 puntos porcentuales; IC 95% -22.0 a 14.7; P=0.69).",
-      "population": "La población fue de adultos de al menos 18 años, con oclusión aguda no arterítica de la arteria central de la retina diagnosticada por un oftalmólogo, con una agudeza visual corregida de 1.0 logMAR o peor en el ojo afectado (equivalente a una visión decimal de 0.1 o menor, o una fracción de 20/200 o peor) y con posibilidad de recibir tratamiento dentro de las 4.5 horas desde el inicio de los síntomas. Los participantes…"
+      "population": "La población fue de adultos de al menos 18 años, con oclusión aguda no arterítica de la arteria central de la retina diagnosticada por un oftalmólogo, con una agudeza visual corregida de 1.0 logMAR (logaritmo del mínimo ángulo de resolución; valores más altos indican peor visión) o peor en el ojo afectado (equivalente a una visión decimal de 0.1 o menor, o una fracción de 20/200 o peor) y con posibilidad de recibir tratamiento…"
     },
     "datePublished": "2026-09-14",
-    "dateModified": "2026-11-04"
+    "dateModified": "2026-11-24"
   },
   "153": {
     "slug": "coralreef-lipids-enlicitide-oral-placebo-reducir-colesterol-ldl",
@@ -4953,9 +4963,9 @@
     "url": "https://resumenestrials.com/trials/coralreef-lipids-enlicitide-oral-placebo-reducir-colesterol-ldl/",
     "title": "CORALreef Lipids: ensayo controlado con placebo del inhibidor oral de PCSK9 enlicitide",
     "relacionados": [
+      30,
       102,
-      116,
-      30
+      116
     ],
     "seo_title": "CORALreef Lipids trial: ensayo controlado con placebo del inhibidor oral de PCSK9 enlicitide | Resúmenes Trials",
     "description": "CORALreef Lipids: El colesterol LDL cambió −57.1% con enlicitide frente a 3.0% con placebo (diferencia ajustada entre grupos, −55.8 puntos porcentuales; IC…",
@@ -4974,10 +4984,10 @@
     "intent": {
       "question": "Determinar si enlicitide, un inhibidor oral de PCSK9, reduce más el colesterol LDL que el placebo a las 24 semanas en adultos con enfermedad cardiovascular aterosclerótica previa o en riesgo de un primer evento.",
       "answer": "El colesterol LDL cambió −57.1% con enlicitide frente a 3.0% con placebo (diferencia ajustada entre grupos, −55.8 puntos porcentuales; IC 95%, −60.9 a −50.7; P<0.001) a las 24 semanas.",
-      "population": "El estudio incluyó adultos de 18 años o más con antecedente de un evento cardiovascular aterosclerótico mayor (síndrome coronario agudo, infarto, revascularización coronaria, ictus isquémico, revascularización cerebrovascular o enfermedad arterial periférica con isquemia aguda de un miembro) y un colesterol LDL de 55 mg por decilitro o más, o bien personas sin ese antecedente pero con riesgo intermedio a alto de sufrir un…"
+      "population": "El estudio incluyó adultos de 18 años o más con antecedente de un evento cardiovascular aterosclerótico mayor (síndrome coronario agudo, infarto, revascularización coronaria, ictus isquémico, revascularización cerebrovascular o enfermedad arterial periférica con antecedente de isquemia aguda de un miembro, revascularización o amputación mayor) y un colesterol LDL de 55 mg por decilitro o más, o bien personas sin ese…"
     },
     "datePublished": "2026-09-14",
-    "dateModified": "2026-11-04"
+    "dateModified": "2026-11-24"
   },
   "154": {
     "slug": "recovery-cirugia-temprana-tratamiento-conservador-estenosis-aortica-asintomatica-10-anos",
@@ -4987,7 +4997,7 @@
     "relacionados": [
       124,
       120,
-      306
+      123
     ],
     "seo_title": "RECOVERY trial: cirugía temprana o tratamiento conservador en la estenosis aórtica asintomática a 10 años | Resúmenes Trials",
     "description": "RECOVERY: El desenlace primario (mortalidad operatoria o muerte cardiovascular) ocurrió en el 3% del grupo de cirugía temprana frente al 24% del grupo…",
@@ -4999,11 +5009,11 @@
     ],
     "intent": {
       "question": "Determinar si el reemplazo valvular aórtico quirúrgico temprano reduce, frente al tratamiento conservador, el riesgo de mortalidad operatoria o muerte cardiovascular a 10 años en pacientes asintomáticos con estenosis aórtica muy severa.",
-      "answer": "El desenlace primario (mortalidad operatoria o muerte cardiovascular) ocurrió en el 3% del grupo de cirugía temprana frente al 24% del grupo conservador a 10 años (HR 0.10; IC95% 0.02-0.43; P=0.002).",
+      "answer": "El desenlace primario (mortalidad operatoria o muerte cardiovascular) ocurrió en el 3% del grupo de cirugía temprana frente al 24% del grupo conservador durante todo el seguimiento, de al menos 10 años (mediana de 12 años; hazard ratio [HR] 0.10; IC95% 0.02-0.43; P=0.002).",
       "population": "Se incluyeron pacientes adultos de entre 20 y 80 años, completamente asintomáticos, con estenosis aórtica muy severa, todos de origen coreano (asiático), reclutados en cuatro centros de Corea del Sur."
     },
     "datePublished": "2026-09-14",
-    "dateModified": "2026-11-04"
+    "dateModified": "2026-11-24"
   },
   "155": {
     "slug": "betabloqueadores-despues-de-un-infarto-de-miocardio-con-fraccion-de-eyeccion-normal",
@@ -5031,11 +5041,11 @@
     ],
     "intent": {
       "question": "Determinar si el tratamiento con un betabloqueador reduce la muerte por cualquier causa, el infarto de miocardio o la insuficiencia cardiaca en pacientes con un infarto reciente y una fracción de eyección ventricular izquierda conservada, de al menos 50%, sin otra indicación para el fármaco.",
-      "answer": "El desenlace primario compuesto ocurrió en el 8.1% frente al 8.3% de los pacientes (hazard ratio, 0.97; IC 95%, 0.87 a 1.07; P=0.54), sin diferencia entre grupos.",
+      "answer": "El desenlace primario compuesto ocurrió en el 8.1% frente al 8.3% de los pacientes con betabloqueador y sin él, respectivamente (hazard ratio, 0.97; IC 95%, 0.87 a 1.07; P=0.54).",
       "population": "La población fueron adultos con un infarto de miocardio reciente, dentro de los 14 días previos a la aleatorización aunque el límite varió entre 7 y 14 días según el ensayo, y una fracción de eyección ventricular izquierda conservada, de al menos 50%, sin ninguna otra indicación para recibir un betabloqueador. Los pacientes procedían de España, Suecia, Noruega, Dinamarca, Italia, Japón, Estonia y Nueva Zelanda; no se recogió…"
     },
     "datePublished": "2026-09-14",
-    "dateModified": "2026-11-04"
+    "dateModified": "2026-11-24"
   },
   "156": {
     "slug": "core-timi-72a-y-core2-timi-olezarsen-hipertrigliceridemia-grave-riesgo-pancreatitis",
@@ -5056,11 +5066,11 @@
     ],
     "intent": {
       "question": "Evaluar si el olezarsén, en dosis de 50 mg u 80 mg mensuales, reduce más que el placebo los triglicéridos a los 6 meses y la incidencia de pancreatitis aguda en personas con hipertrigliceridemia grave.",
-      "answer": "El olezarsén redujo los triglicéridos a los 6 meses 72.2 puntos porcentuales más que el placebo (IC 95%, -81.4 a -63.1; P<0.001) en el ensayo CORE-TIMI 72a, con un efecto similar y también significativo en el segundo ensayo y con la dosis de 50 mg, y además disminuyó la incidencia de pancreatitis aguda de 6.23 a 1.01 episodios…",
+      "answer": "El olezarsén redujo los triglicéridos a los 6 meses 72.2 puntos porcentuales más que el placebo (IC 95%, -81.4 a -63.1; P<0.001) con la dosis de 80 mg en el ensayo CORE-TIMI 72a, y también de forma significativa con 50 mg en ese ensayo (-62.9 puntos porcentuales) y con 50 mg y 80 mg en CORE2-TIMI 72b (-49.2 y -54.5 puntos…",
       "population": "Población: adultos de al menos 18 años con hipertrigliceridemia grave, definida como un triglicérido en ayunas de 500 mg/dl (5.65 mmol/l) o más, confirmado en dos visitas mientras recibían tratamiento hipolipemiante estable según el estándar local de atención. Fueron mayoritariamente de raza blanca (88.4%), con un 5.4% de raza asiática y un 2.1% de raza negra, y un 12.3% se identificó como hispano o latino, datos…"
     },
     "datePublished": "2026-09-14",
-    "dateModified": "2026-11-04"
+    "dateModified": "2026-11-24"
   },
   "157": {
     "slug": "fine-one-finerenona-diabetes-tipo-1-enfermedad-renal-cronica",
@@ -8686,7 +8696,7 @@
     "relacionados": [
       276,
       107,
-      94
+      316
     ],
     "seo_title": "TACSI trial: ticagrelor y aspirina o aspirina sola tras la cirugía coronaria por síndrome coronario agudo | Resúmenes Trials",
     "description": "TACSI: El compuesto de muerte, infarto, ictus o nueva revascularización ocurrió en el 4.8% con ticagrelor más aspirina frente al 4.6% con aspirina sola , sin…",
@@ -11115,8 +11125,8 @@
     "title": "SOUL: semaglutida oral y desenlaces cardiovasculares en la diabetes tipo 2 de alto riesgo",
     "relacionados": [
       125,
-      71,
-      270
+      270,
+      71
     ],
     "seo_title": "SOUL trial: semaglutida oral y desenlaces cardiovasculares en la diabetes tipo 2 de alto riesgo | Resúmenes Trials",
     "description": "SOUL: El MACE de tres puntos ocurrió en el 12.0% con semaglutida oral frente al 13.8% con placebo (HR 0.86; IC 95% 0.77-0.96; P=0.006) en una mediana de…",
@@ -11215,7 +11225,7 @@
       336
     ],
     "seo_title": "WAYPOINT trial: tezepelumab en adultos con rinosinusitis crónica grave con pólipos nasales | Resúmenes Trials",
-    "description": "WAYPOINT: A la semana 52, la puntuación total de pólipos cambió −2.46 con tezepelumab y −0.38 con placebo (diferencia de medias ajustadas −2.08 ; IC 95% −2.40…",
+    "description": "WAYPOINT: A la semana 52, el cambio medio ajustado de la puntuación total de pólipos fue de −2.46 con tezepelumab y −0.38 con placebo (diferencia de medias…",
     "clusters": [],
     "images": [
       "https://resumenestrials.com/images/trials/waypoint-tezepelumab-adultos-rinosinusitis-cronica-grave-polipos-nasales-16x9.jpg",
@@ -11224,10 +11234,11 @@
     ],
     "intent": {
       "question": "Evaluar si el tezepelumab a 210 mg subcutáneos cada 4 semanas, frente a placebo, reduce el tamaño de los pólipos y la congestión nasal a las 52 semanas en adultos con rinosinusitis crónica grave con pólipos nasales.",
-      "answer": "A la semana 52, la puntuación total de pólipos cambió −2.46 con tezepelumab y −0.38 con placebo (diferencia de medias ajustadas −2.08 ; IC 95% −2.40 a −1.76; P<0.001), y la congestión nasal, −1.74 y −0.70 (diferencia −1.04 ; IC 95% −1.21 a −0.87; P<0.001).",
+      "answer": "A la semana 52, el cambio medio ajustado de la puntuación total de pólipos fue de −2.46 con tezepelumab y −0.38 con placebo (diferencia de medias ajustadas −2.08 ; IC 95% −2.40 a −1.76; P<0.001), y el de la congestión nasal, de −1.74 y −0.70 (diferencia −1.04 ; IC 95% −1.21 a −0.87; P<0.001).",
       "population": "La población fueron adultos con rinosinusitis crónica con pólipos nasales diagnosticada al menos 12 meses antes y de gravedad compatible con la necesidad de cirugía: puntuación endoscópica total de pólipos de al menos 5 sobre 8, con al menos 2 por fosa. Se exigían síntomas durante más de 8 semanas, congestión nasal de al menos 2, un cuestionario de resultados sinonasales de 22 ítems (Sinonasal Outcome Test, SNOT-22) de al…"
     },
-    "datePublished": "2026-11-23"
+    "datePublished": "2026-11-23",
+    "dateModified": "2026-11-24"
   },
   "357": {
     "slug": "clear-colchicina-infarto-agudo-miocardio",
