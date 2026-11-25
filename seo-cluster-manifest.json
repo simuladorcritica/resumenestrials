@@ -274,7 +274,7 @@
     "category": "Medicina Interna",
     "path": "/medicina-interna/cardiovascular/",
     "url": "https://resumenestrials.com/medicina-interna/cardiovascular/",
-    "count": 87,
+    "count": 88,
     "trial_ids": [
       "15",
       "18",
@@ -362,7 +362,8 @@
       "352",
       "353",
       "357",
-      "362"
+      "362",
+      "367"
     ]
   },
   "infecciosas": {
