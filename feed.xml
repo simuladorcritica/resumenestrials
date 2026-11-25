@@ -4,8 +4,15 @@
   <id>https://resumenestrials.com/</id>
   <link href="https://resumenestrials.com/"/>
   <link rel="self" type="application/atom+xml" href="https://resumenestrials.com/feed.xml"/>
-  <updated>2026-11-24T00:00:00Z</updated>
+  <updated>2026-11-25T00:00:00Z</updated>
   <subtitle>Resúmenes críticos en español de ensayos clínicos.</subtitle>
+  <entry>
+    <title>PITSTOP-Antibiotics: antibióticos prehospitalarios en pacientes con sospecha de sepsis</title>
+    <id>https://resumenestrials.com/trials/pitstop-antibiotics-antibioticos-prehospitalarios-pacientes-sospecha-sepsis/</id>
+    <link href="https://resumenestrials.com/trials/pitstop-antibiotics-antibioticos-prehospitalarios-pacientes-sospecha-sepsis/"/>
+    <updated>2026-11-25T00:00:00Z</updated>
+    <summary>Determinar si una dosis de 1 g de ceftriaxona intramuscular administrada por paramédicos en la ambulancia reduce la mortalidad hospitalaria hasta el día 90 frente a placebo y la atención habitual en urgencias, en adultos con sospecha de sepsis, fiebre e hipotensión.</summary>
+  </entry>
   <entry>
     <title>VITaCCA: vitamina C temprana a dosis altas en el paro cardiaco extrahospitalario</title>
     <id>https://resumenestrials.com/trials/vitacca-vitamina-c-intravenosa-temprana-dosis-altas-tras-paro-cardiaco/</id>
@@ -348,12 +355,5 @@
     <link href="https://resumenestrials.com/trials/mint-ensayo-fase-3-inebilizumab-miastenia-gravis-generalizada/"/>
     <updated>2026-11-18T00:00:00Z</updated>
     <summary>Evaluar si el inebilizumab, frente a placebo, mejora el cambio en la escala de actividades de la vida diaria de la miastenia gravis (MG-ADL) a las 26 semanas en adultos con miastenia gravis generalizada con anticuerpos contra el receptor de acetilcolina o contra la cinasa específica del músculo.</summary>
-  </entry>
-  <entry>
-    <title>EXPECTS: alteplasa para el ictus isquémico de la circulación posterior entre las 4.5 y las 24 horas</title>
-    <id>https://resumenestrials.com/trials/expects-alteplasa-ictus-isquemico-circulacion-posterior-4-5-24-horas/</id>
-    <link href="https://resumenestrials.com/trials/expects-alteplasa-ictus-isquemico-circulacion-posterior-4-5-24-horas/"/>
-    <updated>2026-11-18T00:00:00Z</updated>
-    <summary>Determinar si la alteplasa intravenosa administrada entre las 4.5 y las 24 horas tras el inicio aumenta la independencia funcional a 90 días, frente al tratamiento médico estándar, en adultos con ictus isquémico de la circulación posterior sin hipodensidad extensa en la tomografía y sin trombectomía…</summary>
   </entry>
 </feed>

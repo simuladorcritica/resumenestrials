@@ -270,7 +270,7 @@
     "relacionados": [
       20,
       181,
-      333
+      195
     ],
     "seo_title": "CLEANSE trial: hemoadsorción con HA-330 en el shock séptico que requiere dosis altas de noradrenalina: ensayo multicéntrico aleatorizado y controlado | Resúmenes Trials",
     "description": "CLEANSE: La mortalidad a 28 días fue del 44% con hemoadsorción frente al 58% con tratamiento estándar , sin diferencia significativa (riesgo relativo [RR]…",
@@ -2782,7 +2782,7 @@
     "relacionados": [
       239,
       303,
-      333
+      363
     ],
     "seo_title": "INTERACT4 trial: reducción intensiva de la presión arterial en la ambulancia en el ictus hiperagudo | Resúmenes Trials",
     "description": "INTERACT4: Sin diferencia en el desenlace funcional a los 90 días entre la reducción intensiva de la presión arterial en la ambulancia y el manejo habitual…",
@@ -6853,8 +6853,8 @@
     "url": "https://resumenestrials.com/trials/prevent-clot-aspirina-heparina-peso-molecular-tromboprofilaxis-despues-fractura/",
     "title": "PREVENT CLOT: aspirina o heparina de bajo peso molecular para la tromboprofilaxis después de una fractura",
     "relacionados": [
-      196,
       351,
+      196,
       27
     ],
     "seo_title": "PREVENT CLOT trial: aspirina o heparina de bajo peso molecular para la tromboprofilaxis después de una fractura | Resúmenes Trials",
@@ -7119,7 +7119,7 @@
     "relacionados": [
       227,
       221,
-      21
+      193
     ],
     "seo_title": "Cathedia trial: cateterización venosa femoral frente a yugular y riesgo de eventos nosocomiales en adultos que requieren terapia de reemplazo renal aguda | Resúmenes Trials",
     "description": "Cathedia: La colonización del catéter fue de 40.8 frente a 35.7 por 1000 días-catéter con femoral y yugular (HR 0.85; IC 95%, 0.62 a 1.16; p = 0.31) , sin…",
@@ -10512,8 +10512,8 @@
     "title": "Un paquete de reanimación de 1 hora para el manejo prehospitalario del shock séptico",
     "relacionados": [
       230,
-      113,
-      85
+      363,
+      113
     ],
     "seo_title": "Un paquete de reanimación de 1 hora para el manejo prehospitalario del shock séptico | Resúmenes Trials",
     "description": "Un paquete de reanimación de 1 hora para el manejo prehospitalario del shock séptico: La mortalidad a 28 días fue del 22% con el paquete de una hora frente al…",
@@ -11423,5 +11423,41 @@
       "population": "Participaron adultos de 55 años o más con fibrilación o aleteo auricular, anticoagulación indefinida prevista y riesgo de ictus moderado a alto, casi todos blancos (94.0% a 95.3%, raza declarada por el paciente) y atendidos sobre todo en Europa y Norteamérica, con una minoría de Asia."
     },
     "datePublished": "2026-11-24"
+  },
+  "363": {
+    "slug": "pitstop-antibiotics-antibioticos-prehospitalarios-pacientes-sospecha-sepsis",
+    "path": "/trials/pitstop-antibiotics-antibioticos-prehospitalarios-pacientes-sospecha-sepsis/",
+    "url": "https://resumenestrials.com/trials/pitstop-antibiotics-antibioticos-prehospitalarios-pacientes-sospecha-sepsis/",
+    "title": "PITSTOP-Antibiotics: antibióticos prehospitalarios en pacientes con sospecha de sepsis",
+    "relacionados": [
+      333,
+      177,
+      85
+    ],
+    "seo_title": "PITSTOP-Antibiotics trial: antibióticos prehospitalarios en pacientes con sospecha de sepsis | Resúmenes Trials",
+    "description": "PITSTOP-Antibiotics: La mortalidad hospitalaria hasta el día 90 fue del 18.0% con ceftriaxona frente al 18.4% con placebo (182 de 1009 frente a 186 de 1011…",
+    "clusters": [
+      {
+        "name": "Sepsis y shock",
+        "path": "/medicina-critica/sepsis-shock/",
+        "url": "https://resumenestrials.com/medicina-critica/sepsis-shock/"
+      },
+      {
+        "name": "Infecciones y antibióticos",
+        "path": "/medicina-critica/infecciones-antibioticos/",
+        "url": "https://resumenestrials.com/medicina-critica/infecciones-antibioticos/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/pitstop-antibiotics-antibioticos-prehospitalarios-pacientes-sospecha-sepsis-16x9.jpg",
+      "https://resumenestrials.com/images/trials/pitstop-antibiotics-antibioticos-prehospitalarios-pacientes-sospecha-sepsis-4x3.jpg",
+      "https://resumenestrials.com/images/trials/pitstop-antibiotics-antibioticos-prehospitalarios-pacientes-sospecha-sepsis-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si una dosis de 1 g de ceftriaxona intramuscular administrada por paramédicos en la ambulancia reduce la mortalidad hospitalaria hasta el día 90 frente a placebo y la atención habitual en urgencias, en adultos con sospecha de sepsis, fiebre e hipotensión.",
+      "answer": "La mortalidad hospitalaria hasta el día 90 fue del 18.0% con ceftriaxona frente al 18.4% con placebo (182 de 1009 frente a 186 de 1011; riesgo relativo 0.97; IC 95%, 0.81 a 1.17; p=0.77), sin diferencia significativa.",
+      "population": "La población fueron adultos atendidos por paramédicos con sospecha de sepsis, definida por tres criterios simultáneos: infección sospechada, fiebre de al menos 38.0 °C medida o registrada en las 24 horas previas, y presión arterial sistólica menor de 100 mm Hg. Procedían de cuatro servicios paramédicos del sur de Ontario, Canadá (Halton, Peel, Toronto y York), que atienden a unos 6 millones de habitantes; la raza y el origen…"
+    },
+    "datePublished": "2026-11-25"
   }
 }
