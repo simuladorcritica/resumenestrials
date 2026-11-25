@@ -1039,6 +1039,37 @@
           "frase": "Determinar si 7 días de tratamiento antibiótico adecuado son no inferiores a 14 días en la mortalidad a 90 días de pacie"
         }
       }
+    },
+    {
+      "id": 367,
+      "fecha": "2026-11-25",
+      "huella": "a37d81330ad94151",
+      "preguntas": {
+        "corticoides-choque-septico": {
+          "rol": "nada",
+          "frase": "Determinar si, en pacientes con fibrilación auricular y riesgo de ictus elevado tratados con ablación con catéter, el ci"
+        },
+        "cristaloides-balanceados-solucion-salina-adultos-estado-critico": {
+          "rol": "nada",
+          "frase": "Determinar si, en pacientes con fibrilación auricular y riesgo de ictus elevado tratados con ablación con catéter, el ci"
+        },
+        "cuando-iniciar-terapia-reemplazo-renal-lesion-renal-aguda": {
+          "rol": "nada",
+          "frase": "Determinar si, en pacientes con fibrilación auricular y riesgo de ictus elevado tratados con ablación con catéter, el ci"
+        },
+        "meta-oxigenacion-paciente-critico": {
+          "rol": "nada",
+          "frase": "Determinar si, en pacientes con fibrilación auricular y riesgo de ictus elevado tratados con ablación con catéter, el ci"
+        },
+        "restriccion-liquidos-choque-septico-hipotension-sepsis": {
+          "rol": "nada",
+          "frase": "Determinar si, en pacientes con fibrilación auricular y riesgo de ictus elevado tratados con ablación con catéter, el ci"
+        },
+        "trombectomia-ventana-tardia-ictus-isquemico-oclusion-gran-vaso": {
+          "rol": "nada",
+          "frase": "Determinar si, en pacientes con fibrilación auricular y riesgo de ictus elevado tratados con ablación con catéter, el ci"
+        }
+      }
     }
   ],
   "preguntas": [

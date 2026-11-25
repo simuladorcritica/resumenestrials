@@ -889,8 +889,8 @@
     "title": "CLOSURE-AF: cierre de la orejuela auricular izquierda o tratamiento médico en la fibrilación auricular",
     "relacionados": [
       29,
-      167,
-      114
+      367,
+      167
     ],
     "seo_title": "CLOSURE-AF trial: cierre de la orejuela auricular izquierda o tratamiento médico en la fibrilación auricular | Resúmenes Trials",
     "description": "CLOSURE-AF: El cierre de la orejuela no demostró no inferioridad: 16.8 frente a 13.3 eventos por 100 pacientes-año (diferencia en supervivencia media…",
@@ -921,8 +921,8 @@
     "title": "CHAMPION-AF: cierre de la orejuela auricular izquierda o anticoagulación en la fibrilación auricular",
     "relacionados": [
       28,
-      167,
-      37
+      367,
+      167
     ],
     "seo_title": "CHAMPION-AF trial: cierre de la orejuela auricular izquierda o anticoagulación en la fibrilación auricular | Resúmenes Trials",
     "description": "CHAMPION-AF: El dispositivo fue no inferior en eficacia ( 5.7% frente a 4.8%; diferencia 0.9 puntos; IC 95%, -0.8 a 2.6; p<0.001 para no inferioridad ) y…",
@@ -4496,8 +4496,8 @@
     "url": "https://resumenestrials.com/trials/librexia-acs-milvexian-anadido-terapia-antiplaquetaria-tras-sindrome-coronario-agudo/",
     "title": "LIBREXIA ACS: milvexian con tratamiento antiplaquetario tras un síndrome coronario agudo",
     "relacionados": [
-      325,
       274,
+      325,
       107
     ],
     "seo_title": "LIBREXIA ACS trial: milvexian con tratamiento antiplaquetario tras un síndrome coronario agudo | Resúmenes Trials",
@@ -5364,8 +5364,8 @@
     "title": "SINGLE-AF: anticoagulación en la fibrilación auricular con riesgo intermedio de ictus",
     "relacionados": [
       36,
-      29,
-      37
+      37,
+      29
     ],
     "seo_title": "SINGLE-AF trial: anticoagulación en la fibrilación auricular con riesgo intermedio de ictus | Resúmenes Trials",
     "description": "SINGLE-AF: El desenlace primario ocurrió en 0.5% de los pacientes con anticoagulación frente a 1.5% sin anticoagulación (hazard ratio de subdistribución, HR…",
@@ -8822,7 +8822,7 @@
     "relacionados": [
       274,
       167,
-      138
+      367
     ],
     "seo_title": "AQUATIC trial: aspirina en pacientes con síndrome coronario crónico que reciben anticoagulación oral | Resúmenes Trials",
     "description": "AQUATIC: Añadir aspirina al anticoagulante aumentó el desenlace primario compuesto: 16.9% frente a 12.1% (hazard ratio [HR] ajustado 1.53; IC 95% 1.07 a 2.18…",
@@ -10246,7 +10246,7 @@
     "relacionados": [
       348,
       299,
-      37
+      367
     ],
     "seo_title": "AVANT GUARD trial: ablación de campo pulsado como tratamiento inicial de la fibrilación auricular persistente | Resúmenes Trials",
     "description": "AVANT GUARD: El éxito del tratamiento a 12 meses fue del 56% con ablación de campo pulsado frente al 30% con fármacos antiarrítmicos (diferencia 26 puntos…",
@@ -11541,6 +11541,37 @@
       "question": "Determinar si 7 días de tratamiento antibiótico adecuado son no inferiores a 14 días en la mortalidad a 90 días de pacientes hospitalizados con bacteriemia.",
       "answer": "A los 90 días murió el 14.5% con 7 días frente al 16.1% con 14 días (diferencia de menos 1.6 puntos porcentuales; IC 95.7% menos 4.0 a 0.8; P no reportado), dentro del margen de no inferioridad de 4 puntos, con resultado concordante por protocolo (menos 2.0; IC 95% menos 4.5 a 0.6).",
       "population": "La población fueron pacientes hospitalizados, en la unidad de cuidados intensivos (UCI) o en planta, con un hemocultivo positivo para una bacteria patógena, en 74 hospitales de siete países de ingresos altos: Canadá aportó el 75.2%, y el resto, Australia, Nueva Zelanda, Arabia Saudita, Israel, Suiza y Estados Unidos. Raza y etnia: No reportado, porque el ensayo no recogió la raza."
+    },
+    "datePublished": "2026-11-25"
+  },
+  "367": {
+    "slug": "option-cierre-orejuela-auricular-izquierda-tras-ablacion-fibrilacion-auricular",
+    "path": "/trials/option-cierre-orejuela-auricular-izquierda-tras-ablacion-fibrilacion-auricular/",
+    "url": "https://resumenestrials.com/trials/option-cierre-orejuela-auricular-izquierda-tras-ablacion-fibrilacion-auricular/",
+    "title": "OPTION: cierre de la orejuela auricular izquierda tras la ablación de la fibrilación auricular",
+    "relacionados": [
+      29,
+      28,
+      37
+    ],
+    "seo_title": "OPTION trial: cierre de la orejuela auricular izquierda tras la ablación de la fibrilación auricular | Resúmenes Trials",
+    "description": "OPTION: El sangrado no relacionado con el procedimiento ocurrió en el 8.5% con el cierre de la orejuela frente al 18.1% con anticoagulación oral (hazard ratio…",
+    "clusters": [
+      {
+        "name": "Cardiología y prevención cardiovascular",
+        "path": "/medicina-interna/cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-interna/cardiovascular/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/option-cierre-orejuela-auricular-izquierda-tras-ablacion-fibrilacion-auricular-16x9.jpg",
+      "https://resumenestrials.com/images/trials/option-cierre-orejuela-auricular-izquierda-tras-ablacion-fibrilacion-auricular-4x3.jpg",
+      "https://resumenestrials.com/images/trials/option-cierre-orejuela-auricular-izquierda-tras-ablacion-fibrilacion-auricular-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si, en pacientes con fibrilación auricular y riesgo de ictus elevado tratados con ablación con catéter, el cierre percutáneo de la orejuela izquierda es superior a la anticoagulación oral en sangrado no relacionado con el procedimiento y no inferior en muerte, ictus o embolia sistémica a 36 meses.",
+      "answer": "El sangrado no relacionado con el procedimiento ocurrió en el 8.5% con el cierre de la orejuela frente al 18.1% con anticoagulación oral (hazard ratio [HR] 0.44; IC 95% 0.33 a 0.59; P<0.001 para superioridad), y el compuesto de muerte, ictus o embolia sistémica a 36 meses, en el 5.3% con el cierre frente al 5.8% con…",
+      "population": "La población fueron adultos con fibrilación auricular no valvular tratados con ablación con catéter y con una puntuación CHA2DS2-VASc, de 0 a 9 (a más puntos, más riesgo de ictus), de al menos 2 en hombres o 3 en mujeres. La ablación podía haberse hecho entre 90 y 180 días antes de aleatorizar o estar programada en los 10 días siguientes, y el médico debía considerarlos aptos para los tratamientos del protocolo. Procedían de…"
     },
     "datePublished": "2026-11-25"
   }
