@@ -946,6 +946,37 @@
           "frase": "Determinar si una dosis de 1 g de ceftriaxona intramuscular administrada por paramédicos en la ambulancia reduce la"
         }
       }
+    },
+    {
+      "id": 364,
+      "fecha": "2026-11-25",
+      "huella": "bb5bf887d00a5aeb",
+      "preguntas": {
+        "corticoides-choque-septico": {
+          "rol": "nada",
+          "frase": "Determinar si el ácido zoledrónico 5 mg intravenoso, administrado al inicio y a los 5 años o solo al inicio, reduce"
+        },
+        "cristaloides-balanceados-solucion-salina-adultos-estado-critico": {
+          "rol": "nada",
+          "frase": "Determinar si el ácido zoledrónico 5 mg intravenoso, administrado al inicio y a los 5 años o solo al inicio, reduce"
+        },
+        "cuando-iniciar-terapia-reemplazo-renal-lesion-renal-aguda": {
+          "rol": "nada",
+          "frase": "Determinar si el ácido zoledrónico 5 mg intravenoso, administrado al inicio y a los 5 años o solo al inicio, reduce"
+        },
+        "meta-oxigenacion-paciente-critico": {
+          "rol": "nada",
+          "frase": "Determinar si el ácido zoledrónico 5 mg intravenoso, administrado al inicio y a los 5 años o solo al inicio, reduce"
+        },
+        "restriccion-liquidos-choque-septico-hipotension-sepsis": {
+          "rol": "nada",
+          "frase": "Determinar si el ácido zoledrónico 5 mg intravenoso, administrado al inicio y a los 5 años o solo al inicio, reduce"
+        },
+        "trombectomia-ventana-tardia-ictus-isquemico-oclusion-gran-vaso": {
+          "rol": "nada",
+          "frase": "Determinar si el ácido zoledrónico 5 mg intravenoso, administrado al inicio y a los 5 años o solo al inicio, reduce"
+        }
+      }
     }
   ],
   "preguntas": [
