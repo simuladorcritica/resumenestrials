@@ -3026,6 +3026,302 @@
           ]
         }
       ]
+    },
+    {
+      "slug": "inhibidores-cotransportador-sodio-glucosa-enfermedad-renal-cronica",
+      "pregunta": "¿Inhibidores del cotransportador de sodio-glucosa en la enfermedad renal crónica?",
+      "nombre": "Inhibidores del cotransportador de sodio-glucosa en la enfermedad renal crónica",
+      "revisado_hasta": 368,
+      "descripcion": "Los ensayos clínicos {ensayos} sobre un inhibidor del cotransportador de sodio-glucosa (canagliflozina, dapagliflozina o empagliflozina) frente a placebo en adultos con enfermedad renal crónica, con o sin diabetes: qué preguntó cada uno, su hallazgo principal y sus diferencias de diseño.",
+      "condicion": "Enfermedad renal crónica",
+      "area": "Medicina Interna",
+      "fecha_publicacion": "2026-11-25",
+      "fecha_revision": "2026-11-25",
+      "criterio": "Publicación principal de un ensayo clínico aleatorizado en adultos con enfermedad renal crónica, con diabetes tipo 2 o sin ella, cuya comparación principal es un inhibidor del cotransportador de sodio-glucosa tipo 2 (inhibidor de SGLT2: canagliflozina, dapagliflozina, empagliflozina u otro fármaco que su resumen presente como de esa clase) frente a placebo, y cuyo desenlace primario es un compuesto clínico que reúne la progresión de la enfermedad renal (enfermedad renal terminal, descenso sostenido de la tasa de filtrado glomerular estimada o duplicación de la creatinina sérica) con la muerte de causa renal o cardiovascular. «Con enfermedad renal crónica» quiere decir que la población del ensayo se define por ella: el resumen la presenta como de pacientes con enfermedad renal crónica y los criterios de inclusión exigen una tasa de filtrado o filtración glomerular estimada por debajo de un límite superior, una albuminuria por encima de un umbral, o las dos cosas; un límite inferior de filtrado glomerular, sin más, no basta. En esta pregunta la «intervención» es siempre el inhibidor de SGLT2 y el «comparador» el placebo, añadidos al tratamiento de base, que puede incluir el bloqueo del sistema renina-angiotensina. No pertenecen al núcleo: los ensayos cuya población se define por la diabetes tipo 2 con riesgo cardiovascular alto o enfermedad cardiovascular, sin exigir enfermedad renal crónica, aunque informen desenlaces renales; los de insuficiencia cardiaca, infarto de miocardio, estenosis aórtica u otra enfermedad cardiaca, aunque admitan a pacientes con filtrado glomerular bajo; los que, en la enfermedad renal crónica, tienen como desenlace primario una medida de imagen cardiaca, de laboratorio o de albuminuria y no un compuesto clínico; los de otros fármacos (finerenona, agonistas del receptor de GLP-1), solos o combinados con un inhibidor de SGLT2, y los que comparan un inhibidor de SGLT2 con otro fármaco activo; ni los ensayos piloto o de factibilidad, los análisis secundarios (incluido el análisis renal de un ensayo cardiovascular), los seguimientos o los metaanálisis. Cuáles de esos van como relacionados lo dice `criterio_relacionados`; los demás no se añaden. Ante la duda, no se añade al núcleo.",
+      "criterio_relacionados": "Solo ensayos clínicos aleatorizados que comparan un inhibidor de SGLT2 con placebo en adultos cuya población se define por la enfermedad renal crónica, como la define el criterio del núcleo, y cuyo desenlace primario no es un compuesto clínico renal, y solo estos: los que miden como desenlace primario el índice de masa ventricular izquierda u otra medida del remodelado cardiaco. No se añaden los ensayos en la diabetes tipo 2 con riesgo cardiovascular alto o enfermedad cardiovascular que no exigen enfermedad renal crónica, los de insuficiencia cardiaca, infarto de miocardio, estenosis aórtica u otra enfermedad cardiaca, los de otros fármacos (finerenona, agonistas del receptor de GLP-1) solos o combinados con un inhibidor de SGLT2, los que comparan un inhibidor de SGLT2 con otro fármaco activo, los que tienen como desenlace primario la albuminuria, ni los análisis secundarios, los seguimientos o los metaanálisis. Ante la duda, no se añade.",
+      "creacion": {
+        "fecha": "2026-11-25",
+        "marco": "VERDE",
+        "barrido": "coincide",
+        "nota": "Tres rondas de revisión independiente, sin ningún ROJO ni GRAVE. Entre rondas se aplicaron solo sugerencias con texto exacto: el tamaño de CREDENCE y el tamaño y los pacientes de EMPA-KIDNEY; DAPA-CKD no cambió. Texto final con el VERDE de tres revisores por ensayo y del revisor de la pregunta."
+      },
+      "ejes": [
+        {
+          "clave": "intervencion",
+          "tipo": "diseno",
+          "lugar": "juntos",
+          "obligatorio": true,
+          "max": 260,
+          "entrada": "El fármaco no es el mismo en estos ensayos.",
+          "guia": "El fármaco con el nombre, la dosis y la vía que da el resumen, y contra qué se comparó, con lo que el resumen diga del tratamiento al que se sumaba el placebo: «SIGLA comparó <fármaco> oral, N mg una vez al día, frente a placebo equivalente[, sumado a …].» Lo que establecía el protocolo, nunca lo que ocurrió en la práctica. Una oración breve."
+        },
+        {
+          "clave": "poblacion",
+          "tipo": "diseno",
+          "lugar": "juntos",
+          "obligatorio": true,
+          "max": 260,
+          "entrada": "La exigencia de diabetes y los límites de filtrado glomerular y de albuminuria son distintos.",
+          "guia": "Criterios de inclusión tal como los da el apartado de población del resumen (no las características de la muestra reclutada): si se exigía diabetes tipo 2 o se admitía a pacientes con y sin diabetes, el intervalo de la tasa de filtrado glomerular estimada y el de albuminuria (razón de albúmina a creatinina en orina) con sus cifras, y el tratamiento con bloqueo del sistema renina-angiotensina que se pedía, con las palabras del resumen: «SIGLA incluyó adultos con …, una tasa de filtrado glomerular estimada de N a M ml/min/1.73 m2 y …». Una oración breve."
+        },
+        {
+          "clave": "desenlace",
+          "tipo": "diseno",
+          "lugar": "juntos",
+          "obligatorio": true,
+          "max": 260,
+          "entrada": "Los componentes del desenlace primario no son los mismos en todos.",
+          "guia": "El desenlace primario, con la palabra del resumen («primario»), y todos sus componentes como los nombra el resumen, incluido el que mide el deterioro de la función renal (duplicación de la creatinina o descenso del filtrado glomerular, con su umbral); sin resultado: «SIGLA midió como desenlace primario un compuesto de …». Una oración breve."
+        },
+        {
+          "clave": "tamano",
+          "tipo": "diseno",
+          "lugar": "juntos",
+          "obligatorio": true,
+          "max": 260,
+          "entrada": "",
+          "guia": "Pacientes aleatorizados, con el mismo verbo que la cita, y, si el resumen los da, el número de centros y de países, con sus mismas palabras: «SIGLA aleatorizó N pacientes en M centros de P países.» Si el resumen dice que el ensayo terminó antes de tiempo, se dice, con los eventos primarios acumulados o revisados y los previstos si el resumen los da, y con el hecho que el resumen da como motivo, copiado con sus palabras. Nunca su consecuencia ni su interpretación: ni «poco poder», ni a qué grupo favorecía, ni a qué lo atribuyen los autores. Una oración breve."
+        },
+        {
+          "clave": "pacientes",
+          "tipo": "contexto",
+          "lugar": "ficha",
+          "obligatorio": true,
+          "max": 260,
+          "entrada": "Para interpretarlo.",
+          "guia": "A quién se incluyó de verdad, en lo decisivo: la función renal de la muestra reclutada (tasa de filtrado glomerular media y, si el resumen la da, la proporción por debajo de 30 ml/min/1.73 m2), la albuminuria (razón mediana de albúmina a creatinina) y qué proporción tenía o no tenía diabetes, con sus cifras. «SIGLA incluyó pacientes con …». No se enumeran todas las características basales. Sin resultados de subgrupo, con una sola excepción: si el resumen destaca una señal de seguridad (posible daño) en un subgrupo, se nombra al final, con su proporción si el resumen la da, la intervención con la que se observó y la cautela que el resumen le pone, atribuida y sin las cifras de cada grupo. Un subgrupo de eficacia no se nombra, aunque su interacción sea significativa."
+        },
+        {
+          "clave": "separacion",
+          "tipo": "contexto",
+          "lugar": "ficha",
+          "obligatorio": true,
+          "max": 260,
+          "rotulo": "Cómo se aplicó la comparación",
+          "entrada": "Para interpretarlo.",
+          "guia": "Cómo se aplicó la comparación en la práctica, en lo esencial: cuánto duró el seguimiento, si hubo una fase de preinclusión y qué se exigía en ella, y los cambios del protocolo o del reclutamiento durante el ensayo que el resumen describa. Una oración con las cifras clave, tal como las da la cita. El cumplimiento o las suspensiones del tratamiento asignado van aquí si el resumen los da; si no los da, se anota en `no_informa`."
+        },
+        {
+          "clave": "limitacion",
+          "tipo": "contexto",
+          "lugar": "ficha",
+          "obligatorio": true,
+          "max": 260,
+          "entrada": "Para interpretarlo.",
+          "guia": "La limitación o las dos limitaciones principales que señala la evaluación crítica del resumen (cierre anticipado, a quién se excluyó, desenlace dominado por marcadores subrogados, datos que no se recogieron), en una oración y atribuyendo lo que sea valoración («según su resumen», «según sus autores»). Si el resumen acota a quién se aplica el resultado con una lista de condiciones, se nombran todas o ninguna. La cita son las oraciones del resumen que las enuncian."
+        },
+        {
+          "clave": "no_informa",
+          "tipo": "ausencia",
+          "lugar": "ficha",
+          "obligatorio": false,
+          "max": 500,
+          "entrada": "Para interpretarlo.",
+          "guia": "Solo si falta el dato central de la separación (cuántos pacientes dejaron de tomar el tratamiento asignado) o de otro eje: lo que el resumen no informa, como {\"sin_dato\": \"…\"}, que completa «El resumen de SIGLA no informa …». Si no hace falta, no se escribe."
+        }
+      ],
+      "nucleo": [
+        {
+          "id": 96,
+          "diseno": {
+            "intervencion": {
+              "frase": "CREDENCE comparó canagliflozina oral, 100 mg una vez al día, frente a placebo equivalente, sumado al bloqueo del sistema renina-angiotensina y al tratamiento habitual de la diabetes y el riesgo cardiovascular según las guías locales.",
+              "cita": [
+                "Canagliflozina, un inhibidor del cotransportador de sodio-glucosa tipo 2, administrada por vía oral a dosis de 100 mg una vez al día.",
+                "Placebo equivalente, sumado al bloqueo del sistema renina-angiotensina y al tratamiento habitual de la diabetes y el riesgo cardiovascular según las guías locales."
+              ]
+            },
+            "poblacion": {
+              "frase": "CREDENCE incluyó adultos con diabetes tipo 2, una tasa de filtrado glomerular estimada de 30 a menos de 90 ml/min/1.73 m2 y una razón de albúmina a creatinina en orina mayor de 300 y hasta 5000, ya tratados con bloqueo del sistema renina-angiotensina.",
+              "cita": [
+                "Adultos de 30 años o más con diabetes tipo 2 (hemoglobina glucosilada de 6.5% a 12.0%, o de 6.5% a 10.5% en Alemania), enfermedad renal crónica con una tasa de filtrado glomerular estimada de 30 a menos de 90 ml/min/1.73 m2 y albuminuria (razón de albúmina a creatinina en orina mayor de 300 y hasta 5000), tratados con una dosis estable de un inhibidor de la enzima convertidora de angiotensina o un antagonista del receptor de angiotensina durante al menos 4 semanas.",
+                "en pacientes con diabetes tipo 2 y enfermedad renal crónica albuminúrica ya tratados con bloqueo del sistema renina-angiotensina."
+              ]
+            },
+            "desenlace": {
+              "frase": "CREDENCE midió como desenlace primario un compuesto de enfermedad renal terminal, duplicación sostenida de la creatinina sérica o muerte de causa renal o cardiovascular.",
+              "cita": "El desenlace primario fue un compuesto de enfermedad renal terminal, duplicación sostenida de la creatinina sérica, o muerte de causa renal o cardiovascular."
+            },
+            "tamano": {
+              "frase": "CREDENCE aleatorizó 4401 pacientes en 690 centros de 34 países y se detuvo antes de tiempo en el análisis intermedio, previsto tras 405 de los 844 eventos primarios calculados, al cumplirse sus reglas de interrupción anticipada preespecificadas.",
+              "cita": [
+                "Se aleatorizaron 4401 pacientes en 690 centros de 34 países.",
+                "El ensayo se detuvo antes de tiempo",
+                "hasta acumular 844 eventos del desenlace primario",
+                "Ese análisis intermedio, previsto tras 405 eventos primarios, tenía reglas de interrupción anticipada preespecificadas",
+                "el comité independiente de monitoreo de datos determinó que esos criterios se habían cumplido y recomendó detener el ensayo"
+              ]
+            },
+            "pacientes": {
+              "frase": "CREDENCE incluyó pacientes con una tasa de filtrado glomerular media de 56.2 ml/min/1.73 m2, una razón mediana de albúmina a creatinina de 927 y una duración media de la diabetes de 15.8 años; el 50.4% tenía enfermedad cardiovascular establecida.",
+              "cita": [
+                "la tasa de filtrado glomerular media de 56.2 ml/min/1.73 m2, y la razón mediana de albúmina a creatinina en orina de 927",
+                "El 50.4% tenía enfermedad cardiovascular establecida",
+                "la duración media de la diabetes de 15.8 años"
+              ]
+            },
+            "separacion": {
+              "frase": "CREDENCE siguió a los pacientes una mediana de 2.62 años (rango, 0.02 a 4.53) y admitió a la aleatorización solo a quienes habían tomado al menos el 80% de las dosis de placebo en un periodo de preinclusión de 2 semanas, simple ciego.",
+              "cita": [
+                "El seguimiento tuvo una mediana de 2.62 años (rango, 0.02 a 4.53), interrumpido de forma anticipada por la decisión de detener el ensayo.",
+                "los candidatos completaron un periodo de preinclusión de 2 semanas, simple ciego, con placebo, y solo quienes habían tomado al menos el 80% de esas dosis fueron elegibles para continuar"
+              ]
+            },
+            "limitacion": {
+              "frase": "CREDENCE se detuvo antes de tiempo, lo que según su resumen puede aumentar el riesgo de sobreestimar el efecto, y excluyó la enfermedad renal muy avanzada, la no albuminúrica o poco albuminúrica y las nefropatías de causa distinta a la diabetes.",
+              "cita": [
+                "La primera es que el ensayo se detuvo antes de tiempo tras un análisis intermedio, lo que pudo limitar el poder para algunos desenlaces secundarios y puede aumentar el riesgo de sobreestimar la magnitud del efecto observado",
+                "La segunda es que el estudio excluyó a pacientes con enfermedad renal muy avanzada (tasa de filtrado menor de 30 ml/min/1.73 m2), con enfermedad no albuminúrica o poco albuminúrica, y con nefropatías de causa distinta a la diabetes, lo que limita la generalización de estos resultados a esas poblaciones"
+              ]
+            },
+            "no_informa": {
+              "sin_dato": "cuántos pacientes dejaron de tomar el tratamiento asignado ni el cumplimiento del tratamiento durante el seguimiento",
+              "huella": "2068c4b9345a23b8"
+            }
+          },
+          "revision": {
+            "fecha": "2026-11-25",
+            "cotejo": "VERDE",
+            "fiscal": "VERDE",
+            "omisiones": "VERDE"
+          }
+        },
+        {
+          "id": 100,
+          "diseno": {
+            "intervencion": {
+              "frase": "DAPA-CKD comparó dapagliflozina oral, 10 mg una vez al día, frente a placebo equivalente, sumado al bloqueo del sistema renina-angiotensina cuando estaba indicado.",
+              "cita": [
+                "Dapagliflozina, un inhibidor del cotransportador de sodio-glucosa tipo 2, administrada por vía oral a dosis de 10 mg una vez al día.",
+                "Placebo equivalente, sumado al bloqueo del sistema renina-angiotensina cuando estaba indicado."
+              ]
+            },
+            "poblacion": {
+              "frase": "DAPA-CKD incluyó adultos con o sin diabetes tipo 2, con una tasa de filtrado glomerular estimada de 25 a 75 ml/min/1.73 m2 y una razón de albúmina a creatinina en orina de 200 a 5000, tratados con bloqueo del sistema renina-angiotensina cuando fuera tolerado.",
+              "cita": [
+                "Adultos con o sin diabetes tipo 2, con una tasa de filtrado glomerular estimada de 25 a 75 ml/min/1.73 m2 y una razón de albúmina a creatinina en orina de 200 a 5000, tratados con una dosis estable de un inhibidor de la enzima convertidora de angiotensina o un antagonista del receptor de angiotensina durante al menos 4 semanas cuando fuera tolerado.",
+                "tratados con bloqueo del sistema renina-angiotensina"
+              ]
+            },
+            "desenlace": {
+              "frase": "DAPA-CKD midió como desenlace primario un compuesto de descenso sostenido del 50% o más en la tasa de filtrado glomerular estimada, inicio de enfermedad renal terminal o muerte de causa renal o cardiovascular.",
+              "cita": "El desenlace primario fue un compuesto de descenso sostenido del 50% o más en la tasa de filtrado glomerular estimada (confirmado por una segunda medición tras al menos 28 días), el inicio de enfermedad renal terminal (diálisis de mantenimiento por al menos 28 días, trasplante renal, o una tasa de filtrado glomerular estimada menor de 15 ml/min/1.73 m2 confirmada), o muerte de causa renal o cardiovascular."
+            },
+            "tamano": {
+              "frase": "DAPA-CKD aleatorizó 4304 pacientes en 386 centros de 21 países y se detuvo antes de tiempo, después de que el comité independiente de monitoreo de datos revisara 408 eventos primarios; se había estimado necesario acumular 681.",
+              "cita": [
+                "Se aleatorizaron 4304 pacientes en 386 centros de 21 países",
+                "se estimó necesario acumular 681 eventos primarios",
+                "El comité independiente de monitoreo de datos recomendó detener el ensayo por beneficio claro tras revisar 408 eventos primarios el 26 de marzo de 2020"
+              ]
+            },
+            "pacientes": {
+              "frase": "DAPA-CKD incluyó pacientes con una tasa de filtrado glomerular media de 43.1 ml/min/1.73 m2, un 14.5% por debajo de 30, y una razón mediana de albúmina a creatinina de 949; el 67.5% tenía diagnóstico de diabetes tipo 2.",
+              "cita": [
+                "la tasa de filtrado glomerular media de 43.1 ml/min/1.73 m2, con una razón mediana de albúmina a creatinina de 949",
+                "(hasta 25 ml/min/1.73 m2, con un 14.5% por debajo de 30)",
+                "El 67.5% tenía diagnóstico de diabetes tipo 2"
+              ]
+            },
+            "separacion": {
+              "frase": "DAPA-CKD llegó a un seguimiento mediano final de 2.4 años y se detuvo en una revisión periódica del comité de monitoreo, después de que se eliminara del protocolo el análisis intermedio formal; tuvo una inscripción tardía de 210 participantes de China.",
+              "cita": [
+                "con un seguimiento mediano final de 2.4 años",
+                "recomendada por el comité de monitoreo en una revisión periódica después de que se eliminara del protocolo el análisis intermedio formal",
+                "con una inscripción tardía adicional de 210 participantes de China entre diciembre de 2019 y marzo de 2020 por demoras regulatorias"
+              ]
+            },
+            "limitacion": {
+              "frase": "DAPA-CKD se detuvo antes de tiempo, lo que, según sus autores, puede haber reducido la potencia de algunos desenlaces secundarios, y no recolectó datos tras el fin del ensayo para saber si la caída inicial del filtrado con dapagliflozina era reversible.",
+              "cita": [
+                "La primera es que el ensayo se detuvo antes de tiempo por recomendación del comité de monitoreo, lo que según reconocen los propios autores puede haber reducido la potencia de algunos desenlaces secundarios",
+                "La segunda es la caída inicial en la tasa de filtrado glomerular observada con dapagliflozina en las primeras 2 semanas (-3.97 frente a -0.82 ml/min/1.73 m2), un fenómeno hemodinámico ya descrito con esta clase de fármacos, que los autores no pudieron confirmar como reversible tras la discontinuación por no haberse recolectado datos posteriores al fin del ensayo."
+              ]
+            },
+            "no_informa": {
+              "sin_dato": "cuántos pacientes dejaron de tomar el tratamiento asignado ni el cumplimiento del tratamiento durante el seguimiento",
+              "huella": "368b08874b02a04a"
+            }
+          },
+          "revision": {
+            "fecha": "2026-11-25",
+            "cotejo": "VERDE",
+            "fiscal": "VERDE",
+            "omisiones": "VERDE"
+          }
+        },
+        {
+          "id": 74,
+          "diseno": {
+            "intervencion": {
+              "frase": "EMPA-KIDNEY comparó empagliflozina, 10 mg por vía oral una vez al día, frente a placebo equivalente, con uso de un inhibidor del sistema renina-angiotensina en dosis clínicamente apropiada salvo que estuviera contraindicado o no fuera tolerado.",
+              "cita": [
+                "Empagliflozina, 10 mg por vía oral una vez al día.",
+                "Placebo equivalente, una vez al día.",
+                "con uso de un inhibidor del sistema renina-angiotensina en dosis clínicamente apropiada salvo que estuviera contraindicado o no fuera tolerado"
+              ]
+            },
+            "poblacion": {
+              "frase": "EMPA-KIDNEY incluyó adultos con y sin diabetes, con un eGFR de al menos 20 pero menor de 45 ml/min/1.73 m2, sin importar el grado de albuminuria, o de al menos 45 pero menor de 90 junto con una razón albúmina-creatinina urinaria de al menos 200.",
+              "cita": "Adultos con enfermedad renal crónica y una tasa de filtración glomerular estimada (eGFR) de al menos 20 pero menor de 45 ml/min/1.73 m2, sin importar el grado de albuminuria, o con un eGFR de al menos 45 pero menor de 90 ml/min/1.73 m2 junto con una razón albúmina-creatinina urinaria de al menos 200, reclutados en 241 centros de ocho países. Se incluyeron pacientes con y sin diabetes."
+            },
+            "desenlace": {
+              "frase": "EMPA-KIDNEY midió como desenlace primario la progresión de la enfermedad renal (enfermedad renal terminal, descenso sostenido del eGFR a menos de 10 ml/min/1.73 m2 o de al menos 40% desde el valor basal, o muerte de causa renal) o muerte cardiovascular.",
+              "cita": [
+                "El compuesto de progresión de la enfermedad renal (enfermedad renal terminal, descenso sostenido del eGFR a menos de 10 ml/min/1.73 m2, descenso sostenido del eGFR de al menos 40% desde el valor basal, o muerte de causa renal) o muerte de causa cardiovascular.",
+                "El desenlace primario fue el compuesto de progresión de la enfermedad renal o muerte cardiovascular, ya definido."
+              ]
+            },
+            "tamano": {
+              "frase": "EMPA-KIDNEY aleatorizó 6609 pacientes en 241 centros de ocho países y se detuvo de forma anticipada tras un análisis intermedio en el que, con 624 eventos primarios acumulados, de los 1070 calculados, se cumplían las dos condiciones preespecificadas.",
+              "cita": [
+                "Se aleatorizaron 6609 pacientes de 8544 evaluados en la visita de selección: 3304 a empagliflozina y 3305 a placebo, en 241 centros de ocho países.",
+                "El tamaño de muestra se calculó para que 1070 eventos del desenlace primario",
+                "realizó un análisis intermedio formal preespecificado tras 150 casos de enfermedad renal terminal y, con 624 eventos primarios acumulados, confirmó que se cumplían las dos condiciones preespecificadas para detener el ensayo por eficacia; el ensayo se detuvo de forma anticipada"
+              ]
+            },
+            "pacientes": {
+              "frase": "EMPA-KIDNEY incluyó pacientes con un eGFR medio de 37.3 ml/min/1.73 m2, el 34.5% con menos de 30, y una razón albúmina-creatinina urinaria mediana de 329; el 54.0% no tenía diabetes y casi la mitad (48.3%) tenía una razón de 300 o menos.",
+              "cita": [
+                "el 54.0% no tenía diabetes",
+                "El eGFR medio fue de 37.3±14.5 ml/min/1.73 m2, y el 34.5% tenía un eGFR menor de 30 ml/min/1.73 m2. La razón albúmina-creatinina urinaria mediana fue de 329, y casi la mitad de los pacientes (48.3%) tenía una razón de 300 o menos"
+              ]
+            },
+            "separacion": {
+              "frase": "EMPA-KIDNEY siguió a los pacientes una mediana de 2.0 años (rango intercuartílico, 1.5 a 2.4) y los aleatorizó tras completar al menos 6 semanas de una fase de preinclusión con placebo simple ciego.",
+              "cita": [
+                "El seguimiento tuvo una mediana de 2.0 años (rango intercuartílico, 1.5 a 2.4), con cierre el 5 de julio de 2022.",
+                "tras completar al menos 6 semanas de una fase de preinclusión con placebo simple ciego"
+              ]
+            },
+            "limitacion": {
+              "frase": "EMPA-KIDNEY se interrumpió de forma anticipada y, según su resumen, eso puede sobrestimar el efecto observado y su desenlace primario está dominado por marcadores subrogados de función renal (la caída del eGFR) más que por eventos duros.",
+              "cita": [
+                "La primera es la interrupción anticipada del ensayo tras el análisis intermedio, que si bien se ajustó a reglas preespecificadas, puede sobrestimar el efecto observado",
+                "La segunda es que el desenlace primario compuesto está dominado por marcadores subrogados de función renal (la caída del eGFR) más que por eventos duros como la enfermedad renal terminal en sí"
+              ]
+            },
+            "no_informa": {
+              "sin_dato": "cuántos pacientes dejaron de tomar el tratamiento asignado ni el cumplimiento del tratamiento durante el seguimiento",
+              "huella": "1f4201749f3dae3a"
+            }
+          },
+          "revision": {
+            "fecha": "2026-11-25",
+            "cotejo": "VERDE",
+            "fiscal": "VERDE",
+            "omisiones": "VERDE"
+          }
+        }
+      ],
+      "relacionados": [
+        {
+          "motivo": "Remodelado cardiaco en la enfermedad renal crónica",
+          "ids": [
+            57
+          ]
+        }
+      ]
     }
   ]
 }
