@@ -5543,8 +5543,8 @@
     "url": "https://resumenestrials.com/trials/prodige-4-accord-11-folfirinox-gemcitabina-primera-linea-cancer-pancreas-metastasico/",
     "title": "PRODIGE 4-ACCORD 11: FOLFIRINOX frente a gemcitabina en el cáncer de páncreas metastásico",
     "relacionados": [
-      242,
-      172
+      172,
+      242
     ],
     "seo_title": "PRODIGE 4-ACCORD 11 trial: FOLFIRINOX frente a gemcitabina en el cáncer de páncreas metastásico | Resúmenes Trials",
     "description": "PRODIGE 4-ACCORD 11: FOLFIRINOX prolongó la mediana de supervivencia global: 11.1 frente a 6.8 meses (hazard ratio [HR] para la muerte 0.57; IC 95%, 0.45 a…",
@@ -6616,9 +6616,7 @@
     "path": "/trials/pelican-terapia-hemodinamica-individualizada-guiada-indice-cardiaco-pacientes-alto-riesgo/",
     "url": "https://resumenestrials.com/trials/pelican-terapia-hemodinamica-individualizada-guiada-indice-cardiaco-pacientes-alto-riesgo/",
     "title": "PELICAN: terapia hemodinámica individualizada guiada por el índice cardiaco en pacientes de alto riesgo sometidos a cirugía abdominal mayor electiva",
-    "relacionados": [
-      179
-    ],
+    "relacionados": [],
     "seo_title": "PELICAN trial: terapia hemodinámica individualizada guiada por el índice cardiaco en pacientes de alto riesgo sometidos a cirugía abdominal mayor electiva | Resúmenes Trials",
     "description": "PELICAN: El compuesto de complicaciones a 7 días ocurrió en el 44.3% con la terapia individualizada frente al 46.9% con la habitual (riesgo relativo 0.94; IC…",
     "clusters": [
@@ -9087,7 +9085,9 @@
     "path": "/trials/potcast-aumentar-nivel-potasio-pacientes-alto-riesgo-arritmias-ventriculares/",
     "url": "https://resumenestrials.com/trials/potcast-aumentar-nivel-potasio-pacientes-alto-riesgo-arritmias-ventriculares/",
     "title": "POTCAST: aumentar el nivel de potasio en pacientes con alto riesgo de arritmias ventriculares",
-    "relacionados": [],
+    "relacionados": [
+      368
+    ],
     "seo_title": "POTCAST trial: aumentar el nivel de potasio en pacientes con alto riesgo de arritmias ventriculares | Resúmenes Trials",
     "description": "POTCAST: El compuesto primario de taquicardia ventricular sostenida, terapia apropiada del DAI, hospitalización no planificada por arritmia o insuficiencia…",
     "clusters": [],
@@ -10246,7 +10246,7 @@
     "relacionados": [
       348,
       299,
-      367
+      368
     ],
     "seo_title": "AVANT GUARD trial: ablación de campo pulsado como tratamiento inicial de la fibrilación auricular persistente | Resúmenes Trials",
     "description": "AVANT GUARD: El éxito del tratamiento a 12 meses fue del 56% con ablación de campo pulsado frente al 30% con fármacos antiarrítmicos (diferencia 26 puntos…",
@@ -11572,6 +11572,37 @@
       "question": "Determinar si, en pacientes con fibrilación auricular y riesgo de ictus elevado tratados con ablación con catéter, el cierre percutáneo de la orejuela izquierda es superior a la anticoagulación oral en sangrado no relacionado con el procedimiento y no inferior en muerte, ictus o embolia sistémica a 36 meses.",
       "answer": "El sangrado no relacionado con el procedimiento ocurrió en el 8.5% con el cierre de la orejuela frente al 18.1% con anticoagulación oral (hazard ratio [HR] 0.44; IC 95% 0.33 a 0.59; P<0.001 para superioridad), y el compuesto de muerte, ictus o embolia sistémica a 36 meses, en el 5.3% con el cierre frente al 5.8% con…",
       "population": "La población fueron adultos con fibrilación auricular no valvular tratados con ablación con catéter y con una puntuación CHA2DS2-VASc, de 0 a 9 (a más puntos, más riesgo de ictus), de al menos 2 en hombres o 3 en mujeres. La ablación podía haberse hecho entre 90 y 180 días antes de aleatorizar o estar programada en los 10 días siguientes, y el médico debía considerarlos aptos para los tratamientos del protocolo. Procedían de…"
+    },
+    "datePublished": "2026-11-25"
+  },
+  "368": {
+    "slug": "vanish2-ablacion-cateter-farmacos-antiarritmicos-taquicardia-ventricular",
+    "path": "/trials/vanish2-ablacion-cateter-farmacos-antiarritmicos-taquicardia-ventricular/",
+    "url": "https://resumenestrials.com/trials/vanish2-ablacion-cateter-farmacos-antiarritmicos-taquicardia-ventricular/",
+    "title": "VANISH2: ablación con catéter o fármacos antiarrítmicos para la taquicardia ventricular",
+    "relacionados": [
+      285,
+      324,
+      299
+    ],
+    "seo_title": "VANISH2 trial: ablación con catéter o fármacos antiarrítmicos para la taquicardia ventricular | Resúmenes Trials",
+    "description": "VANISH2: El desenlace primario compuesto (muerte por cualquier causa o, pasados 14 días, descarga apropiada del desfibrilador, tormenta de taquicardia…",
+    "clusters": [
+      {
+        "name": "Cardiología y prevención cardiovascular",
+        "path": "/medicina-interna/cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-interna/cardiovascular/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/vanish2-ablacion-cateter-farmacos-antiarritmicos-taquicardia-ventricular-16x9.jpg",
+      "https://resumenestrials.com/images/trials/vanish2-ablacion-cateter-farmacos-antiarritmicos-taquicardia-ventricular-4x3.jpg",
+      "https://resumenestrials.com/images/trials/vanish2-ablacion-cateter-farmacos-antiarritmicos-taquicardia-ventricular-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Comparar la ablación con catéter con los fármacos antiarrítmicos (sotalol o amiodarona) como estrategia inicial en pacientes con infarto de miocardio previo, desfibrilador automático implantable y taquicardia ventricular, según un compuesto de muerte y recurrencias arrítmicas.",
+      "answer": "El desenlace primario compuesto (muerte por cualquier causa o, pasados 14 días, descarga apropiada del desfibrilador, tormenta de taquicardia ventricular o taquicardia ventricular tratada por debajo del límite de detección) ocurrió en el 50.7% con ablación frente al 60.6% con antiarrítmicos ( hazard ratio 0.75; IC 95% 0.58 a…",
+      "population": "La población fueron pacientes con infarto de miocardio previo y una taquicardia ventricular (TV) monomórfica en los 6 meses previos, sin tomar antiarrítmicos de clase I o III: TV sostenida terminada con fármacos, cardioversión o terapia manual del desfibrilador, episodios repetidos tratados con estimulación antitaquicardia, al menos una descarga apropiada o 3 o más episodios en 24 horas. Todos llevaban un desfibrilador…"
     },
     "datePublished": "2026-11-25"
   }
