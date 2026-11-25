@@ -4675,7 +4675,7 @@
     "relacionados": [
       83,
       134,
-      90
+      23
     ],
     "seo_title": "HYPERION trial: manejo específico de la temperatura en el paro cardiaco con ritmo no desfibrilable | Resúmenes Trials",
     "description": "HYPERION: La supervivencia con resultado neurológico favorable a 90 días fue 10.2% con hipotermia frente a 5.7% con normotermia (diferencia, 4.5 puntos…",
@@ -6093,7 +6093,7 @@
     "relacionados": [
       191,
       192,
-      110
+      174
     ],
     "seo_title": "Eficacia y seguridad de los corticosteroides en el síndrome de dificultad respiratoria aguda persistente | Resúmenes Trials",
     "description": "Eficacia y seguridad de los corticosteroides en el síndrome de dificultad respiratoria aguda persistente: Sin diferencia en la mortalidad a 60 días ( 28.6%…",
@@ -7838,9 +7838,9 @@
     "url": "https://resumenestrials.com/trials/hemotion-estrategia-transfusion-liberal-restrictiva-pacientes-traumatismo-craneoencefalico/",
     "title": "HEMOTION: estrategia de transfusión liberal o restrictiva en pacientes con traumatismo craneoencefálico",
     "relacionados": [
+      365,
       245,
-      247,
-      148
+      247
     ],
     "seo_title": "HEMOTION trial: estrategia de transfusión liberal o restrictiva en pacientes con traumatismo craneoencefálico | Resúmenes Trials",
     "description": "HEMOTION: La estrategia liberal no redujo de forma significativa el resultado neurológico desfavorable a los 6 meses: 68.4% frente a 73.5% (riesgo relativo…",
@@ -7876,7 +7876,7 @@
     "relacionados": [
       247,
       244,
-      243
+      365
     ],
     "seo_title": "MINT trial: estrategia de transfusión restrictiva o liberal en el infarto de miocardio y la anemia | Resúmenes Trials",
     "description": "MINT: La estrategia liberal no redujo de forma significativa el infarto o la muerte a 30 días: 16.9% con la restrictiva frente a 14.5% con la liberal (riesgo…",
@@ -7939,7 +7939,7 @@
     "relacionados": [
       245,
       244,
-      159
+      365
     ],
     "seo_title": "REALITY trial: efecto de una estrategia de transfusión sanguínea restrictiva frente a una liberal sobre los eventos cardiovasculares mayores en pacientes con infarto agudo de miocardio y anemia | Resúmenes Trials",
     "description": "REALITY: Según los autores, la estrategia restrictiva cumplió el criterio de no inferioridad para los eventos cardiovasculares mayores a 30 días en la…",
@@ -11480,6 +11480,37 @@
       "question": "Determinar si el ácido zoledrónico 5 mg intravenoso, administrado al inicio y a los 5 años o solo al inicio, reduce frente a placebo la fractura vertebral morfométrica a 10 años en mujeres posmenopáusicas de 50 a 60 años sin osteoporosis.",
       "answer": "A 10 años, la fractura vertebral morfométrica nueva ocurrió en el 6.3% del grupo de dos dosis de ácido zoledrónico frente al 11.1% del grupo placebo (riesgo relativo [RR] 0.56; IC 95% 0.34-0.92; P=0.04, ajustado por Bonferroni).",
       "population": "La población fueron mujeres posmenopáusicas de 50 a 60 años, elegidas al azar del padrón electoral de Auckland e invitadas por carta, con una puntuación T de densidad mineral ósea menor de 0 y mayor de −2.5 en la columna lumbar, el cuello femoral o la cadera total. Según el artículo, una puntuación T de −1 o más suele indicar densidad normal. El 85% se identificó como neozelandesa de origen europeo, el 8% como asiática y el 3%…"
+    },
+    "datePublished": "2026-11-25"
+  },
+  "365": {
+    "slug": "sahara-estrategia-transfusion-liberal-restrictiva-hemorragia-subaracnoidea-aneurismatica",
+    "path": "/trials/sahara-estrategia-transfusion-liberal-restrictiva-hemorragia-subaracnoidea-aneurismatica/",
+    "url": "https://resumenestrials.com/trials/sahara-estrategia-transfusion-liberal-restrictiva-hemorragia-subaracnoidea-aneurismatica/",
+    "title": "SAHARA: estrategia de transfusión liberal o restrictiva en la hemorragia subaracnoidea aneurismática",
+    "relacionados": [
+      244,
+      245,
+      247
+    ],
+    "seo_title": "SAHARA trial: estrategia de transfusión liberal o restrictiva en la hemorragia subaracnoidea aneurismática | Resúmenes Trials",
+    "description": "SAHARA: Sin diferencia significativa en el mal resultado neurológico a 12 meses (Rankin modificada de 4 o más): 33.5% con la estrategia liberal frente a 37.7%…",
+    "clusters": [
+      {
+        "name": "Neurocríticos",
+        "path": "/medicina-critica/neurocriticos/",
+        "url": "https://resumenestrials.com/medicina-critica/neurocriticos/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/sahara-estrategia-transfusion-liberal-restrictiva-hemorragia-subaracnoidea-aneurismatica-16x9.jpg",
+      "https://resumenestrials.com/images/trials/sahara-estrategia-transfusion-liberal-restrictiva-hemorragia-subaracnoidea-aneurismatica-4x3.jpg",
+      "https://resumenestrials.com/images/trials/sahara-estrategia-transfusion-liberal-restrictiva-hemorragia-subaracnoidea-aneurismatica-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si una estrategia de transfusión de glóbulos rojos liberal (umbral de 10 g/dl), frente a una restrictiva (8 g/dl), reduce el mal resultado neurológico a los 12 meses en adultos con hemorragia subaracnoidea aneurismática y anemia.",
+      "answer": "Sin diferencia significativa en el mal resultado neurológico a 12 meses (Rankin modificada de 4 o más): 33.5% con la estrategia liberal frente a 37.7% con la restrictiva (riesgo relativo 0.88; IC 95%, 0.72 a 1.09; p = 0.22).",
+      "population": "La población fueron adultos en estado crítico con una primera hemorragia subaracnoidea aneurismática y anemia, definida como hemoglobina de 10.0 g/dl o menos en los primeros 10 días tras el ingreso. Procedían sobre todo de Canadá (el 75.1% del grupo liberal y el 74.6% del restrictivo), además de Australia y Estados Unidos. La etnia se registró: eran blancos el 55.5% y el 59.6%, respectivamente."
     },
     "datePublished": "2026-11-25"
   }

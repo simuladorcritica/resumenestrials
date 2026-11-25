@@ -39,6 +39,7 @@ Material educativo para profesionales de la salud. La referencia final es siempr
 
 ## Resúmenes de ensayos
 
+- [SAHARA: estrategia de transfusión liberal o restrictiva en la hemorragia subaracnoidea aneurismática](https://resumenestrials.com/trials/sahara-estrategia-transfusion-liberal-restrictiva-hemorragia-subaracnoidea-aneurismatica/): NEJM, 2024.
 - [Prevención de fracturas con administración poco frecuente de ácido zoledrónico en mujeres de 50 a 60 años de edad](https://resumenestrials.com/trials/prevencion-de-fracturas-con-administracion-poco-frecuente-de-acido-zoledronico-en/): NEJM, 2025.
 - [PITSTOP-Antibiotics: antibióticos prehospitalarios en pacientes con sospecha de sepsis](https://resumenestrials.com/trials/pitstop-antibiotics-antibioticos-prehospitalarios-pacientes-sospecha-sepsis/): JAMA, 2026.
 - [AZALEA–TIMI 71: abelacimab frente a rivaroxabán en pacientes con fibrilación auricular](https://resumenestrials.com/trials/azalea-timi-71-abelacimab-rivaroxaban-pacientes-fibrilacion-auricular/): NEJM, 2025.
