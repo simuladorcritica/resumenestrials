@@ -984,9 +984,9 @@
     "url": "https://resumenestrials.com/trials/snap-cefazolina-penicilinas-antiestafilococicas-bacteriemia-staphylococcus-aureus-sensible/",
     "title": "SNAP: cefazolina en la bacteriemia por Staphylococcus aureus sensible a meticilina",
     "relacionados": [
+      366,
       182,
-      240,
-      32
+      240
     ],
     "seo_title": "SNAP trial: cefazolina en la bacteriemia por Staphylococcus aureus sensible a meticilina | Resúmenes Trials",
     "description": "SNAP: La cefazolina fue no inferior en mortalidad a 90 días ( 15.0% frente a 17.0%; razón de probabilidades ajustada 0.81; intervalo de credibilidad del 95%…",
@@ -5611,8 +5611,7 @@
     "title": "CONNECT: monitorización continua de glucosa en la diabetes tipo 2 no tratada con insulina",
     "relacionados": [
       354,
-      289,
-      326
+      289
     ],
     "seo_title": "CONNECT trial: monitorización continua de glucosa en la diabetes tipo 2 no tratada con insulina | Resúmenes Trials",
     "description": "CONNECT: El monitoreo continuo de glucosa redujo la hemoglobina glucosilada a las 26 semanas frente al cuidado habitual, con una diferencia ajustada de −0.9…",
@@ -6854,8 +6853,8 @@
     "url": "https://resumenestrials.com/trials/prevent-clot-aspirina-heparina-peso-molecular-tromboprofilaxis-despues-fractura/",
     "title": "PREVENT CLOT: aspirina o heparina de bajo peso molecular para la tromboprofilaxis después de una fractura",
     "relacionados": [
-      351,
       196,
+      351,
       27
     ],
     "seo_title": "PREVENT CLOT trial: aspirina o heparina de bajo peso molecular para la tromboprofilaxis después de una fractura | Resúmenes Trials",
@@ -7650,8 +7649,8 @@
     "title": "POET II: tratamiento antibiótico adaptado a la respuesta o de duración estándar para la endocarditis infecciosa",
     "relacionados": [
       241,
-      31,
-      312
+      366,
+      31
     ],
     "seo_title": "POET II trial: tratamiento antibiótico adaptado a la respuesta o de duración estándar para la endocarditis infecciosa | Resúmenes Trials",
     "description": "POET II: La estrategia adaptada dio una mediana de 183 frente a 169 días vivos y sin antibiótico en 6 meses (diferencia de 13 días; IC 95%, 12 a 13; p<0.001)…",
@@ -9909,7 +9908,7 @@
     "url": "https://resumenestrials.com/trials/solario-pautas-antibiotico-cortas-largas-ortopedia/",
     "title": "SOLARIO: pautas de antibiótico cortas o largas en ortopedia",
     "relacionados": [
-      240
+      366
     ],
     "seo_title": "SOLARIO trial: pautas de antibiótico cortas o largas en ortopedia | Resúmenes Trials",
     "description": "SOLARIO: La pauta corta de antibiótico sistémico no fue inferior a la larga: en el análisis primario de la población elegible, el fracaso definitivo en los 12…",
@@ -11511,6 +11510,37 @@
       "question": "Determinar si una estrategia de transfusión de glóbulos rojos liberal (umbral de 10 g/dl), frente a una restrictiva (8 g/dl), reduce el mal resultado neurológico a los 12 meses en adultos con hemorragia subaracnoidea aneurismática y anemia.",
       "answer": "Sin diferencia significativa en el mal resultado neurológico a 12 meses (Rankin modificada de 4 o más): 33.5% con la estrategia liberal frente a 37.7% con la restrictiva (riesgo relativo 0.88; IC 95%, 0.72 a 1.09; p = 0.22).",
       "population": "La población fueron adultos en estado crítico con una primera hemorragia subaracnoidea aneurismática y anemia, definida como hemoglobina de 10.0 g/dl o menos en los primeros 10 días tras el ingreso. Procedían sobre todo de Canadá (el 75.1% del grupo liberal y el 74.6% del restrictivo), además de Australia y Estados Unidos. La etnia se registró: eran blancos el 55.5% y el 59.6%, respectivamente."
+    },
+    "datePublished": "2026-11-25"
+  },
+  "366": {
+    "slug": "balance-tratamiento-antibiotico-7-14-dias-pacientes-infecciones-torrente-sanguineo",
+    "path": "/trials/balance-tratamiento-antibiotico-7-14-dias-pacientes-infecciones-torrente-sanguineo/",
+    "url": "https://resumenestrials.com/trials/balance-tratamiento-antibiotico-7-14-dias-pacientes-infecciones-torrente-sanguineo/",
+    "title": "BALANCE: tratamiento antibiótico durante 7 frente a 14 días en pacientes con infecciones del torrente sanguíneo",
+    "relacionados": [
+      312,
+      31,
+      240
+    ],
+    "seo_title": "BALANCE trial: tratamiento antibiótico durante 7 frente a 14 días en pacientes con infecciones del torrente sanguíneo | Resúmenes Trials",
+    "description": "BALANCE: A los 90 días murió el 14.5% con 7 días frente al 16.1% con 14 días (diferencia de menos 1.6 puntos porcentuales; IC 95.7% menos 4.0 a 0.8; P no…",
+    "clusters": [
+      {
+        "name": "Infecciones y antibióticos",
+        "path": "/medicina-critica/infecciones-antibioticos/",
+        "url": "https://resumenestrials.com/medicina-critica/infecciones-antibioticos/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/balance-tratamiento-antibiotico-7-14-dias-pacientes-infecciones-torrente-sanguineo-16x9.jpg",
+      "https://resumenestrials.com/images/trials/balance-tratamiento-antibiotico-7-14-dias-pacientes-infecciones-torrente-sanguineo-4x3.jpg",
+      "https://resumenestrials.com/images/trials/balance-tratamiento-antibiotico-7-14-dias-pacientes-infecciones-torrente-sanguineo-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si 7 días de tratamiento antibiótico adecuado son no inferiores a 14 días en la mortalidad a 90 días de pacientes hospitalizados con bacteriemia.",
+      "answer": "A los 90 días murió el 14.5% con 7 días frente al 16.1% con 14 días (diferencia de menos 1.6 puntos porcentuales; IC 95.7% menos 4.0 a 0.8; P no reportado), dentro del margen de no inferioridad de 4 puntos, con resultado concordante por protocolo (menos 2.0; IC 95% menos 4.5 a 0.6).",
+      "population": "La población fueron pacientes hospitalizados, en la unidad de cuidados intensivos (UCI) o en planta, con un hemocultivo positivo para una bacteria patógena, en 74 hospitales de siete países de ingresos altos: Canadá aportó el 75.2%, y el resto, Australia, Nueva Zelanda, Arabia Saudita, Israel, Suiza y Estados Unidos. Raza y etnia: No reportado, porque el ensayo no recogió la raza."
     },
     "datePublished": "2026-11-25"
   }
