@@ -977,6 +977,37 @@
           "frase": "Determinar si el ácido zoledrónico 5 mg intravenoso, administrado al inicio y a los 5 años o solo al inicio, reduce"
         }
       }
+    },
+    {
+      "id": 365,
+      "fecha": "2026-11-25",
+      "huella": "76c02db5dcdf8255",
+      "preguntas": {
+        "corticoides-choque-septico": {
+          "rol": "nada",
+          "frase": "Determinar si una estrategia de transfusión de glóbulos rojos liberal (umbral de 10 g/dl), frente a una restrictiva (8 g"
+        },
+        "cristaloides-balanceados-solucion-salina-adultos-estado-critico": {
+          "rol": "nada",
+          "frase": "Determinar si una estrategia de transfusión de glóbulos rojos liberal (umbral de 10 g/dl), frente a una restrictiva (8 g"
+        },
+        "cuando-iniciar-terapia-reemplazo-renal-lesion-renal-aguda": {
+          "rol": "nada",
+          "frase": "Determinar si una estrategia de transfusión de glóbulos rojos liberal (umbral de 10 g/dl), frente a una restrictiva (8 g"
+        },
+        "meta-oxigenacion-paciente-critico": {
+          "rol": "nada",
+          "frase": "Determinar si una estrategia de transfusión de glóbulos rojos liberal (umbral de 10 g/dl), frente a una restrictiva (8 g"
+        },
+        "restriccion-liquidos-choque-septico-hipotension-sepsis": {
+          "rol": "nada",
+          "frase": "Determinar si una estrategia de transfusión de glóbulos rojos liberal (umbral de 10 g/dl), frente a una restrictiva (8 g"
+        },
+        "trombectomia-ventana-tardia-ictus-isquemico-oclusion-gran-vaso": {
+          "rol": "nada",
+          "frase": "Determinar si una estrategia de transfusión de glóbulos rojos liberal (umbral de 10 g/dl), frente a una restrictiva (8 g"
+        }
+      }
     }
   ],
   "preguntas": [
