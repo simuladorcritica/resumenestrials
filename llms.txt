@@ -39,6 +39,7 @@ Material educativo para profesionales de la salud. La referencia final es siempr
 
 ## Resúmenes de ensayos
 
+- [VANISH2: ablación con catéter o fármacos antiarrítmicos para la taquicardia ventricular](https://resumenestrials.com/trials/vanish2-ablacion-cateter-farmacos-antiarritmicos-taquicardia-ventricular/): NEJM, 2024.
 - [OPTION: cierre de la orejuela auricular izquierda tras la ablación de la fibrilación auricular](https://resumenestrials.com/trials/option-cierre-orejuela-auricular-izquierda-tras-ablacion-fibrilacion-auricular/): NEJM, 2024.
 - [BALANCE: tratamiento antibiótico durante 7 frente a 14 días en pacientes con infecciones del torrente sanguíneo](https://resumenestrials.com/trials/balance-tratamiento-antibiotico-7-14-dias-pacientes-infecciones-torrente-sanguineo/): NEJM, 2024.
 - [SAHARA: estrategia de transfusión liberal o restrictiva en la hemorragia subaracnoidea aneurismática](https://resumenestrials.com/trials/sahara-estrategia-transfusion-liberal-restrictiva-hemorragia-subaracnoidea-aneurismatica/): NEJM, 2024.
