@@ -9,6 +9,7 @@
   },
   "en_revision": [
     11,
+    18,
     23,
     24,
     25,
@@ -132,6 +133,7 @@
   ],
   "con_errores_abiertos": [
     11,
+    18,
     23,
     145,
     146,
@@ -155,8 +157,8 @@
   ],
   "errores_abiertos": {
     "CRÍTICO": 24,
-    "MAYOR": 42,
-    "MENOR": 535
+    "MAYOR": 45,
+    "MENOR": 606
   },
   "correcciones": [
     {

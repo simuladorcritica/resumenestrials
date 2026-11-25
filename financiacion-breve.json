@@ -134,10 +134,10 @@
    "conflictos": "Sí: dos autores son empleados de la compañía; el primer autor y el autor principal recibieron fármacos gratuitos de la misma empresa para estudios propios."
   },
   "23": {
-   "de": "9808cd5562e9",
-   "pago": "Organización Neerlandesa para la Investigación y el Desarrollo en Salud (ZonMW).",
-   "papel": "No participó ningún fabricante de vitamina C; el financiador no tuvo papel en el diseño, el análisis ni la redacción.",
-   "conflictos": "Sí, menores: la autora principal recibió un honorario de Pascoe, un laboratorio de productos vitamínicos, y otro autor declaró honorarios de numerosas compañías ajenas al producto estudiado. El resto, ninguno."
+   "de": "d2b8d0f3f580",
+   "pago": "Organización Neerlandesa para la Investigación y el Desarrollo en Salud (ZonMW), con contrato al Amsterdam UMC como promotor.",
+   "papel": "Ninguna empresa figura entre los financiadores; el financiador no tuvo papel en el diseño, la recogida, el análisis, la interpretación ni la redacción.",
+   "conflictos": "Sí: ocho autores declararon financiación de ZonMW; Angélique de Man recibió un honorario de Pascoe y otro autor declaró honorarios de numerosas compañías."
   },
   "24": {
    "de": "6035fdf29627",
@@ -902,39 +902,39 @@
    "conflictos": "No consta en el resumen."
   },
   "151": {
-   "de": "2fb335e62e63",
-   "pago": "Eli Lilly and Company, que fabrica tanto la tirzepatida, el fármaco en investigación, como la dulaglutida, el comparador activo.",
-   "papel": "El patrocinador diseñó el ensayo junto al comité ejecutivo académico, recolectó los datos e hizo el análisis inicial; estadísticos independientes de Monash University validaron los análisis.",
+   "de": "ed9e2f070ad0",
+   "pago": "Eli Lilly and Company, que fabrica tirzepatida y dulaglutida.",
+   "papel": "Diseñó el ensayo con el comité académico, supervisó su conducción, monitorizó los centros, recolectó los datos, hizo el análisis inicial, revisó el manuscrito y prestó asistencia editorial.",
    "conflictos": "No consta en el resumen."
   },
   "152": {
-   "de": "de1a673c2652",
-   "pago": "Hospital Universitario de Oslo, Programa Noruego de Investigación en Terapia Clínica y otras entidades, con una donación incondicional de Boehringer Ingelheim Norway, fabricante de la tenecteplasa, para el costo del fármaco.",
-   "papel": "Los patrocinadores no tuvieron ningún papel en el diseño, la conducción, el análisis ni la redacción, y no hubo acuerdos de confidencialidad con el fabricante.",
+   "de": "f552f05d7ed5",
+   "pago": "Hospital Universitario de Oslo, Klinbeforsk, la Autoridad Regional de Salud del Sureste de Noruega y Odd Fellows, con una donación de Boehringer Ingelheim Norway, fabricante de la tenecteplasa.",
+   "papel": "Boehringer Ingelheim Norway cubrió el costo del fármaco; según el artículo, los patrocinadores no tuvieron papel en el diseño, los datos ni la redacción.",
    "conflictos": "No consta en el resumen."
   },
   "153": {
-   "de": "5e5975a1c1e1",
-   "pago": "MSD (Merck & Co.), fabricante de enlicitide.",
-   "papel": "El patrocinador diseñó el ensayo junto con un comité científico asesor, participó en el análisis y la interpretación de los datos y colaboró en el manuscrito, con un redactor médico empleado suyo.",
-   "conflictos": "Sí: dos autores son representantes de la compañía."
+   "de": "ab3f6a95800a",
+   "pago": "MSD (Merck & Co., Rahway, Nueva Jersey), fabricante de enlicitide.",
+   "papel": "Diseñó el ensayo con un comité científico asesor, dos autores que lo representaban analizaron los datos, participó en su interpretación y en el manuscrito y aportó un redactor médico.",
+   "conflictos": "Sí: dos autores son representantes del patrocinador."
   },
   "154": {
-   "de": "f09e181f969e",
-   "pago": "Korean Institute of Medicine, que apoyó únicamente a los coordinadores del ensayo durante los primeros dos años; sin otra fuente de financiamiento externo.",
-   "papel": "El ensayo no fue costeado por el fabricante de las prótesis valvulares empleadas; fue iniciado por investigadores.",
+   "de": "df8b2b1b5ba7",
+   "pago": "Korean Institute of Medicine.",
+   "papel": "Ninguna empresa figura entre los financiadores; el financiador apoyó a los coordinadores y no tuvo papel en los datos ni en el manuscrito.",
    "conflictos": "No consta en el resumen."
   },
   "155": {
-   "de": "f7939eb45774",
-   "pago": "Múltiples fuentes académicas y públicas, una por cada ensayo incluido, entre ellas el Centro Nacional de Investigaciones Cardiovasculares Carlos III y el Consejo Sueco de Investigación.",
-   "papel": "Ninguna de las fuentes es fabricante de un betabloqueador (los fármacos son genéricos); los patrocinadores no tuvieron ningún papel en el diseño, el análisis ni la redacción.",
+   "de": "94e06dd7c168",
+   "pago": "Los financiadores de cada ensayo incluido, entre ellos el Centro Nacional de Investigaciones Cardiovasculares Carlos III, la Fundación Danesa del Corazón y la Fundación Novo Nordisk.",
+   "papel": "Ninguna empresa figura entre los financiadores; los patrocinadores de los ensayos no tuvieron papel en el diseño, los datos, el análisis ni la redacción.",
    "conflictos": "No consta en el resumen."
   },
   "156": {
-   "de": "fba4a1ce8196",
-   "pago": "Ionis Pharmaceuticals, la empresa que desarrolla el olezarsén, íntegramente.",
-   "papel": "El patrocinador participó en el diseño y el análisis de los datos, en colaboración académica con el TIMI Study Group.",
+   "de": "ca2effbd33d1",
+   "pago": "Ionis Pharmaceuticals, la empresa que desarrolla el olezarsén.",
+   "papel": "Los ensayos se diseñaron en colaboración entre el TIMI Study Group y el patrocinador; todos los análisis los realizó el TIMI Study Group sobre una base de datos mantenida de forma independiente.",
    "conflictos": "No consta en el resumen."
   },
   "157": {
