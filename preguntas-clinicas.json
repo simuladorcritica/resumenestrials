@@ -1070,6 +1070,37 @@
           "frase": "Determinar si, en pacientes con fibrilación auricular y riesgo de ictus elevado tratados con ablación con catéter, el ci"
         }
       }
+    },
+    {
+      "id": 368,
+      "fecha": "2026-11-25",
+      "huella": "1093792123a81ac6",
+      "preguntas": {
+        "corticoides-choque-septico": {
+          "rol": "nada",
+          "frase": "Comparar la ablación con catéter con los fármacos antiarrítmicos (sotalol o amiodarona) como estrategia inicial en pacie"
+        },
+        "cristaloides-balanceados-solucion-salina-adultos-estado-critico": {
+          "rol": "nada",
+          "frase": "Comparar la ablación con catéter con los fármacos antiarrítmicos (sotalol o amiodarona) como estrategia inicial en pacie"
+        },
+        "cuando-iniciar-terapia-reemplazo-renal-lesion-renal-aguda": {
+          "rol": "nada",
+          "frase": "Comparar la ablación con catéter con los fármacos antiarrítmicos (sotalol o amiodarona) como estrategia inicial en pacie"
+        },
+        "meta-oxigenacion-paciente-critico": {
+          "rol": "nada",
+          "frase": "Comparar la ablación con catéter con los fármacos antiarrítmicos (sotalol o amiodarona) como estrategia inicial en pacie"
+        },
+        "restriccion-liquidos-choque-septico-hipotension-sepsis": {
+          "rol": "nada",
+          "frase": "Comparar la ablación con catéter con los fármacos antiarrítmicos (sotalol o amiodarona) como estrategia inicial en pacie"
+        },
+        "trombectomia-ventana-tardia-ictus-isquemico-oclusion-gran-vaso": {
+          "rol": "nada",
+          "frase": "Comparar la ablación con catéter con los fármacos antiarrítmicos (sotalol o amiodarona) como estrategia inicial en pacie"
+        }
+      }
     }
   ],
   "preguntas": [
