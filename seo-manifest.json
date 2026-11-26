@@ -1518,8 +1518,8 @@
     "title": "Impacto de la broncoscopia en la seguridad de la traqueostomía percutánea",
     "relacionados": [
       25,
-      46,
-      80
+      80,
+      46
     ],
     "seo_title": "Impacto de la broncoscopia en la seguridad de la traqueostomía percutánea | Resúmenes Trials",
     "description": "Impacto de la broncoscopia en la seguridad de la traqueostomía percutánea: Las complicaciones mayores de la PCT fueron idénticas con y sin guía broncoscópica…",
@@ -5437,9 +5437,9 @@
     "url": "https://resumenestrials.com/trials/tric-i-hf-dzhk24-reparacion-transcateter-valvula-tricuspide-mas-tratamiento-medico-tratamiento/",
     "title": "TRIC-I-HF-DZHK24: intervención sobre la válvula tricúspide en la insuficiencia cardiaca",
     "relacionados": [
+      370,
       352,
-      34,
-      306
+      34
     ],
     "seo_title": "TRIC-I-HF-DZHK24 trial: intervención sobre la válvula tricúspide en la insuficiencia cardiaca | Resúmenes Trials",
     "description": "TRIC-I-HF-DZHK24: La reparación fue superior en el compuesto jerárquico, con una razón de victorias de 2.42 (IC 95%, 1.76 a 3.33; p<0.001) , y redujo la…",
@@ -5543,8 +5543,8 @@
     "url": "https://resumenestrials.com/trials/prodige-4-accord-11-folfirinox-gemcitabina-primera-linea-cancer-pancreas-metastasico/",
     "title": "PRODIGE 4-ACCORD 11: FOLFIRINOX frente a gemcitabina en el cáncer de páncreas metastásico",
     "relacionados": [
-      172,
-      242
+      242,
+      172
     ],
     "seo_title": "PRODIGE 4-ACCORD 11 trial: FOLFIRINOX frente a gemcitabina en el cáncer de páncreas metastásico | Resúmenes Trials",
     "description": "PRODIGE 4-ACCORD 11: FOLFIRINOX prolongó la mediana de supervivencia global: 11.1 frente a 6.8 meses (hazard ratio [HR] para la muerte 0.57; IC 95%, 0.45 a…",
@@ -6941,8 +6941,8 @@
     "title": "WOMAN: efecto de la administración precoz de ácido tranexámico sobre la mortalidad, la histerectomía y otras morbilidades en mujeres con hemorragia posparto",
     "relacionados": [
       214,
-      239,
-      177
+      177,
+      239
     ],
     "seo_title": "WOMAN trial: efecto de la administración precoz de ácido tranexámico sobre la mortalidad, la histerectomía y otras morbilidades en mujeres con hemorragia posparto | Resúmenes Trials",
     "description": "WOMAN: Sin diferencia significativa en el desenlace primario de muerte o histerectomía: 5.3% con ácido tranexámico frente a 5.5% con placebo, riesgo relativo…",
@@ -7117,7 +7117,7 @@
     "relacionados": [
       227,
       221,
-      193
+      21
     ],
     "seo_title": "Cathedia trial: cateterización venosa femoral frente a yugular y riesgo de eventos nosocomiales en adultos que requieren terapia de reemplazo renal aguda | Resúmenes Trials",
     "description": "Cathedia: La colonización del catéter fue de 40.8 frente a 35.7 por 1000 días-catéter con femoral y yugular (HR 0.85; IC 95%, 0.62 a 1.16; p = 0.31) , sin…",
@@ -7526,7 +7526,7 @@
     "relacionados": [
       237,
       119,
-      19
+      118
     ],
     "seo_title": "MILD-MT trial: ensayo de terapia endovascular en el ictus leve por oclusión de un gran vaso | Resúmenes Trials",
     "description": "MILD-MT: Una escala de Rankin de 0 o 1 a los 90 días se alcanzó en el 69.4% con trombectomía frente al 50.0% con tratamiento médico solo (razón de momios…",
@@ -11001,7 +11001,7 @@
     "relacionados": [
       352,
       123,
-      120
+      124
     ],
     "seo_title": "BHF PROTECT-TAVI trial: protección embólica cerebral rutinaria durante el implante transcatéter de válvula aórtica | Resúmenes Trials",
     "description": "BHF PROTECT-TAVI: El ictus a las 72 horas o antes del alta ocurrió en el 2.1% con protección embólica cerebral frente al 2.2% sin ella (diferencia −0.02…",
@@ -11094,7 +11094,7 @@
     "relacionados": [
       349,
       120,
-      123
+      101
     ],
     "seo_title": "DapaTAVI trial: dapagliflozina en pacientes sometidos a implante transcatéter de válvula aórtica | Resúmenes Trials",
     "description": "DapaTAVI: El compuesto de muerte por cualquier causa o empeoramiento de la insuficiencia cardiaca a 1 año ocurrió en el 15.0% con dapagliflozina frente al…",
@@ -11644,6 +11644,37 @@
       "question": "Evaluar si la tirzepatida semanal, frente a placebo, reduce la muerte cardiovascular o el empeoramiento de la insuficiencia cardiaca y mejora el estado de salud en adultos con insuficiencia cardiaca con fracción de eyección preservada y obesidad.",
       "answer": "La tirzepatida redujo el compuesto de muerte cardiovascular o empeoramiento de la insuficiencia cardiaca: 9.9% con tirzepatida frente a 15.3% con placebo ( HR 0.62; IC 95% 0.41 a 0.95; P = 0.026 ), y mejoró el KCCQ-CSS ( diferencia de medianas 6.9; IC 95% 3.3 a 10.6; P<0.001 ).",
       "population": "Se incluyó a adultos de 40 años o más con insuficiencia cardiaca crónica en clase funcional II a IV de la New York Heart Association (NYHA), con fracción de eyección del ventrículo izquierdo del 50% o más, es decir, insuficiencia cardiaca con fracción de eyección preservada (ICFEp), e índice de masa corporal (IMC) de 30 o más. El 70.3% con tirzepatida y el 69.8% con placebo eran de raza blanca y el 15.9% y el 19.9%, asiáticos…"
+    },
+    "datePublished": "2026-11-26"
+  },
+  "370": {
+    "slug": "triscend-ii-reemplazo-valvular-transcateter-insuficiencia-tricuspidea-grave",
+    "path": "/trials/triscend-ii-reemplazo-valvular-transcateter-insuficiencia-tricuspidea-grave/",
+    "url": "https://resumenestrials.com/trials/triscend-ii-reemplazo-valvular-transcateter-insuficiencia-tricuspidea-grave/",
+    "title": "TRISCEND II: reemplazo valvular transcatéter en la insuficiencia tricuspídea grave",
+    "relacionados": [
+      169,
+      306,
+      111
+    ],
+    "seo_title": "TRISCEND II trial: reemplazo valvular transcatéter en la insuficiencia tricuspídea grave | Resúmenes Trials",
+    "description": "TRISCEND II: El reemplazo valvular ganó en el desenlace jerárquico a 1 año, con un win ratio de 2.02 (IC 95% 1.56 a 2.62; P<0.001), sobre todo por los…",
+    "clusters": [
+      {
+        "name": "Cardiología y prevención cardiovascular",
+        "path": "/medicina-interna/cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-interna/cardiovascular/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/triscend-ii-reemplazo-valvular-transcateter-insuficiencia-tricuspidea-grave-16x9.jpg",
+      "https://resumenestrials.com/images/trials/triscend-ii-reemplazo-valvular-transcateter-insuficiencia-tricuspidea-grave-4x3.jpg",
+      "https://resumenestrials.com/images/trials/triscend-ii-reemplazo-valvular-transcateter-insuficiencia-tricuspidea-grave-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si el reemplazo valvular tricuspídeo transcatéter con el sistema EVOQUE, sumado al tratamiento médico, es superior al tratamiento médico solo en un desenlace jerárquico a 1 año que ordena muerte, asistencia ventricular o trasplante, cirugía o intervención tricuspídea posterior, hospitalización por insuficiencia cardiaca y mejoría de la calidad de vida, la clase funcional y la caminata, en la insuficiencia tricuspídea grave y sintomática.",
+      "answer": "El reemplazo valvular ganó en el desenlace jerárquico a 1 año, con un win ratio de 2.02 (IC 95% 1.56 a 2.62; P<0.001), sobre todo por los síntomas y la calidad de vida: por el cuestionario de Kansas City, la válvula ganó el 23.1% de los pares y el control, el 6.0%; la muerte bruta, sin 4 muertes de asignados a la válvula antes…",
+      "population": "La población fueron adultos con insuficiencia tricuspídea grave, masiva o torrencial (grados 3 a 5 de una escala de 0 a 5 graduada por un laboratorio central), sintomática o con hospitalización por insuficiencia cardiaca pese al tratamiento médico, y candidatos al reemplazo según el equipo cardiaco. Entre otras exclusiones figuraron: disfunción sistólica grave del ventrículo derecho, fracción de eyección del ventrículo…"
     },
     "datePublished": "2026-11-26"
   }
