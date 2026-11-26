@@ -1206,6 +1206,41 @@
           "frase": "Determinar si el reemplazo valvular aórtico transcatéter tem"
         }
       }
+    },
+    {
+      "id": 372,
+      "fecha": "2026-11-26",
+      "huella": "30a4fdf59b8c5da7",
+      "preguntas": {
+        "corticoides-choque-septico": {
+          "rol": "nada",
+          "frase": "Adultos de 40 años o más con insuficiencia cardiaca sintomática"
+        },
+        "cristaloides-balanceados-solucion-salina-adultos-estado-critico": {
+          "rol": "nada",
+          "frase": "Adultos de 40 años o más con insuficiencia cardiaca sintomática"
+        },
+        "cuando-iniciar-terapia-reemplazo-renal-lesion-renal-aguda": {
+          "rol": "nada",
+          "frase": "Adultos de 40 años o más con insuficiencia cardiaca sintomática"
+        },
+        "inhibidores-cotransportador-sodio-glucosa-enfermedad-renal-cronica": {
+          "rol": "nada",
+          "frase": "Adultos de 40 años o más con insuficiencia cardiaca sintomática"
+        },
+        "meta-oxigenacion-paciente-critico": {
+          "rol": "nada",
+          "frase": "Adultos de 40 años o más con insuficiencia cardiaca sintomática"
+        },
+        "restriccion-liquidos-choque-septico-hipotension-sepsis": {
+          "rol": "nada",
+          "frase": "Adultos de 40 años o más con insuficiencia cardiaca sintomática"
+        },
+        "trombectomia-ventana-tardia-ictus-isquemico-oclusion-gran-vaso": {
+          "rol": "nada",
+          "frase": "Adultos de 40 años o más con insuficiencia cardiaca sintomática"
+        }
+      }
     }
   ],
   "preguntas": [
