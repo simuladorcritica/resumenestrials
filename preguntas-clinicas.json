@@ -1276,6 +1276,41 @@
           "frase": "Determinar si el edoxabán en monoterapia reduce los eventos clínicos adversos netos a 12 meses"
         }
       }
+    },
+    {
+      "id": 374,
+      "fecha": "2026-11-26",
+      "huella": "4ec117ece79b3b39",
+      "preguntas": {
+        "corticoides-choque-septico": {
+          "rol": "nada",
+          "frase": "Determinar si una estrategia invasiva de angiografía coronaria y revascularización"
+        },
+        "cristaloides-balanceados-solucion-salina-adultos-estado-critico": {
+          "rol": "nada",
+          "frase": "Determinar si una estrategia invasiva de angiografía coronaria y revascularización"
+        },
+        "cuando-iniciar-terapia-reemplazo-renal-lesion-renal-aguda": {
+          "rol": "nada",
+          "frase": "Determinar si una estrategia invasiva de angiografía coronaria y revascularización"
+        },
+        "inhibidores-cotransportador-sodio-glucosa-enfermedad-renal-cronica": {
+          "rol": "nada",
+          "frase": "Determinar si una estrategia invasiva de angiografía coronaria y revascularización"
+        },
+        "meta-oxigenacion-paciente-critico": {
+          "rol": "nada",
+          "frase": "Determinar si una estrategia invasiva de angiografía coronaria y revascularización"
+        },
+        "restriccion-liquidos-choque-septico-hipotension-sepsis": {
+          "rol": "nada",
+          "frase": "Determinar si una estrategia invasiva de angiografía coronaria y revascularización"
+        },
+        "trombectomia-ventana-tardia-ictus-isquemico-oclusion-gran-vaso": {
+          "rol": "nada",
+          "frase": "Determinar si una estrategia invasiva de angiografía coronaria y revascularización"
+        }
+      }
     }
   ],
   "preguntas": [
