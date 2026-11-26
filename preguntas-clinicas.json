@@ -1241,6 +1241,41 @@
           "frase": "Adultos de 40 años o más con insuficiencia cardiaca sintomática"
         }
       }
+    },
+    {
+      "id": 373,
+      "fecha": "2026-11-26",
+      "huella": "09f278952161d826",
+      "preguntas": {
+        "corticoides-choque-septico": {
+          "rol": "nada",
+          "frase": "Determinar si el edoxabán en monoterapia reduce los eventos clínicos adversos netos a 12 meses"
+        },
+        "cristaloides-balanceados-solucion-salina-adultos-estado-critico": {
+          "rol": "nada",
+          "frase": "Determinar si el edoxabán en monoterapia reduce los eventos clínicos adversos netos a 12 meses"
+        },
+        "cuando-iniciar-terapia-reemplazo-renal-lesion-renal-aguda": {
+          "rol": "nada",
+          "frase": "Determinar si el edoxabán en monoterapia reduce los eventos clínicos adversos netos a 12 meses"
+        },
+        "inhibidores-cotransportador-sodio-glucosa-enfermedad-renal-cronica": {
+          "rol": "nada",
+          "frase": "Determinar si el edoxabán en monoterapia reduce los eventos clínicos adversos netos a 12 meses"
+        },
+        "meta-oxigenacion-paciente-critico": {
+          "rol": "nada",
+          "frase": "Determinar si el edoxabán en monoterapia reduce los eventos clínicos adversos netos a 12 meses"
+        },
+        "restriccion-liquidos-choque-septico-hipotension-sepsis": {
+          "rol": "nada",
+          "frase": "Determinar si el edoxabán en monoterapia reduce los eventos clínicos adversos netos a 12 meses"
+        },
+        "trombectomia-ventana-tardia-ictus-isquemico-oclusion-gran-vaso": {
+          "rol": "nada",
+          "frase": "Determinar si el edoxabán en monoterapia reduce los eventos clínicos adversos netos a 12 meses"
+        }
+      }
     }
   ],
   "preguntas": [
