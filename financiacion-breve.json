@@ -140,10 +140,10 @@
    "conflictos": "Sí: ocho autores declararon financiación de ZonMW; Angélique de Man recibió un honorario de Pascoe y otro autor declaró honorarios de numerosas compañías."
   },
   "24": {
-   "de": "6035fdf29627",
+   "de": "986eecfac8c6",
    "pago": "Fundación Noruega de Ambulancia Aérea.",
-   "papel": "El financiador no tuvo papel en el diseño, la recogida de datos, el análisis, la interpretación ni la redacción del manuscrito.",
-   "conflictos": "No: los autores declararon no tener conflictos de interés."
+   "papel": "Ninguna empresa figura entre los financiadores; el financiador no tuvo papel en el diseño, la recogida de datos, el análisis, la interpretación ni la redacción del manuscrito.",
+   "conflictos": "No: los autores declararon no tener conflictos, aunque varios, incluido el primer autor, están afiliados a la fundación financiadora."
   },
   "25": {
    "de": "0ba9b0463b8f",
@@ -938,10 +938,10 @@
    "conflictos": "No consta en el resumen."
   },
   "157": {
-   "de": "6fda5d83591e",
-   "pago": "Bayer, fabricante de finerenona, en su totalidad.",
-   "papel": "Bayer diseñó el ensayo junto con el comité directivo y analizó los datos.",
-   "conflictos": "Sí: varios autores del artículo son empleados de la compañía."
+   "de": "449482309a75",
+   "pago": "Bayer, fabricante de finerenona.",
+   "papel": "Bayer diseñó el ensayo junto con el comité directivo, analizó los datos, financió la asistencia de redacción médica y acordó con los autores enviarlo para publicación.",
+   "conflictos": "Sí: varios autores son empleados de Bayer y otros 13 autores no empleados, entre ellos Heerspink y McGill, declaran vínculos con Bayer."
   },
   "158": {
    "de": "3cb1abb3002d",
@@ -950,9 +950,9 @@
    "conflictos": "No consta en el resumen."
   },
   "159": {
-   "de": "a43d2548b250",
-   "pago": "Canadian Institutes of Health Research, Health Sciences Centre Foundation, Gobierno de Manitoba e Innovation Fund del Ministerio de Salud de Ontario: financiación enteramente pública.",
-   "papel": "Sin fabricante único del producto estudiado, que es un fármaco genérico.",
+   "de": "785ad6a3bb94",
+   "pago": "Canadian Institutes of Health Research, Health Sciences Centre Foundation, Gobierno de Manitoba e Innovation Fund del Ministerio de Salud de Ontario.",
+   "papel": "Ninguna empresa figura entre los financiadores; no tuvieron papel en el diseño, la recogida de datos, el análisis, la interpretación, la redacción ni la decisión de publicar.",
    "conflictos": "No consta en el resumen."
   },
   "160": {
@@ -1400,9 +1400,9 @@
    "conflictos": "No: ningún autor reportó conflictos de interés."
   },
   "234": {
-   "de": "99a2facacd04",
+   "de": "70ad759f94cc",
    "pago": "Programa de Estudios Cooperativos del Departamento de Asuntos de Veteranos e Instituto Nacional de Diabetes y Enfermedades Digestivas y Renales de Estados Unidos.",
-   "papel": "Ningún fabricante de equipos o insumos de diálisis participó en el diseño, el análisis ni la redacción.",
+   "papel": "Ningún fabricante de máquinas o insumos de diálisis participó en el diseño, la recogida de datos, el análisis ni la redacción del manuscrito.",
    "conflictos": "Sí: cuatro miembros del comité de redacción declararon vínculos con la industria, empresas de diálisis y farmacéuticas."
   },
   "235": {
@@ -2090,10 +2090,10 @@
    "conflictos": "Sí: varios autores declararon vínculos con Boston Scientific o Medtronic, entre ellos el primer autor, que declaró una beca de Boston Scientific para este ensayo."
   },
   "349": {
-   "de": "5ef2cf08ed4d",
-   "pago": "British Heart Foundation y Boston Scientific, fabricante del sistema Sentinel evaluado, que dio apoyo adicional para los dispositivos de protección.",
-   "papel": "Según el artículo, Boston Scientific no participó en el diseño, la conducción ni la comunicación del ensayo; el protocolo exigía que la empresa aprobara a cada centro para usar el dispositivo.",
-   "conflictos": "Sí: el primer autor declaró una beca de Boston Scientific para este ensayo; otros siete autores, vínculos con Boston Scientific; 22 de los 46 autores declararon algún interés."
+   "de": "82809c6fc4b8",
+   "pago": "British Heart Foundation y Boston Scientific, fabricante del sistema Sentinel evaluado, que dio apoyo adicional para los dispositivos.",
+   "papel": "Según el artículo, Boston Scientific no participó en el diseño, la conducción ni la comunicación; financiaba los dispositivos y debía aprobar a cada centro.",
+   "conflictos": "Sí: el primer autor y otros siete autores declararon vínculos con Boston Scientific; en total, 22 de los 46 autores declararon algún interés."
   },
   "350": {
    "de": "888db1090e0f",

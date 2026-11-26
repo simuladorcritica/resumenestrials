@@ -765,7 +765,7 @@
       128
     ],
     "seo_title": "REBOARREST trial: oclusión endovascular aórtica con balón para reanimación prehospitalaria en el paro cardiaco extrahospitalario no traumático | Resúmenes Trials",
-    "description": "REBOARREST: La REBOA no aumentó el retorno de la circulación sostenido: 28% con REBOA frente al 26% con soporte vital avanzado solo (diferencia de riesgo…",
+    "description": "REBOARREST: La oclusión aórtica endovascular con balón (REBOA) no logró una diferencia significativa en el retorno de la circulación sostenido: 28% con REBOA…",
     "clusters": [
       {
         "name": "Paro cardiaco y resucitación",
@@ -780,11 +780,11 @@
     ],
     "intent": {
       "question": "Evaluar si el despliegue prehospitalario de la oclusión aórtica con balón (REBOA) como complemento del soporte vital avanzado aumenta la tasa de retorno de la circulación espontánea sostenido en el paro cardiaco extrahospitalario no traumático.",
-      "answer": "La REBOA no aumentó el retorno de la circulación sostenido: 28% con REBOA frente al 26% con soporte vital avanzado solo (diferencia de riesgo ajustada 1.8%; IC 95%, -11 a 15; p=0.78).",
+      "answer": "La oclusión aórtica endovascular con balón (REBOA) no logró una diferencia significativa en el retorno de la circulación sostenido: 28% con REBOA frente al 26% con soporte vital avanzado solo (diferencia de riesgo ajustada 1.8%; IC 95%, -11 a 15; p=0.78).",
       "population": "La población fueron adultos de 18 a 80 años con un paro cardiaco extrahospitalario de origen no traumático, en los que habían pasado menos de 10 minutos desde el inicio del paro hasta el comienzo del soporte vital y en los que este podía continuarse tras la aleatorización; no se recogieron datos de raza ni etnia. Se excluyeron el paro traumático, la hipotermia accidental, la sospecha de hemorragia cerebral o de otra causa…"
     },
     "datePublished": "2026-08-17",
-    "dateModified": "2026-10-20"
+    "dateModified": "2026-11-25"
   },
   "25": {
     "slug": "ventsetfib-ajustes-ventilador-optimizados-broncoscopia-flexible-ventilacion-mecanica",
@@ -1970,7 +1970,7 @@
     "relacionados": [
       71,
       62,
-      76
+      353
     ],
     "seo_title": "DECLARE-TIMI 58 trial: dapagliflozina y desenlaces cardiovasculares en la diabetes tipo 2 | Resúmenes Trials",
     "description": "DECLARE-TIMI 58: Dapagliflozina fue no inferior a placebo en eventos cardiovasculares mayores ( 8.8% frente a 9.4% ; HR 0.93; IC 95%, 0.84-1.03; P=0.17), pero…",
@@ -4151,7 +4151,7 @@
     "relacionados": [
       131,
       297,
-      130
+      24
     ],
     "seo_title": "PARAMEDIC2 trial: ensayo aleatorizado de adrenalina en el paro cardiaco extrahospitalario | Resúmenes Trials",
     "description": "PARAMEDIC2: La adrenalina aumentó la supervivencia a 30 días frente a placebo ( 3.2% frente a 2.4%; odds ratio 1.39; IC95% 1.06 a 1.82; p=0.02 ), pero no hubo…",
@@ -4275,8 +4275,8 @@
     "url": "https://resumenestrials.com/trials/inception-reanimacion-cardiopulmonar-extracorporea-temprana-paro-cardiaco-extrahospitalario/",
     "title": "INCEPTION: reanimación cardiopulmonar extracorpórea temprana en el paro cardiaco extrahospitalario refractario",
     "relacionados": [
-      128,
       24,
+      128,
       297
     ],
     "seo_title": "INCEPTION trial: reanimación cardiopulmonar extracorpórea temprana en el paro cardiaco extrahospitalario refractario | Resúmenes Trials",
@@ -5083,7 +5083,7 @@
       291
     ],
     "seo_title": "FINE-ONE trial: finerenona en la diabetes tipo 1 con enfermedad renal crónica | Resúmenes Trials",
-    "description": "FINE-ONE: El cociente albúmina-creatinina urinario se redujo 34% con finerenona frente a 12% con placebo a los 6 meses (razón de medias geométricas 0.75; IC…",
+    "description": "FINE-ONE: El cociente albúmina-creatinina urinario se redujo 34% con finerenona frente a 12% con placebo en promedio durante los 6 meses (razón de medias…",
     "clusters": [
       {
         "name": "Renal y metabolismo",
@@ -5098,11 +5098,11 @@
     ],
     "intent": {
       "question": "Determinar si finerenona, añadida a un inhibidor de la ECA o un antagonista del receptor de angiotensina II, reduce más que el placebo el cociente albúmina-creatinina urinario en adultos con diabetes tipo 1 y enfermedad renal crónica.",
-      "answer": "El cociente albúmina-creatinina urinario se redujo 34% con finerenona frente a 12% con placebo a los 6 meses (razón de medias geométricas 0.75; IC 95% 0.65-0.87; P<0.001), una reducción 25% mayor con el fármaco activo.",
+      "answer": "El cociente albúmina-creatinina urinario se redujo 34% con finerenona frente a 12% con placebo en promedio durante los 6 meses (razón de medias geométricas 0.75; IC 95% 0.65-0.87; P<0.001), una reducción 25% mayor con el fármaco activo.",
       "population": "La población fueron adultos de 18 años o más con diabetes tipo 1 y enfermedad renal crónica, definida por un filtrado glomerular estimado de 25 a menos de 90 ml por minuto por 1.73 m2 y albuminuria de 200 a menos de 5000 mg de albúmina por gramo de creatinina, documentada durante al menos 3 meses, y que ya recibían un inhibidor de la enzima convertidora de angiotensina o un antagonista del receptor de angiotensina II. Los…"
     },
     "datePublished": "2026-09-14",
-    "dateModified": "2026-11-04"
+    "dateModified": "2026-11-25"
   },
   "158": {
     "slug": "pisces-aceite-pescado-eventos-cardiovasculares-pacientes-hemodialisis",
@@ -5139,11 +5139,11 @@
     "title": "TRACTION: política hospitalaria de ácido tranexámico para reducir la transfusión en cirugía mayor no cardiaca",
     "relacionados": [
       243,
-      247,
-      222
+      222,
+      247
     ],
     "seo_title": "TRACTION trial: política hospitalaria de ácido tranexámico para reducir la transfusión en cirugía mayor no cardiaca | Resúmenes Trials",
-    "description": "TRACTION: Menos transfusión con ácido tranexámico ( 7.4% vs 9.8% ; RR 0.73; NNT 37), sin aumento del tromboembolismo venoso (2.1% vs 2.1%; no inferioridad…",
+    "description": "TRACTION: Menos transfusión con ácido tranexámico ( 7.4% vs 9.8% ; riesgo relativo 0.73; número necesario a tratar 37 según el artículo, sobre la diferencia…",
     "clusters": [],
     "images": [
       "https://resumenestrials.com/images/trials/traction-politica-hospitalaria-acido-tranexamico-reducir-transfusion-cirugia-mayor-no-16x9.jpg",
@@ -5152,11 +5152,11 @@
     ],
     "intent": {
       "question": "Determinar si una política hospitalaria de administración de ácido tranexámico durante la cirugía mayor no cardiaca reduce la transfusión de glóbulos rojos sin aumentar de forma clínicamente importante el tromboembolismo venoso.",
-      "answer": "Menos transfusión con ácido tranexámico ( 7.4% vs 9.8% ; RR 0.73; NNT 37), sin aumento del tromboembolismo venoso (2.1% vs 2.1%; no inferioridad cumplida).",
+      "answer": "Menos transfusión con ácido tranexámico ( 7.4% vs 9.8% ; riesgo relativo 0.73; número necesario a tratar 37 según el artículo, sobre la diferencia ajustada), con tromboembolismo venoso no inferior al placebo (2.1% vs 2.1%; riesgo relativo 0.96; intervalo de confianza del 95%, 0.65 a 1.38; margen 1.46).",
       "population": "Población. Pacientes adultos, de 18 años o más, sometidos a cirugía mayor no cardiaca con un riesgo estimado de transfusión de glóbulos rojos del 5% o más, es decir, cirugías abiertas o laparoscópicas con una duración esperada de al menos 3 horas. Reclutados en 10 hospitales canadienses; el estudio no reporta la distribución por raza o etnia de los pacientes. Intervención. Una política hospitalaria de administración…"
     },
     "datePublished": "2026-09-14",
-    "dateModified": "2026-11-04"
+    "dateModified": "2026-11-25"
   },
   "160": {
     "slug": "c-tract-terapia-endovascular-sindrome-postrombotico",
@@ -5178,7 +5178,7 @@
       "population": "Población. Adultos con síndrome postrombótico moderado o severo, definido por una puntuación de 8 o más en la escala VCSS, de 10 o más en la escala de Villalta, o la presencia de una úlcera venosa abierta, y con obstrucción de la vena ilíaca confirmada por imagen, oclusión o estenosis del 50% o más. Reclutados en 29 centros de Estados Unidos; el 65.2 a 69.6% eran de raza blanca y el 20.5 a 27.7% de raza negra, con un 10.7 a…"
     },
     "datePublished": "2026-09-14",
-    "dateModified": "2026-11-04"
+    "dateModified": "2026-11-25"
   },
   "161": {
     "slug": "optimal-ultrasonido-intravascular-angiografia-guiar-intervencion-tronco-coronario-izquierdo",
@@ -7117,7 +7117,7 @@
     "relacionados": [
       227,
       221,
-      21
+      193
     ],
     "seo_title": "Cathedia trial: cateterización venosa femoral frente a yugular y riesgo de eventos nosocomiales en adultos que requieren terapia de reemplazo renal aguda | Resúmenes Trials",
     "description": "Cathedia: La colonización del catéter fue de 40.8 frente a 35.7 por 1000 días-catéter con femoral y yugular (HR 0.85; IC 95%, 0.62 a 1.16; p = 0.31) , sin…",
@@ -7427,7 +7427,8 @@
       "answer": "La mortalidad a 90 días fue del 41.5% con ECCO2R frente al 39.5% con ventilación estándar , sin diferencia significativa (riesgo relativo 1.05; IC 95%, 0.83 a 1.33; p = 0.68), con más eventos adversos graves en el grupo del dispositivo (30.7% frente a 8.6%, sin prueba estadística informada).",
       "population": "La población fueron pacientes de 16 años o más ingresados en UCI con insuficiencia respiratoria hipoxémica aguda moderada a grave de causa potencialmente reversible, con ventilación mecánica invasiva y una PEEP de al menos 5 cmH2O, dentro de las 48 horas siguientes al inicio de una hipoxemia definida por una PaO2/FiO2 menor de 150 mmHg. Participaron 51 UCI generales del Servicio Nacional de Salud del Reino Unido. La raza o…"
     },
-    "datePublished": "2026-10-21"
+    "datePublished": "2026-10-21",
+    "dateModified": "2026-11-25"
   },
   "233": {
     "slug": "ovation-objetivos-presion-arterial-mas-altos-mas-bajos-tratamiento-vasopresor",
@@ -7486,10 +7487,11 @@
     ],
     "intent": {
       "question": "Determinar si una estrategia intensiva de reemplazo renal reduce la mortalidad a 60 días frente a una estrategia menos intensiva en adultos en estado crítico con lesión renal aguda.",
-      "answer": "La mortalidad a 60 días fue del 53.6% con la estrategia intensiva frente al 51.5% con la menos intensiva , sin diferencia significativa (razón de momios 1.09; IC 95%, 0.86 a 1.40; p = 0.47), y la recuperación renal tampoco mejoró.",
+      "answer": "La mortalidad a 60 días fue del 53.6% con la estrategia intensiva frente al 51.5% con la menos intensiva , sin diferencia significativa (razón de momios 1.09; IC 95%, 0.86 a 1.40; p = 0.47), y la recuperación renal al día 28 no difirió significativamente (p = 0.24).",
       "population": "La población fueron adultos de 18 años o más, en estado crítico y atendidos en una unidad de cuidados críticos, con una lesión renal aguda compatible con necrosis tubular aguda en un contexto isquémico o nefrotóxico, para la que el equipo planeaba iniciar reemplazo renal, y con falla de al menos un órgano no renal, definida como una puntuación de la escala SOFA de 2 o más en ese órgano, o con sepsis. No podían haber recibido…"
     },
-    "datePublished": "2026-10-21"
+    "datePublished": "2026-10-21",
+    "dateModified": "2026-11-25"
   },
   "235": {
     "slug": "i-can-ravulizumab-nefropatia-iga-analisis-interino-ensayo-fase-3",
@@ -7777,7 +7779,8 @@
       "answer": "La mortalidad a 28 días fue del 38.5% con oxigenación conservadora frente al 34.7% con la liberal , sin diferencia significativa (riesgo relativo 1.11; IC 95%, 0.9 a 1.4; p = 0.30), en un ensayo detenido con menos de la mitad de la muestra prevista.",
       "population": "La población fueron adultos de 18 años o más ingresados en las unidades de cuidados intensivos participantes, intubados y con ventilación mecánica que se esperaba durara al menos 24 horas, incluidos en las 2 horas siguientes al inicio de la ventilación. Participaron ocho UCI de los Países Bajos y una de Italia. La raza o etnia de los pacientes: No reportado."
     },
-    "datePublished": "2026-10-27"
+    "datePublished": "2026-10-27",
+    "dateModified": "2026-11-25"
   },
   "243": {
     "slug": "anh-ensayo-aleatorizado-hemodilucion-normovolemica-aguda-cirugia-cardiaca",
@@ -9450,7 +9453,7 @@
     "relacionados": [
       131,
       128,
-      4
+      24
     ],
     "seo_title": "RACE-CARS trial: intervenciones comunitarias y de los servicios de emergencias médicas para mejorar la supervivencia en el paro cardiaco | Resúmenes Trials",
     "description": "RACE-CARS: Sin diferencia significativa en la supervivencia al alta con buena función neurológica ( 9.0% vs 9.4% ; OR ajustado 0.97; IC 95%, 0.75 a 1.26; P =…",
@@ -10644,8 +10647,8 @@
     "url": "https://resumenestrials.com/trials/essence-ensayo-fase-3-semaglutida-esteatohepatitis-asociada-disfuncion-metabolica/",
     "title": "ESSENCE: ensayo de fase 3 de semaglutida en la esteatohepatitis asociada a disfunción metabólica",
     "relacionados": [
-      319,
       270,
+      319,
       262
     ],
     "seo_title": "ESSENCE trial: ensayo de fase 3 de semaglutida en la esteatohepatitis asociada a disfunción metabólica | Resúmenes Trials",
@@ -11018,7 +11021,8 @@
       "answer": "El ictus a las 72 horas o antes del alta ocurrió en el 2.1% con protección embólica cerebral frente al 2.2% sin ella (diferencia −0.02 puntos porcentuales; IC 95% −0.68 a 0.63; P = 0.94) , sin diferencia significativa.",
       "population": "La población fueron adultos con estenosis aórtica programados para un implante transcatéter de válvula aórtica (TAVI) en el Reino Unido. La raza fue autodeclarada: el 93.4% de los pacientes con protección y el 93.2% de los controles eran blancos."
     },
-    "datePublished": "2026-11-23"
+    "datePublished": "2026-11-23",
+    "dateModified": "2026-11-25"
   },
   "350": {
     "slug": "alpaca-lepodisiran-arn-pequeno-interferencia-larga-duracion-dirigido-lipoproteina",

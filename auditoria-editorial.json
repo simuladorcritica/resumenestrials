@@ -4,8 +4,8 @@
   "estandar": "noviembre de 2026",
   "archivo": {
     "total": 368,
-    "auditados": 320,
-    "sin_auditar": 48
+    "auditados": 327,
+    "sin_auditar": 41
   },
   "en_revision": [
     11,
@@ -15,7 +15,6 @@
     26,
     27,
     28,
-    29,
     30,
     31,
     32,
@@ -75,13 +74,6 @@
     349
   ],
   "sin_auditar": [
-    25,
-    26,
-    27,
-    28,
-    29,
-    30,
-    31,
     32,
     33,
     34,
@@ -128,6 +120,12 @@
     11,
     18,
     24,
+    25,
+    26,
+    27,
+    28,
+    30,
+    31,
     145,
     146,
     148,
@@ -144,9 +142,9 @@
     349
   ],
   "errores_abiertos": {
-    "CRÍTICO": 13,
-    "MAYOR": 27,
-    "MENOR": 606
+    "CRÍTICO": 16,
+    "MAYOR": 50,
+    "MENOR": 729
   },
   "correcciones": [
     {
