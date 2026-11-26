@@ -3903,7 +3903,7 @@
     "relacionados": [
       124,
       123,
-      306
+      371
     ],
     "seo_title": "TAVI PCI trial: momento de la intervención coronaria percutánea en pacientes sometidos a implante percutáneo de válvula aórtica | Resúmenes Trials",
     "description": "TAVI PCI: TAVI antes de la PCI fue no inferior a PCI antes del TAVI en el desenlace compuesto a un año (22.2% frente a 24.2%; diferencia de riesgo −2.0…",
@@ -4030,7 +4030,7 @@
     "relacionados": [
       123,
       120,
-      352
+      371
     ],
     "seo_title": "PARTNER 3 trial: reemplazo percutáneo de válvula aórtica con válvula expandible con balón en pacientes de bajo riesgo | Resúmenes Trials",
     "description": "PARTNER 3: El compuesto de muerte, ictus o rehospitalización a 1 año fue menor con TAVI ( 8.5% frente a 15.1%; HR 0.54; IC 95%, 0.37 a 0.79; p=0.001 para…",
@@ -4995,9 +4995,9 @@
     "url": "https://resumenestrials.com/trials/recovery-cirugia-temprana-tratamiento-conservador-estenosis-aortica-asintomatica-10-anos/",
     "title": "RECOVERY: cirugía temprana o tratamiento conservador en la estenosis aórtica asintomática a 10 años",
     "relacionados": [
+      371,
       124,
-      120,
-      123
+      120
     ],
     "seo_title": "RECOVERY trial: cirugía temprana o tratamiento conservador en la estenosis aórtica asintomática a 10 años | Resúmenes Trials",
     "description": "RECOVERY: El desenlace primario (mortalidad operatoria o muerte cardiovascular) ocurrió en el 3% del grupo de cirugía temprana frente al 24% del grupo…",
@@ -7619,7 +7619,7 @@
     "relacionados": [
       214,
       248,
-      222
+      85
     ],
     "seo_title": "TICH-2 trial: ácido tranexámico para la hemorragia intracerebral primaria hiperaguda | Resúmenes Trials",
     "description": "TICH-2: El ácido tranexámico no mejoró el estado funcional a los 90 días: la razón de momios ajustada del desplazamiento en la escala de Rankin fue de 0.88…",
@@ -9736,8 +9736,8 @@
     "url": "https://resumenestrials.com/trials/progress-tavr-pacientes-estenosis-aortica-moderada-rasgos-riesgo/",
     "title": "PROGRESS: TAVR en pacientes con estenosis aórtica moderada con rasgos de riesgo",
     "relacionados": [
+      371,
       120,
-      124,
       352
     ],
     "seo_title": "PROGRESS trial: TAVR en pacientes con estenosis aórtica moderada con rasgos de riesgo | Resúmenes Trials",
@@ -11654,8 +11654,8 @@
     "title": "TRISCEND II: reemplazo valvular transcatéter en la insuficiencia tricuspídea grave",
     "relacionados": [
       169,
-      306,
-      111
+      371,
+      306
     ],
     "seo_title": "TRISCEND II trial: reemplazo valvular transcatéter en la insuficiencia tricuspídea grave | Resúmenes Trials",
     "description": "TRISCEND II: El reemplazo valvular ganó en el desenlace jerárquico a 1 año, con un win ratio de 2.02 (IC 95% 1.56 a 2.62; P<0.001), sobre todo por los…",
@@ -11675,6 +11675,31 @@
       "question": "Determinar si el reemplazo valvular tricuspídeo transcatéter con el sistema EVOQUE, sumado al tratamiento médico, es superior al tratamiento médico solo en un desenlace jerárquico a 1 año que ordena muerte, asistencia ventricular o trasplante, cirugía o intervención tricuspídea posterior, hospitalización por insuficiencia cardiaca y mejoría de la calidad de vida, la clase funcional y la caminata, en la insuficiencia tricuspídea grave y sintomática.",
       "answer": "El reemplazo valvular ganó en el desenlace jerárquico a 1 año, con un win ratio de 2.02 (IC 95% 1.56 a 2.62; P<0.001), sobre todo por los síntomas y la calidad de vida: por el cuestionario de Kansas City, la válvula ganó el 23.1% de los pares y el control, el 6.0%; la muerte bruta, sin 4 muertes de asignados a la válvula antes…",
       "population": "La población fueron adultos con insuficiencia tricuspídea grave, masiva o torrencial (grados 3 a 5 de una escala de 0 a 5 graduada por un laboratorio central), sintomática o con hospitalización por insuficiencia cardiaca pese al tratamiento médico, y candidatos al reemplazo según el equipo cardiaco. Entre otras exclusiones figuraron: disfunción sistólica grave del ventrículo derecho, fracción de eyección del ventrículo…"
+    },
+    "datePublished": "2026-11-26"
+  },
+  "371": {
+    "slug": "early-tavr-reemplazo-valvular-aortico-transcateter-estenosis-aortica-grave-asintomatica",
+    "path": "/trials/early-tavr-reemplazo-valvular-aortico-transcateter-estenosis-aortica-grave-asintomatica/",
+    "url": "https://resumenestrials.com/trials/early-tavr-reemplazo-valvular-aortico-transcateter-estenosis-aortica-grave-asintomatica/",
+    "title": "EARLY TAVR: reemplazo valvular aórtico transcatéter en la estenosis aórtica grave asintomática",
+    "relacionados": [
+      306,
+      154,
+      124
+    ],
+    "seo_title": "EARLY TAVR trial: reemplazo valvular aórtico transcatéter en la estenosis aórtica grave asintomática | Resúmenes Trials",
+    "description": "EARLY TAVR: El compuesto de muerte, ictus u hospitalización cardiovascular no planificada, contado desde la aleatorización, ocurrió en el 26.8% con TAVR…",
+    "clusters": [],
+    "images": [
+      "https://resumenestrials.com/images/trials/early-tavr-reemplazo-valvular-aortico-transcateter-estenosis-aortica-grave-asintomatica-16x9.jpg",
+      "https://resumenestrials.com/images/trials/early-tavr-reemplazo-valvular-aortico-transcateter-estenosis-aortica-grave-asintomatica-4x3.jpg",
+      "https://resumenestrials.com/images/trials/early-tavr-reemplazo-valvular-aortico-transcateter-estenosis-aortica-grave-asintomatica-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si el reemplazo valvular aórtico transcatéter temprano es superior a la vigilancia clínica para reducir un compuesto de muerte por cualquier causa, ictus u hospitalización no planificada por causa cardiovascular en pacientes de 65 años o más con estenosis aórtica grave asintomática.",
+      "answer": "El compuesto de muerte, ictus u hospitalización cardiovascular no planificada, contado desde la aleatorización, ocurrió en el 26.8% con TAVR temprano frente al 45.3% con vigilancia clínica (HR 0.50; IC 95% 0.40-0.63; P<0.001) en una mediana de 3.8 años.",
+      "population": "La población fueron adultos de 65 años o más con estenosis aórtica grave asintomática, fracción de eyección del ventrículo izquierdo (FEVI) conservada y anatomía apta para un reemplazo valvular aórtico transcatéter (TAVR, por sus siglas en inglés) por vía transfemoral, en 75 centros de Estados Unidos y Canadá; se identificaron como blancos el 95.8% del grupo TAVR y el 94.6% del de vigilancia."
     },
     "datePublished": "2026-11-26"
   }

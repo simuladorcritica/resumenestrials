@@ -1171,6 +1171,41 @@
           "frase": "Determinar si el reemplazo valvular tricuspídeo transcatéter"
         }
       }
+    },
+    {
+      "id": 371,
+      "fecha": "2026-11-26",
+      "huella": "12efdea899cec9ad",
+      "preguntas": {
+        "corticoides-choque-septico": {
+          "rol": "nada",
+          "frase": "Determinar si el reemplazo valvular aórtico transcatéter tem"
+        },
+        "cristaloides-balanceados-solucion-salina-adultos-estado-critico": {
+          "rol": "nada",
+          "frase": "Determinar si el reemplazo valvular aórtico transcatéter tem"
+        },
+        "cuando-iniciar-terapia-reemplazo-renal-lesion-renal-aguda": {
+          "rol": "nada",
+          "frase": "Determinar si el reemplazo valvular aórtico transcatéter tem"
+        },
+        "inhibidores-cotransportador-sodio-glucosa-enfermedad-renal-cronica": {
+          "rol": "nada",
+          "frase": "Determinar si el reemplazo valvular aórtico transcatéter tem"
+        },
+        "meta-oxigenacion-paciente-critico": {
+          "rol": "nada",
+          "frase": "Determinar si el reemplazo valvular aórtico transcatéter tem"
+        },
+        "restriccion-liquidos-choque-septico-hipotension-sepsis": {
+          "rol": "nada",
+          "frase": "Determinar si el reemplazo valvular aórtico transcatéter tem"
+        },
+        "trombectomia-ventana-tardia-ictus-isquemico-oclusion-gran-vaso": {
+          "rol": "nada",
+          "frase": "Determinar si el reemplazo valvular aórtico transcatéter tem"
+        }
+      }
     }
   ],
   "preguntas": [

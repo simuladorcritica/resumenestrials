@@ -40,6 +40,7 @@ Material educativo para profesionales de la salud. La referencia final es siempr
 
 ## Resúmenes de ensayos
 
+- [EARLY TAVR: reemplazo valvular aórtico transcatéter en la estenosis aórtica grave asintomática](https://resumenestrials.com/trials/early-tavr-reemplazo-valvular-aortico-transcateter-estenosis-aortica-grave-asintomatica/): NEJM, 2024.
 - [TRISCEND II: reemplazo valvular transcatéter en la insuficiencia tricuspídea grave](https://resumenestrials.com/trials/triscend-ii-reemplazo-valvular-transcateter-insuficiencia-tricuspidea-grave/): NEJM, 2024.
 - [SUMMIT: tirzepatida en la insuficiencia cardiaca con fracción de eyección preservada y obesidad](https://resumenestrials.com/trials/summit-tirzepatida-insuficiencia-cardiaca-fraccion-eyeccion-preservada-obesidad/): NEJM, 2024.
 - [VANISH2: ablación con catéter o fármacos antiarrítmicos para la taquicardia ventricular](https://resumenestrials.com/trials/vanish2-ablacion-cateter-farmacos-antiarritmicos-taquicardia-ventricular/): NEJM, 2024.
