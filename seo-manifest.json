@@ -2005,9 +2005,9 @@
     "url": "https://resumenestrials.com/trials/deliver-dapagliflozina-reduce-empeoramiento-insuficiencia-cardiaca-fraccion-eyeccion-mayor-40/",
     "title": "DELIVER: dapagliflozina en la insuficiencia cardiaca con fracción de eyección levemente reducida o preservada",
     "relacionados": [
-      73,
       101,
-      59
+      73,
+      369
     ],
     "seo_title": "DELIVER trial: dapagliflozina en la insuficiencia cardiaca con fracción de eyección levemente reducida o preservada | Resúmenes Trials",
     "description": "DELIVER: Dapagliflozina redujo el desenlace combinado de empeoramiento de la insuficiencia cardiaca o muerte cardiovascular frente a placebo ( 16.4% frente a…",
@@ -2345,8 +2345,8 @@
     "url": "https://resumenestrials.com/trials/empact-mi-empagliflozina-tras-infarto-agudo-no-reduce-insuficiencia-cardiaca-ni/",
     "title": "EMPACT-MI: empagliflozina tras un infarto agudo de miocardio",
     "relacionados": [
-      59,
       73,
+      59,
       280
     ],
     "seo_title": "EMPACT-MI trial: empagliflozina tras un infarto agudo de miocardio | Resúmenes Trials",
@@ -2384,7 +2384,7 @@
     "relacionados": [
       59,
       62,
-      76
+      369
     ],
     "seo_title": "EMPEROR-Preserved trial: empagliflozina en la insuficiencia cardiaca con fracción de eyección preservada | Resúmenes Trials",
     "description": "EMPEROR-Preserved: La empagliflozina redujo el desenlace primario compuesto de muerte cardiovascular u hospitalización por insuficiencia cardiaca ( 13.8% vs…",
@@ -6092,7 +6092,7 @@
     "relacionados": [
       191,
       192,
-      174
+      78
     ],
     "seo_title": "Eficacia y seguridad de los corticosteroides en el síndrome de dificultad respiratoria aguda persistente | Resúmenes Trials",
     "description": "Eficacia y seguridad de los corticosteroides en el síndrome de dificultad respiratoria aguda persistente: Sin diferencia en la mortalidad a 60 días ( 28.6%…",
@@ -9995,7 +9995,8 @@
     "url": "https://resumenestrials.com/trials/acacia-hcm-aficamten-miocardiopatia-hipertrofica-no-obstructiva-sintomatica/",
     "title": "ACACIA-HCM: aficamten para la miocardiopatía hipertrófica no obstructiva sintomática",
     "relacionados": [
-      278
+      278,
+      369
     ],
     "seo_title": "ACACIA-HCM trial: aficamten para la miocardiopatía hipertrófica no obstructiva sintomática | Resúmenes Trials",
     "description": "ACACIA-HCM: A las 36 semanas, el KCCQ-CSS mejoró 11.4 puntos con aficamten y 8.4 con placebo (diferencia 3.0 puntos ; IC 95% 0.5 a 5.5; P=0.02), y el consumo…",
@@ -10587,7 +10588,7 @@
     "relacionados": [
       270,
       121,
-      341
+      369
     ],
     "seo_title": "SURMOUNT-5 trial: tirzepatida en comparación con semaglutida para el tratamiento de la obesidad | Resúmenes Trials",
     "description": "SURMOUNT-5: A la semana 72, el cambio medio del peso fue de -20.2% con tirzepatida frente a -13.7% con semaglutida (diferencia -6.5 puntos porcentuales; IC…",
@@ -11093,7 +11094,7 @@
     "relacionados": [
       349,
       120,
-      101
+      123
     ],
     "seo_title": "DapaTAVI trial: dapagliflozina en pacientes sometidos a implante transcatéter de válvula aórtica | Resúmenes Trials",
     "description": "DapaTAVI: El compuesto de muerte por cualquier causa o empeoramiento de la insuficiencia cardiaca a 1 año ocurrió en el 15.0% con dapagliflozina frente al…",
@@ -11609,5 +11610,41 @@
       "population": "La población fueron pacientes con infarto de miocardio previo y una taquicardia ventricular (TV) monomórfica en los 6 meses previos, sin tomar antiarrítmicos de clase I o III: TV sostenida terminada con fármacos, cardioversión o terapia manual del desfibrilador, episodios repetidos tratados con estimulación antitaquicardia, al menos una descarga apropiada o 3 o más episodios en 24 horas. Todos llevaban un desfibrilador…"
     },
     "datePublished": "2026-11-25"
+  },
+  "369": {
+    "slug": "summit-tirzepatida-insuficiencia-cardiaca-fraccion-eyeccion-preservada-obesidad",
+    "path": "/trials/summit-tirzepatida-insuficiencia-cardiaca-fraccion-eyeccion-preservada-obesidad/",
+    "url": "https://resumenestrials.com/trials/summit-tirzepatida-insuficiencia-cardiaca-fraccion-eyeccion-preservada-obesidad/",
+    "title": "SUMMIT: tirzepatida en la insuficiencia cardiaca con fracción de eyección preservada y obesidad",
+    "relacionados": [
+      62,
+      73,
+      335
+    ],
+    "seo_title": "SUMMIT trial: tirzepatida en la insuficiencia cardiaca con fracción de eyección preservada y obesidad | Resúmenes Trials",
+    "description": "SUMMIT: La tirzepatida redujo el compuesto de muerte cardiovascular o empeoramiento de la insuficiencia cardiaca: 9.9% con tirzepatida frente a 15.3% con…",
+    "clusters": [
+      {
+        "name": "Cardiología y prevención cardiovascular",
+        "path": "/medicina-interna/cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-interna/cardiovascular/"
+      },
+      {
+        "name": "Renal y metabolismo",
+        "path": "/medicina-interna/renal-metabolica/",
+        "url": "https://resumenestrials.com/medicina-interna/renal-metabolica/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/summit-tirzepatida-insuficiencia-cardiaca-fraccion-eyeccion-preservada-obesidad-16x9.jpg",
+      "https://resumenestrials.com/images/trials/summit-tirzepatida-insuficiencia-cardiaca-fraccion-eyeccion-preservada-obesidad-4x3.jpg",
+      "https://resumenestrials.com/images/trials/summit-tirzepatida-insuficiencia-cardiaca-fraccion-eyeccion-preservada-obesidad-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Evaluar si la tirzepatida semanal, frente a placebo, reduce la muerte cardiovascular o el empeoramiento de la insuficiencia cardiaca y mejora el estado de salud en adultos con insuficiencia cardiaca con fracción de eyección preservada y obesidad.",
+      "answer": "La tirzepatida redujo el compuesto de muerte cardiovascular o empeoramiento de la insuficiencia cardiaca: 9.9% con tirzepatida frente a 15.3% con placebo ( HR 0.62; IC 95% 0.41 a 0.95; P = 0.026 ), y mejoró el KCCQ-CSS ( diferencia de medianas 6.9; IC 95% 3.3 a 10.6; P<0.001 ).",
+      "population": "Se incluyó a adultos de 40 años o más con insuficiencia cardiaca crónica en clase funcional II a IV de la New York Heart Association (NYHA), con fracción de eyección del ventrículo izquierdo del 50% o más, es decir, insuficiencia cardiaca con fracción de eyección preservada (ICFEp), e índice de masa corporal (IMC) de 30 o más. El 70.3% con tirzepatida y el 69.8% con placebo eran de raza blanca y el 15.9% y el 19.9%, asiáticos…"
+    },
+    "datePublished": "2026-11-26"
   }
 }

@@ -1101,6 +1101,41 @@
           "frase": "Comparar la ablación con catéter con los fármacos antiarrítmicos (sotalol o amiodarona) como estrategia inicial en pacie"
         }
       }
+    },
+    {
+      "id": 369,
+      "fecha": "2026-11-26",
+      "huella": "217252f3ca9c5984",
+      "preguntas": {
+        "corticoides-choque-septico": {
+          "rol": "nada",
+          "frase": "Evaluar si la tirzepatida semanal, frente a placebo, reduce"
+        },
+        "cristaloides-balanceados-solucion-salina-adultos-estado-critico": {
+          "rol": "nada",
+          "frase": "Evaluar si la tirzepatida semanal, frente a placebo, reduce"
+        },
+        "cuando-iniciar-terapia-reemplazo-renal-lesion-renal-aguda": {
+          "rol": "nada",
+          "frase": "Evaluar si la tirzepatida semanal, frente a placebo, reduce"
+        },
+        "inhibidores-cotransportador-sodio-glucosa-enfermedad-renal-cronica": {
+          "rol": "nada",
+          "frase": "Evaluar si la tirzepatida semanal, frente a placebo, reduce"
+        },
+        "meta-oxigenacion-paciente-critico": {
+          "rol": "nada",
+          "frase": "Evaluar si la tirzepatida semanal, frente a placebo, reduce"
+        },
+        "restriccion-liquidos-choque-septico-hipotension-sepsis": {
+          "rol": "nada",
+          "frase": "Evaluar si la tirzepatida semanal, frente a placebo, reduce"
+        },
+        "trombectomia-ventana-tardia-ictus-isquemico-oclusion-gran-vaso": {
+          "rol": "nada",
+          "frase": "Evaluar si la tirzepatida semanal, frente a placebo, reduce"
+        }
+      }
     }
   ],
   "preguntas": [
@@ -1814,7 +1849,7 @@
       "condicion": "Enfermedad crítica",
       "area": "Medicina Crítica",
       "fecha_publicacion": "2026-11-15",
-      "fecha_revision": "2026-11-15",
+      "fecha_revision": "2026-11-26",
       "criterio": "Publicación principal de un ensayo clínico aleatorizado en adultos ingresados en cuidados intensivos o con ingreso previsto en ellos, con oxígeno suplementario o ventilación mecánica, cuya comparación principal son dos o más METAS de oxigenación (de PaO2, de saturación, u oxigenoterapia conservadora frente a liberal o habitual) mantenidas durante días: toda la ventilación o la estancia, o un periodo fijo de varios días. No pertenecen al núcleo: los ensayos cuya población de inclusión es el paro cardiaco; los hechos solo en pacientes con oxigenación por membrana extracorpórea; los que comparan una fracción fija de oxígeno o una hiperoxia aplicada solo durante horas o durante un procedimiento; los que se inician y se aplican fuera de cuidados intensivos (prehospitalario, quirófano, planta), pero no los que incluyen pacientes en urgencias con ingreso previsto a cuidados intensivos y mantienen la meta en la unidad; los de dispositivos o modos de dar oxígeno (alto flujo, ventilación no invasiva); los de titulación automática; ni los ensayos piloto o de factibilidad, los análisis secundarios, los seguimientos o los metaanálisis. Cuáles de esos van como relacionados lo dice `criterio_relacionados`; los demás no se añaden. Ante la duda, no se añade al núcleo.",
       "criterio_relacionados": "Solo ensayos clínicos aleatorizados en adultos que comparan METAS de oxigenación en otra población o ámbito (tras un paro cardiaco, con oxigenación por membrana extracorpórea, fuera de cuidados intensivos) o que comparan cómo alcanzar una misma meta de oxigenación (titulación automática frente a manual), en cualquier ámbito hospitalario; un sistema de titulación automática no cuenta como dispositivo de dar oxígeno. No se añaden los de dispositivos o modos de dar oxígeno (alto flujo, ventilación no invasiva, preoxigenación), los de oxigenoterapia domiciliaria ni los de otras intervenciones que solo miden la oxigenación como desenlace. Ante la duda, no se añade.",
       "ejes": [
@@ -2124,17 +2159,18 @@
               "cita": "El desenlace principal fue la mortalidad a 28 días."
             },
             "tamano": {
-              "frase": "ICONIC analizó 664 pacientes y se detuvo por la pandemia; se habían previsto 1512.",
-              "cita": "con 664 pacientes analizados, 335 y 329 por grupo. Se detuvo por la pandemia con menos de la mitad de los 1512 previstos"
+              "frase": "ICONIC incluyó en el análisis 664 de los 1512 pacientes previstos y se detuvo por la pandemia.",
+              "cita": [
+                "de 882 aleatorizados, 664 entraron, con consentimiento diferido, en el análisis por intención de tratar modificada (335 y 329 por grupo). Se detuvo por la pandemia sin alcanzar la mitad de los 1512 previstos",
+                "con 664 de los 1512 pacientes previstos"
+              ]
             },
             "pacientes": {
-              "frase": "ICONIC incluyó pacientes cuyo diagnóstico agudo más frecuente fue el paro cardiaco (26.6% y 29.2% en los dos grupos), y alrededor de 3 de cada 4 ingresos fueron médicos.",
+              "frase": "ICONIC incluyó pacientes con una mediana de 9 en el puntaje SOFA en ambos grupos, alrededor de 3 de cada 4 ingresos médicos y el paro cardiaco como diagnóstico agudo más frecuente (26.6% y 29.2% en los dos grupos).",
               "cita": [
-                "La mediana de edad fue de 67 años en ambos grupos",
-                "La gravedad se midió con el puntaje SOFA, que va de 0 a 24 y donde más puntos indican más disfunción orgánica, con una mediana de 9 en ambos grupos, y con el APACHE IV, donde más puntos indican peor pronóstico, con medianas de 87 y 86.",
+                "La gravedad se midió con el puntaje SOFA, que va de 0 a 24 y donde más puntos indican más disfunción orgánica, con una mediana de 9 en ambos grupos",
                 "Alrededor de 3 de cada 4 ingresos fueron médicos.",
-                "El diagnóstico agudo más frecuente fue el paro cardiaco, 26.6% frente a 29.2%, seguido de la neumonía, 16.1% frente a 13.1%, y la sepsis, 15.8% frente a 12.8%.",
-                "más de una cuarta parte de la muestra eran pacientes reanimados de un paro"
+                "El diagnóstico agudo más frecuente fue el paro cardiaco, 26.6% frente a 29.2%"
               ]
             },
             "separacion": {
@@ -2146,21 +2182,18 @@
               ]
             },
             "limitacion": {
-              "frase": "ICONIC analizó 664 de sus 882 pacientes aleatorizados y, según su resumen, no se puede comprobar que los analizados sigan siendo comparables; además, algunos pacientes del grupo alto no alcanzaron su objetivo.",
+              "frase": "ICONIC, según su resumen, carece de poder para descartar diferencias clínicamente importantes y, al entrar en el análisis solo 664 de 882 aleatorizados, no se puede comprobar que los analizados sigan siendo comparables.",
               "cita": [
                 "La primera, la falta de poder: con 664 de los 1512 pacientes previstos, el intervalo de confianza del riesgo relativo, de 0.9 a 1.4, es compatible tanto con un pequeño beneficio como con un daño apreciable de la estrategia conservadora, de modo que no permite descartar diferencias clínicamente importantes.",
-                "La segunda es el sesgo de selección posterior a la aleatorización: de 882 aleatorizados solo se analizaron 664, porque el resto quedó fuera al no obtenerse el consentimiento diferido o al retirarse en las primeras 24 horas por presentar ya al incluirlos un criterio de exclusión, y la ley neerlandesa impide describir a ese grupo, así que no se puede comprobar que los analizados sigan siendo comparables a lo que la aleatorización generó.",
-                "La tercera es la ejecución y la población: algunos pacientes del grupo alto no alcanzaron su objetivo, lo que pudo reducir el contraste, el diseño fue abierto y se excluyó a los pacientes con síndrome de dificultad respiratoria aguda grave o con enfermedad pulmonar obstructiva crónica descompensada, por lo que los resultados no se aplican a ellos.",
-                "La validez interna es aceptable pero frágil por el consentimiento diferido, y la externa se limita a adultos ventilados sin hipoxemia grave en UCI generales de Europa occidental."
+                "La segunda es el sesgo de selección posterior a la aleatorización: de 882 pacientes aleatorizados solo 664 entraron en el análisis por intención de tratar modificada, porque el resto quedó fuera al no obtenerse el consentimiento diferido o al retirarse en las primeras 24 horas por presentar ya al incluirlos un criterio de exclusión, y la ley neerlandesa impide describir a ese grupo, así que no se puede comprobar que los analizados sigan siendo comparables a lo que la aleatorización generó."
               ]
             }
           },
           "revision": {
-            "fecha": "2026-11-15",
+            "fecha": "2026-11-26",
             "cotejo": "VERDE",
             "fiscal": "VERDE",
-            "omisiones": "VERDE",
-            "nota": "Versión breve: cotejo de cada frase contra su cita y revisión del fiscal, que además comprobó que las tres frases de la ficha dicen lo decisivo; sus propuestas se aplicaron."
+            "omisiones": "VERDE"
           }
         }
       ],
