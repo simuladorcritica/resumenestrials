@@ -2244,6 +2244,12 @@
    "pago": "British Heart Foundation; patrocinador: Newcastle upon Tyne Hospitals NHS Foundation Trust.",
    "papel": "Ninguna empresa figura entre los financiadores.",
    "conflictos": "No consta en el resumen."
+  },
+  "375": {
+   "de": "b3d779606e58",
+   "pago": "Bayer (patrocinador; el asundexián es su fármaco en investigación).",
+   "papel": "Según el artículo, un comité ejecutivo y el Duke Clinical Research Institute, en colaboración con el patrocinador, supervisaron el ensayo y comunicaron los resultados.",
+   "conflictos": "Sí: cinco autores son empleados de Bayer."
   }
  }
 }

@@ -1311,6 +1311,41 @@
           "frase": "Determinar si una estrategia invasiva de angiografía coronaria y revascularización"
         }
       }
+    },
+    {
+      "id": 375,
+      "fecha": "2026-11-26",
+      "huella": "9359c714db8af557",
+      "preguntas": {
+        "corticoides-choque-septico": {
+          "rol": "nada",
+          "frase": "Determinar si el asundexián 50 mg una vez al día es al menos no inferior al apixabán"
+        },
+        "cristaloides-balanceados-solucion-salina-adultos-estado-critico": {
+          "rol": "nada",
+          "frase": "Determinar si el asundexián 50 mg una vez al día es al menos no inferior al apixabán"
+        },
+        "cuando-iniciar-terapia-reemplazo-renal-lesion-renal-aguda": {
+          "rol": "nada",
+          "frase": "Determinar si el asundexián 50 mg una vez al día es al menos no inferior al apixabán"
+        },
+        "inhibidores-cotransportador-sodio-glucosa-enfermedad-renal-cronica": {
+          "rol": "nada",
+          "frase": "Determinar si el asundexián 50 mg una vez al día es al menos no inferior al apixabán"
+        },
+        "meta-oxigenacion-paciente-critico": {
+          "rol": "nada",
+          "frase": "Determinar si el asundexián 50 mg una vez al día es al menos no inferior al apixabán"
+        },
+        "restriccion-liquidos-choque-septico-hipotension-sepsis": {
+          "rol": "nada",
+          "frase": "Determinar si el asundexián 50 mg una vez al día es al menos no inferior al apixabán"
+        },
+        "trombectomia-ventana-tardia-ictus-isquemico-oclusion-gran-vaso": {
+          "rol": "nada",
+          "frase": "Determinar si el asundexián 50 mg una vez al día es al menos no inferior al apixabán"
+        }
+      }
     }
   ],
   "preguntas": [
