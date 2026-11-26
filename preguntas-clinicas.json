@@ -1136,6 +1136,41 @@
           "frase": "Evaluar si la tirzepatida semanal, frente a placebo, reduce"
         }
       }
+    },
+    {
+      "id": 370,
+      "fecha": "2026-11-26",
+      "huella": "a2789c74218d67a3",
+      "preguntas": {
+        "corticoides-choque-septico": {
+          "rol": "nada",
+          "frase": "Determinar si el reemplazo valvular tricuspídeo transcatéter"
+        },
+        "cristaloides-balanceados-solucion-salina-adultos-estado-critico": {
+          "rol": "nada",
+          "frase": "Determinar si el reemplazo valvular tricuspídeo transcatéter"
+        },
+        "cuando-iniciar-terapia-reemplazo-renal-lesion-renal-aguda": {
+          "rol": "nada",
+          "frase": "Determinar si el reemplazo valvular tricuspídeo transcatéter"
+        },
+        "inhibidores-cotransportador-sodio-glucosa-enfermedad-renal-cronica": {
+          "rol": "nada",
+          "frase": "Determinar si el reemplazo valvular tricuspídeo transcatéter"
+        },
+        "meta-oxigenacion-paciente-critico": {
+          "rol": "nada",
+          "frase": "Determinar si el reemplazo valvular tricuspídeo transcatéter"
+        },
+        "restriccion-liquidos-choque-septico-hipotension-sepsis": {
+          "rol": "nada",
+          "frase": "Determinar si el reemplazo valvular tricuspídeo transcatéter"
+        },
+        "trombectomia-ventana-tardia-ictus-isquemico-oclusion-gran-vaso": {
+          "rol": "nada",
+          "frase": "Determinar si el reemplazo valvular tricuspídeo transcatéter"
+        }
+      }
     }
   ],
   "preguntas": [
