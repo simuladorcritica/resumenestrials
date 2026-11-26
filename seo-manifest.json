@@ -371,7 +371,7 @@
     "relacionados": [
       21,
       135,
-      225
+      234
     ],
     "seo_title": "RELIEVE-AKI trial: estrategias alternativas de tasa de ultrafiltración neta en la lesión renal aguda: ensayo clínico aleatorizado de factibilidad | Resúmenes Trials",
     "description": "RELIEVE-AKI: La separación en la tasa media de ultrafiltración administrada fue mínima, de 2.05 frente a 1.81 mL/kg/h (diferencia 0.26; IC 95%, −0.61 a 0.09…",
@@ -2005,8 +2005,8 @@
     "url": "https://resumenestrials.com/trials/deliver-dapagliflozina-reduce-empeoramiento-insuficiencia-cardiaca-fraccion-eyeccion-mayor-40/",
     "title": "DELIVER: dapagliflozina en la insuficiencia cardiaca con fracción de eyección levemente reducida o preservada",
     "relacionados": [
-      101,
       73,
+      101,
       369
     ],
     "seo_title": "DELIVER trial: dapagliflozina en la insuficiencia cardiaca con fracción de eyección levemente reducida o preservada | Resúmenes Trials",
@@ -2347,7 +2347,7 @@
     "relacionados": [
       73,
       59,
-      280
+      71
     ],
     "seo_title": "EMPACT-MI trial: empagliflozina tras un infarto agudo de miocardio | Resúmenes Trials",
     "description": "EMPACT-MI: La empagliflozina no redujo de forma significativa el compuesto de hospitalización por insuficiencia cardiaca o muerte por cualquier causa frente a…",
@@ -3616,7 +3616,7 @@
     "relacionados": [
       66,
       347,
-      62
+      370
     ],
     "seo_title": "PADN-HF-PH trial: denervación pulmonar en la hipertensión pulmonar relacionada con insuficiencia cardiaca | Resúmenes Trials",
     "description": "PADN-HF-PH: El empeoramiento clínico fue menos frecuente con la denervación de la arteria pulmonar: 25 de 134 pacientes (25.7% a 2 años) frente a 42 de 130…",
@@ -9089,7 +9089,8 @@
     "url": "https://resumenestrials.com/trials/potcast-aumentar-nivel-potasio-pacientes-alto-riesgo-arritmias-ventriculares/",
     "title": "POTCAST: aumentar el nivel de potasio en pacientes con alto riesgo de arritmias ventriculares",
     "relacionados": [
-      368
+      368,
+      372
     ],
     "seo_title": "POTCAST trial: aumentar el nivel de potasio en pacientes con alto riesgo de arritmias ventriculares | Resúmenes Trials",
     "description": "POTCAST: El compuesto primario de taquicardia ventricular sostenida, terapia apropiada del DAI, hospitalización no planificada por arritmia o insuficiencia…",
@@ -9996,7 +9997,8 @@
     "title": "ACACIA-HCM: aficamten para la miocardiopatía hipertrófica no obstructiva sintomática",
     "relacionados": [
       278,
-      369
+      369,
+      372
     ],
     "seo_title": "ACACIA-HCM trial: aficamten para la miocardiopatía hipertrófica no obstructiva sintomática | Resúmenes Trials",
     "description": "ACACIA-HCM: A las 36 semanas, el KCCQ-CSS mejoró 11.4 puntos con aficamten y 8.4 con placebo (diferencia 3.0 puntos ; IC 95% 0.5 a 5.5; P=0.02), y el consumo…",
@@ -11700,6 +11702,37 @@
       "question": "Determinar si el reemplazo valvular aórtico transcatéter temprano es superior a la vigilancia clínica para reducir un compuesto de muerte por cualquier causa, ictus u hospitalización no planificada por causa cardiovascular en pacientes de 65 años o más con estenosis aórtica grave asintomática.",
       "answer": "El compuesto de muerte, ictus u hospitalización cardiovascular no planificada, contado desde la aleatorización, ocurrió en el 26.8% con TAVR temprano frente al 45.3% con vigilancia clínica (HR 0.50; IC 95% 0.40-0.63; P<0.001) en una mediana de 3.8 años.",
       "population": "La población fueron adultos de 65 años o más con estenosis aórtica grave asintomática, fracción de eyección del ventrículo izquierdo (FEVI) conservada y anatomía apta para un reemplazo valvular aórtico transcatéter (TAVR, por sus siglas en inglés) por vía transfemoral, en 75 centros de Estados Unidos y Canadá; se identificaron como blancos el 95.8% del grupo TAVR y el 94.6% del de vigilancia."
+    },
+    "datePublished": "2026-11-26"
+  },
+  "372": {
+    "slug": "finearts-hf-finerenona-insuficiencia-cardiaca-fraccion-eyeccion-levemente-reducida-conservada",
+    "path": "/trials/finearts-hf-finerenona-insuficiencia-cardiaca-fraccion-eyeccion-levemente-reducida-conservada/",
+    "url": "https://resumenestrials.com/trials/finearts-hf-finerenona-insuficiencia-cardiaca-fraccion-eyeccion-levemente-reducida-conservada/",
+    "title": "FINEARTS-HF: finerenona en la insuficiencia cardiaca con fracción de eyección levemente reducida o conservada",
+    "relacionados": [
+      62,
+      291,
+      101
+    ],
+    "seo_title": "FINEARTS-HF trial: finerenona en la insuficiencia cardiaca con fracción de eyección levemente reducida o conservada | Resúmenes Trials",
+    "description": "FINEARTS-HF: Con finerenona hubo 14.9 eventos por cada 100 pacientes-año frente a 17.7 con placebo en el compuesto de empeoramientos de la insuficiencia…",
+    "clusters": [
+      {
+        "name": "Cardiología y prevención cardiovascular",
+        "path": "/medicina-interna/cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-interna/cardiovascular/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/finearts-hf-finerenona-insuficiencia-cardiaca-fraccion-eyeccion-levemente-reducida-conservada-16x9.jpg",
+      "https://resumenestrials.com/images/trials/finearts-hf-finerenona-insuficiencia-cardiaca-fraccion-eyeccion-levemente-reducida-conservada-4x3.jpg",
+      "https://resumenestrials.com/images/trials/finearts-hf-finerenona-insuficiencia-cardiaca-fraccion-eyeccion-levemente-reducida-conservada-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si la finerenona, un antagonista no esteroideo del receptor de mineralocorticoides sumado al tratamiento habitual, reduce frente a placebo la tasa de eventos totales de empeoramiento de la insuficiencia cardiaca y muerte cardiovascular en pacientes con fracción de eyección del ventrículo izquierdo de 40% o más.",
+      "answer": "Con finerenona hubo 14.9 eventos por cada 100 pacientes-año frente a 17.7 con placebo en el compuesto de empeoramientos de la insuficiencia cardiaca y muerte cardiovascular (razón de tasas 0.84; IC 95% 0.74-0.95; P=0.007).",
+      "population": "La población fueron adultos de 40 años o más con insuficiencia cardiaca sintomática en clase II a IV de la New York Heart Association (NYHA), con fracción de eyección del ventrículo izquierdo (FEVI) de 40% o más (se aceptaba una FEVI previa menor de 40%), cardiopatía estructural, diuréticos desde al menos 30 días y fragmento N-terminal del propéptido natriurético tipo B (NT-proBNP) de 300 pg/ml o más en ritmo sinusal, o de 900…"
     },
     "datePublished": "2026-11-26"
   }
