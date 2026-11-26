@@ -4,8 +4,15 @@
   <id>https://resumenestrials.com/</id>
   <link href="https://resumenestrials.com/"/>
   <link rel="self" type="application/atom+xml" href="https://resumenestrials.com/feed.xml"/>
-  <updated>2026-11-25T00:00:00Z</updated>
+  <updated>2026-11-26T00:00:00Z</updated>
   <subtitle>Resúmenes críticos en español de ensayos clínicos.</subtitle>
+  <entry>
+    <title>SUMMIT: tirzepatida en la insuficiencia cardiaca con fracción de eyección preservada y obesidad</title>
+    <id>https://resumenestrials.com/trials/summit-tirzepatida-insuficiencia-cardiaca-fraccion-eyeccion-preservada-obesidad/</id>
+    <link href="https://resumenestrials.com/trials/summit-tirzepatida-insuficiencia-cardiaca-fraccion-eyeccion-preservada-obesidad/"/>
+    <updated>2026-11-26T00:00:00Z</updated>
+    <summary>Evaluar si la tirzepatida semanal, frente a placebo, reduce la muerte cardiovascular o el empeoramiento de la insuficiencia cardiaca y mejora el estado de salud en adultos con insuficiencia cardiaca con fracción de eyección preservada y obesidad.</summary>
+  </entry>
   <entry>
     <title>REBOARREST: oclusión endovascular aórtica con balón para reanimación prehospitalaria en el paro cardiaco extrahospitalario no traumático</title>
     <id>https://resumenestrials.com/trials/reboarrest-oclusion-aortica-balon-reboa-prehospitalaria-paro-cardiaco-extrahospitalario-no/</id>
@@ -348,12 +355,5 @@
     <link href="https://resumenestrials.com/trials/hyperion-manejo-especifico-temperatura-paro-cardiaco-ritmo-no-desfibrilable/"/>
     <updated>2026-11-22T00:00:00Z</updated>
     <summary>Determinar si la hipotermia terapéutica moderada a 33°C, frente a la normotermia dirigida a 37°C, mejora la supervivencia con resultado neurológico favorable a los 90 días en pacientes en coma tras un paro cardiaco con ritmo no desfibrilable.</summary>
-  </entry>
-  <entry>
-    <title>ZENITH: sotatercept en pacientes con hipertensión arterial pulmonar con alto riesgo de muerte</title>
-    <id>https://resumenestrials.com/trials/zenith-sotatercept-pacientes-hipertension-arterial-pulmonar-alto-riesgo-muerte/</id>
-    <link href="https://resumenestrials.com/trials/zenith-sotatercept-pacientes-hipertension-arterial-pulmonar-alto-riesgo-muerte/"/>
-    <updated>2026-11-22T00:00:00Z</updated>
-    <summary>Evaluar si añadir sotatercept al tratamiento de fondo máximo tolerado reduce la muerte, el trasplante pulmonar o la hospitalización por empeoramiento en adultos con hipertensión arterial pulmonar en clase funcional III o IV y alto riesgo de muerte.</summary>
   </entry>
 </feed>
