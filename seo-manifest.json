@@ -3427,7 +3427,9 @@
     "path": "/trials/pipeline-rehabilitacion-multidominio-pacientes-mayores-tras-infarto-miocardio/",
     "url": "https://resumenestrials.com/trials/pipeline-rehabilitacion-multidominio-pacientes-mayores-tras-infarto-miocardio/",
     "title": "PIpELINe: rehabilitación multidominio en pacientes mayores con infarto de miocardio",
-    "relacionados": [],
+    "relacionados": [
+      374
+    ],
     "seo_title": "PIpELINe trial: rehabilitación multidominio en pacientes mayores con infarto de miocardio | Resúmenes Trials",
     "description": "PIpELINe: El desenlace primario compuesto fue menor con la rehabilitación multidominio: 12.6% frente a 20.6% a 1 año (hazard ratio, 0.57; IC 95%, 0.36 a 0.89…",
     "clusters": [
@@ -3615,8 +3617,7 @@
     "title": "PADN-HF-PH: denervación pulmonar en la hipertensión pulmonar relacionada con insuficiencia cardiaca",
     "relacionados": [
       66,
-      347,
-      370
+      347
     ],
     "seo_title": "PADN-HF-PH trial: denervación pulmonar en la hipertensión pulmonar relacionada con insuficiencia cardiaca | Resúmenes Trials",
     "description": "PADN-HF-PH: El empeoramiento clínico fue menos frecuente con la denervación de la arteria pulmonar: 25 de 134 pacientes (25.7% a 2 años) frente a 42 de 130…",
@@ -4497,8 +4498,8 @@
     "title": "LIBREXIA ACS: milvexian con tratamiento antiplaquetario tras un síndrome coronario agudo",
     "relacionados": [
       325,
-      274,
-      107
+      107,
+      274
     ],
     "seo_title": "LIBREXIA ACS trial: milvexian con tratamiento antiplaquetario tras un síndrome coronario agudo | Resúmenes Trials",
     "description": "LIBREXIA ACS: Milvexian no mostró diferencia significativa frente a placebo en el desenlace primario compuesto, 5.4% con milvexian frente a 5.1% con placebo…",
@@ -8090,8 +8091,8 @@
     "title": "TOMAHAWK: angiografía tras un paro cardiaco extrahospitalario sin elevación del segmento ST",
     "relacionados": [
       130,
-      117,
-      251
+      251,
+      117
     ],
     "seo_title": "TOMAHAWK trial: angiografía tras un paro cardiaco extrahospitalario sin elevación del segmento ST | Resúmenes Trials",
     "description": "TOMAHAWK: Sin diferencia significativa en la mortalidad a 30 días: 54.0% con angiografía inmediata frente a 46.0% con angiografía diferida o selectiva (hazard…",
@@ -8259,9 +8260,9 @@
     "url": "https://resumenestrials.com/trials/ischemia-estrategia-inicial-invasiva-conservadora-enfermedad-coronaria-estable/",
     "title": "ISCHEMIA: estrategia inicial invasiva o conservadora en la enfermedad coronaria estable",
     "relacionados": [
+      374,
       328,
-      26,
-      30
+      26
     ],
     "seo_title": "ISCHEMIA trial: estrategia inicial invasiva o conservadora en la enfermedad coronaria estable | Resúmenes Trials",
     "description": "ISCHEMIA: No hubo diferencia significativa en el desenlace primario entre la estrategia invasiva y la conservadora: razón de riesgos 0.93 (IC 95%, 0.80 a…",
@@ -10372,7 +10373,7 @@
     "relacionados": [
       33,
       254,
-      258
+      164
     ],
     "seo_title": "ALL-RISE trial: reserva fraccional de flujo derivada de la angiografía para guiar la intervención coronaria percutánea | Resúmenes Trials",
     "description": "ALL-RISE: A 1 año, el compuesto de muerte, infarto o revascularización no planificada ocurrió en el 6.9% con FFRangio frente al 7.1% con guía de presión…",
@@ -11764,6 +11765,37 @@
       "question": "Determinar si el edoxabán en monoterapia reduce los eventos clínicos adversos netos a 12 meses frente al edoxabán más un antiagregante único en pacientes con fibrilación auricular y enfermedad coronaria estable.",
       "answer": "El desenlace clínico neto a 12 meses ocurrió en el 6.8% con edoxabán solo frente al 16.2% con edoxabán más un antiagregante (hazard ratio 0.44; IC 95% 0.30 a 0.65; P<0.001).",
       "population": "La población fueron adultos con fibrilación auricular no valvular, paroxística o prevalente, con una puntuación CHA2DS2-VASc de 2 o más, y enfermedad coronaria estable. Esta escala estima el riesgo de ictus en la fibrilación auricular; va de 0 a 9. La enfermedad coronaria estable fue un síndrome coronario crónico tratado con intervención coronaria percutánea (ICP) o cirugía de revascularización al menos 6 meses antes, un…"
+    },
+    "datePublished": "2026-11-26"
+  },
+  "374": {
+    "slug": "bhf-senior-rita-estrategia-tratamiento-invasivo-pacientes-mayores-infarto-miocardio",
+    "path": "/trials/bhf-senior-rita-estrategia-tratamiento-invasivo-pacientes-mayores-infarto-miocardio/",
+    "url": "https://resumenestrials.com/trials/bhf-senior-rita-estrategia-tratamiento-invasivo-pacientes-mayores-infarto-miocardio/",
+    "title": "BHF SENIOR-RITA: estrategia de tratamiento invasivo en pacientes mayores con infarto de miocardio",
+    "relacionados": [
+      258,
+      164,
+      327
+    ],
+    "seo_title": "BHF SENIOR-RITA trial: estrategia de tratamiento invasivo en pacientes mayores con infarto de miocardio | Resúmenes Trials",
+    "description": "BHF SENIOR-RITA: Con una mediana de seguimiento de 4.1 años, la muerte cardiovascular o el infarto no mortal ocurrió en el 25.6% con la estrategia invasiva…",
+    "clusters": [
+      {
+        "name": "Cardiología y prevención cardiovascular",
+        "path": "/medicina-interna/cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-interna/cardiovascular/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/bhf-senior-rita-estrategia-tratamiento-invasivo-pacientes-mayores-infarto-miocardio-16x9.jpg",
+      "https://resumenestrials.com/images/trials/bhf-senior-rita-estrategia-tratamiento-invasivo-pacientes-mayores-infarto-miocardio-4x3.jpg",
+      "https://resumenestrials.com/images/trials/bhf-senior-rita-estrategia-tratamiento-invasivo-pacientes-mayores-infarto-miocardio-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si una estrategia invasiva de angiografía coronaria y revascularización, añadida al mejor tratamiento médico, reduce la muerte cardiovascular o el infarto no mortal frente al tratamiento médico solo en pacientes de 75 años o más con infarto sin elevación del ST.",
+      "answer": "Con una mediana de seguimiento de 4.1 años, la muerte cardiovascular o el infarto no mortal ocurrió en el 25.6% con la estrategia invasiva frente al 26.3% con la conservadora (HR 0.94 ; IC 95% 0.77 a 1.14; P = 0.53), sin diferencia significativa, entre 1518 pacientes aleatorizados de 75 años o más.",
+      "population": "La población fueron pacientes de 75 años o más, de hospitales del Servicio Nacional de Salud británico (NHS, por sus siglas en inglés) de Inglaterra y Escocia, con un infarto agudo de miocardio sin elevación del segmento ST (IAMSEST) de tipo 1, sin excluir a los frágiles, con muchas enfermedades o con deterioro cognitivo. Raza o etnia: No reportado; según los autores, la mayoría era de población caucásica."
     },
     "datePublished": "2026-11-26"
   }

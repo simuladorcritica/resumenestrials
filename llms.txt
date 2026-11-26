@@ -40,6 +40,7 @@ Material educativo para profesionales de la salud. La referencia final es siempr
 
 ## Resúmenes de ensayos
 
+- [BHF SENIOR-RITA: estrategia de tratamiento invasivo en pacientes mayores con infarto de miocardio](https://resumenestrials.com/trials/bhf-senior-rita-estrategia-tratamiento-invasivo-pacientes-mayores-infarto-miocardio/): NEJM, 2024.
 - [EPIC-CAD: tratamiento antitrombótico con edoxabán en la fibrilación auricular y la enfermedad coronaria estable](https://resumenestrials.com/trials/epic-cad-tratamiento-antitrombotico-edoxaban-fibrilacion-auricular-enfermedad-coronaria-estable/): NEJM, 2024.
 - [FINEARTS-HF: finerenona en la insuficiencia cardiaca con fracción de eyección levemente reducida o conservada](https://resumenestrials.com/trials/finearts-hf-finerenona-insuficiencia-cardiaca-fraccion-eyeccion-levemente-reducida-conservada/): NEJM, 2024.
 - [EARLY TAVR: reemplazo valvular aórtico transcatéter en la estenosis aórtica grave asintomática](https://resumenestrials.com/trials/early-tavr-reemplazo-valvular-aortico-transcateter-estenosis-aortica-grave-asintomatica/): NEJM, 2024.
