@@ -270,7 +270,7 @@
     "relacionados": [
       20,
       181,
-      333
+      195
     ],
     "seo_title": "CLEANSE trial: hemoadsorción con HA-330 en el shock séptico que requiere dosis altas de noradrenalina: ensayo multicéntrico aleatorizado y controlado | Resúmenes Trials",
     "description": "CLEANSE: La mortalidad a 28 días fue del 44% con hemoadsorción frente al 58% con tratamiento estándar , sin diferencia significativa (riesgo relativo [RR]…",
@@ -890,7 +890,7 @@
     "relacionados": [
       29,
       367,
-      167
+      114
     ],
     "seo_title": "CLOSURE-AF trial: cierre de la orejuela auricular izquierda o tratamiento médico en la fibrilación auricular | Resúmenes Trials",
     "description": "CLOSURE-AF: El cierre de la orejuela no demostró no inferioridad: 16.8 frente a 13.3 eventos por 100 pacientes-año (diferencia en supervivencia media…",
@@ -1150,7 +1150,7 @@
     "relacionados": [
       37,
       167,
-      99
+      373
     ],
     "seo_title": "ADAPT AF-DES trial: tratamiento de la fibrilación auricular en pacientes con stents liberadores de fármaco | Resúmenes Trials",
     "description": "ADAPT AF-DES: La monoterapia fue no inferior y superior: los eventos adversos netos ocurrieron en el 9.6% frente al 17.2% con la combinación (razón de riesgos…",
@@ -3078,8 +3078,8 @@
     "url": "https://resumenestrials.com/trials/premium-monoterapia-prasugrel-doble-antiagregacion-infarto-elevacion-st-tratado-angioplastia/",
     "title": "PREMIUM: omisión del ácido acetilsalicílico en el momento de la intervención coronaria percutánea primaria en el infarto con elevación del ST",
     "relacionados": [
-      99,
       276,
+      99,
       274
     ],
     "seo_title": "PREMIUM trial: omisión del ácido acetilsalicílico en el momento de la intervención coronaria percutánea primaria en el infarto con elevación del ST | Resúmenes Trials",
@@ -3376,7 +3376,7 @@
     "relacionados": [
       30,
       107,
-      276
+      18
     ],
     "seo_title": "IMPROVE-IT trial: ezetimiba añadida al tratamiento con estatinas tras síndromes coronarios agudos | Resúmenes Trials",
     "description": "IMPROVE-IT: El desenlace primario compuesto mejoró con la combinación: 32.7% frente a 34.7% a los 7 años (hazard ratio, 0.936; IC 95%, 0.89 a 0.99; p=0.016)…",
@@ -4496,8 +4496,8 @@
     "url": "https://resumenestrials.com/trials/librexia-acs-milvexian-anadido-terapia-antiplaquetaria-tras-sindrome-coronario-agudo/",
     "title": "LIBREXIA ACS: milvexian con tratamiento antiplaquetario tras un síndrome coronario agudo",
     "relacionados": [
-      274,
       325,
+      274,
       107
     ],
     "seo_title": "LIBREXIA ACS trial: milvexian con tratamiento antiplaquetario tras un síndrome coronario agudo | Resúmenes Trials",
@@ -7117,7 +7117,7 @@
     "relacionados": [
       227,
       221,
-      21
+      193
     ],
     "seo_title": "Cathedia trial: cateterización venosa femoral frente a yugular y riesgo de eventos nosocomiales en adultos que requieren terapia de reemplazo renal aguda | Resúmenes Trials",
     "description": "Cathedia: La colonización del catéter fue de 40.8 frente a 35.7 por 1000 días-catéter con femoral y yugular (HR 0.85; IC 95%, 0.62 a 1.16; p = 0.31) , sin…",
@@ -8821,9 +8821,9 @@
     "url": "https://resumenestrials.com/trials/aquatic-aspirina-pacientes-sindrome-coronario-cronico-reciben-anticoagulacion-oral/",
     "title": "AQUATIC: aspirina en pacientes con síndrome coronario crónico que reciben anticoagulación oral",
     "relacionados": [
+      373,
       274,
-      167,
-      367
+      167
     ],
     "seo_title": "AQUATIC trial: aspirina en pacientes con síndrome coronario crónico que reciben anticoagulación oral | Resúmenes Trials",
     "description": "AQUATIC: Añadir aspirina al anticoagulante aumentó el desenlace primario compuesto: 16.9% frente a 12.1% (hazard ratio [HR] ajustado 1.53; IC 95% 1.07 a 2.18…",
@@ -11733,6 +11733,37 @@
       "question": "Determinar si la finerenona, un antagonista no esteroideo del receptor de mineralocorticoides sumado al tratamiento habitual, reduce frente a placebo la tasa de eventos totales de empeoramiento de la insuficiencia cardiaca y muerte cardiovascular en pacientes con fracción de eyección del ventrículo izquierdo de 40% o más.",
       "answer": "Con finerenona hubo 14.9 eventos por cada 100 pacientes-año frente a 17.7 con placebo en el compuesto de empeoramientos de la insuficiencia cardiaca y muerte cardiovascular (razón de tasas 0.84; IC 95% 0.74-0.95; P=0.007).",
       "population": "La población fueron adultos de 40 años o más con insuficiencia cardiaca sintomática en clase II a IV de la New York Heart Association (NYHA), con fracción de eyección del ventrículo izquierdo (FEVI) de 40% o más (se aceptaba una FEVI previa menor de 40%), cardiopatía estructural, diuréticos desde al menos 30 días y fragmento N-terminal del propéptido natriurético tipo B (NT-proBNP) de 300 pg/ml o más en ritmo sinusal, o de 900…"
+    },
+    "datePublished": "2026-11-26"
+  },
+  "373": {
+    "slug": "epic-cad-tratamiento-antitrombotico-edoxaban-fibrilacion-auricular-enfermedad-coronaria-estable",
+    "path": "/trials/epic-cad-tratamiento-antitrombotico-edoxaban-fibrilacion-auricular-enfermedad-coronaria-estable/",
+    "url": "https://resumenestrials.com/trials/epic-cad-tratamiento-antitrombotico-edoxaban-fibrilacion-auricular-enfermedad-coronaria-estable/",
+    "title": "EPIC-CAD: tratamiento antitrombótico con edoxabán en la fibrilación auricular y la enfermedad coronaria estable",
+    "relacionados": [
+      275,
+      36,
+      99
+    ],
+    "seo_title": "EPIC-CAD trial: tratamiento antitrombótico con edoxabán en la fibrilación auricular y la enfermedad coronaria estable | Resúmenes Trials",
+    "description": "EPIC-CAD: El desenlace clínico neto a 12 meses ocurrió en el 6.8% con edoxabán solo frente al 16.2% con edoxabán más un antiagregante (hazard ratio 0.44; IC…",
+    "clusters": [
+      {
+        "name": "Cardiología y prevención cardiovascular",
+        "path": "/medicina-interna/cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-interna/cardiovascular/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/epic-cad-tratamiento-antitrombotico-edoxaban-fibrilacion-auricular-enfermedad-coronaria-estable-16x9.jpg",
+      "https://resumenestrials.com/images/trials/epic-cad-tratamiento-antitrombotico-edoxaban-fibrilacion-auricular-enfermedad-coronaria-estable-4x3.jpg",
+      "https://resumenestrials.com/images/trials/epic-cad-tratamiento-antitrombotico-edoxaban-fibrilacion-auricular-enfermedad-coronaria-estable-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si el edoxabán en monoterapia reduce los eventos clínicos adversos netos a 12 meses frente al edoxabán más un antiagregante único en pacientes con fibrilación auricular y enfermedad coronaria estable.",
+      "answer": "El desenlace clínico neto a 12 meses ocurrió en el 6.8% con edoxabán solo frente al 16.2% con edoxabán más un antiagregante (hazard ratio 0.44; IC 95% 0.30 a 0.65; P<0.001).",
+      "population": "La población fueron adultos con fibrilación auricular no valvular, paroxística o prevalente, con una puntuación CHA2DS2-VASc de 2 o más, y enfermedad coronaria estable. Esta escala estima el riesgo de ictus en la fibrilación auricular; va de 0 a 9. La enfermedad coronaria estable fue un síndrome coronario crónico tratado con intervención coronaria percutánea (ICP) o cirugía de revascularización al menos 6 meses antes, un…"
     },
     "datePublished": "2026-11-26"
   }
