@@ -453,9 +453,9 @@
     "url": "https://resumenestrials.com/trials/smart-decision-suspension-continuacion-betabloqueador-tras-infarto-miocardio/",
     "title": "SMART-DECISION: suspensión del tratamiento con betabloqueadores tras un infarto de miocardio",
     "relacionados": [
+      378,
       155,
-      279,
-      280
+      279
     ],
     "seo_title": "SMART-DECISION trial: suspensión del tratamiento con betabloqueadores tras un infarto de miocardio | Resúmenes Trials",
     "description": "SMART-DECISION: El desenlace primario compuesto ocurrió en 58 frente a 74 pacientes ( 7.2% frente al 9.0% , estimación de Kaplan-Meier a 4 años; HR 0.80; IC…",
@@ -3080,7 +3080,7 @@
     "relacionados": [
       99,
       276,
-      277
+      107
     ],
     "seo_title": "PREMIUM trial: omisión del ácido acetilsalicílico en el momento de la intervención coronaria percutánea primaria en el infarto con elevación del ST | Resúmenes Trials",
     "description": "PREMIUM: La monoterapia con prasugrel iniciada antes de la angioplastia primaria no demostró ser no inferior a la doble antiagregación a 12 meses ( 11.0%…",
@@ -5024,7 +5024,7 @@
     "relacionados": [
       280,
       279,
-      15
+      378
     ],
     "seo_title": "Betabloqueadores tras un infarto de miocardio con fracción de eyección normal | Resúmenes Trials",
     "description": "Betabloqueadores tras un infarto de miocardio con fracción de eyección normal: El desenlace primario compuesto ocurrió en el 8.1% frente al 8.3% de los…",
@@ -8919,7 +8919,7 @@
     "relacionados": [
       280,
       155,
-      15
+      378
     ],
     "seo_title": "REBOOT trial: betabloqueadores tras un infarto de miocardio sin fracción de eyección reducida | Resúmenes Trials",
     "description": "REBOOT: El compuesto de muerte por cualquier causa, reinfarto u hospitalización por insuficiencia cardiaca ocurrió en 316 frente a 307 pacientes (22.5 frente…",
@@ -8950,7 +8950,7 @@
     "relacionados": [
       279,
       155,
-      15
+      378
     ],
     "seo_title": "BETAMI–DANBLOCK trial: betabloqueadores tras un infarto de miocardio en pacientes sin insuficiencia cardiaca | Resúmenes Trials",
     "description": "BETAMI–DANBLOCK: Tras una mediana de 3.5 años, el compuesto de muerte o eventos cardiovasculares mayores ocurrió en el 14.2% con betabloqueador frente al…",
@@ -11255,8 +11255,7 @@
     "title": "CLEAR: colchicina en el infarto agudo de miocardio",
     "relacionados": [
       115,
-      277,
-      26
+      277
     ],
     "seo_title": "CLEAR trial: colchicina en el infarto agudo de miocardio | Resúmenes Trials",
     "description": "CLEAR: El desenlace primario ocurrió en el 9.1% con colchicina frente al 9.3% con placebo ( HR 0.99; IC 95% 0.85 a 1.16; P=0.93 ), sin diferencia…",
@@ -11864,6 +11863,37 @@
       "question": "Determinar si mantener la anticoagulación oral durante el implante transcatéter de válvula aórtica es no inferior a interrumpirla en el compuesto de muerte cardiovascular, ictus, infarto, complicaciones vasculares mayores o sangrado mayor a 30 días.",
       "answer": "El compuesto primario a 30 días ocurrió en el 16.5% con continuación frente al 14.8% con interrupción (diferencia de riesgo 1.7 puntos porcentuales; IC 95% −3.1 a 6.6; P=0.18 para no inferioridad): el límite superior rebasó el margen de 4.0 puntos , de modo que no se demostró la no inferioridad, y tampoco hubo diferencia…",
       "population": "La población fueron pacientes con anticoagulación oral crónica y un implante transcatéter de válvula aórtica (TAVI) programado por vía transfemoral o transsubclavia, en 22 centros de los Países Bajos, Bélgica, Dinamarca, Irlanda, Italia y Luxemburgo. La raza y la etnia no se recogieron de rutina; según los autores, era una población del noroeste de Europa."
+    },
+    "datePublished": "2026-11-27"
+  },
+  "378": {
+    "slug": "abyss-interrupcion-continuacion-betabloqueadores-tras-infarto-miocardio",
+    "path": "/trials/abyss-interrupcion-continuacion-betabloqueadores-tras-infarto-miocardio/",
+    "url": "https://resumenestrials.com/trials/abyss-interrupcion-continuacion-betabloqueadores-tras-infarto-miocardio/",
+    "title": "ABYSS: interrupción o continuación de los betabloqueadores tras un infarto de miocardio",
+    "relacionados": [
+      15,
+      280,
+      155
+    ],
+    "seo_title": "ABYSS trial: interrupción o continuación de los betabloqueadores tras un infarto de miocardio | Resúmenes Trials",
+    "description": "ABYSS: El compuesto de muerte, infarto, ictus u hospitalización cardiovascular ocurrió en el 23.8% del grupo de interrupción frente al 21.1% del de…",
+    "clusters": [
+      {
+        "name": "Cardiología y prevención cardiovascular",
+        "path": "/medicina-interna/cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-interna/cardiovascular/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/abyss-interrupcion-continuacion-betabloqueadores-tras-infarto-miocardio-16x9.jpg",
+      "https://resumenestrials.com/images/trials/abyss-interrupcion-continuacion-betabloqueadores-tras-infarto-miocardio-4x3.jpg",
+      "https://resumenestrials.com/images/trials/abyss-interrupcion-continuacion-betabloqueadores-tras-infarto-miocardio-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si interrumpir el betabloqueador a largo plazo es no inferior a continuarlo en pacientes con un infarto de miocardio previo, fracción de eyección del ventrículo izquierdo de al menos 40% y sin otra indicación del fármaco.",
+      "answer": "El compuesto de muerte, infarto, ictus u hospitalización cardiovascular ocurrió en el 23.8% del grupo de interrupción frente al 21.1% del de continuación (diferencia de riesgo 2.8 puntos; IC 95% menos de 0.1 a 5.5; HR 1.16; IC 95% 1.01 a 1.33; P=0.44 para no inferioridad).",
+      "population": "La población fueron adultos con un infarto de miocardio de al menos 6 meses de antigüedad, en tratamiento prolongado con un betabloqueador, con una fracción de eyección del ventrículo izquierdo (FEVI) de al menos 40% y sin eventos cardiovasculares en los 6 meses previos; la raza o el origen étnico no se recogieron porque la ley francesa lo impide."
     },
     "datePublished": "2026-11-27"
   }

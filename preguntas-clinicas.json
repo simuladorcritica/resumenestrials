@@ -1381,6 +1381,41 @@
           "frase": "Determinar si mantener la anticoagulación oral durante el implante transcatéter de válvula aórtica es no infer"
         }
       }
+    },
+    {
+      "id": 378,
+      "fecha": "2026-11-27",
+      "huella": "bb997fce1c7eb1ed",
+      "preguntas": {
+        "corticoides-choque-septico": {
+          "rol": "nada",
+          "frase": "Determinar si interrumpir el betabloqueador a largo plazo es no inferior a continuarlo en pacientes con un inf"
+        },
+        "cristaloides-balanceados-solucion-salina-adultos-estado-critico": {
+          "rol": "nada",
+          "frase": "Determinar si interrumpir el betabloqueador a largo plazo es no inferior a continuarlo en pacientes con un inf"
+        },
+        "cuando-iniciar-terapia-reemplazo-renal-lesion-renal-aguda": {
+          "rol": "nada",
+          "frase": "Determinar si interrumpir el betabloqueador a largo plazo es no inferior a continuarlo en pacientes con un inf"
+        },
+        "inhibidores-cotransportador-sodio-glucosa-enfermedad-renal-cronica": {
+          "rol": "nada",
+          "frase": "Determinar si interrumpir el betabloqueador a largo plazo es no inferior a continuarlo en pacientes con un inf"
+        },
+        "meta-oxigenacion-paciente-critico": {
+          "rol": "nada",
+          "frase": "Determinar si interrumpir el betabloqueador a largo plazo es no inferior a continuarlo en pacientes con un inf"
+        },
+        "restriccion-liquidos-choque-septico-hipotension-sepsis": {
+          "rol": "nada",
+          "frase": "Determinar si interrumpir el betabloqueador a largo plazo es no inferior a continuarlo en pacientes con un inf"
+        },
+        "trombectomia-ventana-tardia-ictus-isquemico-oclusion-gran-vaso": {
+          "rol": "nada",
+          "frase": "Determinar si interrumpir el betabloqueador a largo plazo es no inferior a continuarlo en pacientes con un inf"
+        }
+      }
     }
   ],
   "preguntas": [
