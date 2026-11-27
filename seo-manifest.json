@@ -2005,8 +2005,8 @@
     "url": "https://resumenestrials.com/trials/deliver-dapagliflozina-reduce-empeoramiento-insuficiencia-cardiaca-fraccion-eyeccion-mayor-40/",
     "title": "DELIVER: dapagliflozina en la insuficiencia cardiaca con fracción de eyección levemente reducida o preservada",
     "relacionados": [
-      101,
       73,
+      101,
       369
     ],
     "seo_title": "DELIVER trial: dapagliflozina en la insuficiencia cardiaca con fracción de eyección levemente reducida o preservada | Resúmenes Trials",
@@ -7118,7 +7118,7 @@
     "relacionados": [
       227,
       221,
-      193
+      21
     ],
     "seo_title": "Cathedia trial: cateterización venosa femoral frente a yugular y riesgo de eventos nosocomiales en adultos que requieren terapia de reemplazo renal aguda | Resúmenes Trials",
     "description": "Cathedia: La colonización del catéter fue de 40.8 frente a 35.7 por 1000 días-catéter con femoral y yugular (HR 0.85; IC 95%, 0.62 a 1.16; p = 0.31) , sin…",
@@ -9743,7 +9743,7 @@
     "relacionados": [
       371,
       120,
-      352
+      124
     ],
     "seo_title": "PROGRESS trial: TAVR en pacientes con estenosis aórtica moderada con rasgos de riesgo | Resúmenes Trials",
     "description": "PROGRESS: La muerte por cualquier causa o el evento de insuficiencia cardiaca a 2 años ocurrió en el 16.7% con TAVR frente al 23.9% con vigilancia clínica…",
@@ -10319,7 +10319,7 @@
     "relacionados": [
       298,
       51,
-      284
+      303
     ],
     "seo_title": "IMPACTS-BP trial: estrategias multifacéticas para el control de la hipertensión en pacientes de bajos ingresos | Resúmenes Trials",
     "description": "IMPACTS-BP: A los 18 meses, la presión sistólica bajó en promedio 15.5 mm Hg con la estrategia multifacética frente a 9.1 mm Hg con la atención habitual…",
@@ -11926,6 +11926,33 @@
       "question": "Evaluar si el vutrisirán subcutáneo cada 12 semanas reduce, frente a placebo, el compuesto de muerte por cualquier causa y eventos cardiovasculares recurrentes en adultos con miocardiopatía por amiloidosis de transtiretina.",
       "answer": "En la población general, el vutrisirán redujo frente a placebo el compuesto de muerte por cualquier causa y eventos cardiovasculares recurrentes ( HR 0.72; IC 95% 0.56 a 0.93; P = 0.01 ), con al menos un evento en el 38% con vutrisirán frente al 48% con placebo ; en quienes no tomaban tafamidis al inicio, el HR fue de 0.67 (IC…",
       "population": "Se incluyó a adultos de 18 a 85 años con miocardiopatía por amiloidosis de transtiretina (ATTR-CM), hereditaria (por variantes del gen de la transtiretina, TTR) o de tipo salvaje, confirmada por biopsia o gammagrafía, con tabique interventricular de más de 12 mm e insuficiencia cardiaca (hospitalización previa o sobrecarga que requería diurético). Podían tomar tafamidis o no tomarlo ni planear iniciarlo en 12 meses. Eran de…"
+    },
+    "datePublished": "2026-11-27"
+  },
+  "380": {
+    "slug": "salt-hf-eficacia-seguridad-tratamiento-suero-salino-hipertonico-pacientes-ambulatorios",
+    "path": "/trials/salt-hf-eficacia-seguridad-tratamiento-suero-salino-hipertonico-pacientes-ambulatorios/",
+    "url": "https://resumenestrials.com/trials/salt-hf-eficacia-seguridad-tratamiento-suero-salino-hipertonico-pacientes-ambulatorios/",
+    "title": "SALT-HF: eficacia y seguridad del tratamiento con suero salino hipertónico en pacientes ambulatorios con insuficiencia cardiaca",
+    "relacionados": [],
+    "seo_title": "SALT-HF trial: eficacia y seguridad del tratamiento con suero salino hipertónico en pacientes ambulatorios con insuficiencia cardiaca | Resúmenes Trials",
+    "description": "SALT-HF: La media ajustada de diuresis a las 3 horas fue de 1099 ml con suero hipertónico y furosemida frente a 1103 ml con furosemida sola (diferencia −4.6…",
+    "clusters": [
+      {
+        "name": "Cardiología y prevención cardiovascular",
+        "path": "/medicina-interna/cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-interna/cardiovascular/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/salt-hf-eficacia-seguridad-tratamiento-suero-salino-hipertonico-pacientes-ambulatorios-16x9.jpg",
+      "https://resumenestrials.com/images/trials/salt-hf-eficacia-seguridad-tratamiento-suero-salino-hipertonico-pacientes-ambulatorios-4x3.jpg",
+      "https://resumenestrials.com/images/trials/salt-hf-eficacia-seguridad-tratamiento-suero-salino-hipertonico-pacientes-ambulatorios-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Evaluar si añadir suero salino hipertónico a una infusión de furosemida intravenosa aumenta la diuresis a las 3 horas en pacientes ambulatorios con empeoramiento de la insuficiencia cardiaca.",
+      "answer": "La media ajustada de diuresis a las 3 horas fue de 1099 ml con suero hipertónico y furosemida frente a 1103 ml con furosemida sola (diferencia −4.6 ml; p=0.963 ; IC 95%: No reportado), sin diferencia significativa en los 167 pacientes del análisis por intención de tratar modificada (168 aleatorizados).",
+      "population": "La población fueron adultos con insuficiencia cardiaca crónica atendidos en consultas de insuficiencia cardiaca de 13 hospitales de España por un empeoramiento que, a juicio del médico, requería diurético intravenoso sin cumplir criterios formales de ingreso. Debían tener al menos dos signos de sobrecarga de volumen (edema periférico, ingurgitación yugular, ascitis o derrame pleural), una fracción aminoterminal del propéptido…"
     },
     "datePublished": "2026-11-27"
   }
