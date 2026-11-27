@@ -1486,6 +1486,41 @@
           "frase": "Evaluar si añadir suero salino hipertónico a una infusión de furosemida intravenosa aumenta la diuresis a las 3 horas"
         }
       }
+    },
+    {
+      "id": 381,
+      "fecha": "2026-11-27",
+      "huella": "6c05c495930fa879",
+      "preguntas": {
+        "corticoides-choque-septico": {
+          "rol": "nada",
+          "frase": "Evaluar si la tirzepatida subcutánea semanal reduce, frente a placebo, el índice de apnea-hipopnea a la semana 52 en adu"
+        },
+        "cristaloides-balanceados-solucion-salina-adultos-estado-critico": {
+          "rol": "nada",
+          "frase": "Evaluar si la tirzepatida subcutánea semanal reduce, frente a placebo, el índice de apnea-hipopnea a la semana 52 en adu"
+        },
+        "cuando-iniciar-terapia-reemplazo-renal-lesion-renal-aguda": {
+          "rol": "nada",
+          "frase": "Evaluar si la tirzepatida subcutánea semanal reduce, frente a placebo, el índice de apnea-hipopnea a la semana 52 en adu"
+        },
+        "inhibidores-cotransportador-sodio-glucosa-enfermedad-renal-cronica": {
+          "rol": "nada",
+          "frase": "Evaluar si la tirzepatida subcutánea semanal reduce, frente a placebo, el índice de apnea-hipopnea a la semana 52 en adu"
+        },
+        "meta-oxigenacion-paciente-critico": {
+          "rol": "nada",
+          "frase": "Evaluar si la tirzepatida subcutánea semanal reduce, frente a placebo, el índice de apnea-hipopnea a la semana 52 en adu"
+        },
+        "restriccion-liquidos-choque-septico-hipotension-sepsis": {
+          "rol": "nada",
+          "frase": "Evaluar si la tirzepatida subcutánea semanal reduce, frente a placebo, el índice de apnea-hipopnea a la semana 52 en adu"
+        },
+        "trombectomia-ventana-tardia-ictus-isquemico-oclusion-gran-vaso": {
+          "rol": "nada",
+          "frase": "Evaluar si la tirzepatida subcutánea semanal reduce, frente a placebo, el índice de apnea-hipopnea a la semana 52 en adu"
+        }
+      }
     }
   ],
   "preguntas": [

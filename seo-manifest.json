@@ -270,7 +270,7 @@
     "relacionados": [
       20,
       181,
-      333
+      195
     ],
     "seo_title": "CLEANSE trial: hemoadsorción con HA-330 en el shock séptico que requiere dosis altas de noradrenalina: ensayo multicéntrico aleatorizado y controlado | Resúmenes Trials",
     "description": "CLEANSE: La mortalidad a 28 días fue del 44% con hemoadsorción frente al 58% con tratamiento estándar , sin diferencia significativa (riesgo relativo [RR]…",
@@ -3458,8 +3458,8 @@
     "url": "https://resumenestrials.com/trials/step-1-semaglutida-semanal-adultos-sobrepeso-u-obesidad/",
     "title": "STEP 1: semaglutida semanal en adultos con sobrepeso u obesidad",
     "relacionados": [
-      121,
       270,
+      121,
       288
     ],
     "seo_title": "STEP 1 trial: semaglutida semanal en adultos con sobrepeso u obesidad | Resúmenes Trials",
@@ -3936,7 +3936,7 @@
     "relacionados": [
       106,
       335,
-      310
+      381
     ],
     "seo_title": "SURMOUNT-1 trial: tirzepatida semanal para el tratamiento de la obesidad | Resúmenes Trials",
     "description": "SURMOUNT-1: La tirzepatida produjo una pérdida de peso muy superior a la del placebo (−15.0% a −20.9% frente a −3.1%; p < 0.001 para todas las comparaciones)…",
@@ -7588,9 +7588,9 @@
     "url": "https://resumenestrials.com/trials/triumph-1-osa-y-triumph-2-retatrutida-vez-semana-tratamiento-apnea-obstructiva-sueno/",
     "title": "TRIUMPH-1-OSA y TRIUMPH-2-OSA: retatrutida una vez por semana para el tratamiento de la apnea obstructiva del sueño",
     "relacionados": [
+      381,
       314,
-      311,
-      296
+      311
     ],
     "seo_title": "TRIUMPH-1-OSA y TRIUMPH-2-OSA trial: retatrutida una vez por semana para el tratamiento de la apnea obstructiva del sueño | Resúmenes Trials",
     "description": "TRIUMPH-1-OSA y TRIUMPH-2-OSA: Con 9 mg de retatrutida, la diferencia frente al placebo en el cambio del índice de apnea-hipopnea a las 80 semanas fue de…",
@@ -9887,7 +9887,7 @@
     "relacionados": [
       296,
       238,
-      314
+      381
     ],
     "seo_title": "TRIUMPH-1 trial: retatrutida, un agonista triple de receptores hormonales, para el tratamiento de la obesidad | Resúmenes Trials",
     "description": "TRIUMPH-1: Con el estimando primario de régimen de tratamiento, el peso cambió −23.7% con 9 mg y −25.0% con 12 mg frente a −3.9% con placebo a las 80 semanas…",
@@ -9969,9 +9969,9 @@
     "url": "https://resumenestrials.com/trials/attain-osa-orforglipron-apnea-obstructiva-sueno-resultados-2-ensayos-clinicos-aleatorizados/",
     "title": "ATTAIN-OSA: orforglipron para la apnea obstructiva del sueño, resultados de 2 ensayos clínicos aleatorizados",
     "relacionados": [
+      381,
       238,
-      272,
-      289
+      272
     ],
     "seo_title": "ATTAIN-OSA trial: orforglipron para la apnea obstructiva del sueño, resultados de 2 ensayos clínicos aleatorizados | Resúmenes Trials",
     "description": "ATTAIN-OSA: En el ensayo 1 (sin presión positiva en la vía aérea), el índice de apnea-hipopnea bajó 17.8 frente a 4.5 eventos/h con orforglipron y placebo…",
@@ -10594,7 +10594,7 @@
     "relacionados": [
       270,
       121,
-      369
+      381
     ],
     "seo_title": "SURMOUNT-5 trial: tirzepatida en comparación con semaglutida para el tratamiento de la obesidad | Resúmenes Trials",
     "description": "SURMOUNT-5: A la semana 72, el cambio medio del peso fue de -20.2% con tirzepatida frente a -13.7% con semaglutida (diferencia -6.5 puntos porcentuales; IC…",
@@ -11953,6 +11953,37 @@
       "question": "Evaluar si añadir suero salino hipertónico a una infusión de furosemida intravenosa aumenta la diuresis a las 3 horas en pacientes ambulatorios con empeoramiento de la insuficiencia cardiaca.",
       "answer": "La media ajustada de diuresis a las 3 horas fue de 1099 ml con suero hipertónico y furosemida frente a 1103 ml con furosemida sola (diferencia −4.6 ml; p=0.963 ; IC 95%: No reportado), sin diferencia significativa en los 167 pacientes del análisis por intención de tratar modificada (168 aleatorizados).",
       "population": "La población fueron adultos con insuficiencia cardiaca crónica atendidos en consultas de insuficiencia cardiaca de 13 hospitales de España por un empeoramiento que, a juicio del médico, requería diurético intravenoso sin cumplir criterios formales de ingreso. Debían tener al menos dos signos de sobrecarga de volumen (edema periférico, ingurgitación yugular, ascitis o derrame pleural), una fracción aminoterminal del propéptido…"
+    },
+    "datePublished": "2026-11-27"
+  },
+  "381": {
+    "slug": "surmount-osa-tirzepatida-tratamiento-apnea-obstructiva-sueno-obesidad",
+    "path": "/trials/surmount-osa-tirzepatida-tratamiento-apnea-obstructiva-sueno-obesidad/",
+    "url": "https://resumenestrials.com/trials/surmount-osa-tirzepatida-tratamiento-apnea-obstructiva-sueno-obesidad/",
+    "title": "SURMOUNT-OSA: tirzepatida para el tratamiento de la apnea obstructiva del sueño y la obesidad",
+    "relacionados": [
+      314,
+      238,
+      335
+    ],
+    "seo_title": "SURMOUNT-OSA trial: tirzepatida para el tratamiento de la apnea obstructiva del sueño y la obesidad | Resúmenes Trials",
+    "description": "SURMOUNT-OSA: En el ensayo sin PAP, el índice de apnea-hipopnea cambió a la semana 52 -25.3 eventos por hora con tirzepatida frente a -5.3 con placebo…",
+    "clusters": [
+      {
+        "name": "Renal y metabolismo",
+        "path": "/medicina-interna/renal-metabolica/",
+        "url": "https://resumenestrials.com/medicina-interna/renal-metabolica/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/surmount-osa-tirzepatida-tratamiento-apnea-obstructiva-sueno-obesidad-16x9.jpg",
+      "https://resumenestrials.com/images/trials/surmount-osa-tirzepatida-tratamiento-apnea-obstructiva-sueno-obesidad-4x3.jpg",
+      "https://resumenestrials.com/images/trials/surmount-osa-tirzepatida-tratamiento-apnea-obstructiva-sueno-obesidad-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Evaluar si la tirzepatida subcutánea semanal reduce, frente a placebo, el índice de apnea-hipopnea a la semana 52 en adultos con apnea obstructiva del sueño moderada a grave y obesidad, sin y con presión positiva en la vía aérea.",
+      "answer": "En el ensayo sin PAP, el índice de apnea-hipopnea cambió a la semana 52 -25.3 eventos por hora con tirzepatida frente a -5.3 con placebo (diferencia -20.0; IC 95% -25.8 a -14.2; P<0.001); en el ensayo con PAP, -29.3 con tirzepatida frente a -5.5 con placebo (diferencia -23.8; IC 95% -29.6 a -17.9; P<0.001).",
+      "population": "Se incluyó a adultos con apnea obstructiva del sueño moderada a grave, con un índice de apnea-hipopnea (IAH) de 15 o más en la polisomnografía del ensayo, y obesidad, con un índice de masa corporal (IMC) de 30 o más (27 o más en Japón), sin diabetes. En los ensayos 1 y 2 eran blancos el 65.8% y el 73.1%, asiáticos el 20.1% y el 14.1%, negros el 5.6% y el 4.7%, e hispanos o latinos el 41.9% y el 32.3%. De los nueve países…"
     },
     "datePublished": "2026-11-27"
   }
