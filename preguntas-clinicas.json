@@ -1346,6 +1346,41 @@
           "frase": "Determinar si el asundexián 50 mg una vez al día es al menos no inferior al apixabán"
         }
       }
+    },
+    {
+      "id": 377,
+      "fecha": "2026-11-27",
+      "huella": "c8a7914e04cd14bd",
+      "preguntas": {
+        "corticoides-choque-septico": {
+          "rol": "nada",
+          "frase": "Determinar si mantener la anticoagulación oral durante el implante transcatéter de válvula aórtica es no infer"
+        },
+        "cristaloides-balanceados-solucion-salina-adultos-estado-critico": {
+          "rol": "nada",
+          "frase": "Determinar si mantener la anticoagulación oral durante el implante transcatéter de válvula aórtica es no infer"
+        },
+        "cuando-iniciar-terapia-reemplazo-renal-lesion-renal-aguda": {
+          "rol": "nada",
+          "frase": "Determinar si mantener la anticoagulación oral durante el implante transcatéter de válvula aórtica es no infer"
+        },
+        "inhibidores-cotransportador-sodio-glucosa-enfermedad-renal-cronica": {
+          "rol": "nada",
+          "frase": "Determinar si mantener la anticoagulación oral durante el implante transcatéter de válvula aórtica es no infer"
+        },
+        "meta-oxigenacion-paciente-critico": {
+          "rol": "nada",
+          "frase": "Determinar si mantener la anticoagulación oral durante el implante transcatéter de válvula aórtica es no infer"
+        },
+        "restriccion-liquidos-choque-septico-hipotension-sepsis": {
+          "rol": "nada",
+          "frase": "Determinar si mantener la anticoagulación oral durante el implante transcatéter de válvula aórtica es no infer"
+        },
+        "trombectomia-ventana-tardia-ictus-isquemico-oclusion-gran-vaso": {
+          "rol": "nada",
+          "frase": "Determinar si mantener la anticoagulación oral durante el implante transcatéter de válvula aórtica es no infer"
+        }
+      }
     }
   ],
   "preguntas": [

@@ -270,7 +270,7 @@
     "relacionados": [
       20,
       181,
-      195
+      333
     ],
     "seo_title": "CLEANSE trial: hemoadsorción con HA-330 en el shock séptico que requiere dosis altas de noradrenalina: ensayo multicéntrico aleatorizado y controlado | Resúmenes Trials",
     "description": "CLEANSE: La mortalidad a 28 días fue del 44% con hemoadsorción frente al 58% con tratamiento estándar , sin diferencia significativa (riesgo relativo [RR]…",
@@ -2345,8 +2345,8 @@
     "url": "https://resumenestrials.com/trials/empact-mi-empagliflozina-tras-infarto-agudo-no-reduce-insuficiencia-cardiaca-ni/",
     "title": "EMPACT-MI: empagliflozina tras un infarto agudo de miocardio",
     "relacionados": [
-      73,
       59,
+      73,
       71
     ],
     "seo_title": "EMPACT-MI trial: empagliflozina tras un infarto agudo de miocardio | Resúmenes Trials",
@@ -3078,8 +3078,8 @@
     "url": "https://resumenestrials.com/trials/premium-monoterapia-prasugrel-doble-antiagregacion-infarto-elevacion-st-tratado-angioplastia/",
     "title": "PREMIUM: omisión del ácido acetilsalicílico en el momento de la intervención coronaria percutánea primaria en el infarto con elevación del ST",
     "relacionados": [
-      276,
       99,
+      276,
       277
     ],
     "seo_title": "PREMIUM trial: omisión del ácido acetilsalicílico en el momento de la intervención coronaria percutánea primaria en el infarto con elevación del ST | Resúmenes Trials",
@@ -5669,8 +5669,8 @@
     "title": "DOREMI: milrinona en comparación con dobutamina en el tratamiento del shock cardiogénico",
     "relacionados": [
       141,
-      200,
-      202
+      202,
+      200
     ],
     "seo_title": "DOREMI trial: milrinona en comparación con dobutamina en el tratamiento del shock cardiogénico | Resúmenes Trials",
     "description": "DOREMI: El compuesto de muerte y complicaciones mayores durante el ingreso ocurrió en el 49% con milrinona frente al 54% con dobutamina , con un riesgo…",
@@ -7791,8 +7791,8 @@
     "url": "https://resumenestrials.com/trials/anh-ensayo-aleatorizado-hemodilucion-normovolemica-aguda-cirugia-cardiaca/",
     "title": "ANH: ensayo aleatorizado de hemodilución normovolémica aguda en cirugía cardiaca",
     "relacionados": [
-      159,
       211,
+      159,
       224
     ],
     "seo_title": "ANH trial: ensayo aleatorizado de hemodilución normovolémica aguda en cirugía cardiaca | Resúmenes Trials",
@@ -11003,9 +11003,9 @@
     "url": "https://resumenestrials.com/trials/bhf-protect-tavi-proteccion-embolica-cerebral-rutinaria-implante-transcateter-valvula-aortica/",
     "title": "BHF PROTECT-TAVI: protección embólica cerebral rutinaria durante el implante transcatéter de válvula aórtica",
     "relacionados": [
+      377,
       352,
-      123,
-      124
+      123
     ],
     "seo_title": "BHF PROTECT-TAVI trial: protección embólica cerebral rutinaria durante el implante transcatéter de válvula aórtica | Resúmenes Trials",
     "description": "BHF PROTECT-TAVI: El ictus a las 72 horas o antes del alta ocurrió en el 2.1% con protección embólica cerebral frente al 2.2% sin ella (diferencia −0.02…",
@@ -11097,8 +11097,8 @@
     "title": "DapaTAVI: dapagliflozina en pacientes sometidos a implante transcatéter de válvula aórtica",
     "relacionados": [
       349,
-      120,
-      101
+      377,
+      120
     ],
     "seo_title": "DapaTAVI trial: dapagliflozina en pacientes sometidos a implante transcatéter de válvula aórtica | Resúmenes Trials",
     "description": "DapaTAVI: El compuesto de muerte por cualquier causa o empeoramiento de la insuficiencia cardiaca a 1 año ocurrió en el 15.0% con dapagliflozina frente al…",
@@ -11835,5 +11835,36 @@
       "population": "La población fueron adultos con fibrilación auricular, indicación de anticoagulación oral indefinida y riesgo de ictus; la raza autodeclarada fue blanca en el 70.4%, asiática en el 27.3%, negra en el 1.2% y otra en el 1.0%."
     },
     "datePublished": "2026-11-26"
+  },
+  "377": {
+    "slug": "popular-pause-tavi-continuacion-interrupcion-anticoagulacion-oral-implante-transcateter-valvula",
+    "path": "/trials/popular-pause-tavi-continuacion-interrupcion-anticoagulacion-oral-implante-transcateter-valvula/",
+    "url": "https://resumenestrials.com/trials/popular-pause-tavi-continuacion-interrupcion-anticoagulacion-oral-implante-transcateter-valvula/",
+    "title": "POPular PAUSE TAVI: continuación frente a interrupción de la anticoagulación oral durante el implante transcatéter de válvula aórtica",
+    "relacionados": [
+      349,
+      352,
+      123
+    ],
+    "seo_title": "POPular PAUSE TAVI trial: continuación frente a interrupción de la anticoagulación oral durante el implante transcatéter de válvula aórtica | Resúmenes Trials",
+    "description": "POPular PAUSE TAVI: El compuesto primario a 30 días ocurrió en el 16.5% con continuación frente al 14.8% con interrupción (diferencia de riesgo 1.7 puntos…",
+    "clusters": [
+      {
+        "name": "Cardiología y prevención cardiovascular",
+        "path": "/medicina-interna/cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-interna/cardiovascular/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/popular-pause-tavi-continuacion-interrupcion-anticoagulacion-oral-implante-transcateter-valvula-16x9.jpg",
+      "https://resumenestrials.com/images/trials/popular-pause-tavi-continuacion-interrupcion-anticoagulacion-oral-implante-transcateter-valvula-4x3.jpg",
+      "https://resumenestrials.com/images/trials/popular-pause-tavi-continuacion-interrupcion-anticoagulacion-oral-implante-transcateter-valvula-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si mantener la anticoagulación oral durante el implante transcatéter de válvula aórtica es no inferior a interrumpirla en el compuesto de muerte cardiovascular, ictus, infarto, complicaciones vasculares mayores o sangrado mayor a 30 días.",
+      "answer": "El compuesto primario a 30 días ocurrió en el 16.5% con continuación frente al 14.8% con interrupción (diferencia de riesgo 1.7 puntos porcentuales; IC 95% −3.1 a 6.6; P=0.18 para no inferioridad): el límite superior rebasó el margen de 4.0 puntos , de modo que no se demostró la no inferioridad, y tampoco hubo diferencia…",
+      "population": "La población fueron pacientes con anticoagulación oral crónica y un implante transcatéter de válvula aórtica (TAVI) programado por vía transfemoral o transsubclavia, en 22 centros de los Países Bajos, Bélgica, Dinamarca, Irlanda, Italia y Luxemburgo. La raza y la etnia no se recogieron de rutina; según los autores, era una población del noroeste de Europa."
+    },
+    "datePublished": "2026-11-27"
   }
 }
