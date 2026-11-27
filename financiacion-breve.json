@@ -152,16 +152,16 @@
    "conflictos": "No: los autores declararon no tener conflictos de interés."
   },
   "26": {
-   "de": "b6937ece2bc6",
-   "pago": "Becas no restringidas de Philips Volcano, fabricante de la guía de presión de iFR empleada en la intervención, y de Biotronik Scientific, con una ayuda del Ministerio de Asuntos Económicos de los Países Bajos.",
-   "papel": "Los financiadores declararon no haber participado en el diseño, la conducción ni la comunicación del ensayo.",
-   "conflictos": "Sí: varios coautores declararon consultoría u honorarios de Philips; el primer autor y el autor principal no refirieron relaciones con Philips ni Biotronik."
+   "de": "327a7da25477",
+   "pago": "Becas no restringidas de Philips Volcano, fabricante de la guía de presión de iFR empleada en el brazo de intervención, y de Biotronik Scientific, con una ayuda del Ministerio de Asuntos Económicos de los Países Bajos.",
+   "papel": "Según el artículo, ninguno de los financiadores participó en el diseño, la conducción ni la comunicación del ensayo.",
+   "conflictos": "Sí: varios coautores declararon vínculos con Philips o Biotronik; el primer autor y el autor principal no refirieron relaciones con ellos."
   },
   "27": {
-   "de": "3fee5f2abfc9",
-   "pago": "Fondos públicos y académicos: Institutos Canadienses de Investigación en Salud, Medical Research Future Fund de Australia, Royal College of Surgeons de Irlanda y una red internacional de investigación clínica.",
-   "papel": "El estudio es independiente de los fabricantes de ambos anticoagulantes; los financiadores no participaron en el diseño, la conducción, el análisis ni la comunicación.",
-   "conflictos": "Sí: la autora correspondiente refirió honorarios de Bayer, Bristol-Myers Squibb y Pfizer, fabricantes de los dos anticoagulantes, pagados a su institución; la mayoría de los coautores, ninguno."
+   "de": "1a7f237918c1",
+   "pago": "Institutos Canadienses de Investigación en Salud, Medical Research Future Fund de Australia, Royal College of Surgeons de Irlanda y la Red Internacional de Investigación Clínica en Tromboembolismo Venoso.",
+   "papel": "Ninguna empresa figura entre los financiadores; según el artículo, los financiadores no participaron en el diseño, la conducción, el análisis ni la comunicación.",
+   "conflictos": "Sí: la autora correspondiente declaró honorarios de Bayer y de Bristol-Myers Squibb/Pfizer, y Côté, Ni Ainle y Schulman, vínculos con Pfizer o Bayer; 20 de los 30 autores con formulario no declararon ningún interés."
   },
   "28": {
    "de": "f49a2edbad39",
@@ -188,10 +188,10 @@
    "conflictos": "Sí, pocos: la gran mayoría de los más de cien autores no declaró conflictos; solo unos pocos tienen consultorías farmacéuticas ajenas al fármaco."
   },
   "32": {
-   "de": "a227081eeb7c",
-   "pago": "Fondos públicos: National Institute for Health and Care Research del Reino Unido (PANORAMIC) e Institutos Canadienses de Investigación en Salud con Health Canada (CanTreatCOVID).",
-   "papel": "Estudios independientes del fabricante del fármaco; el antiviral de CanTreatCOVID lo aportó la Agencia de Salud Pública de Canadá.",
-   "conflictos": "Sí, pocos: unos pocos coautores declararon vínculos con Pfizer ajenos a la financiación del ensayo; el autor correspondiente no refirió conflictos."
+   "de": "5edc9728a1c9",
+   "pago": "National Institute for Health and Care Research del Reino Unido (PANORAMIC) e Institutos Canadienses de Investigación en Salud con Health Canada (CanTreatCOVID).",
+   "papel": "Los documentos no describen el papel de los financiadores ni del fabricante en el diseño, el análisis o la redacción.",
+   "conflictos": "Sí: tres coautores declararon vínculos con Pfizer y Berry Consultants, que cobró por el diseño estadístico de PANORAMIC, emplea a cuatro coautores; el autor correspondiente no refirió conflictos."
   },
   "33": {
    "de": "a7416f2c9051",
@@ -1406,9 +1406,9 @@
    "conflictos": "Sí: cuatro miembros del comité de redacción declararon vínculos con la industria, empresas de diálisis y farmacéuticas."
   },
   "235": {
-   "de": "025065b2aba3",
+   "de": "8a7841b12fbe",
    "pago": "Alexion, AstraZeneca Rare Disease, propietaria del ravulizumab, el fármaco evaluado.",
-   "papel": "El patrocinador participó en el diseño, en el análisis y la interpretación de los datos, en la redacción del manuscrito y en la decisión de publicarlo.",
+   "papel": "El patrocinador participó en el diseño, en la recolección, el análisis, el manejo y la interpretación de los datos y en la redacción; la decisión final de enviarlo la tomaron los autores.",
    "conflictos": "No consta en el resumen."
   },
   "236": {
@@ -1430,9 +1430,9 @@
    "conflictos": "Sí: seis de los 12 autores son empleados de Lilly."
   },
   "239": {
-   "de": "302414dd99aa",
+   "de": "f34328ae3dbc",
    "pago": "Programa Health Technology Assessment del National Institute for Health Research del Reino Unido y Fundación Suiza del Corazón.",
-   "papel": "Ninguna empresa figura entre los financiadores; el financiador no intervino en el diseño, el análisis ni la redacción.",
+   "papel": "Ninguna empresa figura entre los financiadores; el financiador no intervino en el diseño, la recogida, el análisis ni la interpretación de los datos, ni en la redacción del informe.",
    "conflictos": "No consta en el resumen."
   },
   "240": {
