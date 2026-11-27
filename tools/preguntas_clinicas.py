@@ -57,7 +57,8 @@ pasaje que citaba). Nunca cambia ni borra una frase ni una pregunta que el sitio
 Reglas que hace cumplir (las mismas con las que el sitio decide qué frase publica):
 - cada frase empieza por la sigla del ensayo, es una sola oración y no nombra a otro ensayo;
 - cada cita es texto literal del resumen publicado de ESE ensayo, y entre las citas están todas las cifras de la frase;
-- ninguna frase lleva resultados, juicios, recomendaciones ni afirmaciones sobre el conjunto de ensayos;
+- ninguna frase lleva resultados, juicios, recomendaciones ni afirmaciones sobre el conjunto de ensayos (la sigla
+  del ensayo se escribe tal cual y no cuenta: «EMPEROR-Reduced» no es lenguaje de resultado);
 - un ensayo de núcleo trae todos los ejes obligatorios de su pregunta, con su frase o con sin_dato: nada se omite en silencio;
 - un «sin_dato» queda sellado con la huella del resumen: si una corrección cambia el resumen, deja de publicarse hasta revisarlo;
 - REVISION.json es {"cotejo": "VERDE", "fiscal": "VERDE", "omisiones": "VERDE"}: el veredicto de los tres revisores independientes.

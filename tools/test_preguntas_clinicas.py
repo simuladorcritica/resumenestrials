@@ -76,6 +76,15 @@ assert ok(f"{sigla} redujo la mortalidad."), "lenguaje de resultado"
 assert ok(f"{sigla} es el mejor de los cuatro ensayos."), "juicio y conjunto"
 assert ok(f"{sigla} hizo lo mismo que {next(o for o in otras if o != sigla)}."), "no puede nombrar a otro ensayo"
 assert ok(f"{sigla} conviene en estos pacientes."), "recomendación"
+# La sigla no cuenta para el lenguaje vetado (decisión del editor, 2026-11-26): es un nombre propio. El resto de la frase, sí.
+for vetada in ("EMPEROR-Reduced", "REDUCE-IT", "MEJOR-HR"):
+    assert st.QUESTION_BANNED.search(vetada), "la sigla de prueba debe contener lenguaje vetado"
+    cita_v = buena["cita"]
+    assert st.question_sentence_errors(f"{vetada} es un ensayo ya resumido en este sitio.", vetada, r, otras, cita_v) == [], "una sigla con una palabra vetada no invalida la frase"
+    assert st.question_sentence_errors(f"{vetada}, en su grupo de estudio, es un ensayo ya resumido en este sitio.", vetada, r, otras, cita_v) == []
+    assert st.question_sentence_errors(f"{vetada} redujo la mortalidad.", vetada, r, otras, cita_v), "el lenguaje de resultado fuera de la sigla se sigue rechazando"
+    assert st.question_sentence_errors(f"{vetada} demuestra que conviene esperar.", vetada, r, otras, cita_v, "contexto"), "y el de consejo, también"
+    assert st.question_sentence_errors(f"El ensayo {vetada} es un ensayo ya resumido en este sitio.", vetada, r, otras, cita_v), "si la frase no empieza por la sigla, se mira entera"
 # Un eje de contexto admite hechos observados, pero no consejos; uno literal solo oraciones completas del resumen; un
 # «sin dato» solo vale mientras el resumen no cambie.
 contexto = lambda frase: st.question_sentence_errors(frase, sigla, r, otras, buena["cita"], "contexto")

@@ -17,7 +17,7 @@
     "Si el resumen breve y el cuerpo del resumen se contradicen en un dato, ese dato no se usa y se anota para la revisión nocturna.",
     "Si el resumen no da el dato central de un eje obligatorio, se registra `sin_dato` y la página lo dice («El resumen de X no informa …»). No se infiere ni se completa con conocimiento externo.",
     "Ningún adjetivo ni adverbio que no esté en la cita; no se recorta un calificador que delimita. La frase empieza por la sigla del ensayo, nombra el brazo como lo nombra el resumen y no nombra ni alude a otro ensayo ni al conjunto. Sin consejos ni juicios propios.",
-    "Vocabulario fijo: «choque» (no «shock»), «la terapia» (de reemplazo renal), «presión arterial de oxígeno», «saturación», «microgramos».",
+    "Vocabulario fijo: «choque» (no «shock»), «la terapia» (de reemplazo renal), «presión arterial de oxígeno», «saturación», «microgramos». La sigla de un ensayo se escribe tal cual: sus palabras no cuentan como vocabulario ni como lenguaje de resultado («ECLS-SHOCK», «EMPEROR-Reduced»).",
     "Un relacionado se añade solo si cumple el `criterio_relacionados` de la pregunta, bajo un motivo ya publicado que sea literalmente cierto para ese ensayo o, si ninguno lo es, bajo un motivo nuevo que solo nombre el tema.",
     "Antes de añadir, tres revisores independientes: uno coteja cada frase contra su cita; otro busca juicios, consejos o interpretación de más; otro lee el resumen completo y dice si falta algo DECISIVO. Si uno objeta y no se resuelve, el ensayo no se añade."
   ],
