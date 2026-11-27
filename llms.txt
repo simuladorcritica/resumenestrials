@@ -40,6 +40,7 @@ Material educativo para profesionales de la salud. La referencia final es siempr
 
 ## Resúmenes de ensayos
 
+- [HELIOS-B: vutrisirán en pacientes con amiloidosis por transtiretina con miocardiopatía](https://resumenestrials.com/trials/helios-b-vutrisiran-pacientes-amiloidosis-transtiretina-miocardiopatia/): NEJM, 2024.
 - [ABYSS: interrupción o continuación de los betabloqueadores tras un infarto de miocardio](https://resumenestrials.com/trials/abyss-interrupcion-continuacion-betabloqueadores-tras-infarto-miocardio/): NEJM, 2024.
 - [POPular PAUSE TAVI: continuación frente a interrupción de la anticoagulación oral durante el implante transcatéter de válvula aórtica](https://resumenestrials.com/trials/popular-pause-tavi-continuacion-interrupcion-anticoagulacion-oral-implante-transcateter-valvula/): NEJM, 2024.
 - [OCEANIC-AF: asundexián frente a apixabán en pacientes con fibrilación auricular](https://resumenestrials.com/trials/oceanic-af-asundexian-apixaban-pacientes-fibrilacion-auricular/): NEJM, 2024.

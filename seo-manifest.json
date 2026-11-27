@@ -371,7 +371,7 @@
     "relacionados": [
       21,
       135,
-      234
+      225
     ],
     "seo_title": "RELIEVE-AKI trial: estrategias alternativas de tasa de ultrafiltración neta en la lesión renal aguda: ensayo clínico aleatorizado de factibilidad | Resúmenes Trials",
     "description": "RELIEVE-AKI: La separación en la tasa media de ultrafiltración administrada fue mínima, de 2.05 frente a 1.81 mL/kg/h (diferencia 0.26; IC 95%, −0.61 a 0.09…",
@@ -2005,8 +2005,8 @@
     "url": "https://resumenestrials.com/trials/deliver-dapagliflozina-reduce-empeoramiento-insuficiencia-cardiaca-fraccion-eyeccion-mayor-40/",
     "title": "DELIVER: dapagliflozina en la insuficiencia cardiaca con fracción de eyección levemente reducida o preservada",
     "relacionados": [
-      73,
       101,
+      73,
       369
     ],
     "seo_title": "DELIVER trial: dapagliflozina en la insuficiencia cardiaca con fracción de eyección levemente reducida o preservada | Resúmenes Trials",
@@ -4497,8 +4497,8 @@
     "url": "https://resumenestrials.com/trials/librexia-acs-milvexian-anadido-terapia-antiplaquetaria-tras-sindrome-coronario-agudo/",
     "title": "LIBREXIA ACS: milvexian con tratamiento antiplaquetario tras un síndrome coronario agudo",
     "relacionados": [
-      107,
       274,
+      107,
       325
     ],
     "seo_title": "LIBREXIA ACS trial: milvexian con tratamiento antiplaquetario tras un síndrome coronario agudo | Resúmenes Trials",
@@ -9717,7 +9717,8 @@
     "title": "SHASTA-3 y SHASTA-4: plozasirán para la hipertrigliceridemia grave y el riesgo de pancreatitis",
     "relacionados": [
       156,
-      350
+      350,
+      379
     ],
     "seo_title": "SHASTA-3 y SHASTA-4 trial: plozasirán para la hipertrigliceridemia grave y el riesgo de pancreatitis | Resúmenes Trials",
     "description": "SHASTA-3 y SHASTA-4: Al mes 12, el plozasirán redujo los triglicéridos frente a placebo con una diferencia de medianas de −45 puntos porcentuales (IC 95% −51…",
@@ -11036,7 +11037,8 @@
     "title": "ALPACA: lepodisiran, un ARN pequeño de interferencia de larga duración dirigido contra la lipoproteína(a)",
     "relacionados": [
       305,
-      301
+      301,
+      379
     ],
     "seo_title": "ALPACA trial: lepodisiran, un ARN pequeño de interferencia de larga duración dirigido contra la lipoproteína(a) | Resúmenes Trials",
     "description": "ALPACA: Entre los días 60 y 180, el cambio porcentual de la lipoproteína(a) promediado en el tiempo frente a placebo fue de −93.9 puntos porcentuales con 400…",
@@ -11894,6 +11896,36 @@
       "question": "Determinar si interrumpir el betabloqueador a largo plazo es no inferior a continuarlo en pacientes con un infarto de miocardio previo, fracción de eyección del ventrículo izquierdo de al menos 40% y sin otra indicación del fármaco.",
       "answer": "El compuesto de muerte, infarto, ictus u hospitalización cardiovascular ocurrió en el 23.8% del grupo de interrupción frente al 21.1% del de continuación (diferencia de riesgo 2.8 puntos; IC 95% menos de 0.1 a 5.5; HR 1.16; IC 95% 1.01 a 1.33; P=0.44 para no inferioridad).",
       "population": "La población fueron adultos con un infarto de miocardio de al menos 6 meses de antigüedad, en tratamiento prolongado con un betabloqueador, con una fracción de eyección del ventrículo izquierdo (FEVI) de al menos 40% y sin eventos cardiovasculares en los 6 meses previos; la raza o el origen étnico no se recogieron porque la ley francesa lo impide."
+    },
+    "datePublished": "2026-11-27"
+  },
+  "379": {
+    "slug": "helios-b-vutrisiran-pacientes-amiloidosis-transtiretina-miocardiopatia",
+    "path": "/trials/helios-b-vutrisiran-pacientes-amiloidosis-transtiretina-miocardiopatia/",
+    "url": "https://resumenestrials.com/trials/helios-b-vutrisiran-pacientes-amiloidosis-transtiretina-miocardiopatia/",
+    "title": "HELIOS-B: vutrisirán en pacientes con amiloidosis por transtiretina con miocardiopatía",
+    "relacionados": [
+      350,
+      305
+    ],
+    "seo_title": "HELIOS-B trial: vutrisirán en pacientes con amiloidosis por transtiretina con miocardiopatía | Resúmenes Trials",
+    "description": "HELIOS-B: En la población general, el vutrisirán redujo frente a placebo el compuesto de muerte por cualquier causa y eventos cardiovasculares recurrentes (…",
+    "clusters": [
+      {
+        "name": "Cardiología y prevención cardiovascular",
+        "path": "/medicina-interna/cardiovascular/",
+        "url": "https://resumenestrials.com/medicina-interna/cardiovascular/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/helios-b-vutrisiran-pacientes-amiloidosis-transtiretina-miocardiopatia-16x9.jpg",
+      "https://resumenestrials.com/images/trials/helios-b-vutrisiran-pacientes-amiloidosis-transtiretina-miocardiopatia-4x3.jpg",
+      "https://resumenestrials.com/images/trials/helios-b-vutrisiran-pacientes-amiloidosis-transtiretina-miocardiopatia-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Evaluar si el vutrisirán subcutáneo cada 12 semanas reduce, frente a placebo, el compuesto de muerte por cualquier causa y eventos cardiovasculares recurrentes en adultos con miocardiopatía por amiloidosis de transtiretina.",
+      "answer": "En la población general, el vutrisirán redujo frente a placebo el compuesto de muerte por cualquier causa y eventos cardiovasculares recurrentes ( HR 0.72; IC 95% 0.56 a 0.93; P = 0.01 ), con al menos un evento en el 38% con vutrisirán frente al 48% con placebo ; en quienes no tomaban tafamidis al inicio, el HR fue de 0.67 (IC…",
+      "population": "Se incluyó a adultos de 18 a 85 años con miocardiopatía por amiloidosis de transtiretina (ATTR-CM), hereditaria (por variantes del gen de la transtiretina, TTR) o de tipo salvaje, confirmada por biopsia o gammagrafía, con tabique interventricular de más de 12 mm e insuficiencia cardiaca (hospitalización previa o sobrecarga que requería diurético). Podían tomar tafamidis o no tomarlo ni planear iniciarlo en 12 meses. Eran de…"
     },
     "datePublished": "2026-11-27"
   }

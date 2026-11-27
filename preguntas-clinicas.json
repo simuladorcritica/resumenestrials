@@ -1416,6 +1416,41 @@
           "frase": "Determinar si interrumpir el betabloqueador a largo plazo es no inferior a continuarlo en pacientes con un inf"
         }
       }
+    },
+    {
+      "id": 379,
+      "fecha": "2026-11-27",
+      "huella": "22f2136af3f5a01b",
+      "preguntas": {
+        "corticoides-choque-septico": {
+          "rol": "nada",
+          "frase": "Evaluar si el vutrisirán subcutáneo cada 12 semanas reduce, frente a placebo, el compuesto de muerte por cualq"
+        },
+        "cristaloides-balanceados-solucion-salina-adultos-estado-critico": {
+          "rol": "nada",
+          "frase": "Evaluar si el vutrisirán subcutáneo cada 12 semanas reduce, frente a placebo, el compuesto de muerte por cualq"
+        },
+        "cuando-iniciar-terapia-reemplazo-renal-lesion-renal-aguda": {
+          "rol": "nada",
+          "frase": "Evaluar si el vutrisirán subcutáneo cada 12 semanas reduce, frente a placebo, el compuesto de muerte por cualq"
+        },
+        "inhibidores-cotransportador-sodio-glucosa-enfermedad-renal-cronica": {
+          "rol": "nada",
+          "frase": "Evaluar si el vutrisirán subcutáneo cada 12 semanas reduce, frente a placebo, el compuesto de muerte por cualq"
+        },
+        "meta-oxigenacion-paciente-critico": {
+          "rol": "nada",
+          "frase": "Evaluar si el vutrisirán subcutáneo cada 12 semanas reduce, frente a placebo, el compuesto de muerte por cualq"
+        },
+        "restriccion-liquidos-choque-septico-hipotension-sepsis": {
+          "rol": "nada",
+          "frase": "Evaluar si el vutrisirán subcutáneo cada 12 semanas reduce, frente a placebo, el compuesto de muerte por cualq"
+        },
+        "trombectomia-ventana-tardia-ictus-isquemico-oclusion-gran-vaso": {
+          "rol": "nada",
+          "frase": "Evaluar si el vutrisirán subcutáneo cada 12 semanas reduce, frente a placebo, el compuesto de muerte por cualq"
+        }
+      }
     }
   ],
   "preguntas": [
