@@ -79,7 +79,7 @@ def video_block(r,manifest,videos):
 # desenlace, tamaño). Añadir un ensayo a una pregunta es añadir su entrada; nada de lo ya escrito se toca.
 # Guardas mecánicas (question_sentence_errors): una frase que no empieza por la sigla de su ensayo, que cita una
 # cifra ausente del resumen publicado de ese ensayo, o que usa lenguaje de resultado o de recomendación, NO se
-# publica. Así, si una corrección cambia una cifra citada, la frase desfasada desaparece sola al regenerar.
+# publica. El lenguaje se mira en la frase SIN su sigla (decisión del editor, 2026-11-26): la sigla es un nombre propio. Así, si una corrección cambia una cifra citada, la frase desfasada desaparece sola al regenerar.
 QUESTIONS_PATH=ROOT/"preguntas-clinicas.json"
 QUESTION_CONTEXT="Esta página reúne, en breve, ensayos resumidos en Resúmenes Trials relacionados con esta pregunta; no es una revisión de toda la evidencia ni una guía clínica. De cada ensayo da solo lo esencial para situarlo: el detalle está en su resumen."
 QUESTION_NOTE=('<div class="ev-method ev-q-note">'
@@ -239,10 +239,12 @@ def question_sentence_errors(sentence,label,r,other_labels=(),quote=None,kind="d
  if not s.endswith(".") or len(s)>limit or "\n" in s or re.search(r"<\s*/?[a-zA-Z]",s):errors.append(f"debe ser una sola frase de texto, terminada en punto y de {limit} caracteres como máximo (tiene {len(s)})")
  for other in other_labels:
   if other and other!=label and re.search(r"(?<!\w)"+re.escape(other)+r"(?!\w)",s):errors.append(f"nombra otro ensayo («{other}»)")
- bad=(QUESTION_ADVICE if kind=="contexto" else QUESTION_BANNED).search(s)
+ # La sigla del ensayo se escribe tal cual y no cuenta: «EMPEROR-Reduced» o «REDUCE-IT» no son lenguaje de resultado.
+ body=s[len(label):] if s.startswith(label) else s
+ bad=(QUESTION_ADVICE if kind=="contexto" else QUESTION_BANNED).search(body)
  if bad:errors.append((f"lenguaje de consejo, juicio o conjunto («{bad[0]}»)" if kind=="contexto" else f"lenguaje de resultado, juicio o conjunto («{bad[0]}»)"))
  if not quotes or any(not any(c in field for field in fields) for c in quotes):errors.append("la cita no está literalmente en el resumen publicado")
- known={m.replace(",",".") for c in quotes for m in QUESTION_NUMBER.findall(c)};body=s[len(label):] if s.startswith(label) else s
+ known={m.replace(",",".") for c in quotes for m in QUESTION_NUMBER.findall(c)}
  missing=[m for m in QUESTION_NUMBER.findall(body) if m.replace(",",".") not in known]
  if missing:errors.append("cifras que no están en la cita: "+", ".join(missing))
  return errors
