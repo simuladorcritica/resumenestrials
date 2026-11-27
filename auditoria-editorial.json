@@ -1,22 +1,16 @@
 {
   "schema_version": 1,
-  "actualizado": "2026-11-26",
+  "actualizado": "2026-11-27",
   "estandar": "noviembre de 2026",
   "archivo": {
-    "total": 375,
-    "auditados": 343,
-    "sin_auditar": 32
+    "total": 376,
+    "auditados": 345,
+    "sin_auditar": 31
   },
   "en_revision": [
-    11,
-    18,
-    25,
-    26,
-    27,
     28,
     30,
     31,
-    32,
     33,
     34,
     35,
@@ -62,11 +56,9 @@
     148,
     155,
     158,
-    235,
-    239
+    374
   ],
   "sin_auditar": [
-    41,
     42,
     43,
     44,
@@ -100,15 +92,9 @@
     72
   ],
   "con_errores_abiertos": [
-    11,
-    18,
-    25,
-    26,
-    27,
     28,
     30,
     31,
-    32,
     33,
     34,
     35,
@@ -117,18 +103,18 @@
     38,
     39,
     40,
+    41,
     145,
     146,
     148,
     155,
     158,
-    235,
-    239
+    374
   ],
   "errores_abiertos": {
-    "CRÍTICO": 18,
-    "MAYOR": 68,
-    "MENOR": 849
+    "CRÍTICO": 14,
+    "MAYOR": 45,
+    "MENOR": 813
   },
   "correcciones": [
     {

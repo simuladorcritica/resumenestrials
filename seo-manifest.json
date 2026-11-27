@@ -270,7 +270,7 @@
     "relacionados": [
       20,
       181,
-      195
+      333
     ],
     "seo_title": "CLEANSE trial: hemoadsorción con HA-330 en el shock séptico que requiere dosis altas de noradrenalina: ensayo multicéntrico aleatorizado y controlado | Resúmenes Trials",
     "description": "CLEANSE: La mortalidad a 28 días fue del 44% con hemoadsorción frente al 58% con tratamiento estándar , sin diferencia significativa (riesgo relativo [RR]…",
@@ -2093,7 +2093,7 @@
     "relacionados": [
       22,
       259,
-      68
+      194
     ],
     "seo_title": "MENDS2 trial: dexmedetomidina o propofol para la sedación de adultos con sepsis en ventilación mecánica | Resúmenes Trials",
     "description": "MENDS2: La dexmedetomidina no ofreció ventaja sobre el propofol en los días vivos sin delirio ni coma (mediana ajustada de 10.7 frente a 10.8 días ; razón de…",
@@ -2782,7 +2782,7 @@
     "relacionados": [
       239,
       303,
-      363
+      376
     ],
     "seo_title": "INTERACT4 trial: reducción intensiva de la presión arterial en la ambulancia en el ictus hiperagudo | Resúmenes Trials",
     "description": "INTERACT4: Sin diferencia en el desenlace funcional a los 90 días entre la reducción intensiva de la presión arterial en la ambulancia y el manejo habitual…",
@@ -7791,8 +7791,8 @@
     "url": "https://resumenestrials.com/trials/anh-ensayo-aleatorizado-hemodilucion-normovolemica-aguda-cirugia-cardiaca/",
     "title": "ANH: ensayo aleatorizado de hemodilución normovolémica aguda en cirugía cardiaca",
     "relacionados": [
-      159,
       211,
+      159,
       224
     ],
     "seo_title": "ANH trial: ensayo aleatorizado de hemodilución normovolémica aguda en cirugía cardiaca | Resúmenes Trials",
@@ -10520,8 +10520,8 @@
     "title": "Un paquete de reanimación de 1 hora para el manejo prehospitalario del shock séptico",
     "relacionados": [
       230,
-      363,
-      113
+      113,
+      363
     ],
     "seo_title": "Un paquete de reanimación de 1 hora para el manejo prehospitalario del shock séptico | Resúmenes Trials",
     "description": "Un paquete de reanimación de 1 hora para el manejo prehospitalario del shock séptico: La mortalidad a 28 días fue del 22% con el paquete de una hora frente al…",
@@ -11438,9 +11438,9 @@
     "url": "https://resumenestrials.com/trials/pitstop-antibiotics-antibioticos-prehospitalarios-pacientes-sospecha-sepsis/",
     "title": "PITSTOP-Antibiotics: antibióticos prehospitalarios en pacientes con sospecha de sepsis",
     "relacionados": [
+      376,
       333,
-      177,
-      85
+      177
     ],
     "seo_title": "PITSTOP-Antibiotics trial: antibióticos prehospitalarios en pacientes con sospecha de sepsis | Resúmenes Trials",
     "description": "PITSTOP-Antibiotics: La mortalidad hospitalaria hasta el día 90 fue del 18.0% con ceftriaxona frente al 18.4% con placebo (182 de 1009 frente a 186 de 1011…",
@@ -11835,5 +11835,41 @@
       "population": "La población fueron adultos con fibrilación auricular, indicación de anticoagulación oral indefinida y riesgo de ictus; la raza autodeclarada fue blanca en el 70.4%, asiática en el 27.3%, negra en el 1.2% y otra en el 1.0%."
     },
     "datePublished": "2026-11-26"
+  },
+  "376": {
+    "slug": "pitstop-fluids-reanimacion-prehospitalaria-liquidos-pacientes-sospecha-sepsis",
+    "path": "/trials/pitstop-fluids-reanimacion-prehospitalaria-liquidos-pacientes-sospecha-sepsis/",
+    "url": "https://resumenestrials.com/trials/pitstop-fluids-reanimacion-prehospitalaria-liquidos-pacientes-sospecha-sepsis/",
+    "title": "PITSTOP-Fluids: reanimación prehospitalaria con líquidos en pacientes con sospecha de sepsis",
+    "relacionados": [
+      363,
+      333,
+      85
+    ],
+    "seo_title": "PITSTOP-Fluids trial: reanimación prehospitalaria con líquidos en pacientes con sospecha de sepsis | Resúmenes Trials",
+    "description": "PITSTOP-Fluids: La mortalidad hospitalaria fue del 18.0% con la estrategia liberal frente al 18.3% con la habitual (149/830 frente a 149/816; riesgo relativo…",
+    "clusters": [
+      {
+        "name": "Sepsis y shock",
+        "path": "/medicina-critica/sepsis-shock/",
+        "url": "https://resumenestrials.com/medicina-critica/sepsis-shock/"
+      },
+      {
+        "name": "Renal y ácido-base",
+        "path": "/medicina-critica/renal-acido-base/",
+        "url": "https://resumenestrials.com/medicina-critica/renal-acido-base/"
+      }
+    ],
+    "images": [
+      "https://resumenestrials.com/images/trials/pitstop-fluids-reanimacion-prehospitalaria-liquidos-pacientes-sospecha-sepsis-16x9.jpg",
+      "https://resumenestrials.com/images/trials/pitstop-fluids-reanimacion-prehospitalaria-liquidos-pacientes-sospecha-sepsis-4x3.jpg",
+      "https://resumenestrials.com/images/trials/pitstop-fluids-reanimacion-prehospitalaria-liquidos-pacientes-sospecha-sepsis-1x1.jpg"
+    ],
+    "intent": {
+      "question": "Determinar si una estrategia liberal de líquidos intravenosos en la ambulancia, frente a un cuidado habitual más restrictivo, reduce la mortalidad hospitalaria en adultos con sospecha de sepsis, fiebre e hipotensión.",
+      "answer": "La mortalidad hospitalaria fue del 18.0% con la estrategia liberal frente al 18.3% con la habitual (149/830 frente a 149/816; riesgo relativo 0.98; IC 95%, 0.80 a 1.20; p=0.82), sin diferencia significativa, aunque el grupo liberal recibió una mediana de 1500 mL frente a 500 mL hasta la transferencia en urgencias.",
+      "population": "La población fueron adultos atendidos por paramédicos en Ontario, Canadá, con sospecha de sepsis, definida por tres elementos a la vez: infección sospechada por el paramédico, fiebre de 38.0 °C o más medida o registrada en las 24 horas previas, y presión arterial sistólica menor de 100 mm Hg; para entrar en esta aleatorización, además, el paramédico tenía que haber canalizado una vía intravenosa. Raza u origen étnico: No…"
+    },
+    "datePublished": "2026-11-25"
   }
 }

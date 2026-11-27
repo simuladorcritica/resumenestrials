@@ -1346,6 +1346,37 @@
           "frase": "Determinar si el asundexián 50 mg una vez al día es al menos no inferior al apixabán"
         }
       }
+    },
+    {
+      "id": 376,
+      "fecha": "2026-11-27",
+      "huella": "3670ecac0949e983",
+      "preguntas": {
+        "corticoides-choque-septico": {
+          "rol": "nada",
+          "frase": "Determinar si una estrategia liberal de líquidos intravenosos en la ambulancia, frente a un cuidado habitual más restrictivo"
+        },
+        "cristaloides-balanceados-solucion-salina-adultos-estado-critico": {
+          "rol": "nada",
+          "frase": "Determinar si una estrategia liberal de líquidos intravenosos en la ambulancia, frente a un cuidado habitual más restrictivo"
+        },
+        "cuando-iniciar-terapia-reemplazo-renal-lesion-renal-aguda": {
+          "rol": "nada",
+          "frase": "Determinar si una estrategia liberal de líquidos intravenosos en la ambulancia, frente a un cuidado habitual más restrictivo"
+        },
+        "inhibidores-cotransportador-sodio-glucosa-enfermedad-renal-cronica": {
+          "rol": "nada",
+          "frase": "Determinar si una estrategia liberal de líquidos intravenosos en la ambulancia, frente a un cuidado habitual más restrictivo"
+        },
+        "meta-oxigenacion-paciente-critico": {
+          "rol": "nada",
+          "frase": "Determinar si una estrategia liberal de líquidos intravenosos en la ambulancia, frente a un cuidado habitual más restrictivo"
+        },
+        "trombectomia-ventana-tardia-ictus-isquemico-oclusion-gran-vaso": {
+          "rol": "nada",
+          "frase": "Determinar si una estrategia liberal de líquidos intravenosos en la ambulancia, frente a un cuidado habitual más restrictivo"
+        }
+      }
     }
   ],
   "preguntas": [
@@ -2432,7 +2463,7 @@
       "condicion": "Choque séptico o hipotensión inducida por sepsis",
       "area": "Medicina Crítica",
       "fecha_publicacion": "2026-11-16",
-      "fecha_revision": "2026-11-16",
+      "fecha_revision": "2026-11-27",
       "criterio": "Publicación principal de un ensayo clínico aleatorizado en adultos con choque séptico o hipotensión inducida por sepsis cuya comparación principal es la CANTIDAD de líquidos intravenosos que se administran, en la reanimación inicial o después de ella: una estrategia que restringe los líquidos, con o sin inicio más temprano de vasopresores, frente a una estrategia con más líquidos o al tratamiento habitual sin límite de volumen. En esta pregunta la «intervención» es siempre la estrategia que restringe los líquidos y el «comparador» la otra, sea cual sea la hipótesis del ensayo. No pertenecen al núcleo: los ensayos sobre el tipo de líquido (cristaloides balanceados, solución salina, coloides o albúmina), sobre la reanimación dirigida por objetivos hemodinámicos o por metas de perfusión, sobre qué vasopresor usar o qué presión arterial buscar, los que comparan solo el momento de inicio del vasopresor sin una regla que restrinja los líquidos, ni los de eliminación de líquidos (diuréticos o ultrafiltración); ni los ensayos piloto o de factibilidad, los análisis secundarios, los seguimientos o los metaanálisis. Cuáles de esos van como relacionados lo dice `criterio_relacionados`; los demás no se añaden. Ante la duda, no se añade al núcleo.",
       "criterio_relacionados": "Solo ensayos clínicos aleatorizados en adultos con choque séptico sobre CÓMO guiar la reanimación hemodinámica inicial, en uno de estos aspectos y solo estos: reanimación temprana dirigida por objetivos o reanimación guiada por la perfusión periférica (tiempo de llenado capilar). No se añaden los de tipo de líquido (cristaloides balanceados, solución salina, coloides o albúmina), los de qué vasopresor usar o qué presión arterial buscar, los de corticoides, los de antibióticos ni los de eliminación de líquidos. Ante la duda, no se añade.",
       "creacion": {
@@ -2702,6 +2733,70 @@
           },
           "revision": {
             "fecha": "2026-11-16",
+            "cotejo": "VERDE",
+            "fiscal": "VERDE",
+            "omisiones": "VERDE"
+          }
+        },
+        {
+          "id": 376,
+          "diseno": {
+            "intervencion": {
+              "frase": "PITSTOP-Fluids, en su cuidado habitual, solo daba salino con presión sistólica menor de 90 mm Hg y lo suspendía al llegar a 100 mm Hg o más, sin bomba ni bolsa, según la directiva médica provincial.",
+              "cita": [
+                "El comparador fue el cuidado habitual de la directiva médica provincial: salino solo con presión sistólica menor de 90 mm Hg, suspendido al llegar a 100 mm Hg o más, sin bomba ni bolsa"
+              ]
+            },
+            "comparador": {
+              "frase": "PITSTOP-Fluids, en su estrategia liberal, daba hasta 2 litros de suero salino al 0.9% intravenoso, sin importar la presión sistólica posterior, con bomba de infusión o bolsa de presión.",
+              "cita": [
+                "La intervención fue una estrategia liberal de hasta 2 litros de suero salino al 0.9% intravenoso, sin importar la presión sistólica posterior, con bomba de infusión o bolsa de presión."
+              ]
+            },
+            "poblacion": {
+              "frase": "PITSTOP-Fluids incluyó adultos atendidos por paramédicos con infección sospechada por el paramédico, fiebre de 38.0 °C o más en las 24 horas previas, presión sistólica menor de 100 mm Hg y vía intravenosa, en cuatro servicios paramédicos del sur de Ontario.",
+              "cita": [
+                "La población fueron adultos atendidos por paramédicos en Ontario, Canadá, con sospecha de sepsis, definida por tres elementos a la vez: infección sospechada por el paramédico, fiebre de 38.0 °C o más medida o registrada en las 24 horas previas, y presión arterial sistólica menor de 100 mm Hg; para entrar en esta aleatorización, además, el paramédico tenía que haber canalizado una vía intravenosa.",
+                "El ámbito fueron cuatro servicios paramédicos (Halton, Peel, Toronto y York) del sur de Ontario."
+              ]
+            },
+            "desenlace": {
+              "frase": "PITSTOP-Fluids midió como desenlace principal la muerte antes del alta hospitalaria hasta el día 90.",
+              "cita": "El desenlace principal fue la muerte antes del alta hospitalaria hasta el día 90."
+            },
+            "tamano": {
+              "frase": "PITSTOP-Fluids incluyó 1646 pacientes en su análisis primario.",
+              "cita": "el análisis primario por intención de tratar incluyó 1646 pacientes"
+            },
+            "pacientes": {
+              "frase": "PITSTOP-Fluids incluyó pacientes en la ambulancia, con infección sospechada por el paramédico y solo con vía intravenosa, sin anticoagulados ni alérgicos a penicilinas o cefalosporinas, con una mediana de edad de 76 años.",
+              "cita": [
+                "Determinar si una estrategia liberal de líquidos intravenosos en la ambulancia",
+                "infección sospechada por el paramédico",
+                "solo entraban en ella los pacientes con vía",
+                "excluye, entre otros, a anticoagulados y alérgicos a penicilinas o cefalosporinas",
+                "la mediana de edad fue de 76 años (RIC 63-85)"
+              ]
+            },
+            "separacion": {
+              "frase": "PITSTOP-Fluids registró en la ambulancia una mediana de 1500 mL en el grupo liberal frente a 500 mL en el habitual; en las primeras 24 horas del hospital los volúmenes fueron similares (1225 frente a 1500 mL) y recibieron vasopresores el 22.0% frente al 18.2%.",
+              "cita": [
+                "En la ambulancia, el grupo liberal recibió una mediana de 1500 mL frente a 500 mL el habitual.",
+                "En las primeras 24 horas del hospital, los volúmenes de líquidos fueron similares, con una mediana de 1225 mL (RIC 960-2275) en el grupo liberal frente a 1500 mL (RIC 930-2500) en el habitual, y recibieron vasopresores el 22.0% del grupo liberal frente al 18.2% del habitual"
+              ]
+            },
+            "limitacion": {
+              "frase": "PITSTOP-Fluids fue abierto para paramédicos y clínicos y, según sus autores, el grupo liberal recibió a menudo menos de los 2 litros previstos, lo que redujo la separación, y el resultado no debe generalizarse al choque séptico.",
+              "cita": [
+                "abierto para paramédicos y clínicos",
+                "Los autores reconocen sus límites: el grupo liberal recibió a menudo menos de los 2 litros previstos",
+                "lo que redujo la separación",
+                "que no debe generalizarse al shock séptico"
+              ]
+            }
+          },
+          "revision": {
+            "fecha": "2026-11-27",
             "cotejo": "VERDE",
             "fiscal": "VERDE",
             "omisiones": "VERDE"

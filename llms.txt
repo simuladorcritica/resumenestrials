@@ -40,6 +40,7 @@ Material educativo para profesionales de la salud. La referencia final es siempr
 
 ## Resúmenes de ensayos
 
+- [PITSTOP-Fluids: reanimación prehospitalaria con líquidos en pacientes con sospecha de sepsis](https://resumenestrials.com/trials/pitstop-fluids-reanimacion-prehospitalaria-liquidos-pacientes-sospecha-sepsis/): JAMA, 2026.
 - [OCEANIC-AF: asundexián frente a apixabán en pacientes con fibrilación auricular](https://resumenestrials.com/trials/oceanic-af-asundexian-apixaban-pacientes-fibrilacion-auricular/): NEJM, 2024.
 - [BHF SENIOR-RITA: estrategia de tratamiento invasivo en pacientes mayores con infarto de miocardio](https://resumenestrials.com/trials/bhf-senior-rita-estrategia-tratamiento-invasivo-pacientes-mayores-infarto-miocardio/): NEJM, 2024.
 - [EPIC-CAD: tratamiento antitrombótico con edoxabán en la fibrilación auricular y la enfermedad coronaria estable](https://resumenestrials.com/trials/epic-cad-tratamiento-antitrombotico-edoxaban-fibrilacion-auricular-enfermedad-coronaria-estable/): NEJM, 2024.

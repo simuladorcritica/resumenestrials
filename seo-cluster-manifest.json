@@ -4,7 +4,7 @@
     "category": "Medicina Crítica",
     "path": "/medicina-critica/sepsis-shock/",
     "url": "https://resumenestrials.com/medicina-critica/sepsis-shock/",
-    "count": 27,
+    "count": 28,
     "trial_ids": [
       "2",
       "9",
@@ -32,7 +32,8 @@
       "256",
       "257",
       "333",
-      "363"
+      "363",
+      "376"
     ]
   },
   "ventilacion-respiratoria": {
@@ -159,7 +160,7 @@
     "category": "Medicina Crítica",
     "path": "/medicina-critica/renal-acido-base/",
     "url": "https://resumenestrials.com/medicina-critica/renal-acido-base/",
-    "count": 28,
+    "count": 29,
     "trial_ids": [
       "6",
       "9",
@@ -188,7 +189,8 @@
       "221",
       "226",
       "234",
-      "253"
+      "253",
+      "376"
     ]
   },
   "hemodinamica-cardiovascular": {
