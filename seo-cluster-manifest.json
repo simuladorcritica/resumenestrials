@@ -414,7 +414,7 @@
     "category": "Medicina Interna",
     "path": "/medicina-interna/renal-metabolica/",
     "url": "https://resumenestrials.com/medicina-interna/renal-metabolica/",
-    "count": 54,
+    "count": 55,
     "trial_ids": [
       "35",
       "46",
@@ -469,7 +469,8 @@
       "352",
       "353",
       "354",
-      "369"
+      "369",
+      "381"
     ]
   },
   "neurologia": {
